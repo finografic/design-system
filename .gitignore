@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
 
@@ -42,3 +43,7 @@ coverage/
 
 # TypeScript
 *.tsbuildinfo
+=======
+styled-system/
+dist/
+>>>>>>> b38bc0b (feat: migrate to tsdown + build validation (Phase 5))
