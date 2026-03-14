@@ -10,28 +10,17 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@styled-system/*": ["./styled-system/*"]
+    },
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "baseUrl": ".",
-    "paths": {
-      "@styled-system/*": ["./styled-system/*"],
-      "@tanstack/*": ["node_modules/@tanstack/*"],
-      "components/*": ["./src/components/*"],
-      "forms/*": ["./src/forms/*"],
-      "grid/*": ["./src/grid/*"],
-      "internals/*": ["./src/internals/*"],
-      "palette/*": ["./src/palette/*"],
-      "recipes/*": ["./src/recipes/*"],
-      "styles/*": ["./src/styles/*"],
-      "tokens/*": ["./src/tokens/*"],
-      "types/*": ["./src/types/*"],
-      "viewport/*": ["./src/viewport/*"]
-    }
+    "verbatimModuleSyntax": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "styled-system"]
