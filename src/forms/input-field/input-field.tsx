@@ -42,8 +42,10 @@ InputFieldSlot.displayName = 'InputField.Slot';
 
 // ── InputField.Root ───────────────────────────────────────────────────────────
 
-export type InputFieldRootProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> &
-  InputFieldVariants & {
+export type InputFieldRootProps =
+  & Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
+  & InputFieldVariants
+  & {
     /** Decoration slots — InputField.Slot with side="left" | "right" */
     children?: ReactNode;
     invalid?: boolean;
@@ -77,18 +79,17 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
         {leadingSlots.map((slot, i) =>
           isValidElement(slot)
             ? (slot as any).type === InputFieldSlot
-              ? // clone to inject recipe class
-
-                {
-                  ...(slot as any),
-                  props: {
-                    ...(slot as any).props,
-                    className: [cls.slot, (slot as any).props.className].filter(Boolean).join(' '),
-                  },
-                  key: i,
-                }
+              // clone to inject recipe class
+              ? {
+                ...(slot as any),
+                props: {
+                  ...(slot as any).props,
+                  className: [cls.slot, (slot as any).props.className].filter(Boolean).join(' '),
+                },
+                key: i,
+              }
               : slot
-            : slot,
+            : slot
         )}
         <Field.Input
           ref={ref}
@@ -100,14 +101,14 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
         {trailingSlots.map((slot, i) =>
           isValidElement(slot)
             ? {
-                ...(slot as any),
-                props: {
-                  ...(slot as any).props,
-                  className: [cls.slot, (slot as any).props.className].filter(Boolean).join(' '),
-                },
-                key: i,
-              }
-            : slot,
+              ...(slot as any),
+              props: {
+                ...(slot as any).props,
+                className: [cls.slot, (slot as any).props.className].filter(Boolean).join(' '),
+              },
+              key: i,
+            }
+            : slot
         )}
       </div>
     );

@@ -34,8 +34,8 @@ importers:
         specifier: ^9.39.3
         version: 9.39.4
       '@finografic/dprint-config':
-        specifier: ^0.12.6
-        version: 0.12.6(dprint@0.52.0)
+        specifier: ^0.13.0
+        version: 0.13.0(dprint@0.52.0)
       '@finografic/project-scripts':
         specifier: 8.12.0
         version: 8.12.0(@types/node@24.12.0)(jsonc-eslint-parser@2.4.2)(tsx@4.21.0)
@@ -763,10 +763,10 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@finografic/dprint-config@0.12.6':
-    resolution: {integrity: sha512-ZRrHCTEh0M1czlZsgL7BBwaazXBQP/0H3p8PAHBYZQ9Dkc8z00XJIdaMPGFv2/6Ob8fYl2qne9aVKCymkEso0A==, tarball: https://npm.pkg.github.com/download/@finografic/dprint-config/0.12.6/aed1a1f01dcf81238ac8f1351416accd0ad66ed7}
+  '@finografic/dprint-config@0.13.0':
+    resolution: {integrity: sha512-DsJv0rDA4+fZB60UZX2UCTuxVbkJPkQVF49YJw7FyKa6mR7XrasE5EC8nZISGwqVLhQSs84heNC7UbTQc589Lw==, tarball: https://npm.pkg.github.com/download/@finografic/dprint-config/0.13.0/70384bf1bfbe42be630dd4cb135aa37896e4a1dd}
     peerDependencies:
-      dprint: ^0.51.1
+      dprint: ^0.52.0
 
   '@finografic/project-scripts@8.12.0':
     resolution: {integrity: sha512-6ZUqxu73JZ/B6PUqopSWh7YQ/1wyRb6o3ojrfDjETi8x2T+raDpuLRlBAj8wSUt2D2dP/NvTIUL7CCP8xjXCJA==, tarball: https://npm.pkg.github.com/download/@finografic/project-scripts/8.12.0/b2d25b4a6ca58e3d7d9c72bd8e9e2d58d6e86f11}
@@ -5152,7 +5152,7 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@finografic/dprint-config@0.12.6(dprint@0.52.0)':
+  '@finografic/dprint-config@0.13.0(dprint@0.52.0)':
     dependencies:
       dprint: 0.52.0
 

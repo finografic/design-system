@@ -63,12 +63,12 @@ export const layoutTokens = {
 // ============================================================================
 
 export const LAYOUT_VARS = {
-  headerHeight:     '--layout-header-height',
-  footerHeight:     '--layout-footer-height',
-  sidebarWidth:     '--layout-sidebar-width',
-  navbarHeight:     '--layout-navbar-height',
-  drawerBarHeight:  '--layout-drawer-bar-height',
-  contentMaxWidth:  '--layout-content-max-width',
+  headerHeight: '--layout-header-height',
+  footerHeight: '--layout-footer-height',
+  sidebarWidth: '--layout-sidebar-width',
+  navbarHeight: '--layout-navbar-height',
+  drawerBarHeight: '--layout-drawer-bar-height',
+  contentMaxWidth: '--layout-content-max-width',
   imagePreviewHeight: '--layout-image-preview-height',
 } as const;
 

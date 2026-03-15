@@ -12,10 +12,9 @@ interface RowProps extends ComponentPropsWithoutRef<'div'> {
 
 const Row = forwardRef<HTMLDivElement, RowProps>(
   ({ align, justify, direction, wrap, nogutter, gutterWidth, className, style, ...props }, ref) => {
-    const combinedStyle: CSSProperties =
-      gutterWidth != null
-        ? ({ '--ds-grid-gutter': `${gutterWidth}px`, ...style } as CSSProperties)
-        : (style ?? {});
+    const combinedStyle: CSSProperties = gutterWidth != null
+      ? ({ '--ds-grid-gutter': `${gutterWidth}px`, ...style } as CSSProperties)
+      : (style ?? {});
 
     return (
       <div

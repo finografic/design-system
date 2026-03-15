@@ -5,14 +5,14 @@
 We use the **Panda CSS / Tailwind CSS default breakpoint scale**, which is also
 the scale used by Park UI (the official Ark UI + Panda CSS design system).
 
-| Key   | px     | rem   | Notes                          |
-| ----- | ------ | ----- | ------------------------------ |
-| `xs`  | `0`    | `0`   | Base / mobile-first default    |
-| `sm`  | `640`  | `40`  |                                |
-| `md`  | `768`  | `48`  |                                |
-| `lg`  | `1024` | `64`  |                                |
-| `xl`  | `1280` | `80`  |                                |
-| `2xl` | `1536` | `96`  |                                |
+| Key   | px     | rem  | Notes                       |
+| ----- | ------ | ---- | --------------------------- |
+| `xs`  | `0`    | `0`  | Base / mobile-first default |
+| `sm`  | `640`  | `40` |                             |
+| `md`  | `768`  | `48` |                             |
+| `lg`  | `1024` | `64` |                             |
+| `xl`  | `1280` | `80` |                             |
+| `2xl` | `1536` | `96` |                             |
 
 `xs: 0` is included for completeness and type completeness but is rarely queried
 directly — mobile-first design starts from zero by default.
@@ -80,10 +80,10 @@ Any token or utility value can be made responsive using object or array syntax:
 
 ```ts
 // Object syntax — key names must match BREAKPOINTS keys
-css({ fontSize: { base: 'sm', md: 'lg', xl: 'xl' } })
+css({ fontSize: { base: 'sm', md: 'lg', xl: 'xl' } });
 
 // Array syntax — maps left-to-right to [base, sm, md, lg, xl, 2xl]
-css({ display: ['flex', null, 'grid'] })
+css({ display: ['flex', null, 'grid'] });
 ```
 
 ### 2. Component recipes (responsive size props)
@@ -91,7 +91,7 @@ css({ display: ['flex', null, 'grid'] })
 Ark UI wrappers accept responsive Panda values for `size`, `variant`, etc.:
 
 ```tsx
-<Button size={{ base: 'sm', md: 'md' }}>Submit</Button>
+<Button size={{ base: 'sm', md: 'md' }}>Submit</Button>;
 ```
 
 Prominent components where this is relevant:
@@ -123,16 +123,16 @@ const styles = css`
 
 ```ts
 import {
-  BREAKPOINTS,        // Record<ScreenClass, number> — numeric px values
-  BREAKPOINTS_PX,     // Record<ScreenClass, string> — '640px' etc. (Panda config)
-  BREAKPOINTS_REM,    // Record<ScreenClass, number> — rem equivalents
-  BREAKPOINTS_EM,     // Record<ScreenClass, number> — em equivalents
-  BREAKPOINT_VALUES,  // number[]                    — values excluding xs:0
-  QUERIES_MIN,        // Record<ScreenClass, string> — '(min-width: Xpx)'
-  QUERIES_MAX,        // Omit<Record<ScreenClass, string>, 'xs'>
-  MEDIA_QUERIES,      // { min, max } — partial maps
-  min,                // Record<ScreenClass, string> — '@media (min-width: Xpx)'
-  max,                // Record<ScreenClass, string> — '@media (max-width: Xpx)'
-  sizes,              // ScreenClass[]
+  BREAKPOINTS, // Record<ScreenClass, number> — numeric px values
+  BREAKPOINTS_PX, // Record<ScreenClass, string> — '640px' etc. (Panda config)
+  BREAKPOINTS_REM, // Record<ScreenClass, number> — rem equivalents
+  BREAKPOINTS_EM, // Record<ScreenClass, number> — em equivalents
+  BREAKPOINT_VALUES, // number[]                    — values excluding xs:0
+  QUERIES_MIN, // Record<ScreenClass, string> — '(min-width: Xpx)'
+  QUERIES_MAX, // Omit<Record<ScreenClass, string>, 'xs'>
+  MEDIA_QUERIES, // { min, max } — partial maps
+  min, // Record<ScreenClass, string> — '@media (min-width: Xpx)'
+  max, // Record<ScreenClass, string> — '@media (max-width: Xpx)'
+  sizes, // ScreenClass[]
 } from '@workspace/design-system';
 ```

@@ -42,11 +42,11 @@ function SortIcon({ sorted, className }: SortIconProps) {
 }
 
 interface PaginationProps {
-  className?: string;
-  disabled?: boolean;
+  'className'?: string;
+  'disabled'?: boolean;
   'aria-label': string;
-  onClick: () => void;
-  children: ReactNode;
+  'onClick': () => void;
+  'children': ReactNode;
 }
 
 function PaginationButton({ className, disabled, children, ...rest }: PaginationProps) {

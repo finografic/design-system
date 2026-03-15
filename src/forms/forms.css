@@ -21,8 +21,8 @@
 
 /* ── Shared tokens ─────────────────────────────────────────────────────────── */
 :root {
-  --ds-input-height: 2.5rem;       /* 40px */
-  --ds-input-radius: 0.375rem;     /* 6px  */
+  --ds-input-height: 2.5rem; /* 40px */
+  --ds-input-radius: 0.375rem; /* 6px  */
   --ds-input-padding-x: 0.75rem;
   --ds-input-border: 1px solid var(--colors-border);
   --ds-input-bg: var(--colors-bg);
@@ -31,7 +31,7 @@
   --ds-input-focus-ring: 0 0 0 2px var(--colors-accent-default);
   --ds-input-disabled-opacity: 0.5;
   --ds-dropdown-bg: var(--colors-bg-panel);
-  --ds-dropdown-shadow: var(--shadows-md, 0 4px 16px rgba(0,0,0,.12));
+  --ds-dropdown-shadow: var(--shadows-md, 0 4px 16px rgba(0, 0, 0, 0.12));
   --ds-item-hover-bg: var(--colors-bg-emphasized);
   --ds-item-selected-color: var(--colors-accent-default);
 }
@@ -58,7 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1.125rem;   /* 18px */
+  width: 1.125rem; /* 18px */
   height: 1.125rem;
   flex-shrink: 0;
   border: var(--ds-input-border);
@@ -121,7 +121,7 @@
 
 .ds-fieldbox__label {
   display: block;
-  font-size: 0.8125rem;   /* 13px */
+  font-size: 0.8125rem; /* 13px */
   font-weight: 600;
   color: var(--colors-fg-muted, #6b7280);
   white-space: nowrap;
@@ -137,7 +137,7 @@
 
 /* Override Ark's default RequiredIndicator content */
 .ds-fieldbox__required::before {
-  content: '*';
+  content: "*";
 }
 
 /* Hint text — shown below input when no validation message */
@@ -296,7 +296,6 @@
   display: none;
 }
 
-
 /* ============================================================================
    Dialog
    ============================================================================ */
@@ -320,13 +319,21 @@
 }
 
 @keyframes ds-dialog-backdrop-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes ds-dialog-backdrop-out {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* ── Positioner — centers the panel ─────────────────────────────────────────── */
@@ -361,11 +368,21 @@
 }
 
 /* Size scale */
-.ds-dialog__content[data-size="xs"]    { max-width: 20rem; }
-.ds-dialog__content[data-size="sm"]    { max-width: 28rem; }
-.ds-dialog__content[data-size="md"]    { max-width: 35rem; }
-.ds-dialog__content[data-size="lg"]    { max-width: 42rem; }
-.ds-dialog__content[data-size="xl"]    { max-width: 50rem; }
+.ds-dialog__content[data-size="xs"] {
+  max-width: 20rem;
+}
+.ds-dialog__content[data-size="sm"] {
+  max-width: 28rem;
+}
+.ds-dialog__content[data-size="md"] {
+  max-width: 35rem;
+}
+.ds-dialog__content[data-size="lg"] {
+  max-width: 42rem;
+}
+.ds-dialog__content[data-size="xl"] {
+  max-width: 50rem;
+}
 
 .ds-dialog__content[data-size="cover"] {
   max-width: 95vw;
@@ -399,13 +416,25 @@
 }
 
 @keyframes ds-dialog-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes ds-dialog-out {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.95); }
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
 
 /* ── Header ──────────────────────────────────────────────────────────────────── */
@@ -474,8 +503,12 @@
   scrollbar-color: var(--colors-border) transparent;
 }
 
-.ds-dialog__body::-webkit-scrollbar { width: 6px; }
-.ds-dialog__body::-webkit-scrollbar-track { background: transparent; }
+.ds-dialog__body::-webkit-scrollbar {
+  width: 6px;
+}
+.ds-dialog__body::-webkit-scrollbar-track {
+  background: transparent;
+}
 .ds-dialog__body::-webkit-scrollbar-thumb {
   background: var(--colors-border);
   border-radius: 3px;
@@ -498,8 +531,8 @@
    ============================================================================ */
 
 :root {
-  --ds-slider-track-height: 0.375rem;   /* 6px */
-  --ds-slider-thumb-size: 1.125rem;     /* 18px */
+  --ds-slider-track-height: 0.375rem; /* 6px */
+  --ds-slider-thumb-size: 1.125rem; /* 18px */
   --ds-slider-thumb-bg: var(--colors-bg);
   --ds-slider-track-bg: var(--colors-border);
   --ds-slider-range-bg: var(--colors-accent-default);

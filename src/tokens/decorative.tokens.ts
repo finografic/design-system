@@ -11,12 +11,12 @@ import { defineTokens } from '@pandacss/dev';
 
 export const radiiTokens = defineTokens.radii({
   'none': { value: '0' },
-  'xs':   { value: '0.25rem' },
-  'sm':   { value: '0.33rem' },
-  'md':   { value: '0.5rem' },
-  'lg':   { value: '0.66rem' },
-  'xl':   { value: '1rem' },
-  '2xl':  { value: '1.25rem' },
+  'xs': { value: '0.25rem' },
+  'sm': { value: '0.33rem' },
+  'md': { value: '0.5rem' },
+  'lg': { value: '0.66rem' },
+  'xl': { value: '1rem' },
+  '2xl': { value: '1.25rem' },
   'full': { value: '9999px' },
 });
 
@@ -30,10 +30,10 @@ export const radiiTokens = defineTokens.radii({
  * // In recipe: borderWidth: 'light' → border-width: 1px
  */
 export const borderWidthTokens = defineTokens.borderWidths({
-  none:    { value: '0' },
-  light:   { value: '1px' },
+  none: { value: '0' },
+  light: { value: '1px' },
   default: { value: '2px' },
-  heavy:   { value: '4px' },
+  heavy: { value: '4px' },
 });
 
 /**

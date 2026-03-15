@@ -4,7 +4,9 @@ import type { selectSearchableRecipe } from './select-searchable.recipe';
 export type SelectSearchableVariants = RecipeProps<typeof selectSearchableRecipe>;
 
 export type SelectSearchableProps = SelectSearchableVariants & {
-  options: Array<{ value: string; label?: string; description?: string; category?: string; disabled?: boolean }>;
+  options: Array<
+    { value: string; label?: string; description?: string; category?: string; disabled?: boolean }
+  >;
   value?: string;
   onSelect: (value: string) => void;
   /** Alias for onSelect — RHF Controller compatible */

@@ -53,13 +53,13 @@ import type { ComponentPropsWithoutRef } from 'react';
 // Ark provides: Root, Trigger, Backdrop, Positioner, Content,
 //               Title, Description, CloseTrigger
 export const Dialog = {
-  Root:         ArkDialog.Root,
-  Trigger:      ArkDialog.Trigger,
-  Backdrop:     ArkDialog.Backdrop,
-  Positioner:   ArkDialog.Positioner,
-  Content:      ArkDialog.Content,
-  Title:        ArkDialog.Title,
-  Description:  ArkDialog.Description,
+  Root: ArkDialog.Root,
+  Trigger: ArkDialog.Trigger,
+  Backdrop: ArkDialog.Backdrop,
+  Positioner: ArkDialog.Positioner,
+  Content: ArkDialog.Content,
+  Title: ArkDialog.Title,
+  Description: ArkDialog.Description,
   CloseTrigger: ArkDialog.CloseTrigger,
 
   // ── Structural layout divs (not in Ark — our additions) ──────────────────

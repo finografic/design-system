@@ -9,7 +9,17 @@ import { sva } from '@styled-system/css';
 export const sliderRecipe = sva({
   className: 'slider',
 
-  slots: ['root', 'label', 'valueText', 'control', 'track', 'range', 'thumb', 'markerGroup', 'marker'],
+  slots: [
+    'root',
+    'label',
+    'valueText',
+    'control',
+    'track',
+    'range',
+    'thumb',
+    'markerGroup',
+    'marker',
+  ],
 
   base: {
     root: {
@@ -66,7 +76,12 @@ export const sliderRecipe = sva({
       cursor: 'grab',
       transitionProperty: 'box-shadow',
       transitionDuration: 'fast',
-      _focusVisible: { outline: '2px solid', outlineColor: 'accent.focusRing', outlineOffset: '2px', boxShadow: 'md' },
+      _focusVisible: {
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '2px',
+        boxShadow: 'md',
+      },
       _active: { cursor: 'grabbing' },
       _disabled: { opacity: 0.55, cursor: 'not-allowed' },
     },

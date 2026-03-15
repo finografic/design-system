@@ -15,9 +15,14 @@ Root.displayName = 'Dialog.Root';
 
 // ── Dialog.Backdrop ───────────────────────────────────────────────────────────
 
-function Backdrop({ className, ...props }: React.ComponentPropsWithoutRef<typeof ArkDialog.Backdrop>) {
+function Backdrop(
+  { className, ...props }: React.ComponentPropsWithoutRef<typeof ArkDialog.Backdrop>,
+) {
   return (
-    <ArkDialog.Backdrop className={['ds-dialog__backdrop', className].filter(Boolean).join(' ')} {...props} />
+    <ArkDialog.Backdrop
+      className={['ds-dialog__backdrop', className].filter(Boolean).join(' ')}
+      {...props}
+    />
   );
 }
 
@@ -72,9 +77,14 @@ Header.displayName = 'Dialog.Header';
 
 // ── Dialog.Title ──────────────────────────────────────────────────────────────
 
-function Title({ className, children, ...props }: React.ComponentPropsWithoutRef<typeof ArkDialog.Title>) {
+function Title(
+  { className, children, ...props }: React.ComponentPropsWithoutRef<typeof ArkDialog.Title>,
+) {
   return (
-    <ArkDialog.Title className={['ds-dialog__title', className].filter(Boolean).join(' ')} {...props}>
+    <ArkDialog.Title
+      className={['ds-dialog__title', className].filter(Boolean).join(' ')}
+      {...props}
+    >
       {children}
     </ArkDialog.Title>
   );

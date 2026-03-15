@@ -46,11 +46,11 @@ export const fontTokens = defineTokens.fonts({
 // ============================================================================
 
 export const fontSizeTokens = defineTokens.fontSizes({
-  'xs':  { value: '0.75rem' },
-  'sm':  { value: '0.875rem' },
-  'md':  { value: '1rem' },
-  'lg':  { value: '1.125rem' },
-  'xl':  { value: '1.25rem' },
+  'xs': { value: '0.75rem' },
+  'sm': { value: '0.875rem' },
+  'md': { value: '1rem' },
+  'lg': { value: '1.125rem' },
+  'xl': { value: '1.25rem' },
   '2xl': { value: '1.5rem' },
   '3xl': { value: '1.875rem' },
   '4xl': { value: '2.25rem' },
@@ -65,15 +65,15 @@ export const fontSizeTokens = defineTokens.fontSizes({
 // ============================================================================
 
 export const fontWeightTokens = defineTokens.fontWeights({
-  thin:       { value: '100' },
+  thin: { value: '100' },
   extralight: { value: '200' },
-  light:      { value: '300' },
-  normal:     { value: '400' },
-  medium:     { value: '500' },
-  semibold:   { value: '600' },
-  bold:       { value: '700' },
-  extrabold:  { value: '800' },
-  black:      { value: '900' },
+  light: { value: '300' },
+  normal: { value: '400' },
+  medium: { value: '500' },
+  semibold: { value: '600' },
+  bold: { value: '700' },
+  extrabold: { value: '800' },
+  black: { value: '900' },
 });
 
 // ============================================================================
@@ -83,12 +83,12 @@ export const fontWeightTokens = defineTokens.fontWeights({
 // ============================================================================
 
 export const lineHeightTokens = defineTokens.lineHeights({
-  none:    { value: '1' },
-  tight:   { value: '1.25' },
-  snug:    { value: '1.375' },
-  normal:  { value: '1.5' },
+  none: { value: '1' },
+  tight: { value: '1.25' },
+  snug: { value: '1.375' },
+  normal: { value: '1.5' },
   relaxed: { value: '1.625' },
-  loose:   { value: '2' },
+  loose: { value: '2' },
 });
 
 // ============================================================================

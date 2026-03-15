@@ -38,18 +38,41 @@ svg.icon {
   transition: color 150ms ease, opacity 150ms ease;
 }
 
-svg.icon-xs  { width: 0.75rem;  height: 0.75rem; }
-svg.icon-sm  { width: 0.875rem; height: 0.875rem; }
-svg.icon-md  { width: 1rem;     height: 1rem; }
-svg.icon-lg  { width: 1.25rem;  height: 1.25rem; }
-svg.icon-xl  { width: 1.5rem;   height: 1.5rem; }
-svg.icon-2xl { width: 2rem;     height: 2rem; }
+svg.icon-xs {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+svg.icon-sm {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+svg.icon-md {
+  width: 1rem;
+  height: 1rem;
+}
+svg.icon-lg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+svg.icon-xl {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+svg.icon-2xl {
+  width: 2rem;
+  height: 2rem;
+}
 
 /* Contextual — scales with surrounding text size */
-svg.icon-em  { width: 1em; height: 1em; }
+svg.icon-em {
+  width: 1em;
+  height: 1em;
+}
 
 /* Spin — use with Loader or async states */
-svg.icon-spin { animation: spin 1s linear infinite; }
+svg.icon-spin {
+  animation: spin 1s linear infinite;
+}
 
 /* ============================================================================
  * CUSTOM SCROLLBARS

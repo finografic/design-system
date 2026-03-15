@@ -11,9 +11,21 @@ export const selectRecipe = sva({
   className: 'select',
 
   slots: [
-    'root', 'label', 'control', 'trigger', 'valueText', 'indicator',
-    'positioner', 'content', 'list', 'item', 'itemText', 'itemIndicator',
-    'itemGroup', 'itemGroupLabel', 'clearTrigger',
+    'root',
+    'label',
+    'control',
+    'trigger',
+    'valueText',
+    'indicator',
+    'positioner',
+    'content',
+    'list',
+    'item',
+    'itemText',
+    'itemIndicator',
+    'itemGroup',
+    'itemGroupLabel',
+    'clearTrigger',
   ],
 
   base: {
@@ -40,13 +52,28 @@ export const selectRecipe = sva({
       transitionDuration: 'fast',
       _placeholder: { color: 'fg.subtle' },
       _hover: { borderColor: 'accent.emphasized' },
-      _open: { borderColor: 'accent.solid', outline: '2px solid', outlineColor: 'accent.focusRing', outlineOffset: '2px' },
+      _open: {
+        borderColor: 'accent.solid',
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '2px',
+      },
       _disabled: { opacity: 0.55, cursor: 'not-allowed' },
-      _focusVisible: { outline: '2px solid', outlineColor: 'accent.focusRing', outlineOffset: '2px' },
+      _focusVisible: {
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '2px',
+      },
       _invalid: { borderColor: 'border.error' },
     },
 
-    valueText: { flex: '1', textAlign: 'start', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
+    valueText: {
+      flex: '1',
+      textAlign: 'start',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
 
     indicator: {
       color: 'fg.muted',

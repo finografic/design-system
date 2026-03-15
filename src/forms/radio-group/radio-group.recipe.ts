@@ -48,7 +48,11 @@ export const radioGroupRecipe = sva({
       marginTop: '0.5',
       _checked: { borderColor: 'accent.solid', bg: 'accent.solid' },
       _hover: { borderColor: 'accent.emphasized' },
-      _focusVisible: { outline: '2px solid', outlineColor: 'accent.focusRing', outlineOffset: '2px' },
+      _focusVisible: {
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '2px',
+      },
     },
 
     indicator: {

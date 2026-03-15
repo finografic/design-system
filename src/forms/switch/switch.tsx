@@ -55,7 +55,12 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
         disabled={disabled}
         data-size={size}
         className={className}
-        style={{ display: 'inline-flex', alignItems: 'flex-start', gap: '0.5rem', cursor: 'pointer' }}
+        style={{
+          display: 'inline-flex',
+          alignItems: 'flex-start',
+          gap: '0.5rem',
+          cursor: 'pointer',
+        }}
       >
         <ArkSwitch.Control className={controlCls}>
           <ArkSwitch.Thumb className="switch-thumb" />
@@ -72,7 +77,11 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
             {errorMessage && (
               <span
                 role="alert"
-                style={{ fontSize: 'var(--font-sizes-sm)', color: 'var(--colors-fg-error)', fontWeight: 600 }}
+                style={{
+                  fontSize: 'var(--font-sizes-sm)',
+                  color: 'var(--colors-fg-error)',
+                  fontWeight: 600,
+                }}
               >
                 {errorMessage}
               </span>

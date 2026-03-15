@@ -30,7 +30,6 @@ const _border = {
 } as const;
 
 export const layout = {
-
   fontSize: (textStyles.body as any).md.value.fontSize as string,
   padding: spacingTokens['4'].value, // 1rem
   borderWidth: _border.width.default, // 2px

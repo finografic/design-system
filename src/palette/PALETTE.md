@@ -81,9 +81,9 @@ when a raw CSS variable reference is needed outside of Panda's utility system.
 ```ts
 import { colors } from '@workspace/design-system/tokens';
 
-colors.primaryLight       // → var(--colors-primary-light)
-colors.dangerXXXLight     // → var(--colors-danger-xxxlight)
-colors.grey               // → var(--colors-grey)
+colors.primaryLight; // → var(--colors-primary-light)
+colors.dangerXXXLight; // → var(--colors-danger-xxxlight)
+colors.grey; // → var(--colors-grey)
 ```
 
 Also includes legacy `v1` aliases (`error`, `errorLight`, `text*`, `background*`)
@@ -117,7 +117,9 @@ Every entry in `colors` is a CSS custom property reference — a string like
 one of these values, it writes the reference into a class:
 
 ```css
-.css-xyz { color: var(--colors-primary-light); }
+.css-xyz {
+  color: var(--colors-primary-light);
+}
 ```
 
 The class itself never changes. The browser resolves the `var()` reference
@@ -138,8 +140,14 @@ These are role-based aliases defined with `_dark` variants. Panda generates
 a separate custom property value for each mode:
 
 ```css
-:root              { --colors-bg: white;  --colors-fg: oklch(28% 0 0); }
-[data-theme="dark"] { --colors-bg: black; --colors-fg: oklch(93% 0 0); }
+:root {
+  --colors-bg: white;
+  --colors-fg: oklch(28% 0 0);
+}
+[data-theme="dark"] {
+  --colors-bg: black;
+  --colors-fg: oklch(93% 0 0);
+}
 ```
 
 ### Which `colors` entries adapt
@@ -149,12 +157,12 @@ mode depends on which tier it resolves to:
 
 ```ts
 // Static — same in both modes (raw palette)
-colors.primaryLight   // → var(--colors-primary-light)
-colors.successXLight  // → var(--colors-success-xlight)
+colors.primaryLight; // → var(--colors-primary-light)
+colors.successXLight; // → var(--colors-success-xlight)
 
 // Adaptive — changes with theme (semantic)
-colors.text           // → var(--colors-fg)
-colors.background     // → var(--colors-bg)
+colors.text; // → var(--colors-fg)
+colors.background; // → var(--colors-bg)
 ```
 
 ### Practical guidance for Emotion `.styles.ts` files

@@ -59,4 +59,8 @@ export const Menu = {
   ItemContext: ArkMenu.ItemContext, // render prop
 };
 
-export type { MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionDetails } from '@ark-ui/react';
+export type {
+  MenuHighlightChangeDetails,
+  MenuOpenChangeDetails,
+  MenuSelectionDetails,
+} from '@ark-ui/react';

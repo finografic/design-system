@@ -21,7 +21,9 @@ export interface DialogRootPropsDS extends Omit<DialogRootProps, 'onOpenChange'>
   children?: React.ReactNode;
 }
 
-export interface DialogContentPropsDS extends React.ComponentPropsWithoutRef<typeof ArkDialog.Content> {
+export interface DialogContentPropsDS
+  extends React.ComponentPropsWithoutRef<typeof ArkDialog.Content>
+{
   /** Controls panel dimensions. @default 'md' */
   size?: DialogSize;
 }

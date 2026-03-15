@@ -9,7 +9,16 @@ import { sva } from '@styled-system/css';
 export const inputNumberRecipe = sva({
   className: 'input-number',
 
-  slots: ['root', 'label', 'control', 'input', 'incrementTrigger', 'decrementTrigger', 'prefix', 'suffix'],
+  slots: [
+    'root',
+    'label',
+    'control',
+    'input',
+    'incrementTrigger',
+    'decrementTrigger',
+    'prefix',
+    'suffix',
+  ],
 
   base: {
     root: {

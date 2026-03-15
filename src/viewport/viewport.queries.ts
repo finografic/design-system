@@ -26,7 +26,10 @@ export const QUERIES_MAX: Omit<Record<ScreenClass, string>, 'xs'> = {
 } as const;
 
 /** Generic min/max map — keyed by media query type. */
-export const MEDIA_QUERIES: { min: Partial<BreakpointMap<string>>; max: Partial<BreakpointMap<string>> } = {
+export const MEDIA_QUERIES: {
+  min: Partial<BreakpointMap<string>>;
+  max: Partial<BreakpointMap<string>>;
+} = {
   min: Object.fromEntries(Object.entries(BREAKPOINTS).map(([k, v]) => [k, toMediaMinWidth(v)])),
   max: Object.fromEntries(Object.entries(BREAKPOINTS).map(([k, v]) => [k, toMediaMaxWidth(v)])),
 };

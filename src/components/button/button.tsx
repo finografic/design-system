@@ -20,14 +20,24 @@ import { forwardRef } from 'react';
 
 import type { ButtonVariants } from './button.types';
 
-export type ButtonProps = ComponentPropsWithoutRef<'button'> &
-  ButtonVariants & {
+export type ButtonProps =
+  & ComponentPropsWithoutRef<'button'>
+  & ButtonVariants
+  & {
     /** Visual size — xs · sm · md · lg · xl. Default: md */
     size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     /** Visual variant — solid · subtle · outline · ghost · link. Default: outline */
     variant?: 'solid' | 'subtle' | 'outline' | 'ghost' | 'link';
     /** Color scheme. Default: default */
-    colorScheme?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'grey';
+    colorScheme?:
+      | 'default'
+      | 'primary'
+      | 'secondary'
+      | 'success'
+      | 'warning'
+      | 'danger'
+      | 'info'
+      | 'grey';
     /** Loading state — disables the button and sets aria-busy */
     loading?: boolean;
     /** Icon element rendered before children (or after, see iconPosition) */

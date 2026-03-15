@@ -54,11 +54,11 @@ export const keyframes = defineKeyframes({
 
 export const durationTokens = defineTokens.durations({
   fastest: { value: '50ms' },
-  faster:  { value: '100ms' },
-  fast:    { value: '150ms' },
-  normal:  { value: '200ms' },
-  slow:    { value: '300ms' },
-  slower:  { value: '400ms' },
+  faster: { value: '100ms' },
+  fast: { value: '150ms' },
+  normal: { value: '200ms' },
+  slow: { value: '300ms' },
+  slower: { value: '400ms' },
   slowest: { value: '500ms' },
 });
 
@@ -68,7 +68,7 @@ export const durationTokens = defineTokens.durations({
 
 export const easingTokens = defineTokens.easings({
   'default': { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
-  'in':      { value: 'cubic-bezier(0.4, 0, 1, 1)' },
-  'out':     { value: 'cubic-bezier(0, 0, 0.2, 1)' },
-  'in-out':  { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+  'in': { value: 'cubic-bezier(0.4, 0, 1, 1)' },
+  'out': { value: 'cubic-bezier(0, 0, 0.2, 1)' },
+  'in-out': { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
 });

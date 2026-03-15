@@ -53,12 +53,36 @@ export const badgeRecipe = cva({
     { variant: 'soft', colorScheme: 'info', css: { bg: 'bg.info', color: 'fg.info' } },
     { variant: 'soft', colorScheme: 'neutral', css: { bg: 'bg.muted', color: 'fg.muted' } },
 
-    { variant: 'outline', colorScheme: 'primary', css: { borderColor: 'accent.solid', color: 'accent.fg' } },
-    { variant: 'outline', colorScheme: 'success', css: { borderColor: 'border.success', color: 'fg.success' } },
-    { variant: 'outline', colorScheme: 'warning', css: { borderColor: 'border.warning', color: 'fg.warning' } },
-    { variant: 'outline', colorScheme: 'danger', css: { borderColor: 'border.error', color: 'fg.error' } },
-    { variant: 'outline', colorScheme: 'info', css: { borderColor: 'border.info', color: 'fg.info' } },
-    { variant: 'outline', colorScheme: 'neutral', css: { borderColor: 'border', color: 'fg.muted' } },
+    {
+      variant: 'outline',
+      colorScheme: 'primary',
+      css: { borderColor: 'accent.solid', color: 'accent.fg' },
+    },
+    {
+      variant: 'outline',
+      colorScheme: 'success',
+      css: { borderColor: 'border.success', color: 'fg.success' },
+    },
+    {
+      variant: 'outline',
+      colorScheme: 'warning',
+      css: { borderColor: 'border.warning', color: 'fg.warning' },
+    },
+    {
+      variant: 'outline',
+      colorScheme: 'danger',
+      css: { borderColor: 'border.error', color: 'fg.error' },
+    },
+    {
+      variant: 'outline',
+      colorScheme: 'info',
+      css: { borderColor: 'border.info', color: 'fg.info' },
+    },
+    {
+      variant: 'outline',
+      colorScheme: 'neutral',
+      css: { borderColor: 'border', color: 'fg.muted' },
+    },
   ],
 
   defaultVariants: {

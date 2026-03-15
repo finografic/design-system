@@ -21,9 +21,9 @@ This package was initially designed as a subdirectory living inside
 planning, the decision was made to extract it into a standalone peer package
 at `packages/lucide-manager/` for two reasons:
 
-1. The design-system package should concern itself only with *what* the DS is
+1. The design-system package should concern itself only with _what_ the DS is
    (tokens, recipes, components, icons). A developer tool for maintaining the
-   icon registry is a *how you maintain it* concern — a different axis.
+   icon registry is a _how you maintain it_ concern — a different axis.
 2. The tool is genuinely reusable. Any package in the workspace that maintains
    a lucide-react icon registry can install and use it.
 
@@ -51,7 +51,7 @@ registry. Shape:
 
 ```json
 [
-  { "lucideName": "arrow-up",     "exportName": "ArrowUp" },
+  { "lucideName": "arrow-up", "exportName": "ArrowUp" },
   { "lucideName": "chevron-down", "exportName": "ChevronDown" }
 ]
 ```
@@ -111,7 +111,7 @@ The solution is a config file that the host package places in its own root:
 // packages/design-system/lucide-manager.config.json
 {
   "iconsJsonPath": "./src/icons/icons.json",
-  "iconsDir":      "./src/icons"
+  "iconsDir": "./src/icons",
 }
 ```
 
@@ -171,12 +171,12 @@ packages/lucide-manager/
 // packages/design-system/package.json
 {
   "devDependencies": {
-    "@workspace/lucide-manager": "workspace:*"
+    "@workspace/lucide-manager": "workspace:*",
   },
   "scripts": {
-    "icons":          "lucide-manager dev",
-    "generate:icons": "lucide-manager generate"
-  }
+    "icons": "lucide-manager dev",
+    "generate:icons": "lucide-manager generate",
+  },
 }
 ```
 
@@ -187,8 +187,8 @@ in this package's `package.json`. They must be added:
 // packages/lucide-manager/package.json
 {
   "bin": {
-    "lucide-manager": "./bin/lucide-manager.js"
-  }
+    "lucide-manager": "./bin/lucide-manager.js",
+  },
 }
 ```
 
@@ -203,7 +203,7 @@ Place in the host package root (alongside its `package.json`):
 // packages/design-system/lucide-manager.config.json
 {
   "iconsJsonPath": "./src/icons/icons.json",
-  "iconsDir":      "./src/icons"
+  "iconsDir": "./src/icons",
 }
 ```
 

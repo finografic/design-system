@@ -17,19 +17,19 @@ Each folder contains exactly four files:
 
 ## Component inventory
 
-| Component           | Recipe type    | Ark UI          | createStyleContext | Notes                                                   |
-| ------------------- | -------------- | --------------- | ------------------ | ------------------------------------------------------- |
-| `checkbox`          | `sva`          | `Checkbox`      | yes                | `withProvider` + `withContext`; `CheckboxField` wrapper |
-| `field-box`         | `sva`          | `Field.Root`    | —                  | RHF-aware layout wrapper; auto-wires error/warning      |
-| `input-field`       | `sva`          | `Field.Input`   | —                  | `InputField.Root` + `InputField.Slot` compound          |
-| `input-number`      | `sva`          | `NumberInput`   | —                  | Ark NumberInput; prefix/suffix slots; `Intl` formatting |
-| `label`             | `cva`          | —               | —                  | Plain `<label>` wrapper; size variant                   |
-| `radio-group`       | `sva`          | `RadioGroup`    | yes                | `withProvider` + `withContext`; `default` + `card` variant |
-| `select`            | `sva`          | `Select`        | yes                | `withProvider` + `withContext`; bare compound           |
-| `select-default`    | *(selectRecipe)* | `Select`      | —                  | `options[]` convenience wrapper; reuses `selectRecipe`  |
-| `select-searchable` | `sva`          | `Combobox`      | —                  | `match-sorter` filtering; `onAddNew` callback           |
-| `slider`            | `sva`          | `Slider`        | yes                | `withProvider` + `withContext`                          |
-| `switch`            | `cva`          | `Switch`        | —                  | Bare `Switch = ArkSwitch` re-export + `SwitchField` wrapper |
+| Component           | Recipe type      | Ark UI        | createStyleContext | Notes                                                       |
+| ------------------- | ---------------- | ------------- | ------------------ | ----------------------------------------------------------- |
+| `checkbox`          | `sva`            | `Checkbox`    | yes                | `withProvider` + `withContext`; `CheckboxField` wrapper     |
+| `field-box`         | `sva`            | `Field.Root`  | —                  | RHF-aware layout wrapper; auto-wires error/warning          |
+| `input-field`       | `sva`            | `Field.Input` | —                  | `InputField.Root` + `InputField.Slot` compound              |
+| `input-number`      | `sva`            | `NumberInput` | —                  | Ark NumberInput; prefix/suffix slots; `Intl` formatting     |
+| `label`             | `cva`            | —             | —                  | Plain `<label>` wrapper; size variant                       |
+| `radio-group`       | `sva`            | `RadioGroup`  | yes                | `withProvider` + `withContext`; `default` + `card` variant  |
+| `select`            | `sva`            | `Select`      | yes                | `withProvider` + `withContext`; bare compound               |
+| `select-default`    | _(selectRecipe)_ | `Select`      | —                  | `options[]` convenience wrapper; reuses `selectRecipe`      |
+| `select-searchable` | `sva`            | `Combobox`    | —                  | `match-sorter` filtering; `onAddNew` callback               |
+| `slider`            | `sva`            | `Slider`      | yes                | `withProvider` + `withContext`                              |
+| `switch`            | `cva`            | `Switch`      | —                  | Bare `Switch = ArkSwitch` re-export + `SwitchField` wrapper |
 
 ## RHF compatibility
 
@@ -44,7 +44,7 @@ Use `FieldBox` to wrap any control with RHF-aware label/hint/error layout:
 ```tsx
 <FieldBox name="email" label="Email" hint="We'll never share this">
   <InputField.Root {...field} />
-</FieldBox>
+</FieldBox>;
 ```
 
 `FieldBox` auto-wires to `useFormContext()` when inside a `<FormProvider>` — error
@@ -90,7 +90,7 @@ separate recipe file). It builds an Ark `createListCollection` from a plain
 `options: SelectOption[]` prop.
 
 ```tsx
-<SelectDefault options={opts} value={val} onSelect={(v) => setValue(v)} />
+<SelectDefault options={opts} value={val} onSelect={(v) => setValue(v)} />;
 ```
 
 ### `select-searchable` — Ark Combobox
@@ -98,7 +98,7 @@ separate recipe file). It builds an Ark `createListCollection` from a plain
 Uses `ArkCombobox` (not `ArkSelect`) to support keyboard filtering via `match-sorter`.
 
 ```tsx
-<SelectSearchable options={opts} value={val} onSelect={onChange} onAddNew={(v) => create(v)} />
+<SelectSearchable options={opts} value={val} onSelect={onChange} onAddNew={(v) => create(v)} />;
 ```
 
 ## Adding a new form component
