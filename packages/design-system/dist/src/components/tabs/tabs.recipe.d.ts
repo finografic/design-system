@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../../styled-system/types/recipe.js";
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "trigger" | "list", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "list" | "indicator", {
   variant: {
     line: {
       list: {

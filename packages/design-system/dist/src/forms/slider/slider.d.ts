@@ -5,7 +5,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/forms/slider/slider.d.ts
 declare const Slider$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "root" | "control" | "label" | "valueText" | "track" | "range" | "thumb" | "markerGroup", {
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"label" | "track" | "marker" | "root" | "control" | "valueText" | "range" | "thumb" | "markerGroup", {
     size: {
       sm: {
         label: {

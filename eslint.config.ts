@@ -15,6 +15,7 @@ const config: Linter.Config[] = [
       '**/node_modules/**',
       '**/styled-system/**',
       '**/dist/**',
+      '**/.claude/**',
       '**/.cursor/**',
       '**/*.min.*',
       '**/*.map',

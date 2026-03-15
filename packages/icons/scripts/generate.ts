@@ -81,9 +81,11 @@ import { createIconWrapper } from './icons.utils';
 
 // ── Icon registry ──────────────────────────────────────────────────────────────
 
+/* dprint-ignore-start */
 const ICONS = {
 ${registryLines}
 } as const;
+/* dprint-ignore-end */
 
 // ── Auto-wrap ──────────────────────────────────────────────────────────────────
 
