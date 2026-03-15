@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../../styled-system/types/recipe.js";
 //#region src/forms/field-box/field-box.recipe.d.ts
-declare const fieldBoxRecipe: SlotRecipeRuntimeFn<"label" | "root" | "errorText" | "requiredIndicator" | "helperText" | "warningText", {
+declare const fieldBoxRecipe: SlotRecipeRuntimeFn<"root" | "label" | "requiredIndicator" | "helperText" | "errorText" | "warningText", {
   size: {
     sm: {
       root: {

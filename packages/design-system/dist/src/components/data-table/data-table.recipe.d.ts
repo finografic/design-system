@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../../styled-system/types/recipe.js";
 //#region src/components/data-table/data-table.recipe.d.ts
-declare const tableRecipe: SlotRecipeRuntimeFn<"caption" | "table" | "tbody" | "td" | "tfoot" | "th" | "thead" | "tr" | "root" | "headerRow" | "sortIcon" | "emptyState", SlotRecipeVariantRecord<"caption" | "table" | "tbody" | "td" | "tfoot" | "th" | "thead" | "tr" | "root" | "headerRow" | "sortIcon" | "emptyState">>;
+declare const tableRecipe: SlotRecipeRuntimeFn<"root" | "table" | "thead" | "tbody" | "tfoot" | "tr" | "headerRow" | "th" | "td" | "sortIcon" | "emptyState" | "caption", SlotRecipeVariantRecord<"root" | "table" | "thead" | "tbody" | "tfoot" | "tr" | "headerRow" | "th" | "td" | "sortIcon" | "emptyState" | "caption">>;
 //#endregion
 export { tableRecipe };
 //# sourceMappingURL=data-table.recipe.d.ts.map
