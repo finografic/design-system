@@ -8,7 +8,7 @@ import { FieldError } from "react-hook-form";
 
 //#region src/forms/checkbox/checkbox.d.ts
 declare const Checkbox$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "control" | "indicator" | "label" | "description" | "errorText", {
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "control" | "label" | "errorText", {
     size: {
       sm: {
         control: {

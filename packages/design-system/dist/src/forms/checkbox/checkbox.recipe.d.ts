@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../../styled-system/types/recipe.js";
 //#region src/forms/checkbox/checkbox.recipe.d.ts
-declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "control" | "indicator" | "label" | "description" | "errorText", {
+declare const checkboxRecipe: SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "control" | "label" | "errorText", {
   size: {
     sm: {
       control: {

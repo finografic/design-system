@@ -33,6 +33,7 @@ export default defineConfig([
         '@styled-system/css',
         '@styled-system/jsx',
       ],
+      onlyBundle: false,
     },
   },
   {
@@ -41,6 +42,12 @@ export default defineConfig([
     platform: 'node',
     dts: true,
     sourcemap: true,
-    // unbundle: true,
+    // panda.preset intentionally bundles @pandacss/dev and its deps (ts-morph, ts-evaluator etc.)
+    // onlyBundle: false suppresses the "detected dependencies in bundle" hint.
+    // The MISSING_EXPORT / IMPORT_IS_UNDEFINED warnings below are TypeScript 5.9 compat
+    // issues in those upstream packages — harmless, unfixable from here.
+    deps: {
+      onlyBundle: false,
+    },
   },
 ]);

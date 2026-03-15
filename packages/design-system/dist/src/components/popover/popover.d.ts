@@ -6,8 +6,8 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/popover/popover.d.ts
 declare const Popover$1: {
-  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip" | "description" | "title" | "closeTrigger", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip" | "description" | "title" | "closeTrigger">>>;
-  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip" | "description" | "title" | "closeTrigger", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip" | "description" | "title" | "closeTrigger">>>;
+  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "title" | "closeTrigger" | "arrow" | "arrowTip" | "trigger", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "title" | "closeTrigger" | "arrow" | "arrowTip" | "trigger">>>;
+  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "title" | "closeTrigger" | "arrow" | "arrowTip" | "trigger", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "title" | "closeTrigger" | "arrow" | "arrowTip" | "trigger">>>;
   Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Popover.TriggerProps & react.RefAttributes<HTMLButtonElement>>>;
   Anchor: react.ForwardRefExoticComponent<Popover.AnchorProps & react.RefAttributes<HTMLDivElement>>;
   Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Popover.PositionerProps & react.RefAttributes<HTMLDivElement>>>;
