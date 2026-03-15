@@ -1,0 +1,168 @@
+/* ============================================================================
+   GenericDialog — pre-composed dialog with optional tabs + footer buttons.
+   Import once at app entry: @finografic/design-system/components/generic-dialog.css
+   ============================================================================ */
+
+.ds-generic-dialog[role='dialog'] {
+  padding-bottom: 0;
+  overflow: hidden;
+  background-color: var(--colors-bg);
+  color: var(--colors-fg);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+
+/* ── Open / close animations ─────────────────────────────────────────────── */
+
+.ds-generic-dialog[data-state='open'] {
+  animation: ds-generic-dialog-open 200ms ease-out;
+}
+
+.ds-generic-dialog[data-state='closed'] {
+  animation: ds-generic-dialog-close 200ms ease-in;
+}
+
+@keyframes ds-generic-dialog-open {
+  from { opacity: 0; transform: scale(1.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ds-generic-dialog-close {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.5); }
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+
+.ds-generic-dialog__header {
+  > div {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    padding: 0;
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--colors-fg-muted);
+    }
+  }
+
+  .ds-generic-dialog__close {
+    transform: translate(0.5rem, 0) scale(0.9);
+    outline: none;
+    color: var(--colors-fg-muted);
+
+    &:hover {
+      color: var(--colors-warning-light);
+      background-color: var(--colors-warning-lighter);
+      cursor: pointer;
+    }
+  }
+
+  &:not(.has-title) {
+    position: absolute;
+    right: 1.5rem;
+  }
+
+  &.has-title .ds-generic-dialog__close {
+    transform: translate(0.25rem, -1rem);
+  }
+}
+
+.ds-generic-dialog__subtitle {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* ── Body ────────────────────────────────────────────────────────────────── */
+
+.ds-generic-dialog__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 0 1.5rem 0;
+}
+
+/* ── Tab content ─────────────────────────────────────────────────────────── */
+
+.ds-generic-dialog__tab-content,
+.ds-generic-dialog__single-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--colors-fg-muted) transparent;
+
+  &::-webkit-scrollbar { width: 8px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--colors-fg-muted);
+    border-radius: 4px;
+    &:hover { background-color: var(--colors-fg); }
+  }
+}
+
+.ds-generic-dialog__single-content {
+  margin-top: 1.5rem;
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────────────── */
+
+.ds-generic-dialog [role='tablist'] {
+  box-shadow: inset 0 -0.2rem 0 0 var(--colors-grey-xxxlight);
+
+  button[role='tab'] {
+    height: 4rem;
+    margin: 0.2rem 0.15rem 0;
+    padding: 0;
+    border: 0 !important;
+
+    &:first-of-type { margin-left: 0; }
+    &:last-child    { margin-right: 0; }
+
+    span {
+      padding: 0.8em 1.25em;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--colors-fg-muted);
+    }
+
+    svg.icon {
+      margin-left: -0.33rem;
+      transform: translate(-0.25rem, 0) scale(0.8) !important;
+      color: var(--colors-fg-subtle);
+    }
+  }
+
+  button[role='tab'][data-state='active'] {
+    &:before { background-color: var(--colors-info-light); height: 0.2rem; }
+    span  { color: var(--colors-info); }
+    svg.icon { color: var(--colors-info-light); }
+  }
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.ds-generic-dialog__footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1.5rem 0;
+  background: transparent;
+
+  button { font-size: 1.5rem; }
+}

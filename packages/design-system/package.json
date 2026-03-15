@@ -63,7 +63,8 @@
     "./styles/keyframes.css": "./src/styles/keyframes.css",
     "./styles/global.css": "./src/styles/global.css",
     "./grid/grid.css": "./src/grid/grid.css",
-    "./forms/forms.css": "./src/forms/forms.css"
+    "./forms/forms.css": "./src/forms/forms.css",
+    "./components/generic-dialog.css": "./src/components/generic-dialog/generic-dialog.css"
   },
   "files": [
     "dist",
@@ -74,6 +75,7 @@
   "scripts": {
     "build": "panda codegen && tsdown",
     "dev": "panda cssgen --watch",
+    "dev.ts": "tsdown --watch",
     "·········· PANDA": "·····················································",
     "panda:spec": "panda spec",
     "panda:studio": "panda studio",
