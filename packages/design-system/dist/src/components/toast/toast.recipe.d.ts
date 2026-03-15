@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../../styled-system/types/recipe.js";
 //#region src/components/toast/toast.recipe.d.ts
-declare const toastRecipe: SlotRecipeRuntimeFn<"root" | "title" | "description" | "closeTrigger" | "actionTrigger", {
+declare const toastRecipe: SlotRecipeRuntimeFn<"title" | "description" | "closeTrigger" | "root" | "actionTrigger", {
   status: {
     info: {
       root: {

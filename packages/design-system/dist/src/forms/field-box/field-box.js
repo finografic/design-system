@@ -1,6 +1,5 @@
-import { __require } from "../../../_virtual/_rolldown/runtime.js";
 import { fieldBoxRecipe } from "./field-box.recipe.js";
-import { useEffect, useRef, useState } from "react";
+import { Children, isValidElement, useEffect, useRef, useState } from "react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { Field } from "@ark-ui/react";
 import { useFormContext } from "react-hook-form";
@@ -130,7 +129,6 @@ function FieldBox({ name, label, hint, required = false, size = "md", children, 
 FieldBox.displayName = "FieldBox";
 function hasArkFieldInput(children) {
 	if (!children) return false;
-	const { Children, isValidElement } = __require("react");
 	return Children.toArray(children).some((child) => isValidElement(child) && (child.type === Field.Input || child.type === Field.Textarea));
 }
 //#endregion

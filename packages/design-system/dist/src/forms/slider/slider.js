@@ -1,18 +1,74 @@
-import { sliderRecipe } from "./slider.recipe.js";
+import { forwardRef } from "react";
+import { jsx } from "react/jsx-runtime";
 import { Slider } from "@ark-ui/react";
-import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/slider/slider.tsx
-const { withProvider, withContext } = createStyleContext(sliderRecipe);
+function cx(...classes) {
+	return classes.filter(Boolean).join(" ");
+}
+const Root = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Root, {
+	ref,
+	className: cx("ds-slider", className),
+	...props
+}));
+Root.displayName = "Slider.Root";
+const Label = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Label, {
+	ref,
+	className: cx("ds-slider__label", className),
+	...props
+}));
+Label.displayName = "Slider.Label";
+const ValueText = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.ValueText, {
+	ref,
+	className: cx("ds-slider__value-text", className),
+	...props
+}));
+ValueText.displayName = "Slider.ValueText";
+const Control = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Control, {
+	ref,
+	className: cx("ds-slider__control", className),
+	...props
+}));
+Control.displayName = "Slider.Control";
+const Track = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Track, {
+	ref,
+	className: cx("ds-slider__track", className),
+	...props
+}));
+Track.displayName = "Slider.Track";
+const Range = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Range, {
+	ref,
+	className: cx("ds-slider__range", className),
+	...props
+}));
+Range.displayName = "Slider.Range";
+const Thumb = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Thumb, {
+	ref,
+	className: cx("ds-slider__thumb", className),
+	...props
+}));
+Thumb.displayName = "Slider.Thumb";
+const MarkerGroup = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.MarkerGroup, {
+	ref,
+	className: cx("ds-slider__marker-group", className),
+	...props
+}));
+MarkerGroup.displayName = "Slider.MarkerGroup";
+const Marker = forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx(Slider.Marker, {
+	ref,
+	className: cx("ds-slider__marker", className),
+	...props
+}));
+Marker.displayName = "Slider.Marker";
 const Slider$1 = {
-	Root: withProvider(Slider.Root, "root"),
-	Label: withContext(Slider.Label, "label"),
-	ValueText: withContext(Slider.ValueText, "valueText"),
-	Control: withContext(Slider.Control, "control"),
-	Track: withContext(Slider.Track, "track"),
-	Range: withContext(Slider.Range, "range"),
-	Thumb: withContext(Slider.Thumb, "thumb"),
-	MarkerGroup: withContext(Slider.MarkerGroup, "markerGroup"),
-	Marker: withContext(Slider.Marker, "marker"),
+	Root,
+	Label,
+	ValueText,
+	Control,
+	Track,
+	Range,
+	Thumb,
+	MarkerGroup,
+	Marker,
 	HiddenInput: Slider.HiddenInput
 };
 //#endregion

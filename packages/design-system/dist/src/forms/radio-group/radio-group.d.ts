@@ -5,7 +5,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/forms/radio-group/radio-group.d.ts
 declare const RadioGroup$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl" | "itemDescription", {
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"label" | "root" | "item" | "itemText" | "indicator" | "itemControl" | "itemDescription", {
     size: {
       sm: {
         label: {

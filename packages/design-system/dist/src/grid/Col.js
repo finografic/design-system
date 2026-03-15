@@ -1,7 +1,8 @@
 import { forwardRef } from "react";
 import { jsx } from "react/jsx-runtime";
 //#region src/grid/Col.tsx
-const Col = forwardRef(({ xs, sm, md, lg, xl, xxl, className, ...props }, ref) => {
+const Col = forwardRef(({ xs, sm, md, lg, xl, xxl, "2xl": xxl2, className, ...props }, ref) => {
+	const xxlValue = xxl ?? xxl2;
 	return /* @__PURE__ */ jsx("div", {
 		ref,
 		className: [
@@ -11,7 +12,7 @@ const Col = forwardRef(({ xs, sm, md, lg, xl, xxl, className, ...props }, ref) =
 			md != null && `ds-col-md-${md}`,
 			lg != null && `ds-col-lg-${lg}`,
 			xl != null && `ds-col-xl-${xl}`,
-			xxl != null && `ds-col-xxl-${xxl}`,
+			xxlValue != null && `ds-col-xxl-${xxlValue}`,
 			className
 		].filter(Boolean).join(" "),
 		...props
