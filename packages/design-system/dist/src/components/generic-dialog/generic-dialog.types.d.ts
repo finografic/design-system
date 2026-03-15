@@ -10,13 +10,13 @@ interface TabConfig {
   content: React.ReactNode;
   disabled?: boolean;
 }
-type ButtonColorScheme = NonNullable<ButtonVariants>['colorScheme'];
+type ButtonPalette = NonNullable<ButtonVariants>['palette'];
 type ButtonVariant = NonNullable<ButtonVariants>;
 interface FooterButton {
   label: string;
   onClick: () => void;
   variant?: ButtonVariant;
-  colorScheme?: ButtonColorScheme;
+  palette?: ButtonPalette;
 }
 interface DialogConfig {
   title: string;

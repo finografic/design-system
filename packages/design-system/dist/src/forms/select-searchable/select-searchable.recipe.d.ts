@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../../styled-system/types/recipe.js";
 //#region src/forms/select-searchable/select-searchable.recipe.d.ts
-declare const selectSearchableRecipe: SlotRecipeRuntimeFn<"input" | "content" | "positioner" | "root" | "emptyState" | "trigger" | "item" | "itemText" | "itemIndicator" | "control" | "list" | "clearTrigger" | "leadIcon" | "addNew", {
+declare const selectSearchableRecipe: SlotRecipeRuntimeFn<"input" | "content" | "root" | "emptyState" | "positioner" | "item" | "itemText" | "itemIndicator" | "trigger" | "list" | "control" | "clearTrigger" | "leadIcon" | "addNew", {
   size: {
     sm: {
       control: {

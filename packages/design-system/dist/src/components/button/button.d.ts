@@ -6,7 +6,7 @@ import { ComponentPropsWithoutRef, ReactNode } from "react";
 type ButtonProps = ComponentPropsWithoutRef<'button'> & ButtonVariants & {
   /** Visual size — xs · sm · md · lg · xl. Default: md */size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'; /** Visual variant — solid · subtle · outline · ghost · link. Default: outline */
   variant?: 'solid' | 'subtle' | 'outline' | 'ghost' | 'link'; /** Color scheme. Default: default */
-  colorScheme?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'grey'; /** Loading state — disables the button and sets aria-busy */
+  palette?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'grey'; /** Loading state — disables the button and sets aria-busy */
   loading?: boolean; /** Icon element rendered before children (or after, see iconPosition) */
   icon?: ReactNode; /** Position of the icon relative to text content. Default: left */
   iconPosition?: 'left' | 'right';
@@ -14,12 +14,12 @@ type ButtonProps = ComponentPropsWithoutRef<'button'> & ButtonVariants & {
 declare const Button: react.ForwardRefExoticComponent<Omit<react.DetailedHTMLProps<react.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
   variant?: "link" | "outline" | "solid" | "subtle" | "ghost" | undefined;
-  colorScheme?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
+  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
   iconOnly?: boolean | undefined;
 } & {
   /** Visual size — xs · sm · md · lg · xl. Default: md */size?: "xs" | "sm" | "md" | "lg" | "xl"; /** Visual variant — solid · subtle · outline · ghost · link. Default: outline */
   variant?: "solid" | "subtle" | "outline" | "ghost" | "link"; /** Color scheme. Default: default */
-  colorScheme?: "default" | "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey"; /** Loading state — disables the button and sets aria-busy */
+  palette?: "default" | "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey"; /** Loading state — disables the button and sets aria-busy */
   loading?: boolean; /** Icon element rendered before children (or after, see iconPosition) */
   icon?: ReactNode; /** Position of the icon relative to text content. Default: left */
   iconPosition?: "left" | "right";

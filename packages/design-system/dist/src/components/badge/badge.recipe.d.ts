@@ -32,7 +32,7 @@ declare const badgeRecipe: RecipeRuntimeFn<{
       borderStyle: "solid";
     };
   };
-  colorScheme: {
+  palette: {
     primary: {};
     success: {};
     warning: {};

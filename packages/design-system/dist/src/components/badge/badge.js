@@ -2,10 +2,10 @@ import { badgeRecipe } from "./badge.recipe.js";
 import { forwardRef } from "react";
 import { jsx } from "react/jsx-runtime";
 //#region src/components/badge/badge.tsx
-const Badge = forwardRef(({ variant, colorScheme, size, className, children, ...props }, ref) => {
+const Badge = forwardRef(({ variant, palette, size, className, children, ...props }, ref) => {
 	const cls = badgeRecipe({
 		variant,
-		colorScheme,
+		palette,
 		size
 	});
 	return /* @__PURE__ */ jsx("span", {

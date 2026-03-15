@@ -6,8 +6,8 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/tooltip/tooltip.d.ts
 declare const Tooltip$1: {
-  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "positioner" | "trigger" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "positioner" | "trigger" | "arrow" | "arrowTip">>>;
-  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "positioner" | "trigger" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "positioner" | "trigger" | "arrow" | "arrowTip">>>;
+  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "positioner" | "arrow" | "arrowTip" | "trigger", SlotRecipeVariantRecord<"content" | "positioner" | "arrow" | "arrowTip" | "trigger">>>;
+  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "positioner" | "arrow" | "arrowTip" | "trigger", SlotRecipeVariantRecord<"content" | "positioner" | "arrow" | "arrowTip" | "trigger">>>;
   Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.TriggerProps & react.RefAttributes<HTMLButtonElement>>>;
   Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.PositionerProps & react.RefAttributes<HTMLDivElement>>>;
   Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.ContentProps & react.RefAttributes<HTMLDivElement>>>;

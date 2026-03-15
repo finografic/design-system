@@ -159,7 +159,7 @@ Based on what's already in the package and where it's heading, here's what I'd s
       # Recipes
     recipes/
         overview.md        — what a recipe is, slot vs non-slot, how codegen works, the cls pattern
-      button.md          — all variants table, colorScheme × variant matrix, icon usage
+      button.md          — all variants table, palette × variant matrix, icon usage
         table.md           — move DATATABLE.example.md here, rename to table.md
       forms.md           — input, label, form-field, select together (they're always used as a unit)
 
@@ -185,4 +185,4 @@ A few decisions baked into that structure worth calling out:
 
 **`table.md` not `DATATABLE.example.md`.** Once it lives in `recipes/`, the filename should match the convention of the other recipe docs. The "example" suffix made sense as a standalone deliverable but not in a structured docs folder.
 
-Skip documenting every recipe individually** — `badge`, `callout`, `card`, `text`, `tooltip` etc. are simple enough that the recipe source file's JSDoc is sufficient. Save dedicated docs for things with real complexity: button (colorScheme matrix), table (TanStack integration), forms (compound component system).
+Skip documenting every recipe individually** — `badge`, `callout`, `card`, `text`, `tooltip` etc. are simple enough that the recipe source file's JSDoc is sufficient. Save dedicated docs for things with real complexity: button (palette matrix), table (TanStack integration), forms (compound component system).

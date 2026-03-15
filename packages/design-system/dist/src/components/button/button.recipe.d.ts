@@ -129,7 +129,7 @@ declare const buttonRecipe: RecipeRuntimeFn<{
       };
     };
   };
-  colorScheme: {
+  palette: {
     default: {
       colorPalette: "neutral";
     };

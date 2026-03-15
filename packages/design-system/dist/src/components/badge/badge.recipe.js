@@ -3,7 +3,7 @@ import { cva } from "@styled-system/css";
 /**
 * Badge Recipe
 *
-* Variants: size (sm | md | lg) · variant (solid | soft | outline) · colorScheme
+* Variants: size (sm | md | lg) · variant (solid | soft | outline) · palette
 */
 const badgeRecipe = cva({
 	base: {
@@ -44,7 +44,7 @@ const badgeRecipe = cva({
 				borderStyle: "solid"
 			}
 		},
-		colorScheme: {
+		palette: {
 			primary: {},
 			success: {},
 			warning: {},
@@ -56,17 +56,17 @@ const badgeRecipe = cva({
 	compoundVariants: [
 		{
 			variant: "solid",
-			colorScheme: "primary",
+			palette: "primary",
 			css: { bg: "primary" }
 		},
 		{
 			variant: "solid",
-			colorScheme: "success",
+			palette: "success",
 			css: { bg: "success" }
 		},
 		{
 			variant: "solid",
-			colorScheme: "warning",
+			palette: "warning",
 			css: {
 				bg: "warning",
 				color: "fg"
@@ -74,17 +74,17 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "solid",
-			colorScheme: "danger",
+			palette: "danger",
 			css: { bg: "danger" }
 		},
 		{
 			variant: "solid",
-			colorScheme: "info",
+			palette: "info",
 			css: { bg: "info" }
 		},
 		{
 			variant: "solid",
-			colorScheme: "neutral",
+			palette: "neutral",
 			css: {
 				bg: "neutral",
 				color: "fg.inverted"
@@ -92,7 +92,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "soft",
-			colorScheme: "primary",
+			palette: "primary",
 			css: {
 				bg: "accent.subtle",
 				color: "accent.fg"
@@ -100,7 +100,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "soft",
-			colorScheme: "success",
+			palette: "success",
 			css: {
 				bg: "bg.success",
 				color: "fg.success"
@@ -108,7 +108,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "soft",
-			colorScheme: "warning",
+			palette: "warning",
 			css: {
 				bg: "bg.warning",
 				color: "fg.warning"
@@ -116,7 +116,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "soft",
-			colorScheme: "danger",
+			palette: "danger",
 			css: {
 				bg: "bg.error",
 				color: "fg.error"
@@ -124,7 +124,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "soft",
-			colorScheme: "info",
+			palette: "info",
 			css: {
 				bg: "bg.info",
 				color: "fg.info"
@@ -132,7 +132,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "soft",
-			colorScheme: "neutral",
+			palette: "neutral",
 			css: {
 				bg: "bg.muted",
 				color: "fg.muted"
@@ -140,7 +140,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "outline",
-			colorScheme: "primary",
+			palette: "primary",
 			css: {
 				borderColor: "accent.solid",
 				color: "accent.fg"
@@ -148,7 +148,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "outline",
-			colorScheme: "success",
+			palette: "success",
 			css: {
 				borderColor: "border.success",
 				color: "fg.success"
@@ -156,7 +156,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "outline",
-			colorScheme: "warning",
+			palette: "warning",
 			css: {
 				borderColor: "border.warning",
 				color: "fg.warning"
@@ -164,7 +164,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "outline",
-			colorScheme: "danger",
+			palette: "danger",
 			css: {
 				borderColor: "border.error",
 				color: "fg.error"
@@ -172,7 +172,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "outline",
-			colorScheme: "info",
+			palette: "info",
 			css: {
 				borderColor: "border.info",
 				color: "fg.info"
@@ -180,7 +180,7 @@ const badgeRecipe = cva({
 		},
 		{
 			variant: "outline",
-			colorScheme: "neutral",
+			palette: "neutral",
 			css: {
 				borderColor: "border",
 				color: "fg.muted"
@@ -190,7 +190,7 @@ const badgeRecipe = cva({
 	defaultVariants: {
 		size: "md",
 		variant: "soft",
-		colorScheme: "neutral"
+		palette: "neutral"
 	}
 });
 //#endregion

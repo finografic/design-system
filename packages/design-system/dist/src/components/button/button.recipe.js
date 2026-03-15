@@ -4,10 +4,10 @@ import { cva } from "@styled-system/css";
 * Button Recipe
 *
 * Variants: size (xs|sm|md|lg|xl) · variant (solid|subtle|outline|ghost|link)
-*           colorScheme (default|primary|secondary|success|warning|danger|info|grey)
+*           palette (default|primary|secondary|success|warning|danger|info|grey)
 *           iconOnly (boolean)
 *
-* Architecture: `colorScheme` sets `colorPalette` — all variant styles
+* Architecture: `palette` sets `colorPalette` — all variant styles
 * reference `colorPalette.*` tokens, so they work across all color schemes
 * with no compound variants (except warning+solid which needs dark fg).
 */
@@ -174,7 +174,7 @@ const buttonRecipe = cva({
 				_active: { color: "colorPalette.darker" }
 			}
 		},
-		colorScheme: {
+		palette: {
 			default: { colorPalette: "neutral" },
 			primary: { colorPalette: "primary" },
 			secondary: { colorPalette: "secondary" },
@@ -188,13 +188,13 @@ const buttonRecipe = cva({
 	},
 	compoundVariants: [{
 		variant: "solid",
-		colorScheme: "warning",
+		palette: "warning",
 		css: { color: "fg" }
 	}],
 	defaultVariants: {
 		size: "md",
 		variant: "outline",
-		colorScheme: "default"
+		palette: "default"
 	}
 });
 //#endregion

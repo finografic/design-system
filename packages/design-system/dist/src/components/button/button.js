@@ -6,26 +6,26 @@ import { ark } from "@ark-ui/react";
 * Button Component
 *
 * Accessible button built on `ark.button`. Styling via `buttonRecipe`
-* — pass `className={buttonRecipe({ variant, colorScheme, size })}`.
+* — pass `className={buttonRecipe({ variant, palette, size })}`.
 *
 * Usage:
 * ```tsx
 * import { Button } from '@workspace/design-system/components';
 * import { buttonRecipe } from '@workspace/design-system/recipes';
 *
-* <Button className={buttonRecipe({ variant: 'solid', colorScheme: 'primary' })}>
+* <Button className={buttonRecipe({ variant: 'solid', palette: 'primary' })}>
 *   Save
 * </Button>
 * ```
 */
-const Button = forwardRef(({ size = "md", variant = "outline", colorScheme = "default", loading = false, icon, iconPosition = "left", disabled, children, className, ...props }, ref) => {
+const Button = forwardRef(({ size = "md", variant = "outline", palette = "default", loading = false, icon, iconPosition = "left", disabled, children, className, ...props }, ref) => {
 	return /* @__PURE__ */ jsxs(ark.button, {
 		ref,
 		disabled: disabled || loading,
 		"aria-busy": loading || void 0,
 		"data-size": size,
 		"data-variant": variant,
-		"data-color-scheme": colorScheme,
+		"data-color-scheme": palette,
 		"data-loading": loading || void 0,
 		className,
 		...props,
