@@ -1,84 +1,22 @@
 {
-  "name": "@finografic/design-system",
-  "type": "module",
-  "version": "0.0.1",
-  "description": "Token-driven design system built on Ark UI and Panda CSS.",
-  "homepage": "https://github.com/finografic/design-system",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/finografic/design-system.git"
-  },
-  "bugs": {
-    "url": "https://github.com/finografic/design-system/issues"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "author": {
-    "name": "Justin",
-    "email": "justin.blair.rankin@gmail.com"
-  },
+  "name": "@finografic/design-system-workspace",
   "private": true,
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./tokens": {
-      "types": "./dist/tokens/index.d.ts",
-      "import": "./dist/tokens/index.js"
-    },
-    "./recipes": {
-      "types": "./dist/recipes/index.d.ts",
-      "import": "./dist/recipes/index.js"
-    },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js"
-    },
-    "./styles/reset.css": "./src/styles/reset.css",
-    "./styles/keyframes.css": "./src/styles/keyframes.css",
-    "./styles/global.css": "./src/styles/global.css",
-    "./grid": {
-      "types": "./dist/grid/index.d.ts",
-      "import": "./dist/grid/index.js"
-    },
-    "./grid/grid.css": "./src/grid/grid.css",
-    "./forms": {
-      "types": "./dist/forms/index.d.ts",
-      "import": "./dist/forms/index.js"
-    },
-    "./forms/forms.css": "./src/forms/forms.css",
-    "./viewport": {
-      "types": "./dist/viewport/index.d.ts",
-      "import": "./dist/viewport/index.js"
-    },
-    "./palette/colors": {
-      "types": "./dist/palette/colors.palette.d.ts",
-      "import": "./dist/palette/colors.palette.js"
-    },
-    "./panda.preset": {
-      "types": "./dist/panda.preset.d.mts",
-      "import": "./dist/panda.preset.mjs"
-    }
-  },
-  "files": [
-    "dist",
-    "src/components",
-    "src/forms",
-    "src/grid",
-    "src/styles"
-  ],
+  "description": "Workspace root — see packages/ for publishable packages.",
   "scripts": {
-    "build": "panda codegen && tsdown",
-    "dev": "panda cssgen --watch",
-    "·········· PANDA": "·····················································",
-    "panda:spec": "panda spec",
-    "panda:studio": "panda studio",
-    "panda:codegen": "panda codegen",
-    "panda:mcp": "panda mcp",
+    "·········· BUILD": "·····················································",
+    "build": "pnpm --filter @finografic/design-system build",
+    "build.icons": "pnpm --filter @finografic/icons build",
+    "build.all": "pnpm build.icons && pnpm build",
+    "·········· DEV": "·····················································",
+    "dev": "pnpm --filter @finografic/design-system dev",
+    "dev.icons": "pnpm --filter @finografic/icons dev",
+    "·········· ICONS": "·····················································",
+    "icons": "pnpm --filter @finografic/icons icons.config",
+    "icons.generate": "pnpm --filter @finografic/icons build",
+    "·········· TYPECHECK": "················································",
+    "typecheck": "pnpm -r typecheck",
+    "typecheck.ds": "pnpm --filter @finografic/design-system typecheck",
+    "typecheck.icons": "pnpm --filter @finografic/icons typecheck",
     "·········· LINTING": "················································",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
@@ -88,31 +26,15 @@
     "·········· CLEAN": "·····················································",
     "clean": "pnpm --package=@finografic/project-scripts dlx purge-builds --recursive --detach",
     "clean.dry": "pnpm --package=@finografic/project-scripts dlx purge-builds --recursive --dry-run",
-    "update.project-scripts": "pnpm update @finografic/project-scripts --latest --recursive",
-    "·········· PUBLISH.GITHUB": "············································",
-    "release.github.patch": "pnpm run release.check && pnpm version patch && git push --follow-tags",
-    "release.github.minor": "pnpm run release.check && pnpm version minor && git push --follow-tags",
-    "release.github.major": "pnpm run release.check && pnpm version major && git push --follow-tags",
-    "release.check": "pnpm lint.fix && pnpm typecheck && pnpm test.run",
-    "release.publish": "pnpm publish --registry https://npm.pkg.github.com",
-    "·········· REGISTRIES": "················································",
-    "view.registry.github": "pnpm view @finografic/design-system --registry=https://npm.pkg.github.com",
+    "·········· PUBLISH": "·····················································",
+    "release.ds.patch": "pnpm --filter @finografic/design-system version patch && git push --follow-tags",
+    "release.ds.minor": "pnpm --filter @finografic/design-system version minor && git push --follow-tags",
+    "release.ds.major": "pnpm --filter @finografic/design-system version major && git push --follow-tags",
+    "release.icons.patch": "pnpm --filter @finografic/icons version patch && git push --follow-tags",
+    "publish.ds": "pnpm --filter @finografic/design-system publish --registry https://npm.pkg.github.com",
+    "publish.icons": "pnpm --filter @finografic/icons publish --registry https://npm.pkg.github.com",
     "·········· PACKAGES": "··················································",
-    "update.eslint-config": "pnpm update @finografic/eslint-config --latest",
-    "update.dprint-config": "pnpm update @finografic/dprint-config --latest",
-    "update.deps.all": "pnpm update --latest",
-    "·········· UTILS": "·····················································",
-    "tsc.debug": "tsc --pretty --project tsconfig.json",
-    "typecheck": "tsc --noEmit",
-    "prepack": "pnpm build",
-    "prepare": "panda codegen"
-  },
-  "dependencies": {
-    "@ark-ui/react": "^5.34.1",
-    "@tanstack/react-table": "8.21.3",
-    "lucide-react": "^0.577.0",
-    "match-sorter": "8.2.0",
-    "react-hook-form": "7.71.1"
+    "update.deps.all": "pnpm update --latest -r"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.4",
@@ -120,35 +42,18 @@
     "@eslint/js": "^9.39.3",
     "@finografic/dprint-config": "^0.13.0",
     "@finografic/project-scripts": "8.12.0",
-    "@pandacss/dev": "^1.9.0",
-    "@pandacss/studio": "^1.9.0",
     "@stylistic/eslint-plugin": "^4.4.1",
     "@types/node": "^24.12.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.5",
     "dprint": "^0.52.0",
     "eslint": "^9.33.0",
     "eslint-plugin-markdownlint": "^0.9.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "17.3.0",
-    "jiti": "^2.6.1",
     "lint-staged": "^16.4.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "simple-git-hooks": "^2.13.1",
     "tsdown": "^0.21.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.55.0"
-  },
-  "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "7.71.1"
-  },
-  "peerDependenciesMeta": {
-    "react-hook-form": {
-      "optional": true
-    }
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [

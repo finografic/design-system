@@ -4,6 +4,7 @@ node_modules/
 
 # Build outputs
 styled-system/
+packages/*/styled-system/
 *.tgz
 
 # Turbo cache

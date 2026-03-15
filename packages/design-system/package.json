@@ -1,0 +1,121 @@
+{
+  "name": "@finografic/design-system",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Token-driven design system built on Ark UI and Panda CSS.",
+  "homepage": "https://github.com/finografic/design-system",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finografic/design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/finografic/design-system/issues"
+  },
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "author": {
+    "name": "Justin",
+    "email": "justin.blair.rankin@gmail.com"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
+    },
+    "./recipes": {
+      "types": "./dist/recipes/index.d.ts",
+      "import": "./dist/recipes/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./forms": {
+      "types": "./dist/forms/index.d.ts",
+      "import": "./dist/forms/index.js"
+    },
+    "./grid": {
+      "types": "./dist/grid/index.d.ts",
+      "import": "./dist/grid/index.js"
+    },
+    "./viewport": {
+      "types": "./dist/viewport/index.d.ts",
+      "import": "./dist/viewport/index.js"
+    },
+    "./palette/colors.base": {
+      "types": "./dist/palette/colors.palette.d.ts",
+      "import": "./dist/palette/colors.palette.js"
+    },
+    "./panda.preset": {
+      "types": "./dist/panda.preset.d.mts",
+      "import": "./dist/panda.preset.mjs"
+    },
+    "./styles/reset.css": "./src/styles/reset.css",
+    "./styles/keyframes.css": "./src/styles/keyframes.css",
+    "./styles/global.css": "./src/styles/global.css",
+    "./grid/grid.css": "./src/grid/grid.css",
+    "./forms/forms.css": "./src/forms/forms.css"
+  },
+  "files": [
+    "dist",
+    "src/styles",
+    "src/grid/grid.css",
+    "src/forms/forms.css"
+  ],
+  "scripts": {
+    "build": "panda codegen && tsdown",
+    "dev": "panda cssgen --watch",
+    "·········· PANDA": "·····················································",
+    "panda:spec": "panda spec",
+    "panda:studio": "panda studio",
+    "panda:codegen": "panda codegen",
+    "panda:mcp": "panda mcp",
+    "·········· LINTING": "················································",
+    "lint": "eslint .",
+    "lint.fix": "eslint . --fix",
+    "·········· FORMATTING": "················································",
+    "format": "dprint fmt --diff",
+    "format.check": "dprint check",
+    "·········· UTILS": "·····················································",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm build",
+    "prepare": "panda codegen"
+  },
+  "dependencies": {
+    "@finografic/icons": "workspace:*",
+    "@tanstack/react-table": "8.21.3",
+    "match-sorter": "8.2.0"
+  },
+  "devDependencies": {
+    "@ark-ui/react": "^5.34.1",
+    "@pandacss/dev": "^1.9.0",
+    "@pandacss/studio": "^1.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.5",
+    "jiti": "^2.6.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsdown": "^0.21.2",
+    "typescript": "^5.9.2"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@ark-ui/react": "^5.11.0",
+    "react-hook-form": "7.71.1"
+  },
+  "peerDependenciesMeta": {
+    "react-hook-form": {
+      "optional": true
+    }
+  }
+}
