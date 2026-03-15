@@ -25,7 +25,7 @@ const Button = forwardRef(({ size = "md", variant = "outline", palette = "defaul
 		"aria-busy": loading || void 0,
 		"data-size": size,
 		"data-variant": variant,
-		"data-color-scheme": palette,
+		"data-palette": palette,
 		"data-loading": loading || void 0,
 		className,
 		...props,

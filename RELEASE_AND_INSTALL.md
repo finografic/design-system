@@ -192,12 +192,20 @@ import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
   presets: [designSystemPreset],
-  include: ['./src/**/*.{ts,tsx}'],
+  include: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@finografic/design-system/dist/**/*.js', // required — lets panda extract DS recipes
+  ],
   outdir: 'styled-system',
   jsxFramework: 'react',
   preflight: false, // DS ships its own reset.css
 });
 ```
+
+> **Without the `node_modules` include line**, panda generates class names from DS
+> components (e.g. `button--solid button--info`) but never generates the corresponding
+> CSS — so buttons appear unstyled. Adding the DS dist path lets panda scan the compiled
+> recipe definitions and generate the correct styles.
 
 Then run `panda codegen` to generate the consumer's `styled-system/` directory.
 

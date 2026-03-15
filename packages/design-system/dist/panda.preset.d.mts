@@ -1301,7 +1301,7 @@ interface StandardLonghandProperties<TLength = (string & {}) | 0, TTime = string
    * | :----: | :-----: | :----: | :----: | :-: |
    * | **81** | **96**  | **13** | **81** | No  |
    *
-   * @see https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/color-scheme
+   * @see https://developer.mozilla.org/docs/Web/CSS/Reference/Properties/palette
    */
   colorScheme?: Property.ColorScheme | undefined;
   /**

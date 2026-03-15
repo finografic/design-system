@@ -53,7 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       size = 'md',
       variant = 'outline',
-      palette = 'default',
+      palette = 'danger',
       loading = false,
       icon,
       iconPosition = 'left',
@@ -71,7 +71,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={loading || undefined}
         data-size={size}
         data-variant={variant}
-        data-color-scheme={palette}
+        data-palette={palette}
         data-loading={loading || undefined}
         // className={className}
         className={cx(buttonRecipe({ size, variant, palette }), className)}

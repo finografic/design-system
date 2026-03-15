@@ -1985,10 +1985,10 @@ export default defineConfig({
 ```
 
 <RouteSwitchContent value="app-dir">
-  
+
   > **Note:** Feel free to remove the `page.module.css` file as we don't need it
   anymore.
-  
+
 </RouteSwitchContent>
 <RouteSwitchContent value="pages-dir">
 
@@ -1999,7 +1999,7 @@ export default defineConfig({
 ### Import the entry CSS in your app
 
 <RouteSwitchContent value="app-dir">
-  
+
 Make sure that you import the `globals.css` file in your `src/app/layout.tsx` file as follows:
 
 ```tsx {1} filename="./src/app/layout.tsx"
@@ -5530,7 +5530,7 @@ Use the `_motionReduce` and `_motionSafe` modifiers to style an element based on
 
 ### Color Scheme
 
-The `prefers-color-scheme` media feature is used to detect if the user has requested the system use a light or dark
+The `prefers-palette` media feature is used to detect if the user has requested the system use a light or dark
 color theme.
 
 Use the `_osLight` and `_osDark` modifiers to style an element based on the user's color scheme preference:
@@ -5903,8 +5903,8 @@ Here's a list of all the condition shortcuts you can use in Panda:
 | \_portrait             | `@media (orientation: portrait)`                                                                 |
 | \_dark                 | `.dark &`                                                                                        |
 | \_light                | `.light &`                                                                                       |
-| \_osDark               | `@media (prefers-color-scheme: dark)`                                                            |
-| \_osLight              | `@media (prefers-color-scheme: light)`                                                           |
+| \_osDark               | `@media (prefers-palette: dark)`                                                            |
+| \_osLight              | `@media (prefers-palette: light)`                                                           |
 | \_highContrast         | `@media (forced-colors: active)`                                                                 |
 | \_lessContrast         | `@media (prefers-contrast: less)`                                                                |
 | \_moreContrast         | `@media (prefers-contrast: more)`                                                                |
@@ -6167,7 +6167,7 @@ You can set variables on `:root`, a `.dark` class, or via media queries.
   --global-color-border: oklch(0.72 0 0);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-palette: dark) {
   :root {
     --global-color-border: oklch(0.72 0 0);
   }
@@ -17558,7 +17558,7 @@ This will generate the following CSS:
     --colors-body: var(--colors-red-600);
   }
 
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-palette: dark) {
     :where(:root, :host) {
       --colors-body: var(--colors-blue-400);
     }

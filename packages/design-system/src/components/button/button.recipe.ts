@@ -135,7 +135,7 @@ export const buttonRecipe = cva({
       outline: {
         bg: 'transparent',
         color: 'colorPalette.base',
-        borderColor: 'colorPalette.base',
+        borderColor: 'colorPalette.dark',
         _hover: {
           bg: 'colorPalette.xlight',
           color: 'colorPalette.dark',
