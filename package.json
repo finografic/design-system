@@ -83,7 +83,7 @@
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
     "·········· FORMATTING": "················································",
-    "format": "dprint fmt **/*.md --diff",
+    "format": "dprint fmt --diff",
     "format.check": "dprint check",
     "·········· CLEAN": "·····················································",
     "clean": "pnpm --package=@finografic/project-scripts dlx purge-builds --recursive --detach",
