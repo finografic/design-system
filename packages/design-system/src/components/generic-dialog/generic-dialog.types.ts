@@ -13,8 +13,8 @@ export interface TabConfig {
   disabled?: boolean;
 }
 
-type ButtonColorScheme = NonNullable<ButtonVariants['colorScheme']>;
-type ButtonVariant = NonNullable<ButtonVariants['variant']>;
+type ButtonColorScheme = NonNullable<ButtonVariants>['colorScheme'];
+type ButtonVariant = NonNullable<ButtonVariants>;
 
 interface FooterButton {
   label: string;

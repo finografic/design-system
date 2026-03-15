@@ -35,9 +35,9 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 					className: cx("ds-generic-dialog__header", hasTitle && "has-title"),
 					children: [/* @__PURE__ */ jsxs(Dialog.Title, {
 						className: hasTitle ? void 0 : "sr-only",
-						children: [config.title || "Dialog", config.subtitle && /* @__PURE__ */ jsxs("span", {
+						children: [config.title || "Dialog", config.subtitle && /* @__PURE__ */ jsx("span", {
 							className: "ds-generic-dialog__subtitle",
-							children: [" ", config.subtitle]
+							children: config.subtitle
 						})]
 					}), /* @__PURE__ */ jsx(Dialog.CloseTrigger, {
 						asChild: true,
@@ -52,8 +52,7 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 				}),
 				/* @__PURE__ */ jsxs(Dialog.Description, { children: [
 					config.title,
-					" —",
-					" ",
+					" — ",
 					hasTabs ? "Navigate between tabs to access different sections" : config.description || "Dialog content"
 				] }),
 				/* @__PURE__ */ jsx(Dialog.Body, {
@@ -83,27 +82,12 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 				}),
 				config.footer && /* @__PURE__ */ jsx(Dialog.Footer, {
 					className: "ds-generic-dialog__footer",
-					children: /* @__PURE__ */ jsxs("div", {
-						style: {
-							display: "flex",
-							justifyContent: "flex-end",
-							gap: "0.75rem",
-							width: "100%"
-						},
-						children: [config.footer.secondaryButton && /* @__PURE__ */ jsx(Button, {
-							variant: config.footer.secondaryButton.variant ?? "outline",
-							colorScheme: config.footer.secondaryButton.colorScheme ?? "default",
-							size: "lg",
-							onClick: config.footer.secondaryButton.onClick,
-							children: config.footer.secondaryButton.label
-						}), config.footer.primaryButton && /* @__PURE__ */ jsx(Button, {
-							variant: config.footer.primaryButton.variant ?? "solid",
-							colorScheme: config.footer.primaryButton.colorScheme ?? "primary",
-							size: "lg",
-							onClick: config.footer.primaryButton.onClick,
-							children: config.footer.primaryButton.label
-						})]
-					})
+					children: /* @__PURE__ */ jsx("div", { style: {
+						display: "flex",
+						justifyContent: "flex-end",
+						gap: "0.75rem",
+						width: "100%"
+					} })
 				})
 			]
 		}) })]

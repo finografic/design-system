@@ -10,8 +10,8 @@ interface TabConfig {
   content: React.ReactNode;
   disabled?: boolean;
 }
-type ButtonColorScheme = NonNullable<ButtonVariants['colorScheme']>;
-type ButtonVariant = NonNullable<ButtonVariants['variant']>;
+type ButtonColorScheme = NonNullable<ButtonVariants>['colorScheme'];
+type ButtonVariant = NonNullable<ButtonVariants>;
 interface FooterButton {
   label: string;
   onClick: () => void;

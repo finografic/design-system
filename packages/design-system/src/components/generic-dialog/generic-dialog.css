@@ -117,6 +117,8 @@
   scrollbar-width: thin;
   scrollbar-color: var(--colors-fg-muted) transparent;
 
+
+
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -132,8 +134,20 @@
   }
 }
 
+
+
+
 .ds-generic-dialog__single-content {
   margin-top: 1.5rem;
+}
+
+.ds-generic-dialog__single-content > div {
+  min-height : 420px !important;
+}
+
+
+.ds-generic-dialog__single-content .form-wrapper {
+
 }
 
 /* ── Tabs ────────────────────────────────────────────────────────────────── */

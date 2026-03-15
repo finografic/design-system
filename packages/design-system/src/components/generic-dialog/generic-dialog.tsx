@@ -126,7 +126,8 @@ export const GenericDialog: FC<GenericDialogProps> = ({
                   width: '100%',
                 }}
               >
-                {config.footer.secondaryButton && (
+                {
+                  /* {config.footer.secondaryButton && (
                   <Button
                     variant={config.footer.secondaryButton.variant ?? 'outline'}
                     colorScheme={config.footer.secondaryButton.colorScheme ?? 'default'}
@@ -135,8 +136,10 @@ export const GenericDialog: FC<GenericDialogProps> = ({
                   >
                     {config.footer.secondaryButton.label}
                   </Button>
-                )}
-                {config.footer.primaryButton && (
+                )} */
+                }
+                {
+                  /* {config.footer.primaryButton && (
                   <Button
                     variant={config.footer.primaryButton.variant ?? 'solid'}
                     colorScheme={config.footer.primaryButton.colorScheme ?? 'primary'}
@@ -145,7 +148,8 @@ export const GenericDialog: FC<GenericDialogProps> = ({
                   >
                     {config.footer.primaryButton.label}
                   </Button>
-                )}
+                )} */
+                }
               </div>
             </Dialog.Footer>
           )}
