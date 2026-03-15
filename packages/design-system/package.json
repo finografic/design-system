@@ -64,13 +64,16 @@
     "./styles/global.css": "./src/styles/global.css",
     "./grid/grid.css": "./src/grid/grid.css",
     "./forms/forms.css": "./src/forms/forms.css",
+    "./components/dialog/dialog.css": "./src/components/dialog/dialog.css",
     "./components/generic-dialog.css": "./src/components/generic-dialog/generic-dialog.css"
   },
   "files": [
     "dist",
     "src/styles",
     "src/grid/grid.css",
-    "src/forms/forms.css"
+    "src/forms/forms.css",
+    "src/components/dialog/dialog.css",
+    "src/components/generic-dialog/generic-dialog.css"
   ],
   "scripts": {
     "build": "panda codegen && tsdown",

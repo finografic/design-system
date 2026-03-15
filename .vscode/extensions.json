@@ -3,6 +3,7 @@
     "davidanson.vscode-markdownlint",
     "dbaeumer.vscode-eslint",
     "dprint.dprint",
+    "stylelint.vscode-stylelint",
     "yzhang.markdown-all-in-one"
   ],
   "unwantedRecommendations": []
