@@ -1,4 +1,4 @@
-# 🎨 `@finografic/design-system`
+# 🎨 @finografic/design-system
 
 Token-driven design system built on **Ark UI**, **Panda CSS**, **Lucide Icons**.
 
@@ -217,10 +217,10 @@ runtime using CSS `color-mix()` — no build step, no generated color values.
 │  Raw palette    colors.primary = oklch(48.8% ...)   │
 ├─────────────────────────────────────────────────────┤
 │  Semantic       bg.error = colors.danger.xlight     │
-│                 fg.error = colors.danger             │
-│                 border.error = colors.danger         │
+│                 fg.error = colors.danger            │
+│                 border.error = colors.danger        │
 ├─────────────────────────────────────────────────────┤
-│  Recipe         callout({ status: 'error' })         │
+│  Recipe         callout({ status: 'error' })        │
 │                   → bg: bg.error, color: fg.error   │
 └─────────────────────────────────────────────────────┘
 ```

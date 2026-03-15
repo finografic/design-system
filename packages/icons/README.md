@@ -1,4 +1,4 @@
-# 🎨 `@fingorafic/icons`
+# 🎨 @fingorafic/icons
 
 Curated icon registry for the Finografic design system.
 
