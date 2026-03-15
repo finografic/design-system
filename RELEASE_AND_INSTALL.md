@@ -68,8 +68,18 @@ pnpm format
 
 ## Releasing
 
-Both packages are always released together with a single command from the workspace
-root. Choose the bump level that matches the nature of your changes:
+### Step 1 — Build and commit your changes
+
+Before releasing, the working tree must be clean. Build both packages, then commit
+everything (including `dist/`) in a normal feature/fix commit:
+
+```bash
+pnpm build.all
+git add packages/icons/dist packages/design-system/dist
+git commit -m "feat: ..."   # or whatever describes your changes
+```
+
+### Step 2 — Run the release script
 
 ```bash
 pnpm release.patch   # 0.0.x → 0.0.x+1  (bug fixes)
@@ -77,20 +87,20 @@ pnpm release.minor   # 0.x.0 → 0.x+1.0  (new features, backwards-compatible)
 pnpm release.major   # x.0.0 → x+1.0.0  (breaking changes)
 ```
 
-Each script runs the following steps in order, then leaves git clean:
+The script (`scripts/release.ts`) will:
 
-1. **Build icons** — `packages/icons/dist` is regenerated
-2. **Build design-system** — `packages/design-system/dist` is regenerated
-3. **Stage both dists** — `git add packages/icons/dist packages/design-system/dist` — all at once so the working tree is clean before versioning
-4. **Version icons** — bumps `packages/icons/package.json`, commits staged files + version, creates git tag
-5. **Version design-system** — bumps `packages/design-system/package.json`, commits + creates git tag
-6. **Publish icons** — pushes `@finografic/icons` to GitHub Packages
-7. **Publish design-system** — pushes `@finografic/design-system` to GitHub Packages
-8. **Push** — `git push --follow-tags` — pushes both commits and both tags
+1. **Guard** — abort if the working tree is dirty
+2. **Bump versions** — updates both `package.json` files (no git ops yet)
+3. **Release commit** — `git commit -m "release v{version}"`
+4. **Tags** — `v{version}` (design-system) + `icons-v{version}` (icons)
+5. **Publish icons** — pushes `@finografic/icons` to GitHub Packages
+6. **Publish design-system** — pushes `@finografic/design-system` to GitHub Packages
+7. **Push** — `git push --follow-tags`
 
-> Icons is always built and published first because the DS lists it as a dependency.
+Git is clean when the script exits.
+
 > The `workspace:*` specifier in the DS is automatically replaced with the real
-> published icons version (e.g. `"0.1.0"`) when pnpm packages the tarball.
+> published icons version when pnpm packages the tarball.
 > Consumers receive a concrete version, not `workspace:*`.
 
 ---
