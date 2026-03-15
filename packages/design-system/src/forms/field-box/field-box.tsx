@@ -1,5 +1,5 @@
 import { Field } from '@ark-ui/react';
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { Children, isValidElement, type ReactNode, useEffect, useRef, useState } from 'react';
 import type { FieldError } from 'react-hook-form';
 import { useFormContext } from 'react-hook-form';
 
@@ -177,7 +177,6 @@ FieldBox.displayName = 'FieldBox';
 
 function hasArkFieldInput(children: ReactNode): boolean {
   if (!children) return false;
-  const { Children, isValidElement } = require('react');
   return Children.toArray(children).some(
     (child: any) =>
       isValidElement(child) && (child.type === Field.Input || child.type === Field.Textarea),
