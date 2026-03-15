@@ -15,9 +15,11 @@
  * ```
  */
 import { ark } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
+import { buttonRecipe } from './button.recipe';
 import type { ButtonVariants } from './button.types';
 
 export type ButtonProps =
@@ -71,7 +73,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-color-scheme={palette}
         data-loading={loading || undefined}
-        className={className}
+        // className={className}
+        className={cx(buttonRecipe({ size, variant, palette }), className)}
         {...props}
       >
         {icon && iconPosition === 'left' && icon}
