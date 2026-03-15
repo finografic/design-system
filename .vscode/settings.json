@@ -1,0 +1,52 @@
+{
+  "npm.packageManager": "pnpm",
+
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "eslint.enable": true,
+  "eslint.useFlatConfig": true,
+  "eslint.format.enable": true,
+
+  "prettier.enable": false,
+
+  "dprint.experimentalLsp": true,
+  "dprint.verbose": true,
+
+  // TypeScript settings for better error detection
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "javascript.suggestionActions.enabled": false,
+
+  "[javascript]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "markdownlint.config": {
+    "default": true,
+    "MD013": { "line_length": 120, "tables": false },
+    "MD025": false, // Allow multiple top-level headings (useful for TODO files)
+    "MD026": false, // Allow trailing punctuation in headings ':'
+    "MD040": false, // Don't require language for code blocks
+    "MD041": false // Don't require first line to be a top-level heading
+  },
+
+  "markdown-preview-enhanced.scrollSync": false,
+  "markdown.styles": [".vscode/markdown-github-light.css"]
+}

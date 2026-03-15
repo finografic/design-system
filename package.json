@@ -107,7 +107,7 @@
     "@ark-ui/react": "^5.34.1",
     "@finografic/dprint-config": "0.12.4",
     "@tanstack/react-table": "8.21.3",
-    "@workspace/icons": "workspace:*",
+    "lucide-react": "^0.577.0",
     "match-sorter": "8.2.0",
     "react-hook-form": "7.71.1"
   },

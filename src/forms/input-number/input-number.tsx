@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon } from '@workspace/icons';
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { NumberInput as ArkNumberInput } from '@ark-ui/react';
 import { forwardRef, type ReactNode } from 'react';

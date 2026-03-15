@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 # Dependencies
 node_modules/
 
 # Build outputs
-dist/
 styled-system/
-build/
 *.tgz
 
 # Environment files
@@ -40,10 +37,3 @@ pids
 
 # Coverage
 coverage/
-
-# TypeScript
-*.tsbuildinfo
-=======
-styled-system/
-dist/
->>>>>>> b38bc0b (feat: migrate to tsdown + build validation (Phase 5))

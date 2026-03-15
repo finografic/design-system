@@ -1,0 +1,1 @@
+import { Tabs, TabsFocusChangeDetails, TabsValueChangeDetails } from "./tabs.js";

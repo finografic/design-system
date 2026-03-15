@@ -1,4 +1,4 @@
-import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from '@workspace/icons';
+import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from 'lucide-react';
 
 import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
 import { matchSorter } from 'match-sorter';

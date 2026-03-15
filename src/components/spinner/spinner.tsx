@@ -1,4 +1,4 @@
-import { LoaderIcon } from '@workspace/icons';
+import { LoaderIcon } from 'lucide-react';
 
 import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';

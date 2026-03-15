@@ -1,4 +1,4 @@
-import { CheckIcon, MinusIcon } from '@workspace/icons';
+import { CheckIcon, MinusIcon } from 'lucide-react';
 
 import { Checkbox as ArkCheckbox } from '@ark-ui/react';
 import { createStyleContext } from '@styled-system/jsx';

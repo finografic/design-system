@@ -6,7 +6,7 @@ import {
   ChevronsUpDownIcon,
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,
-} from '@workspace/icons';
+} from 'lucide-react';
 
 import {
   type ColumnFiltersState,

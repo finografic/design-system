@@ -1,4 +1,4 @@
-import { CheckIcon, ChevronDownIcon } from '@workspace/icons';
+import { CheckIcon, ChevronDownIcon } from 'lucide-react';
 
 import { createListCollection, Select as ArkSelect } from '@ark-ui/react';
 import { forwardRef, useMemo } from 'react';
