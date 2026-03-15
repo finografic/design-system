@@ -3,7 +3,7 @@
    Import once at app entry: @finografic/design-system/components/generic-dialog.css
    ============================================================================ */
 
-.ds-generic-dialog[role='dialog'] {
+.ds-generic-dialog[role="dialog"] {
   padding-bottom: 0;
   overflow: hidden;
   background-color: var(--colors-bg);
@@ -16,22 +16,34 @@
 
 /* ── Open / close animations ─────────────────────────────────────────────── */
 
-.ds-generic-dialog[data-state='open'] {
+.ds-generic-dialog[data-state="open"] {
   animation: ds-generic-dialog-open 200ms ease-out;
 }
 
-.ds-generic-dialog[data-state='closed'] {
+.ds-generic-dialog[data-state="closed"] {
   animation: ds-generic-dialog-close 200ms ease-in;
 }
 
 @keyframes ds-generic-dialog-open {
-  from { opacity: 0; transform: scale(1.5); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes ds-generic-dialog-close {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.5); }
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
 }
 
 /* ── Header ──────────────────────────────────────────────────────────────── */
@@ -105,12 +117,18 @@
   scrollbar-width: thin;
   scrollbar-color: var(--colors-fg-muted) transparent;
 
-  &::-webkit-scrollbar { width: 8px; }
-  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
   &::-webkit-scrollbar-thumb {
     background-color: var(--colors-fg-muted);
     border-radius: 4px;
-    &:hover { background-color: var(--colors-fg); }
+    &:hover {
+      background-color: var(--colors-fg);
+    }
   }
 }
 
@@ -120,17 +138,21 @@
 
 /* ── Tabs ────────────────────────────────────────────────────────────────── */
 
-.ds-generic-dialog [role='tablist'] {
+.ds-generic-dialog [role="tablist"] {
   box-shadow: inset 0 -0.2rem 0 0 var(--colors-grey-xxxlight);
 
-  button[role='tab'] {
+  button[role="tab"] {
     height: 4rem;
     margin: 0.2rem 0.15rem 0;
     padding: 0;
     border: 0 !important;
 
-    &:first-of-type { margin-left: 0; }
-    &:last-child    { margin-right: 0; }
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
 
     span {
       padding: 0.8em 1.25em;
@@ -146,10 +168,17 @@
     }
   }
 
-  button[role='tab'][data-state='active'] {
-    &:before { background-color: var(--colors-info-light); height: 0.2rem; }
-    span  { color: var(--colors-info); }
-    svg.icon { color: var(--colors-info-light); }
+  button[role="tab"][data-state="active"] {
+    &:before {
+      background-color: var(--colors-info-light);
+      height: 0.2rem;
+    }
+    span {
+      color: var(--colors-info);
+    }
+    svg.icon {
+      color: var(--colors-info-light);
+    }
   }
 }
 
@@ -164,5 +193,7 @@
   padding: 1.5rem 0;
   background: transparent;
 
-  button { font-size: 1.5rem; }
+  button {
+    font-size: 1.5rem;
+  }
 }

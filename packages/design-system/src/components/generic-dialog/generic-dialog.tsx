@@ -64,10 +64,17 @@ export const GenericDialog: FC<GenericDialogProps> = ({
           <Dialog.Header className={cx('ds-generic-dialog__header', hasTitle && 'has-title')}>
             <Dialog.Title className={hasTitle ? undefined : 'sr-only'}>
               {config.title || 'Dialog'}
-              {config.subtitle && <span className="ds-generic-dialog__subtitle"> {config.subtitle}</span>}
+              {config.subtitle && (
+                <span className="ds-generic-dialog__subtitle">{config.subtitle}</span>
+              )}
             </Dialog.Title>
             <Dialog.CloseTrigger asChild>
-              <Button variant="ghost" size="sm" className="ds-generic-dialog__close" aria-label="Close dialog">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="ds-generic-dialog__close"
+                aria-label="Close dialog"
+              >
                 <CloseIcon />
               </Button>
             </Dialog.CloseTrigger>
@@ -75,42 +82,50 @@ export const GenericDialog: FC<GenericDialogProps> = ({
 
           {/* Accessible description for screen readers */}
           <Dialog.Description>
-            {config.title} —{' '}
-            {hasTabs
+            {config.title} — {hasTabs
               ? 'Navigate between tabs to access different sections'
               : config.description || 'Dialog content'}
           </Dialog.Description>
 
           {/* BODY */}
           <Dialog.Body className="ds-generic-dialog__body">
-            {hasTabs ? (
-              <Tabs.Root value={activeTab} onValueChange={({ value }) => handleTabChange(value)}>
-                <Tabs.List>
-                  {config.tabs.map((tab) => (
-                    <Tabs.Trigger key={tab.id} value={tab.id} disabled={tab.disabled}>
-                      {tab.icon ? tab.icon : null} {tab.label}
-                    </Tabs.Trigger>
-                  ))}
-                </Tabs.List>
-                <div className="ds-generic-dialog__tab-content">
-                  {config.tabs.map((tab) => (
-                    <Tabs.Content key={tab.id} value={tab.id}>
-                      {tab.content}
-                    </Tabs.Content>
-                  ))}
+            {hasTabs
+              ? (
+                <Tabs.Root value={activeTab} onValueChange={({ value }) => handleTabChange(value)}>
+                  <Tabs.List>
+                    {config.tabs.map((tab) => (
+                      <Tabs.Trigger key={tab.id} value={tab.id} disabled={tab.disabled}>
+                        {tab.icon ? tab.icon : null} {tab.label}
+                      </Tabs.Trigger>
+                    ))}
+                  </Tabs.List>
+                  <div className="ds-generic-dialog__tab-content">
+                    {config.tabs.map((tab) => (
+                      <Tabs.Content key={tab.id} value={tab.id}>
+                        {tab.content}
+                      </Tabs.Content>
+                    ))}
+                  </div>
+                </Tabs.Root>
+              )
+              : (
+                <div className="ds-generic-dialog__single-content">
+                  {currentTab?.content}
                 </div>
-              </Tabs.Root>
-            ) : (
-              <div className="ds-generic-dialog__single-content">
-                {currentTab?.content}
-              </div>
-            )}
+              )}
           </Dialog.Body>
 
           {/* FOOTER */}
           {config.footer && (
             <Dialog.Footer className="ds-generic-dialog__footer">
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', width: '100%' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  gap: '0.75rem',
+                  width: '100%',
+                }}
+              >
                 {config.footer.secondaryButton && (
                   <Button
                     variant={config.footer.secondaryButton.variant ?? 'outline'}
