@@ -5,7 +5,7 @@ Ok, perfect..  Could you show me how a filter input in header would look, when c
 
 Good question — this is exactly where the mental model matters. Let me show you concretely.
 
-------
+---
 
 ## How recipes compose — the mental model
 
@@ -23,84 +23,82 @@ A recipe just returns class name strings. `tableRecipe()` returns `{ th: "table_
 
 That's it. The `th` gets the table header styles, the `input` inside it gets the input styles. No magic, no nesting API — just two independent class strings on two different elements.
 
-------
+---
 
 ## What a filterable header actually looks like
 
 ```tsx
-    // OrdersTable.tsx
-    import {
-    useReactTable,
-      getCoreRowModel,
-    getSortedRowModel,
-      getFilteredRowModel,
-    flexRender,
-    } from '@tanstack/react-table';
-    import { tableRecipe } from '@workspace/design-system/recipes';
-    import { inputRecipe } from '@workspace/design-system/recipes';
-    import { ChevronsUpDownIcon, ArrowUpIcon, ArrowDownIcon } from '@workspace/icons';
+// OrdersTable.tsx
+import {
+  useReactTable,
+  getCoreRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+  flexRender,
+} from '@tanstack/react-table';
+import { tableRecipe } from '@workspace/design-system/recipes';
+import { inputRecipe } from '@workspace/design-system/recipes';
+import { ChevronsUpDownIcon, ArrowUpIcon, ArrowDownIcon } from '@workspace/icons';
 
-  const cls = tableRecipe({ size: 'sm', stickyHeader: true });
-    const filterInput = inputRecipe({ size: 'sm' });
+const cls = tableRecipe({ size: 'sm', stickyHeader: true });
+const filterInput = inputRecipe({ size: 'sm' });
 
-    function FilterableHeader({ column, label }) {
-    return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)' }}>
+function FilterableHeader({ column, label }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)' }}>
+      {/* Sort trigger row */}
+      <div
+        onClick={column.getToggleSortingHandler()}
+        data-sortable="true"
+        style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-1)' }}
+      >
+        {label}
+        <span className={cls.sortIcon} data-sort={String(column.getIsSorted())}>
+          {{ asc: <ArrowUp />, desc: <ArrowDown /> }[column.getIsSorted()] ?? <ChevronsUpDown />}
+        </span>
+      </div>
 
-          {/* Sort trigger row */}
-        <div
-            onClick={column.getToggleSortingHandler()}
-          data-sortable="true"
-            style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-1)' }}
-        >
-            {label}
-          <span className={cls.sortIcon} data-sort={String(column.getIsSorted())}>
-              {{ asc: <ArrowUp />, desc: <ArrowDown /> }[column.getIsSorted()] ?? <ChevronsUpDown />}
-          </span>
-          </div>
-
-        {/* Filter input — only rendered if column.getCanFilter() */}
-          {column.getCanFilter() && (
-          <input
-              className={filterInput}
-              value={column.getFilterValue() ?? ''}
-              onChange={e => column.setFilterValue(e.target.value)}
-              placeholder={`Filter…`}
-              onClick={e => e.stopPropagation()} // don't trigger sort on input click
-          />
-          )}
-
-        </div>
-    );
-    }
+      {/* Filter input — only rendered if column.getCanFilter() */}
+      {column.getCanFilter() && (
+        <input
+          className={filterInput}
+          value={column.getFilterValue() ?? ''}
+          onChange={e => column.setFilterValue(e.target.value)}
+          placeholder={`Filter…`}
+          onClick={e => e.stopPropagation()} // don't trigger sort on input click
+        />
+      )}
+    </div>
+  );
+}
 ```
 
 Then in your column definitions:
 
 ```ts
-    const columns = [
-      {
-        accessorKey: 'name',
-        header: ({ column }) => <FilterableHeader column={column} label="Name" />,
-      },
-      {
-        accessorKey: 'status',
-        header: ({ column }) => <FilterableHeader column={column} label="Status" />,
-      // no filter on this column — getCanFilter() returns false → input not rendered
-        enableColumnFilter: false,
-    },
-    ]
+const columns = [
+  {
+    accessorKey: 'name',
+    header: ({ column }) => <FilterableHeader column={column} label="Name" />,
+  },
+  {
+    accessorKey: 'status',
+    header: ({ column }) => <FilterableHeader column={column} label="Status" />,
+    // no filter on this column — getCanFilter() returns false → input not rendered
+    enableColumnFilter: false,
+  },
+];
 ```
 
-------
+---
 
 ## Where the `th` padding becomes relevant
 
-  Your `tableRecipe` `th` has `py: '2'` (size sm). Once you stack a label row + an input inside the `th`, that padding is on the `th` itself — it wraps both. No adjustment needed unless the header rows feel too tight, in which case you'd either bump `size` to `md` or do a one-off Emotion override in `OrdersTable.styles.ts`:
+Your `tableRecipe` `th` has `py: '2'` (size sm). Once you stack a label row + an input inside the `th`, that padding is on the `th` itself — it wraps both. No adjustment needed unless the header rows feel too tight, in which case you'd either bump `size` to `md` or do a one-off Emotion override in `OrdersTable.styles.ts`:
 
 ```ts
-    // OrdersTable.styles.ts — only if you need to tweak for this specific table
-  export const tableOverrides = css`
+// OrdersTable.styles.ts — only if you need to tweak for this specific table
+export const tableOverrides = css`
       .table__th {
       padding-block: var(--spacing-3);
       }
@@ -109,7 +107,7 @@ Then in your column definitions:
 
 That's the Emotion role — it's not composing recipes, it's tweaking a specific table's chrome after the fact. The recipe handles the 95%, Emotion handles the per-table 5%.
 
-------
+---
 
 ## The key insight for Panda newcomers
 
@@ -187,4 +185,4 @@ A few decisions baked into that structure worth calling out:
 
 **`table.md` not `DATATABLE.example.md`.** Once it lives in `recipes/`, the filename should match the convention of the other recipe docs. The "example" suffix made sense as a standalone deliverable but not in a structured docs folder.
 
-  Skip documenting every recipe individually** — `badge`, `callout`, `card`, `text`, `tooltip` etc. are simple enough that the recipe source file's JSDoc is sufficient. Save dedicated docs for things with real complexity: button (colorScheme matrix), table (TanStack integration), forms (compound component system).
+Skip documenting every recipe individually** — `badge`, `callout`, `card`, `text`, `tooltip` etc. are simple enough that the recipe source file's JSDoc is sufficient. Save dedicated docs for things with real complexity: button (colorScheme matrix), table (TanStack integration), forms (compound component system).

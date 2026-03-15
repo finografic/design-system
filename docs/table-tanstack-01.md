@@ -16,7 +16,7 @@ const filterInput = inputRecipe({ size: 'sm' });
 
 That's it. The `th` gets the table header styles, the `input` inside it gets the input styles. No magic, no nesting API — just two independent class strings on two different elements.
 
-------
+---
 
 ## What a filterable header actually looks like
 
@@ -41,7 +41,6 @@ const filterInput = inputRecipe({ size: 'sm' });
 function FilterableHeader({ column, label }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-1)' }}>
-
       {/* Sort trigger row */}
       <div
         onClick={column.getToggleSortingHandler()}
@@ -64,7 +63,6 @@ function FilterableHeader({ column, label }) {
           onClick={e => e.stopPropagation()} // don't trigger sort on input click
         />
       )}
-
     </div>
   );
 }
@@ -86,10 +84,10 @@ const columns = [
     // no filter on this column — getCanFilter() returns false → input not rendered
     enableColumnFilter: false,
   },
-]
+];
 ```
 
-------
+---
 
 ## Where the `th` padding becomes relevant
 
@@ -108,7 +106,7 @@ export const tableOverrides = css`
 
 That's the Emotion role — it's not composing recipes, it's tweaking a specific table's chrome after the fact. The recipe handles the 95%, Emotion handles the per-table 5%.
 
-------
+---
 
 ## The key insight for Panda newcomers
 

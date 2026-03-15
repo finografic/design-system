@@ -105,27 +105,34 @@
   },
   "dependencies": {
     "@ark-ui/react": "^5.34.1",
-    "@finografic/dprint-config": "0.12.4",
     "@tanstack/react-table": "8.21.3",
     "lucide-react": "^0.577.0",
     "match-sorter": "8.2.0",
     "react-hook-form": "7.71.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.4.4",
+    "@commitlint/config-conventional": "^20.4.4",
     "@eslint/js": "^9.39.3",
+    "@finografic/dprint-config": "^0.12.4",
     "@finografic/project-scripts": "8.12.0",
     "@pandacss/dev": "^1.9.0",
     "@pandacss/studio": "^1.9.0",
     "@stylistic/eslint-plugin": "^4.4.1",
+    "@types/node": "^24.12.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.5",
+    "dprint": "^0.52.0",
     "eslint": "^9.33.0",
     "eslint-plugin-markdownlint": "^0.9.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "17.3.0",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tsdown": "*",
+    "simple-git-hooks": "^2.13.1",
+    "tsdown": "^0.21.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.55.0"
   },
@@ -138,5 +145,17 @@
     "react-hook-form": {
       "optional": true
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "dprint fmt --allow-no-files",
+      "eslint --fix"
+    ],
+    "*.{json,jsonc,md,yml,yaml,toml}": [
+      "dprint fmt --allow-no-files"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged --allow-empty"
   }
 }

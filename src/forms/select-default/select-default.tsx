@@ -1,6 +1,5 @@
-import { CheckIcon, ChevronDownIcon } from 'lucide-react';
-
 import { createListCollection, Select as ArkSelect } from '@ark-ui/react';
+import { CheckIcon, ChevronDownIcon } from 'lucide-react';
 import { forwardRef, useMemo } from 'react';
 
 import { selectRecipe } from '../select/select.recipe';

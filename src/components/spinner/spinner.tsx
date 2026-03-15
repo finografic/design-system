@@ -1,5 +1,4 @@
 import { LoaderIcon } from 'lucide-react';
-
 import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';
 
@@ -10,17 +9,19 @@ interface SpinnerProps extends ComponentPropsWithoutRef<'svg'> {
   size?: number;
 }
 
-const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(({ size = 20, className, ...props }, ref) => {
-  return (
-    <LoaderIcon
-      ref={ref}
-      width={size}
-      height={size}
-      className={className ? `${spinnerRecipe()} ${className}` : spinnerRecipe()}
-      {...props}
-    />
-  );
-});
+const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(
+  ({ size = 20, className, ...props }, ref) => {
+    return (
+      <LoaderIcon
+        ref={ref}
+        width={size}
+        height={size}
+        className={className ? `${spinnerRecipe()} ${className}` : spinnerRecipe()}
+        {...props}
+      />
+    );
+  },
+);
 
 Spinner.displayName = 'Spinner';
 

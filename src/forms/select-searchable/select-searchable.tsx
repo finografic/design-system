@@ -1,6 +1,5 @@
-import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from 'lucide-react';
-
 import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
+import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from 'lucide-react';
 import { matchSorter } from 'match-sorter';
 import { useMemo, useState } from 'react';
 
@@ -81,7 +80,10 @@ export function SelectSearchable({
       inputValue={inputValue}
       onInputValueChange={({ inputValue: v }) => setInputValue(v)}
       onValueChange={handleValueChange}
-      onOpenChange={() => { setInputValue(''); onBlur?.(); }}
+      onOpenChange={() => {
+        setInputValue('');
+        onBlur?.();
+      }}
       disabled={disabled}
       openOnClick
       className={[cls.root, className].filter(Boolean).join(' ')}
@@ -99,14 +101,20 @@ export function SelectSearchable({
 
         <ArkCombobox.Input
           className={cls.input}
-          placeholder={selectedOption ? (selectedOption.label ?? selectedOption.value) : placeholder}
+          placeholder={selectedOption
+            ? (selectedOption.label ?? selectedOption.value)
+            : placeholder}
         />
 
         {value && onClear && (
           <button
             type="button"
             className={cls.clearTrigger}
-            onClick={(e) => { e.stopPropagation(); onClear(); setInputValue(''); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onClear();
+              setInputValue('');
+            }}
             aria-label="Clear"
             tabIndex={-1}
           >
@@ -129,14 +137,16 @@ export function SelectSearchable({
             {filtered.map((item) => (
               <ArkCombobox.Item key={item.value} item={item} className={cls.item}>
                 <ArkCombobox.ItemText className={cls.itemText}>
-                  {item.label && item.label !== item.value ? (
-                    <>
-                      <span>{item.label}</span>
-                      <span style={{ fontSize: '0.75em', opacity: 0.6 }}>{item.value}</span>
-                    </>
-                  ) : (
-                    item.value
-                  )}
+                  {item.label && item.label !== item.value
+                    ? (
+                      <>
+                        <span>{item.label}</span>
+                        <span style={{ fontSize: '0.75em', opacity: 0.6 }}>{item.value}</span>
+                      </>
+                    )
+                    : (
+                      item.value
+                    )}
                 </ArkCombobox.ItemText>
                 <ArkCombobox.ItemIndicator className={cls.itemIndicator}>
                   <CheckIcon className="icon icon-sm" aria-hidden />

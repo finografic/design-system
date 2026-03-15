@@ -1,14 +1,4 @@
 import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ChevronsUpDownIcon,
-  DoubleArrowLeftIcon,
-  DoubleArrowRightIcon,
-} from 'lucide-react';
-
-import {
   type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
@@ -20,6 +10,15 @@ import {
   type Updater,
   useReactTable,
 } from '@tanstack/react-table';
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronsUpDownIcon,
+  DoubleArrowLeftIcon,
+  DoubleArrowRightIcon,
+} from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 
@@ -43,11 +42,11 @@ function SortIcon({ sorted, className }: SortIconProps) {
 }
 
 interface PaginationProps {
-  'className'?: string;
-  'disabled'?: boolean;
+  className?: string;
+  disabled?: boolean;
   'aria-label': string;
-  'onClick': () => void;
-  'children': ReactNode;
+  onClick: () => void;
+  children: ReactNode;
 }
 
 function PaginationButton({ className, disabled, children, ...rest }: PaginationProps) {
@@ -78,21 +77,25 @@ export function DataTable<TData>({
 
   const controlledRowSelection: RowSelectionState = selectedRows
     ? Object.fromEntries(
-        selectedRows.map((row, index) => {
-          const id = getRowId?.(row, index) ?? ((row as any).id as string | undefined) ?? String(index);
-          return [id, true];
-        }),
-      )
+      selectedRows.map((row, index) => {
+        const id = getRowId?.(row, index) ?? ((row as any).id as string | undefined)
+          ?? String(index);
+        return [id, true];
+      }),
+    )
     : {};
 
-  const effectiveRowSelection = isSelectionControlled ? controlledRowSelection : internalRowSelection;
+  const effectiveRowSelection = isSelectionControlled
+    ? controlledRowSelection
+    : internalRowSelection;
 
   const handleRowSelectionChange = (updater: Updater<RowSelectionState>) => {
     const next = typeof updater === 'function' ? updater(effectiveRowSelection) : updater;
 
     if (isSelectionControlled && onSelectionChange) {
       const nextSelected = data.filter((row, index) => {
-        const id = getRowId?.(row, index) ?? ((row as any).id as string | undefined) ?? String(index);
+        const id = getRowId?.(row, index) ?? ((row as any).id as string | undefined)
+          ?? String(index);
         return Boolean(next[id]);
       });
       onSelectionChange(nextSelected);
@@ -177,19 +180,22 @@ export function DataTable<TData>({
                         )}
                       </div>
 
-                      {canFilter && filterInput ? (
-                        <input
-                          className={filterInput}
-                          value={(header.column.getFilterValue() as string) ?? ''}
-                          onChange={(event) => header.column.setFilterValue(event.target.value)}
-                          placeholder="Filter…"
-                          onClick={(event) => event.stopPropagation()}
-                          style={{
-                            marginTop: 'var(--spacing-1)',
-                            width: '100%',
-                          }}
-                        />
-                      ) : null}
+                      {canFilter && filterInput
+                        ? (
+                          <input
+                            className={filterInput}
+                            value={(header.column.getFilterValue() as string) ?? ''}
+                            onChange={(event) => header.column.setFilterValue(event.target.value)}
+                            placeholder="Filter…"
+                            onClick={(event) =>
+                              event.stopPropagation()}
+                            style={{
+                              marginTop: 'var(--spacing-1)',
+                              width: '100%',
+                            }}
+                          />
+                        )
+                        : null}
                     </th>
                   );
                 })}
@@ -198,40 +204,44 @@ export function DataTable<TData>({
           </thead>
 
           <tbody className={styles.tbody}>
-            {isLoading ? (
-              <tr className={styles.tr}>
-                <td
-                  className={styles.td}
-                  colSpan={allColumns.length || 1}
-                  style={{
-                    textAlign: 'center',
-                    padding: 'var(--spacing-8)',
-                  }}
-                >
-                  <Spinner size={20} />
-                </td>
-              </tr>
-            ) : !hasRows ? (
-              <tr className={styles.tr}>
-                <td className={styles.emptyState ?? styles.td} colSpan={allColumns.length || 1}>
-                  {emptyMessage}
-                </td>
-              </tr>
-            ) : (
-              rowModel.rows.map((row) => (
-                <tr
-                  key={row.id}
-                  className={styles.tr}
-                  data-selected={row.getIsSelected() ? 'true' : undefined}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id} className={styles.td}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  ))}
+            {isLoading
+              ? (
+                <tr className={styles.tr}>
+                  <td
+                    className={styles.td}
+                    colSpan={allColumns.length || 1}
+                    style={{
+                      textAlign: 'center',
+                      padding: 'var(--spacing-8)',
+                    }}
+                  >
+                    <Spinner size={20} />
+                  </td>
                 </tr>
-              ))
-            )}
+              )
+              : !hasRows
+              ? (
+                <tr className={styles.tr}>
+                  <td className={styles.emptyState ?? styles.td} colSpan={allColumns.length || 1}>
+                    {emptyMessage}
+                  </td>
+                </tr>
+              )
+              : (
+                rowModel.rows.map((row) => (
+                  <tr
+                    key={row.id}
+                    className={styles.tr}
+                    data-selected={row.getIsSelected() ? 'true' : undefined}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <td key={cell.id} className={styles.td}>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              )}
           </tbody>
         </table>
       </div>
@@ -247,8 +257,8 @@ export function DataTable<TData>({
         }}
       >
         <span>
-          {table.getFilteredSelectedRowModel().rows.length > 0 &&
-            `${table.getFilteredSelectedRowModel().rows.length} of `}
+          {table.getFilteredSelectedRowModel().rows.length > 0
+            && `${table.getFilteredSelectedRowModel().rows.length} of `}
           {table.getFilteredRowModel().rows.length} row(s)
         </span>
 

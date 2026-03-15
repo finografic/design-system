@@ -81,44 +81,44 @@ No single "default" — context-dependent. ✦ marks commonly used base values.
 
 ### Numeric scale
 
-| Key    | rem       | px    |
-| ------ | --------- | ----- |
-| `0`    | 0         | 0px   |
-| `px`   | 1px       | 1px   |
-| `0.5`  | 0.125rem  | 2px   |
-| `1`    | 0.25rem   | 4px   |
-| `1.5`  | 0.375rem  | 6px   |
-| `2`    | 0.5rem    | 8px   |
-| `3`    | 0.75rem   | 12px  |
-| `4`    | 1rem      | 16px  |
-| `5`    | 1.25rem   | 20px  |
-| `6`    | 1.5rem    | 24px  |
-| `7`    | 1.75rem   | 28px  |
-| `8`    | 2rem      | 32px  |
-| `9`    | 2.25rem   | 36px  |
-| `10`   | 2.5rem    | 40px  |
-| `12`   | 3rem      | 48px  |
-| `16`   | 4rem      | 64px  |
-| `20`   | 5rem      | 80px  |
-| `24`   | 6rem      | 96px  |
+| Key   | rem      | px   |
+| ----- | -------- | ---- |
+| `0`   | 0        | 0px  |
+| `px`  | 1px      | 1px  |
+| `0.5` | 0.125rem | 2px  |
+| `1`   | 0.25rem  | 4px  |
+| `1.5` | 0.375rem | 6px  |
+| `2`   | 0.5rem   | 8px  |
+| `3`   | 0.75rem  | 12px |
+| `4`   | 1rem     | 16px |
+| `5`   | 1.25rem  | 20px |
+| `6`   | 1.5rem   | 24px |
+| `7`   | 1.75rem  | 28px |
+| `8`   | 2rem     | 32px |
+| `9`   | 2.25rem  | 36px |
+| `10`  | 2.5rem   | 40px |
+| `12`  | 3rem     | 48px |
+| `16`  | 4rem     | 64px |
+| `20`  | 5rem     | 80px |
+| `24`  | 6rem     | 96px |
 
 ### Named layout sizes
 
 Override at the app level via CSS vars (see `layout.tokens.ts` / `LAYOUT_VARS`).
 
-| Key       | Default value | CSS var generated          |
-| --------- | ------------- | -------------------------- |
-| `navbar`  | 41px          | `var(--sizes-navbar)`      |
-| `header`  | 70px          | `var(--sizes-header)`      |
-| `footer`  | 70px          | `var(--sizes-footer)`      |
-| `sidebar` | 300px         | `var(--sizes-sidebar)`     |
-| `content` | 1200px        | `var(--sizes-content)`     |
+| Key       | Default value | CSS var generated      |
+| --------- | ------------- | ---------------------- |
+| `navbar`  | 41px          | `var(--sizes-navbar)`  |
+| `header`  | 70px          | `var(--sizes-header)`  |
+| `footer`  | 70px          | `var(--sizes-footer)`  |
+| `sidebar` | 300px         | `var(--sizes-sidebar)` |
+| `content` | 1200px        | `var(--sizes-content)` |
 
 ```ts
 // In a recipe or css():
-maxWidth: 'content'  // → var(--sizes-content) → 1200px
-height: 'navbar'     // → var(--sizes-navbar)  → 41px
-width: '9'           // → var(--sizes-9)       → 2.25rem (36px)
+maxWidth: 'content'; // → var(--sizes-content) → 1200px
+height: 'navbar'; // → var(--sizes-navbar)  → 41px
+width: '9'; // → var(--sizes-9)       → 2.25rem (36px)
 ```
 
 ---

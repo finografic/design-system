@@ -1,6 +1,5 @@
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-
 import { NumberInput as ArkNumberInput } from '@ark-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
@@ -91,7 +90,8 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
         name={name}
         value={value !== undefined ? String(value) : undefined}
         defaultValue={defaultValue !== undefined ? String(defaultValue) : undefined}
-        onValueChange={({ valueAsNumber }) => onChange?.(isNaN(valueAsNumber) ? null : valueAsNumber)}
+        onValueChange={({ valueAsNumber }) =>
+          onChange?.(isNaN(valueAsNumber) ? null : valueAsNumber)}
         min={min}
         max={max}
         step={step}
@@ -107,16 +107,27 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
         <ArkNumberInput.Control className={cls.control}>
           {prefix && <span className={cls.prefix}>{prefix}</span>}
 
-          <ArkNumberInput.Input ref={ref} onBlur={onBlur} placeholder={placeholder} className={cls.input} />
+          <ArkNumberInput.Input
+            ref={ref}
+            onBlur={onBlur}
+            placeholder={placeholder}
+            className={cls.input}
+          />
 
           {suffix && <span className={cls.suffix}>{suffix}</span>}
 
           {showStepper && (
             <>
-              <ArkNumberInput.DecrementTrigger className={cls.decrementTrigger} aria-label="Decrement">
+              <ArkNumberInput.DecrementTrigger
+                className={cls.decrementTrigger}
+                aria-label="Decrement"
+              >
                 <ChevronDownIcon className="icon icon-sm" aria-hidden />
               </ArkNumberInput.DecrementTrigger>
-              <ArkNumberInput.IncrementTrigger className={cls.incrementTrigger} aria-label="Increment">
+              <ArkNumberInput.IncrementTrigger
+                className={cls.incrementTrigger}
+                aria-label="Increment"
+              >
                 <ChevronUpIcon className="icon icon-sm" aria-hidden />
               </ArkNumberInput.IncrementTrigger>
             </>
@@ -126,7 +137,11 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
         {errorMessage && (
           <span
             role="alert"
-            style={{ fontSize: 'var(--font-sizes-sm)', color: 'var(--colors-fg-error)', fontWeight: 600 }}
+            style={{
+              fontSize: 'var(--font-sizes-sm)',
+              color: 'var(--colors-fg-error)',
+              fontWeight: 600,
+            }}
           >
             {errorMessage}
           </span>

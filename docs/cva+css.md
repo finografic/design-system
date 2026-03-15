@@ -26,7 +26,7 @@ const wrapper = css({
 });
 
 // Usage is the same either way
-<div className={wrapper}>...</div>
+<div className={wrapper}>...</div>;
 ```
 
 This is the easiest swap. Static styles, no dynamic values, just token references. Panda gives you autocomplete and type errors on invalid keys — Emotion with CSS vars doesn't.
@@ -70,26 +70,33 @@ tsx
 // ❌ Emotion — manual variant logic
 import { css } from '@emotion/react';
 
-const getStatusStyles = (status: 'idle' | 'active' | 'error') => css`
+const getStatusStyles = (status: 'idle' | 'active' | 'error') =>
+  css`
   padding: var(--spacing-2) var(--spacing-3);
   border-radius: var(--radii-sm);
   font-size: var(--font-sizes-sm);
 
-  ${status === 'idle' && `
+  ${
+    status === 'idle' && `
     background: var(--colors-neutral-100);
     color: var(--colors-neutral-700);
-  `}
-  ${status === 'active' && `
+  `
+  }
+  ${
+    status === 'active' && `
     background: var(--colors-success-100);
     color: var(--colors-success-800);
-  `}
-  ${status === 'error' && `
+  `
+  }
+  ${
+    status === 'error' && `
     background: var(--colors-danger-100);
     color: var(--colors-danger-800);
-  `}
+  `
+  }
 `;
 
-<div css={getStatusStyles(status)}>...</div>
+<div css={getStatusStyles(status)}>...</div>;
 
 // ✅ Panda cva() — variants are declarative, type-safe, static CSS
 import { cva } from '../styled-system/css';
@@ -103,15 +110,15 @@ const statusBadge = cva({
   },
   variants: {
     status: {
-      idle:   { bg: 'neutral.100', color: 'neutral.700' },
+      idle: { bg: 'neutral.100', color: 'neutral.700' },
       active: { bg: 'success.100', color: 'success.800' },
-      error:  { bg: 'danger.100', color: 'danger.800' },
+      error: { bg: 'danger.100', color: 'danger.800' },
     },
   },
   defaultVariants: { status: 'idle' },
 });
 
-<div className={statusBadge({ status })}>...</div>
+<div className={statusBadge({ status })}>...</div>;
 ```
 
 This is where recipes shine. The Emotion version generates CSS at runtime for every variant switch. The `cva()` version generates all three variants statically at build time — at runtime it's just picking a class name.
@@ -135,7 +142,8 @@ const panel = css({
 // Emotion handles the dynamic runtime part
 import { css as emotionCss } from '@emotion/react';
 
-const panelDynamic = (height: number, isCollapsed: boolean) => emotionCss`
+const panelDynamic = (height: number, isCollapsed: boolean) =>
+  emotionCss`
   height: ${isCollapsed ? '48px' : `${height}px`};
   transition: height 0.2s ease;
 `;
@@ -143,7 +151,7 @@ const panelDynamic = (height: number, isCollapsed: boolean) => emotionCss`
 // Both applied together
 <div className={panel} css={panelDynamic(calculatedHeight, collapsed)}>
   ...
-</div>
+</div>;
 ```
 
 This is the pattern where keeping Emotion makes sense. The static styles (border, radius, dark mode) are Panda — type-checked, static CSS, zero runtime cost. The dynamic styles (JS-computed height) stay in Emotion because Panda can't do runtime interpolation.
@@ -154,7 +162,8 @@ tsx
 
 ```tsx
 // This is hard to express in Panda — keep in Emotion
-const gridItem = (colSpan: number, rowStart: number, isDragging: boolean) => css`
+const gridItem = (colSpan: number, rowStart: number, isDragging: boolean) =>
+  css`
   grid-column: span ${colSpan};
   grid-row-start: ${rowStart};
   opacity: ${isDragging ? 0.5 : 1};
@@ -174,7 +183,7 @@ Yes, panda’s cva method i will be using for sure for variants…
 
 Most dynamic styling I do tends to be via className assignment.. this is a more classic approach, but has the advantage of being framework-agnostic..
 
-Emotion css I  use for granular and scoped styling, though use traditional css syntax (one reason I like emotion strings), and target child elements will css selectors, as opposed to adding css attributes to each child elements.. That is the mix I use..
+Emotion css I use for granular and scoped styling, though use traditional css syntax (one reason I like emotion strings), and target child elements will css selectors, as opposed to adding css attributes to each child elements.. That is the mix I use..
 
 4 Mar
 

@@ -81,18 +81,18 @@ visual variants in the client needs a recipe.
 
 ### Missing recipes (priority order)
 
-| Recipe | Reference in styles/ | Notes |
-|---|---|---|
-| `text` | `styles/fonts/typography.contants.ts` | Heading + body variants |
-| `label` | `styles/forms/forms-placeholders.styles.ts` | Form labels |
-| `form-field` | `styles/forms/forms.styles.ts` | Field wrapper (label + input + error) |
-| `select` | `styles/forms/forms-select.styles.ts` | Native select styling |
-| `avatar` | — | Circular image/initials |
-| `spinner`⭐ | — | Loading indicator |
-| `progress`⭐ | — | Progress bar |
-| `tabs` | — | Tab strip + panel |
-| `menu` | — | Dropdown menu items |
-| `tooltip` | — | Tooltip bubble |
+| Recipe       | Reference in styles/                        | Notes                                 |
+| ------------ | ------------------------------------------- | ------------------------------------- |
+| `text`       | `styles/fonts/typography.contants.ts`       | Heading + body variants               |
+| `label`      | `styles/forms/forms-placeholders.styles.ts` | Form labels                           |
+| `form-field` | `styles/forms/forms.styles.ts`              | Field wrapper (label + input + error) |
+| `select`     | `styles/forms/forms-select.styles.ts`       | Native select styling                 |
+| `avatar`     | —                                           | Circular image/initials               |
+| `spinner`⭐  | —                                           | Loading indicator                     |
+| `progress`⭐ | —                                           | Progress bar                          |
+| `tabs`       | —                                           | Tab strip + panel                     |
+| `menu`       | —                                           | Dropdown menu items                   |
+| `tooltip`    | —                                           | Tooltip bubble                        |
 
 Each recipe follows the same CVA pattern already established in `src/recipes/`.
 
@@ -111,18 +111,18 @@ an Ark wrapper to get accessibility for free.
 
 ### Missing components (priority order)
 
-| Component | Ark primitive | Recipe needed |
-|---|---|---|
-| `Select` | `@ark-ui/react/select` | new |
-| `Combobox` | `@ark-ui/react/combobox` | reuse input + new dropdown |
-| `Menu` | `@ark-ui/react/menu` | menu recipe |
-| `Tabs` | `@ark-ui/react/tabs` | tabs recipe |
-| `Accordion` | `@ark-ui/react/accordion` | new |
-| `Tooltip` | `@ark-ui/react/tooltip` | tooltip recipe |
-| `Popover` | `@ark-ui/react/popover` | reuse panel/card |
-| `Radio` | `@ark-ui/react/radio-group` | reuse checkbox pattern |
-| `NumberInput` | `@ark-ui/react/number-input` | reuse input |
-| `Slider` | `@ark-ui/react/slider` | new |
+| Component     | Ark primitive                | Recipe needed              |
+| ------------- | ---------------------------- | -------------------------- |
+| `Select`      | `@ark-ui/react/select`       | new                        |
+| `Combobox`    | `@ark-ui/react/combobox`     | reuse input + new dropdown |
+| `Menu`        | `@ark-ui/react/menu`         | menu recipe                |
+| `Tabs`        | `@ark-ui/react/tabs`         | tabs recipe                |
+| `Accordion`   | `@ark-ui/react/accordion`    | new                        |
+| `Tooltip`     | `@ark-ui/react/tooltip`      | tooltip recipe             |
+| `Popover`     | `@ark-ui/react/popover`      | reuse panel/card           |
+| `Radio`       | `@ark-ui/react/radio-group`  | reuse checkbox pattern     |
+| `NumberInput` | `@ark-ui/react/number-input` | reuse input                |
+| `Slider`      | `@ark-ui/react/slider`       | new                        |
 
 Existing component stubs in `src/components/` (`Dialog`, `Checkbox`, `Toast`) need
 to be fleshed out with proper recipe wiring — they're currently re-exports.
@@ -163,13 +163,13 @@ Migrated from `apps/client/src/styles/icons/` to `packages/design-system/src/ico
 
 ### What changed from V1
 
-| V1 (client) | V2 (design-system) |
-|---|---|
-| `clsx` for className merge | Inline `filter + join` — no dep |
-| ICONS map **+** manual destructure block | ICONS map only — `icons` object exported, no duplicate list |
-| Named exports: `import { CloseIcon }` | Object export: `const { CloseIcon } = icons` |
-| Radix icons could coexist | Lucide only |
-| `icons.css` — partial overlap with global.css | Icon CSS consolidated into `styles/global.css` |
+| V1 (client)                                   | V2 (design-system)                                          |
+| --------------------------------------------- | ----------------------------------------------------------- |
+| `clsx` for className merge                    | Inline `filter + join` — no dep                             |
+| ICONS map **+** manual destructure block      | ICONS map only — `icons` object exported, no duplicate list |
+| Named exports: `import { CloseIcon }`         | Object export: `const { CloseIcon } = icons`                |
+| Radix icons could coexist                     | Lucide only                                                 |
+| `icons.css` — partial overlap with global.css | Icon CSS consolidated into `styles/global.css`              |
 
 ### Files
 
@@ -184,9 +184,9 @@ src/icons/
 ### Public API
 
 ```ts
-import { icons, ICON_NAMES }        from '@workspace/icons';
+import { icons, ICON_NAMES } from '@workspace/icons';
 import type { IconName, IconComponent, IconProps } from '@workspace/icons';
-import { createIconWrapper }         from '@workspace/icons'; // extend app-side
+import { createIconWrapper } from '@workspace/icons'; // extend app-side
 
 const { CloseIcon, TrashIcon } = icons;
 ```

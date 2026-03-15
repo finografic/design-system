@@ -28,17 +28,17 @@ Max-width centered wrapper. Wraps the page content area.
 
 ### Props
 
-| Prop | Type | Default | Notes |
-|------|------|---------|-------|
-| `fluid` | `boolean` | `false` | `false` = max-width constrained; `true` = 100% width |
-| `...rest` | `ComponentPropsWithoutRef<'div'>` | — | All standard div props |
+| Prop      | Type                              | Default | Notes                                                |
+| --------- | --------------------------------- | ------- | ---------------------------------------------------- |
+| `fluid`   | `boolean`                         | `false` | `false` = max-width constrained; `true` = 100% width |
+| `...rest` | `ComponentPropsWithoutRef<'div'>` | —       | All standard div props                               |
 
 ### CSS behaviour
 
-| State | `max-width` |
-|-------|-------------|
+| State   | `max-width`                               |
+| ------- | ----------------------------------------- |
 | default | `var(--layout-content-max-width, 1200px)` |
-| `fluid` | `100%` |
+| `fluid` | `100%`                                    |
 
 - Centered via `margin-inline: auto`
 - Has `padding-inline: 8px` (half the default gutter) so content doesn't touch viewport edges
@@ -59,34 +59,34 @@ Flex row container. Pairs with `Col`. Applies negative margin to offset Col gutt
 
 ### Props
 
-| Prop | Type | Default | Notes |
-|------|------|---------|-------|
-| `align` | `'flex-start' \| 'center' \| 'flex-end' \| 'stretch'` | — | Maps to `align-items` |
-| `justify` | `'flex-start' \| 'center' \| 'flex-end' \| 'space-between' \| 'space-around'` | — | Maps to `justify-content` |
-| `direction` | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'` | — | Maps to `flex-direction` |
-| `wrap` | `'wrap' \| 'nowrap' \| 'wrap-reverse'` | `'wrap'` (CSS default) | Maps to `flex-wrap` |
-| `nogutter` | `boolean` | `false` | Removes gutter margin/padding from row and direct Col children |
-| `gutterWidth` | `number` | `16` | Override gutter in px — sets `--ds-grid-gutter` inline |
-| `...rest` | `ComponentPropsWithoutRef<'div'>` | — | All standard div props |
+| Prop          | Type                                                                          | Default                | Notes                                                          |
+| ------------- | ----------------------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------- |
+| `align`       | `'flex-start' \| 'center' \| 'flex-end' \| 'stretch'`                         | —                      | Maps to `align-items`                                          |
+| `justify`     | `'flex-start' \| 'center' \| 'flex-end' \| 'space-between' \| 'space-around'` | —                      | Maps to `justify-content`                                      |
+| `direction`   | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                      | —                      | Maps to `flex-direction`                                       |
+| `wrap`        | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                        | `'wrap'` (CSS default) | Maps to `flex-wrap`                                            |
+| `nogutter`    | `boolean`                                                                     | `false`                | Removes gutter margin/padding from row and direct Col children |
+| `gutterWidth` | `number`                                                                      | `16`                   | Override gutter in px — sets `--ds-grid-gutter` inline         |
+| `...rest`     | `ComponentPropsWithoutRef<'div'>`                                             | —                      | All standard div props                                         |
 
 ### align values
 
-| Value | CSS |
-|-------|-----|
+| Value          | CSS                       |
+| -------------- | ------------------------- |
 | `"flex-start"` | `align-items: flex-start` |
-| `"center"` | `align-items: center` |
-| `"flex-end"` | `align-items: flex-end` |
-| `"stretch"` | `align-items: stretch` |
+| `"center"`     | `align-items: center`     |
+| `"flex-end"`   | `align-items: flex-end`   |
+| `"stretch"`    | `align-items: stretch`    |
 
 ### justify values
 
-| Value | CSS |
-|-------|-----|
-| `"flex-start"` | `justify-content: flex-start` |
-| `"center"` | `justify-content: center` |
-| `"flex-end"` | `justify-content: flex-end` |
+| Value             | CSS                              |
+| ----------------- | -------------------------------- |
+| `"flex-start"`    | `justify-content: flex-start`    |
+| `"center"`        | `justify-content: center`        |
+| `"flex-end"`      | `justify-content: flex-end`      |
 | `"space-between"` | `justify-content: space-between` |
-| `"space-around"` | `justify-content: space-around` |
+| `"space-around"`  | `justify-content: space-around`  |
 
 > **Note:** `Row` prop values match CSS values exactly, the same as Panda's `<Flex>`.
 
@@ -112,15 +112,15 @@ narrower width is specified.
 
 ### Props
 
-| Prop | Type | Default | Notes |
-|------|------|---------|-------|
-| `xs` | `number \| 'content'` | — | Width at all sizes (mobile-first base) |
-| `sm` | `number \| 'content'` | — | Width at ≥ 640px |
-| `md` | `number \| 'content'` | — | Width at ≥ 768px |
-| `lg` | `number \| 'content'` | — | Width at ≥ 1024px |
-| `xl` | `number \| 'content'` | — | Width at ≥ 1280px |
-| `xxl` | `number \| 'content'` | — | Width at ≥ 1536px |
-| `...rest` | `ComponentPropsWithoutRef<'div'>` | — | All standard div props |
+| Prop      | Type                              | Default | Notes                                  |
+| --------- | --------------------------------- | ------- | -------------------------------------- |
+| `xs`      | `number \| 'content'`             | —       | Width at all sizes (mobile-first base) |
+| `sm`      | `number \| 'content'`             | —       | Width at ≥ 640px                       |
+| `md`      | `number \| 'content'`             | —       | Width at ≥ 768px                       |
+| `lg`      | `number \| 'content'`             | —       | Width at ≥ 1024px                      |
+| `xl`      | `number \| 'content'`             | —       | Width at ≥ 1280px                      |
+| `xxl`     | `number \| 'content'`             | —       | Width at ≥ 1536px                      |
+| `...rest` | `ComponentPropsWithoutRef<'div'>` | —       | All standard div props                 |
 
 ### Width values
 
@@ -130,14 +130,14 @@ narrower width is specified.
 
 ### Breakpoints
 
-| Prop | Min-width | Notes |
-|------|-----------|-------|
-| `xs` | none (base) | Applied at all sizes; overridden by larger breakpoints |
-| `sm` | 640px | |
-| `md` | 768px | |
-| `lg` | 1024px | |
-| `xl` | 1280px | |
-| `xxl` | 1536px | Named `xxl` (not `2xl`) — `2xl` is not a valid JSX identifier |
+| Prop  | Min-width   | Notes                                                         |
+| ----- | ----------- | ------------------------------------------------------------- |
+| `xs`  | none (base) | Applied at all sizes; overridden by larger breakpoints        |
+| `sm`  | 640px       |                                                               |
+| `md`  | 768px       |                                                               |
+| `lg`  | 1024px      |                                                               |
+| `xl`  | 1280px      |                                                               |
+| `xxl` | 1536px      | Named `xxl` (not `2xl`) — `2xl` is not a valid JSX identifier |
 
 ### TypeScript note
 
@@ -150,10 +150,10 @@ TypeScript. Passing `0` or `13` emits a class that doesn't exist in `grid.css` a
 
 Defined on `:root` in `grid.css`. Can be overridden globally or scoped.
 
-| Property | Default | Notes |
-|----------|---------|-------|
-| `--ds-grid-columns` | `12` | Read-only reference; not used in current CSS calculations |
-| `--ds-grid-gutter` | `16px` | Total gutter width; each side gets `gutter / 2` |
+| Property            | Default | Notes                                                     |
+| ------------------- | ------- | --------------------------------------------------------- |
+| `--ds-grid-columns` | `12`    | Read-only reference; not used in current CSS calculations |
+| `--ds-grid-gutter`  | `16px`  | Total gutter width; each side gets `gutter / 2`           |
 
 ---
 
@@ -161,11 +161,11 @@ Defined on `:root` in `grid.css`. Can be overridden globally or scoped.
 
 Understanding what's emitted is useful for debugging in DevTools.
 
-| Element | Classes emitted |
-|---------|----------------|
-| `Container` | `ds-container` (+ `data-fluid` attribute if fluid) |
-| `Row` | `ds-row` (+ `data-align`, `data-justify`, `data-direction`, `data-wrap`, `data-nogutter` attributes as set) |
-| `Col` | `ds-col ds-col-xs-6 ds-col-md-3 ...` (one class per breakpoint prop) |
+| Element     | Classes emitted                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------- |
+| `Container` | `ds-container` (+ `data-fluid` attribute if fluid)                                                          |
+| `Row`       | `ds-row` (+ `data-align`, `data-justify`, `data-direction`, `data-wrap`, `data-nogutter` attributes as set) |
+| `Col`       | `ds-col ds-col-xs-6 ds-col-md-3 ...` (one class per breakpoint prop)                                        |
 
 ---
 
@@ -177,7 +177,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row>
   <Col xs={12} md={6}>Left</Col>
   <Col xs={12} md={6}>Right</Col>
-</Row>
+</Row>;
 ```
 
 ### Three-column with sidebar
@@ -186,7 +186,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row>
   <Col xs={12} lg={3}>Sidebar</Col>
   <Col xs={12} lg={9}>Main content</Col>
-</Row>
+</Row>;
 ```
 
 ### Row with alignment
@@ -195,7 +195,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row justify="space-between" align="center">
   <Col xs="content">Logo</Col>
   <Col xs="content">Nav</Col>
-</Row>
+</Row>;
 ```
 
 ### No gutter
@@ -204,7 +204,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row nogutter>
   <Col xs={6}>A</Col>
   <Col xs={6}>B</Col>
-</Row>
+</Row>;
 ```
 
 ### Custom gutter
@@ -213,7 +213,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row gutterWidth={32}>
   <Col xs={6}>A</Col>
   <Col xs={6}>B</Col>
-</Row>
+</Row>;
 ```
 
 ### Inside a Container
@@ -224,7 +224,7 @@ Understanding what's emitted is useful for debugging in DevTools.
     <Col xs={12} md={8}>Content</Col>
     <Col xs={12} md={4}>Aside</Col>
   </Row>
-</Container>
+</Container>;
 ```
 
 ---

@@ -1,7 +1,6 @@
-import { CheckIcon, MinusIcon } from 'lucide-react';
-
 import { Checkbox as ArkCheckbox } from '@ark-ui/react';
 import { createStyleContext } from '@styled-system/jsx';
+import { CheckIcon, MinusIcon } from 'lucide-react';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 

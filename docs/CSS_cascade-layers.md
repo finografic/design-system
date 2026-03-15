@@ -123,8 +123,8 @@ Here is an example of a `postcss.config.js` file that uses these polyfills:
 
 ```js
 module.exports = {
-  plugins: ['@pandacss/dev/postcss', '@csstools/postcss-cascade-layers']
-}
+  plugins: ['@pandacss/dev/postcss', '@csstools/postcss-cascade-layers'],
+};
 ```
 
 Since CSS `@layer`s have a lower priority than other CSS rules, this postcss plugin is also useful in cases where your styles are being overridden by some other stylesheets that you're not in total control of, since it will remove the `@layer` rules and still emulate their specificity.

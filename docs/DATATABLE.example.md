@@ -36,12 +36,12 @@ const tableClasses = tableRecipe({ size: 'md' });
 
 ### Variants
 
-| Variant | Options | Default | Notes |
-|---|---|---|---|
-| `size` | `sm` · `md` · `lg` | `md` | `sm` recommended for Pi 800×480 |
-| `striped` | `true` · `false` | `false` | Even rows get `bg.subtle` |
-| `bordered` | `true` · `false` | `false` | Vertical column dividers |
-| `stickyHeader` | `true` · `false` | `false` | `thead` stays visible on scroll |
+| Variant        | Options            | Default | Notes                           |
+| -------------- | ------------------ | ------- | ------------------------------- |
+| `size`         | `sm` · `md` · `lg` | `md`    | `sm` recommended for Pi 800×480 |
+| `striped`      | `true` · `false`   | `false` | Even rows get `bg.subtle`       |
+| `bordered`     | `true` · `false`   | `false` | Vertical column dividers        |
+| `stickyHeader` | `true` · `false`   | `false` | `thead` stays visible on scroll |
 
 Variants are independent — combine freely:
 
@@ -51,20 +51,20 @@ const tableClasses = tableRecipe({ size: 'sm', striped: true, stickyHeader: true
 
 ### Slots
 
-| Slot | Element | Notes |
-|---|---|---|
-| `root` | `<div>` | Scroll wrapper. Owns the border + border-radius. |
-| `table` | `<table>` | `border-collapse: collapse`, `width: 100%` |
-| `caption` | `<caption>` | Visually hidden, read by screen readers |
-| `thead` | `<thead>` | Bottom border. Sticky when `stickyHeader` |
-| `tbody` | `<tbody>` | — |
-| `tfoot` | `<tfoot>` | Top border, `bg.subtle`, semibold — for totals rows |
-| `headerRow` | `<tr>` in thead | `bg.subtle`, no hover |
-| `tr` | `<tr>` in tbody | Hover state. `data-selected="true"` → accent highlight |
-| `th` | `<th>` | Overline style. `data-sortable="true"` enables cursor + hover |
-| `td` | `<td>` | Body text, `vertical-align: middle` |
-| `sortIcon` | `<span>` | `data-sort="asc\|desc\|false"` drives opacity + accent color |
-| `emptyState` | any | Centered muted text for zero-row tables |
+| Slot         | Element         | Notes                                                         |
+| ------------ | --------------- | ------------------------------------------------------------- |
+| `root`       | `<div>`         | Scroll wrapper. Owns the border + border-radius.              |
+| `table`      | `<table>`       | `border-collapse: collapse`, `width: 100%`                    |
+| `caption`    | `<caption>`     | Visually hidden, read by screen readers                       |
+| `thead`      | `<thead>`       | Bottom border. Sticky when `stickyHeader`                     |
+| `tbody`      | `<tbody>`       | —                                                             |
+| `tfoot`      | `<tfoot>`       | Top border, `bg.subtle`, semibold — for totals rows           |
+| `headerRow`  | `<tr>` in thead | `bg.subtle`, no hover                                         |
+| `tr`         | `<tr>` in tbody | Hover state. `data-selected="true"` → accent highlight        |
+| `th`         | `<th>`          | Overline style. `data-sortable="true"` enables cursor + hover |
+| `td`         | `<td>`          | Body text, `vertical-align: middle`                           |
+| `sortIcon`   | `<span>`        | `data-sort="asc\|desc\|false"` drives opacity + accent color  |
+| `emptyState` | any             | Centered muted text for zero-row tables                       |
 
 ### Sort icon data attributes
 
@@ -74,7 +74,7 @@ The recipe reads this directly — no transformation needed:
 ```tsx
 <span className={tableClasses.sortIcon} data-sort={String(column.getIsSorted())}>
   ...
-</span>
+</span>;
 // data-sort="false"  → icon opacity 0.4, neutral color
 // data-sort="asc"    → icon opacity 1.0, accent.solid color
 // data-sort="desc"   → icon opacity 1.0, accent.solid color
@@ -89,9 +89,9 @@ registry and available from `@workspace/icons`:
 
 ```ts
 import {
-  ArrowUpIcon,       // sorted ascending
-  ArrowDownIcon,     // sorted descending
-  ChevronsUpDownIcon // unsorted / neutral
+  ArrowUpIcon, // sorted ascending
+  ArrowDownIcon, // sorted descending
+  ChevronsUpDownIcon, // unsorted / neutral
 } from '@workspace/icons';
 ```
 
@@ -113,10 +113,10 @@ and apply whatever class names are appropriate to each one.
 // buttonRecipe provides pagination / action buttons
 // checkboxRecipe provides the row-selection checkbox in td
 
-const tableClasses       = tableRecipe({ size: 'sm' });
+const tableClasses = tableRecipe({ size: 'sm' });
 const filterClasses = inputRecipe({ size: 'sm' });
-const buttonClasses    = buttonRecipe({ size: 'xs', variant: 'ghost' });
-const checkClasses    = checkboxRecipe({ size: 'sm' });
+const buttonClasses = buttonRecipe({ size: 'xs', variant: 'ghost' });
+const checkClasses = checkboxRecipe({ size: 'sm' });
 ```
 
 Each recipe is called once at the top of the component (or module
@@ -147,7 +147,7 @@ file makes both easier to read.
 
 ```tsx
 import type { ColumnDef } from '@tanstack/react-table';
-import { buttonRecipe, checkboxRecipe, inputRecipe } from '@workspace/design-system/recipes';  // generated
+import { buttonRecipe, checkboxRecipe, inputRecipe } from '@workspace/design-system/recipes'; // generated
 import { CheckboxField } from '@workspace/design-system/components';
 import { TrashIcon, EditIcon } from '@workspace/icons';
 
@@ -169,13 +169,11 @@ export const orderColumns: ColumnDef<Order>[] = [
     // Header checkbox — selects/deselects all visible rows
     header: ({ table }) => (
       <CheckboxField
-        checked={
-          table.getIsAllPageRowsSelected()
-            ? true
-            : table.getIsSomePageRowsSelected()
-            ? 'indeterminate'
-            : false
-        }
+        checked={table.getIsAllPageRowsSelected()
+          ? true
+          : table.getIsSomePageRowsSelected()
+          ? 'indeterminate'
+          : false}
         onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
         classNames={checkClasses}
@@ -209,7 +207,7 @@ export const orderColumns: ColumnDef<Order>[] = [
     accessorKey: 'total',
     header: 'Total',
     cell: ({ getValue }) => `$${(getValue() as number).toFixed(2)}`,
-    enableColumnFilter: false,  // numeric — no text filter
+    enableColumnFilter: false, // numeric — no text filter
   },
   {
     accessorKey: 'date',
@@ -262,7 +260,7 @@ import {
   type RowSelectionState,
 } from '@tanstack/react-table';
 
-import { tableRecipe, inputRecipe, buttonRecipe } from '@workspace/design-system/recipes';  // generated
+import { tableRecipe, inputRecipe, buttonRecipe } from '@workspace/design-system/recipes'; // generated
 import { Spinner } from '@workspace/design-system/components';
 import {
   ArrowUpIcon,
@@ -277,17 +275,17 @@ import {
 import { orderColumns, type Order } from './OrdersTable.columns';
 
 // ── Recipe instances — called once, stable strings ────────────────────────────
-const tableClasses        = tableRecipe({ size: 'sm', stickyHeader: true });
-const filterClasses  = inputRecipe({ size: 'sm' });
+const tableClasses = tableRecipe({ size: 'sm', stickyHeader: true });
+const filterClasses = inputRecipe({ size: 'sm' });
 const paginationClasses = buttonRecipe({ size: 'xs', variant: 'ghost' });
 
 // ── Sort icon helper ──────────────────────────────────────────────────────────
 function SortIcon({ sorted }: { sorted: 'asc' | 'desc' | false }) {
   return (
     <span className={tableClasses.sortIcon} data-sort={String(sorted)}>
-      {sorted === 'asc'  && <ArrowUpIcon   className="icon icon-sm" />}
-      {sorted === 'desc' && <ArrowDownIcon  className="icon icon-sm" />}
-      {!sorted           && <ChevronsUpDownIcon className="icon icon-sm" />}
+      {sorted === 'asc' && <ArrowUpIcon className="icon icon-sm" />}
+      {sorted === 'desc' && <ArrowDownIcon className="icon icon-sm" />}
+      {!sorted && <ChevronsUpDownIcon className="icon icon-sm" />}
     </span>
   );
 }
@@ -299,27 +297,26 @@ interface OrdersTableProps {
 }
 
 export function OrdersTable({ data, loading = false }: OrdersTableProps) {
-  const [sorting,       setSorting]       = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [rowSelection,  setRowSelection]  = useState<RowSelectionState>({});
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
   const table = useReactTable({
     data,
     columns: orderColumns,
-    state:          { sorting, columnFilters, rowSelection },
-    onSortingChange:       setSorting,
+    state: { sorting, columnFilters, rowSelection },
+    onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
-    onRowSelectionChange:  setRowSelection,
-    getCoreRowModel:       getCoreRowModel(),
-    getSortedRowModel:     getSortedRowModel(),
-    getFilteredRowModel:   getFilteredRowModel(),
+    onRowSelectionChange: setRowSelection,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     initialState: { pagination: { pageSize: 20 } },
   });
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
-
       {/* ── Table ────────────────────────────────────────────────── */}
       <div className={tableClasses.root}>
         <table className={tableClasses.table}>
@@ -330,7 +327,7 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
             {table.getHeaderGroups().map(headerGroup => (
               <tr key={headerGroup.id} className={tableClasses.headerRow}>
                 {headerGroup.headers.map(header => {
-                  const canSort   = header.column.getCanSort();
+                  const canSort = header.column.getCanSort();
                   const canFilter = header.column.getCanFilter();
 
                   return (
@@ -371,56 +368,62 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
 
           {/* ── Body ───────────────────────────────────────────── */}
           <tbody className={tableClasses.tbody}>
-            {loading ? (
-              // Loading state — single spanning cell with spinner
-              <tr className={tableClasses.tr}>
-                <td
-                  className={tableClasses.td}
-                  colSpan={table.getAllColumns().length}
-                  style={{ textAlign: 'center', padding: 'var(--spacing-8)' }}
-                >
-                  <Spinner size={20} />
-                </td>
-              </tr>
-            ) : table.getRowModel().rows.length === 0 ? (
-              // Empty state
-              <tr className={tableClasses.tr}>
-                <td
-                  colSpan={table.getAllColumns().length}
-                  className={tableClasses.emptyState}
-                >
-                  No orders found.
-                </td>
-              </tr>
-            ) : (
-              // Data rows
-              table.getRowModel().rows.map(row => (
-                <tr
-                  key={row.id}
-                  className={tableClasses.tr}
-                  data-selected={row.getIsSelected() ? 'true' : undefined}
-                >
-                  {row.getVisibleCells().map(cell => (
-                    <td key={cell.id} className={tableClasses.td}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </td>
-                  ))}
+            {loading
+              ? (
+                // Loading state — single spanning cell with spinner
+                <tr className={tableClasses.tr}>
+                  <td
+                    className={tableClasses.td}
+                    colSpan={table.getAllColumns().length}
+                    style={{ textAlign: 'center', padding: 'var(--spacing-8)' }}
+                  >
+                    <Spinner size={20} />
+                  </td>
                 </tr>
-              ))
-            )}
+              )
+              : table.getRowModel().rows.length === 0
+              ? (
+                // Empty state
+                <tr className={tableClasses.tr}>
+                  <td
+                    colSpan={table.getAllColumns().length}
+                    className={tableClasses.emptyState}
+                  >
+                    No orders found.
+                  </td>
+                </tr>
+              )
+              : (
+                // Data rows
+                table.getRowModel().rows.map(row => (
+                  <tr
+                    key={row.id}
+                    className={tableClasses.tr}
+                    data-selected={row.getIsSelected() ? 'true' : undefined}
+                  >
+                    {row.getVisibleCells().map(cell => (
+                      <td key={cell.id} className={tableClasses.td}>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      </td>
+                    ))}
+                  </tr>
+                ))
+              )}
           </tbody>
         </table>
       </div>
 
       {/* ── Pagination ───────────────────────────────────────────── */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: 'var(--spacing-2)',
-        fontSize: 'var(--font-sizes-sm)',
-        color: 'var(--colors-fg-muted)',
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: 'var(--spacing-2)',
+          fontSize: 'var(--font-sizes-sm)',
+          color: 'var(--colors-fg-muted)',
+        }}
+      >
         {/* Row count */}
         <span>
           {table.getFilteredSelectedRowModel().rows.length > 0 && (
@@ -470,7 +473,6 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
           </button>
         </div>
       </div>
-
     </div>
   );
 }
@@ -571,7 +573,7 @@ const tableClasses = tableRecipe({ size: 'sm', stickyHeader: true });
   <table className={tableClasses.table}>
     ...
   </table>
-</div>
+</div>;
 ```
 
 ### Striped table (no hover needed — data-dense)
@@ -590,14 +592,14 @@ state yourself:
 const table = useReactTable({
   data,
   columns,
-  manualSorting:   true,
+  manualSorting: true,
   manualFiltering: true,
   manualPagination: true,
-  pageCount:       serverPageCount,
-  state:           { sorting, columnFilters, pagination },
-  onSortingChange:       setSorting,        // → trigger server fetch
-  onColumnFiltersChange: setColumnFilters,  // → trigger server fetch
-  onPaginationChange:    setPagination,     // → trigger server fetch
+  pageCount: serverPageCount,
+  state: { sorting, columnFilters, pagination },
+  onSortingChange: setSorting, // → trigger server fetch
+  onColumnFiltersChange: setColumnFilters, // → trigger server fetch
+  onPaginationChange: setPagination, // → trigger server fetch
   getCoreRowModel: getCoreRowModel(),
   // No getSortedRowModel / getFilteredRowModel / getPaginationRowModel
   // — the server handles all of that
@@ -608,13 +610,13 @@ const table = useReactTable({
 
 ## DS Atoms Used in a Table
 
-| Element | DS source | Import path |
-|---|---|---|
-| Table chrome | `tableRecipe` | `@workspace/design-system/recipes` |
-| Filter input | `inputRecipe({ size: 'sm' })` | `@workspace/design-system/recipes` |
-| Row checkbox | `CheckboxField` + `checkboxRecipe` | `@workspace/design-system/components` + recipes |
-| Action buttons | `buttonRecipe({ size: 'xs' })` | `@workspace/design-system/recipes` |
-| Pagination buttons | `buttonRecipe({ size: 'xs', variant: 'ghost' })` | `@workspace/design-system/recipes` |
-| Loading state | `Spinner` | `@workspace/design-system/components` |
-| Sort icons | `ArrowUpIcon · ArrowDownIcon · ChevronsUpDownIcon` | `@workspace/icons` |
-| Pagination icons | `ChevronLeftIcon · ChevronRightIcon · DoubleArrowLeftIcon · DoubleArrowRightIcon` | `@workspace/icons` |
+| Element            | DS source                                                                         | Import path                                     |
+| ------------------ | --------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Table chrome       | `tableRecipe`                                                                     | `@workspace/design-system/recipes`              |
+| Filter input       | `inputRecipe({ size: 'sm' })`                                                     | `@workspace/design-system/recipes`              |
+| Row checkbox       | `CheckboxField` + `checkboxRecipe`                                                | `@workspace/design-system/components` + recipes |
+| Action buttons     | `buttonRecipe({ size: 'xs' })`                                                    | `@workspace/design-system/recipes`              |
+| Pagination buttons | `buttonRecipe({ size: 'xs', variant: 'ghost' })`                                  | `@workspace/design-system/recipes`              |
+| Loading state      | `Spinner`                                                                         | `@workspace/design-system/components`           |
+| Sort icons         | `ArrowUpIcon · ArrowDownIcon · ChevronsUpDownIcon`                                | `@workspace/icons`                              |
+| Pagination icons   | `ChevronLeftIcon · ChevronRightIcon · DoubleArrowLeftIcon · DoubleArrowRightIcon` | `@workspace/icons`                              |
