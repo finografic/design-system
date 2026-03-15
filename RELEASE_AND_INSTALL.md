@@ -81,13 +81,12 @@ Each script runs the following steps in order, then leaves git clean:
 
 1. **Build icons** — `packages/icons/dist` is regenerated
 2. **Build design-system** — `packages/design-system/dist` is regenerated
-3. **Stage icons dist** — `git add packages/icons/dist`
-4. **Version icons** — bumps `packages/icons/package.json`, commits dist + version, creates git tag
-5. **Stage DS dist** — `git add packages/design-system/dist`
-6. **Version design-system** — bumps `packages/design-system/package.json`, commits dist + version, creates git tag
-7. **Publish icons** — pushes `@finografic/icons` to GitHub Packages
-8. **Publish design-system** — pushes `@finografic/design-system` to GitHub Packages
-9. **Push** — `git push --follow-tags` — pushes both commits and both tags
+3. **Stage both dists** — `git add packages/icons/dist packages/design-system/dist` — all at once so the working tree is clean before versioning
+4. **Version icons** — bumps `packages/icons/package.json`, commits staged files + version, creates git tag
+5. **Version design-system** — bumps `packages/design-system/package.json`, commits + creates git tag
+6. **Publish icons** — pushes `@finografic/icons` to GitHub Packages
+7. **Publish design-system** — pushes `@finografic/design-system` to GitHub Packages
+8. **Push** — `git push --follow-tags` — pushes both commits and both tags
 
 > Icons is always built and published first because the DS lists it as a dependency.
 > The `workspace:*` specifier in the DS is automatically replaced with the real
