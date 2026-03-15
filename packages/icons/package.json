@@ -26,7 +26,6 @@
     "build": "tsx scripts/generate.ts && tsdown",
     "dev": "tsdown --watch --no-clean",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "pnpm build",
     "·········· PACKAGES": "···················································",
     "lucide-manager": "pnpm update @finografic/lucide-manager --latest"
   },

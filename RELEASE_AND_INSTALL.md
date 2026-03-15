@@ -1,4 +1,4 @@
-# Publishing & Release Guide
+# Release & Install Guide
 
 This repo is a **pnpm workspace** containing two publishable packages:
 
@@ -6,9 +6,6 @@ This repo is a **pnpm workspace** containing two publishable packages:
 | --------------------------- | ------------------------ | --------------- |
 | `@finografic/design-system` | `packages/design-system` | GitHub Packages |
 | `@finografic/icons`         | `packages/icons`         | GitHub Packages |
-
-`@finografic/icons` must always be published **before** `@finografic/design-system`
-because the DS lists it as a dependency.
 
 ---
 
@@ -69,85 +66,33 @@ pnpm format
 
 ---
 
-## Publishing
+## Releasing
 
-### First publish (both packages, new repo / new package)
-
-This is the only time you publish icons manually. After this, icons only needs
-re-publishing when its content changes.
+Both packages are always released together with a single command from the workspace
+root. Choose the bump level that matches the nature of your changes:
 
 ```bash
-# 1. Ensure everything is built and committed
-pnpm build.all
-pnpm typecheck
-
-# 2. Publish icons first
-pnpm publish.icons
-
-# 3. Release the design-system
-#    Choose the correct version bump:
-pnpm release.ds.patch   # 0.0.x → 0.0.x+1
-pnpm release.ds.minor   # 0.x.0 → 0.x+1.0
-pnpm release.ds.major   # x.0.0 → x+1.0.0
+pnpm release.patch   # 0.0.x → 0.0.x+1  (bug fixes)
+pnpm release.minor   # 0.x.0 → 0.x+1.0  (new features, backwards-compatible)
+pnpm release.major   # x.0.0 → x+1.0.0  (breaking changes)
 ```
 
-`release.ds.*` bumps the version in `packages/design-system/package.json`,
-commits the change, creates a git tag (`v1.x.x`), and pushes with `--follow-tags`.
-The tag triggers the GitHub Actions `release.yml` workflow, which:
+Each script runs the following steps in order, then leaves git clean:
 
-1. Builds icons, then builds the DS
-2. Publishes `@finografic/design-system` to GitHub Packages
-3. Creates a GitHub Release with auto-generated notes
+1. **Build icons** — `packages/icons/dist` is regenerated
+2. **Build design-system** — `packages/design-system/dist` is regenerated
+3. **Stage icons dist** — `git add packages/icons/dist`
+4. **Version icons** — bumps `packages/icons/package.json`, commits dist + version, creates git tag
+5. **Stage DS dist** — `git add packages/design-system/dist`
+6. **Version design-system** — bumps `packages/design-system/package.json`, commits dist + version, creates git tag
+7. **Publish icons** — pushes `@finografic/icons` to GitHub Packages
+8. **Publish design-system** — pushes `@finografic/design-system` to GitHub Packages
+9. **Push** — `git push --follow-tags` — pushes both commits and both tags
 
----
-
-### Routine release — DS only changed
-
-The common case: you changed components, tokens, or styles. Icons untouched.
-
-```bash
-# 1. Build and verify
-pnpm build
-pnpm typecheck
-
-# 2. Commit your changes
-git add -p
-git commit -m "feat: ..."
-
-# 3. Release (choose bump level)
-pnpm release.ds.patch
-```
-
-That's it. GitHub Actions handles the publish.
-
----
-
-### Releasing icons + DS together
-
-When you add, remove, or change icons:
-
-```bash
-# 1. Regenerate icons (runs generate script + build)
-pnpm build.icons
-
-# 2. Bump icons version and publish manually
-pnpm --filter @finografic/icons version patch
-pnpm publish.icons
-
-# 3. Update the DS dependency to the new icons version
-#    Edit packages/design-system/package.json:
-#      "@finografic/icons": "workspace:*"  ← leave as-is during dev
-#    pnpm install re-locks it automatically
-
-# 4. Build and release DS
-pnpm build
-pnpm typecheck
-pnpm release.ds.patch
-```
-
-> The `workspace:*` specifier is automatically replaced with the real published
-> version (e.g. `"0.0.2"`) when pnpm packages the DS tarball for publish.
-> Consumers get a concrete version, not `workspace:*`.
+> Icons is always built and published first because the DS lists it as a dependency.
+> The `workspace:*` specifier in the DS is automatically replaced with the real
+> published icons version (e.g. `"0.1.0"`) when pnpm packages the tarball.
+> Consumers receive a concrete version, not `workspace:*`.
 
 ---
 
