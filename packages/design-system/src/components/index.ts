@@ -23,6 +23,10 @@ export type {
 } from './data-table';
 export { DataTable } from './data-table';
 
+// ── Pre-composed patterns ─────────────────────────────────────────────────────
+export { GenericDialog } from './generic-dialog/generic-dialog';
+export type { DialogConfig, TabConfig } from './generic-dialog/generic-dialog.types';
+
 // ── Ark UI primitives (re-exported for consistent imports) ───────────────────
 // Use these when you need full composition control.
 // Apply recipe classNames per slot: e.g. checkboxRecipe({ size: 'md' })

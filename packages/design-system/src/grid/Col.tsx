@@ -4,16 +4,18 @@ import { forwardRef } from 'react';
 type ColSpan = number | 'content';
 
 interface ColProps extends ComponentPropsWithoutRef<'div'> {
-  xs?: ColSpan;
-  sm?: ColSpan;
-  md?: ColSpan;
-  lg?: ColSpan;
-  xl?: ColSpan;
-  xxl?: ColSpan;
+  'xs'?: ColSpan;
+  'sm'?: ColSpan;
+  'md'?: ColSpan;
+  'lg'?: ColSpan;
+  'xl'?: ColSpan;
+  'xxl'?: ColSpan;
+  '2xl'?: ColSpan;
 }
 
 const Col = forwardRef<HTMLDivElement, ColProps>(
-  ({ xs, sm, md, lg, xl, xxl, className, ...props }, ref) => {
+  ({ xs, sm, md, lg, xl, xxl, '2xl': xxl2, className, ...props }, ref) => {
+    const xxlValue = xxl ?? xxl2;
     const classes = [
       'ds-col',
       xs != null && `ds-col-xs-${xs}`,
@@ -21,7 +23,7 @@ const Col = forwardRef<HTMLDivElement, ColProps>(
       md != null && `ds-col-md-${md}`,
       lg != null && `ds-col-lg-${lg}`,
       xl != null && `ds-col-xl-${xl}`,
-      xxl != null && `ds-col-xxl-${xxl}`,
+      xxlValue != null && `ds-col-xxl-${xxlValue}`,
       className,
     ]
       .filter(Boolean)
