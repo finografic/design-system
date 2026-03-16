@@ -71,14 +71,13 @@
     "src/styles",
     "src/grid/grid.css",
     "src/forms/forms.css",
-    "src/components/generic-dialog.css",
-    "src/components/dialog.css"
+    "src/components/generic-dialog/generic-dialog.css",
+    "src/components/dialog/dialog.css"
   ],
   "scripts": {
     "build": "panda codegen && tsdown",
     "dev": "panda cssgen --watch",
     "dev.ts": "tsdown --watch",
-    "dev.ts2": "panda cssgen && tsdown --watch",
     "watch": "concurrently --names codegen,tsdown \"panda codegen -w\" \"tsdown --watch\"",
     "·········· PANDA": "·····················································",
     "panda:spec": "panda spec",
