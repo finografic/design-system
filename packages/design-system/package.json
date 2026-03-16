@@ -70,12 +70,16 @@
     "dist",
     "src/styles",
     "src/grid/grid.css",
-    "src/forms/forms.css"
+    "src/forms/forms.css",
+    "src/components/generic-dialog.css",
+    "src/components/dialog.css"
   ],
   "scripts": {
     "build": "panda codegen && tsdown",
     "dev": "panda cssgen --watch",
     "dev.ts": "tsdown --watch",
+    "dev.ts2": "panda cssgen && tsdown --watch",
+    "watch": "concurrently --names codegen,tsdown \"panda codegen -w\" \"tsdown --watch\"",
     "·········· PANDA": "·····················································",
     "panda:spec": "panda spec",
     "panda:studio": "panda studio",
@@ -97,6 +101,7 @@
     "match-sorter": "8.2.0"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "@ark-ui/react": "^5.34.1",
     "@pandacss/dev": "^1.9.0",
     "@pandacss/studio": "^1.9.0",

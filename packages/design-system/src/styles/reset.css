@@ -1,7 +1,13 @@
 /**
  * CSS Reset — based on Ark UI blog's preflight
- * Normalized typography, spacing, and form elements
+ * Normalized typography, spacing, and form elements.
+ *
+ * Wrapped in @layer reset so it has lower priority than Panda's utilities layer.
+ * The app entry CSS must declare layer order first, e.g.:
+ *   @layer reset, base, tokens, recipes, utilities;
+ * then import this file and Panda's generated CSS.
  */
+@layer reset {
 
 html {
   line-height: 1.5;
@@ -245,4 +251,6 @@ input[type="number"] {
 
 [hidden]:where(:not([hidden="until-found"])) {
   display: none !important;
+}
+
 }

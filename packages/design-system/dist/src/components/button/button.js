@@ -1,4 +1,6 @@
+import { buttonRecipe } from "./button.recipe.js";
 import { forwardRef } from "react";
+import { cx } from "@styled-system/css";
 import { jsxs } from "react/jsx-runtime";
 import { ark } from "@ark-ui/react";
 //#region src/components/button/button.tsx
@@ -19,6 +21,12 @@ import { ark } from "@ark-ui/react";
 * ```
 */
 const Button = forwardRef(({ size = "md", variant = "outline", colorScheme = "default", loading = false, icon, iconPosition = "left", disabled, children, className, ...props }, ref) => {
+	const recipeClass = buttonRecipe({
+		size,
+		variant,
+		colorScheme,
+		iconOnly: Boolean(icon && !children)
+	});
 	return /* @__PURE__ */ jsxs(ark.button, {
 		ref,
 		disabled: disabled || loading,
@@ -27,7 +35,7 @@ const Button = forwardRef(({ size = "md", variant = "outline", colorScheme = "de
 		"data-variant": variant,
 		"data-color-scheme": colorScheme,
 		"data-loading": loading || void 0,
-		className,
+		className: cx(recipeClass, className),
 		...props,
 		children: [
 			icon && iconPosition === "left" && icon,

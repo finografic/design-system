@@ -1,7 +1,10 @@
 /**
  * Global CSS — aggregates all shared styles
- * Import this single file in your app entry point.
+ * Import this single file in your app entry point (before Panda's generated CSS).
+ *
+ * Layer order: reset has lowest priority so Panda's utilities/recipes override it.
  */
+@layer reset, base, tokens, recipes, utilities;
 
 @import url(./reset.css);
 @import url(./keyframes.css);

@@ -1,2 +1,2 @@
-import "./button.js";
 import "./button.recipe.js";
+import "./button.js";

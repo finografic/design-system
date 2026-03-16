@@ -35,9 +35,9 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 					className: cx("ds-generic-dialog__header", hasTitle && "has-title"),
 					children: [/* @__PURE__ */ jsxs(Dialog.Title, {
 						className: hasTitle ? void 0 : "sr-only",
-						children: [config.title || "Dialog", config.subtitle && /* @__PURE__ */ jsxs("span", {
+						children: [config.title || "Dialog", config.subtitle && /* @__PURE__ */ jsx("span", {
 							className: "ds-generic-dialog__subtitle",
-							children: [" ", config.subtitle]
+							children: config.subtitle
 						})]
 					}), /* @__PURE__ */ jsx(Dialog.CloseTrigger, {
 						asChild: true,
@@ -52,8 +52,7 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 				}),
 				/* @__PURE__ */ jsxs(Dialog.Description, { children: [
 					config.title,
-					" —",
-					" ",
+					" — ",
 					hasTabs ? "Navigate between tabs to access different sections" : config.description || "Dialog content"
 				] }),
 				/* @__PURE__ */ jsx(Dialog.Body, {
