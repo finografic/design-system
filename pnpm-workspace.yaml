@@ -1,8 +1,0 @@
-packages:
-  - packages/*
-
-onlyBuiltDependencies:
-  - dprint
-  - esbuild
-  - sharp
-  - simple-git-hooks

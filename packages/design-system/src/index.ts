@@ -15,12 +15,10 @@ export type {
 } from './viewport';
 export {
   BREAKPOINT_VALUES,
+  BREAKPOINTS,
   BREAKPOINTS_EM,
   BREAKPOINTS_PX,
   BREAKPOINTS_REM,
-  max,
-  min,
-  sizes,
 } from './viewport';
 export { MEDIA_QUERIES, QUERIES_MAX, QUERIES_MIN } from './viewport';
-export { convertPxToRem, convertRemToPx } from './viewport';
+export { convertPxToRem, convertRemToPx, max, min, sizes } from './viewport';

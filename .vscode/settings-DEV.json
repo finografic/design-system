@@ -2,9 +2,6 @@
   "npm.packageManager": "pnpm",
 
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
 
   "eslint.enable": true,
   "eslint.useFlatConfig": true,
@@ -19,11 +16,22 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "javascript.suggestionActions.enabled": false,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "stylelint.enable": true,
+  "stylelint.validate": ["css"],
+  "css.validate": false,
 
-  "[javascript]": {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "[typescript]": {
     "editor.defaultFormatter": "dprint.dprint"
   },
-  "[typescript]": {
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "dprint.dprint"
   },
   "[json]": {
@@ -39,14 +47,17 @@
     "editor.defaultFormatter": "dprint.dprint"
   },
   "[css]": {
-    "editor.defaultFormatter": "dprint.dprint"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    // "editor.codeActionsOnSave": {
+    //   "source.fixAll.stylelint": "explicit"
+    // }
   },
-
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "stylelint.enable": true,
-  "stylelint.validate": ["css"],
-  "css.validate": false,
-
+  "[postcss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
   "markdownlint.config": {
     "default": true,
     "MD013": false,
