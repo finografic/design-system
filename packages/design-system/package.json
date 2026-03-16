@@ -1,7 +1,7 @@
 {
   "name": "@finografic/design-system",
   "type": "module",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Token-driven design system built on Ark UI and Panda CSS.",
   "homepage": "https://github.com/finografic/design-system",
   "repository": {
