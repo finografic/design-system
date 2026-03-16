@@ -1,6 +1,6 @@
 import type React from 'react';
 
-import type { ButtonProps } from '../../components/button/button';
+import type { ButtonVariants } from '../button/button.types';
 import type { DialogSize } from '../dialog/dialog.types';
 
 export type { DialogSize };
@@ -11,6 +11,16 @@ export interface TabConfig {
   icon?: React.ReactNode;
   content: React.ReactNode;
   disabled?: boolean;
+}
+
+type ButtonColorScheme = NonNullable<ButtonVariants>['colorScheme'];
+type ButtonVariant = NonNullable<ButtonVariants>['variant'];
+
+interface FooterButton {
+  label: string;
+  onClick: () => void;
+  variant?: ButtonVariant;
+  colorScheme?: ButtonColorScheme;
 }
 
 export interface DialogConfig {
@@ -25,8 +35,7 @@ export interface DialogConfig {
   minWidth?: string;
   minHeight?: string;
   footer?: {
-    isRTL?: boolean;
-    isFilled?: boolean;
-    buttons: ButtonProps[];
-  } | null;
+    primaryButton?: FooterButton;
+    secondaryButton?: FooterButton;
+  };
 }
