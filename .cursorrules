@@ -21,3 +21,9 @@
 - Shared packages in packages/
 - Use TypeScript throughout
 - Follow existing patterns and conventions
+
+## Design System (Panda CSS)
+
+- The Panda MCP server (`.cursor/mcp.json`) exposes tokens, recipes, patterns, breakpoints, and usage reports.
+- For questions about breakpoints, tokens, recipes, variants, or design-system conventions, use the Panda MCP tools when relevant — no need for the user to ask explicitly.
+- When working with recipes (cva/sva), follow existing patterns in the codebase; keep naming, structure, and variant conventions consistent.
