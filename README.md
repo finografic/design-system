@@ -73,8 +73,8 @@ See [COMPONENTS.md](./src/components/COMPONENTS.md) for the full inventory, patt
 
 | Component | Element           | Notes                                                                |
 | --------- | ----------------- | -------------------------------------------------------------------- |
-| `Badge`   | `span`            | Props: `variant`, `colorScheme`, `size`                              |
-| `Button`  | `ark.button`      | Props: `variant`, `colorScheme`, `size`, `loading`                   |
+| `Badge`   | `span`            | Props: `variant`, `palette`, `size`                                  |
+| `Button`  | `ark.button`      | Props: `variant`, `palette`, `size`, `loading`                       |
 | `Callout` | `div[role=alert]` | Prop: `status`                                                       |
 | `Card`    | `div`             | Props: `size`, `variant`                                             |
 | `Spinner` | SVG               | Prop: `size` (number, default `20`)                                  |
@@ -125,8 +125,8 @@ All exported from `@workspace/design-system/recipes`.
 
 | Recipe          | Variants                                                                            |
 | --------------- | ----------------------------------------------------------------------------------- |
-| `badgeRecipe`   | `variant` (solid, soft, outline) · `colorScheme` · `size` (sm, md, lg)              |
-| `buttonRecipe`  | `variant` (solid, subtle, outline, ghost) · `colorScheme` · `size` (sm, md, lg)     |
+| `badgeRecipe`   | `variant` (solid, soft, outline) · `palette` · `size` (sm, md, lg)                  |
+| `buttonRecipe`  | `variant` (solid, subtle, outline, ghost) · `palette` · `size` (sm, md, lg)         |
 | `calloutRecipe` | `status` (error, warning, success, info)                                            |
 | `cardRecipe`    | `size` (sm, md, lg) · `variant` (elevated, outlined)                                |
 | `labelRecipe`   | `size` (sm, md, lg)                                                                 |

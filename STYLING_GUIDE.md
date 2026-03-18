@@ -19,14 +19,14 @@ Recipes (e.g. `buttonRecipe` from `cva`) are applied **inside** the design-syste
 
 ### Example: Button
 
-- **Recipe:** `packages/design-system/src/components/button/button.recipe.ts` defines `buttonRecipe` with `cva({ base, variants, defaultVariants })` (size, variant, colorScheme, iconOnly).
+- **Recipe:** `packages/design-system/src/components/button/button.recipe.ts` defines `buttonRecipe` with `cva({ base, variants, defaultVariants })` (size, variant, palette, iconOnly).
 - **Component:** `packages/design-system/src/components/button/button.tsx` calls the recipe and passes the result to the root element:
 
 ```tsx
 const recipeClass = buttonRecipe({
   size,
   variant,
-  colorScheme,
+  palette,
   iconOnly: Boolean(icon && !children),
 });
 
@@ -43,7 +43,7 @@ So the client only uses the component and props; the recipe is already applied:
 ```tsx
 import { Button } from '@finografic/design-system/components';
 
-<Button variant="solid" colorScheme="danger" size="md">
+<Button variant="solid" palette="danger" size="md">
   Delete
 </Button>;
 ```

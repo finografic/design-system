@@ -2,14 +2,14 @@
  * Button Component
  *
  * Accessible button built on `ark.button`. Styling via `buttonRecipe`
- * — pass `className={buttonRecipe({ variant, colorScheme, size })}`.
+ * — pass `className={buttonRecipe({ variant, palette, size })}`.
  *
  * Usage:
  * ```tsx
  * import { Button } from '@workspace/design-system/components';
  * import { buttonRecipe } from '@workspace/design-system/recipes';
  *
- * <Button className={buttonRecipe({ variant: 'solid', colorScheme: 'primary' })}>
+ * <Button className={buttonRecipe({ variant: 'solid', palette: 'primary' })}>
  *   Save
  * </Button>
  * ```
@@ -31,7 +31,7 @@ export type ButtonProps =
     /** Visual variant — solid · subtle · outline · ghost · link. Default: outline */
     variant?: 'solid' | 'subtle' | 'outline' | 'ghost' | 'link';
     /** Color scheme. Default: default */
-    colorScheme?:
+    palette?:
       | 'default'
       | 'primary'
       | 'secondary'
@@ -53,7 +53,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       size = 'md',
       variant = 'outline',
-      colorScheme = 'default',
+      palette = 'default',
       loading = false,
       icon,
       iconPosition = 'left',
@@ -67,7 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const recipeClass = buttonRecipe({
       size,
       variant,
-      colorScheme,
+      palette,
       iconOnly: Boolean(icon && !children),
     });
 
@@ -78,7 +78,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={loading || undefined}
         data-size={size}
         data-variant={variant}
-        data-color-scheme={colorScheme}
+        data-color-scheme={palette}
         data-loading={loading || undefined}
         className={cx(recipeClass, className)}
         {...props}

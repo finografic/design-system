@@ -48,7 +48,7 @@ Instruction files live in `docs/` for this repo:
 - Ignore .cursor/chats and .cursor/hooks; commit .cursor/mcp.json
 - Use Panda MCP for design-system questions (breakpoints, tokens, recipes) when relevant without explicit user ask
 - Follow existing recipe patterns for naming, structure, and variant conventions
-- Export explicit ButtonVariant/ButtonColorScheme types for consumers; avoid indexing RecipeProps for variant/colorScheme
+- Export explicit ButtonVariant/ButtonPalette types for consumers; avoid indexing RecipeProps for variant/palette
 
 ## Learned Workspace Facts
 

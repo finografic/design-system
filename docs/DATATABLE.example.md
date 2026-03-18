@@ -229,7 +229,7 @@ export const orderColumns: ColumnDef<Order>[] = [
           <EditIcon className="icon icon-md" />
         </button>
         <button
-          className={buttonRecipe({ size: 'xs', variant: 'ghost', colorScheme: 'danger' })}
+          className={buttonRecipe({ size: 'xs', variant: 'ghost', palette: 'danger' })}
           onClick={() => console.log('delete', row.original.id)}
           aria-label="Delete order"
         >

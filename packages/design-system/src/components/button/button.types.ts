@@ -7,7 +7,7 @@ export type ButtonVariants = RecipeProps<typeof buttonRecipe>;
 export type ButtonVariant = 'solid' | 'subtle' | 'outline' | 'ghost' | 'link';
 
 /** Button color scheme */
-export type ButtonColorScheme =
+export type ButtonPalette =
   | 'default'
   | 'primary'
   | 'secondary'
