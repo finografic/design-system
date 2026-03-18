@@ -80,10 +80,12 @@ const config: Linter.Config[] = [
       ],
 
       'stylistic/semi': ['error'],
-      'stylistic/quotes': ['error', 'single', { avoidEscape: true }],
-      'stylistic/indent': ['warn', 2],
-      'stylistic/no-multiple-empty-lines': ['warn', { max: 1, maxBOF: 0, maxEOF: 1 }],
-      'stylistic/no-trailing-spaces': 'error',
+      'stylistic/quotes': ['error', 'single'],
+      // TODO: REMOVE `ConditionalExpression` WHEN oxfmt IS ADDED TO
+      'stylistic/indent': ['warn', 2, { SwitchCase: 1, ignoredNodes: ['ConditionalExpression'] }],
+      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
+      'stylistic/no-multi-spaces': ['warn', { exceptions: { Property: true } }],
+      'stylistic/no-trailing-spaces': 'warn',
       'stylistic/object-curly-spacing': ['error', 'always'],
       'stylistic/comma-spacing': ['error', { before: false, after: true }],
       'stylistic/comma-dangle': ['error', 'only-multiline'],
@@ -152,7 +154,7 @@ const config: Linter.Config[] = [
       'markdownlint/md043': 'off', // Required heading structure
 
       // Formatting consistency
-      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0, maxBOF: 0 }],
+      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
       'stylistic/no-trailing-spaces': 'error',
       'stylistic/no-multi-spaces': ['error', { exceptions: { Property: true } }],
     },

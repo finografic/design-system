@@ -2,10 +2,13 @@
 
 # Claude-specific Instructions
 
+## Rules - Claude
+
+- Do not include `Co-Authored-By` lines in commit messages.
+
 ## Session Memory
 
-Claude Code maintains a lightweight session log at
-`.claude/memory.md` (gitignored).
+Claude Code maintains a lightweight session log at `.claude/memory.md` (gitignored).
 
 **On session start:** Read `.claude/memory.md` if it exists.
 Use it to understand recent context. If a `## Current Session`
@@ -21,26 +24,17 @@ top of the file with:
 
 **During the session — write early and often. Do not defer.**
 
-- After completing any checklist item: mark it `- [x]`
-  in memory.md immediately.
-- After discovering new steps: append them to the checklist
-  right away.
-- Every ~20–30 minutes of active work: re-save the current
-  checklist state even if nothing major changed.
-- After a git commit: update the checklist to reflect what
-  was just committed. Commits are milestone markers — treat
-  them as mandatory checkpoint triggers.
+- After completing any checklist item: mark it `- [x]` in memory.md immediately.
+- After discovering new steps: append them to the checklist right away.
+- Every ~20–30 minutes of active work: re-save the current checklist state even if nothing major changed.
+- After a git commit: update the checklist to reflect what was just committed. Commits are milestone markers — treat them as mandatory checkpoint triggers.
 
-The goal: a machine shutdown should lose at most one small
-task worth of context, never an entire session.
+The goal: a machine shutdown should lose at most one small task worth of context, never an entire session.
 
-**On session end:** Collapse the `## Current Session` block
-into a normal `## <date>` entry (a 2-4 line summary), and
-move it below the previous sessions.
+**On session end:** Collapse the `## Current Session` block into a normal `## <date>` entry (a 2-4 line summary), and move it below the previous sessions.
 
-Keep only the **last 5 sessions** in the file (delete older
-entries when appending). Each entry should be 2-4 lines max
-— this is a breadcrumb trail, not a journal.
+Keep only the **last 5 sessions** in the file (delete older entries when appending).
+Each entry should be 2-4 lines max — this is a breadcrumb trail, not a journal.
 
 ## Handoff Document
 
