@@ -1,27 +1,6 @@
-# Claude Code Instructions
+@AGENTS.md
 
-## Rule Files
-
-Instruction files live in `docs/` for this repo:
-
-- [Design System](docs/09-design-system.instructions.md)
-
-> Note: the full `.github/instructions/` rule set from the monorepo has not been copied here yet.
-> Until it is, follow general TypeScript, ESLint, and naming conventions from prior context.
-
-## Markdown Tables
-
-- Padded pipes: one space on each side of every `|`, including the separator row.
-- Align column widths so all cells in the same column are equal width.
-
-## Project-Specific
-
-- This is a **standalone installable package** (`@finografic/design-system`), not a monorepo workspace.
-- Published to GitHub Packages (`https://npm.pkg.github.com`).
-- Do not include `Co-Authored-By` lines in commit messages.
-- Do not reference `@workspace/*` — all imports and deps must use published package names.
-- The `panda.preset` entry must always build with `platform: 'node'` in tsdown.
-- Never add `watch: true` to `panda.config.ts` — it causes `panda codegen` to hang.
+# Claude-specific Instructions
 
 ## Session Memory
 

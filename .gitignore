@@ -17,9 +17,9 @@ styled-system/
 .env.*.local
 
 # IDE — ignore Cursor state; keep project config (.cursor/mcp.json) committed
-.cursor/chats
-.cursor/hooks
-.claude/
+.cursor/chats/
+.cursor/hooks/
+.claude/**
 !.claude/settings.json
 .idea/
 *.swp
