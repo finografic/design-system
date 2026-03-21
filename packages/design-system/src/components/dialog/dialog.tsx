@@ -18,11 +18,11 @@ Root.displayName = 'Dialog.Root';
 // ── Dialog.Trigger ─────────────────────────────────────────────────────────────
 
 function Trigger({ className, tone = 'outline', ...props }: DialogTriggerPropsDS) {
-  const recipeClass = rootTriggerRecipe({ tone });
+  const styles = rootTriggerRecipe({ tone });
 
   return (
     <ArkDialog.Trigger
-      className={cx(recipeClass, className)}
+      className={cx(styles, className)}
       data-variant={tone === 'outline' ? undefined : tone}
       {...props}
     />

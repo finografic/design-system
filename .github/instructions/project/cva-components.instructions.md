@@ -12,13 +12,26 @@ compounds and `createStyleContext`.
 
 Same rules as **[sva-components.instructions.md](sva-components.instructions.md)** (section **Shared conventions**). In short:
 
-| Topic              | Rule                                                                                                                                                                |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`cx`**           | From `@styled-system/css`; **inline** when used once in JSX.                                                                                                        |
-| **Deprecated API** | No `@deprecated` props; no long-lived compat shims.                                                                                                                 |
-| **`onChange`**     | On **wrappers**, simplify handler shapes when it helps DX; **primitives** stay close to DOM/Ark (`onCheckedChange` on a raw button is N/A — buttons use `onClick`). |
-| **Types**          | Explicit variant unions where `RecipeProps<>` is weak.                                                                                                              |
-| **Tokens**         | Semantic tokens in `base` / `variants`; map third-party demo CSS to tokens.                                                                                         |
+| Topic              | Rule                                                                                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`cx`**           | From `@styled-system/css`; **inline** when used once in JSX.                                                                                                             |
+| **Deprecated API** | No `@deprecated` props; no long-lived compat shims.                                                                                                                      |
+| **`onChange`**     | On **wrappers**, simplify handler shapes when it helps DX; **primitives** stay close to DOM/Ark (`onCheckedChange` on a raw button is N/A — buttons use `onClick`).      |
+| **Types**          | Explicit variant unions where `RecipeProps<>` is weak.                                                                                                                   |
+| **Tokens**         | Semantic tokens in `base` / `variants`; map third-party demo CSS to tokens.                                                                                              |
+| **Recipe binding** | Bind the **`cva`** return value to **`styles`** (a class string), not `recipeClass` or `cls`. Multiple recipes in one scope: **`stylesButton`**, **`stylesBadge`**, etc. |
+
+---
+
+## Recipe return variable (`styles`)
+
+**`cva`** returns a **single class string** (unlike **`sva`** slot objects). Still use
+the same naming rule:
+
+| Situation                                | Name                             | Example                                                                                         |
+| ---------------------------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------- |
+| One recipe in scope                      | **`styles`**                     | `const styles = buttonRecipe({ size, variant, palette })` → `className={cx(styles, className)}` |
+| Several recipes in the same file/closure | **`styles` + PascalCase suffix** | `const stylesButton = buttonRecipe(…)`, `const stylesIcon = iconRecipe(…)`                      |
 
 ---
 
@@ -57,8 +70,8 @@ Do **not** wrap a lone `cva` in fake **`{ root: '...' }`** “slots” just for 
 ## Component implementation
 
 - **`forwardRef`** to the underlying element (`ark.button`, `span`, …).
-- **`const recipeClass = buttonRecipe({ ...props spread of variants })`** is fine when you need the value **more than once** (e.g. recipe + `recipe.raw`); otherwise **`className={cx(buttonRecipe({ ... }), className)}`** matches the shared **`cx`** inlining rule.
-- Merge consumer **`className`** last: **`cx(recipeClass, className)`**.
+- **`const styles = buttonRecipe({ ... })`** when you reference the class string more than once (e.g. `styles` + `buttonRecipe.raw`); otherwise inline **`className={cx(buttonRecipe({ ... }), className)}`** per the **`cx`** inlining rule.
+- Merge consumer **`className`** last: **`cx(styles, className)`**.
 - Expose **`data-*`** attributes that help debugging and style hooks (`data-size`, `data-variant`, `data-loading`, …) where useful.
 
 ---

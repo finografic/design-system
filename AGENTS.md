@@ -50,7 +50,7 @@ Project-specific instructions live in `.github/instructions/project/`:
 - Ignore `.cursor/chats` and `.cursor/hooks`; commit `.cursor/mcp.json`
 - Use Panda MCP for design-system questions (breakpoints, tokens, recipes) when relevant without explicit user ask
 - Convenience wrappers may use **`{Component}DS`** + simplified handlers (e.g. boolean `onChange`); bare compounds keep Ark prop names (`onCheckedChange`, etc.)
-- DS authoring/refactors: `sva-components.instructions.md` + `cva-components.instructions.md`; inline single-use `cx(...)`; no deprecated props (consumer overview: `design-system.instructions.md`)
+- DS authoring/refactors: `sva-components.instructions.md` + `cva-components.instructions.md`; recipe results named `styles` / `stylesComponent`; inline single-use `cx(...)`; no deprecated props (consumer overview: `design-system.instructions.md`)
 
 ## Learned Workspace Facts
 

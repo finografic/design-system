@@ -21,6 +21,23 @@ These apply to **both** `sva` and `cva` exports in this design system:
 | **Types**                         | Export explicit variant unions where `RecipeProps<>` is insufficient (e.g. `ButtonVariant`, `ButtonPalette`). Do not index `RecipeProps` for keys that are not exposed.                                                                      |
 | **Tokens**                        | Prefer semantic tokens in recipes (`fg`, `bg.muted`, `accent.solid`, `border.subtle`). Port Ark demo CSS by **mapping** demo variables to tokens, not by shipping demo CSS variables.                                                        |
 | **Ark example CSS**               | Treat Ark docs stylesheets as a **spec** → implement as Panda **`sva`/`cva`** + tokens. Avoid shipping parallel **CSS modules** for the same UI long term.                                                                                   |
+| **Recipe binding name**           | The variable holding a recipe’s return value is always **`styles`** (not `cls`, `recipeClass`, `classNames`, etc.). See **Recipe return variable** below.                                                                                    |
+
+---
+
+## Recipe return variable (`styles`)
+
+When you call a slot recipe in TSX, bind the result to a name that signals “generated
+classes from Panda”:
+
+| Situation                                    | Name                                         | Usage                                                                                                                                         |
+| -------------------------------------------- | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **One** `sva` recipe in the component/module | **`styles`**                                 | `const styles = switchRecipe({ size, palette })` → `styles.root`, `styles.control`, …                                                         |
+| **Two or more** recipes in the same scope    | **`styles` + component suffix (PascalCase)** | `const stylesSwitch = switchRecipe({ … })`, `const stylesDialog = dialogRecipe({ … })` — suffix matches the recipe/component you are styling. |
+
+Apply the same idea in **`SwitchDS`**, **`CheckboxField`**, and any wrapper that calls
+`checkboxRecipe` / `switchRecipe` directly: use **`styles`** / **`stylesCheckbox`**, not
+**`cls`**.
 
 ---
 
@@ -93,7 +110,7 @@ This improves hover text in the IDE for **`Switch`**, **`Switch.Root`**, etc.
 
 ## Convenience wrappers (`SwitchDS`, `CheckboxField`, …)
 
-- Call **`switchRecipe({ size, palette })`** (or equivalent) and apply **`cls.root`**, **`cls.control`**, … on the matching Ark elements (same pattern as **CheckboxField**).
+- Call **`switchRecipe({ size, palette })`** (or equivalent), assign to **`styles`** (or **`stylesSwitch`** if multiple recipes share the scope), then apply **`styles.root`**, **`styles.control`**, … on the matching Ark elements (same pattern as **CheckboxField**).
 - Prefer a **`classNames?: { root?, control?, … }`** object for overrides instead of many one-off `*ClassName` props.
 - **Naming:** optional pattern **`{Component}DS`** for opinionated DS wrappers vs bare **`{Component}`** compounds (e.g. **`Switch`** + **`SwitchDS`**). Older components may still use **`*Field`** (`CheckboxField`) until aligned.
 - **Simpler handlers:** e.g. **`onChange(checked: boolean)`** on **`SwitchDS`**, forwarding to Ark **`onCheckedChange`** internally — **do not** expose Ark’s detail object on the wrapper unless you intentionally mirror Ark.

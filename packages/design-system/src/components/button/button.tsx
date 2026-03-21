@@ -64,7 +64,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) => {
-    const recipeClass = buttonRecipe({
+    const styles = buttonRecipe({
       size,
       variant,
       palette,
@@ -80,7 +80,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-color-scheme={palette}
         data-loading={loading || undefined}
-        className={cx(recipeClass, className)}
+        className={cx(styles, className)}
         {...props}
       >
         {icon && iconPosition === 'left' && icon}

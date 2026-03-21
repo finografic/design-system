@@ -67,6 +67,9 @@ exposes only a boolean **`onChange(checked)`** — it forwards to Ark internally
   `@styled-system/css` for `className` — when the expression is only referenced once
   and inlining stays readable. Use a `const` when reused, very long, or you need a
   name for clarity or side effects.
+- Bind recipe outputs to **`styles`** (or **`stylesComponent`** when several recipes
+  share a scope) — see [SVA](sva-components.instructions.md#recipe-return-variable-styles)
+  and [CVA](cva-components.instructions.md#recipe-return-variable-styles) authoring docs.
 
 ## API surface (this design system)
 

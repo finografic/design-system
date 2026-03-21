@@ -93,7 +93,7 @@ export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
     },
     ref,
   ) => {
-    const cls = switchRecipe({ size, palette });
+    const styles = switchRecipe({ size, palette });
     const errorMessage = typeof error === 'string' ? error : error?.message;
 
     return (
@@ -107,25 +107,25 @@ export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
         onBlur={onBlur}
         disabled={disabled}
         data-size={size}
-        className={cx(cls.root, classNames.root, className)}
+        className={cx(styles.root, classNames.root, className)}
       >
-        <ArkSwitch.Control className={cx(cls.control, classNames.control)}>
-          <ArkSwitch.Thumb className={cx(cls.thumb, classNames.thumb)} />
+        <ArkSwitch.Control className={cx(styles.control, classNames.control)}>
+          <ArkSwitch.Thumb className={cx(styles.thumb, classNames.thumb)} />
         </ArkSwitch.Control>
 
         {(label || description || errorMessage) && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
             {label && (
-              <ArkSwitch.Label className={cx(cls.label, classNames.label)}>
+              <ArkSwitch.Label className={cx(styles.label, classNames.label)}>
                 {label}
               </ArkSwitch.Label>
             )}
             {description && (
-              <span className={cx(cls.description, classNames.description)}>{description}</span>
+              <span className={cx(styles.description, classNames.description)}>{description}</span>
             )}
             {errorMessage && (
               <span
-                className={cx(cls.errorText, classNames.errorText)}
+                className={cx(styles.errorText, classNames.errorText)}
                 role="alert"
               >
                 {errorMessage}

@@ -42,8 +42,8 @@ and the rest forwarded to the element.
 ```tsx
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
   ({ variant, palette, size, className, ...props }, ref) => {
-    const cls = badgeRecipe({ variant, palette, size });
-    return <span ref={ref} className={className ? `${cls} ${className}` : cls} {...props} />;
+    const styles = badgeRecipe({ variant, palette, size });
+    return <span ref={ref} className={className ? `${styles} ${className}` : styles} {...props} />;
   },
 );
 ```
