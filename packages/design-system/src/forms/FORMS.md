@@ -17,19 +17,19 @@ Each folder contains exactly four files:
 
 ## Component inventory
 
-| Component           | Recipe type      | Ark UI        | createStyleContext | Notes                                                       |
-| ------------------- | ---------------- | ------------- | ------------------ | ----------------------------------------------------------- |
-| `checkbox`          | `sva`            | `Checkbox`    | yes                | `withProvider` + `withContext`; `CheckboxField` wrapper     |
-| `field-box`         | `sva`            | `Field.Root`  | —                  | RHF-aware layout wrapper; auto-wires error/warning          |
-| `input-field`       | `sva`            | `Field.Input` | —                  | `InputField.Root` + `InputField.Slot` compound              |
-| `input-number`      | `sva`            | `NumberInput` | —                  | Ark NumberInput; prefix/suffix slots; `Intl` formatting     |
-| `label`             | `cva`            | —             | —                  | Plain `<label>` wrapper; size variant                       |
-| `radio-group`       | `sva`            | `RadioGroup`  | yes                | `withProvider` + `withContext`; `default` + `card` variant  |
-| `select`            | `sva`            | `Select`      | yes                | `withProvider` + `withContext`; bare compound               |
-| `select-default`    | _(selectRecipe)_ | `Select`      | —                  | `options[]` convenience wrapper; reuses `selectRecipe`      |
-| `select-searchable` | `sva`            | `Combobox`    | —                  | `match-sorter` filtering; `onAddNew` callback               |
-| `slider`            | `sva`            | `Slider`      | yes                | `withProvider` + `withContext`                              |
-| `switch`            | `cva`            | `Switch`      | —                  | Bare `Switch = ArkSwitch` re-export + `SwitchField` wrapper |
+| Component           | Recipe type      | Ark UI        | createStyleContext | Notes                                                      |
+| ------------------- | ---------------- | ------------- | ------------------ | ---------------------------------------------------------- |
+| `checkbox`          | `sva`            | `Checkbox`    | yes                | `withProvider` + `withContext`; `CheckboxField` wrapper    |
+| `field-box`         | `sva`            | `Field.Root`  | —                  | RHF-aware layout wrapper; auto-wires error/warning         |
+| `input-field`       | `sva`            | `Field.Input` | —                  | `InputField.Root` + `InputField.Slot` compound             |
+| `input-number`      | `sva`            | `NumberInput` | —                  | Ark NumberInput; prefix/suffix slots; `Intl` formatting    |
+| `label`             | `cva`            | —             | —                  | Plain `<label>` wrapper; size variant                      |
+| `radio-group`       | `sva`            | `RadioGroup`  | yes                | `withProvider` + `withContext`; `default` + `card` variant |
+| `select`            | `sva`            | `Select`      | yes                | `withProvider` + `withContext`; bare compound              |
+| `select-default`    | _(selectRecipe)_ | `Select`      | —                  | `options[]` convenience wrapper; reuses `selectRecipe`     |
+| `select-searchable` | `sva`            | `Combobox`    | —                  | `match-sorter` filtering; `onAddNew` callback              |
+| `slider`            | `sva`            | `Slider`      | yes                | `withProvider` + `withContext`                             |
+| `switch`            | `sva`            | `Switch`      | yes                | Ark + `createStyleContext`; `LabeledSwitch` form wrapper   |
 
 ## RHF compatibility
 
@@ -73,13 +73,14 @@ use the bare compound (e.g. `Select.*`) when you need full layout control.
 
 ```tsx
 // Convenience
-<SwitchField name="active" label="Active" checked={value} onCheckedChange={onChange} />
+<LabeledSwitch name="active" label="Active" checked={value} onCheckedChange={onChange} />
 
-// Bare compound
-<Switch.Root ...>
-  <Switch.Control className={switchRecipe({ size })}>
-    <Switch.Thumb className="switch-thumb" />
+// Bare compound (variants on `Root`)
+<Switch.Root size="md" palette="primary">
+  <Switch.Control>
+    <Switch.Thumb />
   </Switch.Control>
+  <Switch.Label>Optional label</Switch.Label>
 </Switch.Root>
 ```
 

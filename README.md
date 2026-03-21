@@ -113,7 +113,7 @@ See [FORMS.md](./src/forms/FORMS.md) for the full inventory, RHF patterns, and c
 | `SelectDefault`              | Convenience wrapper accepting `options: SelectOption[]`  |
 | `SelectSearchable`           | Ark Combobox with `match-sorter` filtering + `onAddNew`  |
 | `Slider`                     | Ark Slider compound — Root, Track, Range, Thumb, Label   |
-| `Switch` / `SwitchField`     | Ark Switch compound + convenience wrapper                |
+| `Switch` / `LabeledSwitch`   | Ark Switch + `createStyleContext`; labeled form wrapper  |
 
 ---
 
@@ -131,7 +131,6 @@ All exported from `@workspace/design-system/recipes`.
 | `cardRecipe`    | `size` (sm, md, lg) · `variant` (elevated, outlined)                                |
 | `labelRecipe`   | `size` (sm, md, lg)                                                                 |
 | `spinnerRecipe` | — (base only)                                                                       |
-| `switchRecipe`  | `size` (sm, md, lg)                                                                 |
 | `textRecipe`    | `variant` (h1–h6, body, body-lg, body-sm, caption, overline) · `color` · `truncate` |
 
 ### Slot recipes (`sva`)
@@ -149,6 +148,7 @@ All exported from `@workspace/design-system/recipes`.
 | `selectRecipe`           | `select`            | root · control · trigger · valueText · indicator · positioner · content · item · itemText · itemIndicator · itemGroup · label · clearTrigger · list |
 | `selectSearchableRecipe` | `select-searchable` | root · control · input · leadIcon · positioner · content · item · itemText · itemIndicator · itemGroup · emptyState · addNew                        |
 | `sliderRecipe`           | `slider`            | root · label · valueText · control · track · range · thumb · markerGroup · marker                                                                   |
+| `switchRecipe`           | `switch`            | root · label · control · thumb · description · errorText                                                                                            |
 | `tableRecipe`            | `table`             | root · table · thead · tbody · tfoot · tr · headerRow · th · td · sortIcon · emptyState · caption                                                   |
 | `tabsRecipe`             | `tabs`              | root · list · trigger · content · indicator                                                                                                         |
 | `toastRecipe`            | `toast`             | root · group · title · description · actionTrigger · closeTrigger                                                                                   |

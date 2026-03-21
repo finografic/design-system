@@ -1,20 +1,36 @@
 import { Switch as ArkSwitch } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
+import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
-import styles from './switch.module.css';
 import { switchRecipe } from './switch.recipe';
 import type { SwitchVariants } from './switch.types';
 
-// ── Bare compound re-export ───────────────────────────────────────────────────
-// Use Switch.* parts when you need full layout control.
-// Apply switchRecipe() to Switch.Control; add className="switch-thumb" to Switch.Thumb.
-export const Switch = ArkSwitch;
+// ── Styled compound (matches Checkbox + `createStyleContext` pattern) ─────────
 
-// ── SwitchField — convenience wrapper ────────────────────────────────────────
+const { withProvider, withContext } = createStyleContext(switchRecipe);
 
-export type SwitchFieldProps = SwitchVariants & {
+export const Switch = {
+  Root: withProvider(ArkSwitch.Root, 'root'),
+  Control: withContext(ArkSwitch.Control, 'control'),
+  Thumb: withContext(ArkSwitch.Thumb, 'thumb'),
+  Label: withContext(ArkSwitch.Label, 'label'),
+  HiddenInput: ArkSwitch.HiddenInput,
+};
+
+// ── LabeledSwitch — form wrapper (label / description / error) ───────────────
+
+export interface LabeledSwitchClassNames {
+  root?: string;
+  control?: string;
+  thumb?: string;
+  label?: string;
+  description?: string;
+  errorText?: string;
+}
+
+export type LabeledSwitchProps = SwitchVariants & {
   label?: ReactNode;
   description?: ReactNode;
   error?: FieldError | string;
@@ -23,11 +39,14 @@ export type SwitchFieldProps = SwitchVariants & {
   onBlur?: () => void;
   name?: string;
   disabled?: boolean;
+  /** Merged onto the root slot after recipe classes */
   className?: string;
+  /** @deprecated Prefer `classNames.control` */
   controlClassName?: string;
+  classNames?: LabeledSwitchClassNames;
 };
 
-export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
+export const LabeledSwitch = forwardRef<HTMLLabelElement, LabeledSwitchProps>(
   (
     {
       label,
@@ -39,12 +58,19 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
       name,
       disabled,
       size = 'md',
+      palette = 'primary',
       className,
       controlClassName,
+      classNames = {},
     },
     ref,
   ) => {
+    const cls = switchRecipe({ size, palette });
     const errorMessage = typeof error === 'string' ? error : error?.message;
+
+    const rootClass = cx(cls.root, classNames.root, className);
+    const controlClass = cx(cls.control, classNames.control, controlClassName);
+    const thumbClass = cx(cls.thumb, classNames.thumb);
 
     return (
       <ArkSwitch.Root
@@ -55,34 +81,26 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
         onBlur={onBlur}
         disabled={disabled}
         data-size={size}
-        className={cx(styles.root, className)}
-        style={{
-          display: 'inline-flex',
-          alignItems: 'flex-start',
-          gap: '0.5rem',
-          cursor: 'pointer',
-        }}
+        className={rootClass}
       >
-        <ArkSwitch.Control className={controlClassName ?? switchRecipe({ size })}>
-          <ArkSwitch.Thumb className="switch-thumb" />
+        <ArkSwitch.Control className={controlClass}>
+          <ArkSwitch.Thumb className={thumbClass} />
         </ArkSwitch.Control>
 
         {(label || description || errorMessage) && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
-            {label && <ArkSwitch.Label>{label}</ArkSwitch.Label>}
+            {label && (
+              <ArkSwitch.Label className={cx(cls.label, classNames.label)}>
+                {label}
+              </ArkSwitch.Label>
+            )}
             {description && (
-              <span style={{ fontSize: 'var(--font-sizes-sm)', color: 'var(--colors-fg-muted)' }}>
-                {description}
-              </span>
+              <span className={cx(cls.description, classNames.description)}>{description}</span>
             )}
             {errorMessage && (
               <span
+                className={cx(cls.errorText, classNames.errorText)}
                 role="alert"
-                style={{
-                  fontSize: 'var(--font-sizes-sm)',
-                  color: 'var(--colors-fg-error)',
-                  fontWeight: 600,
-                }}
               >
                 {errorMessage}
               </span>
@@ -96,4 +114,4 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
   },
 );
 
-SwitchField.displayName = 'SwitchField';
+LabeledSwitch.displayName = 'LabeledSwitch';
