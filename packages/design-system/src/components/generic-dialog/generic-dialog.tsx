@@ -1,5 +1,6 @@
 import { CloseIcon } from '@finografic/icons';
 
+import { cx } from '@styled-system/css';
 import type { FC } from 'react';
 import React from 'react';
 import { useCallback, useState } from 'react';
@@ -8,10 +9,6 @@ import { Button } from '../button/button';
 import { Dialog } from '../dialog/dialog';
 import { Tabs } from '../tabs/tabs';
 import type { DialogConfig } from './generic-dialog.types';
-
-function cx(...classes: (string | undefined | null | false)[]) {
-  return classes.filter(Boolean).join(' ');
-}
 
 interface GenericDialogProps {
   isOpen: boolean;

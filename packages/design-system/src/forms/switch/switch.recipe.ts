@@ -61,6 +61,17 @@ export const switchRecipe = cva({
         },
       },
     },
+
+    palette: {
+      default: { colorPalette: 'neutral' },
+      primary: { colorPalette: 'primary' },
+      secondary: { colorPalette: 'secondary' },
+      success: { colorPalette: 'success' },
+      warning: { colorPalette: 'warning' },
+      danger: { colorPalette: 'danger' },
+      info: { colorPalette: 'info' },
+      grey: { colorPalette: 'grey' },
+    },
   },
 
   defaultVariants: { size: 'md' },

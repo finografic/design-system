@@ -1,10 +1,7 @@
 import { Slider as ArkSlider } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';
-
-function cx(...classes: (string | undefined | null | false)[]) {
-  return classes.filter(Boolean).join(' ');
-}
 
 const Root = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.Root>>(
   ({ className, ...props }, ref) => (

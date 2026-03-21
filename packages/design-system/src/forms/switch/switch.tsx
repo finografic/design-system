@@ -1,7 +1,9 @@
 import { Switch as ArkSwitch } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
+import styles from './switch.module.css';
 import { switchRecipe } from './switch.recipe';
 import type { SwitchVariants } from './switch.types';
 
@@ -43,7 +45,6 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
     ref,
   ) => {
     const errorMessage = typeof error === 'string' ? error : error?.message;
-    const controlCls = controlClassName ?? switchRecipe({ size });
 
     return (
       <ArkSwitch.Root
@@ -54,7 +55,7 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
         onBlur={onBlur}
         disabled={disabled}
         data-size={size}
-        className={className}
+        className={cx(styles.root, className)}
         style={{
           display: 'inline-flex',
           alignItems: 'flex-start',
@@ -62,7 +63,7 @@ export const SwitchField = forwardRef<HTMLLabelElement, SwitchFieldProps>(
           cursor: 'pointer',
         }}
       >
-        <ArkSwitch.Control className={controlCls}>
+        <ArkSwitch.Control className={controlClassName ?? switchRecipe({ size })}>
           <ArkSwitch.Thumb className="switch-thumb" />
         </ArkSwitch.Control>
 

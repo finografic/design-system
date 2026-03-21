@@ -31,7 +31,13 @@ export type { DialogConfig, TabConfig } from './generic-dialog/generic-dialog.ty
 // Use these when you need full composition control.
 // Apply recipe classNames per slot: e.g. checkboxRecipe({ size: 'md' })
 export { Dialog } from './dialog';
-export type { DialogContentPropsDS, DialogRootPropsDS, DialogSize } from './dialog/dialog.types';
+export type {
+  DialogContentPropsDS,
+  DialogRootPropsDS,
+  DialogSize,
+  DialogTriggerPropsDS,
+  DialogTriggerTone,
+} from './dialog/dialog.types';
 export type { MenuOpenChangeDetails, MenuSelectionDetails } from './menu';
 export { Menu } from './menu';
 export type { PopoverOpenChangeDetails } from './popover';

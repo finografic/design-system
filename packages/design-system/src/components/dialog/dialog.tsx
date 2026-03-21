@@ -1,7 +1,9 @@
 import { Dialog as ArkDialog } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import React from 'react';
 
-import type { DialogContentPropsDS, DialogRootPropsDS } from './dialog.types';
+import { rootTriggerRecipe } from '../../recipes/root-trigger.recipe';
+import type { DialogContentPropsDS, DialogRootPropsDS, DialogTriggerPropsDS } from './dialog.types';
 
 function Root({ onOpenChange, children, ...props }: DialogRootPropsDS) {
   return (
@@ -12,6 +14,22 @@ function Root({ onOpenChange, children, ...props }: DialogRootPropsDS) {
 }
 
 Root.displayName = 'Dialog.Root';
+
+// ── Dialog.Trigger ─────────────────────────────────────────────────────────────
+
+function Trigger({ className, tone = 'outline', ...props }: DialogTriggerPropsDS) {
+  const recipeClass = rootTriggerRecipe({ tone });
+
+  return (
+    <ArkDialog.Trigger
+      className={cx(recipeClass, className)}
+      data-variant={tone === 'outline' ? undefined : tone}
+      {...props}
+    />
+  );
+}
+
+Trigger.displayName = 'Dialog.Trigger';
 
 // ── Dialog.Backdrop ───────────────────────────────────────────────────────────
 
@@ -158,6 +176,7 @@ CloseTrigger.displayName = 'Dialog.CloseTrigger';
 
 export const Dialog = {
   Root,
+  Trigger,
   Backdrop,
   Positioner,
   Content,
