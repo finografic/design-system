@@ -1,6 +1,6 @@
 # 🎨 @finografic/design-system
 
-> Token-driven design system built on **Ark UI**, **Panda CSS**, **Lucide Icons**.
+Token-driven design system built on **Ark UI**, **Panda CSS**, **Lucide Icons**.
 
 > **Key links:** [Ark UI](https://ark-ui.com) · [Panda CSS](https://panda-css.com) · [Zag.js](https://zagjs.com)
 >
