@@ -11,14 +11,16 @@ Good question — this is exactly where the mental model matters. Let me show yo
 
 A recipe just returns class name strings. `tableRecipe()` returns `{ th: "table__th ...", td: "table__td ...", ... }`. `inputRecipe()` returns a single string like `"input input--sm"`. They're completely independent — there's no Panda-specific composition API. You just apply both to whatever element needs them.
 
-```tsx
-    const cls = tableRecipe({ size: 'sm' });
-    const filterInput = inputRecipe({ size: 'sm' });
+When several recipes are used together, name the bindings **`styles` + PascalCase** (DS convention), e.g. **`stylesTable`** and **`stylesInput`**:
 
-    <th className={cls.th}>
-    Name
-      <input className={filterInput} ... />
-    </th>
+```tsx
+const stylesTable = tableRecipe({ size: 'sm' });
+const stylesInput = inputRecipe({ size: 'sm' });
+
+<th className={stylesTable.th}>
+  Name
+  <input className={stylesInput} ... />
+</th>
 ```
 
 That's it. The `th` gets the table header styles, the `input` inside it gets the input styles. No magic, no nesting API — just two independent class strings on two different elements.
@@ -40,8 +42,8 @@ import { tableRecipe } from '@workspace/design-system/recipes';
 import { inputRecipe } from '@workspace/design-system/recipes';
 import { ChevronsUpDownIcon, ArrowUpIcon, ArrowDownIcon } from '@workspace/icons';
 
-const cls = tableRecipe({ size: 'sm', stickyHeader: true });
-const filterInput = inputRecipe({ size: 'sm' });
+const stylesTable = tableRecipe({ size: 'sm', stickyHeader: true });
+const stylesInput = inputRecipe({ size: 'sm' });
 
 function FilterableHeader({ column, label }) {
   return (
@@ -53,7 +55,7 @@ function FilterableHeader({ column, label }) {
         style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-1)' }}
       >
         {label}
-        <span className={cls.sortIcon} data-sort={String(column.getIsSorted())}>
+        <span className={stylesTable.sortIcon} data-sort={String(column.getIsSorted())}>
           {{ asc: <ArrowUp />, desc: <ArrowDown /> }[column.getIsSorted()] ?? <ChevronsUpDown />}
         </span>
       </div>
@@ -61,7 +63,7 @@ function FilterableHeader({ column, label }) {
       {/* Filter input — only rendered if column.getCanFilter() */}
       {column.getCanFilter() && (
         <input
-          className={filterInput}
+          className={stylesInput}
           value={column.getFilterValue() ?? ''}
           onChange={e => column.setFilterValue(e.target.value)}
           placeholder={`Filter…`}
@@ -113,7 +115,7 @@ That's the Emotion role — it's not composing recipes, it's tweaking a specific
 
 Recipes don't know about each other. There's no "slot recipe nesting" or "recipe inheritance" API. Composition is just React — you render elements inside elements and apply whatever class names are appropriate to each one. The DS gives you a vocabulary of named class strings; you assemble them in markup.
 
-The only "Panda-specific" composition is `cva` from your `styled-system` — that lets you merge multiple Panda-generated class strings together (`cx(cls.th, someOtherClass)`). But for recipes + recipes, you just put them on the right elements.
+The only "Panda-specific" composition is `cx` from `@styled-system/css` — merge multiple Panda-generated class strings (`cx(stylesTable.th, someOtherClass)`). For recipes + recipes, you still put each recipe’s output on the right element.
 
 ```
 # USER
@@ -131,6 +133,6 @@ Three files to drop in:
 A few things the doc covers that are worth flagging:
 
 - **Column definitions in a separate file** (`OrdersTable.columns.tsx`) — keeps the main component readable and makes the column config easy to find and extend
-- **Recipe instances at module scope** — `const cls = tableRecipe(...)` is outside the component, so it's a stable string, not recomputed per render
+- **Recipe instances at module scope** — `const stylesTable = tableRecipe(...)` is outside the component, so slot maps / class strings are stable, not recomputed per render
 - **`e.stopPropagation()` on filter inputs** — critical detail; without it clicking into the filter input triggers the sort handler on the `th`
 - **Server-side pattern** at the bottom — `manualSorting/Filtering/Pagination` flags, for when you eventually have enough data that client-side filtering isn't viable

@@ -6,7 +6,7 @@ This guide explains how styling works in the design system (Panda CSS, recipes, 
 
 ## 1. Overview
 
-- **Panda CSS** is used for tokens, utilities, and **atomic recipes** (e.g. `cva`).
+- **Panda CSS** is used for tokens, utilities, and **recipes** — **`cva`** (single element) and **`sva`** (slot recipes for compounds).
 - Design-system components (e.g. **Button**) apply recipes **inside** the component. The client does **not** pass the recipe; it just uses props.
 - The **client app** must run Panda with the design-system preset and **include the design-system source** in Panda’s scan so that recipe CSS is generated.
 - The **client app** must import CSS in the correct order and use **cascade layers** so that the reset does not override recipe/utility styles.
@@ -15,15 +15,15 @@ This guide explains how styling works in the design system (Panda CSS, recipes, 
 
 ## 2. Recipes inside design-system components
 
-Recipes (e.g. `buttonRecipe` from `cva`) are applied **inside** the design-system components. The client never calls the recipe directly.
+Recipes (e.g. `buttonRecipe` from `cva`, or `switchRecipe` from `sva`) are applied **inside** the design-system components. The client never calls the recipe directly.
 
-### Example: Button
+### Example: Button (`cva`)
 
 - **Recipe:** `packages/design-system/src/components/button/button.recipe.ts` defines `buttonRecipe` with `cva({ base, variants, defaultVariants })` (size, variant, palette, iconOnly).
-- **Component:** `packages/design-system/src/components/button/button.tsx` calls the recipe and passes the result to the root element:
+- **Component:** `packages/design-system/src/components/button/button.tsx` binds the recipe to **`styles`** and merges with `className`:
 
 ```tsx
-const recipeClass = buttonRecipe({
+const styles = buttonRecipe({
   size,
   variant,
   palette,
@@ -32,7 +32,7 @@ const recipeClass = buttonRecipe({
 
 return (
   <ark.button
-    className={cx(recipeClass, className)}
+    className={cx(styles, className)}
     ...
   />
 );
@@ -48,7 +48,7 @@ import { Button } from '@finografic/design-system/components';
 </Button>;
 ```
 
-No `className={buttonRecipe(...)}` is required in the app. Optional overrides can still be passed via `className`, which is merged with `recipeClass` using `cx()`.
+No `className={buttonRecipe(...)}` is required in the app. Optional overrides can still be passed via `className`, which is merged with **`styles`** using `cx()`.
 
 ### Why this matters for CSS generation
 
@@ -182,3 +182,4 @@ Wrong order (e.g. Panda before design-system global) can leave the reset unlayer
 - Design-system reset: `packages/design-system/src/styles/reset.css`
 - Design-system global CSS and layer order: `packages/design-system/src/styles/global.css`
 - Button recipe and component: `packages/design-system/src/components/button/button.recipe.ts`, `button.tsx`
+- Maintainer authoring (recipes, `styles` naming, `sva`/`cva`): `.github/instructions/project/sva-components.instructions.md`, `cva-components.instructions.md`, and `design-system.instructions.md`

@@ -14,18 +14,25 @@ Token-driven design system built on **Ark UI**, **Panda CSS**, **Lucide Icons**.
 
 ### 1. Configure Panda CSS in the consuming app
 
+Scan **design-system source** so recipe CSS is generated (see [STYLING_GUIDE.md](./STYLING_GUIDE.md)):
+
 ```ts
 // apps/client/panda.config.ts
 import { defineConfig } from '@pandacss/dev';
-import { designSystemPreset } from '@workspace/design-system/panda.preset';
+import { designSystemPreset } from '@finografic/design-system/panda.preset';
 
 export default defineConfig({
   presets: ['@pandacss/dev/presets', designSystemPreset],
-  include: ['./src/**/*.{ts,tsx}'],
+  include: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@finografic/design-system/src/**/*.{ts,tsx}',
+  ],
   outdir: 'styled-system',
   jsxFramework: 'react',
 });
 ```
+
+> If you use a workspace alias (e.g. `@workspace/design-system`), substitute that in the `import` and keep the same `include` path to the package **source** under `node_modules`.
 
 ### 2. Import global styles once at app entry
 
@@ -88,14 +95,14 @@ See [COMPONENTS.md](./src/components/COMPONENTS.md) for the full inventory, patt
 
 ### Ark UI compounds (slot recipes via `createStyleContext`)
 
-| Component           | Sub-components                                                                                       |
-| ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `Dialog`            | Root · Backdrop · Positioner · Content · Header · Title · Description · Body · Footer · CloseTrigger |
-| `Menu`              | Root · Trigger · Positioner · Content · Item · ItemGroup · ItemGroupLabel · Separator · Arrow        |
-| `Popover`           | Root · Trigger · Positioner · Content · Arrow · Title · Description · CloseTrigger                   |
-| `Tabs`              | Root · List · Trigger · Content · Indicator                                                          |
-| `Toast` / `Toaster` | Root · Title · Description · CloseTrigger · `createToaster`                                          |
-| `Tooltip`           | Root · Trigger · Positioner · Content · Arrow                                                        |
+| Component           | Sub-components                                                                                                 |
+| ------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Dialog`            | Root · Trigger · Backdrop · Positioner · Content · Header · Title · Description · Body · Footer · CloseTrigger |
+| `Menu`              | Root · Trigger · Positioner · Content · Item · ItemGroup · ItemGroupLabel · Separator · Arrow                  |
+| `Popover`           | Root · Trigger · Positioner · Content · Arrow · Title · Description · CloseTrigger                             |
+| `Tabs`              | Root · List · Trigger · Content · Indicator                                                                    |
+| `Toast` / `Toaster` | Root · Title · Description · CloseTrigger · `createToaster`                                                    |
+| `Tooltip`           | Root · Trigger · Positioner · Content · Arrow                                                                  |
 
 ### Form inputs — `@workspace/design-system/forms`
 

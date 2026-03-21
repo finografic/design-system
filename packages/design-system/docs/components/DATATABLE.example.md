@@ -8,6 +8,8 @@ system for all visual chrome.
 methods. You render every element yourself and apply DS class names to
 each one. There is no component to wrap, no theme to configure.
 
+**Naming:** bind recipe results to **`stylesTable`**, **`stylesCheckbox`**, etc., when multiple recipes share a file (see repo `.github/instructions/project/sva-components.instructions.md`). Import paths below use `@workspace/design-system` — substitute `@finografic/design-system` if you consume the published package.
+
 ---
 
 ## Prerequisites
@@ -28,10 +30,10 @@ automatically alongside all other recipes.
 import { tableRecipe } from '@workspace/design-system/recipes';
 // ↑ generated in apps/client/styled-system/recipes/table.mjs after codegen
 
-const tableClasses = tableRecipe({ size: 'md' });
-// tableClasses.root · tableClasses.table · tableClasses.thead · tableClasses.tbody · tableClasses.tfoot
-// tableClasses.headerRow · tableClasses.tr · tableClasses.th · tableClasses.td
-// tableClasses.sortIcon · tableClasses.emptyState · tableClasses.caption
+const stylesTable = tableRecipe({ size: 'md' });
+// stylesTable.root · stylesTable.table · stylesTable.thead · stylesTable.tbody · stylesTable.tfoot
+// stylesTable.headerRow · stylesTable.tr · stylesTable.th · stylesTable.td
+// stylesTable.sortIcon · stylesTable.emptyState · stylesTable.caption
 ```
 
 ### Variants
@@ -46,7 +48,7 @@ const tableClasses = tableRecipe({ size: 'md' });
 Variants are independent — combine freely:
 
 ```ts
-const tableClasses = tableRecipe({ size: 'sm', striped: true, stickyHeader: true });
+const stylesTable = tableRecipe({ size: 'sm', striped: true, stickyHeader: true });
 ```
 
 ### Slots
@@ -72,7 +74,7 @@ TanStack's `column.getIsSorted()` returns `"asc" | "desc" | false`.
 The recipe reads this directly — no transformation needed:
 
 ```tsx
-<span className={tableClasses.sortIcon} data-sort={String(column.getIsSorted())}>
+<span className={stylesTable.sortIcon} data-sort={String(column.getIsSorted())}>
   ...
 </span>;
 // data-sort="false"  → icon opacity 0.4, neutral color
@@ -113,10 +115,10 @@ and apply whatever class names are appropriate to each one.
 // buttonRecipe provides pagination / action buttons
 // checkboxRecipe provides the row-selection checkbox in td
 
-const tableClasses = tableRecipe({ size: 'sm' });
+const stylesTable = tableRecipe({ size: 'sm' });
 const filterClasses = inputRecipe({ size: 'sm' });
 const buttonClasses = buttonRecipe({ size: 'xs', variant: 'ghost' });
-const checkClasses = checkboxRecipe({ size: 'sm' });
+const stylesCheckbox = checkboxRecipe({ size: 'sm' });
 ```
 
 Each recipe is called once at the top of the component (or module
@@ -159,7 +161,7 @@ export type Order = {
   date: string;
 };
 
-const checkClasses = checkboxRecipe({ size: 'sm' });
+const stylesCheckbox = checkboxRecipe({ size: 'sm' });
 const buttonClasses = buttonRecipe({ size: 'xs', variant: 'ghost' });
 
 export const orderColumns: ColumnDef<Order>[] = [
@@ -176,7 +178,7 @@ export const orderColumns: ColumnDef<Order>[] = [
           : false}
         onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
-        classNames={checkClasses}
+        classNames={stylesCheckbox}
       />
     ),
     // Cell checkbox — selects this row
@@ -185,7 +187,7 @@ export const orderColumns: ColumnDef<Order>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={value => row.toggleSelected(!!value)}
         aria-label="Select row"
-        classNames={checkClasses}
+        classNames={stylesCheckbox}
       />
     ),
     enableSorting: false,
@@ -275,14 +277,14 @@ import {
 import { orderColumns, type Order } from './OrdersTable.columns';
 
 // ── Recipe instances — called once, stable strings ────────────────────────────
-const tableClasses = tableRecipe({ size: 'sm', stickyHeader: true });
+const stylesTable = tableRecipe({ size: 'sm', stickyHeader: true });
 const filterClasses = inputRecipe({ size: 'sm' });
 const paginationClasses = buttonRecipe({ size: 'xs', variant: 'ghost' });
 
 // ── Sort icon helper ──────────────────────────────────────────────────────────
 function SortIcon({ sorted }: { sorted: 'asc' | 'desc' | false }) {
   return (
-    <span className={tableClasses.sortIcon} data-sort={String(sorted)}>
+    <span className={stylesTable.sortIcon} data-sort={String(sorted)}>
       {sorted === 'asc' && <ArrowUpIcon className="icon icon-sm" />}
       {sorted === 'desc' && <ArrowDownIcon className="icon icon-sm" />}
       {!sorted && <ChevronsUpDownIcon className="icon icon-sm" />}
@@ -318,14 +320,14 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
       {/* ── Table ────────────────────────────────────────────────── */}
-      <div className={tableClasses.root}>
-        <table className={tableClasses.table}>
-          <caption className={tableClasses.caption}>Orders</caption>
+      <div className={stylesTable.root}>
+        <table className={stylesTable.table}>
+          <caption className={stylesTable.caption}>Orders</caption>
 
           {/* ── Header ─────────────────────────────────────────── */}
-          <thead className={tableClasses.thead}>
+          <thead className={stylesTable.thead}>
             {table.getHeaderGroups().map(headerGroup => (
-              <tr key={headerGroup.id} className={tableClasses.headerRow}>
+              <tr key={headerGroup.id} className={stylesTable.headerRow}>
                 {headerGroup.headers.map(header => {
                   const canSort = header.column.getCanSort();
                   const canFilter = header.column.getCanFilter();
@@ -333,7 +335,7 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
                   return (
                     <th
                       key={header.id}
-                      className={tableClasses.th}
+                      className={stylesTable.th}
                       data-sortable={canSort ? 'true' : undefined}
                       style={{ width: header.getSize() !== 150 ? header.getSize() : undefined }}
                     >
@@ -367,13 +369,13 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
           </thead>
 
           {/* ── Body ───────────────────────────────────────────── */}
-          <tbody className={tableClasses.tbody}>
+          <tbody className={stylesTable.tbody}>
             {loading
               ? (
                 // Loading state — single spanning cell with spinner
-                <tr className={tableClasses.tr}>
+                <tr className={stylesTable.tr}>
                   <td
-                    className={tableClasses.td}
+                    className={stylesTable.td}
                     colSpan={table.getAllColumns().length}
                     style={{ textAlign: 'center', padding: 'var(--spacing-8)' }}
                   >
@@ -384,10 +386,10 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
               : table.getRowModel().rows.length === 0
               ? (
                 // Empty state
-                <tr className={tableClasses.tr}>
+                <tr className={stylesTable.tr}>
                   <td
                     colSpan={table.getAllColumns().length}
-                    className={tableClasses.emptyState}
+                    className={stylesTable.emptyState}
                   >
                     No orders found.
                   </td>
@@ -398,11 +400,11 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
                 table.getRowModel().rows.map(row => (
                   <tr
                     key={row.id}
-                    className={tableClasses.tr}
+                    className={stylesTable.tr}
                     data-selected={row.getIsSelected() ? 'true' : undefined}
                   >
                     {row.getVisibleCells().map(cell => (
-                      <td key={cell.id} className={tableClasses.td}>
+                      <td key={cell.id} className={stylesTable.td}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     ))}
@@ -486,8 +488,8 @@ You likely already have tables in the app without filterable headers.
 The DS recipe replaces whatever inline styles or existing classes they
 use. The migration is mechanical:
 
-1. Add `const tableClasses = tableRecipe({ size: 'sm' })` at the top
-2. Apply `tableClasses.root` to the scroll wrapper, `tableClasses.table` to `<table>`, etc.
+1. Add `const stylesTable = tableRecipe({ size: 'sm' })` at the top
+2. Apply `stylesTable.root` to the scroll wrapper, `stylesTable.table` to `<table>`, etc.
 3. Replace any existing sort/hover styles with the recipe slots
 4. Add `data-sortable`, `data-sort`, `data-selected` attributes where needed
 5. Delete any Emotion scoped styles that duplicated what the recipe now handles
@@ -523,7 +525,7 @@ export const tableOverrides = css`
 `;
 ```
 
-Apply alongside the root slot: `<div className={cx(tableClasses.root, tableOverrides)}>`.
+Apply alongside the root slot: `<div className={cx(stylesTable.root, tableOverrides)}>`.
 `cx` is available from your app's `styled-system/css` output.
 
 ---
@@ -566,11 +568,11 @@ Apply alongside the root slot: `<div className={cx(tableClasses.root, tableOverr
 ### Sticky header with fixed container height
 
 ```tsx
-const tableClasses = tableRecipe({ size: 'sm', stickyHeader: true });
+const stylesTable = tableRecipe({ size: 'sm', stickyHeader: true });
 
 // Give the root a max height so it scrolls vertically
-<div className={tableClasses.root} style={{ maxHeight: '400px', overflowY: 'auto' }}>
-  <table className={tableClasses.table}>
+<div className={stylesTable.root} style={{ maxHeight: '400px', overflowY: 'auto' }}>
+  <table className={stylesTable.table}>
     ...
   </table>
 </div>;
@@ -579,7 +581,7 @@ const tableClasses = tableRecipe({ size: 'sm', stickyHeader: true });
 ### Striped table (no hover needed — data-dense)
 
 ```ts
-const tableClasses = tableRecipe({ size: 'sm', striped: true });
+const stylesTable = tableRecipe({ size: 'sm', striped: true });
 // tr hover still applies on top of the stripe background
 ```
 
