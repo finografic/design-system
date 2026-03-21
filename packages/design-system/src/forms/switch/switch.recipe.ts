@@ -3,7 +3,7 @@
  *
  * Port of Ark UI docs Switch example CSS (`.Root`, `.Label`, `.Control`, `.Thumb`).
  * Use with `createStyleContext(switchRecipe)` for `Switch.*` parts, or call
- * `switchRecipe({ size, palette })` in `LabeledSwitch` like `CheckboxField`.
+ * `switchRecipe({ size, palette })` in `SwitchDS` (like `CheckboxField` uses its recipe).
  *
  * Slots:    root · label · control · thumb · description · errorText
  * Variants: size (sm | md | lg) · palette (semantic color for “on” track)

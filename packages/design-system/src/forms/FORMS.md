@@ -29,7 +29,7 @@ Each folder contains exactly four files:
 | `select-default`    | _(selectRecipe)_ | `Select`      | —                  | `options[]` convenience wrapper; reuses `selectRecipe`     |
 | `select-searchable` | `sva`            | `Combobox`    | —                  | `match-sorter` filtering; `onAddNew` callback              |
 | `slider`            | `sva`            | `Slider`      | yes                | `withProvider` + `withContext`                             |
-| `switch`            | `sva`            | `Switch`      | yes                | Ark + `createStyleContext`; `LabeledSwitch` form wrapper   |
+| `switch`            | `sva`            | `Switch`      | yes                | Ark + `createStyleContext`; `SwitchDS` convenience wrapper |
 
 ## RHF compatibility
 
@@ -73,7 +73,7 @@ use the bare compound (e.g. `Select.*`) when you need full layout control.
 
 ```tsx
 // Convenience
-<LabeledSwitch name="active" label="Active" checked={value} onCheckedChange={onChange} />
+<SwitchDS name="active" label="Active" checked={value} onChange={setValue} />
 
 // Bare compound (variants on `Root`)
 <Switch.Root size="md" palette="primary">

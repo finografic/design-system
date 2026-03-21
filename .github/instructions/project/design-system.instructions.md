@@ -3,6 +3,10 @@
 This project uses a custom design system (`@workspace/design-system`) built on
 **Ark UI** and **Panda CSS**. Follow these rules when consuming it.
 
+**Discovery:** DS-specific conventions (forms, Panda patterns, `cx` inlining, API
+policy) live **here** — not in generic ESLint docs. Linked from repo `AGENTS.md` and
+`.github/copilot-instructions.md` so assistants and Copilot can resolve this path.
+
 ## Panda MCP server
 
 A Panda CSS MCP server is configured in `packages/design-system/` (`.mcp.json` for
@@ -25,7 +29,7 @@ pnpm panda:mcp   # from packages/design-system/
 ```ts
 import { Button, Badge, Dialog, ... }  from '@workspace/design-system/components';
 import { Select, SelectDefault, SelectSearchable, InputField, InputNumber,
-         Checkbox, CheckboxField, RadioGroup, Slider, Switch, LabeledSwitch,
+         Checkbox, CheckboxField, RadioGroup, Slider, Switch, SwitchDS,
          FieldBox, Label }             from '@workspace/design-system/forms';
 import { buttonRecipe, selectRecipe, ... } from '@workspace/design-system/recipes';
 import { colors }                      from '@workspace/design-system/tokens';
@@ -51,8 +55,23 @@ Raw Ark UI primitives are importable directly from `@ark-ui/react` — there is 
 
 ## Form components
 
-All form components accept RHF-compatible props: `value`, `onChange`, `onBlur`,
-`name`, `ref`, `error?: FieldError | string`.
+Most controls accept RHF-friendly props: `onBlur`, `name`, `ref`, `error?: FieldError | string`.
+Text-like fields use `value` / `onChange`. **Switch** (compound `Switch.Root`) uses Ark’s
+API: `checked` and **`onCheckedChange`** (`{ checked: boolean }`). **`SwitchDS`**
+exposes only a boolean **`onChange(checked)`** — it forwards to Ark internally (no
+`{ checked }` object at the DS boundary).
+
+## DS component implementation (Panda / React)
+
+- Prefer **inlining** single-use expressions in JSX — especially **`cx(...)`** from
+  `@styled-system/css` for `className` — when the expression is only referenced once
+  and inlining stays readable. Use a `const` when reused, very long, or you need a
+  name for clarity or side effects.
+
+## API surface (this design system)
+
+- **No deprecated props** — avoid `@deprecated` aliases and backward-compat shims;
+  prefer clean breaking changes while the API is still settling.
 
 Use `FieldBox` to add label/hint/error layout around any control:
 
@@ -73,3 +92,10 @@ full layout control.
 - `sva` + `createStyleContext`: use the compound sub-components directly — they
   receive slot classes automatically.
 - Do not call `sva` recipe functions directly in consuming app code.
+
+## Authoring components (maintainers)
+
+Detailed patterns for aligning `components/` and `forms/`:
+
+- [SVA — slot recipes & Ark compounds](sva-components.instructions.md)
+- [CVA — atomic recipes & single-element components](cva-components.instructions.md)

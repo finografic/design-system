@@ -27,6 +27,8 @@
 ## Project-Specific Rules
 
 - Design System: [.github/instructions/project/design-system.instructions.md](.github/instructions/project/design-system.instructions.md)
+- SVA (slot recipes): [.github/instructions/project/sva-components.instructions.md](.github/instructions/project/sva-components.instructions.md)
+- CVA (atomic recipes): [.github/instructions/project/cva-components.instructions.md](.github/instructions/project/cva-components.instructions.md)
 
 Maintenance
 

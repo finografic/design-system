@@ -11,17 +11,42 @@ import type { SwitchVariants } from './switch.types';
 
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 
+/**
+ * Styled Ark **Switch** compound — each part is wired to `switchRecipe` via context.
+ *
+ * **Anatomy:** put control props on **`Root`** (`checked`, `disabled`, `onCheckedChange`,
+ * `name`, …). Ark UI uses the name `onCheckedChange` (detail object `{ checked }`), not
+ * DOM `onChange` — same idea as a boolean toggle handler.
+ *
+ * Pass **`size`** and **`palette`** on `Root` so slot styles resolve.
+ *
+ * @example
+ * ```tsx
+ * <Switch.Root size="md" palette="primary" checked={on} onCheckedChange={({ checked }) => setOn(checked)}>
+ *   <Switch.Control>
+ *     <Switch.Thumb />
+ *   </Switch.Control>
+ *   <Switch.Label>Notifications</Switch.Label>
+ * </Switch.Root>
+ * ```
+ */
 export const Switch = {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */
   Root: withProvider(ArkSwitch.Root, 'root'),
+  /** Track + hit target; receives `control` slot classes from context. */
   Control: withContext(ArkSwitch.Control, 'control'),
+  /** Knob; receives `thumb` slot classes from context. */
   Thumb: withContext(ArkSwitch.Thumb, 'thumb'),
+  /** Text label; receives `label` slot classes from context. */
   Label: withContext(ArkSwitch.Label, 'label'),
+  /** Native input for forms; no recipe slot. */
   HiddenInput: ArkSwitch.HiddenInput,
 };
 
-// ── LabeledSwitch — form wrapper (label / description / error) ───────────────
+// ── SwitchDS — convenience wrapper (label / description / error) ─────────────
 
-export interface LabeledSwitchClassNames {
+/** Slot class overrides for {@link SwitchDS}. */
+export interface SwitchDSClassNames {
   root?: string;
   control?: string;
   thumb?: string;
@@ -30,37 +55,40 @@ export interface LabeledSwitchClassNames {
   errorText?: string;
 }
 
-export type LabeledSwitchProps = SwitchVariants & {
+export type SwitchDSProps = SwitchVariants & {
   label?: ReactNode;
   description?: ReactNode;
   error?: FieldError | string;
   checked?: boolean;
-  onCheckedChange?: (details: { checked: boolean }) => void;
+  /** Boolean toggle — forwarded to Ark `onCheckedChange` internally. */
+  onChange?: (checked: boolean) => void | Promise<void>;
   onBlur?: () => void;
   name?: string;
   disabled?: boolean;
   /** Merged onto the root slot after recipe classes */
   className?: string;
-  /** @deprecated Prefer `classNames.control` */
-  controlClassName?: string;
-  classNames?: LabeledSwitchClassNames;
+  classNames?: SwitchDSClassNames;
 };
 
-export const LabeledSwitch = forwardRef<HTMLLabelElement, LabeledSwitchProps>(
+/**
+ * Design-system convenience switch — label, description, and error text.
+ * **`Switch`** stays the styled compound; **`*DS`** = packaged DS API (`onChange(checked)`;
+ * bare **`Switch.Root`** still uses Ark’s `onCheckedChange`).
+ */
+export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
   (
     {
       label,
       description,
       error,
       checked,
-      onCheckedChange,
+      onChange,
       onBlur,
       name,
       disabled,
       size = 'md',
       palette = 'primary',
       className,
-      controlClassName,
       classNames = {},
     },
     ref,
@@ -68,23 +96,21 @@ export const LabeledSwitch = forwardRef<HTMLLabelElement, LabeledSwitchProps>(
     const cls = switchRecipe({ size, palette });
     const errorMessage = typeof error === 'string' ? error : error?.message;
 
-    const rootClass = cx(cls.root, classNames.root, className);
-    const controlClass = cx(cls.control, classNames.control, controlClassName);
-    const thumbClass = cx(cls.thumb, classNames.thumb);
-
     return (
       <ArkSwitch.Root
         ref={ref}
         name={name}
         checked={checked}
-        onCheckedChange={onCheckedChange}
+        onCheckedChange={(details) => {
+          void onChange?.(details.checked);
+        }}
         onBlur={onBlur}
         disabled={disabled}
         data-size={size}
-        className={rootClass}
+        className={cx(cls.root, classNames.root, className)}
       >
-        <ArkSwitch.Control className={controlClass}>
-          <ArkSwitch.Thumb className={thumbClass} />
+        <ArkSwitch.Control className={cx(cls.control, classNames.control)}>
+          <ArkSwitch.Thumb className={cx(cls.thumb, classNames.thumb)} />
         </ArkSwitch.Control>
 
         {(label || description || errorMessage) && (
@@ -114,4 +140,4 @@ export const LabeledSwitch = forwardRef<HTMLLabelElement, LabeledSwitchProps>(
   },
 );
 
-LabeledSwitch.displayName = 'LabeledSwitch';
+SwitchDS.displayName = 'SwitchDS';

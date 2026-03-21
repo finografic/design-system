@@ -101,19 +101,19 @@ See [COMPONENTS.md](./src/components/COMPONENTS.md) for the full inventory, patt
 
 See [FORMS.md](./src/forms/FORMS.md) for the full inventory, RHF patterns, and conventions.
 
-| Component                    | Description                                              |
-| ---------------------------- | -------------------------------------------------------- |
-| `Checkbox` / `CheckboxField` | Ark Checkbox compound + convenience wrapper              |
-| `FieldBox`                   | RHF-aware label/hint/error layout wrapper                |
-| `InputField`                 | Ark Field.Input with leading/trailing slot support       |
-| `InputNumber`                | Ark NumberInput with prefix/suffix and `Intl` formatting |
-| `Label`                      | Plain `<label>` with size variant                        |
-| `RadioGroup`                 | Ark RadioGroup — default + card variant                  |
-| `Select`                     | Ark Select compound — Root, Trigger, Content, Item, etc. |
-| `SelectDefault`              | Convenience wrapper accepting `options: SelectOption[]`  |
-| `SelectSearchable`           | Ark Combobox with `match-sorter` filtering + `onAddNew`  |
-| `Slider`                     | Ark Slider compound — Root, Track, Range, Thumb, Label   |
-| `Switch` / `LabeledSwitch`   | Ark Switch + `createStyleContext`; labeled form wrapper  |
+| Component                    | Description                                                       |
+| ---------------------------- | ----------------------------------------------------------------- |
+| `Checkbox` / `CheckboxField` | Ark Checkbox compound + convenience wrapper                       |
+| `FieldBox`                   | RHF-aware label/hint/error layout wrapper                         |
+| `InputField`                 | Ark Field.Input with leading/trailing slot support                |
+| `InputNumber`                | Ark NumberInput with prefix/suffix and `Intl` formatting          |
+| `Label`                      | Plain `<label>` with size variant                                 |
+| `RadioGroup`                 | Ark RadioGroup — default + card variant                           |
+| `Select`                     | Ark Select compound — Root, Trigger, Content, Item, etc.          |
+| `SelectDefault`              | Convenience wrapper accepting `options: SelectOption[]`           |
+| `SelectSearchable`           | Ark Combobox with `match-sorter` filtering + `onAddNew`           |
+| `Slider`                     | Ark Slider compound — Root, Track, Range, Thumb, Label            |
+| `Switch` / `SwitchDS`        | Ark Switch + `createStyleContext`; `SwitchDS` convenience wrapper |
 
 ---
 
