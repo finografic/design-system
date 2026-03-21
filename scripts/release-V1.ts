@@ -11,9 +11,8 @@
  */
 
 import { execSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 
-process.env.NODE_ENV = 'production';
 const REGISTRY = 'https://npm.pkg.github.com';
 
 // ── Args ──────────────────────────────────────────────────────────────────────
@@ -28,13 +27,8 @@ if (!['patch', 'minor', 'major'].includes(bump ?? '')) {
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function run(cmd: string, opts: { cwd?: string } = {}): void {
-  try {
-    console.log(`\n  → ${cmd}`);
-    execSync(cmd, { stdio: 'inherit', cwd: opts.cwd });
-  } catch {
-    console.error(`\n  ✘ Failed: ${cmd}\n`);
-    process.exit(1);
-  }
+  console.log(`\n  → ${cmd}`);
+  execSync(cmd, { stdio: 'inherit', cwd: opts.cwd });
 }
 
 function readVersion(path: string): string {
@@ -51,18 +45,6 @@ try {
     '\n  ✘  Working tree is dirty.\n'
       + '     Build and commit all changes before releasing.\n',
   );
-  process.exit(1);
-}
-
-// ── Gaurd: ensure packages existVersion bumps (no git ops) ────────────────────────────────────────────────
-
-if (!existsSync('packages/design-system/package.json')) {
-  console.error('Missing packages/design-system');
-  process.exit(1);
-}
-
-if (!existsSync('packages/icons/package.json')) {
-  console.error('Missing packages/icons');
   process.exit(1);
 }
 

@@ -10,6 +10,8 @@ styled-system/
 .turbo/
 **/.turbo
 
+# Specifc files
+release.log.txt
 
 # Environment files
 .env
@@ -33,12 +35,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# OS
-.DS_Store
-Thumbs.db
-Icon?
-!packages/icons/
-
 # Logs
 *.log
 npm-debug.log*
@@ -53,3 +49,17 @@ pids
 
 # Coverage
 coverage/
+
+# macOS
+.DS_Store
+Thumbs.db
+Icon?
+!packages/icons/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
