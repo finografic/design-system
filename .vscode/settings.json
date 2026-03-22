@@ -15,7 +15,6 @@
   "dprint.experimentalLsp": true,
   "dprint.verbose": true,
 
-  // TypeScript settings for better error detection
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "javascript.suggestionActions.enabled": false,
