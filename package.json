@@ -32,7 +32,9 @@
     "release.minor": "tsx scripts/release.ts minor",
     "release.major": "tsx scripts/release.ts major",
     "·········· PACKAGES": "··················································",
-    "update.deps.all": "pnpm update --latest -r"
+    "update.deps.all": "pnpm update --latest -r",
+    "·········· UTILS": "·····················································",
+    "postinstall": "simple-git-hooks"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.4",
@@ -77,6 +79,6 @@
     ]
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged --allow-empty && dprint check && pnpm exec eslint \"**/*.md\""
+    "pre-commit": "npx lint-staged --allow-empty && dprint check && pnpm exec eslint \"**/*.md\" && pnpm typecheck"
   }
 }
