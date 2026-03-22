@@ -142,6 +142,7 @@ const config: Linter.Config[] = [
     },
     rules: {
       ...markdownlintPlugin.configs.recommended.rules,
+      'markdownlint/md001': 'off', // heading increment
       'markdownlint/md012': 'off', // Multiple consecutive blank lines
       'markdownlint/md013': 'off', // Line length
       'markdownlint/md024': 'off', // Duplicate headings
