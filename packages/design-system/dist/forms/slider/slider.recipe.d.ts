@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/forms/slider/slider.recipe.d.ts
-declare const sliderRecipe: SlotRecipeRuntimeFn<"label" | "track" | "marker" | "root" | "control" | "valueText" | "range" | "thumb" | "markerGroup", {
+declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "label" | "control" | "valueText" | "track" | "range" | "thumb" | "markerGroup", {
   size: {
     sm: {
       label: {
