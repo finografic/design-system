@@ -57,7 +57,7 @@ Skip documenting every recipe individually** — `badge`, `callout`, `card`, `te
 
 ---
 
-**source:** claude.ai - https://claude.ai/chat/d2bd9ab1-47c9-45d7-96cc-5b34d5c532b8
+**source:** claude.ai - <https://claude.ai/chat/d2bd9ab1-47c9-45d7-96cc-5b34d5c532b8>
 
 A few things I want to flag about what's in there:
 

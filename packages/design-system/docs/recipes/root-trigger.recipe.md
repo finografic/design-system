@@ -41,14 +41,14 @@
 
 Reusable for components with triggers, like: Popover, Menu, Select triggers -- guessing.. confirm and fill table bellow..
 
-|            |                                           |
-| ---------- | ----------------------------------------- |
-| **Dialog** | https://ark-ui.com/docs/components/dialog |
-| etc..      |                                           |
-|            |                                           |
-|            |                                           |
-|            |                                           |
-|            |                                           |
-|            |                                           |
+|            |                                             |
+| ---------- | ------------------------------------------- |
+| **Dialog** | <https://ark-ui.com/docs/components/dialog> |
+| etc..      |                                             |
+|            |                                             |
+|            |                                             |
+|            |                                             |
+|            |                                             |
+|            |                                             |
 
 ---
