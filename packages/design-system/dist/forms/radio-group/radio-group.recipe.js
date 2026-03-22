@@ -21,7 +21,8 @@ const radioGroupRecipe = sva({
 		root: {
 			display: "flex",
 			flexDirection: "column",
-			gap: "2"
+			gap: "2",
+			width: "full"
 		},
 		label: {
 			fontWeight: "semibold",
@@ -122,6 +123,7 @@ const radioGroupRecipe = sva({
 		variant: {
 			default: {},
 			card: { item: {
+				width: "full",
 				padding: "3",
 				borderWidth: "light",
 				borderStyle: "solid",

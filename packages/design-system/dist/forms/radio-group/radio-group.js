@@ -8,6 +8,7 @@ const RadioGroup$1 = {
 	Label: withContext(RadioGroup.Label, "label"),
 	Item: withContext(RadioGroup.Item, "item"),
 	ItemControl: withContext(RadioGroup.ItemControl, "itemControl"),
+	ItemHiddenInput: RadioGroup.ItemHiddenInput,
 	Indicator: withContext(RadioGroup.Indicator, "indicator"),
 	ItemText: withContext(RadioGroup.ItemText, "itemText")
 };

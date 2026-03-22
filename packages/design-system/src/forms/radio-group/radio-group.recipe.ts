@@ -16,6 +16,7 @@ export const radioGroupRecipe = sva({
       display: 'flex',
       flexDirection: 'column',
       gap: '2',
+      width: 'full',
     },
 
     label: {
@@ -101,6 +102,7 @@ export const radioGroupRecipe = sva({
       default: {},
       card: {
         item: {
+          width: 'full',
           padding: '3',
           borderWidth: 'light',
           borderStyle: 'solid',

@@ -10,6 +10,7 @@ export const RadioGroup = {
   Label: withContext(ArkRadioGroup.Label, 'label'),
   Item: withContext(ArkRadioGroup.Item, 'item'),
   ItemControl: withContext(ArkRadioGroup.ItemControl, 'itemControl'),
+  ItemHiddenInput: ArkRadioGroup.ItemHiddenInput,
   Indicator: withContext(ArkRadioGroup.Indicator, 'indicator'),
   ItemText: withContext(ArkRadioGroup.ItemText, 'itemText'),
 };

@@ -5,7 +5,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/tabs/tabs.d.ts
 declare const Tabs$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"trigger" | "content" | "root" | "list" | "indicator", {
     variant: {
       line: {
         list: {
@@ -116,7 +116,7 @@ declare const Tabs$1: {
       };
     };
   }>>;
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"trigger" | "content" | "root" | "list" | "indicator", {
     variant: {
       line: {
         list: {

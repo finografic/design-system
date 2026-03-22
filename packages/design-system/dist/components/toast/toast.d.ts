@@ -5,7 +5,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/toast/toast.d.ts
 declare const Toast$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Toast.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "description" | "title" | "closeTrigger" | "actionTrigger", {
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Toast.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"title" | "description" | "closeTrigger" | "root" | "actionTrigger", {
     status: {
       info: {
         root: {
