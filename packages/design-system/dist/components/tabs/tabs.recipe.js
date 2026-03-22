@@ -3,9 +3,22 @@ import { sva } from "@styled-system/css";
 /**
 * Tabs Slot Recipe
 *
-* Slots:    root | list | trigger | content | indicator
+* Port of Ark UI Tabs example styles → Panda `sva` + semantic tokens (no demo CSS variables).
+* Orientation follows Ark’s `data-orientation` on each part — do **not** add `orientation` as a
+* recipe variant, or `createStyleContext` would strip it from `Tabs.Root` and break Zag.
+*
+* Slots:    root · list · trigger · content · indicator
 * Variants: variant (line | enclosed) · size (sm | md | lg)
+*
+* - **line** — Underline selection; indicator is a 2px accent bar (width/position from Zag vars).
+* - **enclosed** — Pill list + sliding indicator (`z-index: -1`, `accent.subtle`), like the Ark docs demo.
 */
+const focusRing = {
+	outline: "2px solid",
+	outlineColor: "accent.focusRing",
+	outlineOffset: "2px",
+	borderRadius: "sm"
+};
 const tabsRecipe = sva({
 	className: "tabs",
 	slots: [
@@ -17,42 +30,86 @@ const tabsRecipe = sva({
 	],
 	base: {
 		root: {
-			display: "flex",
-			flexDirection: "column",
-			width: "full"
+			"display": "flex",
+			"flexDirection": "column",
+			"width": "full",
+			"color": "fg",
+			"&[data-orientation=\"horizontal\"]": { flexDirection: "column" },
+			"&[data-orientation=\"vertical\"]": { flexDirection: "row" }
 		},
 		list: {
-			display: "flex",
-			alignItems: "center",
-			position: "relative"
+			"display": "inline-flex",
+			"position": "relative",
+			"isolation": "isolate",
+			"alignItems": "center",
+			"gap": "1",
+			"&[data-orientation=\"horizontal\"]": { flexDirection: "row" },
+			"&[data-orientation=\"vertical\"]": {
+				flexDirection: "column",
+				alignItems: "stretch"
+			}
 		},
 		trigger: {
-			display: "inline-flex",
-			alignItems: "center",
-			gap: "1.5",
-			fontWeight: "semibold",
-			color: "fg.muted",
-			cursor: "pointer",
-			whiteSpace: "nowrap",
-			flexShrink: 0,
-			transitionProperty: "color, border-color",
-			transitionDuration: "fast",
-			_selected: { color: "accent.solid" },
-			_hover: { color: "fg" },
-			_disabled: {
-				opacity: .55,
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"gap": "2",
+			"px": "3",
+			"fontFamily": "inherit",
+			"fontSize": "sm",
+			"fontWeight": "medium",
+			"lineHeight": "normal",
+			"color": "fg.muted",
+			"cursor": "pointer",
+			"whiteSpace": "nowrap",
+			"flexShrink": 0,
+			"userSelect": "none",
+			"border": "none",
+			"bg": "transparent",
+			"borderRadius": "sm",
+			"transitionProperty": "color, border-color, background-color, box-shadow",
+			"transitionDuration": "fast",
+			"_selected": { color: "accent.solid" },
+			"_hover": { color: "fg" },
+			"_disabled": {
+				opacity: .5,
 				cursor: "not-allowed",
 				pointerEvents: "none"
 			},
-			_focusVisible: {
-				outline: "2px solid",
-				outlineColor: "accent.focusRing",
-				outlineOffset: "2px",
-				borderRadius: "sm"
+			"_focusVisible": focusRing,
+			"&:is(a)": { color: "inherit" },
+			"&[data-orientation=\"vertical\"]": {
+				justifyContent: "flex-start",
+				width: "100%",
+				height: "auto",
+				py: "2"
 			}
 		},
-		content: { _open: { animation: "fade-in 150ms ease" } },
-		indicator: { bg: "accent.solid" }
+		content: {
+			"outline": "none",
+			"fontSize": "sm",
+			"lineHeight": "normal",
+			"color": "fg",
+			"_open": { animation: "fade-in 150ms ease" },
+			"_focusVisible": {
+				outline: "2px solid",
+				outlineColor: "accent.focusRing",
+				outlineOffset: "-2px",
+				borderRadius: "sm"
+			},
+			"&[data-orientation=\"vertical\"]": {
+				pl: "4",
+				py: "0"
+			}
+		},
+		indicator: {
+			position: "absolute",
+			zIndex: -1,
+			borderRadius: "sm",
+			transitionProperty: "width, height, left, top",
+			transitionDuration: "normal",
+			transitionTimingFunction: "ease-out"
+		}
 	},
 	variants: {
 		variant: {
@@ -64,15 +121,22 @@ const tabsRecipe = sva({
 					gap: "0"
 				},
 				trigger: {
+					borderRadius: "sm",
+					marginBottom: "-1px",
 					borderBottomWidth: "2px",
 					borderBottomStyle: "solid",
 					borderBottomColor: "transparent",
-					marginBottom: "-1px",
-					_selected: { borderBottomColor: "accent.solid" }
+					_selected: {
+						borderBottomColor: "accent.solid",
+						color: "accent.solid"
+					}
 				},
 				indicator: {
+					bottom: "0",
+					left: "var(--left, 0)",
+					width: "var(--width)",
 					height: "2px",
-					bottom: "0"
+					bg: "accent.solid"
 				}
 			},
 			enclosed: {
@@ -84,12 +148,20 @@ const tabsRecipe = sva({
 					borderStyle: "solid",
 					borderColor: "border"
 				},
-				trigger: {
-					borderRadius: "sm",
-					_selected: {
-						bg: "bg.panel",
-						color: "fg",
-						boxShadow: "sm"
+				trigger: { _selected: {
+					color: "accent.fg",
+					bg: "transparent",
+					boxShadow: "none"
+				} },
+				indicator: {
+					"bg": "accent.subtle",
+					"&[data-orientation=\"horizontal\"]": {
+						height: "var(--height, 2rem)",
+						width: "var(--width)"
+					},
+					"&[data-orientation=\"vertical\"]": {
+						width: "calc(100% - 0.5rem)",
+						height: "var(--height)"
 					}
 				}
 			}
@@ -97,27 +169,33 @@ const tabsRecipe = sva({
 		size: {
 			sm: {
 				trigger: {
-					px: "3",
-					py: "1.5",
-					fontSize: "xs"
+					"px": "2.5",
+					"py": "1",
+					"fontSize": "xs",
+					"gap": "1.5",
+					"&[data-orientation=\"horizontal\"]": { height: "7" }
 				},
 				content: { pt: "3" },
 				list: { p: "0.5" }
 			},
 			md: {
 				trigger: {
-					px: "4",
-					py: "2",
-					fontSize: "sm"
+					"px": "3",
+					"py": "1.5",
+					"fontSize": "sm",
+					"gap": "2",
+					"&[data-orientation=\"horizontal\"]": { height: "8" }
 				},
 				content: { pt: "4" },
 				list: { p: "1" }
 			},
 			lg: {
 				trigger: {
-					px: "5",
-					py: "3",
-					fontSize: "md"
+					"px": "4",
+					"py": "2",
+					"fontSize": "md",
+					"gap": "2",
+					"&[data-orientation=\"horizontal\"]": { height: "9" }
 				},
 				content: { pt: "5" },
 				list: { p: "1" }

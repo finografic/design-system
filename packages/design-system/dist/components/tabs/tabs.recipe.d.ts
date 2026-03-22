@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "indicator" | "list", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
   variant: {
     line: {
       list: {
@@ -10,17 +10,22 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "
         gap: "0";
       };
       trigger: {
+        borderRadius: "sm";
+        marginBottom: "-1px";
         borderBottomWidth: "2px";
         borderBottomStyle: "solid";
         borderBottomColor: "transparent";
-        marginBottom: "-1px";
         _selected: {
           borderBottomColor: "accent.solid";
+          color: "accent.solid";
         };
       };
       indicator: {
-        height: "2px";
         bottom: "0";
+        left: "var(--left, 0)";
+        width: "var(--width)";
+        height: "2px";
+        bg: "accent.solid";
       };
     };
     enclosed: {
@@ -33,11 +38,21 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "
         borderColor: "border";
       };
       trigger: {
-        borderRadius: "sm";
         _selected: {
-          bg: "bg.panel";
-          color: "fg";
-          boxShadow: "sm";
+          color: "accent.fg";
+          bg: "transparent";
+          boxShadow: "none";
+        };
+      };
+      indicator: {
+        bg: "accent.subtle";
+        '&[data-orientation="horizontal"]': {
+          height: "var(--height, 2rem)";
+          width: "var(--width)";
+        };
+        '&[data-orientation="vertical"]': {
+          width: "calc(100% - 0.5rem)";
+          height: "var(--height)";
         };
       };
     };
@@ -45,9 +60,13 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "
   size: {
     sm: {
       trigger: {
-        px: "3";
-        py: "1.5";
+        px: "2.5";
+        py: "1";
         fontSize: "xs";
+        gap: "1.5";
+        '&[data-orientation="horizontal"]': {
+          height: "7";
+        };
       };
       content: {
         pt: "3";
@@ -58,9 +77,13 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "
     };
     md: {
       trigger: {
-        px: "4";
-        py: "2";
+        px: "3";
+        py: "1.5";
         fontSize: "sm";
+        gap: "2";
+        '&[data-orientation="horizontal"]': {
+          height: "8";
+        };
       };
       content: {
         pt: "4";
@@ -71,9 +94,13 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "
     };
     lg: {
       trigger: {
-        px: "5";
-        py: "3";
+        px: "4";
+        py: "2";
         fontSize: "md";
+        gap: "2";
+        '&[data-orientation="horizontal"]': {
+          height: "9";
+        };
       };
       content: {
         pt: "5";
