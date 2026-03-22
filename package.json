@@ -32,8 +32,7 @@
     "release.minor": "tsx scripts/release.ts minor",
     "release.major": "tsx scripts/release.ts major",
     "·········· PACKAGES": "··················································",
-    "update.deps.all": "pnpm update --latest -r",
-    "test.lint-staged": "lint-staged"
+    "update.deps.all": "pnpm update --latest -r"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.4",
