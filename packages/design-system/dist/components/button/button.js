@@ -21,7 +21,7 @@ import { ark } from "@ark-ui/react";
 * ```
 */
 const Button = forwardRef(({ size = "md", variant = "outline", palette = "default", loading = false, icon, iconPosition = "left", disabled, children, className, ...props }, ref) => {
-	const recipeClass = buttonRecipe({
+	const styles = buttonRecipe({
 		size,
 		variant,
 		palette,
@@ -35,7 +35,7 @@ const Button = forwardRef(({ size = "md", variant = "outline", palette = "defaul
 		"data-variant": variant,
 		"data-color-scheme": palette,
 		"data-loading": loading || void 0,
-		className: cx(recipeClass, className),
+		className: cx(styles, className),
 		...props,
 		children: [
 			icon && iconPosition === "left" && icon,

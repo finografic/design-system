@@ -6,6 +6,25 @@ import { Switch } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/switch/switch.tsx
 const { withProvider, withContext } = createStyleContext(switchRecipe);
+/**
+* Styled Ark **Switch** compound — each part is wired to `switchRecipe` via context.
+*
+* **Anatomy:** put control props on **`Root`** (`checked`, `disabled`, `onCheckedChange`,
+* `name`, …). Ark UI uses the name `onCheckedChange` (detail object `{ checked }`), not
+* DOM `onChange` — same idea as a boolean toggle handler.
+*
+* Pass **`size`** and **`palette`** on `Root` so slot styles resolve.
+*
+* @example
+* ```tsx
+* <Switch.Root size="md" palette="primary" checked={on} onCheckedChange={({ checked }) => setOn(checked)}>
+*   <Switch.Control>
+*     <Switch.Thumb />
+*   </Switch.Control>
+*   <Switch.Label>Notifications</Switch.Label>
+* </Switch.Root>
+* ```
+*/
 const Switch$1 = {
 	Root: withProvider(Switch.Root, "root"),
 	Control: withContext(Switch.Control, "control"),
@@ -13,28 +32,32 @@ const Switch$1 = {
 	Label: withContext(Switch.Label, "label"),
 	HiddenInput: Switch.HiddenInput
 };
-const LabeledSwitch = forwardRef(({ label, description, error, checked, onCheckedChange, onBlur, name, disabled, size = "md", palette = "primary", className, controlClassName, classNames = {} }, ref) => {
-	const cls = switchRecipe({
+/**
+* Design-system convenience switch — label, description, and error text.
+* **`Switch`** stays the styled compound; **`*DS`** = packaged DS API (`onChange(checked)`;
+* bare **`Switch.Root`** still uses Ark’s `onCheckedChange`).
+*/
+const SwitchDS = forwardRef(({ label, description, error, checked, onChange, onBlur, name, disabled, size = "md", palette = "primary", className, classNames = {} }, ref) => {
+	const styles = switchRecipe({
 		size,
 		palette
 	});
 	const errorMessage = typeof error === "string" ? error : error?.message;
-	const rootClass = cx(cls.root, classNames.root, className);
-	const controlClass = cx(cls.control, classNames.control, controlClassName);
-	const thumbClass = cx(cls.thumb, classNames.thumb);
 	return /* @__PURE__ */ jsxs(Switch.Root, {
 		ref,
 		name,
 		checked,
-		onCheckedChange,
+		onCheckedChange: (details) => {
+			onChange?.(details.checked);
+		},
 		onBlur,
 		disabled,
 		"data-size": size,
-		className: rootClass,
+		className: cx(styles.root, classNames.root, className),
 		children: [
 			/* @__PURE__ */ jsx(Switch.Control, {
-				className: controlClass,
-				children: /* @__PURE__ */ jsx(Switch.Thumb, { className: thumbClass })
+				className: cx(styles.control, classNames.control),
+				children: /* @__PURE__ */ jsx(Switch.Thumb, { className: cx(styles.thumb, classNames.thumb) })
 			}),
 			(label || description || errorMessage) && /* @__PURE__ */ jsxs("div", {
 				style: {
@@ -44,15 +67,15 @@ const LabeledSwitch = forwardRef(({ label, description, error, checked, onChecke
 				},
 				children: [
 					label && /* @__PURE__ */ jsx(Switch.Label, {
-						className: cx(cls.label, classNames.label),
+						className: cx(styles.label, classNames.label),
 						children: label
 					}),
 					description && /* @__PURE__ */ jsx("span", {
-						className: cx(cls.description, classNames.description),
+						className: cx(styles.description, classNames.description),
 						children: description
 					}),
 					errorMessage && /* @__PURE__ */ jsx("span", {
-						className: cx(cls.errorText, classNames.errorText),
+						className: cx(styles.errorText, classNames.errorText),
 						role: "alert",
 						children: errorMessage
 					})
@@ -62,8 +85,8 @@ const LabeledSwitch = forwardRef(({ label, description, error, checked, onChecke
 		]
 	});
 });
-LabeledSwitch.displayName = "LabeledSwitch";
+SwitchDS.displayName = "SwitchDS";
 //#endregion
-export { LabeledSwitch, Switch$1 as Switch };
+export { Switch$1 as Switch, SwitchDS };
 
 //# sourceMappingURL=switch.js.map

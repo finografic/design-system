@@ -13,9 +13,9 @@ function Root({ onOpenChange, children, ...props }) {
 }
 Root.displayName = "Dialog.Root";
 function Trigger({ className, tone = "outline", ...props }) {
-	const recipeClass = rootTriggerRecipe({ tone });
+	const styles = rootTriggerRecipe({ tone });
 	return /* @__PURE__ */ jsx(Dialog.Trigger, {
-		className: cx(recipeClass, className),
+		className: cx(styles, className),
 		"data-variant": tone === "outline" ? void 0 : tone,
 		...props
 	});

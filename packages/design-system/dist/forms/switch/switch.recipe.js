@@ -5,10 +5,16 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI docs Switch example CSS (`.Root`, `.Label`, `.Control`, `.Thumb`).
 * Use with `createStyleContext(switchRecipe)` for `Switch.*` parts, or call
-* `switchRecipe({ size, palette })` in `LabeledSwitch` like `CheckboxField`.
+* `switchRecipe({ size, palette })` in `SwitchDS` (like `CheckboxField` uses its recipe).
 *
 * Slots:    root · label · control · thumb · description · errorText
-* Variants: size (sm | md | lg) · palette (semantic color for “on” track)
+* Variants: size (sm | md | lg) · palette (sets `colorPalette` on root for consumers / future use)
+*
+* **Control** checked track uses `accent.solid` — that atomic is always emitted by Panda.
+* (`colorPalette.light` + checked atoms were unreliable across consumers.)
+*
+* Palette note: **`default`** maps to **`neutral`**. Omitting `palette` on `SwitchDS` uses
+* `defaultVariants` → **`primary`**.
 */
 const switchRecipe = sva({
 	className: "switch",
@@ -63,7 +69,7 @@ const switchRecipe = sva({
 			alignItems: "center",
 			justifyContent: "center",
 			borderRadius: "full",
-			bg: "bg.inverted",
+			bg: "colorPalette.base",
 			boxShadow: "sm",
 			transitionProperty: "transform",
 			transitionDuration: "0.15s",

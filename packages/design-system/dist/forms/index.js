@@ -31,6 +31,6 @@ import { SelectSearchable } from "./select-searchable/select-searchable.js";
 import "./select-searchable/index.js";
 import { Slider } from "./slider/slider.js";
 import "./slider/index.js";
-import { LabeledSwitch, Switch } from "./switch/switch.js";
+import { Switch, SwitchDS } from "./switch/switch.js";
 import "./switch/index.js";
-export { Checkbox, CheckboxField, Dialog, FieldBox, InputField, InputFieldRoot, InputFieldSlot, InputNumber, Label, LabeledSwitch, RadioGroup, Select, SelectDefault, SelectSearchable, Slider, Switch, checkboxRecipe, createListCollection, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, radioGroupRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, useListCollection };
+export { Checkbox, CheckboxField, Dialog, FieldBox, InputField, InputFieldRoot, InputFieldSlot, InputNumber, Label, RadioGroup, Select, SelectDefault, SelectSearchable, Slider, Switch, SwitchDS, checkboxRecipe, createListCollection, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, radioGroupRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, useListCollection };
