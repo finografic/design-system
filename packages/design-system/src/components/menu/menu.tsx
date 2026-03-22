@@ -54,6 +54,7 @@ export const Menu = {
   Arrow: withContext(ArkMenu.Arrow, 'arrow'),
   ArrowTip: withContext(ArkMenu.ArrowTip, 'arrowTip'),
   Indicator: withContext(ArkMenu.Indicator, 'indicator'),
+  Trigger: ArkMenu.Trigger, // no recipe slot — styled by consumer
   ContextTrigger: ArkMenu.ContextTrigger, // right-click context menu trigger, no recipe slot
   Context: ArkMenu.Context, // render prop
   ItemContext: ArkMenu.ItemContext, // render prop

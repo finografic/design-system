@@ -6,8 +6,8 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/menu/menu.d.ts
 declare const Menu$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<(props: Menu.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"root" | "positioner" | "content" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator", SlotRecipeVariantRecord<"root" | "positioner" | "content" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator">>>;
-  RootProvider: _styled_system_jsx0.StyleContextProvider<(props: Menu.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"root" | "positioner" | "content" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator", SlotRecipeVariantRecord<"root" | "positioner" | "content" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator">>>;
+  Root: _styled_system_jsx0.StyleContextProvider<(props: Menu.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"root" | "content" | "positioner" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator", SlotRecipeVariantRecord<"root" | "content" | "positioner" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator">>>;
+  RootProvider: _styled_system_jsx0.StyleContextProvider<(props: Menu.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"root" | "content" | "positioner" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator", SlotRecipeVariantRecord<"root" | "content" | "positioner" | "separator" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator">>>;
   Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Menu.PositionerProps & react.RefAttributes<HTMLDivElement>>>;
   Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Menu.ContentProps & react.RefAttributes<HTMLDivElement>>>;
   Separator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Menu.SeparatorProps & react.RefAttributes<HTMLHRElement>>>;
@@ -22,6 +22,7 @@ declare const Menu$1: {
   Arrow: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Menu.ArrowProps & react.RefAttributes<HTMLDivElement>>>;
   ArrowTip: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Menu.ArrowTipProps & react.RefAttributes<HTMLDivElement>>>;
   Indicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Menu.IndicatorProps & react.RefAttributes<HTMLDivElement>>>;
+  Trigger: react.ForwardRefExoticComponent<Menu.TriggerProps & react.RefAttributes<HTMLButtonElement>>;
   ContextTrigger: react.ForwardRefExoticComponent<Menu.ContextTriggerProps & react.RefAttributes<HTMLButtonElement>>;
   Context: (props: Menu.ContextProps) => react.ReactNode;
   ItemContext: (props: Menu.ItemContextProps) => react.ReactNode;

@@ -52,6 +52,7 @@ const Menu$1 = {
 	Arrow: withContext(Menu.Arrow, "arrow"),
 	ArrowTip: withContext(Menu.ArrowTip, "arrowTip"),
 	Indicator: withContext(Menu.Indicator, "indicator"),
+	Trigger: Menu.Trigger,
 	ContextTrigger: Menu.ContextTrigger,
 	Context: Menu.Context,
 	ItemContext: Menu.ItemContext
