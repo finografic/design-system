@@ -24,8 +24,8 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 	return /* @__PURE__ */ jsxs(Dialog.Root, {
 		open: isOpen,
 		onOpenChange: (open) => !open && onClose(),
+		size: config.size || "md",
 		children: [/* @__PURE__ */ jsx(Dialog.Backdrop, {}), /* @__PURE__ */ jsx(Dialog.Positioner, { children: /* @__PURE__ */ jsxs(Dialog.Content, {
-			size: config.size || "md",
 			className: cx("ds-generic-dialog", className),
 			style: dynamicStyles,
 			children: [

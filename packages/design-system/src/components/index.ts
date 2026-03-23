@@ -32,7 +32,6 @@ export type { DialogConfig, TabConfig } from './generic-dialog/generic-dialog.ty
 // Apply recipe classNames per slot: e.g. checkboxRecipe({ size: 'md' })
 export { Dialog } from './dialog';
 export type {
-  DialogContentPropsDS,
   DialogRootPropsDS,
   DialogSize,
   DialogTriggerPropsDS,

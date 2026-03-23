@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/input-number/input-number.recipe.d.ts
-declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "input" | "label" | "errorText" | "control" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
+declare const inputNumberRecipe: SlotRecipeRuntimeFn<"input" | "label" | "prefix" | "root" | "control" | "errorText" | "incrementTrigger" | "decrementTrigger" | "suffix", {
   size: {
     sm: {
       label: {

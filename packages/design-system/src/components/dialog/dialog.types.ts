@@ -3,6 +3,7 @@ import type { Dialog as ArkDialog } from '@ark-ui/react';
 import type React from 'react';
 
 import type { RootTriggerRecipeProps } from '../../recipes/root-trigger.recipe';
+import type { DialogVariants } from './dialog.recipe';
 
 // ── Size scale ────────────────────────────────────────────────────────────────
 
@@ -10,19 +11,15 @@ export type DialogSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'cover' | 'full';
 
 // ── Dialog.Root ───────────────────────────────────────────────────────────────
 
-export interface DialogRootPropsDS extends Omit<DialogRootProps, 'onOpenChange'> {
-  /** Controlled open state */
+export interface DialogRootPropsDS extends Omit<DialogRootProps, 'onOpenChange'>, DialogVariants {
+  /** Controlled open state. */
   open?: boolean;
-  /** Called when the dialog requests open/close */
+  /**
+   * Called when the dialog requests open/close.
+   * Receives a plain `boolean` (Ark's `{ open }` shape is normalised away).
+   */
   onOpenChange?: (open: boolean) => void;
   children?: React.ReactNode;
-}
-
-export interface DialogContentPropsDS
-  extends React.ComponentPropsWithoutRef<typeof ArkDialog.Content>
-{
-  /** Controls panel dimensions. @default 'md' */
-  size?: DialogSize;
 }
 
 // ── Dialog.Trigger ────────────────────────────────────────────────────────────

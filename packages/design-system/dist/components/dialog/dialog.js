@@ -1,14 +1,55 @@
 import { rootTriggerRecipe } from "../../recipes/root-trigger.recipe.js";
-import "react";
+import { dialogRecipe } from "./dialog.recipe.js";
+import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx } from "react/jsx-runtime";
 import { Dialog } from "@ark-ui/react";
+import { createStyleContext } from "@styled-system/jsx";
 //#region src/components/dialog/dialog.tsx
-function Root({ onOpenChange, children, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.Root, {
-		onOpenChange: ({ open }) => onOpenChange?.(open),
-		...props,
-		children
+/**
+* Dialog — styled Ark **Dialog** compound.
+*
+* `size` lives on `Dialog.Root` (xs | sm | md | lg | xl | cover | full).
+* `onOpenChange` normalised: receives `boolean` (not Ark's `{ open }` shape).
+*
+* @example
+* ```tsx
+* import { Dialog } from '@finografic/design-system/components';
+*
+* <Dialog.Root size="md" open={open} onOpenChange={(open) => !open && onClose()}>
+*   <Dialog.Backdrop />
+*   <Dialog.Positioner>
+*     <Dialog.Content role="alertdialog">
+*       <Dialog.Header>
+*         <Dialog.Title>Title</Dialog.Title>
+*         <Dialog.CloseTrigger asChild>
+*           <Button variant="ghost" size="sm"><XIcon /></Button>
+*         </Dialog.CloseTrigger>
+*       </Dialog.Header>
+*       <Dialog.Description>Hidden by default — for screen readers.</Dialog.Description>
+*       <Dialog.Body>…</Dialog.Body>
+*       <Dialog.Footer>…</Dialog.Footer>
+*     </Dialog.Content>
+*   </Dialog.Positioner>
+* </Dialog.Root>
+* ```
+*/
+const { withProvider, withContext } = createStyleContext(dialogRecipe);
+/** Base div forwardRef — used for Header / Body / Footer slots that render as plain divs. */
+const Div = forwardRef((props, ref) => /* @__PURE__ */ jsx("div", {
+	...props,
+	ref
+}));
+Div.displayName = "Div";
+const _DialogRoot = withProvider(Dialog.Root, "root");
+/**
+* Dialog root — wraps Ark's Dialog.Root.
+* Accepts `size` variant and normalises `onOpenChange` to `(open: boolean) => void`.
+*/
+function Root({ onOpenChange, ...props }) {
+	return /* @__PURE__ */ jsx(_DialogRoot, {
+		onOpenChange: onOpenChange ? ({ open }) => onOpenChange(open) : void 0,
+		...props
 	});
 }
 Root.displayName = "Dialog.Root";
@@ -21,90 +62,19 @@ function Trigger({ className, tone = "outline", ...props }) {
 	});
 }
 Trigger.displayName = "Dialog.Trigger";
-function Backdrop({ className, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.Backdrop, {
-		className: ["ds-dialog__backdrop", className].filter(Boolean).join(" "),
-		...props
-	});
-}
-Backdrop.displayName = "Dialog.Backdrop";
-function Positioner({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.Positioner, {
-		className: ["ds-dialog__positioner", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-Positioner.displayName = "Dialog.Positioner";
-function Content({ className, size = "md", children, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.Content, {
-		className: ["ds-dialog__content", className].filter(Boolean).join(" "),
-		"data-size": size,
-		...props,
-		children
-	});
-}
-Content.displayName = "Dialog.Content";
-function Header({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx("div", {
-		className: ["ds-dialog__header", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-Header.displayName = "Dialog.Header";
-function Title({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.Title, {
-		className: ["ds-dialog__title", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-Title.displayName = "Dialog.Title";
-function Description({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.Description, {
-		className: ["ds-dialog__description", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-Description.displayName = "Dialog.Description";
-function Body({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx("div", {
-		className: ["ds-dialog__body", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-Body.displayName = "Dialog.Body";
-function Footer({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx("div", {
-		className: ["ds-dialog__footer", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-Footer.displayName = "Dialog.Footer";
-function CloseTrigger({ className, children, ...props }) {
-	return /* @__PURE__ */ jsx(Dialog.CloseTrigger, {
-		className: ["ds-dialog__close-trigger", className].filter(Boolean).join(" "),
-		...props,
-		children
-	});
-}
-CloseTrigger.displayName = "Dialog.CloseTrigger";
 const Dialog$1 = {
 	Root,
 	Trigger,
-	Backdrop,
-	Positioner,
-	Content,
-	Header,
-	Title,
-	Description,
-	Body,
-	Footer,
-	CloseTrigger
+	Backdrop: withContext(Dialog.Backdrop, "backdrop"),
+	Positioner: withContext(Dialog.Positioner, "positioner"),
+	Content: withContext(Dialog.Content, "content"),
+	Header: withContext(Div, "header"),
+	Title: withContext(Dialog.Title, "title"),
+	Description: withContext(Dialog.Description, "description"),
+	Body: withContext(Div, "body"),
+	Footer: withContext(Div, "footer"),
+	CloseTrigger: withContext(Dialog.CloseTrigger, "closeTrigger"),
+	Context: Dialog.Context
 };
 //#endregion
 export { Dialog$1 as Dialog };

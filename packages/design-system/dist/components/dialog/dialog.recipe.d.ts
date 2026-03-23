@@ -2,8 +2,13 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/dialog/dialog.recipe.d.ts
-declare const dialogRecipe: SlotRecipeRuntimeFn<"header" | "footer" | "content" | "description" | "backdrop" | "positioner" | "title" | "body" | "closeTrigger", {
+declare const dialogRecipe: SlotRecipeRuntimeFn<"body" | "footer" | "header" | "title" | "content" | "description" | "root" | "positioner" | "backdrop" | "closeTrigger", {
   size: {
+    xs: {
+      content: {
+        maxW: "20rem";
+      };
+    };
     sm: {
       content: {
         maxW: "24rem";
@@ -24,6 +29,16 @@ declare const dialogRecipe: SlotRecipeRuntimeFn<"header" | "footer" | "content" 
         maxW: "64rem";
       };
     };
+    cover: {
+      positioner: {
+        padding: "0";
+      };
+      content: {
+        maxW: "95vw";
+        maxH: "95vh";
+        h: "95vh";
+      };
+    };
     full: {
       positioner: {
         padding: "0";
@@ -31,6 +46,7 @@ declare const dialogRecipe: SlotRecipeRuntimeFn<"header" | "footer" | "content" 
       content: {
         maxW: "full";
         maxH: "full";
+        h: "full";
         borderRadius: "none";
       };
     };

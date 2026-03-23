@@ -1,8 +1,8 @@
 /**
  * Dialog Slot Recipe
  *
- * Slots:    backdrop | positioner | content | header | title | description | body | footer | closeTrigger
- * Variants: size (sm | md | lg | xl | full)
+ * Slots:    root | backdrop | positioner | content | header | title | description | body | footer | closeTrigger
+ * Variants: size (xs | sm | md | lg | xl | cover | full)
  */
 import { sva } from '@styled-system/css';
 
@@ -11,6 +11,7 @@ import type { RecipeProps } from '../../types/recipes.types';
 export const dialogRecipe = sva({
   className: 'dialog',
   slots: [
+    'root',
     'backdrop',
     'positioner',
     'content',
@@ -53,6 +54,7 @@ export const dialogRecipe = sva({
       width: 'full',
       maxH: '90vh',
       overflow: 'hidden',
+      outline: 'none',
       _open: { animation: 'scale-in 150ms ease' },
       _closed: { animation: 'scale-out 150ms ease' },
     },
@@ -117,13 +119,18 @@ export const dialogRecipe = sva({
 
   variants: {
     size: {
+      xs: { content: { maxW: '20rem' } },
       sm: { content: { maxW: '24rem' } },
       md: { content: { maxW: '32rem' } },
       lg: { content: { maxW: '48rem' } },
       xl: { content: { maxW: '64rem' } },
+      cover: {
+        positioner: { padding: '0' },
+        content: { maxW: '95vw', maxH: '95vh', h: '95vh' },
+      },
       full: {
         positioner: { padding: '0' },
-        content: { maxW: 'full', maxH: 'full', borderRadius: 'none' },
+        content: { maxW: 'full', maxH: 'full', h: 'full', borderRadius: 'none' },
       },
     },
   },

@@ -3,9 +3,42 @@ import "../spinner/index.js";
 import { tableRecipe } from "./data-table.recipe.js";
 import { ArrowDownIcon, ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, ChevronsUpDownIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from "@finografic/icons";
 import { useState } from "react";
+import { css } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
 //#region src/components/data-table/data-table.tsx
+const outerWrapperStyles = css({
+	display: "flex",
+	flexDirection: "column",
+	gap: "3"
+});
+const sortHeaderStyles = css({
+	display: "flex",
+	alignItems: "center",
+	gap: "1"
+});
+const filterInputStyles = css({
+	marginTop: "2",
+	width: "100%"
+});
+const loadingCellStyles = css({
+	textAlign: "center",
+	padding: "8"
+});
+const paginationRowStyles = css({
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "space-between",
+	gap: "2",
+	fontSize: "sm",
+	color: "fg.muted"
+});
+const paginationButtonsStyles = css({
+	display: "flex",
+	alignItems: "center",
+	gap: "1"
+});
+const pageIndicatorStyles = css({ paddingInline: "2" });
 function SortIcon({ sorted, className }) {
 	return /* @__PURE__ */ jsxs("span", {
 		className,
@@ -26,6 +59,30 @@ function PaginationButton({ className, disabled, children, ...rest }) {
 		children
 	});
 }
+/**
+* **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
+*
+* Styles applied via `tableRecipe`. Pass `classNames.filterInput` and `classNames.paginationButton`
+* to style the per-column filter input and pagination buttons respectively.
+*
+* @example
+* ```tsx
+* import { DataTable } from '@finografic/design-system/components';
+* import { createColumnHelper } from '@tanstack/react-table';
+*
+* const col = createColumnHelper<User>();
+* const columns = [
+*   col.accessor('name', { header: 'Name' }),
+*   col.accessor('email', { header: 'Email' }),
+* ];
+*
+* <DataTable
+*   data={users}
+*   columns={columns}
+*   classNames={{ table: {} }}
+* />
+* ```
+*/
 function DataTable({ data, columns, classNames, caption, loading = false, pageSize = 20, emptyMessage = "No results found.", getRowId, selectedRows, onSelectionChange }) {
 	const [sorting, setSorting] = useState([]);
 	const [columnFilters, setColumnFilters] = useState([]);
@@ -61,7 +118,7 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 		initialState: { pagination: { pageSize } },
 		getRowId
 	});
-	const styles = tableRecipe({ size: "md" });
+	const styles = tableRecipe();
 	const { filterInput, paginationButton } = classNames;
 	const headerGroups = table.getHeaderGroups();
 	const allColumns = table.getAllColumns();
@@ -69,11 +126,7 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 	const hasRows = rowModel.rows.length > 0;
 	const isLoading = loading;
 	return /* @__PURE__ */ jsxs("div", {
-		style: {
-			display: "flex",
-			flexDirection: "column",
-			gap: "var(--spacing-3)"
-		},
+		className: outerWrapperStyles,
 		children: [/* @__PURE__ */ jsx("div", {
 			className: styles.root,
 			children: /* @__PURE__ */ jsxs("table", {
@@ -95,26 +148,18 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 									"data-sortable": canSort ? "true" : void 0,
 									style: { width: header.getSize() !== 150 ? `${header.getSize()}px` : void 0 },
 									children: [/* @__PURE__ */ jsxs("div", {
-										style: {
-											display: "flex",
-											alignItems: "center",
-											gap: "var(--spacing-1)"
-										},
+										className: sortHeaderStyles,
 										onClick: canSort ? header.column.getToggleSortingHandler() : void 0,
 										children: [header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext()), canSort && /* @__PURE__ */ jsx(SortIcon, {
 											sorted: header.column.getIsSorted(),
 											className: styles.sortIcon
 										})]
 									}), canFilter && filterInput ? /* @__PURE__ */ jsx("input", {
-										className: filterInput,
+										className: [filterInput, filterInputStyles].filter(Boolean).join(" "),
 										value: header.column.getFilterValue() ?? "",
 										onChange: (event) => header.column.setFilterValue(event.target.value),
 										placeholder: "Filter…",
-										onClick: (event) => event.stopPropagation(),
-										style: {
-											marginTop: "var(--spacing-2)",
-											width: "100%"
-										}
+										onClick: (event) => event.stopPropagation()
 									}) : null]
 								}, header.id);
 							})
@@ -125,12 +170,8 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 						children: isLoading ? /* @__PURE__ */ jsx("tr", {
 							className: styles.tr,
 							children: /* @__PURE__ */ jsx("td", {
-								className: styles.td,
+								className: [styles.td, loadingCellStyles].filter(Boolean).join(" "),
 								colSpan: allColumns.length || 1,
-								style: {
-									textAlign: "center",
-									padding: "var(--spacing-8)"
-								},
 								children: /* @__PURE__ */ jsx(Spinner, { size: 20 })
 							})
 						}) : !hasRows ? /* @__PURE__ */ jsx("tr", {
@@ -152,24 +193,13 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 				]
 			})
 		}), /* @__PURE__ */ jsxs("div", {
-			style: {
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "space-between",
-				gap: "var(--spacing-2)",
-				fontSize: "var(--font-sizes-sm)",
-				color: "var(--colors-fg-muted)"
-			},
+			className: paginationRowStyles,
 			children: [/* @__PURE__ */ jsxs("span", { children: [
 				table.getFilteredSelectedRowModel().rows.length > 0 && `${table.getFilteredSelectedRowModel().rows.length} of `,
 				table.getFilteredRowModel().rows.length,
 				" row(s)"
 			] }), /* @__PURE__ */ jsxs("div", {
-				style: {
-					display: "flex",
-					alignItems: "center",
-					gap: "var(--spacing-1)"
-				},
+				className: paginationButtonsStyles,
 				children: [
 					/* @__PURE__ */ jsx(PaginationButton, {
 						className: paginationButton,
@@ -186,7 +216,7 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 						children: /* @__PURE__ */ jsx(ChevronLeftIcon, { className: "icon icon-sm" })
 					}),
 					/* @__PURE__ */ jsxs("span", {
-						style: { paddingInline: "var(--spacing-2)" },
+						className: pageIndicatorStyles,
 						children: [
 							"Page ",
 							table.getState().pagination.pageIndex + 1,

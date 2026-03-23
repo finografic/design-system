@@ -1,5 +1,5 @@
-import { Dialog } from "../components/dialog/dialog.js";
 import { dialogRecipe } from "../components/dialog/dialog.recipe.js";
+import { Dialog } from "../components/dialog/dialog.js";
 import "../components/dialog/index.js";
 import { checkboxRecipe } from "./checkbox/checkbox.recipe.js";
 import { fieldBoxRecipe } from "./field-box/field-box.recipe.js";

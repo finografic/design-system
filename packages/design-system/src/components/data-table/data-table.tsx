@@ -8,6 +8,7 @@ import {
   DoubleArrowRightIcon,
 } from '@finografic/icons';
 
+import { css } from '@styled-system/css';
 import {
   type ColumnFiltersState,
   flexRender,
@@ -26,6 +27,51 @@ import { useState } from 'react';
 import { Spinner } from '../spinner';
 import { tableRecipe } from './data-table.recipe';
 import type { DataTableProps } from './data-table.types';
+
+// ── Module-level style constants ──────────────────────────────────────────────
+
+const outerWrapperStyles = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '3',
+});
+
+const sortHeaderStyles = css({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1',
+});
+
+const filterInputStyles = css({
+  marginTop: '2',
+  width: '100%',
+});
+
+const loadingCellStyles = css({
+  textAlign: 'center',
+  padding: '8',
+});
+
+const paginationRowStyles = css({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '2',
+  fontSize: 'sm',
+  color: 'fg.muted',
+});
+
+const paginationButtonsStyles = css({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1',
+});
+
+const pageIndicatorStyles = css({
+  paddingInline: '2',
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 interface SortIconProps {
   sorted: 'asc' | 'desc' | false;
@@ -58,6 +104,30 @@ function PaginationButton({ className, disabled, children, ...rest }: Pagination
   );
 }
 
+/**
+ * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
+ *
+ * Styles applied via `tableRecipe`. Pass `classNames.filterInput` and `classNames.paginationButton`
+ * to style the per-column filter input and pagination buttons respectively.
+ *
+ * @example
+ * ```tsx
+ * import { DataTable } from '@finografic/design-system/components';
+ * import { createColumnHelper } from '@tanstack/react-table';
+ *
+ * const col = createColumnHelper<User>();
+ * const columns = [
+ *   col.accessor('name', { header: 'Name' }),
+ *   col.accessor('email', { header: 'Email' }),
+ * ];
+ *
+ * <DataTable
+ *   data={users}
+ *   columns={columns}
+ *   classNames={{ table: {} }}
+ * />
+ * ```
+ */
 export function DataTable<TData>({
   data,
   columns,
@@ -128,9 +198,7 @@ export function DataTable<TData>({
     getRowId,
   });
 
-  // const { table: tableClasses, filterInput, paginationButton } = classNames as DataTableClassNames;
-
-  const styles = tableRecipe({ size: 'md' });
+  const styles = tableRecipe();
   const { filterInput, paginationButton } = classNames;
 
   const headerGroups = table.getHeaderGroups();
@@ -141,7 +209,7 @@ export function DataTable<TData>({
   const isLoading = loading;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-3)' }}>
+    <div className={outerWrapperStyles}>
       <div className={styles.root}>
         <table className={styles.table}>
           {caption ? <caption className={styles.caption}>{caption}</caption> : null}
@@ -163,11 +231,7 @@ export function DataTable<TData>({
                       }}
                     >
                       <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 'var(--spacing-1)',
-                        }}
+                        className={sortHeaderStyles}
                         onClick={canSort ? header.column.getToggleSortingHandler() : undefined}
                       >
                         {header.isPlaceholder
@@ -184,16 +248,12 @@ export function DataTable<TData>({
                       {canFilter && filterInput
                         ? (
                           <input
-                            className={filterInput}
+                            className={[filterInput, filterInputStyles].filter(Boolean).join(' ')}
                             value={(header.column.getFilterValue() as string) ?? ''}
                             onChange={(event) => header.column.setFilterValue(event.target.value)}
                             placeholder="Filter…"
                             onClick={(event) =>
                               event.stopPropagation()}
-                            style={{
-                              marginTop: 'var(--spacing-2)',
-                              width: '100%',
-                            }}
                           />
                         )
                         : null}
@@ -209,12 +269,8 @@ export function DataTable<TData>({
               ? (
                 <tr className={styles.tr}>
                   <td
-                    className={styles.td}
+                    className={[styles.td, loadingCellStyles].filter(Boolean).join(' ')}
                     colSpan={allColumns.length || 1}
-                    style={{
-                      textAlign: 'center',
-                      padding: 'var(--spacing-8)',
-                    }}
                   >
                     <Spinner size={20} />
                   </td>
@@ -247,29 +303,14 @@ export function DataTable<TData>({
         </table>
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 'var(--spacing-2)',
-          fontSize: 'var(--font-sizes-sm)',
-          color: 'var(--colors-fg-muted)',
-        }}
-      >
+      <div className={paginationRowStyles}>
         <span>
           {table.getFilteredSelectedRowModel().rows.length > 0
             && `${table.getFilteredSelectedRowModel().rows.length} of `}
           {table.getFilteredRowModel().rows.length} row(s)
         </span>
 
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--spacing-1)',
-          }}
-        >
+        <div className={paginationButtonsStyles}>
           <PaginationButton
             className={paginationButton}
             onClick={() => table.setPageIndex(0)}
@@ -288,7 +329,7 @@ export function DataTable<TData>({
             <ChevronLeftIcon className="icon icon-sm" />
           </PaginationButton>
 
-          <span style={{ paddingInline: 'var(--spacing-2)' }}>
+          <span className={pageIndicatorStyles}>
             Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
           </span>
 

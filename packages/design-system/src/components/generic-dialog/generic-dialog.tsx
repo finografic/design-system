@@ -49,11 +49,14 @@ export const GenericDialog: FC<GenericDialogProps> = ({
   );
 
   return (
-    <Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
+    <Dialog.Root
+      open={isOpen}
+      onOpenChange={(open) => !open && onClose()}
+      size={config.size || 'md'}
+    >
       <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content
-          size={config.size || 'md'}
           className={cx('ds-generic-dialog', className)}
           style={dynamicStyles}
         >
