@@ -26,6 +26,10 @@ const checkboxRecipe = sva({
 			_disabled: {
 				opacity: .55,
 				cursor: "not-allowed"
+			},
+			_indeterminate: {
+				"& svg:not([data-indeterminate])": { display: "none" },
+				"& svg[data-indeterminate]": { display: "block" }
 			}
 		},
 		control: {
@@ -33,6 +37,7 @@ const checkboxRecipe = sva({
 			alignItems: "center",
 			justifyContent: "center",
 			flexShrink: 0,
+			overflow: "hidden",
 			borderRadius: "xs",
 			borderWidth: "light",
 			borderStyle: "solid",
@@ -42,13 +47,13 @@ const checkboxRecipe = sva({
 			transitionProperty: "background-color, border-color, color",
 			transitionDuration: "normal",
 			_checked: {
-				bg: "accent.solid",
-				borderColor: "accent.solid",
+				bg: "{colors.success.light}",
+				borderColor: "{colors.success.light}",
 				color: "white"
 			},
 			_indeterminate: {
-				bg: "accent.solid",
-				borderColor: "accent.solid",
+				bg: "{colors.success.light}",
+				borderColor: "{colors.success.light}",
 				color: "white"
 			},
 			_hover: { borderColor: "accent.emphasized" },
@@ -63,7 +68,12 @@ const checkboxRecipe = sva({
 			},
 			_invalid: { borderColor: "border.error" }
 		},
-		indicator: { "& svg": { flexShrink: 0 } },
+		indicator: {
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			"& svg[data-indeterminate]": { display: "none" }
+		},
 		label: {
 			color: "fg",
 			lineHeight: "normal",
@@ -87,15 +97,15 @@ const checkboxRecipe = sva({
 			control: {
 				width: "4",
 				height: "4",
-				marginTop: "0.5"
+				marginTop: "0.5",
+				"& svg": {
+					width: "2.5",
+					height: "2.5"
+				}
 			},
 			indicator: {
-				"width": "2.5",
-				"height": "2.5",
-				"& svg": {
-					w: "2.5",
-					h: "2.5"
-				}
+				width: "2.5",
+				height: "2.5"
 			},
 			label: { fontSize: "sm" },
 			description: { fontSize: "xs" },
@@ -105,15 +115,15 @@ const checkboxRecipe = sva({
 			control: {
 				width: "5",
 				height: "5",
-				marginTop: "0.5"
+				marginTop: "0.5",
+				"& svg": {
+					width: "3",
+					height: "3"
+				}
 			},
 			indicator: {
-				"width": "3",
-				"height": "3",
-				"& svg": {
-					w: "3",
-					h: "3"
-				}
+				width: "3",
+				height: "3"
 			},
 			label: { fontSize: "md" },
 			description: { fontSize: "sm" },
@@ -123,15 +133,15 @@ const checkboxRecipe = sva({
 			control: {
 				width: "6",
 				height: "6",
-				marginTop: "0.5"
+				marginTop: "0.5",
+				"& svg": {
+					width: "4",
+					height: "4"
+				}
 			},
 			indicator: {
-				"width": "4",
-				"height": "4",
-				"& svg": {
-					w: "4",
-					h: "4"
-				}
+				width: "4",
+				height: "4"
 			},
 			label: { fontSize: "lg" },
 			description: { fontSize: "md" },

@@ -115,4 +115,8 @@ export const CheckboxField = forwardRef<HTMLLabelElement, CheckboxFieldProps>(
   },
 );
 
+export const CheckboxDS = CheckboxField;
+export type CheckboxDSProps = CheckboxFieldProps;
+
+CheckboxDS.displayName = 'CheckboxDS';
 CheckboxField.displayName = 'CheckboxField';

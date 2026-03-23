@@ -67,6 +67,8 @@ const CheckboxField = forwardRef(({ label, description, error, checked, onChecke
 		]
 	});
 });
+const CheckboxDS = CheckboxField;
+CheckboxDS.displayName = "CheckboxDS";
 CheckboxField.displayName = "CheckboxField";
 //#endregion
 export { Checkbox$1 as Checkbox, CheckboxField };
