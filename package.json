@@ -5,8 +5,8 @@
   "scripts": {
     "·········· DEV": "·····················································",
     "dev": "pnpm --filter @finografic/design-system dev",
-    "dev.icons": "pnpm --filter @finografic/icons dev",
     "watch": "pnpm --filter @finografic/design-system watch",
+    "dev.icons": "pnpm --filter @finografic/icons dev",
     "·········· BUILD": "·····················································",
     "build": "pnpm --filter @finografic/design-system build",
     "build.icons": "pnpm --filter @finografic/icons build",

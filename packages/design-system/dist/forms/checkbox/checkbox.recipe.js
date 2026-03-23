@@ -69,9 +69,9 @@ const checkboxRecipe = sva({
 			_invalid: { borderColor: "border.error" }
 		},
 		indicator: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
 			"& svg[data-indeterminate]": { display: "none" }
 		},
 		label: {
@@ -95,9 +95,9 @@ const checkboxRecipe = sva({
 	variants: { size: {
 		sm: {
 			control: {
-				width: "4",
-				height: "4",
-				marginTop: "0.5",
+				"width": "4",
+				"height": "4",
+				"marginTop": "0.5",
 				"& svg": {
 					width: "2.5",
 					height: "2.5"
@@ -113,9 +113,9 @@ const checkboxRecipe = sva({
 		},
 		md: {
 			control: {
-				width: "5",
-				height: "5",
-				marginTop: "0.5",
+				"width": "5",
+				"height": "5",
+				"marginTop": "0.5",
 				"& svg": {
 					width: "3",
 					height: "3"
@@ -131,9 +131,9 @@ const checkboxRecipe = sva({
 		},
 		lg: {
 			control: {
-				width: "6",
-				height: "6",
-				marginTop: "0.5",
+				"width": "6",
+				"height": "6",
+				"marginTop": "0.5",
 				"& svg": {
 					width: "4",
 					height: "4"
