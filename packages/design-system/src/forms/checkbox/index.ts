@@ -1,4 +1,9 @@
-export type { CheckboxFieldClassNames, CheckboxFieldProps } from './checkbox';
-export { Checkbox, CheckboxField } from './checkbox';
+export type {
+  CheckboxDSClassNames,
+  CheckboxDSProps,
+  CheckboxFieldClassNames,
+  CheckboxFieldProps,
+} from './checkbox';
+export { Checkbox, CheckboxDS, CheckboxField } from './checkbox';
 export * from './checkbox.recipe';
 export * from './checkbox.types';

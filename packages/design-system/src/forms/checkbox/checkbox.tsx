@@ -1,6 +1,7 @@
 import { CheckIcon, MinusIcon } from '@finografic/icons';
 
 import { Checkbox as ArkCheckbox } from '@ark-ui/react';
+import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
@@ -12,17 +13,44 @@ import type { CheckboxVariants } from './checkbox.types';
 
 const { withProvider, withContext } = createStyleContext(checkboxRecipe);
 
+/**
+ * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
+ *
+ * Pass **`size`** on `Root` so slot styles resolve. Control state and handlers
+ * (`checked`, `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
+ *
+ * @example
+ * ```tsx
+ * <Checkbox.Root size="md" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
+ *   <Checkbox.Control>
+ *     <Checkbox.Indicator>
+ *       <CheckIcon aria-hidden />
+ *     </Checkbox.Indicator>
+ *   </Checkbox.Control>
+ *   <Checkbox.Label>Accept terms</Checkbox.Label>
+ *   <Checkbox.HiddenInput />
+ * </Checkbox.Root>
+ * ```
+ */
 export const Checkbox = {
+  /** Root — controlled state, handlers, and recipe variants (`size`). */
   Root: withProvider(ArkCheckbox.Root, 'root'),
+  /** Box + hit target; receives `control` slot classes from context. */
   Control: withContext(ArkCheckbox.Control, 'control'),
+  /** Icon container; receives `indicator` slot classes from context. */
   Indicator: withContext(ArkCheckbox.Indicator, 'indicator'),
+  /** Text label; receives `label` slot classes from context. */
   Label: withContext(ArkCheckbox.Label, 'label'),
+  /** Native input for forms; no recipe slot. */
   HiddenInput: ArkCheckbox.HiddenInput,
 };
 
-// ── CheckboxField — convenience wrapper ───────────────────────────────────────
+// ── CheckboxDS — convenience wrapper ─────────────────────────────────────────
 
-export interface CheckboxFieldClassNames {
+const textColumnStyle = css({ display: 'flex', flexDirection: 'column', gap: '0.5' });
+
+/** Slot class overrides for {@link CheckboxDS}. */
+export interface CheckboxDSClassNames {
   root?: string;
   control?: string;
   indicator?: string;
@@ -31,7 +59,7 @@ export interface CheckboxFieldClassNames {
   errorText?: string;
 }
 
-export type CheckboxFieldProps = CheckboxVariants & {
+export type CheckboxDSProps = CheckboxVariants & {
   /** Label text beside the checkbox */
   label?: ReactNode;
   /** Helper text below the label */
@@ -40,50 +68,59 @@ export type CheckboxFieldProps = CheckboxVariants & {
   error?: FieldError | string;
   /** Controlled checked state */
   checked?: boolean | 'indeterminate';
-  onCheckedChange?: (details: { checked: boolean | 'indeterminate' }) => void;
+  /** Value toggle — forwarded to Ark `onCheckedChange` internally. */
+  onChange?: (checked: boolean | 'indeterminate') => void;
   onBlur?: () => void;
   name?: string;
   disabled?: boolean;
   /** Custom indicator icon; defaults to CheckIcon / MinusIcon */
   indicator?: ReactNode;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
   /** Per-slot class overrides */
-  classNames?: CheckboxFieldClassNames;
+  classNames?: CheckboxDSClassNames;
 };
 
-export const CheckboxField = forwardRef<HTMLLabelElement, CheckboxFieldProps>(
+/**
+ * Design-system convenience checkbox — label, description, and error text included.
+ * **`Checkbox`** stays the styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`;
+ * bare **`Checkbox.Root`** still uses Ark's `onCheckedChange`).
+ */
+export const CheckboxDS = forwardRef<HTMLLabelElement, CheckboxDSProps>(
   (
     {
       label,
       description,
       error,
       checked,
-      onCheckedChange,
+      onChange,
       onBlur,
       name,
       disabled,
       size = 'md',
       indicator,
+      className,
       classNames = {},
     },
     ref,
   ) => {
-    const cls = checkboxRecipe({ size });
+    const styles = checkboxRecipe({ size });
     const errorMessage = typeof error === 'string' ? error : error?.message;
 
     return (
       <ArkCheckbox.Root
         ref={ref}
         checked={checked}
-        onCheckedChange={onCheckedChange}
+        onCheckedChange={(details) => onChange?.(details.checked)}
         onBlur={onBlur}
         name={name}
         disabled={disabled}
         data-size={size}
         data-invalid={errorMessage ? 'true' : undefined}
-        className={classNames.root ?? cls.root}
+        className={cx(styles.root, classNames.root, className)}
       >
-        <ArkCheckbox.Control className={classNames.control ?? cls.control}>
-          <ArkCheckbox.Indicator className={classNames.indicator ?? cls.indicator}>
+        <ArkCheckbox.Control className={cx(styles.control, classNames.control)}>
+          <ArkCheckbox.Indicator className={cx(styles.indicator, classNames.indicator)}>
             {indicator ?? (
               <>
                 <CheckIcon className="icon" aria-hidden />
@@ -93,21 +130,23 @@ export const CheckboxField = forwardRef<HTMLLabelElement, CheckboxFieldProps>(
           </ArkCheckbox.Indicator>
         </ArkCheckbox.Control>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
-          {label && (
-            <ArkCheckbox.Label className={classNames.label ?? cls.label}>
-              {label}
-            </ArkCheckbox.Label>
-          )}
-          {description && (
-            <span className={classNames.description ?? cls.description}>{description}</span>
-          )}
-          {errorMessage && (
-            <span className={classNames.errorText ?? cls.errorText} role="alert">
-              {errorMessage}
-            </span>
-          )}
-        </div>
+        {(label || description || errorMessage) && (
+          <div className={textColumnStyle}>
+            {label && (
+              <ArkCheckbox.Label className={cx(styles.label, classNames.label)}>
+                {label}
+              </ArkCheckbox.Label>
+            )}
+            {description && (
+              <span className={cx(styles.description, classNames.description)}>{description}</span>
+            )}
+            {errorMessage && (
+              <span className={cx(styles.errorText, classNames.errorText)} role="alert">
+                {errorMessage}
+              </span>
+            )}
+          </div>
+        )}
 
         <ArkCheckbox.HiddenInput />
       </ArkCheckbox.Root>
@@ -115,8 +154,9 @@ export const CheckboxField = forwardRef<HTMLLabelElement, CheckboxFieldProps>(
   },
 );
 
-export const CheckboxDS = CheckboxField;
-export type CheckboxDSProps = CheckboxFieldProps;
-
 CheckboxDS.displayName = 'CheckboxDS';
-CheckboxField.displayName = 'CheckboxField';
+
+/** @alias {@link CheckboxDS} */
+export const CheckboxField = CheckboxDS;
+export type CheckboxFieldProps = CheckboxDSProps;
+export type CheckboxFieldClassNames = CheckboxDSClassNames;
