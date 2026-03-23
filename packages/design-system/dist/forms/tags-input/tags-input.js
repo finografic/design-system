@@ -1,10 +1,14 @@
 import { tagsInputRecipe } from "./tags-input.recipe.js";
+import { XIcon } from "@finografic/icons";
+import { forwardRef } from "react";
+import { css, cx } from "@styled-system/css";
+import { jsx, jsxs } from "react/jsx-runtime";
 import { TagsInput } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/tags-input/tags-input.tsx
+const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
 /**
-* TagsInput — styled Ark UI **TagsInput** compound wired to `tagsInputRecipe`
-* via `createStyleContext`.
+* Styled Ark **TagsInput** compound — each part is wired to `tagsInputRecipe` via context.
 *
 * Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to
 * delete, Enter to confirm), edit mode per tag, and ARIA for the tag list.
@@ -22,7 +26,7 @@ import { createStyleContext } from "@styled-system/jsx";
 * import { TagsInput } from '@finografic/design-system/forms';
 * import { XIcon } from '@finografic/icons';
 *
-* <TagsInput.Root value={tags} onValueChange={({ value }) => setTags(value)}>
+* <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
 *   <TagsInput.Label>Topics</TagsInput.Label>
 *   <TagsInput.Control>
 *     <TagsInput.Context>
@@ -46,13 +50,6 @@ import { createStyleContext } from "@styled-system/jsx";
 * </TagsInput.Root>
 * ```
 */
-const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
-/**
-* Styled Ark **TagsInput** compound — each part wired to `tagsInputRecipe` via context.
-*
-* Place `value`, `onValueChange`, `max`, `delimiter`, `size`, and other root
-* props on **`Root`**.
-*/
 const TagsInput$1 = {
 	Root: withProvider(TagsInput.Root, "root"),
 	RootProvider: withProvider(TagsInput.RootProvider, "root"),
@@ -69,7 +66,73 @@ const TagsInput$1 = {
 	Context: TagsInput.Context,
 	ItemContext: TagsInput.ItemContext
 };
+const textColumnStyle = css({
+	display: "flex",
+	flexDirection: "column",
+	gap: "0.5"
+});
+/**
+* Design-system convenience tags input — label, description, and error text included.
+* **`TagsInput`** stays the styled compound for full composition; **`TagsInputDS`** = packaged
+* DS API (`onChange(value: string[])`, tags rendered automatically from `value`).
+*/
+const TagsInputDS = forwardRef(({ value = [], onChange, onBlur, label, description, error, placeholder = "Add tag…", max, validate, name, disabled, size = "md", className, classNames = {} }, ref) => {
+	const styles = tagsInputRecipe({ size });
+	const errorMessage = typeof error === "string" ? error : error?.message;
+	return /* @__PURE__ */ jsxs(TagsInput.Root, {
+		ref,
+		value,
+		onValueChange: ({ value: vals }) => onChange?.(vals),
+		onBlur,
+		max,
+		validate,
+		name,
+		disabled,
+		"data-invalid": errorMessage ? "true" : void 0,
+		className: cx(styles.root, classNames.root, className),
+		children: [
+			label && /* @__PURE__ */ jsx(TagsInput.Label, {
+				className: cx(styles.label, classNames.label),
+				children: label
+			}),
+			/* @__PURE__ */ jsxs(TagsInput.Control, {
+				className: cx(styles.control, classNames.control),
+				children: [value.map((tag, index) => /* @__PURE__ */ jsxs(TagsInput.Item, {
+					index,
+					value: tag,
+					className: cx(styles.item, classNames.item),
+					children: [/* @__PURE__ */ jsxs(TagsInput.ItemPreview, {
+						className: cx(styles.itemPreview, classNames.itemPreview),
+						children: [/* @__PURE__ */ jsx(TagsInput.ItemText, {
+							className: cx(styles.itemText, classNames.itemText),
+							children: tag
+						}), /* @__PURE__ */ jsx(TagsInput.ItemDeleteTrigger, {
+							className: cx(styles.itemDeleteTrigger, classNames.itemDeleteTrigger),
+							children: /* @__PURE__ */ jsx(XIcon, { "aria-hidden": true })
+						})]
+					}), /* @__PURE__ */ jsx(TagsInput.ItemInput, { className: styles.itemInput })]
+				}, index)), /* @__PURE__ */ jsx(TagsInput.Input, {
+					className: cx(styles.input, classNames.input),
+					placeholder
+				})]
+			}),
+			(description || errorMessage) && /* @__PURE__ */ jsxs("div", {
+				className: textColumnStyle,
+				children: [description && /* @__PURE__ */ jsx("span", {
+					className: cx(styles.description, classNames.description),
+					children: description
+				}), errorMessage && /* @__PURE__ */ jsx("span", {
+					className: cx(styles.errorText, classNames.errorText),
+					role: "alert",
+					children: errorMessage
+				})]
+			}),
+			/* @__PURE__ */ jsx(TagsInput.HiddenInput, {})
+		]
+	});
+});
+TagsInputDS.displayName = "TagsInputDS";
 //#endregion
-export { TagsInput$1 as TagsInput };
+export { TagsInput$1 as TagsInput, TagsInputDS };
 
 //# sourceMappingURL=tags-input.js.map

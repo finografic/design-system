@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/slider/slider.recipe.d.ts
-declare const sliderRecipe: SlotRecipeRuntimeFn<"label" | "track" | "marker" | "root" | "control" | "thumb" | "valueText" | "range" | "markerGroup", {
+declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "description" | "root" | "label" | "errorText" | "control" | "thumb" | "valueText" | "track" | "range" | "markerGroup", {
   size: {
     sm: {
       label: {
@@ -29,6 +29,12 @@ declare const sliderRecipe: SlotRecipeRuntimeFn<"label" | "track" | "marker" | "
           width: "8";
           height: "8";
         };
+      };
+      description: {
+        fontSize: "xs";
+      };
+      errorText: {
+        fontSize: "xs";
       };
     };
     md: {
@@ -57,6 +63,12 @@ declare const sliderRecipe: SlotRecipeRuntimeFn<"label" | "track" | "marker" | "
           height: "9";
         };
       };
+      description: {
+        fontSize: "sm";
+      };
+      errorText: {
+        fontSize: "sm";
+      };
     };
     lg: {
       label: {
@@ -83,6 +95,12 @@ declare const sliderRecipe: SlotRecipeRuntimeFn<"label" | "track" | "marker" | "
           width: "10";
           height: "10";
         };
+      };
+      description: {
+        fontSize: "md";
+      };
+      errorText: {
+        fontSize: "md";
       };
     };
   };

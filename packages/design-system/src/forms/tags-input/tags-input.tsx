@@ -1,6 +1,20 @@
+import { XIcon } from '@finografic/icons';
+
+import { TagsInput as ArkTagsInput } from '@ark-ui/react';
+import { css, cx } from '@styled-system/css';
+import { createStyleContext } from '@styled-system/jsx';
+import { forwardRef, type ReactNode } from 'react';
+import type { FieldError } from 'react-hook-form';
+
+import type { TagsInputVariants } from './tags-input.recipe';
+import { tagsInputRecipe } from './tags-input.recipe';
+
+// ── Compound (createStyleContext) ─────────────────────────────────────────────
+
+const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
+
 /**
- * TagsInput — styled Ark UI **TagsInput** compound wired to `tagsInputRecipe`
- * via `createStyleContext`.
+ * Styled Ark **TagsInput** compound — each part is wired to `tagsInputRecipe` via context.
  *
  * Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to
  * delete, Enter to confirm), edit mode per tag, and ARIA for the tag list.
@@ -18,7 +32,7 @@
  * import { TagsInput } from '@finografic/design-system/forms';
  * import { XIcon } from '@finografic/icons';
  *
- * <TagsInput.Root value={tags} onValueChange={({ value }) => setTags(value)}>
+ * <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
  *   <TagsInput.Label>Topics</TagsInput.Label>
  *   <TagsInput.Control>
  *     <TagsInput.Context>
@@ -42,21 +56,8 @@
  * </TagsInput.Root>
  * ```
  */
-import { TagsInput as ArkTagsInput } from '@ark-ui/react';
-import { createStyleContext } from '@styled-system/jsx';
-
-import { tagsInputRecipe } from './tags-input.recipe';
-
-const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
-
-/**
- * Styled Ark **TagsInput** compound — each part wired to `tagsInputRecipe` via context.
- *
- * Place `value`, `onValueChange`, `max`, `delimiter`, `size`, and other root
- * props on **`Root`**.
- */
 export const TagsInput = {
-  /** Root — value state, event handlers, max tags, delimiters, and recipe variants. */
+  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */
   Root: withProvider(ArkTagsInput.Root, 'root'),
   /** Root with external machine state from `useTagsInput`. */
   RootProvider: withProvider(ArkTagsInput.RootProvider, 'root'),
@@ -85,6 +86,146 @@ export const TagsInput = {
   /** Render prop — exposes per-item context inside `Item`. */
   ItemContext: ArkTagsInput.ItemContext,
 };
+
+// ── TagsInputDS — convenience wrapper ────────────────────────────────────────
+
+const textColumnStyle = css({ display: 'flex', flexDirection: 'column', gap: '0.5' });
+
+/** Slot class overrides for {@link TagsInputDS}. */
+export interface TagsInputDSClassNames {
+  root?: string;
+  label?: string;
+  control?: string;
+  item?: string;
+  itemPreview?: string;
+  itemText?: string;
+  itemDeleteTrigger?: string;
+  input?: string;
+  description?: string;
+  errorText?: string;
+}
+
+export type TagsInputDSProps = TagsInputVariants & {
+  /** Controlled list of tag strings. */
+  value?: string[];
+  /** Called when the tag list changes — receives the full updated array. */
+  onChange?: (value: string[]) => void;
+  onBlur?: () => void;
+  /** Label above the input box. */
+  label?: ReactNode;
+  /** Helper text below the input box. */
+  description?: ReactNode;
+  /** RHF FieldError or plain string. */
+  error?: FieldError | string;
+  placeholder?: string;
+  /** Maximum number of tags allowed. */
+  max?: number;
+  /** Custom validation — return `false` to reject the tag. Receives `{ inputValue, value }`. */
+  validate?: (details: { inputValue: string; value: string[] }) => boolean;
+  name?: string;
+  disabled?: boolean;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
+  classNames?: TagsInputDSClassNames;
+};
+
+/**
+ * Design-system convenience tags input — label, description, and error text included.
+ * **`TagsInput`** stays the styled compound for full composition; **`TagsInputDS`** = packaged
+ * DS API (`onChange(value: string[])`, tags rendered automatically from `value`).
+ */
+export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
+  (
+    {
+      value = [],
+      onChange,
+      onBlur,
+      label,
+      description,
+      error,
+      placeholder = 'Add tag…',
+      max,
+      validate,
+      name,
+      disabled,
+      size = 'md',
+      className,
+      classNames = {},
+    },
+    ref,
+  ) => {
+    const styles = tagsInputRecipe({ size });
+    const errorMessage = typeof error === 'string' ? error : error?.message;
+
+    return (
+      <ArkTagsInput.Root
+        ref={ref}
+        value={value}
+        onValueChange={({ value: vals }) => onChange?.(vals)}
+        onBlur={onBlur}
+        max={max}
+        validate={validate}
+        name={name}
+        disabled={disabled}
+        data-invalid={errorMessage ? 'true' : undefined}
+        className={cx(styles.root, classNames.root, className)}
+      >
+        {label && (
+          <ArkTagsInput.Label className={cx(styles.label, classNames.label)}>
+            {label}
+          </ArkTagsInput.Label>
+        )}
+
+        <ArkTagsInput.Control className={cx(styles.control, classNames.control)}>
+          {value.map((tag, index) => (
+            <ArkTagsInput.Item
+              key={index}
+              index={index}
+              value={tag}
+              className={cx(styles.item, classNames.item)}
+            >
+              <ArkTagsInput.ItemPreview
+                className={cx(styles.itemPreview, classNames.itemPreview)}
+              >
+                <ArkTagsInput.ItemText className={cx(styles.itemText, classNames.itemText)}>
+                  {tag}
+                </ArkTagsInput.ItemText>
+                <ArkTagsInput.ItemDeleteTrigger
+                  className={cx(styles.itemDeleteTrigger, classNames.itemDeleteTrigger)}
+                >
+                  <XIcon aria-hidden />
+                </ArkTagsInput.ItemDeleteTrigger>
+              </ArkTagsInput.ItemPreview>
+              <ArkTagsInput.ItemInput className={styles.itemInput} />
+            </ArkTagsInput.Item>
+          ))}
+          <ArkTagsInput.Input
+            className={cx(styles.input, classNames.input)}
+            placeholder={placeholder}
+          />
+        </ArkTagsInput.Control>
+
+        {(description || errorMessage) && (
+          <div className={textColumnStyle}>
+            {description && (
+              <span className={cx(styles.description, classNames.description)}>{description}</span>
+            )}
+            {errorMessage && (
+              <span className={cx(styles.errorText, classNames.errorText)} role="alert">
+                {errorMessage}
+              </span>
+            )}
+          </div>
+        )}
+
+        <ArkTagsInput.HiddenInput />
+      </ArkTagsInput.Root>
+    );
+  },
+);
+
+TagsInputDS.displayName = 'TagsInputDS';
 
 export type {
   TagsInputHighlightChangeDetails,

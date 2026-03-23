@@ -1,17 +1,45 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { SliderVariants } from "./slider.recipe.js";
 import * as react from "react";
+import { ReactNode } from "react";
 import { Slider, SliderRootProps, SliderValueChangeDetails } from "@ark-ui/react";
 import * as _styled_system_jsx0 from "@styled-system/jsx";
+import { FieldError } from "react-hook-form";
 
 //#region src/forms/slider/slider.d.ts
 /**
  * Styled Ark **Slider** compound — each part is wired to `sliderRecipe` via context.
  *
- * Place `value`, `onValueChange`, `min`, `max`, `step`, `orientation`, and `size`
- * on **`Root`**.
+ * Ark handles all a11y: `slider` role, keyboard navigation (arrows, Home/End,
+ * Page Up/Down), and ARIA attributes for value, min, max. Variant props go on **`Root`**.
+ *
+ * **Orientation:** pass `orientation="vertical"` to `Slider.Root` — all parts respond
+ * via `data-orientation="vertical"` attribute styles in the recipe.
+ *
+ * **Touch:** the thumb enlarges automatically at raspberry-pi breakpoints
+ * (`max-width: 1024px / max-height: 600px` and `800 / 480`) when `pointer: coarse`.
+ *
+ * @example
+ * ```tsx
+ * import { Slider } from '@finografic/design-system/forms';
+ *
+ * <Slider.Root size="md" value={[volume]} onValueChange={({ value }) => setVolume(value[0])}>
+ *   <Slider.Label>
+ *     Volume
+ *     <Slider.ValueText />
+ *   </Slider.Label>
+ *   <Slider.Control>
+ *     <Slider.Track>
+ *       <Slider.Range />
+ *     </Slider.Track>
+ *     <Slider.Thumb index={0} />
+ *   </Slider.Control>
+ *   <Slider.HiddenInput />
+ * </Slider.Root>
+ * ```
  */
 declare const Slider$1: {
-  /** Root — value state, event handlers, orientation, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"label" | "track" | "marker" | "root" | "control" | "thumb" | "valueText" | "range" | "markerGroup", {
+  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "description" | "root" | "label" | "errorText" | "control" | "thumb" | "valueText" | "track" | "range" | "markerGroup", {
     size: {
       sm: {
         label: {
@@ -38,6 +66,12 @@ declare const Slider$1: {
             width: "8";
             height: "8";
           };
+        };
+        description: {
+          fontSize: "xs";
+        };
+        errorText: {
+          fontSize: "xs";
         };
       };
       md: {
@@ -66,6 +100,12 @@ declare const Slider$1: {
             height: "9";
           };
         };
+        description: {
+          fontSize: "sm";
+        };
+        errorText: {
+          fontSize: "sm";
+        };
       };
       lg: {
         label: {
@@ -93,6 +133,12 @@ declare const Slider$1: {
             height: "10";
           };
         };
+        description: {
+          fontSize: "md";
+        };
+        errorText: {
+          fontSize: "md";
+        };
       };
     };
   }>>; /** Text label for the slider; also wraps `ValueText` for inline display. */
@@ -106,6 +152,55 @@ declare const Slider$1: {
   Marker: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.MarkerProps & react.RefAttributes<HTMLSpanElement>>>; /** Hidden native `<input>` for form integration — no recipe slot. */
   HiddenInput: react.ForwardRefExoticComponent<Slider.HiddenInputProps & react.RefAttributes<HTMLInputElement>>;
 };
+/** Slot class overrides for {@link SliderDS}. */
+interface SliderDSClassNames {
+  root?: string;
+  label?: string;
+  valueText?: string;
+  control?: string;
+  track?: string;
+  range?: string;
+  thumb?: string;
+  description?: string;
+  errorText?: string;
+}
+type SliderDSProps = SliderVariants & {
+  /** Current value for a single-thumb slider. */value?: number; /** Called when the value changes — receives the scalar value. */
+  onChange?: (value: number) => void;
+  min?: number;
+  max?: number;
+  step?: number; /** Label rendered above the track. */
+  label?: ReactNode; /** Show the current value next to the label. Default: `true` */
+  showValue?: boolean; /** Helper text below the track. */
+  description?: ReactNode; /** RHF FieldError or plain string. */
+  error?: FieldError | string;
+  name?: string;
+  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
+  className?: string; /** Per-slot class overrides. */
+  classNames?: SliderDSClassNames;
+};
+/**
+ * Design-system convenience slider — label, value display, description, and error included.
+ * **`Slider`** stays the styled compound for full composition; **`SliderDS`** = packaged DS
+ * API (`onChange(value: number)`; bare **`Slider.Root`** still uses Ark's `onValueChange`).
+ */
+declare const SliderDS: react.ForwardRefExoticComponent<{
+  size?: "sm" | "md" | "lg" | undefined;
+} & {
+  /** Current value for a single-thumb slider. */value?: number; /** Called when the value changes — receives the scalar value. */
+  onChange?: (value: number) => void;
+  min?: number;
+  max?: number;
+  step?: number; /** Label rendered above the track. */
+  label?: ReactNode; /** Show the current value next to the label. Default: `true` */
+  showValue?: boolean; /** Helper text below the track. */
+  description?: ReactNode; /** RHF FieldError or plain string. */
+  error?: FieldError | string;
+  name?: string;
+  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
+  className?: string; /** Per-slot class overrides. */
+  classNames?: SliderDSClassNames;
+} & react.RefAttributes<HTMLDivElement>>;
 //#endregion
-export { Slider$1 as Slider, type SliderRootProps, type SliderValueChangeDetails };
+export { Slider$1 as Slider, SliderDS, SliderDSClassNames, SliderDSProps, type SliderRootProps, type SliderValueChangeDetails };
 //# sourceMappingURL=slider.d.ts.map

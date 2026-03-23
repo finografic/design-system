@@ -1,17 +1,57 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { TagsInputVariants } from "./tags-input.recipe.js";
 import * as react from "react";
+import { ReactNode } from "react";
 import { TagsInput, TagsInputHighlightChangeDetails, TagsInputInputValueChangeDetails, TagsInputValueChangeDetails } from "@ark-ui/react";
 import * as _styled_system_jsx0 from "@styled-system/jsx";
+import { FieldError } from "react-hook-form";
 
 //#region src/forms/tags-input/tags-input.d.ts
 /**
- * Styled Ark **TagsInput** compound — each part wired to `tagsInputRecipe` via context.
+ * Styled Ark **TagsInput** compound — each part is wired to `tagsInputRecipe` via context.
  *
- * Place `value`, `onValueChange`, `max`, `delimiter`, `size`, and other root
- * props on **`Root`**.
+ * Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to
+ * delete, Enter to confirm), edit mode per tag, and ARIA for the tag list.
+ *
+ * Each tag goes through three states:
+ * - **Preview** (`ItemPreview`) — the visible chip with a delete button.
+ * - **Edit** (`ItemInput`) — an inline text field when double-clicking a tag.
+ * - **Input** (`Input`) — the new-tag text field at the end of the list.
+ *
+ * Use `TagsInput.Context` / `TagsInput.ItemContext` inside the render for
+ * access to machine state without lifting it up.
+ *
+ * @example
+ * ```tsx
+ * import { TagsInput } from '@finografic/design-system/forms';
+ * import { XIcon } from '@finografic/icons';
+ *
+ * <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
+ *   <TagsInput.Label>Topics</TagsInput.Label>
+ *   <TagsInput.Control>
+ *     <TagsInput.Context>
+ *       {({ value }) =>
+ *         value.map((tag, index) => (
+ *           <TagsInput.Item key={index} index={index} value={tag}>
+ *             <TagsInput.ItemPreview>
+ *               <TagsInput.ItemText>{tag}</TagsInput.ItemText>
+ *               <TagsInput.ItemDeleteTrigger>
+ *                 <XIcon aria-hidden />
+ *               </TagsInput.ItemDeleteTrigger>
+ *             </TagsInput.ItemPreview>
+ *             <TagsInput.ItemInput />
+ *           </TagsInput.Item>
+ *         ))
+ *       }
+ *     </TagsInput.Context>
+ *     <TagsInput.Input placeholder="Add tag…" />
+ *   </TagsInput.Control>
+ *   <TagsInput.HiddenInput />
+ * </TagsInput.Root>
+ * ```
  */
 declare const TagsInput$1: {
-  /** Root — value state, event handlers, max tags, delimiters, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"input" | "label" | "root" | "item" | "itemText" | "control" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "input" | "label" | "errorText" | "control" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
     size: {
       sm: {
         label: {
@@ -49,6 +89,12 @@ declare const TagsInput$1: {
             w: "3";
             h: "3";
           };
+        };
+        description: {
+          fontSize: "xs";
+        };
+        errorText: {
+          fontSize: "xs";
         };
       };
       md: {
@@ -88,6 +134,12 @@ declare const TagsInput$1: {
             h: "4";
           };
         };
+        description: {
+          fontSize: "sm";
+        };
+        errorText: {
+          fontSize: "sm";
+        };
       };
       lg: {
         label: {
@@ -125,11 +177,17 @@ declare const TagsInput$1: {
             w: "4";
             h: "4";
           };
+        };
+        description: {
+          fontSize: "md";
+        };
+        errorText: {
+          fontSize: "md";
         };
       };
     };
   }>>; /** Root with external machine state from `useTagsInput`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"input" | "label" | "root" | "item" | "itemText" | "control" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "input" | "label" | "errorText" | "control" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
     size: {
       sm: {
         label: {
@@ -167,6 +225,12 @@ declare const TagsInput$1: {
             w: "3";
             h: "3";
           };
+        };
+        description: {
+          fontSize: "xs";
+        };
+        errorText: {
+          fontSize: "xs";
         };
       };
       md: {
@@ -206,6 +270,12 @@ declare const TagsInput$1: {
             h: "4";
           };
         };
+        description: {
+          fontSize: "sm";
+        };
+        errorText: {
+          fontSize: "sm";
+        };
       };
       lg: {
         label: {
@@ -243,6 +313,12 @@ declare const TagsInput$1: {
             w: "4";
             h: "4";
           };
+        };
+        description: {
+          fontSize: "md";
+        };
+        errorText: {
+          fontSize: "md";
         };
       };
     };
@@ -257,9 +333,65 @@ declare const TagsInput$1: {
   Input: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<TagsInput.InputProps & react.RefAttributes<HTMLInputElement>>>; /** Button to remove all tags at once — place after `Control`. */
   ClearTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<TagsInput.ClearTriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Hidden native `<input>` for form integration — no recipe slot. */
   HiddenInput: react.ForwardRefExoticComponent<TagsInput.HiddenInputProps & react.RefAttributes<HTMLInputElement>>; /** Render prop — exposes machine context (value, etc.) to children. */
-  Context: (props: TagsInput.ContextProps) => react.ReactNode; /** Render prop — exposes per-item context inside `Item`. */
-  ItemContext: (props: TagsInput.ItemContextProps) => react.ReactNode;
+  Context: (props: TagsInput.ContextProps) => ReactNode; /** Render prop — exposes per-item context inside `Item`. */
+  ItemContext: (props: TagsInput.ItemContextProps) => ReactNode;
 };
+/** Slot class overrides for {@link TagsInputDS}. */
+interface TagsInputDSClassNames {
+  root?: string;
+  label?: string;
+  control?: string;
+  item?: string;
+  itemPreview?: string;
+  itemText?: string;
+  itemDeleteTrigger?: string;
+  input?: string;
+  description?: string;
+  errorText?: string;
+}
+type TagsInputDSProps = TagsInputVariants & {
+  /** Controlled list of tag strings. */value?: string[]; /** Called when the tag list changes — receives the full updated array. */
+  onChange?: (value: string[]) => void;
+  onBlur?: () => void; /** Label above the input box. */
+  label?: ReactNode; /** Helper text below the input box. */
+  description?: ReactNode; /** RHF FieldError or plain string. */
+  error?: FieldError | string;
+  placeholder?: string; /** Maximum number of tags allowed. */
+  max?: number; /** Custom validation — return `false` to reject the tag. Receives `{ inputValue, value }`. */
+  validate?: (details: {
+    inputValue: string;
+    value: string[];
+  }) => boolean;
+  name?: string;
+  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
+  className?: string; /** Per-slot class overrides. */
+  classNames?: TagsInputDSClassNames;
+};
+/**
+ * Design-system convenience tags input — label, description, and error text included.
+ * **`TagsInput`** stays the styled compound for full composition; **`TagsInputDS`** = packaged
+ * DS API (`onChange(value: string[])`, tags rendered automatically from `value`).
+ */
+declare const TagsInputDS: react.ForwardRefExoticComponent<{
+  size?: "sm" | "md" | "lg" | undefined;
+} & {
+  /** Controlled list of tag strings. */value?: string[]; /** Called when the tag list changes — receives the full updated array. */
+  onChange?: (value: string[]) => void;
+  onBlur?: () => void; /** Label above the input box. */
+  label?: ReactNode; /** Helper text below the input box. */
+  description?: ReactNode; /** RHF FieldError or plain string. */
+  error?: FieldError | string;
+  placeholder?: string; /** Maximum number of tags allowed. */
+  max?: number; /** Custom validation — return `false` to reject the tag. Receives `{ inputValue, value }`. */
+  validate?: (details: {
+    inputValue: string;
+    value: string[];
+  }) => boolean;
+  name?: string;
+  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
+  className?: string; /** Per-slot class overrides. */
+  classNames?: TagsInputDSClassNames;
+} & react.RefAttributes<HTMLDivElement>>;
 //#endregion
-export { TagsInput$1 as TagsInput, type TagsInputHighlightChangeDetails, type TagsInputInputValueChangeDetails, type TagsInputValueChangeDetails };
+export { TagsInput$1 as TagsInput, TagsInputDS, TagsInputDSClassNames, TagsInputDSProps, type TagsInputHighlightChangeDetails, type TagsInputInputValueChangeDetails, type TagsInputValueChangeDetails };
 //# sourceMappingURL=tags-input.d.ts.map

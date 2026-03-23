@@ -4,7 +4,7 @@
  * Port of Ark UI Slider example styles → Panda `sva` + semantic tokens.
  *
  * Slots:    root · label · valueText · control · track · range · thumb ·
- *           markerGroup · marker
+ *           markerGroup · marker · description · errorText
  * Variants: size (sm | md | lg)
  *
  * Orientation: all slots respond to `data-orientation="vertical"` on the root.
@@ -29,6 +29,8 @@ export const sliderRecipe = sva({
     'thumb',
     'markerGroup',
     'marker',
+    'description',
+    'errorText',
   ],
 
   base: {
@@ -155,6 +157,20 @@ export const sliderRecipe = sva({
         '&::before': { bg: 'accent.solid' },
       },
     },
+
+    description: {
+      color: 'fg.muted',
+      lineHeight: 'normal',
+    },
+
+    errorText: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1',
+      color: 'fg.error',
+      fontWeight: 'semibold',
+      lineHeight: 'normal',
+    },
   },
 
   variants: {
@@ -177,6 +193,8 @@ export const sliderRecipe = sva({
             height: '8',
           },
         },
+        description: { fontSize: 'xs' },
+        errorText: { fontSize: 'xs' },
       },
       md: {
         label: { fontSize: 'sm' },
@@ -196,6 +214,8 @@ export const sliderRecipe = sva({
             height: '9',
           },
         },
+        description: { fontSize: 'sm' },
+        errorText: { fontSize: 'sm' },
       },
       lg: {
         label: { fontSize: 'md' },
@@ -215,6 +235,8 @@ export const sliderRecipe = sva({
             height: '10',
           },
         },
+        description: { fontSize: 'md' },
+        errorText: { fontSize: 'md' },
       },
     },
   },

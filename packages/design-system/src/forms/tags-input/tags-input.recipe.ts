@@ -4,7 +4,8 @@
  * Port of Ark UI TagsInput example styles → Panda `sva` + semantic tokens.
  *
  * Slots:    root · label · control · item · itemPreview · itemText ·
- *           itemInput · itemDeleteTrigger · input · clearTrigger
+ *           itemInput · itemDeleteTrigger · input · clearTrigger ·
+ *           description · errorText
  * Variants: size (sm | md | lg)
  *
  * **Usage pattern:**
@@ -31,6 +32,8 @@ export const tagsInputRecipe = sva({
     'itemDeleteTrigger',
     'input',
     'clearTrigger',
+    'description',
+    'errorText',
   ],
 
   base: {
@@ -159,6 +162,20 @@ export const tagsInputRecipe = sva({
       '_hover': { bg: 'bg.subtle', color: 'fg' },
       '& svg': { w: '4', h: '4' },
     },
+
+    description: {
+      color: 'fg.muted',
+      lineHeight: 'normal',
+    },
+
+    errorText: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1',
+      color: 'fg.error',
+      fontWeight: 'semibold',
+      lineHeight: 'normal',
+    },
   },
 
   variants: {
@@ -171,6 +188,8 @@ export const tagsInputRecipe = sva({
         itemDeleteTrigger: { 'p': '0.5', '& svg': { w: '3', h: '3' } },
         input: { h: '6', px: '1', fontSize: 'xs' },
         clearTrigger: { '& svg': { w: '3', h: '3' } },
+        description: { fontSize: 'xs' },
+        errorText: { fontSize: 'xs' },
       },
       md: {
         label: { fontSize: 'sm' },
@@ -180,6 +199,8 @@ export const tagsInputRecipe = sva({
         itemDeleteTrigger: { 'p': '0.5', '& svg': { w: '3.5', h: '3.5' } },
         input: { h: '7', px: '1', fontSize: 'sm' },
         clearTrigger: { '& svg': { w: '4', h: '4' } },
+        description: { fontSize: 'sm' },
+        errorText: { fontSize: 'sm' },
       },
       lg: {
         label: { fontSize: 'md' },
@@ -189,6 +210,8 @@ export const tagsInputRecipe = sva({
         itemDeleteTrigger: { 'p': '1', '& svg': { w: '3.5', h: '3.5' } },
         input: { h: '7', px: '1', fontSize: 'md' },
         clearTrigger: { '& svg': { w: '4', h: '4' } },
+        description: { fontSize: 'md' },
+        errorText: { fontSize: 'md' },
       },
     },
   },

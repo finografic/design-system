@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/tags-input/tags-input.recipe.d.ts
-declare const tagsInputRecipe: SlotRecipeRuntimeFn<"input" | "label" | "root" | "item" | "itemText" | "control" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+declare const tagsInputRecipe: SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "input" | "label" | "errorText" | "control" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
   size: {
     sm: {
       label: {
@@ -40,6 +40,12 @@ declare const tagsInputRecipe: SlotRecipeRuntimeFn<"input" | "label" | "root" | 
           w: "3";
           h: "3";
         };
+      };
+      description: {
+        fontSize: "xs";
+      };
+      errorText: {
+        fontSize: "xs";
       };
     };
     md: {
@@ -79,6 +85,12 @@ declare const tagsInputRecipe: SlotRecipeRuntimeFn<"input" | "label" | "root" | 
           h: "4";
         };
       };
+      description: {
+        fontSize: "sm";
+      };
+      errorText: {
+        fontSize: "sm";
+      };
     };
     lg: {
       label: {
@@ -116,6 +128,12 @@ declare const tagsInputRecipe: SlotRecipeRuntimeFn<"input" | "label" | "root" | 
           w: "4";
           h: "4";
         };
+      };
+      description: {
+        fontSize: "md";
+      };
+      errorText: {
+        fontSize: "md";
       };
     };
   };

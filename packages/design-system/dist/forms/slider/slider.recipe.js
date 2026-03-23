@@ -6,7 +6,7 @@ import { sva } from "@styled-system/css";
 * Port of Ark UI Slider example styles → Panda `sva` + semantic tokens.
 *
 * Slots:    root · label · valueText · control · track · range · thumb ·
-*           markerGroup · marker
+*           markerGroup · marker · description · errorText
 * Variants: size (sm | md | lg)
 *
 * Orientation: all slots respond to `data-orientation="vertical"` on the root.
@@ -25,7 +25,9 @@ const sliderRecipe = sva({
 		"range",
 		"thumb",
 		"markerGroup",
-		"marker"
+		"marker",
+		"description",
+		"errorText"
 	],
 	base: {
 		root: {
@@ -140,6 +142,18 @@ const sliderRecipe = sva({
 			},
 			"&[data-state=\"under-value\"]": { "&::before": { bg: "accent.solid" } },
 			"&[data-state=\"at-value\"]": { "&::before": { bg: "accent.solid" } }
+		},
+		description: {
+			color: "fg.muted",
+			lineHeight: "normal"
+		},
+		errorText: {
+			display: "flex",
+			alignItems: "center",
+			gap: "1",
+			color: "fg.error",
+			fontWeight: "semibold",
+			lineHeight: "normal"
 		}
 	},
 	variants: { size: {
@@ -160,7 +174,9 @@ const sliderRecipe = sva({
 					width: "8",
 					height: "8"
 				}
-			}
+			},
+			description: { fontSize: "xs" },
+			errorText: { fontSize: "xs" }
 		},
 		md: {
 			label: { fontSize: "sm" },
@@ -179,7 +195,9 @@ const sliderRecipe = sva({
 					width: "9",
 					height: "9"
 				}
-			}
+			},
+			description: { fontSize: "sm" },
+			errorText: { fontSize: "sm" }
 		},
 		lg: {
 			label: { fontSize: "md" },
@@ -198,7 +216,9 @@ const sliderRecipe = sva({
 					width: "10",
 					height: "10"
 				}
-			}
+			},
+			description: { fontSize: "md" },
+			errorText: { fontSize: "md" }
 		}
 	} },
 	defaultVariants: { size: "md" }

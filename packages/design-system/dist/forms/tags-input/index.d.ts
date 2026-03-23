@@ -1,2 +1,2 @@
-import { TagsInput, TagsInputHighlightChangeDetails, TagsInputInputValueChangeDetails, TagsInputValueChangeDetails } from "./tags-input.js";
 import { TagsInputVariants, tagsInputRecipe } from "./tags-input.recipe.js";
+import { TagsInput, TagsInputDS, TagsInputDSClassNames, TagsInputDSProps, TagsInputHighlightChangeDetails, TagsInputInputValueChangeDetails, TagsInputValueChangeDetails } from "./tags-input.js";
