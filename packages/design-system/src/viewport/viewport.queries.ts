@@ -2,10 +2,6 @@ import { BREAKPOINTS } from './viewport.breakpoints';
 import type { BreakpointMap, ScreenClass } from './viewport.types';
 import { toMediaMaxWidth, toMediaMinWidth } from './viewport.utils';
 
-// ============================================================================
-// TYPED QUERY MAPS
-// ============================================================================
-
 /** Min-width media query strings for each breakpoint (no `@media` wrapper). */
 export const QUERIES_MIN: Record<ScreenClass, string> = {
   'xs': '(min-width: 0px)',
