@@ -24,7 +24,7 @@
 - [x] Spinner
 - [x] Tabs — `py` content padding, `_disabled` grayscale filter
 - [ ] Text
-- [ ] Toast
+- [x] Toast — closeTrigger absolute position, root column flex, actionTrigger button chrome, section comment + JSDoc on compound
 - [ ] Tooltip
 
 ## `forms/`
@@ -38,6 +38,6 @@
 - [x] Slider — `createStyleContext` wiring, Ark CSS spec, vertical orientation, touch thumb sizing, marker `::before` ticks; `SliderDS` wrapper, `description`/`errorText` slots, section comments
 - [x] Select — Ark CSS spec (scale animation, maxH guard, itemText truncation, itemGroup spacing, indicator layout, clearTrigger layout)
 - [x] SelectDefault — `cx()`, JSDoc, multi-select (`multiple` prop, discriminated-union types)
-- [ ] SelectSearchable
+- [x] SelectSearchable — `cls` → `styles`, `cx()`, `css()`, JSDoc, recipe content/item/itemIndicator aligned with selectRecipe
 - [x] TagsInput — NEW component; `sva` recipe, `createStyleContext` compound, `TagsInputDS` wrapper, `description`/`errorText` slots, section comments
 - [x] Switch
