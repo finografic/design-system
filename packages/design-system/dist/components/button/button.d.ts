@@ -13,7 +13,7 @@ type ButtonProps = ComponentPropsWithoutRef<'button'> & ButtonVariants & {
 };
 declare const Button: react.ForwardRefExoticComponent<Omit<react.DetailedHTMLProps<react.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & {
   size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
-  variant?: "outline" | "solid" | "link" | "subtle" | "ghost" | undefined;
+  variant?: "outline" | "solid" | "subtle" | "ghost" | "link" | undefined;
   palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
   iconOnly?: boolean | undefined;
 } & {

@@ -77,7 +77,7 @@ const switchRecipe = sva({
 			transitionProperty: "transform",
 			transitionDuration: "0.15s",
 			transitionTimingFunction: "ease",
-			_checked: { bg: "colorPalette.xdark" }
+			_checked: { bg: "colorPalette.base" }
 		},
 		description: {
 			fontSize: "sm",
