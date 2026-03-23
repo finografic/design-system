@@ -3,18 +3,17 @@ import { Menu } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/components/menu/menu.tsx
 /**
-* Menu Component
+* Menu — styled Ark UI **Menu** compound wired to `menuRecipe` via `createStyleContext`.
 *
-* Styled wrapper around Ark UI Menu using `createStyleContext`.
-* Ark handles all a11y: menu/menuitem roles, keyboard navigation,
-* arrow keys, Home/End, typeahead, Escape to close.
+* Ark handles all a11y: `menu` / `menuitem` roles, keyboard navigation (arrows,
+* Home/End, typeahead), and Escape to close. Variant props go on **`Menu.Root`**.
 *
-* Recipe variant props are accepted directly on `Menu.Root` —
-* no manual recipe call or className threading needed.
+* **`Menu.Trigger`** is unstyled — compose it with `rootTriggerRecipe` or `buttonRecipe`
+* on the consumer side (or use `asChild` with your own element).
 *
-* Usage:
+* @example
 * ```tsx
-* import { Menu } from '@workspace/design-system/components';
+* import { Menu } from '@finografic/design-system/components';
 *
 * <Menu.Root>
 *   <Menu.Trigger asChild>
@@ -22,9 +21,15 @@ import { createStyleContext } from "@styled-system/jsx";
 *   </Menu.Trigger>
 *   <Menu.Positioner>
 *     <Menu.Content>
-*       <Menu.Item value="edit">
-*         <Menu.ItemText>Edit</Menu.ItemText>
-*       </Menu.Item>
+*       <Menu.ItemGroup>
+*         <Menu.ItemGroupLabel>Actions</Menu.ItemGroupLabel>
+*         <Menu.Item value="edit">
+*           <Menu.ItemText>Edit</Menu.ItemText>
+*         </Menu.Item>
+*         <Menu.Item value="duplicate">
+*           <Menu.ItemText>Duplicate</Menu.ItemText>
+*         </Menu.Item>
+*       </Menu.ItemGroup>
 *       <Menu.Separator />
 *       <Menu.Item value="delete">
 *         <Menu.ItemText>Delete</Menu.ItemText>
@@ -35,6 +40,11 @@ import { createStyleContext } from "@styled-system/jsx";
 * ```
 */
 const { withProvider, withContext } = createStyleContext(menuRecipe);
+/**
+* Styled Ark **Menu** compound — each part is wired to `menuRecipe` via context.
+*
+* Place `onSelect`, `onOpenChange`, and any variant props on **`Root`**.
+*/
 const Menu$1 = {
 	Root: withProvider(Menu.Root, "root"),
 	RootProvider: withProvider(Menu.RootProvider, "root"),
