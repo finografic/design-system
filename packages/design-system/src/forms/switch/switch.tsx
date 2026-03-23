@@ -1,5 +1,5 @@
 import { Switch as ArkSwitch } from '@ark-ui/react';
-import { cx } from '@styled-system/css';
+import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
@@ -45,6 +45,12 @@ export const Switch = {
 
 // ── SwitchDS — convenience wrapper (label / description / error) ─────────────
 
+const textColumnStyle = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.5',
+});
+
 /** Slot class overrides for {@link SwitchDS}. */
 export interface SwitchDSClassNames {
   root?: string;
@@ -65,15 +71,15 @@ export type SwitchDSProps = SwitchVariants & {
   onBlur?: () => void;
   name?: string;
   disabled?: boolean;
-  /** Merged onto the root slot after recipe classes */
+  /** Merged onto the root slot after recipe classes. */
   className?: string;
   classNames?: SwitchDSClassNames;
 };
 
 /**
  * Design-system convenience switch — label, description, and error text.
- * **`Switch`** stays the styled compound; **`*DS`** = packaged DS API (`onChange(checked)`;
- * bare **`Switch.Root`** still uses Ark’s `onCheckedChange`).
+ * **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
+ * bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
  */
 export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
   (
@@ -114,7 +120,7 @@ export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
         </ArkSwitch.Control>
 
         {(label || description || errorMessage) && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.125rem' }}>
+          <div className={textColumnStyle}>
             {label && (
               <ArkSwitch.Label className={cx(styles.label, classNames.label)}>
                 {label}

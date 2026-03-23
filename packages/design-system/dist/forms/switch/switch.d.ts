@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const Switch$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Switch.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "label" | "control" | "errorText" | "thumb", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Switch.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "thumb" | "description" | "errorText", {
     size: {
       sm: {
         control: {
@@ -104,9 +104,21 @@ declare const Switch$1: {
         root: {
           colorPalette: "neutral";
         };
+        control: {
+          colorPalette: "neutral";
+        };
+        thumb: {
+          colorPalette: "neutral";
+        };
       };
       primary: {
         root: {
+          colorPalette: "primary";
+        };
+        control: {
+          colorPalette: "primary";
+        };
+        thumb: {
           colorPalette: "primary";
         };
       };
@@ -114,9 +126,21 @@ declare const Switch$1: {
         root: {
           colorPalette: "secondary";
         };
+        control: {
+          colorPalette: "secondary";
+        };
+        thumb: {
+          colorPalette: "secondary";
+        };
       };
       success: {
         root: {
+          colorPalette: "success";
+        };
+        control: {
+          colorPalette: "success";
+        };
+        thumb: {
           colorPalette: "success";
         };
       };
@@ -124,9 +148,21 @@ declare const Switch$1: {
         root: {
           colorPalette: "warning";
         };
+        control: {
+          colorPalette: "warning";
+        };
+        thumb: {
+          colorPalette: "warning";
+        };
       };
       danger: {
         root: {
+          colorPalette: "danger";
+        };
+        control: {
+          colorPalette: "danger";
+        };
+        thumb: {
           colorPalette: "danger";
         };
       };
@@ -134,9 +170,21 @@ declare const Switch$1: {
         root: {
           colorPalette: "info";
         };
+        control: {
+          colorPalette: "info";
+        };
+        thumb: {
+          colorPalette: "info";
+        };
       };
       grey: {
         root: {
+          colorPalette: "grey";
+        };
+        control: {
+          colorPalette: "grey";
+        };
+        thumb: {
           colorPalette: "grey";
         };
       };
@@ -164,14 +212,14 @@ type SwitchDSProps = SwitchVariants & {
   onChange?: (checked: boolean) => void | Promise<void>;
   onBlur?: () => void;
   name?: string;
-  disabled?: boolean; /** Merged onto the root slot after recipe classes */
+  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
   className?: string;
   classNames?: SwitchDSClassNames;
 };
 /**
  * Design-system convenience switch — label, description, and error text.
- * **`Switch`** stays the styled compound; **`*DS`** = packaged DS API (`onChange(checked)`;
- * bare **`Switch.Root`** still uses Ark’s `onCheckedChange`).
+ * **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
+ * bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
  */
 declare const SwitchDS: react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
@@ -184,7 +232,7 @@ declare const SwitchDS: react.ForwardRefExoticComponent<{
   onChange?: (checked: boolean) => void | Promise<void>;
   onBlur?: () => void;
   name?: string;
-  disabled?: boolean; /** Merged onto the root slot after recipe classes */
+  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
   className?: string;
   classNames?: SwitchDSClassNames;
 } & react.RefAttributes<HTMLLabelElement>>;

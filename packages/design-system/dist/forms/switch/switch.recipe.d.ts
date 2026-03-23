@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/forms/switch/switch.recipe.d.ts
-declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "label" | "control" | "errorText" | "thumb", {
+declare const switchRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "thumb" | "description" | "errorText", {
   size: {
     sm: {
       control: {
@@ -77,9 +77,21 @@ declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "label"
       root: {
         colorPalette: "neutral";
       };
+      control: {
+        colorPalette: "neutral";
+      };
+      thumb: {
+        colorPalette: "neutral";
+      };
     };
     primary: {
       root: {
+        colorPalette: "primary";
+      };
+      control: {
+        colorPalette: "primary";
+      };
+      thumb: {
         colorPalette: "primary";
       };
     };
@@ -87,9 +99,21 @@ declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "label"
       root: {
         colorPalette: "secondary";
       };
+      control: {
+        colorPalette: "secondary";
+      };
+      thumb: {
+        colorPalette: "secondary";
+      };
     };
     success: {
       root: {
+        colorPalette: "success";
+      };
+      control: {
+        colorPalette: "success";
+      };
+      thumb: {
         colorPalette: "success";
       };
     };
@@ -97,9 +121,21 @@ declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "label"
       root: {
         colorPalette: "warning";
       };
+      control: {
+        colorPalette: "warning";
+      };
+      thumb: {
+        colorPalette: "warning";
+      };
     };
     danger: {
       root: {
+        colorPalette: "danger";
+      };
+      control: {
+        colorPalette: "danger";
+      };
+      thumb: {
         colorPalette: "danger";
       };
     };
@@ -107,9 +143,21 @@ declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "label"
       root: {
         colorPalette: "info";
       };
+      control: {
+        colorPalette: "info";
+      };
+      thumb: {
+        colorPalette: "info";
+      };
     };
     grey: {
       root: {
+        colorPalette: "grey";
+      };
+      control: {
+        colorPalette: "grey";
+      };
+      thumb: {
         colorPalette: "grey";
       };
     };

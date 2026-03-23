@@ -8,10 +8,13 @@ import { sva } from "@styled-system/css";
 * `switchRecipe({ size, palette })` in `SwitchDS` (like `CheckboxField` uses its recipe).
 *
 * Slots:    root · label · control · thumb · description · errorText
-* Variants: size (sm | md | lg) · palette (sets `colorPalette` on root for consumers / future use)
+* Variants: size (sm | md | lg) · palette (sets `colorPalette` on root)
 *
-* **Control** checked track uses `accent.solid` — that atomic is always emitted by Panda.
-* (`colorPalette.light` + checked atoms were unreliable across consumers.)
+* **Color mechanism:** `palette` sets `colorPalette` on the **root** slot.
+* Child slots reference `colorPalette.*` tokens that resolve via CSS custom property
+* inheritance. **Control** checked fill uses an explicit `:is(:checked, …)` selector
+* (covers native + Ark/Zag attributes) with `colorPalette.light`; **thumb** uses
+* `colorPalette.base`.
 *
 * Palette note: **`default`** maps to **`neutral`**. Omitting `palette` on `SwitchDS` uses
 * `defaultVariants` → **`primary`**.
@@ -53,11 +56,11 @@ const switchRecipe = sva({
 			alignItems: "center",
 			flexShrink: 0,
 			borderRadius: "full",
-			bg: "bg.muted",
+			bg: "bg.subtle",
 			transitionProperty: "background-color, box-shadow",
 			transitionDuration: "0.15s",
 			transitionTimingFunction: "ease",
-			_checked: { bg: "accent.solid" },
+			_checked: { bg: "colorPalette.xlight" },
 			_focusVisible: {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
@@ -69,11 +72,12 @@ const switchRecipe = sva({
 			alignItems: "center",
 			justifyContent: "center",
 			borderRadius: "full",
-			bg: "colorPalette.base",
+			bg: "colorPalette.light",
 			boxShadow: "sm",
 			transitionProperty: "transform",
 			transitionDuration: "0.15s",
-			transitionTimingFunction: "ease"
+			transitionTimingFunction: "ease",
+			_checked: { bg: "colorPalette.xdark" }
 		},
 		description: {
 			fontSize: "sm",
@@ -136,14 +140,46 @@ const switchRecipe = sva({
 			}
 		},
 		palette: {
-			default: { root: { colorPalette: "neutral" } },
-			primary: { root: { colorPalette: "primary" } },
-			secondary: { root: { colorPalette: "secondary" } },
-			success: { root: { colorPalette: "success" } },
-			warning: { root: { colorPalette: "warning" } },
-			danger: { root: { colorPalette: "danger" } },
-			info: { root: { colorPalette: "info" } },
-			grey: { root: { colorPalette: "grey" } }
+			default: {
+				root: { colorPalette: "neutral" },
+				control: { colorPalette: "neutral" },
+				thumb: { colorPalette: "neutral" }
+			},
+			primary: {
+				root: { colorPalette: "primary" },
+				control: { colorPalette: "primary" },
+				thumb: { colorPalette: "primary" }
+			},
+			secondary: {
+				root: { colorPalette: "secondary" },
+				control: { colorPalette: "secondary" },
+				thumb: { colorPalette: "secondary" }
+			},
+			success: {
+				root: { colorPalette: "success" },
+				control: { colorPalette: "success" },
+				thumb: { colorPalette: "success" }
+			},
+			warning: {
+				root: { colorPalette: "warning" },
+				control: { colorPalette: "warning" },
+				thumb: { colorPalette: "warning" }
+			},
+			danger: {
+				root: { colorPalette: "danger" },
+				control: { colorPalette: "danger" },
+				thumb: { colorPalette: "danger" }
+			},
+			info: {
+				root: { colorPalette: "info" },
+				control: { colorPalette: "info" },
+				thumb: { colorPalette: "info" }
+			},
+			grey: {
+				root: { colorPalette: "grey" },
+				control: { colorPalette: "grey" },
+				thumb: { colorPalette: "grey" }
+			}
 		}
 	},
 	defaultVariants: {

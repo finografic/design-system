@@ -1,6 +1,6 @@
 import { switchRecipe } from "./switch.recipe.js";
 import { forwardRef } from "react";
-import { cx } from "@styled-system/css";
+import { css, cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Switch } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
@@ -32,10 +32,15 @@ const Switch$1 = {
 	Label: withContext(Switch.Label, "label"),
 	HiddenInput: Switch.HiddenInput
 };
+const textColumnStyle = css({
+	display: "flex",
+	flexDirection: "column",
+	gap: "0.5"
+});
 /**
 * Design-system convenience switch — label, description, and error text.
-* **`Switch`** stays the styled compound; **`*DS`** = packaged DS API (`onChange(checked)`;
-* bare **`Switch.Root`** still uses Ark’s `onCheckedChange`).
+* **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
+* bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
 */
 const SwitchDS = forwardRef(({ label, description, error, checked, onChange, onBlur, name, disabled, size = "md", palette = "primary", className, classNames = {} }, ref) => {
 	const styles = switchRecipe({
@@ -60,11 +65,7 @@ const SwitchDS = forwardRef(({ label, description, error, checked, onChange, onB
 				children: /* @__PURE__ */ jsx(Switch.Thumb, { className: cx(styles.thumb, classNames.thumb) })
 			}),
 			(label || description || errorMessage) && /* @__PURE__ */ jsxs("div", {
-				style: {
-					display: "flex",
-					flexDirection: "column",
-					gap: "0.125rem"
-				},
+				className: textColumnStyle,
 				children: [
 					label && /* @__PURE__ */ jsx(Switch.Label, {
 						className: cx(styles.label, classNames.label),
