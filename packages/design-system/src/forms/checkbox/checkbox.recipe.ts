@@ -23,15 +23,16 @@ export const checkboxRecipe = sva({
 
   base: {
     root: {
-      display: 'inline-flex',
-      alignItems: 'flex-start',
-      verticalAlign: 'top',
-      gap: '2',
-      cursor: 'pointer',
-      userSelect: 'none',
-      _disabled: { opacity: 0.55, filter: 'grayscale(100%)', cursor: 'not-allowed' },
+      'display': 'inline-flex',
+      'alignItems': 'flex-start',
+      'verticalAlign': 'top',
+      'gap': '2',
+      'cursor': 'pointer',
+      'userSelect': 'none',
+      '_disabled': { opacity: 0.55, filter: 'grayscale(100%)', cursor: 'not-allowed' },
+      '@media (pointer: coarse)': { touchAction: 'manipulation' },
       // When indeterminate: show minus icon, hide check icon
-      _indeterminate: {
+      '_indeterminate': {
         '& svg:not([data-indeterminate])': { display: 'none' },
         '& svg[data-indeterminate]': { display: 'block' },
       },
@@ -114,6 +115,7 @@ export const checkboxRecipe = sva({
           'height': '4',
           'marginTop': '0.5',
           '& svg': { width: '2.5', height: '2.5' },
+          '@media (pointer: coarse)': { width: '5', height: '5' },
         },
         indicator: { width: '2.5', height: '2.5' },
         label: { fontSize: 'sm' },

@@ -109,3 +109,47 @@ svg.icon-spin {
 :not(body):not(html)::-webkit-scrollbar-corner {
   background: var(--colors-grey-xxlight);
 }
+
+/* ============================================================================
+ * TOUCH ENHANCEMENTS
+ *
+ * General improvements for touch / raspberry-pi screens.
+ * Component-level touch sizing (larger thumb, bigger hit areas) is handled
+ * inside each component's recipe via `@media (pointer: coarse)` variants.
+ * ============================================================================ */
+
+@media (pointer: coarse) {
+  /* Remove default tap-highlight flash on interactive elements */
+  a,
+  button,
+  label,
+  input,
+  select,
+  textarea,
+  [role="button"],
+  [role="checkbox"],
+  [role="switch"],
+  [role="slider"],
+  [data-part="control"],
+  [data-part="thumb"],
+  [data-part="trigger"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent double-tap zoom; still allows scroll */
+  button,
+  a,
+  label,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  /* Momentum scrolling in overflow containers */
+  [data-overscroll],
+  .overflow-auto,
+  .overflow-y-auto,
+  .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}

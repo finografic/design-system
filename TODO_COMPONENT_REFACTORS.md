@@ -35,6 +35,7 @@
 - [x] InputNumber — `errorText` slot, `isolation: isolate`, stepper `_focusVisible`
 - [ ] Label
 - [ ] RadioGroup
+- [x] Slider — `createStyleContext` wiring, Ark CSS spec, vertical orientation, touch thumb sizing, marker `::before` ticks
 - [ ] Select
 - [ ] SelectDefault
 - [ ] SelectSearchable

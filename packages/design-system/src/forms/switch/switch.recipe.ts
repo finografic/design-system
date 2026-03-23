@@ -28,18 +28,19 @@ export const switchRecipe = sva({
 
   base: {
     root: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: '2',
-      position: 'relative',
-      color: 'fg',
-      cursor: 'pointer',
-      userSelect: 'none',
-      _disabled: {
+      'display': 'inline-flex',
+      'alignItems': 'center',
+      'gap': '2',
+      'position': 'relative',
+      'color': 'fg',
+      'cursor': 'pointer',
+      'userSelect': 'none',
+      '_disabled': {
         opacity: 0.5,
         filter: 'grayscale(100%)',
         cursor: 'not-allowed',
       },
+      '@media (pointer: coarse)': { touchAction: 'manipulation' },
     },
 
     label: {
@@ -101,11 +102,21 @@ export const switchRecipe = sva({
   variants: {
     size: {
       sm: {
-        control: { width: '8', height: '4', padding: '0.5' },
+        control: {
+          'width': '8',
+          'height': '4',
+          'padding': '0.5',
+          '@media (pointer: coarse)': { width: '10', height: '6' },
+        },
         thumb: {
-          width: '3',
-          height: '3',
-          _checked: { transform: 'translateX(0.75rem)' },
+          'width': '3',
+          'height': '3',
+          '_checked': { transform: 'translateX(0.75rem)' },
+          '@media (pointer: coarse)': {
+            width: '5',
+            height: '5',
+            _checked: { transform: 'translateX(1rem)' },
+          },
         },
         label: { fontSize: 'xs' },
         description: { fontSize: 'xs' },

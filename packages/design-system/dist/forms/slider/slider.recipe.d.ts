@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/slider/slider.recipe.d.ts
-declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "control" | "label" | "valueText" | "track" | "range" | "thumb" | "markerGroup", {
+declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "label" | "control" | "valueText" | "thumb" | "track" | "range" | "markerGroup", {
   size: {
     sm: {
       label: {
@@ -21,6 +21,14 @@ declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "control" | 
         width: "4";
         height: "4";
         marginTop: "-1.5";
+        '@media (max-width: 1024px) and (max-height: 600px) and (pointer: coarse)': {
+          width: "6";
+          height: "6";
+        };
+        '@media (max-width: 800px) and (max-height: 480px) and (pointer: coarse)': {
+          width: "8";
+          height: "8";
+        };
       };
     };
     md: {
@@ -40,6 +48,14 @@ declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "control" | 
         width: "5";
         height: "5";
         marginTop: "-1.75";
+        '@media (max-width: 1024px) and (max-height: 600px) and (pointer: coarse)': {
+          width: "7";
+          height: "7";
+        };
+        '@media (max-width: 800px) and (max-height: 480px) and (pointer: coarse)': {
+          width: "9";
+          height: "9";
+        };
       };
     };
     lg: {
@@ -59,6 +75,14 @@ declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "control" | 
         width: "6";
         height: "6";
         marginTop: "-2";
+        '@media (max-width: 1024px) and (max-height: 600px) and (pointer: coarse)': {
+          width: "8";
+          height: "8";
+        };
+        '@media (max-width: 800px) and (max-height: 480px) and (pointer: coarse)': {
+          width: "10";
+          height: "10";
+        };
       };
     };
   };

@@ -59,6 +59,10 @@ export const buttonRecipe = cva({
     '& svg': {
       flexShrink: 0,
     },
+
+    '@media (pointer: coarse)': {
+      touchAction: 'manipulation',
+    },
   },
 
   variants: {
@@ -70,6 +74,7 @@ export const buttonRecipe = cva({
         'gap': '1',
         'fontSize': 'xs',
         '& svg': { w: '3', h: '3' },
+        '@media (pointer: coarse)': { h: '11', minW: '11' },
       },
       sm: {
         'h': '8',
@@ -78,6 +83,7 @@ export const buttonRecipe = cva({
         'gap': '1.5',
         'fontSize': 'sm',
         '& svg': { w: '4', h: '4' },
+        '@media (pointer: coarse)': { h: '11', minW: '11' },
       },
       md: {
         'h': '10',

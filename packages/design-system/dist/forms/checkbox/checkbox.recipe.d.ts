@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/checkbox/checkbox.recipe.d.ts
-declare const checkboxRecipe: SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "control" | "label" | "errorText", {
+declare const checkboxRecipe: SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "label" | "control" | "errorText", {
   size: {
     sm: {
       control: {
@@ -12,6 +12,10 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"description" | "root" | "indi
         '& svg': {
           width: "2.5";
           height: "2.5";
+        };
+        '@media (pointer: coarse)': {
+          width: "5";
+          height: "5";
         };
       };
       indicator: {

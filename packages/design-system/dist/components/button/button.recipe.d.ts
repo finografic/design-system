@@ -14,6 +14,10 @@ declare const buttonRecipe: RecipeRuntimeFn<{
         w: "3";
         h: "3";
       };
+      '@media (pointer: coarse)': {
+        h: "11";
+        minW: "11";
+      };
     };
     sm: {
       h: "8";
@@ -24,6 +28,10 @@ declare const buttonRecipe: RecipeRuntimeFn<{
       '& svg': {
         w: "4";
         h: "4";
+      };
+      '@media (pointer: coarse)': {
+        h: "11";
+        minW: "11";
       };
     };
     md: {

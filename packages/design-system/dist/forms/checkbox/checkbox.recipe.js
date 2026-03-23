@@ -37,6 +37,7 @@ const checkboxRecipe = sva({
 				filter: "grayscale(100%)",
 				cursor: "not-allowed"
 			},
+			"@media (pointer: coarse)": { touchAction: "manipulation" },
 			_indeterminate: {
 				"& svg:not([data-indeterminate])": { display: "none" },
 				"& svg[data-indeterminate]": { display: "block" }
@@ -116,6 +117,10 @@ const checkboxRecipe = sva({
 				"& svg": {
 					width: "2.5",
 					height: "2.5"
+				},
+				"@media (pointer: coarse)": {
+					width: "5",
+					height: "5"
 				}
 			},
 			indicator: {

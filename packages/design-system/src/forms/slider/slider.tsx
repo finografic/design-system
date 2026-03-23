@@ -1,88 +1,66 @@
+/**
+ * Slider — styled Ark UI **Slider** compound wired to `sliderRecipe` via `createStyleContext`.
+ *
+ * Ark handles all a11y: `slider` role, keyboard navigation (arrows, Home/End, Page Up/Down),
+ * and ARIA attributes for value, min, max. Variant props go on **`Slider.Root`**.
+ *
+ * Orientation: pass `orientation="vertical"` to `Slider.Root` — all parts respond via
+ * `data-orientation="vertical"` attribute styles in the recipe.
+ *
+ * Touch: the thumb enlarges automatically at raspberry-pi breakpoints
+ * (`max-width: 1024px / max-height: 600px` and `800 / 480`) when `pointer: coarse`.
+ *
+ * @example
+ * ```tsx
+ * import { Slider } from '@finografic/design-system/forms';
+ *
+ * <Slider.Root value={[volume]} onValueChange={({ value }) => setVolume(value[0])}>
+ *   <Slider.Label>
+ *     Volume
+ *     <Slider.ValueText />
+ *   </Slider.Label>
+ *   <Slider.Control>
+ *     <Slider.Track>
+ *       <Slider.Range />
+ *     </Slider.Track>
+ *     <Slider.Thumb index={0} />
+ *   </Slider.Control>
+ * </Slider.Root>
+ * ```
+ */
 import { Slider as ArkSlider } from '@ark-ui/react';
-import { cx } from '@styled-system/css';
-import type { ComponentPropsWithoutRef } from 'react';
-import { forwardRef } from 'react';
+import { createStyleContext } from '@styled-system/jsx';
 
-const Root = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.Root>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Root ref={ref} className={cx('ds-slider', className)} {...props} />
-  ),
-);
-Root.displayName = 'Slider.Root';
+import { sliderRecipe } from './slider.recipe';
 
-const Label = forwardRef<HTMLLabelElement, ComponentPropsWithoutRef<typeof ArkSlider.Label>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Label ref={ref} className={cx('ds-slider__label', className)} {...props} />
-  ),
-);
-Label.displayName = 'Slider.Label';
+const { withProvider, withContext } = createStyleContext(sliderRecipe);
 
-const ValueText = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.ValueText>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.ValueText ref={ref} className={cx('ds-slider__value-text', className)} {...props} />
-  ),
-);
-ValueText.displayName = 'Slider.ValueText';
-
-const Control = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.Control>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Control ref={ref} className={cx('ds-slider__control', className)} {...props} />
-  ),
-);
-Control.displayName = 'Slider.Control';
-
-const Track = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.Track>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Track ref={ref} className={cx('ds-slider__track', className)} {...props} />
-  ),
-);
-Track.displayName = 'Slider.Track';
-
-const Range = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.Range>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Range ref={ref} className={cx('ds-slider__range', className)} {...props} />
-  ),
-);
-Range.displayName = 'Slider.Range';
-
-const Thumb = forwardRef<HTMLDivElement, ComponentPropsWithoutRef<typeof ArkSlider.Thumb>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Thumb ref={ref} className={cx('ds-slider__thumb', className)} {...props} />
-  ),
-);
-Thumb.displayName = 'Slider.Thumb';
-
-const MarkerGroup = forwardRef<
-  HTMLDivElement,
-  ComponentPropsWithoutRef<typeof ArkSlider.MarkerGroup>
->(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.MarkerGroup
-      ref={ref}
-      className={cx('ds-slider__marker-group', className)}
-      {...props}
-    />
-  ),
-);
-MarkerGroup.displayName = 'Slider.MarkerGroup';
-
-const Marker = forwardRef<HTMLSpanElement, ComponentPropsWithoutRef<typeof ArkSlider.Marker>>(
-  ({ className, ...props }, ref) => (
-    <ArkSlider.Marker ref={ref} className={cx('ds-slider__marker', className)} {...props} />
-  ),
-);
-Marker.displayName = 'Slider.Marker';
-
+/**
+ * Styled Ark **Slider** compound — each part is wired to `sliderRecipe` via context.
+ *
+ * Place `value`, `onValueChange`, `min`, `max`, `step`, `orientation`, and `size`
+ * on **`Root`**.
+ */
 export const Slider = {
-  Root,
-  Label,
-  ValueText,
-  Control,
-  Track,
-  Range,
-  Thumb,
-  MarkerGroup,
-  Marker,
+  /** Root — value state, event handlers, orientation, and recipe variants. */
+  Root: withProvider(ArkSlider.Root, 'root'),
+  /** Text label for the slider; also wraps `ValueText` for inline display. */
+  Label: withContext(ArkSlider.Label, 'label'),
+  /** Displays the current numeric value; renders as a `<span>`. */
+  ValueText: withContext(ArkSlider.ValueText, 'valueText'),
+  /** Flex row that contains the track and thumb(s). */
+  Control: withContext(ArkSlider.Control, 'control'),
+  /** The background rail — contains `Range`. */
+  Track: withContext(ArkSlider.Track, 'track'),
+  /** Filled portion of the track representing the selected value. */
+  Range: withContext(ArkSlider.Range, 'range'),
+  /** Draggable handle; pass `index={n}` for multi-thumb sliders. */
+  Thumb: withContext(ArkSlider.Thumb, 'thumb'),
+  /** Container for tick marks below the track. */
+  MarkerGroup: withContext(ArkSlider.MarkerGroup, 'markerGroup'),
+  /** Individual tick mark; renders a dot via `::before` and a label. */
+  Marker: withContext(ArkSlider.Marker, 'marker'),
+  /** Hidden native `<input>` for form integration — no recipe slot. */
   HiddenInput: ArkSlider.HiddenInput,
 };
 

@@ -50,7 +50,8 @@ const buttonRecipe = cva({
 			outlineColor: "accent.focusRing",
 			outlineOffset: "2px"
 		},
-		"& svg": { flexShrink: 0 }
+		"& svg": { flexShrink: 0 },
+		"@media (pointer: coarse)": { touchAction: "manipulation" }
 	},
 	variants: {
 		size: {
@@ -63,6 +64,10 @@ const buttonRecipe = cva({
 				"& svg": {
 					w: "3",
 					h: "3"
+				},
+				"@media (pointer: coarse)": {
+					h: "11",
+					minW: "11"
 				}
 			},
 			sm: {
@@ -74,6 +79,10 @@ const buttonRecipe = cva({
 				"& svg": {
 					w: "4",
 					h: "4"
+				},
+				"@media (pointer: coarse)": {
+					h: "11",
+					minW: "11"
 				}
 			},
 			md: {
