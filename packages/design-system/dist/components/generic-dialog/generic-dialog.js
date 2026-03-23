@@ -3,9 +3,15 @@ import { Dialog } from "../dialog/dialog.js";
 import { Tabs } from "../tabs/tabs.js";
 import { CloseIcon } from "@finografic/icons";
 import { useCallback, useState } from "react";
-import { cx } from "@styled-system/css";
+import { css, cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 //#region src/components/generic-dialog/generic-dialog.tsx
+const footerActionsStyle = css({
+	display: "flex",
+	justifyContent: "flex-end",
+	gap: "3",
+	width: "full"
+});
 const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabChange }) => {
 	const [activeTab, setActiveTab] = useState(defaultTab || config.tabs[0]?.id || "");
 	const hasTabs = config.tabs.length > 1;
@@ -81,12 +87,7 @@ const GenericDialog = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 				config.footer && /* @__PURE__ */ jsx(Dialog.Footer, {
 					className: "ds-generic-dialog__footer",
 					children: /* @__PURE__ */ jsxs("div", {
-						style: {
-							display: "flex",
-							justifyContent: "flex-end",
-							gap: "0.75rem",
-							width: "100%"
-						},
+						className: footerActionsStyle,
 						children: [config.footer.secondaryButton && /* @__PURE__ */ jsx(Button, {
 							variant: config.footer.secondaryButton.variant ?? "outline",
 							palette: config.footer.secondaryButton.palette ?? "default",

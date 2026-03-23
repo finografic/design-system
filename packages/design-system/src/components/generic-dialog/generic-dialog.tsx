@@ -1,6 +1,6 @@
 import { CloseIcon } from '@finografic/icons';
 
-import { cx } from '@styled-system/css';
+import { css, cx } from '@styled-system/css';
 import type { FC } from 'react';
 import React from 'react';
 import { useCallback, useState } from 'react';
@@ -10,6 +10,37 @@ import { Dialog } from '../dialog/dialog';
 import { Tabs } from '../tabs/tabs';
 import type { DialogConfig } from './generic-dialog.types';
 
+const footerActionsStyle = css({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  gap: '3',
+  width: 'full',
+});
+
+/**
+ * **GenericDialog** — pre-composed dialog supporting tabs, a title/subtitle, and
+ * optional footer buttons. Built on `Dialog.*` parts.
+ *
+ * For full composition control use `Dialog.*` parts directly.
+ *
+ * @example
+ * ```tsx
+ * import { GenericDialog } from '@finografic/design-system/components';
+ * import type { DialogConfig } from '@finografic/design-system/components';
+ *
+ * const config: DialogConfig = {
+ *   title: 'Settings',
+ *   size: 'lg',
+ *   tabs: [{ id: 'general', label: 'General', content: <GeneralTab /> }],
+ *   footer: {
+ *     primaryButton: { label: 'Save', onClick: handleSave },
+ *     secondaryButton: { label: 'Cancel', onClick: handleClose },
+ *   },
+ * };
+ *
+ * <GenericDialog isOpen={open} onClose={() => setOpen(false)} config={config} />
+ * ```
+ */
 interface GenericDialogProps {
   isOpen: boolean;
   onClose: () => void;
@@ -118,14 +149,7 @@ export const GenericDialog: FC<GenericDialogProps> = ({
           {/* FOOTER */}
           {config.footer && (
             <Dialog.Footer className="ds-generic-dialog__footer">
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  gap: '0.75rem',
-                  width: '100%',
-                }}
-              >
+              <div className={footerActionsStyle}>
                 {config.footer.secondaryButton && (
                   <Button
                     variant={config.footer.secondaryButton.variant ?? 'outline'}

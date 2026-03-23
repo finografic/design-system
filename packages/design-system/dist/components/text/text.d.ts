@@ -6,6 +6,21 @@ import * as react_jsx_runtime0 from "react/jsx-runtime";
 type TextProps = TextVariants & HTMLAttributes<HTMLElement> & {
   as?: TextElement;
 };
+/**
+ * **Text** — semantic text element with variant-based typography scale.
+ *
+ * Renders the appropriate HTML tag for each variant by default (e.g. `h1–h6`,
+ * `p`, `span`) — override with `as` when needed.
+ *
+ * @example
+ * ```tsx
+ * import { Text } from '@finografic/design-system/components';
+ *
+ * <Text variant="h2">Section heading</Text>
+ * <Text variant="body-sm" color="muted">Supporting copy</Text>
+ * <Text variant="overline" as="div">Category label</Text>
+ * ```
+ */
 declare function Text({
   as,
   variant,

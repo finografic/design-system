@@ -2,19 +2,17 @@ import { popoverRecipe } from "./popover.recipe.js";
 import { Popover } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/components/popover/popover.tsx
+const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
 /**
-* Popover Component
+* Styled Ark **Popover** compound — each part is wired to `popoverRecipe` via context.
 *
-* Styled wrapper around Ark UI Popover using `createStyleContext`.
 * Ark handles all a11y: dialog role, optional focus trap,
-* aria-expanded, aria-controls, Escape to close, click-outside to dismiss.
+* `aria-expanded`, `aria-controls`, Escape to close, click-outside to dismiss.
+* Recipe variant props are accepted directly on `Popover.Root`.
 *
-* Recipe variant props are accepted directly on `Popover.Root` —
-* no manual recipe call or className threading needed.
-*
-* Usage:
+* @example
 * ```tsx
-* import { Popover } from '@workspace/design-system/components';
+* import { Popover } from '@finografic/design-system/components';
 *
 * <Popover.Root>
 *   <Popover.Trigger asChild>
@@ -33,7 +31,6 @@ import { createStyleContext } from "@styled-system/jsx";
 * </Popover.Root>
 * ```
 */
-const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
 const Popover$1 = {
 	Root: withRootProvider(Popover.Root),
 	RootProvider: withRootProvider(Popover.RootProvider),

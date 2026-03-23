@@ -1,16 +1,22 @@
+import { Popover as ArkPopover } from '@ark-ui/react';
+import { createStyleContext } from '@styled-system/jsx';
+
+import { popoverRecipe } from './popover.recipe';
+
+// ── Compound (createStyleContext) ─────────────────────────────────────────────
+
+const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
+
 /**
- * Popover Component
+ * Styled Ark **Popover** compound — each part is wired to `popoverRecipe` via context.
  *
- * Styled wrapper around Ark UI Popover using `createStyleContext`.
  * Ark handles all a11y: dialog role, optional focus trap,
- * aria-expanded, aria-controls, Escape to close, click-outside to dismiss.
+ * `aria-expanded`, `aria-controls`, Escape to close, click-outside to dismiss.
+ * Recipe variant props are accepted directly on `Popover.Root`.
  *
- * Recipe variant props are accepted directly on `Popover.Root` —
- * no manual recipe call or className threading needed.
- *
- * Usage:
+ * @example
  * ```tsx
- * import { Popover } from '@workspace/design-system/components';
+ * import { Popover } from '@finografic/design-system/components';
  *
  * <Popover.Root>
  *   <Popover.Trigger asChild>
@@ -29,26 +35,29 @@
  * </Popover.Root>
  * ```
  */
-import { Popover as ArkPopover } from '@ark-ui/react';
-import { createStyleContext } from '@styled-system/jsx';
-
-import { popoverRecipe } from './popover.recipe';
-
-const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
-
 export const Popover = {
   Root: withRootProvider(ArkPopover.Root),
   RootProvider: withRootProvider(ArkPopover.RootProvider),
+  /** Button or element that opens the popover. */
   Trigger: withContext(ArkPopover.Trigger, 'trigger'),
-  Anchor: ArkPopover.Anchor, // positioning anchor, no recipe slot
+  /** Positioning anchor — no recipe slot, pure layout. */
+  Anchor: ArkPopover.Anchor,
+  /** Positions the floating content panel. */
   Positioner: withContext(ArkPopover.Positioner, 'positioner'),
+  /** The floating panel itself. */
   Content: withContext(ArkPopover.Content, 'content'),
+  /** Bold heading at the top of the popover. */
   Title: withContext(ArkPopover.Title, 'title'),
+  /** Supporting text below the title. */
   Description: withContext(ArkPopover.Description, 'description'),
+  /** Absolutely-positioned close button. */
   CloseTrigger: withContext(ArkPopover.CloseTrigger, 'closeTrigger'),
+  /** Arrow wrapper — place inside Content. */
   Arrow: withContext(ArkPopover.Arrow, 'arrow'),
+  /** The visible arrow triangle. */
   ArrowTip: withContext(ArkPopover.ArrowTip, 'arrowTip'),
-  Context: ArkPopover.Context, // render prop
+  /** Ark render-prop context. */
+  Context: ArkPopover.Context,
 };
 
 export type { PopoverOpenChangeDetails } from '@ark-ui/react';

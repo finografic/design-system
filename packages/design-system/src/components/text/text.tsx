@@ -1,3 +1,4 @@
+import { cx } from '@styled-system/css';
 import { type HTMLAttributes } from 'react';
 
 import type { TextElement, TextVariants } from './text.recipe';
@@ -21,13 +22,28 @@ const variantToElement: Record<string, TextElement> = {
   'overline': 'span',
 };
 
+/**
+ * **Text** — semantic text element with variant-based typography scale.
+ *
+ * Renders the appropriate HTML tag for each variant by default (e.g. `h1–h6`,
+ * `p`, `span`) — override with `as` when needed.
+ *
+ * @example
+ * ```tsx
+ * import { Text } from '@finografic/design-system/components';
+ *
+ * <Text variant="h2">Section heading</Text>
+ * <Text variant="body-sm" color="muted">Supporting copy</Text>
+ * <Text variant="overline" as="div">Category label</Text>
+ * ```
+ */
 export function Text(
   { as, variant = 'body', color, truncate, className, children, ...props }: TextProps,
 ) {
   const Tag = as ?? variantToElement[variant];
-  const cls = textRecipe({ variant, color, truncate });
+  const styles = textRecipe({ variant, color, truncate });
   return (
-    <Tag className={className ? `${cls} ${className}` : cls} {...(props as any)}>
+    <Tag className={cx(styles, className)} {...(props as any)}>
       {children}
     </Tag>
   );

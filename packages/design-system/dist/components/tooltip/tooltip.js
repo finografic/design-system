@@ -2,19 +2,17 @@ import { tooltipRecipe } from "./tooltip.recipe.js";
 import { Tooltip } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/components/tooltip/tooltip.tsx
+const { withRootProvider, withContext } = createStyleContext(tooltipRecipe);
 /**
-* Tooltip Component
+* Styled Ark **Tooltip** compound — each part is wired to `tooltipRecipe` via context.
 *
-* Styled wrapper around Ark UI Tooltip using `createStyleContext`.
-* Ark handles all a11y: tooltip role, aria-describedby,
+* Ark handles all a11y: tooltip role, `aria-describedby`,
 * hover/focus show/hide, configurable open/close delay.
+* Recipe variant props are accepted directly on `Tooltip.Root`.
 *
-* Recipe variant props are accepted directly on `Tooltip.Root` —
-* no manual recipe call or className threading needed.
-*
-* Usage:
+* @example
 * ```tsx
-* import { Tooltip } from '@workspace/design-system/components';
+* import { Tooltip } from '@finografic/design-system/components';
 *
 * <Tooltip.Root openDelay={300} closeDelay={100}>
 *   <Tooltip.Trigger asChild>
@@ -29,7 +27,6 @@ import { createStyleContext } from "@styled-system/jsx";
 * </Tooltip.Root>
 * ```
 */
-const { withRootProvider, withContext } = createStyleContext(tooltipRecipe);
 const Tooltip$1 = {
 	Root: withRootProvider(Tooltip.Root),
 	RootProvider: withRootProvider(Tooltip.RootProvider),
