@@ -3,6 +3,9 @@ import { cva } from "@styled-system/css";
 /**
 * Label Recipe
 *
+* Single-element `cva` — used by the standalone `<Label>` component and
+* as a composed part inside form field wrappers (InputField, Checkbox, etc.).
+*
 * Variants: size (sm | md | lg)
 */
 const labelRecipe = cva({
@@ -11,6 +14,7 @@ const labelRecipe = cva({
 		alignItems: "center",
 		gap: "1",
 		fontWeight: "semibold",
+		lineHeight: "1.25rem",
 		color: "fg.muted",
 		userSelect: "none",
 		_disabled: {

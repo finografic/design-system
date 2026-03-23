@@ -26,19 +26,19 @@ const checkboxRecipe = sva({
 	],
 	base: {
 		root: {
-			display: "inline-flex",
-			alignItems: "flex-start",
-			verticalAlign: "top",
-			gap: "2",
-			cursor: "pointer",
-			userSelect: "none",
-			_disabled: {
+			"display": "inline-flex",
+			"alignItems": "flex-start",
+			"verticalAlign": "top",
+			"gap": "2",
+			"cursor": "pointer",
+			"userSelect": "none",
+			"_disabled": {
 				opacity: .55,
 				filter: "grayscale(100%)",
 				cursor: "not-allowed"
 			},
 			"@media (pointer: coarse)": { touchAction: "manipulation" },
-			_indeterminate: {
+			"_indeterminate": {
 				"& svg:not([data-indeterminate])": { display: "none" },
 				"& svg[data-indeterminate]": { display: "block" }
 			}

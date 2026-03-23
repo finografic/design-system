@@ -1,11 +1,17 @@
 import { sva } from "@styled-system/css";
 //#region src/forms/select/select.recipe.ts
 /**
-* Select Recipe
+* Select Slot Recipe
 *
-* Slots:    root · label · control · trigger · valueText · indicator · positioner ·
-*           content · list · item · itemText · itemIndicator · itemGroup · itemGroupLabel · clearTrigger
+* Port of Ark UI Select example styles → Panda `sva` + semantic tokens.
+*
+* Slots:    root · label · control · trigger · valueText · indicator ·
+*           positioner · content · list · item · itemText · itemIndicator ·
+*           itemGroup · itemGroupLabel · clearTrigger
 * Variants: size (sm | md | lg)
+*
+* Multi-select: pass `multiple` to `Select.Root` — Ark manages selection state;
+* `_checked` / `_selected` on `item` both style selected rows.
 */
 const selectRecipe = sva({
 	className: "select",
@@ -34,6 +40,8 @@ const selectRecipe = sva({
 			width: "full"
 		},
 		label: {
+			fontSize: "sm",
+			lineHeight: "1.25rem",
 			fontWeight: "semibold",
 			color: "fg.muted",
 			userSelect: "none"
@@ -42,7 +50,8 @@ const selectRecipe = sva({
 			display: "flex",
 			alignItems: "center",
 			gap: "1",
-			width: "full"
+			width: "full",
+			position: "relative"
 		},
 		trigger: {
 			display: "inline-flex",
@@ -57,9 +66,13 @@ const selectRecipe = sva({
 			color: "fg",
 			cursor: "pointer",
 			gap: "2",
+			fontFamily: "inherit",
+			lineHeight: "1.25rem",
+			userSelect: "none",
+			outline: "none",
 			transitionProperty: "border-color, box-shadow",
 			transitionDuration: "fast",
-			_placeholder: { color: "fg.subtle" },
+			_placeholderShown: { color: "fg.subtle" },
 			_hover: { borderColor: "accent.emphasized" },
 			_open: {
 				borderColor: "accent.solid",
@@ -69,6 +82,7 @@ const selectRecipe = sva({
 			},
 			_disabled: {
 				opacity: .55,
+				filter: "grayscale(100%)",
 				cursor: "not-allowed"
 			},
 			_focusVisible: {
@@ -76,7 +90,8 @@ const selectRecipe = sva({
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			_invalid: { borderColor: "border.error" }
+			_invalid: { borderColor: "border.error" },
+			"& svg": { flexShrink: 0 }
 		},
 		valueText: {
 			flex: "1",
@@ -86,8 +101,11 @@ const selectRecipe = sva({
 			whiteSpace: "nowrap"
 		},
 		indicator: {
-			color: "fg.muted",
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
 			flexShrink: 0,
+			color: "fg.muted",
 			transition: "transform 150ms ease",
 			_open: { transform: "rotate(180deg)" }
 		},
@@ -96,6 +114,8 @@ const selectRecipe = sva({
 			width: "var(--reference-width)"
 		},
 		content: {
+			display: "flex",
+			flexDirection: "column",
 			bg: "bg.panel",
 			borderWidth: "light",
 			borderStyle: "solid",
@@ -103,9 +123,11 @@ const selectRecipe = sva({
 			borderRadius: "md",
 			boxShadow: "md",
 			overflowY: "auto",
-			maxH: "15rem",
-			_open: { animation: "fade-in 120ms ease" },
-			_closed: { animation: "fade-out 120ms ease" }
+			outline: "none",
+			maxH: "min(var(--available-height, 300px), 300px)",
+			transformOrigin: "var(--transform-origin)",
+			_open: { animation: "scale-in 150ms ease" },
+			_closed: { animation: "scale-out 100ms ease" }
 		},
 		list: {
 			display: "flex",
@@ -115,25 +137,49 @@ const selectRecipe = sva({
 		item: {
 			display: "flex",
 			alignItems: "center",
+			justifyContent: "space-between",
 			gap: "2",
 			borderRadius: "sm",
 			cursor: "pointer",
 			color: "fg",
+			lineHeight: "1.25rem",
 			userSelect: "none",
 			_highlighted: {
 				bg: "accent.subtle",
 				color: "accent.fg"
 			},
-			_selected: { fontWeight: "semibold" },
+			_selected: {
+				fontWeight: "semibold",
+				color: "accent.fg"
+			},
+			_checked: {
+				fontWeight: "semibold",
+				color: "accent.fg"
+			},
 			_disabled: {
 				opacity: .55,
 				cursor: "not-allowed",
 				pointerEvents: "none"
 			}
 		},
-		itemText: { flex: "1" },
-		itemIndicator: { color: "accent.solid" },
-		itemGroup: {},
+		itemText: {
+			flex: "1",
+			overflow: "hidden",
+			textOverflow: "ellipsis",
+			whiteSpace: "nowrap"
+		},
+		itemIndicator: {
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			flexShrink: 0,
+			color: "accent.solid"
+		},
+		itemGroup: {
+			"display": "flex",
+			"flexDirection": "column",
+			"& + &": { marginTop: "2" }
+		},
 		itemGroupLabel: {
 			fontSize: "xs",
 			fontWeight: "semibold",
@@ -142,11 +188,19 @@ const selectRecipe = sva({
 			letterSpacing: "wider"
 		},
 		clearTrigger: {
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			flexShrink: 0,
+			border: "0",
+			bg: "transparent",
+			borderRadius: "sm",
 			color: "fg.muted",
 			cursor: "pointer",
-			flexShrink: 0,
-			borderRadius: "sm",
-			_hover: { color: "fg" }
+			transitionProperty: "color",
+			transitionDuration: "fast",
+			_hover: { color: "fg" },
+			"& svg": { flexShrink: 0 }
 		}
 	},
 	variants: { size: {
@@ -170,7 +224,11 @@ const selectRecipe = sva({
 			itemIndicator: {
 				w: "3",
 				h: "3"
-			}
+			},
+			clearTrigger: { "& svg": {
+				w: "3",
+				h: "3"
+			} }
 		},
 		md: {
 			label: { fontSize: "sm" },
@@ -192,7 +250,11 @@ const selectRecipe = sva({
 			itemIndicator: {
 				w: "4",
 				h: "4"
-			}
+			},
+			clearTrigger: { "& svg": {
+				w: "4",
+				h: "4"
+			} }
 		},
 		lg: {
 			label: { fontSize: "md" },
@@ -214,7 +276,11 @@ const selectRecipe = sva({
 			itemIndicator: {
 				w: "4",
 				h: "4"
-			}
+			},
+			clearTrigger: { "& svg": {
+				w: "4",
+				h: "4"
+			} }
 		}
 	} },
 	defaultVariants: { size: "md" }

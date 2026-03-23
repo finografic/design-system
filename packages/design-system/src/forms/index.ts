@@ -15,3 +15,4 @@ export * from './select-default';
 export * from './select-searchable';
 export * from './slider';
 export * from './switch';
+export * from './tags-input';

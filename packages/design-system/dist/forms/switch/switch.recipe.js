@@ -31,14 +31,14 @@ const switchRecipe = sva({
 	],
 	base: {
 		root: {
-			display: "inline-flex",
-			alignItems: "center",
-			gap: "2",
-			position: "relative",
-			color: "fg",
-			cursor: "pointer",
-			userSelect: "none",
-			_disabled: {
+			"display": "inline-flex",
+			"alignItems": "center",
+			"gap": "2",
+			"position": "relative",
+			"color": "fg",
+			"cursor": "pointer",
+			"userSelect": "none",
+			"_disabled": {
 				opacity: .5,
 				filter: "grayscale(100%)",
 				cursor: "not-allowed"

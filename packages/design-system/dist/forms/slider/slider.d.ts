@@ -11,7 +11,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * on **`Root`**.
  */
 declare const Slider$1: {
-  /** Root — value state, event handlers, orientation, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "root" | "label" | "control" | "valueText" | "thumb" | "track" | "range" | "markerGroup", {
+  /** Root — value state, event handlers, orientation, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"label" | "track" | "marker" | "root" | "control" | "thumb" | "valueText" | "range" | "markerGroup", {
     size: {
       sm: {
         label: {

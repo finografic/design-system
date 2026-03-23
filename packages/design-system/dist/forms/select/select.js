@@ -2,7 +2,58 @@ import { selectRecipe } from "./select.recipe.js";
 import { Select, createListCollection as createListCollection$1, useListCollection } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/select/select.tsx
+/**
+* Select — styled Ark UI **Select** compound wired to `selectRecipe` via `createStyleContext`.
+*
+* Ark handles all a11y: `listbox` / `option` roles, keyboard navigation (arrows,
+* Home/End, typeahead), and Escape to close. Variant props go on **`Select.Root`**.
+*
+* **Multi-select:** pass `multiple` to `Select.Root`. Ark manages selection state;
+* `Select.ItemIndicator` (check icon) shows for each selected item. `SelectDefault`
+* also accepts `multiple` for a simpler options-array API.
+*
+* @example
+* ```tsx
+* import { Select, createListCollection } from '@finografic/design-system/forms';
+* import { CheckIcon, ChevronDownIcon } from '@finografic/icons';
+*
+* const collection = createListCollection({
+*   items: [
+*     { value: 'en', label: 'English' },
+*     { value: 'es', label: 'Spanish' },
+*   ],
+* });
+*
+* <Select.Root collection={collection} onValueChange={({ value }) => setValue(value)}>
+*   <Select.Label>Language</Select.Label>
+*   <Select.Control>
+*     <Select.Trigger>
+*       <Select.ValueText placeholder="Pick one…" />
+*       <Select.Indicator><ChevronDownIcon aria-hidden /></Select.Indicator>
+*     </Select.Trigger>
+*   </Select.Control>
+*   <Select.Positioner>
+*     <Select.Content>
+*       <Select.List>
+*         {collection.items.map((item) => (
+*           <Select.Item key={item.value} item={item}>
+*             <Select.ItemText>{item.label}</Select.ItemText>
+*             <Select.ItemIndicator><CheckIcon aria-hidden /></Select.ItemIndicator>
+*           </Select.Item>
+*         ))}
+*       </Select.List>
+*     </Select.Content>
+*   </Select.Positioner>
+*   <Select.HiddenSelect />
+* </Select.Root>
+* ```
+*/
 const { withProvider, withContext } = createStyleContext(selectRecipe);
+/**
+* Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
+*
+* Place `collection`, `value`, `onValueChange`, `multiple`, and `size` on **`Root`**.
+*/
 const Select$1 = {
 	Root: withProvider(Select.Root, "root"),
 	Label: withContext(Select.Label, "label"),
@@ -19,7 +70,8 @@ const Select$1 = {
 	ItemGroup: withContext(Select.ItemGroup, "itemGroup"),
 	ItemGroupLabel: withContext(Select.ItemGroupLabel, "itemGroupLabel"),
 	ClearTrigger: withContext(Select.ClearTrigger, "clearTrigger"),
-	HiddenSelect: Select.HiddenSelect
+	HiddenSelect: Select.HiddenSelect,
+	Context: Select.Context
 };
 //#endregion
 export { Select$1 as Select, createListCollection$1 as createListCollection, useListCollection };

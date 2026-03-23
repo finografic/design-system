@@ -6,12 +6,8 @@ export interface SelectOption {
   disabled?: boolean;
 }
 
-export interface SelectDefaultProps {
+interface SelectDefaultBaseProps {
   options: SelectOption[];
-  value?: string;
-  onSelect?: (value: string) => void;
-  /** Fires when value changes — alias for onSelect, RHF Controller compatible */
-  onChange?: (value: string) => void;
   onBlur?: () => void;
   name?: string;
   placeholder?: string;
@@ -22,3 +18,23 @@ export interface SelectDefaultProps {
   id?: string;
   className?: string;
 }
+
+/** Single-select (default) */
+interface SelectDefaultSingleProps extends SelectDefaultBaseProps {
+  multiple?: false;
+  value?: string;
+  onSelect?: (value: string) => void;
+  /** RHF Controller-compatible alias for onSelect */
+  onChange?: (value: string) => void;
+}
+
+/** Multi-select — pass `multiple` to enable */
+interface SelectDefaultMultiProps extends SelectDefaultBaseProps {
+  multiple: true;
+  value?: string[];
+  onSelect?: (value: string[]) => void;
+  /** RHF Controller-compatible alias for onSelect */
+  onChange?: (value: string[]) => void;
+}
+
+export type SelectDefaultProps = SelectDefaultSingleProps | SelectDefaultMultiProps;

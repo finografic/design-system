@@ -33,4 +33,7 @@ import { Slider } from "./slider/slider.js";
 import "./slider/index.js";
 import { Switch, SwitchDS } from "./switch/switch.js";
 import "./switch/index.js";
-export { Checkbox, CheckboxDS, Dialog, FieldBox, InputField, InputFieldRoot, InputFieldSlot, InputNumber, Label, RadioGroup, Select, SelectDefault, SelectSearchable, Slider, Switch, SwitchDS, checkboxRecipe, createListCollection, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, radioGroupRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, useListCollection };
+import { tagsInputRecipe } from "./tags-input/tags-input.recipe.js";
+import { TagsInput } from "./tags-input/tags-input.js";
+import "./tags-input/index.js";
+export { Checkbox, CheckboxDS, Dialog, FieldBox, InputField, InputFieldRoot, InputFieldSlot, InputNumber, Label, RadioGroup, Select, SelectDefault, SelectSearchable, Slider, Switch, SwitchDS, TagsInput, checkboxRecipe, createListCollection, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, radioGroupRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tagsInputRecipe, useListCollection };

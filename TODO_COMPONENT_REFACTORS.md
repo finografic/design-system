@@ -33,11 +33,12 @@
 - [x] FieldBox — `_disabled` grayscale on root
 - [x] InputField — `fontFamily: inherit`, `lineHeight`, `minWidth: 0`
 - [x] InputNumber — `errorText` slot, `isolation: isolate`, stepper `_focusVisible`
-- [ ] Label
+- [x] Label — `lineHeight` from Field.css, `cx()`, JSDoc
 - [ ] RadioGroup
 - [x] Slider — `createStyleContext` wiring, Ark CSS spec, vertical orientation, touch thumb sizing, marker `::before` ticks
-- [ ] Select
-- [ ] SelectDefault
+- [x] Select — Ark CSS spec (scale animation, maxH guard, itemText truncation, itemGroup spacing, indicator layout, clearTrigger layout)
+- [x] SelectDefault — `cx()`, JSDoc, multi-select (`multiple` prop, discriminated-union types)
 - [ ] SelectSearchable
+- [x] TagsInput — NEW component; `sva` recipe, `createStyleContext` compound, `multiple`-ready
 - [ ] Slider
 - [x] Switch

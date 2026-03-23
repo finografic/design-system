@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/select/select.recipe.d.ts
-declare const selectRecipe: SlotRecipeRuntimeFn<"content" | "root" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "list" | "label" | "control" | "valueText" | "clearTrigger", {
+declare const selectRecipe: SlotRecipeRuntimeFn<"label" | "content" | "root" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "control" | "list" | "valueText" | "clearTrigger", {
   size: {
     sm: {
       label: {
@@ -26,6 +26,12 @@ declare const selectRecipe: SlotRecipeRuntimeFn<"content" | "root" | "positioner
       itemIndicator: {
         w: "3";
         h: "3";
+      };
+      clearTrigger: {
+        '& svg': {
+          w: "3";
+          h: "3";
+        };
       };
     };
     md: {
@@ -51,6 +57,12 @@ declare const selectRecipe: SlotRecipeRuntimeFn<"content" | "root" | "positioner
         w: "4";
         h: "4";
       };
+      clearTrigger: {
+        '& svg': {
+          w: "4";
+          h: "4";
+        };
+      };
     };
     lg: {
       label: {
@@ -74,6 +86,12 @@ declare const selectRecipe: SlotRecipeRuntimeFn<"content" | "root" | "positioner
       itemIndicator: {
         w: "4";
         h: "4";
+      };
+      clearTrigger: {
+        '& svg': {
+          w: "4";
+          h: "4";
+        };
       };
     };
   };

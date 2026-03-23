@@ -1,25 +1,53 @@
 import { selectRecipe } from "../select/select.recipe.js";
 import { CheckIcon, ChevronDownIcon } from "@finografic/icons";
 import { forwardRef, useMemo } from "react";
+import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Select, createListCollection } from "@ark-ui/react";
 //#region src/forms/select-default/select-default.tsx
 /**
 * SelectDefault — pre-composed Select with a simple `options[]` API.
 *
-* Accepts a flat array of `SelectOption` objects instead of requiring a
-* Panda collection. Uses the full `selectRecipe` for styling.
+* Accepts a flat array of `SelectOption` objects instead of requiring an Ark
+* collection. Uses `selectRecipe` for styling — identical appearance to the
+* full `Select.*` compound.
 *
-* For full composition control use `Select.*` parts directly.
+* **Single-select (default):** `value?: string`, `onSelect?: (v: string) => void`.
+* **Multi-select:** add `multiple` prop — `value` becomes `string[]` and
+* `onSelect` receives `string[]`. Selected rows show a check via `ItemIndicator`.
+*
+* For full composition control (groups, custom item content, clear trigger, etc.)
+* use `Select.*` parts directly.
+*
+* @example
+* ```tsx
+* import { SelectDefault } from '@finografic/design-system/forms';
+*
+* // Single
+* <SelectDefault
+*   options={[{ value: 'en', label: 'English' }, { value: 'es', label: 'Spanish' }]}
+*   value={lang}
+*   onSelect={setLang}
+* />
+*
+* // Multi
+* <SelectDefault
+*   multiple
+*   options={roles}
+*   value={selectedRoles}
+*   onSelect={setSelectedRoles}
+* />
+* ```
 */
-const SelectDefault = forwardRef(({ options, value, onSelect, onChange, onBlur, name, placeholder = "Select…", disabled = false, allowEmpty = false, size = "md", id, className }, ref) => {
-	const cls = selectRecipe({ size });
+const SelectDefault = forwardRef((props, ref) => {
+	const { options, placeholder = "Select…", disabled = false, allowEmpty = false, size = "md", id, name, className, onBlur, multiple } = props;
+	const styles = selectRecipe({ size });
 	const items = useMemo(() => {
 		const base = options.map((o) => ({
 			...o,
 			label: o.label ?? o.value
 		}));
-		if (allowEmpty) return [{
+		if (allowEmpty && !multiple) return [{
 			value: "",
 			label: placeholder,
 			disabled: false
@@ -28,6 +56,7 @@ const SelectDefault = forwardRef(({ options, value, onSelect, onChange, onBlur, 
 	}, [
 		options,
 		allowEmpty,
+		multiple,
 		placeholder
 	]);
 	const collection = useMemo(() => createListCollection({
@@ -36,34 +65,44 @@ const SelectDefault = forwardRef(({ options, value, onSelect, onChange, onBlur, 
 		itemToString: (o) => o.label ?? o.value
 	}), [items]);
 	const handleValueChange = ({ value: vals }) => {
-		const next = vals[0] ?? "";
-		onSelect?.(next);
-		onChange?.(next);
+		if (multiple) {
+			props.onSelect?.(vals);
+			props.onChange?.(vals);
+		} else {
+			const next = vals[0] ?? "";
+			props.onSelect?.(next);
+			props.onChange?.(next);
+		}
 	};
+	const arkValue = multiple ? props.value ?? [] : (() => {
+		const v = props.value;
+		return v !== void 0 && v !== "" ? [v] : [];
+	})();
 	return /* @__PURE__ */ jsxs(Select.Root, {
 		id,
 		name,
+		multiple,
 		collection,
-		value: value !== void 0 && value !== "" ? [value] : [],
+		value: arkValue,
 		onValueChange: handleValueChange,
 		onOpenChange: () => onBlur?.(),
 		disabled,
-		className: [cls.root, className].filter(Boolean).join(" "),
+		className: cx(styles.root, className),
 		positioning: {
 			sameWidth: true,
 			placement: "bottom-start"
 		},
 		children: [
 			/* @__PURE__ */ jsx(Select.Control, {
-				className: cls.control,
+				className: styles.control,
 				children: /* @__PURE__ */ jsxs(Select.Trigger, {
 					ref,
-					className: cls.trigger,
+					className: styles.trigger,
 					children: [/* @__PURE__ */ jsx(Select.ValueText, {
 						placeholder,
-						className: cls.valueText
+						className: styles.valueText
 					}), /* @__PURE__ */ jsx(Select.Indicator, {
-						className: cls.indicator,
+						className: styles.indicator,
 						children: /* @__PURE__ */ jsx(ChevronDownIcon, {
 							className: "icon icon-sm",
 							"aria-hidden": true
@@ -72,19 +111,19 @@ const SelectDefault = forwardRef(({ options, value, onSelect, onChange, onBlur, 
 				})
 			}),
 			/* @__PURE__ */ jsx(Select.Positioner, {
-				className: cls.positioner,
+				className: styles.positioner,
 				children: /* @__PURE__ */ jsx(Select.Content, {
-					className: cls.content,
+					className: styles.content,
 					children: /* @__PURE__ */ jsx(Select.List, {
-						className: cls.list,
+						className: styles.list,
 						children: items.map((item) => /* @__PURE__ */ jsxs(Select.Item, {
 							item,
-							className: cls.item,
+							className: styles.item,
 							children: [/* @__PURE__ */ jsx(Select.ItemText, {
-								className: cls.itemText,
+								className: styles.itemText,
 								children: item.label
 							}), /* @__PURE__ */ jsx(Select.ItemIndicator, {
-								className: cls.itemIndicator,
+								className: styles.itemIndicator,
 								children: /* @__PURE__ */ jsx(CheckIcon, {
 									className: "icon icon-sm",
 									"aria-hidden": true
