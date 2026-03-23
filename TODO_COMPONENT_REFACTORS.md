@@ -19,7 +19,7 @@
 - [ ] DataTable
 - [ ] Dialog
 - [ ] GenericDialog
-- [ ] Menu
+- [x] Menu — scale animation, maxH guard, item truncation, _checked, arrowTip border
 - [ ] Popover
 - [x] Spinner
 - [x] Tabs — `py` content padding, `_disabled` grayscale filter
