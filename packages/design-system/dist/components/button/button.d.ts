@@ -1,4 +1,4 @@
-import { ButtonVariants } from "./button.types.js";
+import { ButtonVariants } from "./button.recipe.js";
 import * as react from "react";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 

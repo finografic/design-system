@@ -5,6 +5,8 @@
  */
 import { cva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const cardRecipe = cva({
   base: {
     bg: 'bg.surface',
@@ -33,3 +35,5 @@ export const cardRecipe = cva({
     variant: 'outlined',
   },
 });
+
+export type CardVariants = RecipeProps<typeof cardRecipe>;

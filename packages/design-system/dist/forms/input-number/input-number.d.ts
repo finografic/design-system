@@ -1,4 +1,4 @@
-import { InputNumberVariants } from "./input-number.types.js";
+import { InputNumberVariants } from "./input-number.recipe.js";
 import * as react from "react";
 import { ReactNode } from "react";
 import { FieldError } from "react-hook-form";

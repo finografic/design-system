@@ -1,4 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/components/button/button.recipe.d.ts
 declare const buttonRecipe: RecipeRuntimeFn<{
   size: {
@@ -161,6 +163,7 @@ declare const buttonRecipe: RecipeRuntimeFn<{
     };
   };
 }>;
+type ButtonVariants = RecipeProps<typeof buttonRecipe>;
 //#endregion
-export { buttonRecipe };
+export { ButtonVariants, buttonRecipe };
 //# sourceMappingURL=button.recipe.d.ts.map

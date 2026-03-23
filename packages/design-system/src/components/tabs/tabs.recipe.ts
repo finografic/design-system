@@ -13,6 +13,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 const focusRing = {
   outline: '2px solid',
   outlineColor: 'accent.focusRing',
@@ -247,3 +249,12 @@ export const tabsRecipe = sva({
     size: 'md',
   },
 });
+
+/** Props accepted by `tabsRecipe` (spread on `Tabs.Root` / `Tabs.RootProvider`). */
+export type TabsRecipeProps = RecipeProps<typeof tabsRecipe>;
+
+/** Visual style — underline tabs vs pill + sliding indicator. */
+export type TabsVariant = 'line' | 'enclosed';
+
+/** Trigger and list density. */
+export type TabsSize = 'sm' | 'md' | 'lg';

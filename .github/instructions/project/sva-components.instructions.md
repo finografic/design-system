@@ -143,12 +143,20 @@ Apply the same idea in **`SwitchDS`**, **`CheckboxField`**, and any wrapper that
 
 ## File layout (per component)
 
-| File               | Role                                                                            |
-| ------------------ | ------------------------------------------------------------------------------- |
-| `{name}.recipe.ts` | `sva({ className, slots, base, variants, defaultVariants, compoundVariants? })` |
-| `{name}.tsx`       | Compound export + optional `*DS` / `*Field` wrapper                             |
-| `{name}.types.ts`  | `RecipeProps`-based types; explicit unions when needed                          |
-| `index.ts`         | Barrel re-exports                                                               |
+| File               | Role                                                                                               |
+| ------------------ | -------------------------------------------------------------------------------------------------- |
+| `{name}.recipe.ts` | `sva({ className, slots, base, variants, defaultVariants, compoundVariants? })` + `*Variants` type |
+| `{name}.tsx`       | Compound export + optional `*DS` wrapper                                                           |
+| `index.ts`         | Barrel re-exports                                                                                  |
+
+**No separate `{name}.types.ts`** — the `*Variants` type lives at the **bottom of `{name}.recipe.ts`**, co-located with the recipe it describes.
+
+```ts
+// bottom of switch.recipe.ts
+import type { RecipeProps } from '../../types/recipes.types';
+
+export type SwitchVariants = RecipeProps<typeof switchRecipe>;
+```
 
 ---
 

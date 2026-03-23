@@ -1,3 +1,2 @@
-import { cardRecipe } from "./card.recipe.js";
-import { CardVariants } from "./card.types.js";
+import { CardVariants, cardRecipe } from "./card.recipe.js";
 import { Card, CardProps } from "./card.js";

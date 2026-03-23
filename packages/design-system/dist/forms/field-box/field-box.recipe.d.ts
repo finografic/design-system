@@ -1,4 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/forms/field-box/field-box.recipe.d.ts
 declare const fieldBoxRecipe: SlotRecipeRuntimeFn<"root" | "label" | "errorText" | "requiredIndicator" | "helperText" | "warningText", {
   size: {
@@ -55,6 +57,7 @@ declare const fieldBoxRecipe: SlotRecipeRuntimeFn<"root" | "label" | "errorText"
     };
   };
 }>;
+type FieldBoxVariants = RecipeProps<typeof fieldBoxRecipe>;
 //#endregion
-export { fieldBoxRecipe };
+export { FieldBoxVariants, fieldBoxRecipe };
 //# sourceMappingURL=field-box.recipe.d.ts.map

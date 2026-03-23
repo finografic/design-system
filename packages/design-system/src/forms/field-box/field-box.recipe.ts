@@ -6,6 +6,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const fieldBoxRecipe = sva({
   className: 'field-box',
 
@@ -86,3 +88,5 @@ export const fieldBoxRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type FieldBoxVariants = RecipeProps<typeof fieldBoxRecipe>;

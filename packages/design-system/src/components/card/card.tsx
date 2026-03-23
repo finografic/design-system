@@ -1,7 +1,7 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 
+import type { CardVariants } from './card.recipe';
 import { cardRecipe } from './card.recipe';
-import type { CardVariants } from './card.types';
 
 export type CardProps = CardVariants & HTMLAttributes<HTMLDivElement>;
 

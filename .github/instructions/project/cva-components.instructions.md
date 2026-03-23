@@ -50,12 +50,22 @@ Do **not** wrap a lone `cva` in fake **`{ root: '...' }`** “slots” just for 
 
 ## File layout (per component)
 
-| File               | Role                                                                                  |
-| ------------------ | ------------------------------------------------------------------------------------- |
-| `{name}.recipe.ts` | `cva({ base, variants, compoundVariants?, defaultVariants })`                         |
-| `{name}.tsx`       | `forwardRef` component; **`cx(recipe(...), className)`**                              |
-| `{name}.types.ts`  | `RecipeProps<typeof xRecipe>` + exported unions (`ButtonVariant`, `ButtonPalette`, …) |
-| `index.ts`         | Barrel                                                                                |
+| File               | Role                                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------- |
+| `{name}.recipe.ts` | `cva({ base, variants, compoundVariants?, defaultVariants })` + `*Variants` type + explicit union types |
+| `{name}.tsx`       | `forwardRef` component; **`cx(recipe(...), className)`**                                                |
+| `index.ts`         | Barrel                                                                                                  |
+
+**No separate `{name}.types.ts`** — the `*Variants` type and any explicit union exports (`ButtonVariant`, `ButtonPalette`, …) live at the **bottom of `{name}.recipe.ts`**, co-located with the recipe they describe.
+
+```ts
+// bottom of button.recipe.ts
+import type { RecipeProps } from '../../types/recipes.types';
+
+export type ButtonVariants = RecipeProps<typeof buttonRecipe>;
+export type ButtonVariant  = 'solid' | 'subtle' | 'outline' | 'ghost' | 'link';
+export type ButtonPalette  = 'default' | 'primary' | 'danger' | …;
+```
 
 ---
 

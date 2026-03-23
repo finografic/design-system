@@ -9,8 +9,8 @@ import {
   type ReactNode,
 } from 'react';
 
+import type { InputFieldVariants } from './input-field.recipe';
 import { inputFieldRecipe } from './input-field.recipe';
-import type { InputFieldVariants } from './input-field.types';
 
 // ── InputField.Slot ───────────────────────────────────────────────────────────
 

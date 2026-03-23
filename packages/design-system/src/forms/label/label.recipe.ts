@@ -5,6 +5,8 @@
  */
 import { cva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const labelRecipe = cva({
   base: {
     display: 'inline-flex',
@@ -26,3 +28,5 @@ export const labelRecipe = cva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type LabelVariants = RecipeProps<typeof labelRecipe>;

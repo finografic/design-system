@@ -1,4 +1,4 @@
-import { ButtonVariants } from "../button/button.types.js";
+import { ButtonVariants } from "../button/button.recipe.js";
 import { DialogSize } from "../dialog/dialog.types.js";
 import React from "react";
 

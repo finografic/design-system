@@ -5,8 +5,8 @@ import { cx } from '@styled-system/css';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
+import type { InputNumberVariants } from './input-number.recipe';
 import { inputNumberRecipe } from './input-number.recipe';
-import type { InputNumberVariants } from './input-number.types';
 
 /**
  * Numeric stepper input — Ark `NumberInput` wired to `inputNumberRecipe`.

@@ -1,5 +1,5 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import { CheckboxVariants } from "./checkbox.types.js";
+import { CheckboxVariants } from "./checkbox.recipe.js";
 import * as react from "react";
 import { ReactNode } from "react";
 import { Checkbox } from "@ark-ui/react";
@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "description" | "errorText" | "indicator", {
+  /** Root — controlled state, handlers, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "control" | "label" | "errorText", {
     size: {
       sm: {
         control: {

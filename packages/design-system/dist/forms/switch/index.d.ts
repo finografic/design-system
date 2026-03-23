@@ -1,3 +1,2 @@
-import { switchRecipe } from "./switch.recipe.js";
-import { SwitchVariants } from "./switch.types.js";
+import { SwitchVariants, switchRecipe } from "./switch.recipe.js";
 import { Switch, SwitchDS, SwitchDSClassNames, SwitchDSProps } from "./switch.js";

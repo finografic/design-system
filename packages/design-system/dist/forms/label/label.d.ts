@@ -1,4 +1,4 @@
-import { LabelVariants } from "./label.types.js";
+import { LabelVariants } from "./label.recipe.js";
 import * as react from "react";
 import { LabelHTMLAttributes } from "react";
 

@@ -1,3 +1,2 @@
-import { badgeRecipe } from "./badge.recipe.js";
-import { BadgeVariants } from "./badge.types.js";
+import { BadgeVariants, badgeRecipe } from "./badge.recipe.js";
 import { Badge, BadgeProps } from "./badge.js";

@@ -1,6 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/forms/switch/switch.recipe.d.ts
-declare const switchRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "thumb" | "description" | "errorText", {
+declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "control" | "label" | "errorText" | "thumb", {
   size: {
     sm: {
       control: {
@@ -163,6 +165,7 @@ declare const switchRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "
     };
   };
 }>;
+type SwitchVariants = RecipeProps<typeof switchRecipe>;
 //#endregion
-export { switchRecipe };
+export { SwitchVariants, switchRecipe };
 //# sourceMappingURL=switch.recipe.d.ts.map

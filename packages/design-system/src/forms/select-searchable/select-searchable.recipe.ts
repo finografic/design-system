@@ -7,6 +7,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const selectSearchableRecipe = sva({
   className: 'select-searchable',
 
@@ -197,3 +199,5 @@ export const selectSearchableRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type SelectSearchableVariants = RecipeProps<typeof selectSearchableRecipe>;

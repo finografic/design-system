@@ -7,6 +7,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const selectRecipe = sva({
   className: 'select',
 
@@ -163,3 +165,5 @@ export const selectRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type SelectVariants = RecipeProps<typeof selectRecipe>;

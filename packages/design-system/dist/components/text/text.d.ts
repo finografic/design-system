@@ -1,4 +1,4 @@
-import { TextElement, TextVariants } from "./text.types.js";
+import { TextElement, TextVariants } from "./text.recipe.js";
 import { HTMLAttributes } from "react";
 import * as react_jsx_runtime0 from "react/jsx-runtime";
 

@@ -1,4 +1,4 @@
-import { FieldBoxVariants } from "./field-box.types.js";
+import { FieldBoxVariants } from "./field-box.recipe.js";
 import { ReactNode } from "react";
 import * as react_jsx_runtime0 from "react/jsx-runtime";
 import { FieldError } from "react-hook-form";

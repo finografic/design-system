@@ -1,6 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/forms/radio-group/radio-group.recipe.d.ts
-declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "label" | "indicator" | "item" | "itemText" | "itemControl" | "itemDescription", {
+declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemText" | "indicator" | "label" | "itemControl" | "itemDescription", {
   size: {
     sm: {
       label: {
@@ -95,6 +97,7 @@ declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "label" | "indicato
     };
   };
 }>;
+type RadioGroupVariants = RecipeProps<typeof radioGroupRecipe>;
 //#endregion
-export { radioGroupRecipe };
+export { RadioGroupVariants, radioGroupRecipe };
 //# sourceMappingURL=radio-group.recipe.d.ts.map

@@ -5,6 +5,8 @@
  */
 import { cva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const badgeRecipe = cva({
   base: {
     display: 'inline-flex',
@@ -91,3 +93,5 @@ export const badgeRecipe = cva({
     palette: 'neutral',
   },
 });
+
+export type BadgeVariants = RecipeProps<typeof badgeRecipe>;

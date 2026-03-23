@@ -11,6 +11,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const inputNumberRecipe = sva({
   className: 'input-number',
 
@@ -196,3 +198,5 @@ export const inputNumberRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type InputNumberVariants = RecipeProps<typeof inputNumberRecipe>;

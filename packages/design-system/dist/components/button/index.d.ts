@@ -1,3 +1,2 @@
-import { buttonRecipe } from "./button.recipe.js";
-import { ButtonVariants } from "./button.types.js";
+import { ButtonVariants, buttonRecipe } from "./button.recipe.js";
 import { Button, ButtonProps } from "./button.js";

@@ -6,6 +6,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const radioGroupRecipe = sva({
   className: 'radio-group',
 
@@ -123,3 +125,5 @@ export const radioGroupRecipe = sva({
 
   defaultVariants: { size: 'md', variant: 'default', orientation: 'vertical' },
 });
+
+export type RadioGroupVariants = RecipeProps<typeof radioGroupRecipe>;

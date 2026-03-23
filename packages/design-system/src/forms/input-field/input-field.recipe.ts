@@ -12,6 +12,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const inputFieldRecipe = sva({
   className: 'input-field',
 
@@ -104,3 +106,5 @@ export const inputFieldRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type InputFieldVariants = RecipeProps<typeof inputFieldRecipe>;

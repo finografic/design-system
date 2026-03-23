@@ -4,8 +4,8 @@ import { Children, isValidElement, type ReactNode, useEffect, useRef, useState }
 import type { FieldError } from 'react-hook-form';
 import { useFormContext } from 'react-hook-form';
 
+import type { FieldBoxVariants } from './field-box.recipe';
 import { fieldBoxRecipe } from './field-box.recipe';
-import type { FieldBoxVariants } from './field-box.types';
 
 export type FieldBoxProps = FieldBoxVariants & {
   /** RHF field name — wires to useFormContext for auto error/warning state */

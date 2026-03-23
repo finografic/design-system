@@ -7,6 +7,8 @@
  */
 import { cva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const textRecipe = cva({
   base: { margin: '0' },
 
@@ -52,3 +54,18 @@ export const textRecipe = cva({
     color: 'default',
   },
 });
+
+export type TextVariants = RecipeProps<typeof textRecipe>;
+
+export type TextElement =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'p'
+  | 'span'
+  | 'div'
+  | 'label'
+  | 'figcaption';

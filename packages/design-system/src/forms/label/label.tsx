@@ -1,7 +1,7 @@
 import { forwardRef, type LabelHTMLAttributes } from 'react';
 
+import type { LabelVariants } from './label.recipe';
 import { labelRecipe } from './label.recipe';
-import type { LabelVariants } from './label.types';
 
 export type LabelProps = LabelVariants & LabelHTMLAttributes<HTMLLabelElement>;
 

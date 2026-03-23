@@ -1,7 +1,7 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 
+import type { CalloutVariants } from './callout.recipe';
 import { calloutRecipe } from './callout.recipe';
-import type { CalloutVariants } from './callout.types';
 
 export type CalloutProps = CalloutVariants & HTMLAttributes<HTMLDivElement>;
 

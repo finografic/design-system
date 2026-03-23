@@ -5,6 +5,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const menuRecipe = sva({
   className: 'menu',
   slots: [
@@ -96,3 +98,5 @@ export const menuRecipe = sva({
     indicator: {},
   },
 });
+
+export type MenuVariants = RecipeProps<typeof menuRecipe>;

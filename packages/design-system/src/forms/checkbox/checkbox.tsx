@@ -6,8 +6,8 @@ import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
+import type { CheckboxVariants } from './checkbox.recipe';
 import { checkboxRecipe } from './checkbox.recipe';
-import type { CheckboxVariants } from './checkbox.types';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────
 

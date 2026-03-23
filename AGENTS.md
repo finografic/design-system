@@ -45,7 +45,7 @@ Project-specific instructions live in `.github/instructions/project/`:
 - Translate Ark UI example CSS files into Panda `sva` recipes — treat them as style specifications, never import them as CSS modules directly
 - Always import `cx` from `@styled-system/css`; never create local `cx` helper functions inside components
 - Document which slot a recipe targets (name or JSDoc); keep recipe naming, structure, and variant conventions consistent with existing components
-- Export explicit variant union types (e.g. `ButtonVariant`, `ButtonPalette`) from component type files; never index `RecipeProps` directly for variant/palette keys
+- **No separate `*.types.ts` files** — `*Variants` type (and explicit union types like `ButtonVariant`, `ButtonPalette`) live at the **bottom of the `*.recipe.ts` file**, co-located with the recipe. Import `RecipeProps` from `'../../types/recipes.types'` at the top of the recipe file alongside the Panda import. Never index `RecipeProps` directly for variant/palette keys.
 - Button uses the prop name `palette` (not `colorScheme`) to avoid confusion with the CSS `color-scheme` property
 - Use `@stylistic/stylelint-plugin` for Stylelint 17; `stylelint-stylistic` is deprecated and incompatible
 - Ignore `.cursor/chats` and `.cursor/hooks`; commit `.cursor/mcp.json`

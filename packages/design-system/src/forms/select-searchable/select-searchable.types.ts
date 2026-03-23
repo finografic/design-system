@@ -1,7 +1,4 @@
-import type { RecipeProps } from '../../types/recipes.types';
-import type { selectSearchableRecipe } from './select-searchable.recipe';
-
-export type SelectSearchableVariants = RecipeProps<typeof selectSearchableRecipe>;
+import type { SelectSearchableVariants } from './select-searchable.recipe';
 
 export type SelectSearchableProps = SelectSearchableVariants & {
   options: Array<

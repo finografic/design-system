@@ -4,8 +4,8 @@ import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
+import type { SwitchVariants } from './switch.recipe';
 import { switchRecipe } from './switch.recipe';
-import type { SwitchVariants } from './switch.types';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────
 

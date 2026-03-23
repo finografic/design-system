@@ -1,8 +1,6 @@
-import { RecipeProps } from "../../types/recipes.types.js";
-import { selectSearchableRecipe } from "./select-searchable.recipe.js";
+import { SelectSearchableVariants } from "./select-searchable.recipe.js";
 
 //#region src/forms/select-searchable/select-searchable.types.d.ts
-type SelectSearchableVariants = RecipeProps<typeof selectSearchableRecipe>;
 type SelectSearchableProps = SelectSearchableVariants & {
   options: Array<{
     value: string;
@@ -24,5 +22,5 @@ type SelectSearchableProps = SelectSearchableVariants & {
   className?: string;
 };
 //#endregion
-export { SelectSearchableProps, SelectSearchableVariants };
+export { SelectSearchableProps };
 //# sourceMappingURL=select-searchable.types.d.ts.map

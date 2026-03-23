@@ -14,6 +14,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const checkboxRecipe = sva({
   className: 'checkbox',
 
@@ -147,3 +149,5 @@ export const checkboxRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type CheckboxVariants = RecipeProps<typeof checkboxRecipe>;

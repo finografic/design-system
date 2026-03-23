@@ -1,3 +1,2 @@
-import { labelRecipe } from "./label.recipe.js";
-import { LabelVariants } from "./label.types.js";
+import { LabelVariants, labelRecipe } from "./label.recipe.js";
 import { Label, LabelProps } from "./label.js";

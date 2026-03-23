@@ -1,4 +1,4 @@
-import { InputFieldVariants } from "./input-field.types.js";
+import { InputFieldVariants } from "./input-field.recipe.js";
 import * as react from "react";
 import { HTMLAttributes, InputHTMLAttributes, ReactNode } from "react";
 import * as react_jsx_runtime0 from "react/jsx-runtime";

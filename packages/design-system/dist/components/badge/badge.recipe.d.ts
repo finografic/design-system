@@ -1,4 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/components/badge/badge.recipe.d.ts
 declare const badgeRecipe: RecipeRuntimeFn<{
   size: {
@@ -41,6 +43,7 @@ declare const badgeRecipe: RecipeRuntimeFn<{
     neutral: {};
   };
 }>;
+type BadgeVariants = RecipeProps<typeof badgeRecipe>;
 //#endregion
-export { badgeRecipe };
+export { BadgeVariants, badgeRecipe };
 //# sourceMappingURL=badge.recipe.d.ts.map

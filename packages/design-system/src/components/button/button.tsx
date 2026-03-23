@@ -20,7 +20,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import { buttonRecipe } from 'src/components/button/button.recipe';
 
-import type { ButtonVariants } from './button.types';
+import type { ButtonVariants } from './button.recipe';
 
 export type ButtonProps =
   & ComponentPropsWithoutRef<'button'>

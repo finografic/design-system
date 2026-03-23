@@ -6,6 +6,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const sliderRecipe = sva({
   className: 'slider',
 
@@ -125,3 +127,5 @@ export const sliderRecipe = sva({
 
   defaultVariants: { size: 'md' },
 });
+
+export type SliderVariants = RecipeProps<typeof sliderRecipe>;

@@ -5,6 +5,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const popoverRecipe = sva({
   className: 'popover',
   slots: [
@@ -82,3 +84,5 @@ export const popoverRecipe = sva({
     },
   },
 });
+
+export type PopoverVariants = RecipeProps<typeof popoverRecipe>;

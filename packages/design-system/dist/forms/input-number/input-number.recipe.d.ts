@@ -1,6 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/forms/input-number/input-number.recipe.d.ts
-declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "errorText" | "input" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
+declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "control" | "label" | "errorText" | "input" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
   size: {
     sm: {
       label: {
@@ -97,6 +99,7 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
     };
   };
 }>;
+type InputNumberVariants = RecipeProps<typeof inputNumberRecipe>;
 //#endregion
-export { inputNumberRecipe };
+export { InputNumberVariants, inputNumberRecipe };
 //# sourceMappingURL=input-number.recipe.d.ts.map

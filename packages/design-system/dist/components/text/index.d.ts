@@ -1,3 +1,2 @@
-import { textRecipe } from "./text.recipe.js";
-import { TextElement, TextVariants } from "./text.types.js";
+import { TextElement, TextVariants, textRecipe } from "./text.recipe.js";
 import { Text, TextProps } from "./text.js";

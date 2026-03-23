@@ -1,4 +1,4 @@
-import { BadgeVariants } from "./badge.types.js";
+import { BadgeVariants } from "./badge.recipe.js";
 import * as react from "react";
 import { HTMLAttributes } from "react";
 

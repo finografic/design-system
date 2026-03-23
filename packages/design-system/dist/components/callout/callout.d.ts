@@ -1,4 +1,4 @@
-import { CalloutVariants } from "./callout.types.js";
+import { CalloutVariants } from "./callout.recipe.js";
 import * as react from "react";
 import { HTMLAttributes } from "react";
 

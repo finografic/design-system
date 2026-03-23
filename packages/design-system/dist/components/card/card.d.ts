@@ -1,4 +1,4 @@
-import { CardVariants } from "./card.types.js";
+import { CardVariants } from "./card.recipe.js";
 import * as react from "react";
 import { HTMLAttributes } from "react";
 

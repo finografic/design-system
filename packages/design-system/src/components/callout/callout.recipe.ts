@@ -5,6 +5,8 @@
  */
 import { cva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const calloutRecipe = cva({
   base: {
     display: 'flex',
@@ -32,3 +34,5 @@ export const calloutRecipe = cva({
     status: 'info',
   },
 });
+
+export type CalloutVariants = RecipeProps<typeof calloutRecipe>;

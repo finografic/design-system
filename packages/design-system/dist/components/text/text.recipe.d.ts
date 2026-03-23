@@ -1,4 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/components/text/text.recipe.d.ts
 declare const textRecipe: RecipeRuntimeFn<{
   variant: {
@@ -94,6 +96,8 @@ declare const textRecipe: RecipeRuntimeFn<{
     };
   };
 }>;
+type TextVariants = RecipeProps<typeof textRecipe>;
+type TextElement = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div' | 'label' | 'figcaption';
 //#endregion
-export { textRecipe };
+export { TextElement, TextVariants, textRecipe };
 //# sourceMappingURL=text.recipe.d.ts.map

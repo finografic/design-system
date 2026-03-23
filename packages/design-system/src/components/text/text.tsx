@@ -1,7 +1,7 @@
 import { type HTMLAttributes } from 'react';
 
+import type { TextElement, TextVariants } from './text.recipe';
 import { textRecipe } from './text.recipe';
-import type { TextElement, TextVariants } from './text.types';
 
 export type TextProps = TextVariants & HTMLAttributes<HTMLElement> & {
   as?: TextElement;

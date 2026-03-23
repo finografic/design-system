@@ -1,4 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/forms/label/label.recipe.d.ts
 declare const labelRecipe: RecipeRuntimeFn<{
   size: {
@@ -16,6 +18,7 @@ declare const labelRecipe: RecipeRuntimeFn<{
     };
   };
 }>;
+type LabelVariants = RecipeProps<typeof labelRecipe>;
 //#endregion
-export { labelRecipe };
+export { LabelVariants, labelRecipe };
 //# sourceMappingURL=label.recipe.d.ts.map

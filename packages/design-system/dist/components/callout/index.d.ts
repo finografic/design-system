@@ -1,3 +1,2 @@
-import { calloutRecipe } from "./callout.recipe.js";
-import { CalloutVariants } from "./callout.types.js";
+import { CalloutVariants, calloutRecipe } from "./callout.recipe.js";
 import { Callout, CalloutProps } from "./callout.js";

@@ -5,6 +5,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const tooltipRecipe = sva({
   className: 'tooltip',
   slots: ['trigger', 'positioner', 'content', 'arrow', 'arrowTip'],
@@ -37,3 +39,5 @@ export const tooltipRecipe = sva({
     },
   },
 });
+
+export type TooltipVariants = RecipeProps<typeof tooltipRecipe>;

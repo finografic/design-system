@@ -1,6 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/forms/checkbox/checkbox.recipe.d.ts
-declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "description" | "errorText" | "indicator", {
+declare const checkboxRecipe: SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "control" | "label" | "errorText", {
   size: {
     sm: {
       control: {
@@ -76,6 +78,7 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" |
     };
   };
 }>;
+type CheckboxVariants = RecipeProps<typeof checkboxRecipe>;
 //#endregion
-export { checkboxRecipe };
+export { CheckboxVariants, checkboxRecipe };
 //# sourceMappingURL=checkbox.recipe.d.ts.map

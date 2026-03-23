@@ -6,6 +6,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const dialogRecipe = sva({
   className: 'dialog',
   slots: [
@@ -130,3 +132,5 @@ export const dialogRecipe = sva({
     size: 'md',
   },
 });
+
+export type DialogVariants = RecipeProps<typeof dialogRecipe>;

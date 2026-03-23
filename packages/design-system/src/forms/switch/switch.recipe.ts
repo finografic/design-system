@@ -19,6 +19,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const switchRecipe = sva({
   className: 'switch',
 
@@ -182,3 +184,5 @@ export const switchRecipe = sva({
     palette: 'primary',
   },
 });
+
+export type SwitchVariants = RecipeProps<typeof switchRecipe>;

@@ -6,6 +6,8 @@
  */
 import { sva } from '@styled-system/css';
 
+import type { RecipeProps } from '../../types/recipes.types';
+
 export const toastRecipe = sva({
   className: 'toast',
   slots: ['root', 'title', 'description', 'closeTrigger', 'actionTrigger'],
@@ -91,3 +93,5 @@ export const toastRecipe = sva({
     status: 'info',
   },
 });
+
+export type ToastVariants = RecipeProps<typeof toastRecipe>;

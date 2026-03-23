@@ -1,4 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/components/callout/callout.recipe.d.ts
 declare const calloutRecipe: RecipeRuntimeFn<{
   status: {
@@ -24,6 +26,7 @@ declare const calloutRecipe: RecipeRuntimeFn<{
     };
   };
 }>;
+type CalloutVariants = RecipeProps<typeof calloutRecipe>;
 //#endregion
-export { calloutRecipe };
+export { CalloutVariants, calloutRecipe };
 //# sourceMappingURL=callout.recipe.d.ts.map
