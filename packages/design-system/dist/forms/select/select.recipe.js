@@ -54,43 +54,43 @@ const selectRecipe = sva({
 			position: "relative"
 		},
 		trigger: {
-			display: "inline-flex",
-			alignItems: "center",
-			justifyContent: "space-between",
-			width: "full",
-			borderWidth: "default",
-			borderStyle: "solid",
-			borderColor: "border",
-			borderRadius: "md",
-			bg: "bg",
-			color: "fg",
-			cursor: "pointer",
-			gap: "2",
-			fontFamily: "inherit",
-			lineHeight: "1.25rem",
-			userSelect: "none",
-			outline: "none",
-			transitionProperty: "border-color, box-shadow",
-			transitionDuration: "fast",
-			_placeholderShown: { color: "fg.subtle" },
-			_hover: { borderColor: "accent.emphasized" },
-			_open: {
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "space-between",
+			"width": "full",
+			"borderWidth": "default",
+			"borderStyle": "solid",
+			"borderColor": "border",
+			"borderRadius": "md",
+			"bg": "bg",
+			"color": "fg",
+			"cursor": "pointer",
+			"gap": "2",
+			"fontFamily": "inherit",
+			"lineHeight": "1.25rem",
+			"userSelect": "none",
+			"outline": "none",
+			"transitionProperty": "border-color, box-shadow",
+			"transitionDuration": "fast",
+			"_placeholderShown": { color: "fg.subtle" },
+			"_hover": { borderColor: "accent.emphasized" },
+			"_open": {
 				borderColor: "accent.solid",
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			_disabled: {
+			"_disabled": {
 				opacity: .55,
 				filter: "grayscale(100%)",
 				cursor: "not-allowed"
 			},
-			_focusVisible: {
+			"_focusVisible": {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			_invalid: { borderColor: "border.error" },
+			"_invalid": { borderColor: "border.error" },
 			"& svg": { flexShrink: 0 }
 		},
 		valueText: {
@@ -188,18 +188,18 @@ const selectRecipe = sva({
 			letterSpacing: "wider"
 		},
 		clearTrigger: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
-			border: "0",
-			bg: "transparent",
-			borderRadius: "sm",
-			color: "fg.muted",
-			cursor: "pointer",
-			transitionProperty: "color",
-			transitionDuration: "fast",
-			_hover: { color: "fg" },
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
+			"border": "0",
+			"bg": "transparent",
+			"borderRadius": "sm",
+			"color": "fg.muted",
+			"cursor": "pointer",
+			"transitionProperty": "color",
+			"transitionDuration": "fast",
+			"_hover": { color: "fg" },
 			"& svg": { flexShrink: 0 }
 		}
 	},

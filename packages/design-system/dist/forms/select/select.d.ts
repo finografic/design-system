@@ -10,7 +10,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * Place `collection`, `value`, `onValueChange`, `multiple`, and `size` on **`Root`**.
  */
 declare const Select$1: {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"label" | "content" | "root" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "control" | "list" | "valueText" | "clearTrigger", {
+  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "positioner" | "root" | "trigger" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "valueText" | "clearTrigger", {
     size: {
       sm: {
         label: {
