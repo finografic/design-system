@@ -5,7 +5,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/forms/select/select.d.ts
 declare const Select$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "positioner" | "label" | "control" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "valueText" | "list" | "clearTrigger", {
+  Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "content" | "item" | "indicator" | "itemText" | "trigger" | "valueText" | "positioner" | "list" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "clearTrigger", {
     size: {
       sm: {
         label: {

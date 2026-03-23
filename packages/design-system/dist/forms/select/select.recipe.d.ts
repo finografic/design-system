@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/forms/select/select.recipe.d.ts
-declare const selectRecipe: SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "positioner" | "label" | "control" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "valueText" | "list" | "clearTrigger", {
+declare const selectRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "content" | "item" | "indicator" | "itemText" | "trigger" | "valueText" | "positioner" | "list" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "clearTrigger", {
   size: {
     sm: {
       label: {
