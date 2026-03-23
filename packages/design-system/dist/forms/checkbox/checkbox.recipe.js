@@ -1,10 +1,18 @@
 import { sva } from "@styled-system/css";
 //#region src/forms/checkbox/checkbox.recipe.ts
 /**
-* Checkbox Recipe
+* Checkbox slot recipe (`sva`)
+*
+* Port of Ark UI docs Checkbox example CSS (`.Root`, `.Label`, `.Control`, `.Indicator`).
+* Use with `createStyleContext(checkboxRecipe)` for `Checkbox.*` parts, or call
+* `checkboxRecipe({ size })` in `CheckboxDS`.
 *
 * Slots:    root · control · indicator · label · description · errorText
 * Variants: size (sm | md | lg)
+*
+* **Indeterminate icons:** `MinusIcon` carries `data-indeterminate` and is hidden by
+* default via the `indicator` slot; `root._indeterminate` toggles visibility so only
+* the correct icon shows for each state.
 */
 const checkboxRecipe = sva({
 	className: "checkbox",
@@ -20,11 +28,13 @@ const checkboxRecipe = sva({
 		root: {
 			display: "inline-flex",
 			alignItems: "flex-start",
+			verticalAlign: "top",
 			gap: "2",
 			cursor: "pointer",
 			userSelect: "none",
 			_disabled: {
 				opacity: .55,
+				filter: "grayscale(100%)",
 				cursor: "not-allowed"
 			},
 			_indeterminate: {
@@ -33,40 +43,44 @@ const checkboxRecipe = sva({
 			}
 		},
 		control: {
-			display: "inline-flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
-			overflow: "hidden",
-			borderRadius: "xs",
-			borderWidth: "light",
-			borderStyle: "solid",
-			borderColor: "border",
-			bg: "bg",
-			color: "transparent",
-			transitionProperty: "background-color, border-color, color",
-			transitionDuration: "normal",
-			_checked: {
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
+			"overflow": "hidden",
+			"borderRadius": "xs",
+			"borderWidth": "light",
+			"borderStyle": "solid",
+			"borderColor": "border",
+			"bg": "bg",
+			"color": "transparent",
+			"transitionProperty": "background-color, border-color, color",
+			"transitionDuration": "normal",
+			"_checked": {
 				bg: "{colors.success.light}",
 				borderColor: "{colors.success.light}",
 				color: "white"
 			},
-			_indeterminate: {
+			"_indeterminate": {
 				bg: "{colors.success.light}",
 				borderColor: "{colors.success.light}",
 				color: "white"
 			},
-			_hover: { borderColor: "accent.emphasized" },
-			_disabled: {
+			"_hover": { borderColor: "accent.emphasized" },
+			"_disabled": {
 				bg: "bg.subtle",
 				borderColor: "border.muted"
 			},
-			_focusVisible: {
+			"_focusVisible": {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			_invalid: { borderColor: "border.error" }
+			"_invalid": { borderColor: "border.error" },
+			"&[data-invalid][data-focus-visible]": {
+				borderColor: "border.error",
+				boxShadow: "0 0 0 1px {colors.border.error}"
+			}
 		},
 		indicator: {
 			"display": "flex",
@@ -77,6 +91,7 @@ const checkboxRecipe = sva({
 		label: {
 			color: "fg",
 			lineHeight: "normal",
+			userSelect: "none",
 			_disabled: { color: "fg.subtle" }
 		},
 		description: {
