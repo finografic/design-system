@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/forms/input-number/input-number.recipe.d.ts
-declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
+declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "errorText" | "input" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
   size: {
     sm: {
       label: {
@@ -27,6 +27,9 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
       };
       suffix: {
         paddingInline: "2";
+        fontSize: "xs";
+      };
+      errorText: {
         fontSize: "xs";
       };
     };
@@ -57,6 +60,9 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
         paddingInline: "2.5";
         fontSize: "sm";
       };
+      errorText: {
+        fontSize: "sm";
+      };
     };
     lg: {
       label: {
@@ -84,6 +90,9 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
       suffix: {
         paddingInline: "3";
         fontSize: "md";
+      };
+      errorText: {
+        fontSize: "sm";
       };
     };
   };

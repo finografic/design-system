@@ -1,12 +1,31 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@finografic/icons';
 
 import { NumberInput as ArkNumberInput } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import { forwardRef, type ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
 import { inputNumberRecipe } from './input-number.recipe';
 import type { InputNumberVariants } from './input-number.types';
 
+/**
+ * Numeric stepper input — Ark `NumberInput` wired to `inputNumberRecipe`.
+ *
+ * Supports optional prefix/suffix decorations and increment/decrement stepper buttons.
+ * Pass `onChange(value)` — simplified from Ark's `onValueChange` detail object.
+ *
+ * @example
+ * ```tsx
+ * <InputNumber
+ *   label="Quantity"
+ *   value={qty}
+ *   onChange={setQty}
+ *   min={0} max={100}
+ *   prefix="$"
+ *   size="md"
+ * />
+ * ```
+ */
 export type InputNumberProps = InputNumberVariants & {
   // ── Value ────────────────────────────────────────────────────────────────
   value?: number;
@@ -76,7 +95,7 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
     },
     ref,
   ) => {
-    const cls = inputNumberRecipe({ size });
+    const styles = inputNumberRecipe({ size });
     const errorMessage = typeof error === 'string' ? error : error?.message;
 
     const resolvedFormatOptions: Intl.NumberFormatOptions = {
@@ -101,32 +120,32 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
         disabled={disabled}
         readOnly={readOnly}
         invalid={Boolean(errorMessage)}
-        className={[cls.root, className].filter(Boolean).join(' ')}
+        className={cx(styles.root, className)}
       >
-        {label && <ArkNumberInput.Label className={cls.label}>{label}</ArkNumberInput.Label>}
+        {label && <ArkNumberInput.Label className={styles.label}>{label}</ArkNumberInput.Label>}
 
-        <ArkNumberInput.Control className={cls.control}>
-          {prefix && <span className={cls.prefix}>{prefix}</span>}
+        <ArkNumberInput.Control className={styles.control}>
+          {prefix && <span className={styles.prefix}>{prefix}</span>}
 
           <ArkNumberInput.Input
             ref={ref}
             onBlur={onBlur}
             placeholder={placeholder}
-            className={cls.input}
+            className={styles.input}
           />
 
-          {suffix && <span className={cls.suffix}>{suffix}</span>}
+          {suffix && <span className={styles.suffix}>{suffix}</span>}
 
           {showStepper && (
             <>
               <ArkNumberInput.DecrementTrigger
-                className={cls.decrementTrigger}
+                className={styles.decrementTrigger}
                 aria-label="Decrement"
               >
                 <ChevronDownIcon className="icon icon-sm" aria-hidden />
               </ArkNumberInput.DecrementTrigger>
               <ArkNumberInput.IncrementTrigger
-                className={cls.incrementTrigger}
+                className={styles.incrementTrigger}
                 aria-label="Increment"
               >
                 <ChevronUpIcon className="icon icon-sm" aria-hidden />
@@ -136,14 +155,7 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
         </ArkNumberInput.Control>
 
         {errorMessage && (
-          <span
-            role="alert"
-            style={{
-              fontSize: 'var(--font-sizes-sm)',
-              color: 'var(--colors-fg-error)',
-              fontWeight: 600,
-            }}
-          >
+          <span role="alert" className={styles.errorText}>
             {errorMessage}
           </span>
         )}

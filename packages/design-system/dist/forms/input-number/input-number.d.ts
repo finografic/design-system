@@ -4,6 +4,24 @@ import { ReactNode } from "react";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/input-number/input-number.d.ts
+/**
+ * Numeric stepper input — Ark `NumberInput` wired to `inputNumberRecipe`.
+ *
+ * Supports optional prefix/suffix decorations and increment/decrement stepper buttons.
+ * Pass `onChange(value)` — simplified from Ark's `onValueChange` detail object.
+ *
+ * @example
+ * ```tsx
+ * <InputNumber
+ *   label="Quantity"
+ *   value={qty}
+ *   onChange={setQty}
+ *   min={0} max={100}
+ *   prefix="$"
+ *   size="md"
+ * />
+ * ```
+ */
 type InputNumberProps = InputNumberVariants & {
   value?: number;
   defaultValue?: number;

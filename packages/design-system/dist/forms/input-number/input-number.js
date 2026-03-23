@@ -1,11 +1,12 @@
 import { inputNumberRecipe } from "./input-number.recipe.js";
 import { ChevronDownIcon, ChevronUpIcon } from "@finografic/icons";
 import { forwardRef } from "react";
+import { cx } from "@styled-system/css";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { NumberInput } from "@ark-ui/react";
 //#region src/forms/input-number/input-number.tsx
 const InputNumber = forwardRef(({ value, defaultValue, onChange, onBlur, name, min, max, step = 1, precision, locale, formatOptions, prefix, suffix, showStepper = true, label, error, id, disabled, readOnly, placeholder, size = "md", className }, ref) => {
-	const cls = inputNumberRecipe({ size });
+	const styles = inputNumberRecipe({ size });
 	const errorMessage = typeof error === "string" ? error : error?.message;
 	const resolvedFormatOptions = {
 		maximumFractionDigits: precision,
@@ -26,38 +27,38 @@ const InputNumber = forwardRef(({ value, defaultValue, onChange, onBlur, name, m
 		disabled,
 		readOnly,
 		invalid: Boolean(errorMessage),
-		className: [cls.root, className].filter(Boolean).join(" "),
+		className: cx(styles.root, className),
 		children: [
 			label && /* @__PURE__ */ jsx(NumberInput.Label, {
-				className: cls.label,
+				className: styles.label,
 				children: label
 			}),
 			/* @__PURE__ */ jsxs(NumberInput.Control, {
-				className: cls.control,
+				className: styles.control,
 				children: [
 					prefix && /* @__PURE__ */ jsx("span", {
-						className: cls.prefix,
+						className: styles.prefix,
 						children: prefix
 					}),
 					/* @__PURE__ */ jsx(NumberInput.Input, {
 						ref,
 						onBlur,
 						placeholder,
-						className: cls.input
+						className: styles.input
 					}),
 					suffix && /* @__PURE__ */ jsx("span", {
-						className: cls.suffix,
+						className: styles.suffix,
 						children: suffix
 					}),
 					showStepper && /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx(NumberInput.DecrementTrigger, {
-						className: cls.decrementTrigger,
+						className: styles.decrementTrigger,
 						"aria-label": "Decrement",
 						children: /* @__PURE__ */ jsx(ChevronDownIcon, {
 							className: "icon icon-sm",
 							"aria-hidden": true
 						})
 					}), /* @__PURE__ */ jsx(NumberInput.IncrementTrigger, {
-						className: cls.incrementTrigger,
+						className: styles.incrementTrigger,
 						"aria-label": "Increment",
 						children: /* @__PURE__ */ jsx(ChevronUpIcon, {
 							className: "icon icon-sm",
@@ -68,11 +69,7 @@ const InputNumber = forwardRef(({ value, defaultValue, onChange, onBlur, name, m
 			}),
 			errorMessage && /* @__PURE__ */ jsx("span", {
 				role: "alert",
-				style: {
-					fontSize: "var(--font-sizes-sm)",
-					color: "var(--colors-fg-error)",
-					fontWeight: 600
-				},
+				className: styles.errorText,
 				children: errorMessage
 			})
 		]

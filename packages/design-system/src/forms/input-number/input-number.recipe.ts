@@ -1,8 +1,13 @@
 /**
  * InputNumber Recipe
  *
- * Slots:    root · label · control · input · incrementTrigger · decrementTrigger · prefix · suffix
+ * Port of Ark UI NumberInput example styles → Panda `sva` + semantic tokens.
+ *
+ * Slots:    root · label · control · input · incrementTrigger · decrementTrigger · prefix · suffix · errorText
  * Variants: size (sm | md | lg)
+ *
+ * Stepper architecture: triggers sit inline inside the control (flex row) rather than
+ * absolutely positioned, separated by an inline-start border from input/suffix.
  */
 import { sva } from '@styled-system/css';
 
@@ -18,6 +23,7 @@ export const inputNumberRecipe = sva({
     'decrementTrigger',
     'prefix',
     'suffix',
+    'errorText',
   ],
 
   base: {
@@ -26,6 +32,7 @@ export const inputNumberRecipe = sva({
       flexDirection: 'column',
       gap: '1.5',
       width: '100%',
+      _disabled: { opacity: 0.5, filter: 'grayscale(100%)' },
     },
 
     label: {
@@ -36,6 +43,7 @@ export const inputNumberRecipe = sva({
 
     control: {
       position: 'relative',
+      isolation: 'isolate',
       display: 'flex',
       alignItems: 'stretch',
       width: '100%',
@@ -55,7 +63,7 @@ export const inputNumberRecipe = sva({
         borderColor: 'border.error',
         _focusWithin: { boxShadow: '0 0 0 1px var(--colors-fg-error)' },
       },
-      _disabled: { opacity: 0.55, cursor: 'not-allowed' },
+      _disabled: { cursor: 'not-allowed' },
     },
 
     input: {
@@ -64,10 +72,13 @@ export const inputNumberRecipe = sva({
       border: 'none',
       bg: 'transparent',
       color: 'fg',
-      outline: 'none',
+      fontFamily: 'inherit',
+      fontWeight: 'medium',
       fontVariantNumeric: 'tabular-nums',
+      outline: 'none',
       _placeholder: { color: 'fg.subtle' },
       _disabled: { cursor: 'not-allowed' },
+      _focusVisible: { zIndex: 1 },
     },
 
     incrementTrigger: {
@@ -78,11 +89,21 @@ export const inputNumberRecipe = sva({
       borderInlineStartWidth: 'light',
       borderInlineStartStyle: 'solid',
       borderInlineStartColor: 'border',
+      borderBottomWidth: 'light',
+      borderBottomStyle: 'solid',
+      borderBottomColor: 'border',
       color: 'fg.muted',
       cursor: 'pointer',
+      userSelect: 'none',
       _hover: { bg: 'bg.hover', color: 'fg' },
       _active: { bg: 'bg.muted' },
       _disabled: { opacity: 0.55, cursor: 'not-allowed', pointerEvents: 'none' },
+      _focusVisible: {
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '-2px',
+        zIndex: 1,
+      },
     },
 
     decrementTrigger: {
@@ -95,9 +116,16 @@ export const inputNumberRecipe = sva({
       borderInlineStartColor: 'border',
       color: 'fg.muted',
       cursor: 'pointer',
+      userSelect: 'none',
       _hover: { bg: 'bg.hover', color: 'fg' },
       _active: { bg: 'bg.muted' },
       _disabled: { opacity: 0.55, cursor: 'not-allowed', pointerEvents: 'none' },
+      _focusVisible: {
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '-2px',
+        zIndex: 1,
+      },
     },
 
     prefix: {
@@ -123,6 +151,12 @@ export const inputNumberRecipe = sva({
       bg: 'bg.muted',
       userSelect: 'none',
     },
+
+    errorText: {
+      color: 'fg.error',
+      fontWeight: 'semibold',
+      lineHeight: '1.25rem',
+    },
   },
 
   variants: {
@@ -135,6 +169,7 @@ export const inputNumberRecipe = sva({
         decrementTrigger: { width: '7', fontSize: 'xs' },
         prefix: { paddingInline: '2', fontSize: 'xs' },
         suffix: { paddingInline: '2', fontSize: 'xs' },
+        errorText: { fontSize: 'xs' },
       },
       md: {
         label: { fontSize: 'sm' },
@@ -144,6 +179,7 @@ export const inputNumberRecipe = sva({
         decrementTrigger: { width: '8', fontSize: 'sm' },
         prefix: { paddingInline: '2.5', fontSize: 'sm' },
         suffix: { paddingInline: '2.5', fontSize: 'sm' },
+        errorText: { fontSize: 'sm' },
       },
       lg: {
         label: { fontSize: 'md' },
@@ -153,6 +189,7 @@ export const inputNumberRecipe = sva({
         decrementTrigger: { width: '10', fontSize: 'md' },
         prefix: { paddingInline: '3', fontSize: 'md' },
         suffix: { paddingInline: '3', fontSize: 'md' },
+        errorText: { fontSize: 'sm' },
       },
     },
   },
