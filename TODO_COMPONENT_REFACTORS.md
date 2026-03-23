@@ -35,10 +35,9 @@
 - [x] InputNumber — `errorText` slot, `isolation: isolate`, stepper `_focusVisible`
 - [x] Label — `lineHeight` from Field.css, `cx()`, JSDoc
 - [ ] RadioGroup
-- [x] Slider — `createStyleContext` wiring, Ark CSS spec, vertical orientation, touch thumb sizing, marker `::before` ticks
+- [x] Slider — `createStyleContext` wiring, Ark CSS spec, vertical orientation, touch thumb sizing, marker `::before` ticks; `SliderDS` wrapper, `description`/`errorText` slots, section comments
 - [x] Select — Ark CSS spec (scale animation, maxH guard, itemText truncation, itemGroup spacing, indicator layout, clearTrigger layout)
 - [x] SelectDefault — `cx()`, JSDoc, multi-select (`multiple` prop, discriminated-union types)
 - [ ] SelectSearchable
-- [x] TagsInput — NEW component; `sva` recipe, `createStyleContext` compound, `multiple`-ready
-- [ ] Slider
+- [x] TagsInput — NEW component; `sva` recipe, `createStyleContext` compound, `TagsInputDS` wrapper, `description`/`errorText` slots, section comments
 - [x] Switch
