@@ -39,6 +39,8 @@ export type ButtonProps =
     icon?: ReactNode;
     /** Side the icon appears on. Default: `left` */
     iconPosition?: 'left' | 'right';
+    /** Stretches the button to fill its container width. */
+    fullWidth?: boolean;
   };
 
 /** Size of the spinner in px — matches button size scale. */
@@ -57,6 +59,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'outline',
       palette = 'default',
       loading = false,
+      fullWidth,
       icon,
       iconPosition = 'left',
       disabled,
@@ -70,6 +73,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       variant,
       palette,
+      fullWidth,
       iconOnly: Boolean((icon || loading) && !children),
     });
 

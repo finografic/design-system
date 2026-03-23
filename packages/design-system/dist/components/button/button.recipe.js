@@ -185,7 +185,8 @@ const buttonRecipe = cva({
 			info: { colorPalette: "info" },
 			grey: { colorPalette: "grey" }
 		},
-		iconOnly: { true: { paddingInline: "0" } }
+		iconOnly: { true: { paddingInline: "0" } },
+		fullWidth: { true: { width: "full" } }
 	},
 	compoundVariants: [{
 		variant: "solid",

@@ -197,6 +197,10 @@ export const buttonRecipe = cva({
         paddingInline: '0',
       },
     },
+
+    fullWidth: {
+      true: { width: 'full' },
+    },
   },
 
   compoundVariants: [

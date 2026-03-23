@@ -36,11 +36,12 @@ const spinnerSizeMap = {
 	lg: 18,
 	xl: 20
 };
-const Button = forwardRef(({ size = "md", variant = "outline", palette = "default", loading = false, icon, iconPosition = "left", disabled, children, className, ...props }, ref) => {
+const Button = forwardRef(({ size = "md", variant = "outline", palette = "default", loading = false, fullWidth, icon, iconPosition = "left", disabled, children, className, ...props }, ref) => {
 	const styles = buttonRecipe({
 		size,
 		variant,
 		palette,
+		fullWidth,
 		iconOnly: Boolean((icon || loading) && !children)
 	});
 	const spinnerNode = loading ? /* @__PURE__ */ jsx(Spinner, {

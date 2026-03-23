@@ -162,6 +162,11 @@ declare const buttonRecipe: RecipeRuntimeFn<{
       paddingInline: "0";
     };
   };
+  fullWidth: {
+    true: {
+      width: "full";
+    };
+  };
 }>;
 type ButtonVariants = RecipeProps<typeof buttonRecipe>;
 //#endregion
