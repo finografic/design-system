@@ -45,11 +45,7 @@ export const Switch = {
 
 // ── SwitchDS — convenience wrapper (label / description / error) ─────────────
 
-const textColumnStyle = css({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '0.5',
-});
+const textColumnStyle = css({ display: 'flex', flexDirection: 'column', gap: '0.5' });
 
 /** Slot class overrides for {@link SwitchDS}. */
 export interface SwitchDSClassNames {
