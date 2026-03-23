@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "trigger" | "indicator" | "list", {
   variant: {
     line: {
       list: {
@@ -69,7 +69,7 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "indicator" |
         };
       };
       content: {
-        pt: "3";
+        py: "3";
       };
       list: {
         p: "0.5";
@@ -86,7 +86,7 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "indicator" |
         };
       };
       content: {
-        pt: "4";
+        py: "4";
       };
       list: {
         p: "1";
@@ -103,7 +103,7 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "indicator" |
         };
       };
       content: {
-        pt: "5";
+        py: "5";
       };
       list: {
         p: "1";

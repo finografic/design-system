@@ -5,7 +5,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/tabs/tabs.d.ts
 declare const Tabs$1: {
-  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "trigger" | "indicator" | "list", {
     variant: {
       line: {
         list: {
@@ -74,7 +74,7 @@ declare const Tabs$1: {
           };
         };
         content: {
-          pt: "3";
+          py: "3";
         };
         list: {
           p: "0.5";
@@ -91,7 +91,7 @@ declare const Tabs$1: {
           };
         };
         content: {
-          pt: "4";
+          py: "4";
         };
         list: {
           p: "1";
@@ -108,7 +108,7 @@ declare const Tabs$1: {
           };
         };
         content: {
-          pt: "5";
+          py: "5";
         };
         list: {
           p: "1";
@@ -116,7 +116,7 @@ declare const Tabs$1: {
       };
     };
   }>>;
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "trigger" | "indicator" | "list", {
     variant: {
       line: {
         list: {
@@ -185,7 +185,7 @@ declare const Tabs$1: {
           };
         };
         content: {
-          pt: "3";
+          py: "3";
         };
         list: {
           p: "0.5";
@@ -202,7 +202,7 @@ declare const Tabs$1: {
           };
         };
         content: {
-          pt: "4";
+          py: "4";
         };
         list: {
           p: "1";
@@ -219,7 +219,7 @@ declare const Tabs$1: {
           };
         };
         content: {
-          pt: "5";
+          py: "5";
         };
         list: {
           p: "1";

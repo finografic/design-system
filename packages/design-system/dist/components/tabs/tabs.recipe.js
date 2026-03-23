@@ -74,6 +74,7 @@ const tabsRecipe = sva({
 			"_disabled": {
 				opacity: .5,
 				cursor: "not-allowed",
+				filter: "grayscale(100%)",
 				pointerEvents: "none"
 			},
 			"_focusVisible": focusRing,
@@ -175,7 +176,7 @@ const tabsRecipe = sva({
 					"gap": "1.5",
 					"&[data-orientation=\"horizontal\"]": { height: "7" }
 				},
-				content: { pt: "3" },
+				content: { py: "3" },
 				list: { p: "0.5" }
 			},
 			md: {
@@ -186,7 +187,7 @@ const tabsRecipe = sva({
 					"gap": "2",
 					"&[data-orientation=\"horizontal\"]": { height: "8" }
 				},
-				content: { pt: "4" },
+				content: { py: "4" },
 				list: { p: "1" }
 			},
 			lg: {
@@ -197,7 +198,7 @@ const tabsRecipe = sva({
 					"gap": "2",
 					"&[data-orientation=\"horizontal\"]": { height: "9" }
 				},
-				content: { pt: "5" },
+				content: { py: "5" },
 				list: { p: "1" }
 			}
 		}

@@ -83,6 +83,7 @@ export const tabsRecipe = sva({
       '_disabled': {
         opacity: 0.5,
         cursor: 'not-allowed',
+        filter: 'grayscale(100%)',
         pointerEvents: 'none',
       },
       '_focusVisible': focusRing,
@@ -198,7 +199,7 @@ export const tabsRecipe = sva({
           },
         },
         content: {
-          pt: '3',
+          py: '3',
         },
         list: {
           p: '0.5',
@@ -215,7 +216,7 @@ export const tabsRecipe = sva({
           },
         },
         content: {
-          pt: '4',
+          py: '4',
         },
         list: {
           p: '1',
@@ -232,7 +233,7 @@ export const tabsRecipe = sva({
           },
         },
         content: {
-          pt: '5',
+          py: '5',
         },
         list: {
           p: '1',
