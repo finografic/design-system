@@ -2,15 +2,13 @@ import { toastRecipe } from "./toast.recipe.js";
 import { Toast, Toaster, createToaster } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/components/toast/toast.tsx
+const { withProvider, withContext } = createStyleContext(toastRecipe);
 /**
-* Toast Component
-*
-* Styled wrapper around Ark UI Toast using `createStyleContext`.
-* Ark handles placement, stacking, auto-dismiss timers, and a11y (role="status").
+* Styled Ark **Toast** compound — each part is wired to `toastRecipe` via context.
 *
 * Setup (once in app root):
 * ```tsx
-* import { createToaster, Toaster } from '@workspace/design-system/components';
+* import { createToaster, Toaster } from '@finografic/design-system/components';
 *
 * export const toaster = createToaster({ placement: 'top-end', gap: 8 });
 *
@@ -39,7 +37,6 @@ import { createStyleContext } from "@styled-system/jsx";
 * />
 * ```
 */
-const { withProvider, withContext } = createStyleContext(toastRecipe);
 const Toast$1 = {
 	Root: withProvider(Toast.Root, "root"),
 	Title: withContext(Toast.Title, "title"),

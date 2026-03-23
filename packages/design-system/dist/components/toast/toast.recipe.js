@@ -19,14 +19,17 @@ const toastRecipe = sva({
 		root: {
 			position: "relative",
 			display: "flex",
+			flexDirection: "column",
+			gap: "0.5",
 			alignItems: "flex-start",
-			gap: "3",
-			padding: "4",
+			paddingBlock: "4",
+			paddingInlineStart: "4",
+			paddingInlineEnd: "10",
 			borderRadius: "md",
 			borderWidth: "light",
 			borderStyle: "solid",
 			boxShadow: "md",
-			minW: "18rem",
+			minW: "20rem",
 			maxW: "24rem",
 			bg: "bg.panel",
 			borderColor: "border",
@@ -34,36 +37,77 @@ const toastRecipe = sva({
 			_closed: { animation: "slide-fade-out 150ms ease" }
 		},
 		title: {
+			display: "flex",
+			alignItems: "center",
+			gap: "2",
 			fontWeight: "semibold",
 			fontSize: "sm",
 			color: "fg",
-			lineHeight: "tight"
+			lineHeight: "1.25rem"
 		},
 		description: {
 			fontSize: "sm",
 			color: "fg.muted",
-			lineHeight: "normal",
-			marginTop: "0.5"
+			lineHeight: "1.25rem",
+			opacity: .8
 		},
 		closeTrigger: {
-			marginLeft: "auto",
-			flexShrink: 0,
-			cursor: "pointer",
-			color: "fg.subtle",
-			borderRadius: "xs",
-			_hover: { color: "fg" },
-			_focusVisible: {
+			"position": "absolute",
+			"top": "1",
+			"insetInlineEnd": "1",
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"padding": "1",
+			"cursor": "pointer",
+			"color": "inherit",
+			"opacity": .6,
+			"borderRadius": "xs",
+			"border": "none",
+			"bg": "transparent",
+			"transitionProperty": "background-color, opacity",
+			"transitionDuration": "fast",
+			"_hover": {
+				opacity: 1,
+				bg: "bg.subtle"
+			},
+			"_focusVisible": {
+				outline: "2px solid currentColor",
+				outlineOffset: "-1px"
+			},
+			"& svg": {
+				w: "4",
+				h: "4",
+				flexShrink: 0
+			}
+		},
+		actionTrigger: {
+			"display": "inline-flex",
+			"alignItems": "center",
+			"gap": "1.5",
+			"px": "2.5",
+			"py": "1",
+			"marginTop": "1.5",
+			"fontSize": "xs",
+			"fontWeight": "medium",
+			"fontFamily": "inherit",
+			"lineHeight": "1rem",
+			"borderRadius": "xs",
+			"userSelect": "none",
+			"cursor": "pointer",
+			"bg": "transparent",
+			"color": "inherit",
+			"borderWidth": "default",
+			"borderStyle": "solid",
+			"borderColor": "currentColor",
+			"transitionProperty": "background-color, border-color",
+			"transitionDuration": "fast",
+			"_hover": { bg: "bg.subtle" },
+			"_focusVisible": {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			}
-		},
-		actionTrigger: {
-			fontSize: "sm",
-			fontWeight: "semibold",
-			color: "accent",
-			cursor: "pointer",
-			_hover: { color: "accent.fg" }
 		}
 	},
 	variants: { status: {

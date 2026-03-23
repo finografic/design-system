@@ -104,6 +104,8 @@ const selectSearchableRecipe = sva({
 			width: "var(--reference-width)"
 		},
 		content: {
+			display: "flex",
+			flexDirection: "column",
 			bg: "bg.panel",
 			borderWidth: "light",
 			borderStyle: "solid",
@@ -111,9 +113,11 @@ const selectSearchableRecipe = sva({
 			borderRadius: "md",
 			boxShadow: "md",
 			overflowY: "auto",
-			maxH: "15rem",
-			_open: { animation: "fade-in 120ms ease" },
-			_closed: { animation: "fade-out 120ms ease" }
+			outline: "none",
+			maxH: "min(var(--available-height, 300px), 300px)",
+			transformOrigin: "var(--transform-origin)",
+			_open: { animation: "scale-in 150ms ease" },
+			_closed: { animation: "scale-out 100ms ease" }
 		},
 		list: {
 			display: "flex",
@@ -123,16 +127,21 @@ const selectSearchableRecipe = sva({
 		item: {
 			display: "flex",
 			alignItems: "center",
+			justifyContent: "space-between",
 			gap: "2",
 			borderRadius: "sm",
 			cursor: "pointer",
 			color: "fg",
+			lineHeight: "1.25rem",
 			userSelect: "none",
 			_highlighted: {
 				bg: "accent.subtle",
 				color: "accent.fg"
 			},
-			_selected: { fontWeight: "semibold" },
+			_selected: {
+				fontWeight: "semibold",
+				color: "accent.fg"
+			},
 			_disabled: {
 				opacity: .55,
 				cursor: "not-allowed",
@@ -146,8 +155,11 @@ const selectSearchableRecipe = sva({
 			gap: "0.5"
 		},
 		itemIndicator: {
-			color: "accent.solid",
-			flexShrink: 0
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			flexShrink: 0,
+			color: "accent.solid"
 		},
 		emptyState: {
 			padding: "3",

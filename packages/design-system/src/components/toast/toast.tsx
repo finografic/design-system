@@ -1,12 +1,20 @@
+import { createToaster, Toast as ArkToast, Toaster } from '@ark-ui/react';
+import { createStyleContext } from '@styled-system/jsx';
+
+import { toastRecipe } from './toast.recipe';
+
+export { createToaster, Toaster };
+
+// ── Compound (createStyleContext) ─────────────────────────────────────────────
+
+const { withProvider, withContext } = createStyleContext(toastRecipe);
+
 /**
- * Toast Component
- *
- * Styled wrapper around Ark UI Toast using `createStyleContext`.
- * Ark handles placement, stacking, auto-dismiss timers, and a11y (role="status").
+ * Styled Ark **Toast** compound — each part is wired to `toastRecipe` via context.
  *
  * Setup (once in app root):
  * ```tsx
- * import { createToaster, Toaster } from '@workspace/design-system/components';
+ * import { createToaster, Toaster } from '@finografic/design-system/components';
  *
  * export const toaster = createToaster({ placement: 'top-end', gap: 8 });
  *
@@ -35,20 +43,17 @@
  * />
  * ```
  */
-import { createToaster, Toast as ArkToast, Toaster } from '@ark-ui/react';
-import { createStyleContext } from '@styled-system/jsx';
-
-import { toastRecipe } from './toast.recipe';
-
-const { withProvider, withContext } = createStyleContext(toastRecipe);
-
-export { createToaster, Toaster };
-
 export const Toast = {
+  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */
   Root: withProvider(ArkToast.Root, 'root'),
+  /** Toast title — bold label at the top. */
   Title: withContext(ArkToast.Title, 'title'),
+  /** Optional supporting description below the title. */
   Description: withContext(ArkToast.Description, 'description'),
+  /** Absolutely-positioned dismiss button (top-right corner). */
   CloseTrigger: withContext(ArkToast.CloseTrigger, 'closeTrigger'),
+  /** Optional inline action button. */
   ActionTrigger: withContext(ArkToast.ActionTrigger, 'actionTrigger'),
-  Context: ArkToast.Context, // render prop
+  /** Ark render-prop context. */
+  Context: ArkToast.Context,
 };

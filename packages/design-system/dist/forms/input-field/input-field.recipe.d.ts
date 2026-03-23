@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/input-field/input-field.recipe.d.ts
-declare const inputFieldRecipe: SlotRecipeRuntimeFn<"input" | "slot" | "root", {
+declare const inputFieldRecipe: SlotRecipeRuntimeFn<"root" | "input" | "slot", {
   size: {
     sm: {
       input: {

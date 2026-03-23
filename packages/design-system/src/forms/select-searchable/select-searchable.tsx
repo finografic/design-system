@@ -1,3 +1,29 @@
+/**
+ * **SelectSearchable** — searchable single-select built on Ark UI Combobox.
+ *
+ * Filters options via `match-sorter` as the user types. Supports an optional
+ * "Add new" affordance (`onAddNew`) and a clear button (`onClear`).
+ *
+ * For full composition control use Ark's `Combobox.*` parts directly.
+ *
+ * @example
+ * ```tsx
+ * import { SelectSearchable } from '@finografic/design-system/forms';
+ *
+ * const options = [
+ *   { value: 'en', label: 'English' },
+ *   { value: 'es', label: 'Spanish' },
+ * ];
+ *
+ * <SelectSearchable
+ *   options={options}
+ *   value={lang}
+ *   onSelect={setLang}
+ *   onClear={() => setLang('')}
+ *   placeholder="Search languages…"
+ * />
+ * ```
+ */
 import {
   CheckIcon,
   ChevronDownIcon,
@@ -7,11 +33,15 @@ import {
 } from '@finografic/icons';
 
 import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
+import { css, cx } from '@styled-system/css';
 import { matchSorter } from 'match-sorter';
 import { useMemo, useState } from 'react';
 
 import { selectSearchableRecipe } from './select-searchable.recipe';
 import type { SelectSearchableProps } from './select-searchable.types';
+
+/** Small de-emphasised secondary label shown under the primary item label. */
+const itemSubLabelStyle = css({ fontSize: '0.75em', opacity: 0.6 });
 
 export function SelectSearchable({
   options,
@@ -28,7 +58,7 @@ export function SelectSearchable({
   size = 'md',
   className,
 }: SelectSearchableProps) {
-  const cls = selectSearchableRecipe({ size });
+  const styles = selectSearchableRecipe({ size });
   const [inputValue, setInputValue] = useState('');
   const canAddNew = typeof onAddNew === 'function';
 
@@ -93,12 +123,12 @@ export function SelectSearchable({
       }}
       disabled={disabled}
       openOnClick
-      className={[cls.root, className].filter(Boolean).join(' ')}
+      className={cx(styles.root, className)}
       positioning={{ sameWidth: true, placement: 'bottom-start' }}
     >
-      <ArkCombobox.Control className={cls.control}>
+      <ArkCombobox.Control className={styles.control}>
         <span
-          className={cls.leadIcon}
+          className={styles.leadIcon}
           data-interactive={showAddNew ? 'true' : undefined}
           aria-hidden
           onClick={showAddNew ? handleAddNew : undefined}
@@ -107,7 +137,7 @@ export function SelectSearchable({
         </span>
 
         <ArkCombobox.Input
-          className={cls.input}
+          className={styles.input}
           placeholder={selectedOption
             ? (selectedOption.label ?? selectedOption.value)
             : placeholder}
@@ -116,7 +146,7 @@ export function SelectSearchable({
         {value && onClear && (
           <button
             type="button"
-            className={cls.clearTrigger}
+            className={styles.clearTrigger}
             onClick={(e) => {
               e.stopPropagation();
               onClear();
@@ -129,40 +159,40 @@ export function SelectSearchable({
           </button>
         )}
 
-        <ArkCombobox.Trigger className={cls.trigger} aria-label="Toggle">
+        <ArkCombobox.Trigger className={styles.trigger} aria-label="Toggle">
           <ChevronDownIcon className="icon icon-sm" aria-hidden />
         </ArkCombobox.Trigger>
       </ArkCombobox.Control>
 
-      <ArkCombobox.Positioner className={cls.positioner}>
-        <ArkCombobox.Content className={cls.content}>
-          <ArkCombobox.List className={cls.list}>
+      <ArkCombobox.Positioner className={styles.positioner}>
+        <ArkCombobox.Content className={styles.content}>
+          <ArkCombobox.List className={styles.list}>
             {filtered.length === 0 && !showAddNew && (
-              <div className={cls.emptyState}>No options found</div>
+              <div className={styles.emptyState}>No options found</div>
             )}
 
             {filtered.map((item) => (
-              <ArkCombobox.Item key={item.value} item={item} className={cls.item}>
-                <ArkCombobox.ItemText className={cls.itemText}>
+              <ArkCombobox.Item key={item.value} item={item} className={styles.item}>
+                <ArkCombobox.ItemText className={styles.itemText}>
                   {item.label && item.label !== item.value
                     ? (
                       <>
                         <span>{item.label}</span>
-                        <span style={{ fontSize: '0.75em', opacity: 0.6 }}>{item.value}</span>
+                        <span className={itemSubLabelStyle}>{item.value}</span>
                       </>
                     )
                     : (
                       item.value
                     )}
                 </ArkCombobox.ItemText>
-                <ArkCombobox.ItemIndicator className={cls.itemIndicator}>
+                <ArkCombobox.ItemIndicator className={styles.itemIndicator}>
                   <CheckIcon className="icon icon-sm" aria-hidden />
                 </ArkCombobox.ItemIndicator>
               </ArkCombobox.Item>
             ))}
 
             {showAddNew && (
-              <button type="button" className={cls.addNew} onClick={handleAddNew}>
+              <button type="button" className={styles.addNew} onClick={handleAddNew}>
                 <PlusIcon className="icon icon-sm" aria-hidden />
                 Add &ldquo;{inputValue.trim()}&rdquo;
               </button>

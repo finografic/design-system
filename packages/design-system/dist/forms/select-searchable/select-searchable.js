@@ -1,12 +1,44 @@
 import { selectSearchableRecipe } from "./select-searchable.recipe.js";
 import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from "@finografic/icons";
 import { useMemo, useState } from "react";
+import { css, cx } from "@styled-system/css";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { Combobox, createListCollection } from "@ark-ui/react";
 import { matchSorter } from "match-sorter";
 //#region src/forms/select-searchable/select-searchable.tsx
+/**
+* **SelectSearchable** — searchable single-select built on Ark UI Combobox.
+*
+* Filters options via `match-sorter` as the user types. Supports an optional
+* "Add new" affordance (`onAddNew`) and a clear button (`onClear`).
+*
+* For full composition control use Ark's `Combobox.*` parts directly.
+*
+* @example
+* ```tsx
+* import { SelectSearchable } from '@finografic/design-system/forms';
+*
+* const options = [
+*   { value: 'en', label: 'English' },
+*   { value: 'es', label: 'Spanish' },
+* ];
+*
+* <SelectSearchable
+*   options={options}
+*   value={lang}
+*   onSelect={setLang}
+*   onClear={() => setLang('')}
+*   placeholder="Search languages…"
+* />
+* ```
+*/
+/** Small de-emphasised secondary label shown under the primary item label. */
+const itemSubLabelStyle = css({
+	fontSize: "0.75em",
+	opacity: .6
+});
 function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onClear, onAddNew, name, placeholder = "Type to search…", disabled = false, windowSize = 20, size = "md", className }) {
-	const cls = selectSearchableRecipe({ size });
+	const styles = selectSearchableRecipe({ size });
 	const [inputValue, setInputValue] = useState("");
 	const canAddNew = typeof onAddNew === "function";
 	const selectedOption = useMemo(() => options.find((o) => o.value === value), [options, value]);
@@ -62,28 +94,28 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onC
 		},
 		disabled,
 		openOnClick: true,
-		className: [cls.root, className].filter(Boolean).join(" "),
+		className: cx(styles.root, className),
 		positioning: {
 			sameWidth: true,
 			placement: "bottom-start"
 		},
 		children: [/* @__PURE__ */ jsxs(Combobox.Control, {
-			className: cls.control,
+			className: styles.control,
 			children: [
 				/* @__PURE__ */ jsx("span", {
-					className: cls.leadIcon,
+					className: styles.leadIcon,
 					"data-interactive": showAddNew ? "true" : void 0,
 					"aria-hidden": true,
 					onClick: showAddNew ? handleAddNew : void 0,
 					children: /* @__PURE__ */ jsx(LeadIcon, { className: "icon icon-sm" })
 				}),
 				/* @__PURE__ */ jsx(Combobox.Input, {
-					className: cls.input,
+					className: styles.input,
 					placeholder: selectedOption ? selectedOption.label ?? selectedOption.value : placeholder
 				}),
 				value && onClear && /* @__PURE__ */ jsx("button", {
 					type: "button",
-					className: cls.clearTrigger,
+					className: styles.clearTrigger,
 					onClick: (e) => {
 						e.stopPropagation();
 						onClear();
@@ -97,7 +129,7 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onC
 					})
 				}),
 				/* @__PURE__ */ jsx(Combobox.Trigger, {
-					className: cls.trigger,
+					className: styles.trigger,
 					"aria-label": "Toggle",
 					children: /* @__PURE__ */ jsx(ChevronDownIcon, {
 						className: "icon icon-sm",
@@ -106,30 +138,27 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onC
 				})
 			]
 		}), /* @__PURE__ */ jsx(Combobox.Positioner, {
-			className: cls.positioner,
+			className: styles.positioner,
 			children: /* @__PURE__ */ jsx(Combobox.Content, {
-				className: cls.content,
+				className: styles.content,
 				children: /* @__PURE__ */ jsxs(Combobox.List, {
-					className: cls.list,
+					className: styles.list,
 					children: [
 						filtered.length === 0 && !showAddNew && /* @__PURE__ */ jsx("div", {
-							className: cls.emptyState,
+							className: styles.emptyState,
 							children: "No options found"
 						}),
 						filtered.map((item) => /* @__PURE__ */ jsxs(Combobox.Item, {
 							item,
-							className: cls.item,
+							className: styles.item,
 							children: [/* @__PURE__ */ jsx(Combobox.ItemText, {
-								className: cls.itemText,
+								className: styles.itemText,
 								children: item.label && item.label !== item.value ? /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx("span", { children: item.label }), /* @__PURE__ */ jsx("span", {
-									style: {
-										fontSize: "0.75em",
-										opacity: .6
-									},
+									className: itemSubLabelStyle,
 									children: item.value
 								})] }) : item.value
 							}), /* @__PURE__ */ jsx(Combobox.ItemIndicator, {
-								className: cls.itemIndicator,
+								className: styles.itemIndicator,
 								children: /* @__PURE__ */ jsx(CheckIcon, {
 									className: "icon icon-sm",
 									"aria-hidden": true
@@ -138,7 +167,7 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onC
 						}, item.value)),
 						showAddNew && /* @__PURE__ */ jsxs("button", {
 							type: "button",
-							className: cls.addNew,
+							className: styles.addNew,
 							onClick: handleAddNew,
 							children: [
 								/* @__PURE__ */ jsx(PlusIcon, {
