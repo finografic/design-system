@@ -28,6 +28,11 @@ Project-specific instructions live in `.github/instructions/project/`:
 - [Variable Naming](/.github/instructions/07-variable-naming.instructions.md)
 - [README Standards](/.github/instructions/08-readme-standards.instructions.md)
 
+## Component Refactor Status
+
+See **[TODO_COMPONENT_REFACTORS.md](TODO_COMPONENT_REFACTORS.md)** for the full checklist.
+Check off each component immediately after its refactor commit is made.
+
 ## Project-Specific
 
 - This is a **standalone installable package** (`@finografic/design-system`), not a monorepo workspace.
