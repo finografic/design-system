@@ -16,6 +16,7 @@ export const fieldBoxRecipe = sva({
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
+      _disabled: { opacity: 0.5, filter: 'grayscale(100%)' },
     },
 
     label: {

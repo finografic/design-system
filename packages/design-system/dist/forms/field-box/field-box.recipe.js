@@ -20,7 +20,11 @@ const fieldBoxRecipe = sva({
 		root: {
 			display: "flex",
 			flexDirection: "column",
-			width: "100%"
+			width: "100%",
+			_disabled: {
+				opacity: .5,
+				filter: "grayscale(100%)"
+			}
 		},
 		label: {
 			display: "inline-flex",

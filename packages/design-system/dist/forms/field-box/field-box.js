@@ -1,5 +1,6 @@
 import { fieldBoxRecipe } from "./field-box.recipe.js";
 import { Children, isValidElement, useEffect, useRef, useState } from "react";
+import { cx } from "@styled-system/css";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import { Field } from "@ark-ui/react";
 import { useFormContext } from "react-hook-form";
@@ -35,7 +36,7 @@ function deriveValidationState(opts) {
 * For all other controls (DS Select, custom), it uses a plain div.
 */
 function FieldBox({ name, label, hint, required = false, size = "md", children, className, error: externalError }) {
-	const cls = fieldBoxRecipe({ size });
+	const styles = fieldBoxRecipe({ size });
 	const formContext = useFormContext?.();
 	const [showDebouncedWarning, setShowDebouncedWarning] = useState(false);
 	const warningTimerRef = useRef(null);
@@ -65,30 +66,30 @@ function FieldBox({ name, label, hint, required = false, size = "md", children, 
 	const showHint = hint && !showError && !(showDebouncedWarning && message);
 	const usesArkField = hasArkFieldInput(children);
 	const rootProps = {
-		"className": [cls.root, className].filter(Boolean).join(" ") || void 0,
+		"className": cx(styles.root, className) || void 0,
 		"data-invalid": showError ? "true" : void 0,
 		"data-required": required ? "true" : void 0,
 		"onBlur": handleBlur
 	};
 	const labelNode = label && /* @__PURE__ */ jsxs("span", {
-		className: cls.label,
+		className: styles.label,
 		children: [label, required && /* @__PURE__ */ jsx("span", {
-			className: cls.requiredIndicator,
+			className: styles.requiredIndicator,
 			"aria-hidden": "true",
 			children: "*"
 		})]
 	});
 	const feedbackNode = /* @__PURE__ */ jsxs(Fragment, { children: [
 		showHint && /* @__PURE__ */ jsx("span", {
-			className: cls.helperText,
+			className: styles.helperText,
 			children: hint
 		}),
 		showDebouncedWarning && !showError && message && /* @__PURE__ */ jsx("span", {
-			className: cls.warningText,
+			className: styles.warningText,
 			children: message
 		}),
 		showError && message && /* @__PURE__ */ jsx("span", {
-			className: cls.errorText,
+			className: styles.errorText,
 			role: "alert",
 			children: message
 		})
@@ -99,20 +100,20 @@ function FieldBox({ name, label, hint, required = false, size = "md", children, 
 		...rootProps,
 		children: [
 			label && /* @__PURE__ */ jsxs(Field.Label, {
-				className: cls.label,
-				children: [label, required && /* @__PURE__ */ jsx(Field.RequiredIndicator, { className: cls.requiredIndicator })]
+				className: styles.label,
+				children: [label, required && /* @__PURE__ */ jsx(Field.RequiredIndicator, { className: styles.requiredIndicator })]
 			}),
 			children,
 			showHint && /* @__PURE__ */ jsx(Field.HelperText, {
-				className: cls.helperText,
+				className: styles.helperText,
 				children: hint
 			}),
 			showDebouncedWarning && !showError && message && /* @__PURE__ */ jsx(Field.HelperText, {
-				className: cls.warningText,
+				className: styles.warningText,
 				children: message
 			}),
 			showError && message && /* @__PURE__ */ jsx(Field.ErrorText, {
-				className: cls.errorText,
+				className: styles.errorText,
 				children: message
 			})
 		]

@@ -1,4 +1,5 @@
 import { Field } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import { Children, isValidElement, type ReactNode, useEffect, useRef, useState } from 'react';
 import type { FieldError } from 'react-hook-form';
 import { useFormContext } from 'react-hook-form';
@@ -60,7 +61,7 @@ export function FieldBox({
   className,
   error: externalError,
 }: FieldBoxProps) {
-  const cls = fieldBoxRecipe({ size });
+  const styles = fieldBoxRecipe({ size });
   const formContext = useFormContext?.();
   const [showDebouncedWarning, setShowDebouncedWarning] = useState(false);
   const warningTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -110,17 +111,17 @@ export function FieldBox({
   const usesArkField = hasArkFieldInput(children);
 
   const rootProps = {
-    'className': [cls.root, className].filter(Boolean).join(' ') || undefined,
+    'className': cx(styles.root, className) || undefined,
     'data-invalid': showError ? 'true' : undefined,
     'data-required': required ? 'true' : undefined,
     'onBlur': handleBlur,
   };
 
   const labelNode = label && (
-    <span className={cls.label}>
+    <span className={styles.label}>
       {label}
       {required && (
-        <span className={cls.requiredIndicator} aria-hidden="true">
+        <span className={styles.requiredIndicator} aria-hidden="true">
           *
         </span>
       )}
@@ -129,12 +130,12 @@ export function FieldBox({
 
   const feedbackNode = (
     <>
-      {showHint && <span className={cls.helperText}>{hint}</span>}
+      {showHint && <span className={styles.helperText}>{hint}</span>}
       {showDebouncedWarning && !showError && message && (
-        <span className={cls.warningText}>{message}</span>
+        <span className={styles.warningText}>{message}</span>
       )}
       {showError && message && (
-        <span className={cls.errorText} role="alert">
+        <span className={styles.errorText} role="alert">
           {message}
         </span>
       )}
@@ -145,18 +146,18 @@ export function FieldBox({
     return (
       <Field.Root invalid={showError} required={required} {...rootProps}>
         {label && (
-          <Field.Label className={cls.label}>
+          <Field.Label className={styles.label}>
             {label}
-            {required && <Field.RequiredIndicator className={cls.requiredIndicator} />}
+            {required && <Field.RequiredIndicator className={styles.requiredIndicator} />}
           </Field.Label>
         )}
         {children}
-        {showHint && <Field.HelperText className={cls.helperText}>{hint}</Field.HelperText>}
+        {showHint && <Field.HelperText className={styles.helperText}>{hint}</Field.HelperText>}
         {showDebouncedWarning && !showError && message && (
-          <Field.HelperText className={cls.warningText}>{message}</Field.HelperText>
+          <Field.HelperText className={styles.warningText}>{message}</Field.HelperText>
         )}
         {showError && message && (
-          <Field.ErrorText className={cls.errorText}>{message}</Field.ErrorText>
+          <Field.ErrorText className={styles.errorText}>{message}</Field.ErrorText>
         )}
       </Field.Root>
     );
