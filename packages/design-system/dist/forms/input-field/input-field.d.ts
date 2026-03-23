@@ -31,15 +31,29 @@ declare const InputFieldRoot: react.ForwardRefExoticComponent<Omit<InputHTMLAttr
   /** Decoration slots — InputField.Slot with side="left" | "right" */children?: ReactNode;
   invalid?: boolean;
 } & react.RefAttributes<HTMLInputElement>>;
+/**
+ * Styled text input compound with optional leading/trailing decoration slots.
+ *
+ * Pass **`size`** and `invalid` on **`Root`**; place **`Slot`** children with
+ * `side="left"` or `side="right"` — the recipe adjusts input padding automatically.
+ *
+ * @example
+ * ```tsx
+ * <InputField.Root size="md" invalid={!!error}>
+ *   <InputField.Slot side="left"><SearchIcon aria-hidden /></InputField.Slot>
+ *   <InputField.Slot side="right" interactive><XIcon aria-hidden /></InputField.Slot>
+ * </InputField.Root>
+ * ```
+ */
 declare const InputField: {
-  Root: react.ForwardRefExoticComponent<Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+  /** Root — controlled state, size, invalid flag, and native input props. */Root: react.ForwardRefExoticComponent<Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
     size?: "sm" | "md" | "lg" | undefined;
     hasLeadingSlot?: boolean | undefined;
     hasTrailingSlot?: boolean | undefined;
   } & {
     /** Decoration slots — InputField.Slot with side="left" | "right" */children?: ReactNode;
     invalid?: boolean;
-  } & react.RefAttributes<HTMLInputElement>>;
+  } & react.RefAttributes<HTMLInputElement>>; /** Decoration slot — place icons or buttons; `side="left" | "right"` positions it. */
   Slot: typeof InputFieldSlot;
 };
 //#endregion

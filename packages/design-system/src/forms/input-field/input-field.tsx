@@ -1,4 +1,5 @@
 import { Field } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import {
   Children,
   forwardRef,
@@ -64,7 +65,7 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
       }
     });
 
-    const cls = inputFieldRecipe({
+    const styles = inputFieldRecipe({
       size,
       hasLeadingSlot: leadingSlots.length > 0,
       hasTrailingSlot: trailingSlots.length > 0,
@@ -72,7 +73,7 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
 
     return (
       <div
-        className={[cls.root, className].filter(Boolean).join(' ')}
+        className={cx(styles.root, className)}
         data-invalid={invalid ? 'true' : undefined}
         data-disabled={disabled ? 'true' : undefined}
       >
@@ -84,7 +85,7 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
                 ...(slot as any),
                 props: {
                   ...(slot as any).props,
-                  className: [cls.slot, (slot as any).props.className].filter(Boolean).join(' '),
+                  className: cx(styles.slot, (slot as any).props.className),
                 },
                 key: i,
               }
@@ -93,7 +94,7 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
         )}
         <Field.Input
           ref={ref}
-          className={cls.input}
+          className={styles.input}
           disabled={disabled}
           aria-invalid={invalid}
           {...inputProps}
@@ -104,7 +105,7 @@ export const InputFieldRoot = forwardRef<HTMLInputElement, InputFieldRootProps>(
               ...(slot as any),
               props: {
                 ...(slot as any).props,
-                className: [cls.slot, (slot as any).props.className].filter(Boolean).join(' '),
+                className: cx(styles.slot, (slot as any).props.className),
               },
               key: i,
             }
@@ -119,7 +120,23 @@ InputFieldRoot.displayName = 'InputField.Root';
 
 // ── Compound export ───────────────────────────────────────────────────────────
 
+/**
+ * Styled text input compound with optional leading/trailing decoration slots.
+ *
+ * Pass **`size`** and `invalid` on **`Root`**; place **`Slot`** children with
+ * `side="left"` or `side="right"` — the recipe adjusts input padding automatically.
+ *
+ * @example
+ * ```tsx
+ * <InputField.Root size="md" invalid={!!error}>
+ *   <InputField.Slot side="left"><SearchIcon aria-hidden /></InputField.Slot>
+ *   <InputField.Slot side="right" interactive><XIcon aria-hidden /></InputField.Slot>
+ * </InputField.Root>
+ * ```
+ */
 export const InputField = {
+  /** Root — controlled state, size, invalid flag, and native input props. */
   Root: InputFieldRoot,
+  /** Decoration slot — place icons or buttons; `side="left" | "right"` positions it. */
   Slot: InputFieldSlot,
 };

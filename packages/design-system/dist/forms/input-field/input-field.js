@@ -1,5 +1,6 @@
 import { inputFieldRecipe } from "./input-field.recipe.js";
 import { Children, forwardRef, isValidElement } from "react";
+import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Field } from "@ark-ui/react";
 //#region src/forms/input-field/input-field.tsx
@@ -20,13 +21,13 @@ const InputFieldRoot = forwardRef(({ children, className, size = "md", invalid, 
 		if (isValidElement(child) && child.type === InputFieldSlot) if ((child.props.side ?? "left") === "right") trailingSlots.push(child);
 		else leadingSlots.push(child);
 	});
-	const cls = inputFieldRecipe({
+	const styles = inputFieldRecipe({
 		size,
 		hasLeadingSlot: leadingSlots.length > 0,
 		hasTrailingSlot: trailingSlots.length > 0
 	});
 	return /* @__PURE__ */ jsxs("div", {
-		className: [cls.root, className].filter(Boolean).join(" "),
+		className: cx(styles.root, className),
 		"data-invalid": invalid ? "true" : void 0,
 		"data-disabled": disabled ? "true" : void 0,
 		children: [
@@ -34,13 +35,13 @@ const InputFieldRoot = forwardRef(({ children, className, size = "md", invalid, 
 				...slot,
 				props: {
 					...slot.props,
-					className: [cls.slot, slot.props.className].filter(Boolean).join(" ")
+					className: cx(styles.slot, slot.props.className)
 				},
 				key: i
 			} : slot : slot),
 			/* @__PURE__ */ jsx(Field.Input, {
 				ref,
-				className: cls.input,
+				className: styles.input,
 				disabled,
 				"aria-invalid": invalid,
 				...inputProps
@@ -49,7 +50,7 @@ const InputFieldRoot = forwardRef(({ children, className, size = "md", invalid, 
 				...slot,
 				props: {
 					...slot.props,
-					className: [cls.slot, slot.props.className].filter(Boolean).join(" ")
+					className: cx(styles.slot, slot.props.className)
 				},
 				key: i
 			} : slot)
@@ -57,6 +58,20 @@ const InputFieldRoot = forwardRef(({ children, className, size = "md", invalid, 
 	});
 });
 InputFieldRoot.displayName = "InputField.Root";
+/**
+* Styled text input compound with optional leading/trailing decoration slots.
+*
+* Pass **`size`** and `invalid` on **`Root`**; place **`Slot`** children with
+* `side="left"` or `side="right"` — the recipe adjusts input padding automatically.
+*
+* @example
+* ```tsx
+* <InputField.Root size="md" invalid={!!error}>
+*   <InputField.Slot side="left"><SearchIcon aria-hidden /></InputField.Slot>
+*   <InputField.Slot side="right" interactive><XIcon aria-hidden /></InputField.Slot>
+* </InputField.Root>
+* ```
+*/
 const InputField = {
 	Root: InputFieldRoot,
 	Slot: InputFieldSlot
