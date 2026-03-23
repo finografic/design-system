@@ -191,7 +191,7 @@ export function DataTable<TData>({
                             onClick={(event) =>
                               event.stopPropagation()}
                             style={{
-                              marginTop: 'var(--spacing-1)',
+                              marginTop: 'var(--spacing-2)',
                               width: '100%',
                             }}
                           />
