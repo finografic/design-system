@@ -49,7 +49,8 @@ Project-specific instructions live in `.github/instructions/project/`:
 - Use `@stylistic/stylelint-plugin` for Stylelint 17; `stylelint-stylistic` is deprecated and incompatible
 - Ignore `.cursor/chats` and `.cursor/hooks`; commit `.cursor/mcp.json`
 - Use Panda MCP for design-system questions (breakpoints, tokens, recipes) when relevant without explicit user ask
-- Convenience wrappers may use **`{Component}DS`** + simplified handlers (e.g. boolean `onChange`); bare compounds keep Ark prop names (`onCheckedChange`, etc.)
+- Convenience wrappers use **`{Component}DS`** as the primary name + simplified handlers (e.g. `onChange(checked)` not Ark's `onCheckedChange` detail object); bare compounds keep Ark prop names
+- Every `*DS` wrapper **must** export a `*Field` alias + `*FieldProps` + `*FieldClassNames` types at the **bottom of the `.tsx` file** (after `displayName`), and re-export all six names from `index.ts`
 - DS authoring/refactors: `sva-components.instructions.md` + `cva-components.instructions.md`; recipe results named `styles` / `stylesComponent`; inline single-use `cx(...)`; no deprecated props (consumer overview: `design-system.instructions.md`)
 
 ## Learned Workspace Facts

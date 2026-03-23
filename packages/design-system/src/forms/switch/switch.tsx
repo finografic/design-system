@@ -143,3 +143,8 @@ export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
 );
 
 SwitchDS.displayName = 'SwitchDS';
+
+/** @alias {@link SwitchDS} */
+export const SwitchField = SwitchDS;
+export type SwitchFieldProps = SwitchDSProps;
+export type SwitchFieldClassNames = SwitchDSClassNames;
