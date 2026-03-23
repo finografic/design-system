@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"label" | "description" | "root" | "indicator" | "control" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "description" | "errorText" | "indicator", {
     size: {
       sm: {
         control: {
@@ -150,24 +150,6 @@ declare const CheckboxDS: react.ForwardRefExoticComponent<{
   className?: string; /** Per-slot class overrides */
   classNames?: CheckboxDSClassNames;
 } & react.RefAttributes<HTMLLabelElement>>;
-/** @alias {@link CheckboxDS} */
-declare const CheckboxField: react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
-} & {
-  /** Label text beside the checkbox */label?: ReactNode; /** Helper text below the label */
-  description?: ReactNode; /** RHF FieldError or plain string */
-  error?: FieldError | string; /** Controlled checked state */
-  checked?: boolean | "indeterminate"; /** Value toggle — forwarded to Ark `onCheckedChange` internally. */
-  onChange?: (checked: boolean | "indeterminate") => void;
-  onBlur?: () => void;
-  name?: string;
-  disabled?: boolean; /** Custom indicator icon; defaults to CheckIcon / MinusIcon */
-  indicator?: ReactNode; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides */
-  classNames?: CheckboxDSClassNames;
-} & react.RefAttributes<HTMLLabelElement>>;
-type CheckboxFieldProps = CheckboxDSProps;
-type CheckboxFieldClassNames = CheckboxDSClassNames;
 //#endregion
-export { Checkbox$1 as Checkbox, CheckboxDS, CheckboxDSClassNames, CheckboxDSProps, CheckboxField, CheckboxFieldClassNames, CheckboxFieldProps };
+export { Checkbox$1 as Checkbox, CheckboxDS, CheckboxDSClassNames, CheckboxDSProps };
 //# sourceMappingURL=checkbox.d.ts.map

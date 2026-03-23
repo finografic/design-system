@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/components/dialog/dialog.recipe.d.ts
-declare const dialogRecipe: SlotRecipeRuntimeFn<"body" | "footer" | "header" | "title" | "content" | "description" | "positioner" | "closeTrigger" | "backdrop", {
+declare const dialogRecipe: SlotRecipeRuntimeFn<"description" | "header" | "footer" | "content" | "backdrop" | "positioner" | "title" | "body" | "closeTrigger", {
   size: {
     sm: {
       content: {

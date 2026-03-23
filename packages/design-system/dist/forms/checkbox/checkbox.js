@@ -94,9 +94,7 @@ const CheckboxDS = forwardRef(({ label, description, error, checked, onChange, o
 	});
 });
 CheckboxDS.displayName = "CheckboxDS";
-/** @alias {@link CheckboxDS} */
-const CheckboxField = CheckboxDS;
 //#endregion
-export { Checkbox$1 as Checkbox, CheckboxDS, CheckboxField };
+export { Checkbox$1 as Checkbox, CheckboxDS };
 
 //# sourceMappingURL=checkbox.js.map

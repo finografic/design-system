@@ -38,7 +38,7 @@ const textColumnStyle = css({
 	gap: "0.5"
 });
 /**
-* Design-system convenience switch — label, description, and error text.
+* Design-system convenience switch — label, description, and error text included.
 * **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
 * bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
 */

@@ -112,7 +112,7 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 										placeholder: "Filter…",
 										onClick: (event) => event.stopPropagation(),
 										style: {
-											marginTop: "var(--spacing-1)",
+											marginTop: "var(--spacing-2)",
 											width: "100%"
 										}
 									}) : null]

@@ -55,13 +55,15 @@ const tableRecipe = sva({
 		th: {
 			textAlign: "left",
 			fontWeight: "semibold",
+			fontSize: "xs",
 			color: "fg.muted",
 			px: "3",
-			py: "2"
+			py: "3"
 		},
 		td: {
 			px: "3",
-			py: "2"
+			py: "2",
+			fontSize: "sm"
 		},
 		sortIcon: { opacity: .6 },
 		emptyState: {

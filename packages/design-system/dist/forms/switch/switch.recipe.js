@@ -32,7 +32,7 @@ const switchRecipe = sva({
 	base: {
 		root: {
 			display: "inline-flex",
-			alignItems: "flex-start",
+			alignItems: "center",
 			gap: "2",
 			position: "relative",
 			color: "fg",

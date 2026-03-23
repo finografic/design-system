@@ -1,4 +1,4 @@
-import { CheckboxFieldClassNames } from "../../forms/checkbox/checkbox.js";
+import { CheckboxDSClassNames } from "../../forms/checkbox/checkbox.js";
 import { DataTableColumn } from "./data-table.column.js";
 
 //#region src/components/data-table/data-table.types.d.ts
@@ -32,7 +32,7 @@ interface DataTableClassNames {
    * Optional checkbox slot classNames, passed through to your own
    * selection column that composes `CheckboxField`.
    */
-  checkbox?: CheckboxFieldClassNames;
+  checkbox?: CheckboxDSClassNames;
 }
 interface DataTableProps<TData> {
   data: TData[];

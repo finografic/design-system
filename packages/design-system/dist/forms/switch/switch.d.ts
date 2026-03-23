@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const Switch$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Switch.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"label" | "description" | "root" | "control" | "thumb" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Switch.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "thumb" | "description" | "errorText", {
     size: {
       sm: {
         control: {
@@ -217,7 +217,7 @@ type SwitchDSProps = SwitchVariants & {
   classNames?: SwitchDSClassNames;
 };
 /**
- * Design-system convenience switch — label, description, and error text.
+ * Design-system convenience switch — label, description, and error text included.
  * **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
  * bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
  */
