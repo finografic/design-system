@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const Switch$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Switch.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "label" | "control" | "errorText" | "thumb", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Switch.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "control" | "label" | "errorText" | "thumb", {
     size: {
       sm: {
         control: {

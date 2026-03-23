@@ -30,8 +30,8 @@ Project-specific instructions live in `.github/instructions/project/`:
 
 ## Component Refactor Status
 
-See **[TODO_COMPONENT_REFACTORS.md](TODO_COMPONENT_REFACTORS.md)** for the full checklist.
-Check off each component immediately after its refactor commit is made.
+See **[TODO_COMPONENT_REFACTORS.md](docs/TODO_COMPONENT_REFACTORS.md)** for the completed refactor checklist.
+All items are checked off. The file is kept as a reference log.
 
 ## Project-Specific
 

@@ -27,3 +27,4 @@ export { selectRecipe } from '../forms/select/select.recipe';
 export { selectSearchableRecipe } from '../forms/select-searchable/select-searchable.recipe';
 export { sliderRecipe } from '../forms/slider/slider.recipe';
 export { switchRecipe } from '../forms/switch/switch.recipe';
+export { tagsInputRecipe } from '../forms/tags-input/tags-input.recipe';

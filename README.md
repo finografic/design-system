@@ -53,21 +53,21 @@ pnpm panda codegen
 
 ## Package Exports
 
-| Import path                                  | Contents                                                                    |
-| -------------------------------------------- | --------------------------------------------------------------------------- |
-| `@workspace/design-system`                   | Main re-export barrel                                                       |
-| `@workspace/design-system/components`        | All components (see below)                                                  |
-| `@workspace/design-system/forms`             | All form inputs (Checkbox, Switch, Select, SelectDefault, SelectSearchable, |
-|                                              | InputField, InputNumber, RadioGroup, Slider, FieldBox, Label)               |
-| `@workspace/design-system/forms/forms.css`   | Import once at app entry                                                    |
-| `@workspace/design-system/recipes`           | All recipe functions                                                        |
-| `@workspace/design-system/grid`              | `Row`, `Col`, `Container`                                                   |
-| `@workspace/design-system/grid/grid.css`     | Import once at app entry                                                    |
-| `@workspace/design-system/tokens`            | `colors` palette map (camelCase → CSS vars)                                 |
-| `@workspace/design-system/viewport`          | Breakpoint constants                                                        |
-| `@workspace/design-system/palette/colors`    | Raw OKLCH color palette                                                     |
-| `@workspace/design-system/panda.preset`      | Panda CSS preset — import in `panda.config.ts`                              |
-| `@workspace/design-system/styles/global.css` | Aggregates reset + keyframes                                                |
+| Import path                                  | Contents                                                                              |
+| -------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `@workspace/design-system`                   | Main re-export barrel                                                                 |
+| `@workspace/design-system/components`        | All components (see below)                                                            |
+| `@workspace/design-system/forms`             | All form inputs (Checkbox, Switch, Select, SelectDefault, SelectSearchable,           |
+|                                              | InputField, InputNumber, RadioGroup, Slider, TagsInput, TagsInputDS, FieldBox, Label) |
+| `@workspace/design-system/forms/forms.css`   | Import once at app entry                                                              |
+| `@workspace/design-system/recipes`           | All recipe functions                                                                  |
+| `@workspace/design-system/grid`              | `Row`, `Col`, `Container`                                                             |
+| `@workspace/design-system/grid/grid.css`     | Import once at app entry                                                              |
+| `@workspace/design-system/tokens`            | `colors` palette map (camelCase → CSS vars)                                           |
+| `@workspace/design-system/viewport`          | Breakpoint constants                                                                  |
+| `@workspace/design-system/palette/colors`    | Raw OKLCH color palette                                                               |
+| `@workspace/design-system/panda.preset`      | Panda CSS preset — import in `panda.config.ts`                                        |
+| `@workspace/design-system/styles/global.css` | Aggregates reset + keyframes                                                          |
 
 ---
 
@@ -121,6 +121,7 @@ See [FORMS.md](./src/forms/FORMS.md) for the full inventory, RHF patterns, and c
 | `SelectSearchable`           | Ark Combobox with `match-sorter` filtering + `onAddNew`           |
 | `Slider`                     | Ark Slider compound — Root, Track, Range, Thumb, Label            |
 | `Switch` / `SwitchDS`        | Ark Switch + `createStyleContext`; `SwitchDS` convenience wrapper |
+| `TagsInput` / `TagsInputDS`  | Ark TagsInput compound + `TagsInputDS` convenience wrapper        |
 
 ---
 
@@ -157,6 +158,7 @@ All exported from `@workspace/design-system/recipes`.
 | `sliderRecipe`           | `slider`            | root · label · valueText · control · track · range · thumb · markerGroup · marker                                                                   |
 | `switchRecipe`           | `switch`            | root · label · control · thumb · description · errorText                                                                                            |
 | `tableRecipe`            | `table`             | root · table · thead · tbody · tfoot · tr · headerRow · th · td · sortIcon · emptyState · caption                                                   |
+| `tagsInputRecipe`        | `tags-input`        | root · label · control · item · itemPreview · itemText · itemInput · itemDeleteTrigger · input · clearTrigger · description · errorText             |
 | `tabsRecipe`             | `tabs`              | root · list · trigger · content · indicator                                                                                                         |
 | `toastRecipe`            | `toast`             | root · group · title · description · actionTrigger · closeTrigger                                                                                   |
 | `tooltipRecipe`          | `tooltip`           | positioner · content · arrow · trigger                                                                                                              |
@@ -336,7 +338,8 @@ packages/design-system/src/
 │   ├── select-default/
 │   ├── select-searchable/
 │   ├── slider/
-│   └── switch/
+│   ├── switch/
+│   └── tags-input/
 │
 ├── recipes/                 ← index.ts only — re-exports all recipes from components/
 │

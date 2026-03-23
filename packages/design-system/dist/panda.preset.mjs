@@ -626,10 +626,19 @@ const textStyles = defineTextStyles({
 });
 //#endregion
 //#region src/viewport/viewport.utils.ts
+/** Default pixel size of the HTML root element, used for rem/em conversions. */
 const BASE_PX = 16;
+/** Converts a pixel value to rem, rounded to 2 decimal places. */
 const convertPxToRem = (px) => Number((1 / BASE_PX * px).toFixed(2));
+/** Formats a pixel value as a `px` string — e.g. `768` → `'768px'`. */
 const toPixelString = (value) => `${value}px`;
+/** Converts a pixel value to a numeric rem value. Used as a `mapBreakpoints` callback. */
 const toRemNumeric = (px) => convertPxToRem(px);
+/**
+* Converts a pixel value to a numeric em value.
+* In this context em === rem (assumes no inherited font-size scaling).
+* Used as a `mapBreakpoints` callback.
+*/
 const toEmNumeric = (px) => convertPxToRem(px);
 //#endregion
 //#region src/viewport/viewport.breakpoints.ts

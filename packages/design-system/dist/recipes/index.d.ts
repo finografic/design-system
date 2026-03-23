@@ -21,4 +21,5 @@ import { selectRecipe } from "../forms/select/select.recipe.js";
 import { selectSearchableRecipe } from "../forms/select-searchable/select-searchable.recipe.js";
 import { sliderRecipe } from "../forms/slider/slider.recipe.js";
 import { switchRecipe } from "../forms/switch/switch.recipe.js";
-export { type RootTriggerRecipeProps, badgeRecipe, buttonRecipe, calloutRecipe, cardRecipe, checkboxRecipe, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, menuRecipe, popoverRecipe, radioGroupRecipe, rootTriggerRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tableRecipe, tabsRecipe, textRecipe, toastRecipe, tooltipRecipe };
+import { tagsInputRecipe } from "../forms/tags-input/tags-input.recipe.js";
+export { type RootTriggerRecipeProps, badgeRecipe, buttonRecipe, calloutRecipe, cardRecipe, checkboxRecipe, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, menuRecipe, popoverRecipe, radioGroupRecipe, rootTriggerRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tableRecipe, tabsRecipe, tagsInputRecipe, textRecipe, toastRecipe, tooltipRecipe };
