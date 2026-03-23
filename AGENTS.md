@@ -62,3 +62,5 @@ Project-specific instructions live in `.github/instructions/project/`:
 - Panda MCP in monorepo: command `pnpm`, args `["--filter", "@finografic/design-system", "exec", "panda", "mcp"]`
 - `panda.config.ts` and `@pandacss/dev` live in `packages/design-system`
 - Watch script for linked library: `pnpm watch` runs `panda codegen -w` and `tsdown --watch` in parallel
+- Ark reference CSS files (copied from Ark UI docs) live in `src/ark-reference/css/` — treat as specs for translating into `sva` recipes; never import or ship them as CSS modules
+- `colorPalette` explicit-slot rule: in an `sva`, any slot that uses `colorPalette.*` inside a **conditional state** (`_checked`, `_hover`, `_expanded`, etc.) must have `colorPalette` set **directly on that slot** in the palette variant — inheritance from root is not sufficient for Panda's atomic extraction of conditional rules. See `sva-components.instructions.md` § `colorPalette in slot recipes`.

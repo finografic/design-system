@@ -12,14 +12,16 @@ compounds and `createStyleContext`.
 
 Same rules as **[sva-components.instructions.md](sva-components.instructions.md)** (section **Shared conventions**). In short:
 
-| Topic              | Rule                                                                                                                                                                     |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`cx`**           | From `@styled-system/css`; **inline** when used once in JSX.                                                                                                             |
-| **Deprecated API** | No `@deprecated` props; no long-lived compat shims.                                                                                                                      |
-| **`onChange`**     | On **wrappers**, simplify handler shapes when it helps DX; **primitives** stay close to DOM/Ark (`onCheckedChange` on a raw button is N/A — buttons use `onClick`).      |
-| **Types**          | Explicit variant unions where `RecipeProps<>` is weak.                                                                                                                   |
-| **Tokens**         | Semantic tokens in `base` / `variants`; map third-party demo CSS to tokens.                                                                                              |
-| **Recipe binding** | Bind the **`cva`** return value to **`styles`** (a class string), not `recipeClass` or `cls`. Multiple recipes in one scope: **`stylesButton`**, **`stylesBadge`**, etc. |
+| Topic                             | Rule                                                                                                                                                                                                                            |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`cx`**                          | Import only from `@styled-system/css`. **Inline** `cx(...)` in JSX when the result is used **once**; use a `const` only if reused, very long, or clarity needs a name.                                                          |
+| **Deprecated API**                | Do **not** add `@deprecated` props or backward-compat aliases. Prefer a clean break while the API is still settling.                                                                                                            |
+| **`onChange` at the DS boundary** | On **wrappers**, simplify handler shapes when it helps DX; **primitives** stay close to DOM/Ark (`onCheckedChange` on a raw button is N/A — buttons use `onClick`).                                                             |
+| **Types**                         | Export explicit variant unions where `RecipeProps<>` is insufficient (e.g. `ButtonVariant`, `ButtonPalette`). Do not index `RecipeProps` for keys that are not exposed.                                                         |
+| **Tokens**                        | Prefer semantic tokens in recipes (`fg`, `bg.muted`, `accent.solid`, `border.subtle`). Port Ark demo CSS by **mapping** demo variables to tokens, not by shipping demo CSS variables.                                           |
+| **Ark example CSS**               | Treat Ark docs stylesheets as a **spec** → implement as Panda **`cva`** + tokens. Avoid shipping parallel **CSS modules** for the same UI long term.                                                                            |
+| **Recipe binding name**           | The variable holding a recipe's return value is always **`styles`** (a class string), not `recipeClass` or `cls`. Multiple recipes in one scope: **`stylesButton`**, **`stylesBadge`**, etc.                                    |
+| **No inline `style` in wrappers** | Never use the `style` attribute for layout in DS wrappers — use Panda `css()` instead. Module-level `const` for static values; `css()` inline for one-offs. Keeps all styling in the Panda layer (cascade, tokens, extraction). |
 
 ---
 
@@ -87,3 +89,5 @@ Do **not** wrap a lone `cva` in fake **`{ root: '...' }`** “slots” just for 
 
 - **`cva`** for a component that is actually **multi-part** Ark UI — use **`sva` + `createStyleContext`**.
 - **`clsx` / `cn`** for Panda class strings in DS code — use **`cx`** from **`@styled-system/css`** for consistency with generated classes.
+- **Local `function cx(...)`** — use **`@styled-system/css`** **`cx`** only.
+- **Inline `style` attribute in DS wrappers** — use `css()` to keep everything in the Panda pipeline.

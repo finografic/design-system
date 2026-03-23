@@ -19,6 +19,7 @@ const config: Linter.Config[] = [
       '**/.cursor/**',
       '**/*.min.*',
       '**/*.map',
+      '**/ark-reference/docs/**/*',
     ],
   },
 
@@ -131,7 +132,6 @@ const config: Linter.Config[] = [
       'dist/**',
       '.cursor/**',
       '.github/instructions/**',
-      '_templates/**/*.md',
     ],
     languageOptions: {
       parser: markdownlintParser,
