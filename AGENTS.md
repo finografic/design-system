@@ -36,6 +36,7 @@ Project-specific instructions live in `.github/instructions/project/`:
 - Do not reference `@workspace/*` — all imports and deps must use published package names.
 - The `panda.preset` entry must always build with `platform: 'node'` in tsdown.
 - Never add `watch: true` to `panda.config.ts` — it causes `panda codegen` to hang.
+- **`dist/` is committed** — this is a published package library; `dist/` must be included. After every component refactor: run `pnpm build` from `packages/design-system/`, then commit `dist/` with `chore(dist): build — <summary>`.
 
 ## Learned User Preferences
 
