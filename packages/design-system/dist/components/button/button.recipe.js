@@ -28,6 +28,7 @@ const buttonRecipe = cva({
 		"cursor": "pointer",
 		"flexShrink": 0,
 		"outline": 0,
+		"fontFamily": "inherit",
 		"lineHeight": "1.2",
 		"isolation": "isolate",
 		"fontWeight": "semibold",
