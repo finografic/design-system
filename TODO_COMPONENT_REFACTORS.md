@@ -16,8 +16,8 @@
 - [x] Button — spinner loading state, `fullWidth`, `fontFamily: inherit`
 - [ ] Callout
 - [ ] Card
-- [ ] DataTable
-- [ ] Dialog
+- [x] DataTable — inline `style={{}}` → `css()`, JSDoc with `@example`
+- [x] Dialog — `createStyleContext` wiring, recipe slots replace BEM, `size` moves to Root, `xs`/`cover` variants added, JSDoc
 - [ ] GenericDialog
 - [x] Menu — scale animation, maxH guard, item truncation, _checked, arrowTip border
 - [ ] Popover
