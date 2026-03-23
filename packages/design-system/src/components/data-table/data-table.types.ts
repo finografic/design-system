@@ -1,4 +1,4 @@
-import type { CheckboxFieldClassNames } from '../../forms/checkbox';
+import type { CheckboxDSClassNames } from '../../forms/checkbox';
 import type { DataTableColumn } from './data-table.column';
 
 export interface DataTableTableClassNames {
@@ -32,7 +32,7 @@ export interface DataTableClassNames {
    * Optional checkbox slot classNames, passed through to your own
    * selection column that composes `CheckboxField`.
    */
-  checkbox?: CheckboxFieldClassNames;
+  checkbox?: CheckboxDSClassNames;
 }
 
 export interface DataTableProps<TData> {

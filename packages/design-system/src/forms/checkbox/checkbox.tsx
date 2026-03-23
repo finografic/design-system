@@ -155,8 +155,3 @@ export const CheckboxDS = forwardRef<HTMLLabelElement, CheckboxDSProps>(
 );
 
 CheckboxDS.displayName = 'CheckboxDS';
-
-/** @alias {@link CheckboxDS} */
-export const CheckboxField = CheckboxDS;
-export type CheckboxFieldProps = CheckboxDSProps;
-export type CheckboxFieldClassNames = CheckboxDSClassNames;

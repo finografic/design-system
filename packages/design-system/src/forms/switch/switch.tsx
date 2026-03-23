@@ -7,7 +7,7 @@ import type { FieldError } from 'react-hook-form';
 import { switchRecipe } from './switch.recipe';
 import type { SwitchVariants } from './switch.types';
 
-// ── Styled compound (matches Checkbox + `createStyleContext` pattern) ─────────
+// ── Compound (createStyleContext) ─────────────────────────────────────────────
 
 const { withProvider, withContext } = createStyleContext(switchRecipe);
 
@@ -43,7 +43,7 @@ export const Switch = {
   HiddenInput: ArkSwitch.HiddenInput,
 };
 
-// ── SwitchDS — convenience wrapper (label / description / error) ─────────────
+// ── SwitchDS — convenience wrapper ───────────────────────────────────────────
 
 const textColumnStyle = css({ display: 'flex', flexDirection: 'column', gap: '0.5' });
 
@@ -73,7 +73,7 @@ export type SwitchDSProps = SwitchVariants & {
 };
 
 /**
- * Design-system convenience switch — label, description, and error text.
+ * Design-system convenience switch — label, description, and error text included.
  * **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
  * bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
  */
@@ -143,8 +143,3 @@ export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
 );
 
 SwitchDS.displayName = 'SwitchDS';
-
-/** @alias {@link SwitchDS} */
-export const SwitchField = SwitchDS;
-export type SwitchFieldProps = SwitchDSProps;
-export type SwitchFieldClassNames = SwitchDSClassNames;
