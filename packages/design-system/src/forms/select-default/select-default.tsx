@@ -53,6 +53,8 @@ export const SelectDefault = forwardRef<HTMLButtonElement, SelectDefaultProps>(
       name,
       className,
       onBlur,
+      onOpenChange,
+      onHighlightChange,
       multiple,
     } = props;
 
@@ -102,7 +104,11 @@ export const SelectDefault = forwardRef<HTMLButtonElement, SelectDefaultProps>(
         collection={collection}
         value={arkValue}
         onValueChange={handleValueChange}
-        onOpenChange={() => onBlur?.()}
+        onOpenChange={({ open }) => {
+          onOpenChange?.(open);
+          if (!open) onBlur?.();
+        }}
+        onHighlightChange={({ highlightedValue }) => onHighlightChange?.(highlightedValue)}
         disabled={disabled}
         className={cx(styles.root, className)}
         positioning={{ sameWidth: true, placement: 'bottom-start' }}

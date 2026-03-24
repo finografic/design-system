@@ -51,7 +51,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const TagsInput$1: {
-  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "control" | "label" | "errorText" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "control" | "label" | "errorText" | "itemPreview" | "itemInput" | "itemDeleteTrigger" | "input" | "clearTrigger", {
     size: {
       sm: {
         label: {
@@ -187,7 +187,7 @@ declare const TagsInput$1: {
       };
     };
   }>>; /** Root with external machine state from `useTagsInput`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "control" | "label" | "errorText" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "control" | "label" | "errorText" | "itemPreview" | "itemInput" | "itemDeleteTrigger" | "input" | "clearTrigger", {
     size: {
       sm: {
         label: {
@@ -351,7 +351,14 @@ interface TagsInputDSClassNames {
 }
 type TagsInputDSProps = TagsInputVariants & {
   /** Controlled list of tag strings. */value?: string[]; /** Called when the tag list changes — receives the full updated array. */
-  onChange?: (value: string[]) => void;
+  onChange?: (value: string[]) => void; /** Called as the user types in the input field. */
+  onInputValueChange?: (inputValue: string) => void; /** Called when keyboard/pointer highlight moves between tags. */
+  onHighlightChange?: (value: string | null) => void;
+  /**
+   * Called when a tag is rejected — e.g. over max count or failed `validate`.
+   * `reason` is one of: `'rangeOverflow' | 'invalidTag'`.
+   */
+  onValueInvalid?: (reason: string) => void;
   onBlur?: () => void; /** Label above the input box. */
   label?: ReactNode; /** Helper text below the input box. */
   description?: ReactNode; /** RHF FieldError or plain string. */
@@ -376,7 +383,14 @@ declare const TagsInputDS: react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
   /** Controlled list of tag strings. */value?: string[]; /** Called when the tag list changes — receives the full updated array. */
-  onChange?: (value: string[]) => void;
+  onChange?: (value: string[]) => void; /** Called as the user types in the input field. */
+  onInputValueChange?: (inputValue: string) => void; /** Called when keyboard/pointer highlight moves between tags. */
+  onHighlightChange?: (value: string | null) => void;
+  /**
+   * Called when a tag is rejected — e.g. over max count or failed `validate`.
+   * `reason` is one of: `'rangeOverflow' | 'invalidTag'`.
+   */
+  onValueInvalid?: (reason: string) => void;
   onBlur?: () => void; /** Label above the input box. */
   label?: ReactNode; /** Helper text below the input box. */
   description?: ReactNode; /** RHF FieldError or plain string. */

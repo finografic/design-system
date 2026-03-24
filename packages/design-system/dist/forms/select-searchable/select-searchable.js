@@ -2,7 +2,7 @@ import { selectSearchableRecipe } from "./select-searchable.recipe.js";
 import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from "@finografic/icons";
 import { useMemo, useState } from "react";
 import { css, cx } from "@styled-system/css";
-import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
 import { Combobox, createListCollection } from "@ark-ui/react";
 import { matchSorter } from "match-sorter";
 //#region src/forms/select-searchable/select-searchable.tsx
@@ -37,7 +37,7 @@ const itemSubLabelStyle = css({
 	fontSize: "0.75em",
 	opacity: .6
 });
-function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onClear, onAddNew, name, placeholder = "Type to search…", disabled = false, windowSize = 20, size = "md", className }) {
+function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onOpenChange, onHighlightChange, onClear, onAddNew, name, placeholder = "Type to search…", disabled = false, windowSize = 20, size = "md", className }) {
 	const styles = selectSearchableRecipe({ size });
 	const [inputValue, setInputValue] = useState("");
 	const canAddNew = typeof onAddNew === "function";
@@ -88,10 +88,12 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onC
 		inputValue,
 		onInputValueChange: ({ inputValue: v }) => setInputValue(v),
 		onValueChange: handleValueChange,
-		onOpenChange: () => {
+		onOpenChange: ({ open }) => {
 			setInputValue("");
-			onBlur?.();
+			onOpenChange?.(open);
+			if (!open) onBlur?.();
 		},
+		onHighlightChange: ({ highlightedValue }) => onHighlightChange?.(highlightedValue),
 		disabled,
 		openOnClick: true,
 		className: cx(styles.root, className),
@@ -153,7 +155,7 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onC
 							className: styles.item,
 							children: [/* @__PURE__ */ jsx(Combobox.ItemText, {
 								className: styles.itemText,
-								children: item.label && item.label !== item.value ? /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx("span", { children: item.label }), /* @__PURE__ */ jsx("span", {
+								children: item.label && item.label !== item.value ? /* @__PURE__ */ jsxs(Fragment$1, { children: [/* @__PURE__ */ jsx("span", { children: item.label }), /* @__PURE__ */ jsx("span", {
 									className: itemSubLabelStyle,
 									children: item.value
 								})] }) : item.value

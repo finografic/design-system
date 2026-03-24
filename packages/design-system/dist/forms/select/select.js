@@ -2,8 +2,9 @@ import { selectRecipe } from "./select.recipe.js";
 import { Select, createListCollection as createListCollection$1, useListCollection } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/select/select.tsx
+const { withProvider, withContext } = createStyleContext(selectRecipe);
 /**
-* Select — styled Ark UI **Select** compound wired to `selectRecipe` via `createStyleContext`.
+* Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
 *
 * Ark handles all a11y: `listbox` / `option` roles, keyboard navigation (arrows,
 * Home/End, typeahead), and Escape to close. Variant props go on **`Select.Root`**.
@@ -24,7 +25,7 @@ import { createStyleContext } from "@styled-system/jsx";
 *   ],
 * });
 *
-* <Select.Root collection={collection} onValueChange={({ value }) => setValue(value)}>
+* <Select.Root collection={collection} onValueChange={({ value, items }) => setValue(value)}>
 *   <Select.Label>Language</Select.Label>
 *   <Select.Control>
 *     <Select.Trigger>
@@ -48,14 +49,9 @@ import { createStyleContext } from "@styled-system/jsx";
 * </Select.Root>
 * ```
 */
-const { withProvider, withContext } = createStyleContext(selectRecipe);
-/**
-* Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
-*
-* Place `collection`, `value`, `onValueChange`, `multiple`, and `size` on **`Root`**.
-*/
 const Select$1 = {
 	Root: withProvider(Select.Root, "root"),
+	RootProvider: withProvider(Select.RootProvider, "root"),
 	Label: withContext(Select.Label, "label"),
 	Control: withContext(Select.Control, "control"),
 	Trigger: withContext(Select.Trigger, "trigger"),

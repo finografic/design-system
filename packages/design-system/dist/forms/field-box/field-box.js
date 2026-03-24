@@ -1,7 +1,7 @@
 import { fieldBoxRecipe } from "./field-box.recipe.js";
 import { Children, isValidElement, useEffect, useRef, useState } from "react";
 import { cx } from "@styled-system/css";
-import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
 import { Field } from "@ark-ui/react";
 import { useFormContext } from "react-hook-form";
 //#region src/forms/field-box/field-box.tsx
@@ -79,7 +79,7 @@ function FieldBox({ name, label, hint, required = false, size = "md", children, 
 			children: "*"
 		})]
 	});
-	const feedbackNode = /* @__PURE__ */ jsxs(Fragment, { children: [
+	const feedbackNode = /* @__PURE__ */ jsxs(Fragment$1, { children: [
 		showHint && /* @__PURE__ */ jsx("span", {
 			className: styles.helperText,
 			children: hint

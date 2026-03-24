@@ -59,13 +59,15 @@ const textColumnStyle = css({
 * **`Slider`** stays the styled compound for full composition; **`SliderDS`** = packaged DS
 * API (`onChange(value: number)`; bare **`Slider.Root`** still uses Ark's `onValueChange`).
 */
-const SliderDS = forwardRef(({ value, onChange, min, max, step, label, showValue = true, description, error, name, disabled, size = "md", className, classNames = {} }, ref) => {
+const SliderDS = forwardRef(({ value, onChange, onChangeEnd, onFocusChange, min, max, step, label, showValue = true, description, error, name, disabled, size = "md", className, classNames = {} }, ref) => {
 	const styles = sliderRecipe({ size });
 	const errorMessage = typeof error === "string" ? error : error?.message;
 	return /* @__PURE__ */ jsxs(Slider.Root, {
 		ref,
-		value: value !== void 0 ? [value] : void 0,
-		onValueChange: ({ value: vals }) => onChange?.(vals[0] ?? 0),
+		value,
+		onValueChange: ({ value: vals }) => onChange?.(vals),
+		onValueChangeEnd: ({ value: vals }) => onChangeEnd?.(vals),
+		onFocusChange: ({ focusedIndex }) => onFocusChange?.(focusedIndex >= 0),
 		min,
 		max,
 		step,
@@ -82,10 +84,10 @@ const SliderDS = forwardRef(({ value, onChange, min, max, step, label, showValue
 				children: [/* @__PURE__ */ jsx(Slider.Track, {
 					className: cx(styles.track, classNames.track),
 					children: /* @__PURE__ */ jsx(Slider.Range, { className: cx(styles.range, classNames.range) })
-				}), /* @__PURE__ */ jsx(Slider.Thumb, {
-					index: 0,
+				}), (value ?? [0]).map((_, i) => /* @__PURE__ */ jsx(Slider.Thumb, {
+					index: i,
 					className: cx(styles.thumb, classNames.thumb)
-				})]
+				}, i))]
 			}),
 			(description || errorMessage) && /* @__PURE__ */ jsxs("div", {
 				className: textColumnStyle,

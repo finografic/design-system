@@ -8,6 +8,8 @@ declare function SelectSearchable({
   onSelect,
   onChange,
   onBlur,
+  onOpenChange,
+  onHighlightChange,
   onClear,
   onAddNew,
   name,

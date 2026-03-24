@@ -11,8 +11,7 @@ import { sva } from "@styled-system/css";
 * `CheckboxItem` and `RadioItem` both share the `item` slot; `_checked` applies
 * accent colour for their selected state.
 *
-* `Trigger` has no recipe slot — styled by the consumer (use `rootTriggerRecipe`
-* or `buttonRecipe` as needed).
+* `Trigger` has no recipe slot — unstyled; compose with `asChild` + `<Button>` on the consumer side.
 */
 const menuRecipe = sva({
 	className: "menu",

@@ -49,6 +49,8 @@ export function SelectSearchable({
   onSelect,
   onChange,
   onBlur,
+  onOpenChange,
+  onHighlightChange,
   onClear,
   onAddNew,
   name,
@@ -117,10 +119,12 @@ export function SelectSearchable({
       inputValue={inputValue}
       onInputValueChange={({ inputValue: v }) => setInputValue(v)}
       onValueChange={handleValueChange}
-      onOpenChange={() => {
+      onOpenChange={({ open }) => {
         setInputValue('');
-        onBlur?.();
+        onOpenChange?.(open);
+        if (!open) onBlur?.();
       }}
+      onHighlightChange={({ highlightedValue }) => onHighlightChange?.(highlightedValue)}
       disabled={disabled}
       openOnClick
       className={cx(styles.root, className)}

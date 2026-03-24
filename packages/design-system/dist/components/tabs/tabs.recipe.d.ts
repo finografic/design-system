@@ -1,6 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import { RecipeProps } from "../../types/recipes.types.js";
+
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "trigger" | "list", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator", {
   variant: {
     line: {
       list: {
@@ -111,6 +113,8 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" |
     };
   };
 }>;
+/** Props accepted by `tabsRecipe` (spread on `Tabs.Root` / `Tabs.RootProvider`). */
+type TabsRecipeProps = RecipeProps<typeof tabsRecipe>;
 //#endregion
-export { tabsRecipe };
+export { TabsRecipeProps, tabsRecipe };
 //# sourceMappingURL=tabs.recipe.d.ts.map

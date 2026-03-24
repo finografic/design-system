@@ -40,7 +40,7 @@ import { Select, createListCollection } from "@ark-ui/react";
 * ```
 */
 const SelectDefault = forwardRef((props, ref) => {
-	const { options, placeholder = "Select…", disabled = false, allowEmpty = false, size = "md", id, name, className, onBlur, multiple } = props;
+	const { options, placeholder = "Select…", disabled = false, allowEmpty = false, size = "md", id, name, className, onBlur, onOpenChange, onHighlightChange, multiple } = props;
 	const styles = selectRecipe({ size });
 	const items = useMemo(() => {
 		const base = options.map((o) => ({
@@ -85,7 +85,11 @@ const SelectDefault = forwardRef((props, ref) => {
 		collection,
 		value: arkValue,
 		onValueChange: handleValueChange,
-		onOpenChange: () => onBlur?.(),
+		onOpenChange: ({ open }) => {
+			onOpenChange?.(open);
+			if (!open) onBlur?.();
+		},
+		onHighlightChange: ({ highlightedValue }) => onHighlightChange?.(highlightedValue),
 		disabled,
 		className: cx(styles.root, className),
 		positioning: {

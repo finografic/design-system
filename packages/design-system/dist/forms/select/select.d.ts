@@ -7,10 +7,145 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
 /**
  * Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
  *
- * Place `collection`, `value`, `onValueChange`, `multiple`, and `size` on **`Root`**.
+ * Ark handles all a11y: `listbox` / `option` roles, keyboard navigation (arrows,
+ * Home/End, typeahead), and Escape to close. Variant props go on **`Select.Root`**.
+ *
+ * **Multi-select:** pass `multiple` to `Select.Root`. Ark manages selection state;
+ * `Select.ItemIndicator` (check icon) shows for each selected item. `SelectDefault`
+ * also accepts `multiple` for a simpler options-array API.
+ *
+ * @example
+ * ```tsx
+ * import { Select, createListCollection } from '@finografic/design-system/forms';
+ * import { CheckIcon, ChevronDownIcon } from '@finografic/icons';
+ *
+ * const collection = createListCollection({
+ *   items: [
+ *     { value: 'en', label: 'English' },
+ *     { value: 'es', label: 'Spanish' },
+ *   ],
+ * });
+ *
+ * <Select.Root collection={collection} onValueChange={({ value, items }) => setValue(value)}>
+ *   <Select.Label>Language</Select.Label>
+ *   <Select.Control>
+ *     <Select.Trigger>
+ *       <Select.ValueText placeholder="Pick one…" />
+ *       <Select.Indicator><ChevronDownIcon aria-hidden /></Select.Indicator>
+ *     </Select.Trigger>
+ *   </Select.Control>
+ *   <Select.Positioner>
+ *     <Select.Content>
+ *       <Select.List>
+ *         {collection.items.map((item) => (
+ *           <Select.Item key={item.value} item={item}>
+ *             <Select.ItemText>{item.label}</Select.ItemText>
+ *             <Select.ItemIndicator><CheckIcon aria-hidden /></Select.ItemIndicator>
+ *           </Select.Item>
+ *         ))}
+ *       </Select.List>
+ *     </Select.Content>
+ *   </Select.Positioner>
+ *   <Select.HiddenSelect />
+ * </Select.Root>
+ * ```
  */
 declare const Select$1: {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "list" | "control" | "label" | "valueText" | "clearTrigger", {
+  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "control" | "label" | "clearTrigger" | "valueText", {
+    size: {
+      sm: {
+        label: {
+          fontSize: "xs";
+        };
+        trigger: {
+          h: "9";
+          px: "2.5";
+          fontSize: "sm";
+          gap: "1.5";
+        };
+        item: {
+          px: "2";
+          py: "1";
+          fontSize: "sm";
+        };
+        itemGroupLabel: {
+          px: "2";
+          py: "1";
+        };
+        itemIndicator: {
+          w: "3";
+          h: "3";
+        };
+        clearTrigger: {
+          '& svg': {
+            w: "3";
+            h: "3";
+          };
+        };
+      };
+      md: {
+        label: {
+          fontSize: "sm";
+        };
+        trigger: {
+          h: "10";
+          px: "3";
+          fontSize: "sm";
+          gap: "2";
+        };
+        item: {
+          px: "3";
+          py: "1.5";
+          fontSize: "sm";
+        };
+        itemGroupLabel: {
+          px: "3";
+          py: "1.5";
+        };
+        itemIndicator: {
+          w: "4";
+          h: "4";
+        };
+        clearTrigger: {
+          '& svg': {
+            w: "4";
+            h: "4";
+          };
+        };
+      };
+      lg: {
+        label: {
+          fontSize: "md";
+        };
+        trigger: {
+          h: "11";
+          px: "4";
+          fontSize: "md";
+          gap: "2";
+        };
+        item: {
+          px: "3";
+          py: "2";
+          fontSize: "md";
+        };
+        itemGroupLabel: {
+          px: "3";
+          py: "2";
+        };
+        itemIndicator: {
+          w: "4";
+          h: "4";
+        };
+        clearTrigger: {
+          '& svg': {
+            w: "4";
+            h: "4";
+          };
+        };
+      };
+    };
+  }>>; /** Root with external machine state from `useSelect`. */
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "control" | "label" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {

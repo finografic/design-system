@@ -25,7 +25,21 @@ import { FieldError } from "react-hook-form";
 type InputNumberProps = InputNumberVariants & {
   value?: number;
   defaultValue?: number;
-  onChange?: (value: number | null) => void;
+  /**
+   * Called on every keystroke — receives the raw string value and its parsed number.
+   * `valueAsNumber` is `NaN` when the field is empty or the text is not a valid number.
+   */
+  onChange?: (value: string, valueAsNumber: number) => void;
+  /**
+   * Called when the value is committed (Enter, blur, stepper click).
+   * Receives the same `(value, valueAsNumber)` shape as `onChange`.
+   */
+  onValueCommit?: (value: string, valueAsNumber: number) => void;
+  /**
+   * Called when a submitted value is out of range or otherwise invalid.
+   * `reason` is one of: `'rangeUnderflow' | 'rangeOverflow' | 'stepMismatch' | 'typeMismatch'`.
+   */
+  onValueInvalid?: (reason: string) => void;
   onBlur?: () => void;
   name?: string;
   min?: number;
@@ -50,7 +64,21 @@ declare const InputNumber: react.ForwardRefExoticComponent<{
 } & {
   value?: number;
   defaultValue?: number;
-  onChange?: (value: number | null) => void;
+  /**
+   * Called on every keystroke — receives the raw string value and its parsed number.
+   * `valueAsNumber` is `NaN` when the field is empty or the text is not a valid number.
+   */
+  onChange?: (value: string, valueAsNumber: number) => void;
+  /**
+   * Called when the value is committed (Enter, blur, stepper click).
+   * Receives the same `(value, valueAsNumber)` shape as `onChange`.
+   */
+  onValueCommit?: (value: string, valueAsNumber: number) => void;
+  /**
+   * Called when a submitted value is out of range or otherwise invalid.
+   * `reason` is one of: `'rangeUnderflow' | 'rangeOverflow' | 'stepMismatch' | 'typeMismatch'`.
+   */
+  onValueInvalid?: (reason: string) => void;
   onBlur?: () => void;
   name?: string;
   min?: number;

@@ -4,7 +4,6 @@ import { calloutRecipe } from "../components/callout/callout.recipe.js";
 import { cardRecipe } from "../components/card/card.recipe.js";
 import { textRecipe } from "../components/text/text.recipe.js";
 import { tableRecipe } from "../components/data-table/data-table.recipe.js";
-import { rootTriggerRecipe } from "./root-trigger.recipe.js";
 import { dialogRecipe } from "../components/dialog/dialog.recipe.js";
 import { tabsRecipe } from "../components/tabs/tabs.recipe.js";
 import { menuRecipe } from "../components/menu/menu.recipe.js";
@@ -22,4 +21,4 @@ import { selectSearchableRecipe } from "../forms/select-searchable/select-search
 import { sliderRecipe } from "../forms/slider/slider.recipe.js";
 import { switchRecipe } from "../forms/switch/switch.recipe.js";
 import { tagsInputRecipe } from "../forms/tags-input/tags-input.recipe.js";
-export { badgeRecipe, buttonRecipe, calloutRecipe, cardRecipe, checkboxRecipe, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, menuRecipe, popoverRecipe, radioGroupRecipe, rootTriggerRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tableRecipe, tabsRecipe, tagsInputRecipe, textRecipe, toastRecipe, tooltipRecipe };
+export { badgeRecipe, buttonRecipe, calloutRecipe, cardRecipe, checkboxRecipe, dialogRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, labelRecipe, menuRecipe, popoverRecipe, radioGroupRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tableRecipe, tabsRecipe, tagsInputRecipe, textRecipe, toastRecipe, tooltipRecipe };

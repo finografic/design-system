@@ -83,10 +83,14 @@ export interface SliderDSClassNames {
 }
 
 export type SliderDSProps = SliderVariants & {
-  /** Current value for a single-thumb slider. */
-  value?: number;
-  /** Called when the value changes — receives the scalar value. */
-  onChange?: (value: number) => void;
+  /** Current value(s) — pass a single-element array for single-thumb, two elements for range. */
+  value?: number[];
+  /** Called continuously as the thumb(s) move — receives the full values array. */
+  onChange?: (value: number[]) => void;
+  /** Called when dragging ends (pointer up / key release) — receives the final values array. */
+  onChangeEnd?: (value: number[]) => void;
+  /** Called when the slider focus state changes. */
+  onFocusChange?: (isFocused: boolean) => void;
   min?: number;
   max?: number;
   step?: number;
@@ -116,6 +120,8 @@ export const SliderDS = forwardRef<HTMLDivElement, SliderDSProps>(
     {
       value,
       onChange,
+      onChangeEnd,
+      onFocusChange,
       min,
       max,
       step,
@@ -137,8 +143,10 @@ export const SliderDS = forwardRef<HTMLDivElement, SliderDSProps>(
     return (
       <ArkSlider.Root
         ref={ref}
-        value={value !== undefined ? [value] : undefined}
-        onValueChange={({ value: vals }) => onChange?.(vals[0] ?? 0)}
+        value={value}
+        onValueChange={({ value: vals }) => onChange?.(vals)}
+        onValueChangeEnd={({ value: vals }) => onChangeEnd?.(vals)}
+        onFocusChange={({ focusedIndex }) => onFocusChange?.(focusedIndex >= 0)}
         min={min}
         max={max}
         step={step}
@@ -159,7 +167,9 @@ export const SliderDS = forwardRef<HTMLDivElement, SliderDSProps>(
           <ArkSlider.Track className={cx(styles.track, classNames.track)}>
             <ArkSlider.Range className={cx(styles.range, classNames.range)} />
           </ArkSlider.Track>
-          <ArkSlider.Thumb index={0} className={cx(styles.thumb, classNames.thumb)} />
+          {(value ?? [0]).map((_, i) => (
+            <ArkSlider.Thumb key={i} index={i} className={cx(styles.thumb, classNames.thumb)} />
+          ))}
         </ArkSlider.Control>
 
         {(description || errorMessage) && (

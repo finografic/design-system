@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/radio-group/radio-group.recipe.d.ts
-declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemText" | "indicator" | "label" | "itemControl" | "itemDescription", {
+declare const radioGroupRecipe: SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "item" | "itemText" | "label" | "errorText" | "itemControl" | "itemDescription", {
   size: {
     sm: {
       label: {
@@ -20,6 +20,12 @@ declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemText"
         fontSize: "sm";
       };
       itemDescription: {
+        fontSize: "xs";
+      };
+      description: {
+        fontSize: "xs";
+      };
+      errorText: {
         fontSize: "xs";
       };
     };
@@ -41,6 +47,12 @@ declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemText"
       itemDescription: {
         fontSize: "sm";
       };
+      description: {
+        fontSize: "sm";
+      };
+      errorText: {
+        fontSize: "sm";
+      };
     };
     lg: {
       label: {
@@ -58,6 +70,12 @@ declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemText"
         fontSize: "lg";
       };
       itemDescription: {
+        fontSize: "md";
+      };
+      description: {
+        fontSize: "md";
+      };
+      errorText: {
         fontSize: "md";
       };
     };

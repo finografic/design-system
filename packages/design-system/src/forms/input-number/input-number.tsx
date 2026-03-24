@@ -30,7 +30,21 @@ export type InputNumberProps = InputNumberVariants & {
   // ── Value ────────────────────────────────────────────────────────────────
   value?: number;
   defaultValue?: number;
-  onChange?: (value: number | null) => void;
+  /**
+   * Called on every keystroke — receives the raw string value and its parsed number.
+   * `valueAsNumber` is `NaN` when the field is empty or the text is not a valid number.
+   */
+  onChange?: (value: string, valueAsNumber: number) => void;
+  /**
+   * Called when the value is committed (Enter, blur, stepper click).
+   * Receives the same `(value, valueAsNumber)` shape as `onChange`.
+   */
+  onValueCommit?: (value: string, valueAsNumber: number) => void;
+  /**
+   * Called when a submitted value is out of range or otherwise invalid.
+   * `reason` is one of: `'rangeUnderflow' | 'rangeOverflow' | 'stepMismatch' | 'typeMismatch'`.
+   */
+  onValueInvalid?: (reason: string) => void;
   onBlur?: () => void;
   name?: string;
 
@@ -73,6 +87,8 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
       value,
       defaultValue,
       onChange,
+      onValueCommit,
+      onValueInvalid,
       onBlur,
       name,
       min,
@@ -110,8 +126,9 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
         name={name}
         value={value !== undefined ? String(value) : undefined}
         defaultValue={defaultValue !== undefined ? String(defaultValue) : undefined}
-        onValueChange={({ valueAsNumber }) =>
-          onChange?.(isNaN(valueAsNumber) ? null : valueAsNumber)}
+        onValueChange={({ value: v, valueAsNumber }) => onChange?.(v, valueAsNumber)}
+        onValueCommit={({ value: v, valueAsNumber }) => onValueCommit?.(v, valueAsNumber)}
+        onValueInvalid={({ reason }) => onValueInvalid?.(reason)}
         min={min}
         max={max}
         step={step}

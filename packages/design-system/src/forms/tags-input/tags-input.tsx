@@ -110,6 +110,15 @@ export type TagsInputDSProps = TagsInputVariants & {
   value?: string[];
   /** Called when the tag list changes — receives the full updated array. */
   onChange?: (value: string[]) => void;
+  /** Called as the user types in the input field. */
+  onInputValueChange?: (inputValue: string) => void;
+  /** Called when keyboard/pointer highlight moves between tags. */
+  onHighlightChange?: (value: string | null) => void;
+  /**
+   * Called when a tag is rejected — e.g. over max count or failed `validate`.
+   * `reason` is one of: `'rangeOverflow' | 'invalidTag'`.
+   */
+  onValueInvalid?: (reason: string) => void;
   onBlur?: () => void;
   /** Label above the input box. */
   label?: ReactNode;
@@ -140,6 +149,9 @@ export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
     {
       value = [],
       onChange,
+      onInputValueChange,
+      onHighlightChange,
+      onValueInvalid,
       onBlur,
       label,
       description,
@@ -163,6 +175,9 @@ export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
         ref={ref}
         value={value}
         onValueChange={({ value: vals }) => onChange?.(vals)}
+        onInputValueChange={({ inputValue }) => onInputValueChange?.(inputValue)}
+        onHighlightChange={({ highlightedValue }) => onHighlightChange?.(highlightedValue)}
+        onValueInvalid={({ reason }) => onValueInvalid?.(reason)}
         onBlur={onBlur}
         max={max}
         validate={validate}

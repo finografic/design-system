@@ -3,8 +3,9 @@ import { sva } from "@styled-system/css";
 /**
 * RadioGroup Recipe
 *
-* Slots:    root · label · item · itemControl · indicator · itemText · itemDescription
-* Variants: size (sm | md | lg) · variant (default | card)
+* Slots:    root · label · item · itemControl · indicator · itemText · itemDescription ·
+*           description · errorText
+* Variants: size (sm | md | lg) · variant (default | card) · orientation (vertical | horizontal)
 */
 const radioGroupRecipe = sva({
 	className: "radio-group",
@@ -15,7 +16,9 @@ const radioGroupRecipe = sva({
 		"itemControl",
 		"indicator",
 		"itemText",
-		"itemDescription"
+		"itemDescription",
+		"description",
+		"errorText"
 	],
 	base: {
 		root: {
@@ -76,6 +79,15 @@ const radioGroupRecipe = sva({
 		itemDescription: {
 			color: "fg.muted",
 			lineHeight: "normal"
+		},
+		description: {
+			color: "fg.muted",
+			lineHeight: "normal"
+		},
+		errorText: {
+			color: "fg.error",
+			fontWeight: "semibold",
+			lineHeight: "normal"
 		}
 	},
 	variants: {
@@ -91,7 +103,9 @@ const radioGroupRecipe = sva({
 					height: "1.5"
 				},
 				itemText: { fontSize: "sm" },
-				itemDescription: { fontSize: "xs" }
+				itemDescription: { fontSize: "xs" },
+				description: { fontSize: "xs" },
+				errorText: { fontSize: "xs" }
 			},
 			md: {
 				label: { fontSize: "sm" },
@@ -104,7 +118,9 @@ const radioGroupRecipe = sva({
 					height: "2"
 				},
 				itemText: { fontSize: "md" },
-				itemDescription: { fontSize: "sm" }
+				itemDescription: { fontSize: "sm" },
+				description: { fontSize: "sm" },
+				errorText: { fontSize: "sm" }
 			},
 			lg: {
 				label: { fontSize: "md" },
@@ -117,7 +133,9 @@ const radioGroupRecipe = sva({
 					height: "2.5"
 				},
 				itemText: { fontSize: "lg" },
-				itemDescription: { fontSize: "md" }
+				itemDescription: { fontSize: "md" },
+				description: { fontSize: "md" },
+				errorText: { fontSize: "md" }
 			}
 		},
 		variant: {

@@ -1,5 +1,7 @@
 import { Popover as ArkPopover } from '@ark-ui/react';
+import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
+import { forwardRef, type ReactNode } from 'react';
 
 import { popoverRecipe } from './popover.recipe';
 
@@ -61,3 +63,110 @@ export const Popover = {
 };
 
 export type { PopoverOpenChangeDetails } from '@ark-ui/react';
+
+// ── PopoverDS — convenience wrapper ──────────────────────────────────────────
+
+/** Slot class overrides for {@link PopoverDS}. */
+export interface PopoverDSClassNames {
+  positioner?: string;
+  content?: string;
+  title?: string;
+  description?: string;
+  closeTrigger?: string;
+  arrow?: string;
+  arrowTip?: string;
+}
+
+export type PopoverDSProps = {
+  /** The trigger element — rendered inside `Popover.Trigger asChild`. */
+  trigger: ReactNode;
+  /** Title rendered at the top of the popover. */
+  title?: ReactNode;
+  /** Description text rendered below the title. */
+  description?: ReactNode;
+  /** Body content of the popover. */
+  children?: ReactNode;
+  /** Controlled open state. */
+  open?: boolean;
+  /** Called when the popover opens or closes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Whether to show the built-in close button. @default false */
+  closeButton?: boolean;
+  /** Whether to show the arrow. @default false */
+  arrow?: boolean;
+  /** Per-slot class overrides. */
+  classNames?: PopoverDSClassNames;
+};
+
+/**
+ * Design-system convenience popover — pass a `trigger` and content for the common case.
+ * **`Popover`** stays the styled compound; **`PopoverDS`** = packaged DS API
+ * with normalized `onOpenChange(open: boolean)`.
+ *
+ * @example
+ * ```tsx
+ * import { PopoverDS } from '@finografic/design-system/components';
+ *
+ * <PopoverDS
+ *   trigger={<Button variant="outline">Open</Button>}
+ *   title="Settings"
+ *   description="Adjust your preferences below."
+ *   onOpenChange={(open) => console.log(open)}
+ * >
+ *   <input type="text" />
+ * </PopoverDS>
+ * ```
+ */
+export const PopoverDS = forwardRef<HTMLButtonElement, PopoverDSProps>(
+  (
+    {
+      trigger,
+      title,
+      description,
+      children,
+      open,
+      onOpenChange,
+      closeButton = false,
+      arrow = false,
+      classNames = {},
+    },
+    ref,
+  ) => {
+    const styles = popoverRecipe();
+
+    return (
+      <ArkPopover.Root open={open} onOpenChange={({ open: o }) => onOpenChange?.(o)}>
+        <ArkPopover.Trigger ref={ref} asChild>
+          {trigger}
+        </ArkPopover.Trigger>
+        <ArkPopover.Positioner className={classNames.positioner}>
+          <ArkPopover.Content className={cx(styles.content, classNames.content)}>
+            {arrow && (
+              <ArkPopover.Arrow className={classNames.arrow}>
+                <ArkPopover.ArrowTip className={classNames.arrowTip} />
+              </ArkPopover.Arrow>
+            )}
+            {closeButton && (
+              <ArkPopover.CloseTrigger className={cx(styles.closeTrigger, classNames.closeTrigger)}>
+                ✕
+              </ArkPopover.CloseTrigger>
+            )}
+            {title && (
+              <ArkPopover.Title className={cx(styles.title, classNames.title)}>
+                {title}
+              </ArkPopover.Title>
+            )}
+            {description && (
+              <ArkPopover.Description className={cx(styles.description, classNames.description)}>
+                {description}
+              </ArkPopover.Description>
+            )}
+            {children}
+          </ArkPopover.Content>
+        </ArkPopover.Positioner>
+      </ArkPopover.Root>
+    );
+  },
+);
+
+PopoverDS.displayName = 'PopoverDS';

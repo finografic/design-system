@@ -2,7 +2,7 @@ import { checkboxRecipe } from "./checkbox.recipe.js";
 import { CheckIcon, MinusIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { css, cx } from "@styled-system/css";
-import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
 import { Checkbox } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/checkbox/checkbox.tsx
@@ -61,7 +61,7 @@ const CheckboxDS = forwardRef(({ label, description, error, checked, onChange, o
 				className: cx(styles.control, classNames.control),
 				children: /* @__PURE__ */ jsx(Checkbox.Indicator, {
 					className: cx(styles.indicator, classNames.indicator),
-					children: indicator ?? /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx(CheckIcon, {
+					children: indicator ?? /* @__PURE__ */ jsxs(Fragment$1, { children: [/* @__PURE__ */ jsx(CheckIcon, {
 						className: "icon",
 						"aria-hidden": true
 					}), /* @__PURE__ */ jsx(MinusIcon, {

@@ -2,10 +2,10 @@ import { inputNumberRecipe } from "./input-number.recipe.js";
 import { ChevronDownIcon, ChevronUpIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
-import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
 import { NumberInput } from "@ark-ui/react";
 //#region src/forms/input-number/input-number.tsx
-const InputNumber = forwardRef(({ value, defaultValue, onChange, onBlur, name, min, max, step = 1, precision, locale, formatOptions, prefix, suffix, showStepper = true, label, error, id, disabled, readOnly, placeholder, size = "md", className }, ref) => {
+const InputNumber = forwardRef(({ value, defaultValue, onChange, onValueCommit, onValueInvalid, onBlur, name, min, max, step = 1, precision, locale, formatOptions, prefix, suffix, showStepper = true, label, error, id, disabled, readOnly, placeholder, size = "md", className }, ref) => {
 	const styles = inputNumberRecipe({ size });
 	const errorMessage = typeof error === "string" ? error : error?.message;
 	const resolvedFormatOptions = {
@@ -18,7 +18,9 @@ const InputNumber = forwardRef(({ value, defaultValue, onChange, onBlur, name, m
 		name,
 		value: value !== void 0 ? String(value) : void 0,
 		defaultValue: defaultValue !== void 0 ? String(defaultValue) : void 0,
-		onValueChange: ({ valueAsNumber }) => onChange?.(isNaN(valueAsNumber) ? null : valueAsNumber),
+		onValueChange: ({ value: v, valueAsNumber }) => onChange?.(v, valueAsNumber),
+		onValueCommit: ({ value: v, valueAsNumber }) => onValueCommit?.(v, valueAsNumber),
+		onValueInvalid: ({ reason }) => onValueInvalid?.(reason),
 		min,
 		max,
 		step,
@@ -50,7 +52,7 @@ const InputNumber = forwardRef(({ value, defaultValue, onChange, onBlur, name, m
 						className: styles.suffix,
 						children: suffix
 					}),
-					showStepper && /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsx(NumberInput.DecrementTrigger, {
+					showStepper && /* @__PURE__ */ jsxs(Fragment$1, { children: [/* @__PURE__ */ jsx(NumberInput.DecrementTrigger, {
 						className: styles.decrementTrigger,
 						"aria-label": "Decrement",
 						children: /* @__PURE__ */ jsx(ChevronDownIcon, {

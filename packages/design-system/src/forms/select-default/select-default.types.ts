@@ -9,6 +9,10 @@ export interface SelectOption {
 interface SelectDefaultBaseProps {
   options: SelectOption[];
   onBlur?: () => void;
+  /** Called when the dropdown opens or closes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Called when keyboard/pointer highlight moves between items. */
+  onHighlightChange?: (value: string | null) => void;
   name?: string;
   placeholder?: string;
   disabled?: boolean;

@@ -1,7 +1,3 @@
-// Shared recipes (cross-component)
-export type { RootTriggerRecipeProps } from './root-trigger.recipe';
-export { rootTriggerRecipe } from './root-trigger.recipe';
-
 // Component recipes
 export { badgeRecipe } from '../components/badge/badge.recipe';
 export { buttonRecipe } from '../components/button/button.recipe';

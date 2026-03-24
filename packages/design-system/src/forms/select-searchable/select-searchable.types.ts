@@ -9,6 +9,10 @@ export type SelectSearchableProps = SelectSearchableVariants & {
   /** Alias for onSelect — RHF Controller compatible */
   onChange?: (value: string) => void;
   onBlur?: () => void;
+  /** Called when the dropdown opens or closes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Called when keyboard/pointer highlight moves between items. */
+  onHighlightChange?: (value: string | null) => void;
   onClear?: () => void;
   /** Called with the typed string when user wants to add a new item */
   onAddNew?: (value: string) => void;

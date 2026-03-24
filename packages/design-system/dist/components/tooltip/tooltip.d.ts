@@ -1,5 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
 import * as react from "react";
+import { ReactNode } from "react";
 import * as react_jsx_runtime0 from "react/jsx-runtime";
 import { Tooltip, TooltipOpenChangeDetails } from "@ark-ui/react";
 import * as _styled_system_jsx0 from "@styled-system/jsx";
@@ -30,15 +31,49 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Tooltip$1: {
-  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "positioner" | "arrow" | "arrowTip" | "trigger", SlotRecipeVariantRecord<"content" | "positioner" | "arrow" | "arrowTip" | "trigger">>>;
-  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "positioner" | "arrow" | "arrowTip" | "trigger", SlotRecipeVariantRecord<"content" | "positioner" | "arrow" | "arrowTip" | "trigger">>>; /** Element that triggers the tooltip on hover/focus. */
+  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>;
+  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>; /** Element that triggers the tooltip on hover/focus. */
   Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.TriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Positions the floating content. */
   Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.PositionerProps & react.RefAttributes<HTMLDivElement>>>; /** The tooltip bubble. */
   Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.ContentProps & react.RefAttributes<HTMLDivElement>>>; /** Arrow wrapper — place inside Content. */
   Arrow: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.ArrowProps & react.RefAttributes<HTMLDivElement>>>; /** The visible arrow triangle. */
   ArrowTip: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.ArrowTipProps & react.RefAttributes<HTMLDivElement>>>; /** Ark render-prop context. */
-  Context: (props: Tooltip.ContextProps) => react.ReactNode;
+  Context: (props: Tooltip.ContextProps) => ReactNode;
 };
+/** Slot class overrides for {@link TooltipDS}. */
+interface TooltipDSClassNames {
+  positioner?: string;
+  content?: string;
+  arrow?: string;
+  arrowTip?: string;
+}
+type TooltipDSProps = {
+  /** The trigger element — rendered inside `Tooltip.Trigger asChild`. */trigger: ReactNode; /** The tooltip content. */
+  content: ReactNode; /** Delay in ms before the tooltip opens. @default 1000 */
+  openDelay?: number; /** Delay in ms before the tooltip closes. @default 500 */
+  closeDelay?: number; /** Controlled open state. */
+  open?: boolean; /** Called when the tooltip opens or closes. */
+  onOpenChange?: (open: boolean) => void; /** Whether to show the arrow. @default false */
+  arrow?: boolean; /** Per-slot class overrides. */
+  classNames?: TooltipDSClassNames;
+};
+/**
+ * Design-system convenience tooltip — pass a `trigger` element and `content` for the common case.
+ * **`Tooltip`** stays the styled compound; **`TooltipDS`** = packaged DS API
+ * with normalized `onOpenChange(open: boolean)`.
+ *
+ * @example
+ * ```tsx
+ * import { TooltipDS } from '@finografic/design-system/components';
+ *
+ * <TooltipDS
+ *   trigger={<button aria-label="Help"><InfoIcon /></button>}
+ *   content="This is a helpful tooltip"
+ *   openDelay={300}
+ * />
+ * ```
+ */
+declare const TooltipDS: react.ForwardRefExoticComponent<TooltipDSProps & react.RefAttributes<HTMLButtonElement>>;
 //#endregion
-export { Tooltip$1 as Tooltip, type TooltipOpenChangeDetails };
+export { Tooltip$1 as Tooltip, TooltipDS, TooltipDSClassNames, TooltipDSProps, type TooltipOpenChangeDetails };
 //# sourceMappingURL=tooltip.d.ts.map

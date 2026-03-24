@@ -165,8 +165,10 @@ interface SliderDSClassNames {
   errorText?: string;
 }
 type SliderDSProps = SliderVariants & {
-  /** Current value for a single-thumb slider. */value?: number; /** Called when the value changes — receives the scalar value. */
-  onChange?: (value: number) => void;
+  /** Current value(s) — pass a single-element array for single-thumb, two elements for range. */value?: number[]; /** Called continuously as the thumb(s) move — receives the full values array. */
+  onChange?: (value: number[]) => void; /** Called when dragging ends (pointer up / key release) — receives the final values array. */
+  onChangeEnd?: (value: number[]) => void; /** Called when the slider focus state changes. */
+  onFocusChange?: (isFocused: boolean) => void;
   min?: number;
   max?: number;
   step?: number; /** Label rendered above the track. */
@@ -187,8 +189,10 @@ type SliderDSProps = SliderVariants & {
 declare const SliderDS: react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
-  /** Current value for a single-thumb slider. */value?: number; /** Called when the value changes — receives the scalar value. */
-  onChange?: (value: number) => void;
+  /** Current value(s) — pass a single-element array for single-thumb, two elements for range. */value?: number[]; /** Called continuously as the thumb(s) move — receives the full values array. */
+  onChange?: (value: number[]) => void; /** Called when dragging ends (pointer up / key release) — receives the final values array. */
+  onChangeEnd?: (value: number[]) => void; /** Called when the slider focus state changes. */
+  onFocusChange?: (isFocused: boolean) => void;
   min?: number;
   max?: number;
   step?: number; /** Label rendered above the track. */

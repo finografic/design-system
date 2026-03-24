@@ -76,13 +76,16 @@ const textColumnStyle = css({
 * **`TagsInput`** stays the styled compound for full composition; **`TagsInputDS`** = packaged
 * DS API (`onChange(value: string[])`, tags rendered automatically from `value`).
 */
-const TagsInputDS = forwardRef(({ value = [], onChange, onBlur, label, description, error, placeholder = "Add tag…", max, validate, name, disabled, size = "md", className, classNames = {} }, ref) => {
+const TagsInputDS = forwardRef(({ value = [], onChange, onInputValueChange, onHighlightChange, onValueInvalid, onBlur, label, description, error, placeholder = "Add tag…", max, validate, name, disabled, size = "md", className, classNames = {} }, ref) => {
 	const styles = tagsInputRecipe({ size });
 	const errorMessage = typeof error === "string" ? error : error?.message;
 	return /* @__PURE__ */ jsxs(TagsInput.Root, {
 		ref,
 		value,
 		onValueChange: ({ value: vals }) => onChange?.(vals),
+		onInputValueChange: ({ inputValue }) => onInputValueChange?.(inputValue),
+		onHighlightChange: ({ highlightedValue }) => onHighlightChange?.(highlightedValue),
+		onValueInvalid: ({ reason }) => onValueInvalid?.(reason),
 		onBlur,
 		max,
 		validate,

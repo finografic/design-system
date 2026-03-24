@@ -113,9 +113,9 @@ const easingTokens = defineTokens.easings({
 const BASE_COLORS = {
 	primary: "oklch(48.8% 0.243 264.376)",
 	secondary: "oklch(49.6% 0.265 301.924)",
-	success: "oklch(58.4% 0.194 149.214)",
+	success: "oklch(60.4% 0.194 149.214)",
 	warning: "oklch(71% 0.188 70.08)",
-	danger: "oklch(52% 0.245 27.325)",
+	danger: "oklch(55.7% 0.245 27.325)",
 	info: "oklch(58.8% 0.158 241.966)",
 	default: "oklch(65.3% 0.013 58.071)",
 	grey: "oklch(55.2% 0.016 285.938)",

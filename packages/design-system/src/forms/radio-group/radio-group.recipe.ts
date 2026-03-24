@@ -1,8 +1,9 @@
 /**
  * RadioGroup Recipe
  *
- * Slots:    root · label · item · itemControl · indicator · itemText · itemDescription
- * Variants: size (sm | md | lg) · variant (default | card)
+ * Slots:    root · label · item · itemControl · indicator · itemText · itemDescription ·
+ *           description · errorText
+ * Variants: size (sm | md | lg) · variant (default | card) · orientation (vertical | horizontal)
  */
 import { sva } from '@styled-system/css';
 
@@ -11,7 +12,17 @@ import type { RecipeProps } from '../../types/recipes.types';
 export const radioGroupRecipe = sva({
   className: 'radio-group',
 
-  slots: ['root', 'label', 'item', 'itemControl', 'indicator', 'itemText', 'itemDescription'],
+  slots: [
+    'root',
+    'label',
+    'item',
+    'itemControl',
+    'indicator',
+    'itemText',
+    'itemDescription',
+    'description',
+    'errorText',
+  ],
 
   base: {
     root: {
@@ -73,6 +84,17 @@ export const radioGroupRecipe = sva({
       color: 'fg.muted',
       lineHeight: 'normal',
     },
+
+    description: {
+      color: 'fg.muted',
+      lineHeight: 'normal',
+    },
+
+    errorText: {
+      color: 'fg.error',
+      fontWeight: 'semibold',
+      lineHeight: 'normal',
+    },
   },
 
   variants: {
@@ -83,6 +105,8 @@ export const radioGroupRecipe = sva({
         indicator: { width: '1.5', height: '1.5' },
         itemText: { fontSize: 'sm' },
         itemDescription: { fontSize: 'xs' },
+        description: { fontSize: 'xs' },
+        errorText: { fontSize: 'xs' },
       },
       md: {
         label: { fontSize: 'sm' },
@@ -90,6 +114,8 @@ export const radioGroupRecipe = sva({
         indicator: { width: '2', height: '2' },
         itemText: { fontSize: 'md' },
         itemDescription: { fontSize: 'sm' },
+        description: { fontSize: 'sm' },
+        errorText: { fontSize: 'sm' },
       },
       lg: {
         label: { fontSize: 'md' },
@@ -97,6 +123,8 @@ export const radioGroupRecipe = sva({
         indicator: { width: '2.5', height: '2.5' },
         itemText: { fontSize: 'lg' },
         itemDescription: { fontSize: 'md' },
+        description: { fontSize: 'md' },
+        errorText: { fontSize: 'md' },
       },
     },
 
