@@ -124,7 +124,7 @@ classes from Panda":
 | **One** `sva` recipe in the component/module | **`styles`**                                 | `const styles = switchRecipe({ size, palette })` → `styles.root`, `styles.control`, …                                                         |
 | **Two or more** recipes in the same scope    | **`styles` + component suffix (PascalCase)** | `const stylesSwitch = switchRecipe({ … })`, `const stylesDialog = dialogRecipe({ … })` — suffix matches the recipe/component you are styling. |
 
-Apply the same idea in **`SwitchDS`**, **`CheckboxField`**, and any wrapper that calls
+Apply the same idea in **`SwitchDS`**, **`CheckboxDS`**, and any wrapper that calls
 `checkboxRecipe` / `switchRecipe` directly: use **`styles`** / **`stylesCheckbox`**, not
 **`cls`**.
 
@@ -211,9 +211,9 @@ This improves hover text in the IDE for **`Switch`**, **`Switch.Root`**, etc.
 
 ---
 
-## Convenience wrappers (`SwitchDS`, `CheckboxField`, …)
+## Convenience wrappers (`SwitchDS`, `CheckboxDS`, …)
 
-- Call **`switchRecipe({ size, palette })`** (or equivalent), assign to **`styles`** (or **`stylesSwitch`** if multiple recipes share the scope), then apply **`styles.root`**, **`styles.control`**, … on the matching Ark elements (same pattern as **CheckboxField**).
+- Call **`switchRecipe({ size, palette })`** (or equivalent), assign to **`styles`** (or **`stylesSwitch`** if multiple recipes share the scope), then apply **`styles.root`**, **`styles.control`**, … on the matching Ark elements (same pattern as **CheckboxDS**).
 - Prefer a **`classNames?: { root?, control?, … }`** object for overrides instead of many one-off `*ClassName` props.
 - **Naming:** **`{Component}DS`** is the canonical name for opinionated DS wrappers; bare **`{Component}`** is the styled compound (e.g. **`Switch`** + **`SwitchDS`**). No `*Field` aliases.
 - **Simpler handlers:** e.g. **`onChange(checked: boolean)`** on **`SwitchDS`**, forwarding to Ark **`onCheckedChange`** internally — **do not** expose Ark's detail object on the wrapper unless you intentionally mirror Ark.

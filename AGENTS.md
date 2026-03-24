@@ -50,11 +50,13 @@ All items are checked off. The file is kept as a reference log.
 - Translate Ark UI example CSS files into Panda `sva` recipes — treat them as style specifications, never import them as CSS modules directly
 - Always import `cx` from `@styled-system/css`; never create local `cx` helper functions inside components
 - Document which slot a recipe targets (name or JSDoc); keep recipe naming, structure, and variant conventions consistent with existing components
-- **No separate `*.types.ts` files** — `*Variants` type (and explicit union types like `ButtonVariant`, `ButtonPalette`) live at the **bottom of the `*.recipe.ts` file**, co-located with the recipe. Import `RecipeProps` from `'../../types/recipes.types'` at the top of the recipe file alongside the Panda import. Never index `RecipeProps` directly for variant/palette keys.
+- **No separate `*.types.ts` files** — recipe type and explicit union types (`ButtonVariant`, `ButtonPalette`) live at the **bottom of the `*.recipe.ts` file**, co-located with the recipe. Import `RecipeProps` from `'../../types/recipes.types'`. Never index `RecipeProps` directly for variant/palette keys.
+- **Recipe type naming:** `sva` recipes export `*RecipeProps`; `cva` recipes export `*Variants`. Some older SVA recipes (Switch, Dialog, RadioGroup, etc.) still use `*Variants` — align to `*RecipeProps` when touching those files.
 - Button uses the prop name `palette` (not `colorScheme`) to avoid confusion with the CSS `color-scheme` property
 - Use `@stylistic/stylelint-plugin` for Stylelint 17; `stylelint-stylistic` is deprecated and incompatible
 - Ignore `.cursor/chats` and `.cursor/hooks`; commit `.cursor/mcp.json`
 - Use Panda MCP for design-system questions (breakpoints, tokens, recipes) when relevant without explicit user ask
+- Use Ark UI MCP for component props, examples, and styling guide questions — configured in `.vscode/mcp.json`
 - Convenience wrappers use **`{Component}DS`** as the primary name + simplified handlers (e.g. `onChange(checked)` not Ark's `onCheckedChange` detail object); bare compounds keep Ark prop names
 - No `*Field` aliases on `*DS` wrappers — export `*DS` directly, no duplicate names.
 - DS authoring/refactors: `sva-components.instructions.md` + `cva-components.instructions.md`; recipe results named `styles` / `stylesComponent`; inline single-use `cx(...)`; no deprecated props (consumer overview: `design-system.instructions.md`)
