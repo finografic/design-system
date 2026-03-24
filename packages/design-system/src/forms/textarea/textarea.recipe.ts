@@ -56,8 +56,7 @@ export const textareaRecipe = cva({
   defaultVariants: { size: 'md', resize: 'vertical' },
 });
 
-/** Props accepted by `textareaRecipe`. */
-export type TextareaRecipeProps = RecipeProps<typeof textareaRecipe>;
+export type TextareaVariants = RecipeProps<typeof textareaRecipe>;
 
 /** Field size. */
 export type TextareaSize = 'sm' | 'md' | 'lg';

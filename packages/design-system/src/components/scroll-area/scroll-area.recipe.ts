@@ -79,5 +79,4 @@ export const scrollAreaRecipe = sva({
   },
 });
 
-/** Props accepted by `scrollAreaRecipe`. */
-export type ScrollAreaVariants = RecipeProps<typeof scrollAreaRecipe>;
+export type ScrollAreaRecipeProps = RecipeProps<typeof scrollAreaRecipe>;

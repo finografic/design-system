@@ -2,9 +2,8 @@ import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/des
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/scroll-area/scroll-area.recipe.d.ts
-declare const scrollAreaRecipe: SlotRecipeRuntimeFn<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner">>;
-/** Props accepted by `scrollAreaRecipe`. */
-type ScrollAreaVariants = RecipeProps<typeof scrollAreaRecipe>;
+declare const scrollAreaRecipe: SlotRecipeRuntimeFn<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner">>;
+type ScrollAreaRecipeProps = RecipeProps<typeof scrollAreaRecipe>;
 //#endregion
-export { ScrollAreaVariants, scrollAreaRecipe };
+export { ScrollAreaRecipeProps, scrollAreaRecipe };
 //# sourceMappingURL=scroll-area.recipe.d.ts.map

@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/segment-group/segment-group.recipe.d.ts
-declare const segmentGroupRecipe: SlotRecipeRuntimeFn<"root" | "indicator" | "item" | "itemText" | "label" | "itemControl", {
+declare const segmentGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "indicator" | "label" | "itemText" | "itemControl", {
   size: {
     sm: {
       item: {

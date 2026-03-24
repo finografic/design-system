@@ -38,12 +38,11 @@ declare const textareaRecipe: RecipeRuntimeFn<{
     };
   };
 }>;
-/** Props accepted by `textareaRecipe`. */
-type TextareaRecipeProps = RecipeProps<typeof textareaRecipe>;
+type TextareaVariants = RecipeProps<typeof textareaRecipe>;
 /** Field size. */
 type TextareaSize = 'sm' | 'md' | 'lg';
 /** Resize direction. */
 type TextareaResize = 'none' | 'vertical' | 'horizontal' | 'both';
 //#endregion
-export { TextareaRecipeProps, TextareaResize, TextareaSize, textareaRecipe };
+export { TextareaResize, TextareaSize, TextareaVariants, textareaRecipe };
 //# sourceMappingURL=textarea.recipe.d.ts.map

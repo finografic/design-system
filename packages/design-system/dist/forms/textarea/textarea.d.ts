@@ -1,9 +1,9 @@
-import { TextareaRecipeProps } from "./textarea.recipe.js";
+import { TextareaVariants } from "./textarea.recipe.js";
 import * as react from "react";
 import { TextareaHTMLAttributes } from "react";
 
 //#region src/forms/textarea/textarea.d.ts
-type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> & TextareaRecipeProps & {
+type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> & TextareaVariants & {
   /** Marks the field invalid (adds `aria-invalid` + error border). */invalid?: boolean;
 };
 /**

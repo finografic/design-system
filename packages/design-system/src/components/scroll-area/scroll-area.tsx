@@ -4,7 +4,7 @@ import { createStyleContext } from '@styled-system/jsx';
 import type React from 'react';
 import { forwardRef, type ReactNode } from 'react';
 
-import type { ScrollAreaVariants } from './scroll-area.recipe';
+import type { ScrollAreaRecipeProps } from './scroll-area.recipe';
 import { scrollAreaRecipe } from './scroll-area.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────
@@ -51,7 +51,7 @@ export const ScrollArea = {
 
 // ── ScrollAreaDS — convenience wrapper ────────────────────────────────────────
 
-export type ScrollAreaDSProps = ScrollAreaVariants & {
+export type ScrollAreaDSProps = ScrollAreaRecipeProps & {
   /** Content to scroll. */
   children: ReactNode;
   /** Text direction. */

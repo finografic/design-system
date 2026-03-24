@@ -208,4 +208,4 @@ export const selectComboboxRecipe = sva({
   defaultVariants: { size: 'md' },
 });
 
-export type SelectComboboxVariants = RecipeProps<typeof selectComboboxRecipe>;
+export type SelectComboboxRecipeProps = RecipeProps<typeof selectComboboxRecipe>;
