@@ -23,6 +23,29 @@ export type {
 } from './data-table';
 export { DataTable } from './data-table';
 
+// ── New components ────────────────────────────────────────────────────────────
+export type {
+  AccordionDSClassNames,
+  AccordionDSItem,
+  AccordionDSProps,
+  AccordionFocusChangeDetails,
+  AccordionValueChangeDetails,
+} from './accordion';
+export { Accordion, AccordionDS } from './accordion';
+export type { PaginationDSProps, PaginationPageChangeDetails } from './pagination';
+export { Pagination, PaginationDS } from './pagination';
+export type { ScrollAreaDSProps, ScrollAreaScrollToDetails } from './scroll-area';
+export { ScrollArea, ScrollAreaDS } from './scroll-area';
+export type {
+  SegmentGroupDSClassNames,
+  SegmentGroupDSItem,
+  SegmentGroupDSProps,
+  SegmentGroupValueChangeDetails,
+} from './segment-group';
+export { SegmentGroup, SegmentGroupDS } from './segment-group';
+export type { ToggleDSProps } from './toggle';
+export { Toggle, ToggleDS } from './toggle';
+
 // ── Pre-composed patterns ─────────────────────────────────────────────────────
 export type { DialogGenericConfig, DialogGenericFooter, DialogGenericTab } from './dialog-generic';
 export { DialogGeneric } from './dialog-generic';

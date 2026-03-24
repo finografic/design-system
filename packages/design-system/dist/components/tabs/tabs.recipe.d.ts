@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
   variant: {
     line: {
       list: {

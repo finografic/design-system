@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/tags-input/tags-input.recipe.d.ts
-declare const tagsInputRecipe: SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "control" | "label" | "errorText" | "itemPreview" | "itemInput" | "itemDeleteTrigger" | "input" | "clearTrigger", {
+declare const tagsInputRecipe: SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "label" | "input" | "control" | "errorText" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
   size: {
     sm: {
       label: {

@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import * as react from "react";
-import { CollectionItem, ListCollection, Select, SelectValueChangeDetails, createListCollection as createListCollection$1, useListCollection } from "@ark-ui/react";
+import { CollectionItem, ListCollection, Select, SelectValueChangeDetails, useListCollection } from "@ark-ui/react";
 import * as _styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/forms/select/select.d.ts
@@ -51,7 +51,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Select$1: {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "control" | "label" | "clearTrigger" | "valueText", {
+  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -145,7 +145,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "control" | "label" | "clearTrigger" | "valueText", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -257,5 +257,5 @@ declare const Select$1: {
   Context: <T extends unknown>(props: Select.ContextProps<T>) => react.ReactNode;
 };
 //#endregion
-export { type CollectionItem, type ListCollection, Select$1 as Select, type SelectValueChangeDetails, createListCollection$1 as createListCollection, useListCollection };
+export { type CollectionItem, type ListCollection, Select$1 as Select, type SelectValueChangeDetails, useListCollection };
 //# sourceMappingURL=select.d.ts.map
