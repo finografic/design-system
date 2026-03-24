@@ -27,17 +27,38 @@ pnpm panda:mcp   # from packages/design-system/
 ## Import paths
 
 ```ts
-import { Button, Badge, Dialog, ... }  from '@workspace/design-system/components';
-import { Select, SelectDefault, SelectSearchable, InputField, InputNumber,
-         Checkbox, CheckboxField, RadioGroup, Slider, Switch, SwitchDS,
-         TagsInput, TagsInputDS, FieldBox, Label } from '@workspace/design-system/forms';
+// Components
+import { Accordion, AccordionDS,
+         Badge, Button, Callout, Card, DataTable,
+         Dialog, DialogGeneric,
+         Menu, Pagination, PaginationDS,
+         Popover, ScrollArea, ScrollAreaDS,
+         SegmentGroup, SegmentGroupDS,
+         Spinner, Tabs, TabsDS,
+         Text, Toast, Toggle, ToggleDS, Tooltip } from '@workspace/design-system/components';
+
+// Forms
+import { Checkbox, CheckboxDS,
+         DatePicker, DatePickerDS,
+         Editable, EditableDS,
+         FieldBox, InputField, InputNumber,
+         InputPassword, InputPasswordDS,
+         Label, Listbox, ListboxDS,
+         RadioGroup, RadioGroupDS,
+         Select, SelectCombobox, SelectDefault, SelectSearchable,
+         Slider, SliderDS,
+         Switch, SwitchDS,
+         TagsInput, TagsInputDS,
+         Textarea } from '@workspace/design-system/forms';
+
+// Recipes, tokens, layout
 import { buttonRecipe, selectRecipe, ... } from '@workspace/design-system/recipes';
-import { colors }                      from '@workspace/design-system/tokens';
-import { Row, Col, Container }         from '@workspace/design-system/grid';
+import { colors }                          from '@workspace/design-system/tokens';
+import { Row, Col, Container }             from '@workspace/design-system/grid';
 ```
 
-Raw Ark UI primitives are importable directly from `@ark-ui/react` — there is no
-`forms/primitives` escape hatch.
+Raw headless primitives are importable directly from `@ark-ui/react` when you need
+parts not exposed by the DS compounds — there is no `forms/primitives` escape hatch.
 
 ## Panda CSS gotchas
 

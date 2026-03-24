@@ -143,20 +143,25 @@ Apply the same idea in **`SwitchDS`**, **`CheckboxField`**, and any wrapper that
 
 ## File layout (per component)
 
-| File               | Role                                                                                               |
-| ------------------ | -------------------------------------------------------------------------------------------------- |
-| `{name}.recipe.ts` | `sva({ className, slots, base, variants, defaultVariants, compoundVariants? })` + `*Variants` type |
-| `{name}.tsx`       | Compound export + optional `*DS` wrapper                                                           |
-| `index.ts`         | Barrel re-exports                                                                                  |
+| File               | Role                                                                                                  |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| `{name}.recipe.ts` | `sva({ className, slots, base, variants, defaultVariants, compoundVariants? })` + `*RecipeProps` type |
+| `{name}.tsx`       | Compound export + optional `*DS` wrapper                                                              |
+| `index.ts`         | Barrel re-exports                                                                                     |
 
-**No separate `{name}.types.ts`** — the `*Variants` type lives at the **bottom of `{name}.recipe.ts`**, co-located with the recipe it describes.
+**No separate `{name}.types.ts`** — the `*RecipeProps` type lives at the **bottom of `{name}.recipe.ts`**, co-located with the recipe it describes.
 
 ```ts
-// bottom of switch.recipe.ts
+// bottom of accordion.recipe.ts
 import type { RecipeProps } from '../../types/recipes.types';
 
-export type SwitchVariants = RecipeProps<typeof switchRecipe>;
+export type AccordionRecipeProps = RecipeProps<typeof accordionRecipe>;
 ```
+
+> **Naming convention:** `sva` recipes export `*RecipeProps`; `cva` recipes export `*Variants`.
+> This distinguishes multi-slot compounds from single-element atomics at a glance.
+> Some older recipes (Switch, Dialog, RadioGroup, etc.) still use `*Variants` — align to
+> `*RecipeProps` when touching those files.
 
 ---
 

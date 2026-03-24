@@ -1,8 +1,16 @@
 # DS Component Inventory
 
 > Master reference for all built components and their handler conventions.
-> **✅** = built. **🔲** = planned but not yet implemented.
-> Active work checklist: [`TODO_COMPONENT_REFACTORS.md`](TODO_COMPONENT_REFACTORS.md).
+
+## Icon legend
+
+| Icon | Meaning                                                                      |
+| ---- | ---------------------------------------------------------------------------- |
+| ✅   | Built and exported                                                           |
+| 🔲   | DS convenience wrapper planned but not built                                 |
+| —    | Not applicable (CVA components, or compound-only with no DS wrapper planned) |
+
+---
 
 ## Patterns
 
@@ -24,19 +32,19 @@
 | Callout       | CVA     | —                 | —                                      | —                                                                     | —                        |
 | Card          | CVA     | —                 | —                                      | —                                                                     | —                        |
 | DataTable     | Custom  | —                 | —                                      | —                                                                     | —                        |
-| Dialog        | SVA     | DialogDS 🔲       | `onOpenChange(open: boolean)`          | `onEscapeKeyDown(e: KeyboardEvent)`, `onExitComplete()`               | `onOpenChange`           |
+| Dialog        | SVA     | —                 | `onOpenChange(open: boolean)`          | `onEscapeKeyDown(e: KeyboardEvent)`, `onExitComplete()`               | `onOpenChange`           |
 | DialogGeneric | Custom  | —                 | `onClose()`                            | —                                                                     | —                        |
-| Menu          | SVA     | MenuDS 🔲         | `onOpenChange(open: boolean)`          | `onSelect(value: string)`, `onHighlightChange(value: string \| null)` | `onOpenChange`           |
+| Menu          | SVA     | —                 | `onOpenChange(open: boolean)`          | `onSelect(value: string)`, `onHighlightChange(value: string \| null)` | `onOpenChange`           |
 | Pagination    | SVA     | PaginationDS ✅   | `onPageChange(page, pageSize: number)` | `onPageSizeChange(pageSize: number)`                                  | `onPageChange`           |
-| Popover       | SVA     | PopoverDS 🔲      | `onOpenChange(open: boolean)`          | `onExitComplete()`                                                    | `onOpenChange`           |
+| Popover       | SVA     | —                 | `onOpenChange(open: boolean)`          | `onExitComplete()`                                                    | `onOpenChange`           |
 | ScrollArea    | SVA     | ScrollAreaDS ✅   | —                                      | `onScrollPositionChange(x: number, y: number)`                        | `onScrollPositionChange` |
 | SegmentGroup  | SVA     | SegmentGroupDS ✅ | `onChange(value: string \| null)`      | —                                                                     | `onValueChange`          |
 | Spinner       | CVA     | —                 | —                                      | —                                                                     | —                        |
-| Tabs          | SVA     | TabsDS 🔲         | `onChange(value: string)`              | `onFocusChange(focusedValue: string \| null)`                         | `onValueChange`          |
+| Tabs          | SVA     | TabsDS ✅         | `onChange(value: string)`              | `onFocusChange(focusedValue: string \| null)`                         | `onValueChange`          |
 | Text          | CVA     | —                 | —                                      | —                                                                     | —                        |
 | Toast         | SVA     | — (createToaster) | —                                      | —                                                                     | `createToaster` API      |
 | Toggle        | SVA     | ToggleDS ✅       | `onChange(pressed: boolean)`           | —                                                                     | `onPressedChange`        |
-| Tooltip       | SVA     | TooltipDS 🔲      | `onOpenChange(open: boolean)`          | `onExitComplete()`                                                    | `onOpenChange`           |
+| Tooltip       | SVA     | —                 | `onOpenChange(open: boolean)`          | `onExitComplete()`                                                    | `onOpenChange`           |
 
 ---
 
@@ -53,7 +61,7 @@
 | InputPassword  | SVA     | InputPasswordDS ✅                    | `onChange(value: string)`                               | `onBlur()`                                                                                                             | `onChange`        |
 | Label          | CVA     | —                                     | —                                                       | —                                                                                                                      | —                 |
 | Listbox        | SVA     | ListboxDS ✅                          | `onChange(value: string[], items: T[])`                 | `onHighlightChange(value: string \| null)`, `onSelect(value: string, item: T)`                                         | `onValueChange`   |
-| RadioGroup     | SVA     | RadioGroupDS 🔲                       | `onChange(value: string)`                               | —                                                                                                                      | `onValueChange`   |
+| RadioGroup     | SVA     | RadioGroupDS ✅                       | `onChange(value: string)`                               | —                                                                                                                      | `onValueChange`   |
 | Select         | SVA     | SelectDefault ✅, SelectSearchable ✅ | `onChange(value: string[], items: T[])`                 | `onHighlightChange(value: string \| null, item: T \| null)`, `onSelect(value, item)`, `onOpenChange(open)`             | `onValueChange`   |
 | SelectCombobox | SVA     | — (compound only)                     | —                                                       | —                                                                                                                      | —                 |
 | Slider         | SVA     | SliderDS ✅                           | `onChange(value: number[])`                             | `onChangeEnd(value: number[])`, `onFocusChange(isFocused: boolean)`                                                    | `onValueChange`   |
@@ -78,5 +86,5 @@
 - **`onPageChange`** — Pagination; detail is `{ page, pageSize }`, expose as two args: `onPageChange(page, pageSize)`.
 - **`Editable.multiline`** — `EditableDS` prop; when `true` renders `ArkEditable.Input asChild` wrapping a `<textarea>`.
   Ark v5 has no `Textarea` part; `asChild` bridges machine state onto the native element.
-- **DS wrapper 🔲** — Dialog, Menu, Popover, Tabs, Tooltip, RadioGroup have compounds but no `*DS` convenience
-  wrapper yet. Add as needed.
+- **No DS wrapper** — Dialog, Menu, Popover, Tooltip are overlay-heavy compounds where the trigger and content
+  are always custom. Consumers use the compound directly; `DialogGeneric` covers the common config-driven modal pattern.
