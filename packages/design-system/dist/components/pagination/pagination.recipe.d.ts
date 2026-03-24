@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/pagination/pagination.recipe.d.ts
-declare const paginationRecipe: SlotRecipeRuntimeFn<"root" | "item" | "trigger" | "ellipsis", {
+declare const paginationRecipe: SlotRecipeRuntimeFn<"root" | "trigger" | "item" | "ellipsis", {
   size: {
     sm: {
       item: {

@@ -17,6 +17,7 @@ import { selectSearchableRecipe } from "./select-searchable/select-searchable.re
 import { sliderRecipe } from "./slider/slider.recipe.js";
 import { switchRecipe } from "./switch/switch.recipe.js";
 import { tagsInputRecipe } from "./tags-input/tags-input.recipe.js";
+import { textareaRecipe } from "./textarea/textarea.recipe.js";
 import { Checkbox, CheckboxDS } from "./checkbox/checkbox.js";
 import "./checkbox/index.js";
 import { DatePicker, DatePickerDS } from "./date-picker/date-picker.js";
@@ -51,4 +52,6 @@ import { Switch, SwitchDS } from "./switch/switch.js";
 import "./switch/index.js";
 import { TagsInput, TagsInputDS } from "./tags-input/tags-input.js";
 import "./tags-input/index.js";
-export { Checkbox, CheckboxDS, DatePicker, DatePickerDS, Dialog, DialogDS, Editable, EditableDS, FieldBox, InputField, InputFieldRoot, InputFieldSlot, InputNumber, InputPassword, InputPasswordDS, Label, Listbox, ListboxDS, RadioGroup, RadioGroupDS, Select, SelectCombobox, SelectDefault, SelectSearchable, Slider, SliderDS, Switch, SwitchDS, TagsInput, TagsInputDS, checkboxRecipe, datePickerRecipe, dialogRecipe, editableRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, inputPasswordRecipe, labelRecipe, listboxRecipe, radioGroupRecipe, selectComboboxRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tagsInputRecipe, useListCollection };
+import { Textarea } from "./textarea/textarea.js";
+import "./textarea/index.js";
+export { Checkbox, CheckboxDS, DatePicker, DatePickerDS, Dialog, DialogDS, Editable, EditableDS, FieldBox, InputField, InputFieldRoot, InputFieldSlot, InputNumber, InputPassword, InputPasswordDS, Label, Listbox, ListboxDS, RadioGroup, RadioGroupDS, Select, SelectCombobox, SelectDefault, SelectSearchable, Slider, SliderDS, Switch, SwitchDS, TagsInput, TagsInputDS, Textarea, checkboxRecipe, datePickerRecipe, dialogRecipe, editableRecipe, fieldBoxRecipe, inputFieldRecipe, inputNumberRecipe, inputPasswordRecipe, labelRecipe, listboxRecipe, radioGroupRecipe, selectComboboxRecipe, selectRecipe, selectSearchableRecipe, sliderRecipe, switchRecipe, tagsInputRecipe, textareaRecipe, useListCollection };

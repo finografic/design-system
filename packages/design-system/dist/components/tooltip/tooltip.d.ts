@@ -31,8 +31,8 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Tooltip$1: {
-  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>;
-  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>; /** Element that triggers the tooltip on hover/focus. */
+  Root: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"trigger" | "content" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"trigger" | "content" | "positioner" | "arrow" | "arrowTip">>>;
+  RootProvider: _styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"trigger" | "content" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"trigger" | "content" | "positioner" | "arrow" | "arrowTip">>>; /** Element that triggers the tooltip on hover/focus. */
   Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.TriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Positions the floating content. */
   Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.PositionerProps & react.RefAttributes<HTMLDivElement>>>; /** The tooltip bubble. */
   Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tooltip.ContentProps & react.RefAttributes<HTMLDivElement>>>; /** Arrow wrapper — place inside Content. */

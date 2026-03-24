@@ -77,6 +77,7 @@ export interface EditableDSClassNames {
   label?: string;
   area?: string;
   input?: string;
+  textarea?: string;
   preview?: string;
   control?: string;
   editTrigger?: string;
@@ -101,6 +102,8 @@ export type EditableDSProps = EditableRecipeProps & {
   disabled?: boolean;
   /** Makes the field read-only. */
   readOnly?: boolean;
+  /** Renders a resizable textarea instead of a single-line input. */
+  multiline?: boolean;
   /** Optional label above the field. */
   label?: ReactNode;
   /** Per-slot class overrides. */
@@ -134,6 +137,7 @@ export const EditableDS = forwardRef<HTMLDivElement, EditableDSProps>(
       onValueRevert,
       disabled,
       readOnly,
+      multiline,
       label,
       size = 'md',
       classNames = {},
@@ -162,7 +166,13 @@ export const EditableDS = forwardRef<HTMLDivElement, EditableDSProps>(
         )}
 
         <ArkEditable.Area className={cx(styles.area, classNames.area)}>
-          <ArkEditable.Input className={cx(styles.input, classNames.input)} />
+          {multiline
+            ? (
+              <ArkEditable.Input asChild>
+                <textarea className={cx(styles.textarea, classNames.textarea)} />
+              </ArkEditable.Input>
+            )
+            : <ArkEditable.Input className={cx(styles.input, classNames.input)} />}
           <ArkEditable.Preview className={cx(styles.preview, classNames.preview)} />
         </ArkEditable.Area>
 

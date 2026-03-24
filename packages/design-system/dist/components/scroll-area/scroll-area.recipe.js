@@ -47,7 +47,7 @@ const scrollAreaRecipe = sva({
 				height: "2.5",
 				padding: "0.5"
 			},
-			_hover: { background: "bg.muted" }
+			"_hover": { background: "bg.muted" }
 		},
 		thumb: {
 			"position": "relative",
@@ -65,7 +65,7 @@ const scrollAreaRecipe = sva({
 				minWidth: "44px",
 				minHeight: "44px"
 			},
-			_hover: { bg: "fg.subtle" }
+			"_hover": { bg: "fg.subtle" }
 		},
 		corner: { background: "bg.subtle" }
 	}

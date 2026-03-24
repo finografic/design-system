@@ -74,7 +74,7 @@ const Listbox$1 = {
 */
 const ListboxDS = forwardRef(({ items, value, defaultValue, multiple, onChange, onHighlightChange, onSelect, label, size = "md", classNames = {} }, ref) => {
 	const styles = listboxRecipe({ size });
-	const collection = useMemo(() => createListCollection$1({ items }), [JSON.stringify(items)]);
+	const collection = useMemo(() => createListCollection$1({ items }), [items]);
 	return /* @__PURE__ */ jsxs(Listbox.Root, {
 		ref,
 		collection,

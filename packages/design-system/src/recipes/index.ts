@@ -34,3 +34,4 @@ export { selectSearchableRecipe } from '../forms/select-searchable/select-search
 export { sliderRecipe } from '../forms/slider/slider.recipe';
 export { switchRecipe } from '../forms/switch/switch.recipe';
 export { tagsInputRecipe } from '../forms/tags-input/tags-input.recipe';
+export { textareaRecipe } from '../forms/textarea/textarea.recipe';

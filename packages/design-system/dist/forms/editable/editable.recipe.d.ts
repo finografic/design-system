@@ -2,12 +2,18 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/editable/editable.recipe.d.ts
-declare const editableRecipe: SlotRecipeRuntimeFn<"root" | "label" | "area" | "input" | "preview" | "control" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+declare const editableRecipe: SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
   size: {
     sm: {
       input: {
         h: "8";
         px: "2.5";
+        fontSize: "sm";
+      };
+      textarea: {
+        minH: "16";
+        px: "2.5";
+        py: "1.5";
         fontSize: "sm";
       };
       preview: {
@@ -34,6 +40,12 @@ declare const editableRecipe: SlotRecipeRuntimeFn<"root" | "label" | "area" | "i
         px: "3";
         fontSize: "sm";
       };
+      textarea: {
+        minH: "20";
+        px: "3";
+        py: "2";
+        fontSize: "sm";
+      };
       preview: {
         h: "9";
         px: "3";
@@ -56,6 +68,12 @@ declare const editableRecipe: SlotRecipeRuntimeFn<"root" | "label" | "area" | "i
       input: {
         h: "11";
         px: "4";
+        fontSize: "md";
+      };
+      textarea: {
+        minH: "24";
+        px: "4";
+        py: "2.5";
         fontSize: "md";
       };
       preview: {

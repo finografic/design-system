@@ -39,26 +39,26 @@ const segmentGroupRecipe = sva({
 			marginBottom: "1.5"
 		},
 		item: {
-			"display": "flex",
-			"alignItems": "center",
-			"justifyContent": "center",
-			"position": "relative",
-			"zIndex": 1,
-			"cursor": "pointer",
-			"userSelect": "none",
-			"color": "fg.muted",
-			"borderRadius": "md",
-			"fontWeight": "medium",
-			"transitionProperty": "color",
-			"transitionDuration": "fast",
-			"_checked": { color: "fg" },
-			"_hover": { color: "fg" },
-			"_disabled": {
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			position: "relative",
+			zIndex: 1,
+			cursor: "pointer",
+			userSelect: "none",
+			color: "fg.muted",
+			borderRadius: "md",
+			fontWeight: "medium",
+			transitionProperty: "color",
+			transitionDuration: "fast",
+			_checked: { color: "fg" },
+			_hover: { color: "fg" },
+			_disabled: {
 				opacity: .5,
 				cursor: "not-allowed",
 				pointerEvents: "none"
 			},
-			"_focusWithin": {
+			_focusWithin: {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px",

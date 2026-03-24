@@ -51,7 +51,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Select$1: {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
+  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "list" | "trigger" | "content" | "indicator" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "label" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -145,7 +145,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "list" | "trigger" | "content" | "indicator" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "label" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {

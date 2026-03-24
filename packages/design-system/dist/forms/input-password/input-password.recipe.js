@@ -30,24 +30,24 @@ const inputPasswordRecipe = sva({
 			color: "fg"
 		},
 		control: {
-			position: "relative",
-			display: "flex",
-			alignItems: "center",
-			width: "full",
-			borderWidth: "default",
-			borderStyle: "solid",
-			borderColor: "border",
-			borderRadius: "md",
-			bg: "bg",
-			transitionProperty: "border-color, box-shadow",
-			transitionDuration: "fast",
-			_focusWithin: {
+			"position": "relative",
+			"display": "flex",
+			"alignItems": "center",
+			"width": "full",
+			"borderWidth": "default",
+			"borderStyle": "solid",
+			"borderColor": "border",
+			"borderRadius": "md",
+			"bg": "bg",
+			"transitionProperty": "border-color, box-shadow",
+			"transitionDuration": "fast",
+			"_focusWithin": {
 				borderColor: "accent.solid",
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			_disabled: {
+			"_disabled": {
 				opacity: .55,
 				cursor: "not-allowed"
 			},

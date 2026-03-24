@@ -39,12 +39,18 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Editable$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Editable.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "area" | "input" | "preview" | "control" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Editable.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
     size: {
       sm: {
         input: {
           h: "8";
           px: "2.5";
+          fontSize: "sm";
+        };
+        textarea: {
+          minH: "16";
+          px: "2.5";
+          py: "1.5";
           fontSize: "sm";
         };
         preview: {
@@ -71,6 +77,12 @@ declare const Editable$1: {
           px: "3";
           fontSize: "sm";
         };
+        textarea: {
+          minH: "20";
+          px: "3";
+          py: "2";
+          fontSize: "sm";
+        };
         preview: {
           h: "9";
           px: "3";
@@ -93,6 +105,12 @@ declare const Editable$1: {
         input: {
           h: "11";
           px: "4";
+          fontSize: "md";
+        };
+        textarea: {
+          minH: "24";
+          px: "4";
+          py: "2.5";
           fontSize: "md";
         };
         preview: {
@@ -115,12 +133,18 @@ declare const Editable$1: {
       };
     };
   }>>; /** Root with external machine state from `useEditable`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Editable.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "area" | "input" | "preview" | "control" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Editable.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
     size: {
       sm: {
         input: {
           h: "8";
           px: "2.5";
+          fontSize: "sm";
+        };
+        textarea: {
+          minH: "16";
+          px: "2.5";
+          py: "1.5";
           fontSize: "sm";
         };
         preview: {
@@ -147,6 +171,12 @@ declare const Editable$1: {
           px: "3";
           fontSize: "sm";
         };
+        textarea: {
+          minH: "20";
+          px: "3";
+          py: "2";
+          fontSize: "sm";
+        };
         preview: {
           h: "9";
           px: "3";
@@ -169,6 +199,12 @@ declare const Editable$1: {
         input: {
           h: "11";
           px: "4";
+          fontSize: "md";
+        };
+        textarea: {
+          minH: "24";
+          px: "4";
+          py: "2.5";
           fontSize: "md";
         };
         preview: {
@@ -207,6 +243,7 @@ interface EditableDSClassNames {
   label?: string;
   area?: string;
   input?: string;
+  textarea?: string;
   preview?: string;
   control?: string;
   editTrigger?: string;
@@ -221,7 +258,8 @@ type EditableDSProps = EditableRecipeProps & {
   onValueCommit?: (value: string) => void; /** Called when the value is reverted (Escape / cancel trigger). */
   onValueRevert?: () => void; /** Disables the field. */
   disabled?: boolean; /** Makes the field read-only. */
-  readOnly?: boolean; /** Optional label above the field. */
+  readOnly?: boolean; /** Renders a resizable textarea instead of a single-line input. */
+  multiline?: boolean; /** Optional label above the field. */
   label?: ReactNode; /** Per-slot class overrides. */
   classNames?: EditableDSClassNames;
 };
@@ -251,7 +289,8 @@ declare const EditableDS: react.ForwardRefExoticComponent<{
   onValueCommit?: (value: string) => void; /** Called when the value is reverted (Escape / cancel trigger). */
   onValueRevert?: () => void; /** Disables the field. */
   disabled?: boolean; /** Makes the field read-only. */
-  readOnly?: boolean; /** Optional label above the field. */
+  readOnly?: boolean; /** Renders a resizable textarea instead of a single-line input. */
+  multiline?: boolean; /** Optional label above the field. */
   label?: ReactNode; /** Per-slot class overrides. */
   classNames?: EditableDSClassNames;
 } & react.RefAttributes<HTMLDivElement>>;

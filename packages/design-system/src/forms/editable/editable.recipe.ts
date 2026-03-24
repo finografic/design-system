@@ -18,6 +18,7 @@ export const editableRecipe = sva({
     'label',
     'area',
     'input',
+    'textarea',
     'preview',
     'control',
     'editTrigger',
@@ -42,7 +43,7 @@ export const editableRecipe = sva({
     area: {
       position: 'relative',
       display: 'flex',
-      alignItems: 'center',
+      alignItems: 'flex-start',
       width: 'full',
     },
 
@@ -56,6 +57,31 @@ export const editableRecipe = sva({
       color: 'fg',
       outline: 'none',
       fontFamily: 'inherit',
+      transitionProperty: 'border-color, box-shadow',
+      transitionDuration: 'fast',
+      _focusVisible: {
+        borderColor: 'accent.solid',
+        outline: '2px solid',
+        outlineColor: 'accent.focusRing',
+        outlineOffset: '2px',
+      },
+      _disabled: { opacity: 0.55, cursor: 'not-allowed', bg: 'bg.subtle' },
+      _readOnly: { bg: 'bg.subtle', cursor: 'default' },
+    },
+
+    textarea: {
+      flex: '1',
+      borderWidth: 'default',
+      borderStyle: 'solid',
+      borderColor: 'border',
+      borderRadius: 'md',
+      bg: 'bg',
+      color: 'fg',
+      outline: 'none',
+      fontFamily: 'inherit',
+      resize: 'vertical',
+      lineHeight: '1.5',
+      whiteSpace: 'pre-wrap',
       transitionProperty: 'border-color, box-shadow',
       transitionDuration: 'fast',
       _focusVisible: {
@@ -151,6 +177,7 @@ export const editableRecipe = sva({
     size: {
       sm: {
         input: { h: '8', px: '2.5', fontSize: 'sm' },
+        textarea: { minH: '16', px: '2.5', py: '1.5', fontSize: 'sm' },
         preview: { h: '8', px: '2.5', fontSize: 'sm' },
         editTrigger: { w: '7', h: '7' },
         submitTrigger: { w: '7', h: '7' },
@@ -158,6 +185,7 @@ export const editableRecipe = sva({
       },
       md: {
         input: { h: '9', px: '3', fontSize: 'sm' },
+        textarea: { minH: '20', px: '3', py: '2', fontSize: 'sm' },
         preview: { h: '9', px: '3', fontSize: 'sm' },
         editTrigger: { w: '8', h: '8' },
         submitTrigger: { w: '8', h: '8' },
@@ -165,6 +193,7 @@ export const editableRecipe = sva({
       },
       lg: {
         input: { h: '11', px: '4', fontSize: 'md' },
+        textarea: { minH: '24', px: '4', py: '2.5', fontSize: 'md' },
         preview: { h: '11', px: '4', fontSize: 'md' },
         editTrigger: { w: '9', h: '9' },
         submitTrigger: { w: '9', h: '9' },

@@ -68,7 +68,7 @@ const Editable$1 = {
 * />
 * ```
 */
-const EditableDS = forwardRef(({ value, defaultValue, placeholder, onChange, onValueCommit, onValueRevert, disabled, readOnly, label, size = "md", classNames = {} }, ref) => {
+const EditableDS = forwardRef(({ value, defaultValue, placeholder, onChange, onValueCommit, onValueRevert, disabled, readOnly, multiline, label, size = "md", classNames = {} }, ref) => {
 	const styles = editableRecipe({ size });
 	return /* @__PURE__ */ jsxs(Editable.Root, {
 		ref,
@@ -88,7 +88,10 @@ const EditableDS = forwardRef(({ value, defaultValue, placeholder, onChange, onV
 			}),
 			/* @__PURE__ */ jsxs(Editable.Area, {
 				className: cx(styles.area, classNames.area),
-				children: [/* @__PURE__ */ jsx(Editable.Input, { className: cx(styles.input, classNames.input) }), /* @__PURE__ */ jsx(Editable.Preview, { className: cx(styles.preview, classNames.preview) })]
+				children: [multiline ? /* @__PURE__ */ jsx(Editable.Input, {
+					asChild: true,
+					children: /* @__PURE__ */ jsx("textarea", { className: cx(styles.textarea, classNames.textarea) })
+				}) : /* @__PURE__ */ jsx(Editable.Input, { className: cx(styles.input, classNames.input) }), /* @__PURE__ */ jsx(Editable.Preview, { className: cx(styles.preview, classNames.preview) })]
 			}),
 			/* @__PURE__ */ jsx(Editable.Control, {
 				className: cx(styles.control, classNames.control),
