@@ -2,6 +2,10 @@
 
 # Claude-specific Instructions
 
+## Rules - Claude
+
+- IMPORTANT: NEVER include `Co-Authored-By` lines in commit messages. Not ever, not for any reason.
+
 ## Session Memory
 
 Claude Code maintains a lightweight session log at `.claude/memory.md` (gitignored).
