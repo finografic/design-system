@@ -3,7 +3,7 @@
   "private": true,
   "description": "Workspace root — see packages/ for publishable packages.",
   "scripts": {
-    "·········· DEV": "·····················································",
+    "·········· DEV": "·······················································",
     "dev": "pnpm --filter @finografic/design-system dev",
     "watch": "pnpm --filter @finografic/design-system watch",
     "dev.icons": "pnpm --filter @finografic/icons dev",
@@ -14,11 +14,11 @@
     "·········· ICONS": "·····················································",
     "icons": "pnpm --filter @finografic/icons icons.config",
     "icons.generate": "pnpm --filter @finografic/icons build",
-    "·········· TYPECHECK": "················································",
+    "·········· TYPECHECK": "·················································",
     "typecheck": "pnpm -r typecheck",
     "typecheck.ds": "pnpm --filter @finografic/design-system typecheck",
     "typecheck.icons": "pnpm --filter @finografic/icons typecheck",
-    "·········· LINTING": "················································",
+    "·········· LINTING": "···················································",
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
     "·········· FORMATTING": "················································",
@@ -27,7 +27,7 @@
     "·········· CLEAN": "·····················································",
     "clean": "pnpm --package=@finografic/project-scripts dlx purge-builds --recursive --detach",
     "clean.dry": "pnpm --package=@finografic/project-scripts dlx purge-builds --recursive --dry-run",
-    "·········· PUBLISH": "·····················································",
+    "·········· PUBLISH": "···················································",
     "release.patch": "tsx scripts/release.ts patch",
     "release.minor": "tsx scripts/release.ts minor",
     "release.major": "tsx scripts/release.ts major",
@@ -61,14 +61,15 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.55.0"
   },
+  "packageManager": "pnpm@10.32.1",
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [
-      "dprint fmt --allow-no-files",
-      "eslint --fix"
+      "eslint --fix",
+      "dprint fmt --allow-no-files"
     ],
     "*.md": [
-      "dprint fmt --allow-no-files",
-      "eslint --fix"
+      "eslint --fix",
+      "dprint fmt --allow-no-files"
     ],
     "*.{json,jsonc,yml,yaml,toml}": [
       "dprint fmt --allow-no-files"
@@ -80,6 +81,6 @@
     ]
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged --allow-empty && dprint check && pnpm exec eslint \"**/*.md\" && pnpm typecheck"
+    "pre-commit": "npx lint-staged --allow-empty && dprint check && pnpm typecheck"
   }
 }
