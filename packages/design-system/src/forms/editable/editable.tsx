@@ -160,50 +160,47 @@ export const EditableDS = forwardRef<HTMLDivElement, EditableDSProps>(
         className={cx(styles.root, classNames.root)}
       >
         {label && (
-          <ArkEditable.Label className={cx(styles.label, classNames.label)}>
-            {label}
-          </ArkEditable.Label>
+          <ArkEditable.Label className={cx(styles.label, classNames.label)}>{label}</ArkEditable.Label>
         )}
 
         <ArkEditable.Area className={cx(styles.area, classNames.area)}>
-          {multiline
-            ? (
-              <ArkEditable.Input asChild>
-                <textarea className={cx(styles.textarea, classNames.textarea)} />
-              </ArkEditable.Input>
-            )
-            : <ArkEditable.Input className={cx(styles.input, classNames.input)} />}
+          {multiline ? (
+            <ArkEditable.Input asChild>
+              <textarea className={cx(styles.textarea, classNames.textarea)} />
+            </ArkEditable.Input>
+          ) : (
+            <ArkEditable.Input className={cx(styles.input, classNames.input)} />
+          )}
           <ArkEditable.Preview className={cx(styles.preview, classNames.preview)} />
         </ArkEditable.Area>
 
         <ArkEditable.Control className={cx(styles.control, classNames.control)}>
           <ArkEditable.Context>
             {({ editing }) =>
-              editing
-                ? (
-                  <>
-                    <ArkEditable.SubmitTrigger
-                      className={cx(styles.submitTrigger, classNames.submitTrigger)}
-                      aria-label="Submit"
-                    >
-                      <CheckIcon aria-hidden />
-                    </ArkEditable.SubmitTrigger>
-                    <ArkEditable.CancelTrigger
-                      className={cx(styles.cancelTrigger, classNames.cancelTrigger)}
-                      aria-label="Cancel"
-                    >
-                      <XIcon aria-hidden />
-                    </ArkEditable.CancelTrigger>
-                  </>
-                )
-                : (
-                  <ArkEditable.EditTrigger
-                    className={cx(styles.editTrigger, classNames.editTrigger)}
-                    aria-label="Edit"
+              editing ? (
+                <>
+                  <ArkEditable.SubmitTrigger
+                    className={cx(styles.submitTrigger, classNames.submitTrigger)}
+                    aria-label="Submit"
                   >
-                    <EditIcon aria-hidden />
-                  </ArkEditable.EditTrigger>
-                )}
+                    <CheckIcon aria-hidden />
+                  </ArkEditable.SubmitTrigger>
+                  <ArkEditable.CancelTrigger
+                    className={cx(styles.cancelTrigger, classNames.cancelTrigger)}
+                    aria-label="Cancel"
+                  >
+                    <XIcon aria-hidden />
+                  </ArkEditable.CancelTrigger>
+                </>
+              ) : (
+                <ArkEditable.EditTrigger
+                  className={cx(styles.editTrigger, classNames.editTrigger)}
+                  aria-label="Edit"
+                >
+                  <EditIcon aria-hidden />
+                </ArkEditable.EditTrigger>
+              )
+            }
           </ArkEditable.Context>
         </ArkEditable.Control>
       </ArkEditable.Root>

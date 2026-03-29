@@ -69,10 +69,7 @@ import { designSystemPreset } from '@finografic/design-system/panda.preset';
 
 export default defineConfig({
   presets: [designSystemPreset],
-  include: [
-    './src/**/*.{ts,tsx}',
-    './node_modules/@finografic/design-system/src/**/*.{ts,tsx}',
-  ],
+  include: ['./src/**/*.{ts,tsx}', './node_modules/@finografic/design-system/src/**/*.{ts,tsx}'],
   // ... outdir, jsxFramework, etc.
 });
 ```
@@ -92,9 +89,9 @@ The design-system ships a **reset** (`styles/reset.css`) that normalizes form el
 
 ```css
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
@@ -155,10 +152,10 @@ If using a single root CSS file that the entry imports (e.g. `theme.css` or `ind
 
 ```css
 /* 1. Design-system first — layer order + reset */
-@import url("@finografic/design-system/styles/global.css");
+@import url('@finografic/design-system/styles/global.css');
 
 /* 2. Panda generated styles */
-@import url("./styled-system/styles.css");
+@import url('./styled-system/styles.css');
 
 /* 3. App-specific overrides if any */
 ```

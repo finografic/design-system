@@ -126,25 +126,19 @@ export const PaginationDS = forwardRef<HTMLElement, PaginationDSProps>(
         <ArkPagination.Context>
           {({ pages }) => (
             <>
-              <ArkPagination.PrevTrigger className={styles.trigger}>
-                ‹
-              </ArkPagination.PrevTrigger>
+              <ArkPagination.PrevTrigger className={styles.trigger}>‹</ArkPagination.PrevTrigger>
               {pages.map((pageItem, i) =>
-                pageItem.type === 'page'
-                  ? (
-                    <ArkPagination.Item key={i} {...pageItem} className={styles.item}>
-                      {pageItem.value}
-                    </ArkPagination.Item>
-                  )
-                  : (
-                    <ArkPagination.Ellipsis key={i} index={i} className={styles.ellipsis}>
-                      &#8230;
-                    </ArkPagination.Ellipsis>
-                  )
+                pageItem.type === 'page' ? (
+                  <ArkPagination.Item key={i} {...pageItem} className={styles.item}>
+                    {pageItem.value}
+                  </ArkPagination.Item>
+                ) : (
+                  <ArkPagination.Ellipsis key={i} index={i} className={styles.ellipsis}>
+                    &#8230;
+                  </ArkPagination.Ellipsis>
+                ),
               )}
-              <ArkPagination.NextTrigger className={styles.trigger}>
-                ›
-              </ArkPagination.NextTrigger>
+              <ArkPagination.NextTrigger className={styles.trigger}>›</ArkPagination.NextTrigger>
             </>
           )}
         </ArkPagination.Context>

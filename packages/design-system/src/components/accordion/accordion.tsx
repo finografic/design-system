@@ -165,9 +165,7 @@ export const AccordionDS = forwardRef<HTMLDivElement, AccordionDSProps>(
           >
             <ArkAccordion.ItemTrigger className={cx(styles.itemTrigger, classNames.itemTrigger)}>
               {item.label}
-              <ArkAccordion.ItemIndicator
-                className={cx(styles.itemIndicator, classNames.itemIndicator)}
-              >
+              <ArkAccordion.ItemIndicator className={cx(styles.itemIndicator, classNames.itemIndicator)}>
                 <ChevronDownIcon aria-hidden />
               </ArkAccordion.ItemIndicator>
             </ArkAccordion.ItemTrigger>

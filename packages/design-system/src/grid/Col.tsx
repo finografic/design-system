@@ -7,17 +7,17 @@ type ColSpan = number | 'content';
 
 interface ColProps extends ComponentPropsWithoutRef<'div'> {
   /** Span at the `xs` breakpoint and up (≥ 0 px). */
-  'xs'?: ColSpan;
+  xs?: ColSpan;
   /** Span at the `sm` breakpoint and up. */
-  'sm'?: ColSpan;
+  sm?: ColSpan;
   /** Span at the `md` breakpoint and up. */
-  'md'?: ColSpan;
+  md?: ColSpan;
   /** Span at the `lg` breakpoint and up. */
-  'lg'?: ColSpan;
+  lg?: ColSpan;
   /** Span at the `xl` breakpoint and up. */
-  'xl'?: ColSpan;
+  xl?: ColSpan;
   /** Span at the `xxl` breakpoint and up (alias of `2xl`). */
-  'xxl'?: ColSpan;
+  xxl?: ColSpan;
   /** Span at the `2xl` breakpoint and up. */
   '2xl'?: ColSpan;
 }

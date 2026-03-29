@@ -64,7 +64,10 @@
   border: var(--ds-input-border);
   border-radius: 0.25rem;
   background: var(--ds-input-bg);
-  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    box-shadow 0.15s;
   outline: none;
 }
 
@@ -187,7 +190,9 @@
   color: var(--ds-input-fg);
   font-size: 0.9375rem;
   cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   outline: none;
 }
 
@@ -600,7 +605,9 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   cursor: grab;
   outline: none;
-  transition: box-shadow 0.15s, border-color 0.15s;
+  transition:
+    box-shadow 0.15s,
+    border-color 0.15s;
 }
 
 .ds-slider__thumb:focus-visible {
@@ -656,7 +663,9 @@
   border: var(--ds-input-border);
   border-radius: 50%;
   background: var(--ds-input-bg);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   outline: none;
 }
 
@@ -697,15 +706,20 @@
   border-radius: var(--ds-input-radius);
   padding: 0.75rem 1rem;
   background: var(--ds-input-bg);
-  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    background 0.15s;
   width: 100%;
 }
 
-.ds-radio-group[data-variant="card"] .ds-radio-group__item:hover:not([data-disabled]) {
+.ds-radio-group[data-variant="card"]
+  .ds-radio-group__item:hover:not([data-disabled]) {
   background: var(--ds-item-hover-bg);
 }
 
-.ds-radio-group[data-variant="card"] .ds-radio-group__item[data-state="checked"] {
+.ds-radio-group[data-variant="card"]
+  .ds-radio-group__item[data-state="checked"] {
   border-color: var(--colors-accent-default);
   box-shadow: 0 0 0 1px var(--colors-accent-default);
 }
@@ -727,7 +741,9 @@
   border-radius: var(--ds-input-radius);
   background: var(--ds-input-bg);
   color: var(--ds-input-fg);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   overflow: hidden;
   width: 100%;
 }
@@ -800,7 +816,9 @@
   border: var(--ds-input-border);
   border-radius: var(--ds-input-radius);
   background: var(--ds-input-bg);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
   overflow: hidden;
 }
 
@@ -855,7 +873,9 @@
   color: var(--colors-fg-muted);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .ds-searchable-select__clear:hover {
@@ -972,7 +992,8 @@
   flex-shrink: 0;
 }
 
-.ds-searchable-select__item:not([data-state="checked"]) .ds-searchable-select__item-indicator {
+.ds-searchable-select__item:not([data-state="checked"])
+  .ds-searchable-select__item-indicator {
   display: none;
 }
 

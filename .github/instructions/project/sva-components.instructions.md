@@ -203,7 +203,7 @@ export const Switch = {
    - **Where props go** (e.g. control state on **`Root`**).
    - **`@example`** with full **anatomy** — the snippet a consumer can copy and trim.
 
-2. **One-line `/** ... */` immediately above each property** in the object:
+2. **One-line `/** ... \*/` immediately above each property\*\* in the object:
    - **`Root`:** state, handlers, variant props.
    - **`Control` / `Thumb` / …:** role + that slot classes come from context.
 

@@ -35,7 +35,7 @@ interface IconEntry {
 function toLucideExport(lucideName: string): string {
   return lucideName
     .split('-')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join('');
 }
 
@@ -54,7 +54,7 @@ export function generate(): void {
 
   // ── Build icons.ts ───────────────────────────────────────────────────────────
 
-  const maxKeyLen = Math.max(...entries.map(e => `${e.exportName}Icon`.length));
+  const maxKeyLen = Math.max(...entries.map((e) => `${e.exportName}Icon`.length));
 
   const registryLines = entries
     .map(({ lucideName, exportName }) => {
@@ -80,12 +80,11 @@ import * as Lucide from 'lucide-react';
 import { createIconWrapper } from './icons.utils';
 
 // ── Icon registry ──────────────────────────────────────────────────────────────
+// Formatted by oxfmt: excluded via root ignorePatterns (packages/icons/src/icons.ts).
 
-/* dprint-ignore-start */
 const ICONS = {
 ${registryLines}
 } as const;
-/* dprint-ignore-end */
 
 // ── Auto-wrap ──────────────────────────────────────────────────────────────────
 
@@ -112,9 +111,7 @@ export type IconComponent = ReturnType<typeof createIconWrapper>;
 
   // ── Build index.ts ───────────────────────────────────────────────────────────
 
-  const namedExports = entries
-    .map(({ exportName }) => `  ${exportName}Icon,`)
-    .join('\n');
+  const namedExports = entries.map(({ exportName }) => `  ${exportName}Icon,`).join('\n');
 
   const indexTsContent = `\
 /**

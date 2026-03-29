@@ -155,16 +155,10 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
 
           {showStepper && (
             <>
-              <ArkNumberInput.DecrementTrigger
-                className={styles.decrementTrigger}
-                aria-label="Decrement"
-              >
+              <ArkNumberInput.DecrementTrigger className={styles.decrementTrigger} aria-label="Decrement">
                 <ChevronDownIcon className="icon icon-sm" aria-hidden />
               </ArkNumberInput.DecrementTrigger>
-              <ArkNumberInput.IncrementTrigger
-                className={styles.incrementTrigger}
-                aria-label="Increment"
-              >
+              <ArkNumberInput.IncrementTrigger className={styles.incrementTrigger} aria-label="Increment">
                 <ChevronUpIcon className="icon icon-sm" aria-hidden />
               </ArkNumberInput.IncrementTrigger>
             </>

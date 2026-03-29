@@ -45,10 +45,14 @@
   display: none;
 }
 
-[data-scope="checkbox"][data-state="indeterminate"] [data-part="indicator"] svg:not([data-indeterminate]) {
+[data-scope="checkbox"][data-state="indeterminate"]
+  [data-part="indicator"]
+  svg:not([data-indeterminate]) {
   display: none;
 }
 
-[data-scope="checkbox"][data-state="indeterminate"] [data-part="indicator"] svg[data-indeterminate] {
+[data-scope="checkbox"][data-state="indeterminate"]
+  [data-part="indicator"]
+  svg[data-indeterminate] {
   display: block;
 }

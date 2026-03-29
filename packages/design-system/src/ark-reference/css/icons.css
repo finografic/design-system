@@ -10,7 +10,10 @@ svg[width][height].icon {
   display: inline-block;
   flex-shrink: 0;
   color: currentColor;
-  transition: color 200ms ease-in-out, border-color 200ms ease-in-out, background-color 200ms ease-in-out;
+  transition:
+    color 200ms ease-in-out,
+    border-color 200ms ease-in-out,
+    background-color 200ms ease-in-out;
 }
 
 svg.icon:hover {

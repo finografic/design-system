@@ -20,21 +20,21 @@ export const toggleRecipe = sva({
 
   base: {
     root: {
-      'display': 'inline-flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'gap': '2',
-      'fontFamily': 'inherit',
-      'fontWeight': 'medium',
-      'cursor': 'pointer',
-      'border': 'none',
-      'bg': 'bg.subtle',
-      'color': 'fg.muted',
-      'borderRadius': 'md',
-      'userSelect': 'none',
-      'transitionProperty': 'color, background-color',
-      'transitionDuration': 'fast',
-      '_hover': {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '2',
+      fontFamily: 'inherit',
+      fontWeight: 'medium',
+      cursor: 'pointer',
+      border: 'none',
+      bg: 'bg.subtle',
+      color: 'fg.muted',
+      borderRadius: 'md',
+      userSelect: 'none',
+      transitionProperty: 'color, background-color',
+      transitionDuration: 'fast',
+      _hover: {
         bg: 'bg.muted',
         color: 'fg',
       },
@@ -42,12 +42,12 @@ export const toggleRecipe = sva({
         bg: 'accent.subtle',
         color: 'accent.fg',
       },
-      '_disabled': {
+      _disabled: {
         opacity: 0.5,
         cursor: 'not-allowed',
         pointerEvents: 'none',
       },
-      '_focusVisible': {
+      _focusVisible: {
         outline: '2px solid',
         outlineColor: 'accent.focusRing',
         outlineOffset: '2px',
@@ -55,10 +55,10 @@ export const toggleRecipe = sva({
     },
 
     indicator: {
-      'display': 'flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'flexShrink': 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
       '& svg': { w: '4', h: '4' },
     },
   },

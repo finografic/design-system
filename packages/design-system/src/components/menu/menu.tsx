@@ -177,19 +177,7 @@ export type MenuDSProps = {
  * ```
  */
 export const MenuDS = forwardRef<HTMLButtonElement, MenuDSProps>(
-  (
-    {
-      trigger,
-      items,
-      groups,
-      open,
-      onOpenChange,
-      onSelect,
-      onHighlightChange,
-      classNames = {},
-    },
-    ref,
-  ) => {
+  ({ trigger, items, groups, open, onOpenChange, onSelect, onHighlightChange, classNames = {} }, ref) => {
     const styles = menuRecipe();
     const resolvedGroups: MenuDSGroup[] = groups ?? (items ? [{ items }] : []);
 
@@ -208,14 +196,10 @@ export const MenuDS = forwardRef<HTMLButtonElement, MenuDSProps>(
           <ArkMenu.Content className={cx(styles.content, classNames.content)}>
             {resolvedGroups.map((group, i) => (
               <Fragment key={i}>
-                {i > 0 && (
-                  <ArkMenu.Separator className={cx(styles.separator, classNames.separator)} />
-                )}
+                {i > 0 && <ArkMenu.Separator className={cx(styles.separator, classNames.separator)} />}
                 <ArkMenu.ItemGroup className={cx(styles.itemGroup, classNames.itemGroup)}>
                   {group.label && (
-                    <ArkMenu.ItemGroupLabel
-                      className={cx(styles.itemGroupLabel, classNames.itemGroupLabel)}
-                    >
+                    <ArkMenu.ItemGroupLabel className={cx(styles.itemGroupLabel, classNames.itemGroupLabel)}>
                       {group.label}
                     </ArkMenu.ItemGroupLabel>
                   )}
@@ -244,8 +228,4 @@ export const MenuDS = forwardRef<HTMLButtonElement, MenuDSProps>(
 
 MenuDS.displayName = 'MenuDS';
 
-export type {
-  MenuHighlightChangeDetails,
-  MenuOpenChangeDetails,
-  MenuSelectionDetails,
-} from '@ark-ui/react';
+export type { MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionDetails } from '@ark-ui/react';

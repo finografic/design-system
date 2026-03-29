@@ -15,7 +15,7 @@
       <Dialog.CloseTrigger />
     </Dialog.Content>
   </Dialog.Positioner>
-</Dialog.Root>;
+</Dialog.Root>
 ```
 
 ## Examples
@@ -42,7 +42,9 @@ export const Basic = () => (
             <XIcon />
           </Dialog.CloseTrigger>
           <Dialog.Title className={styles.Title}>Welcome Back</Dialog.Title>
-          <Dialog.Description className={styles.Description}>Sign in to your account to continue.</Dialog.Description>
+          <Dialog.Description className={styles.Description}>
+            Sign in to your account to continue.
+          </Dialog.Description>
         </Dialog.Content>
       </Dialog.Positioner>
     </Portal>
@@ -162,8 +164,8 @@ export const AlertDialog = () => (
         <Dialog.Content className={styles.Content}>
           <Dialog.Title className={styles.Title}>Are you absolutely sure?</Dialog.Title>
           <Dialog.Description className={styles.Description}>
-            This action cannot be undone. This will permanently delete your account and remove your data from our
-            servers.
+            This action cannot be undone. This will permanently delete your account and remove your data from
+            our servers.
           </Dialog.Description>
           <div className={styles.Actions}>
             <Dialog.CloseTrigger className={button.Root}>Cancel</Dialog.CloseTrigger>
@@ -335,8 +337,8 @@ export const NonModal = () => (
           </Dialog.CloseTrigger>
           <Dialog.Title className={styles.Title}>Non-Modal Dialog</Dialog.Title>
           <Dialog.Description className={styles.Description}>
-            This dialog allows interaction with elements outside. You can click buttons, select text, and interact with
-            the page behind it.
+            This dialog allows interaction with elements outside. You can click buttons, select text, and
+            interact with the page behind it.
           </Dialog.Description>
         </Dialog.Content>
       </Dialog.Positioner>
@@ -397,38 +399,31 @@ export const InsideScroll = () => (
 const CONTENT_SECTIONS = [
   {
     title: '1. Acceptance of Terms',
-    body:
-      'By accessing and using this service, you accept and agree to be bound by the terms and provisions of this agreement.',
+    body: 'By accessing and using this service, you accept and agree to be bound by the terms and provisions of this agreement.',
   },
   {
     title: '2. Use License',
-    body:
-      'Permission is granted to temporarily use this service for personal, non-commercial purposes only. This is the grant of a license, not a transfer of title.',
+    body: 'Permission is granted to temporarily use this service for personal, non-commercial purposes only. This is the grant of a license, not a transfer of title.',
   },
   {
     title: '3. User Responsibilities',
-    body:
-      'You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account.',
+    body: 'You are responsible for maintaining the confidentiality of your account and password. You agree to accept responsibility for all activities that occur under your account.',
   },
   {
     title: '4. Privacy Policy',
-    body:
-      'Your use of this service is also governed by our Privacy Policy. Please review our Privacy Policy, which also governs the site and informs users of our data collection practices.',
+    body: 'Your use of this service is also governed by our Privacy Policy. Please review our Privacy Policy, which also governs the site and informs users of our data collection practices.',
   },
   {
     title: '5. Limitations',
-    body:
-      'In no event shall we be liable for any damages arising out of the use or inability to use the materials on this service.',
+    body: 'In no event shall we be liable for any damages arising out of the use or inability to use the materials on this service.',
   },
   {
     title: '6. Revisions',
-    body:
-      'We may revise these terms of service at any time without notice. By using this service you are agreeing to be bound by the then current version of these terms.',
+    body: 'We may revise these terms of service at any time without notice. By using this service you are agreeing to be bound by the then current version of these terms.',
   },
   {
     title: '7. Governing Law',
-    body:
-      'These terms and conditions are governed by and construed in accordance with applicable laws and you irrevocably submit to the exclusive jurisdiction of the courts.',
+    body: 'These terms and conditions are governed by and construed in accordance with applicable laws and you irrevocably submit to the exclusive jurisdiction of the courts.',
   },
 ];
 ```
@@ -468,7 +463,8 @@ export const OutsideScroll = () => {
             </Dialog.CloseTrigger>
             <Dialog.Title className={styles.Title}>Privacy Policy</Dialog.Title>
             <Dialog.Description className={styles.Description}>
-              This layout allows the dialog to extend beyond the viewport while keeping the outer container scrollable.
+              This layout allows the dialog to extend beyond the viewport while keeping the outer container
+              scrollable.
             </Dialog.Description>
             <div className={styles.Body}>
               {CONTENT_SECTIONS.map((item) => (
@@ -488,63 +484,51 @@ export const OutsideScroll = () => {
 const CONTENT_SECTIONS = [
   {
     title: '1. Information We Collect',
-    body:
-      'We collect information you provide directly, such as when you create an account, make a purchase, or contact us for support. This may include your name, email address, and payment information.',
+    body: 'We collect information you provide directly, such as when you create an account, make a purchase, or contact us for support. This may include your name, email address, and payment information.',
   },
   {
     title: '2. How We Use Your Information',
-    body:
-      'We use the information we collect to provide and improve our services, process transactions, send communications, and personalize your experience.',
+    body: 'We use the information we collect to provide and improve our services, process transactions, send communications, and personalize your experience.',
   },
   {
     title: '3. Information Sharing',
-    body:
-      'We do not sell your personal information. We may share information with service providers who assist in our operations, or when required by law.',
+    body: 'We do not sell your personal information. We may share information with service providers who assist in our operations, or when required by law.',
   },
   {
     title: '4. Data Security',
-    body:
-      'We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, or destruction.',
+    body: 'We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, or destruction.',
   },
   {
     title: '5. Your Rights',
-    body:
-      'You have the right to access, correct, or delete your personal information. You may also opt out of marketing communications at any time.',
+    body: 'You have the right to access, correct, or delete your personal information. You may also opt out of marketing communications at any time.',
   },
   {
     title: '6. Cookies and Tracking',
-    body:
-      'We use cookies and similar technologies to enhance your experience, analyze usage patterns, and deliver targeted content. You can manage cookie preferences in your browser settings.',
+    body: 'We use cookies and similar technologies to enhance your experience, analyze usage patterns, and deliver targeted content. You can manage cookie preferences in your browser settings.',
   },
   {
     title: '7. Third-Party Services',
-    body:
-      'Our service may contain links to third-party websites. We are not responsible for the privacy practices of these external sites.',
+    body: 'Our service may contain links to third-party websites. We are not responsible for the privacy practices of these external sites.',
   },
   {
     title: '8. Children Privacy',
-    body:
-      'Our services are not directed to children under 13. We do not knowingly collect personal information from children without parental consent.',
+    body: 'Our services are not directed to children under 13. We do not knowingly collect personal information from children without parental consent.',
   },
   {
     title: '9. International Transfers',
-    body:
-      'Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers.',
+    body: 'Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for such transfers.',
   },
   {
     title: '10. Changes to This Policy',
-    body:
-      'We may update this privacy policy from time to time. We will notify you of significant changes by posting a notice on our website or sending you an email.',
+    body: 'We may update this privacy policy from time to time. We will notify you of significant changes by posting a notice on our website or sending you an email.',
   },
   {
     title: '11. Data Retention',
-    body:
-      'We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law.',
+    body: 'We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law.',
   },
   {
     title: '12. Contact Us',
-    body:
-      'If you have questions about this privacy policy or our data practices, please contact our privacy team through the support channels provided on our website.',
+    body: 'If you have questions about this privacy policy or our data practices, please contact our privacy team through the support channels provided on our website.',
   },
 ];
 ```
@@ -576,7 +560,9 @@ export const Context = () => (
           </Dialog.CloseTrigger>
           <Dialog.Title className={styles.Title}>Status</Dialog.Title>
           <Dialog.Description className={styles.Description}>
-            <Dialog.Context>{(dialog) => <span>Dialog is {dialog.open ? 'open' : 'closed'}</span>}</Dialog.Context>
+            <Dialog.Context>
+              {(dialog) => <span>Dialog is {dialog.open ? 'open' : 'closed'}</span>}
+            </Dialog.Context>
           </Dialog.Description>
         </Dialog.Content>
       </Dialog.Positioner>
@@ -658,7 +644,7 @@ Nest dialogs within one another. The parent receives `data-has-nested` and `--ne
 styling effects like zoom-out:
 
 ```css
-[data-part="content"][data-has-nested] {
+[data-part='content'][data-has-nested] {
   transform: scale(calc(1 - var(--nested-layer-count) * 0.05));
 }
 ```
@@ -783,7 +769,8 @@ export const Confirmation = () => {
               </Dialog.CloseTrigger>
               <Dialog.Title className={styles.Title}>Edit Content</Dialog.Title>
               <Dialog.Description className={styles.Description}>
-                Make changes to your content. You'll be asked to confirm before closing if there are unsaved changes.
+                Make changes to your content. You'll be asked to confirm before closing if there are unsaved
+                changes.
               </Dialog.Description>
               <div className={styles.Body}>
                 <textarea
@@ -844,7 +831,7 @@ For conditional control, use `onEscapeKeyDown` or `onInteractOutside` with `e.pr
 Use the `--layer-index` CSS variable for z-index management of stacked dialogs:
 
 ```css
-[data-part="content"] {
+[data-part='content'] {
   z-index: calc(var(--layer-index));
 }
 ```

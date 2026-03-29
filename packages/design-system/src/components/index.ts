@@ -56,11 +56,7 @@ export { DialogGeneric } from './dialog-generic';
 export type { DialogDSClassNames, DialogDSProps } from './dialog';
 export { Dialog, DialogDS } from './dialog';
 export type { DialogRootPropsDS, DialogSize } from './dialog/dialog.types';
-export type {
-  MenuHighlightChangeDetails,
-  MenuOpenChangeDetails,
-  MenuSelectionDetails,
-} from './menu';
+export type { MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionDetails } from './menu';
 export type { MenuDSClassNames, MenuDSGroup, MenuDSItem, MenuDSProps } from './menu';
 export { Menu, MenuDS } from './menu';
 export type { PopoverOpenChangeDetails } from './popover';

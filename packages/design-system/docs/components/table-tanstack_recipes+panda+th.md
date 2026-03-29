@@ -65,9 +65,9 @@ function FilterableHeader({ column, label }) {
         <input
           className={stylesInput}
           value={column.getFilterValue() ?? ''}
-          onChange={e => column.setFilterValue(e.target.value)}
+          onChange={(e) => column.setFilterValue(e.target.value)}
           placeholder={`Filter…`}
-          onClick={e => e.stopPropagation()} // don't trigger sort on input click
+          onClick={(e) => e.stopPropagation()} // don't trigger sort on input click
         />
       )}
     </div>
@@ -101,10 +101,10 @@ Your `tableRecipe` `th` has `py: '2'` (size sm). Once you stack a label row + an
 ```ts
 // OrdersTable.styles.ts — only if you need to tweak for this specific table
 export const tableOverrides = css`
-      .table__th {
-      padding-block: var(--spacing-3);
-      }
-  `;
+  .table__th {
+    padding-block: var(--spacing-3);
+  }
+`;
 ```
 
 That's the Emotion role — it's not composing recipes, it's tweaking a specific table's chrome after the fact. The recipe handles the 95%, Emotion handles the per-table 5%.

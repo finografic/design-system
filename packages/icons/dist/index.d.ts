@@ -1,5 +1,5 @@
-import { IconProps, createIconWrapper } from "./src/icons.utils.js";
-import { ICON_NAMES, IconComponent, IconName, icons } from "./src/icons.js";
+import { IconProps, createIconWrapper } from "./icons.utils.js";
+import { ICON_NAMES, IconComponent, IconName, icons } from "./icons.js";
 import * as react from "react";
 
 //#region src/index.d.ts

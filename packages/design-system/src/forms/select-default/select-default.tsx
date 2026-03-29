@@ -41,106 +41,104 @@ import { forwardRef, useMemo } from 'react';
 import { selectRecipe } from '../select/select.recipe';
 import type { SelectDefaultProps } from './select-default.types';
 
-export const SelectDefault = forwardRef<HTMLButtonElement, SelectDefaultProps>(
-  (props, ref) => {
-    const {
-      options,
-      placeholder = 'Select…',
-      disabled = false,
-      allowEmpty = false,
-      size = 'md',
-      id,
-      name,
-      className,
-      onBlur,
-      onOpenChange,
-      onHighlightChange,
-      multiple,
-    } = props;
+export const SelectDefault = forwardRef<HTMLButtonElement, SelectDefaultProps>((props, ref) => {
+  const {
+    options,
+    placeholder = 'Select…',
+    disabled = false,
+    allowEmpty = false,
+    size = 'md',
+    id,
+    name,
+    className,
+    onBlur,
+    onOpenChange,
+    onHighlightChange,
+    multiple,
+  } = props;
 
-    const styles = selectRecipe({ size });
+  const styles = selectRecipe({ size });
 
-    const items = useMemo(() => {
-      const base = options.map((o) => ({ ...o, label: o.label ?? o.value }));
-      if (allowEmpty && !multiple) {
-        return [{ value: '', label: placeholder, disabled: false }, ...base];
-      }
-      return base;
-    }, [options, allowEmpty, multiple, placeholder]);
+  const items = useMemo(() => {
+    const base = options.map((o) => ({ ...o, label: o.label ?? o.value }));
+    if (allowEmpty && !multiple) {
+      return [{ value: '', label: placeholder, disabled: false }, ...base];
+    }
+    return base;
+  }, [options, allowEmpty, multiple, placeholder]);
 
-    const collection = useMemo(
-      () =>
-        createListCollection({
-          items,
-          itemToValue: (o) => o.value,
-          itemToString: (o) => o.label ?? o.value,
-        }),
-      [items],
-    );
+  const collection = useMemo(
+    () =>
+      createListCollection({
+        items,
+        itemToValue: (o) => o.value,
+        itemToString: (o) => o.label ?? o.value,
+      }),
+    [items],
+  );
 
-    const handleValueChange = ({ value: vals }: { value: string[] }) => {
-      if (multiple) {
-        (props as Extract<SelectDefaultProps, { multiple: true }>).onSelect?.(vals);
-        (props as Extract<SelectDefaultProps, { multiple: true }>).onChange?.(vals);
-      } else {
-        const next = vals[0] ?? '';
-        (props as Extract<SelectDefaultProps, { multiple?: false }>).onSelect?.(next);
-        (props as Extract<SelectDefaultProps, { multiple?: false }>).onChange?.(next);
-      }
-    };
+  const handleValueChange = ({ value: vals }: { value: string[] }) => {
+    if (multiple) {
+      (props as Extract<SelectDefaultProps, { multiple: true }>).onSelect?.(vals);
+      (props as Extract<SelectDefaultProps, { multiple: true }>).onChange?.(vals);
+    } else {
+      const next = vals[0] ?? '';
+      (props as Extract<SelectDefaultProps, { multiple?: false }>).onSelect?.(next);
+      (props as Extract<SelectDefaultProps, { multiple?: false }>).onChange?.(next);
+    }
+  };
 
-    const arkValue = multiple
-      ? ((props as Extract<SelectDefaultProps, { multiple: true }>).value ?? [])
-      : (() => {
+  const arkValue = multiple
+    ? ((props as Extract<SelectDefaultProps, { multiple: true }>).value ?? [])
+    : (() => {
         const v = (props as Extract<SelectDefaultProps, { multiple?: false }>).value;
         return v !== undefined && v !== '' ? [v] : [];
       })();
 
-    return (
-      <ArkSelect.Root
-        id={id}
-        name={name}
-        multiple={multiple}
-        collection={collection}
-        value={arkValue}
-        onValueChange={handleValueChange}
-        onOpenChange={({ open }) => {
-          onOpenChange?.(open);
-          if (!open) onBlur?.();
-        }}
-        onHighlightChange={({ highlightedValue }) => onHighlightChange?.(highlightedValue)}
-        disabled={disabled}
-        className={cx(styles.root, className)}
-        positioning={{ sameWidth: true, placement: 'bottom-start' }}
-      >
-        <ArkSelect.Control className={styles.control}>
-          <ArkSelect.Trigger ref={ref} className={styles.trigger}>
-            <ArkSelect.ValueText placeholder={placeholder} className={styles.valueText} />
-            <ArkSelect.Indicator className={styles.indicator}>
-              <ChevronDownIcon className="icon icon-sm" aria-hidden />
-            </ArkSelect.Indicator>
-          </ArkSelect.Trigger>
-        </ArkSelect.Control>
+  return (
+    <ArkSelect.Root
+      id={id}
+      name={name}
+      multiple={multiple}
+      collection={collection}
+      value={arkValue}
+      onValueChange={handleValueChange}
+      onOpenChange={({ open }) => {
+        onOpenChange?.(open);
+        if (!open) onBlur?.();
+      }}
+      onHighlightChange={({ highlightedValue }) => onHighlightChange?.(highlightedValue)}
+      disabled={disabled}
+      className={cx(styles.root, className)}
+      positioning={{ sameWidth: true, placement: 'bottom-start' }}
+    >
+      <ArkSelect.Control className={styles.control}>
+        <ArkSelect.Trigger ref={ref} className={styles.trigger}>
+          <ArkSelect.ValueText placeholder={placeholder} className={styles.valueText} />
+          <ArkSelect.Indicator className={styles.indicator}>
+            <ChevronDownIcon className="icon icon-sm" aria-hidden />
+          </ArkSelect.Indicator>
+        </ArkSelect.Trigger>
+      </ArkSelect.Control>
 
-        <ArkSelect.Positioner className={styles.positioner}>
-          <ArkSelect.Content className={styles.content}>
-            <ArkSelect.List className={styles.list}>
-              {items.map((item) => (
-                <ArkSelect.Item key={item.value} item={item} className={styles.item}>
-                  <ArkSelect.ItemText className={styles.itemText}>{item.label}</ArkSelect.ItemText>
-                  <ArkSelect.ItemIndicator className={styles.itemIndicator}>
-                    <CheckIcon className="icon icon-sm" aria-hidden />
-                  </ArkSelect.ItemIndicator>
-                </ArkSelect.Item>
-              ))}
-            </ArkSelect.List>
-          </ArkSelect.Content>
-        </ArkSelect.Positioner>
+      <ArkSelect.Positioner className={styles.positioner}>
+        <ArkSelect.Content className={styles.content}>
+          <ArkSelect.List className={styles.list}>
+            {items.map((item) => (
+              <ArkSelect.Item key={item.value} item={item} className={styles.item}>
+                <ArkSelect.ItemText className={styles.itemText}>{item.label}</ArkSelect.ItemText>
+                <ArkSelect.ItemIndicator className={styles.itemIndicator}>
+                  <CheckIcon className="icon icon-sm" aria-hidden />
+                </ArkSelect.ItemIndicator>
+              </ArkSelect.Item>
+            ))}
+          </ArkSelect.List>
+        </ArkSelect.Content>
+      </ArkSelect.Positioner>
 
-        <ArkSelect.HiddenSelect />
-      </ArkSelect.Root>
-    );
-  },
-);
+      <ArkSelect.HiddenSelect />
+    </ArkSelect.Root>
+  );
+});
 
 SelectDefault.displayName = 'SelectDefault';

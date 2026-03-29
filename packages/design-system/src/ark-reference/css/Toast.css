@@ -18,7 +18,12 @@
   opacity: var(--opacity);
 
   will-change: translate, opacity, scale;
-  transition: translate 400ms, scale 400ms, opacity 400ms, height 400ms, box-shadow 200ms;
+  transition:
+    translate 400ms,
+    scale 400ms,
+    opacity 400ms,
+    height 400ms,
+    box-shadow 200ms;
   transition-timing-function: cubic-bezier(0.21, 1.02, 0.73, 1);
 
   background: var(--demo-bg-popover);
@@ -29,15 +34,22 @@
 
   /* Shadow direction based on placement */
   &[data-placement^="top"] {
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
+    box-shadow:
+      0 -4px 12px rgba(0, 0, 0, 0.1),
+      0 0 1px rgba(0, 0, 0, 0.2);
   }
 
   &[data-placement^="bottom"] {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      0 0 1px rgba(0, 0, 0, 0.2);
   }
 
   &[data-state="closed"] {
-    transition: translate 400ms, scale 400ms, opacity 200ms;
+    transition:
+      translate 400ms,
+      scale 400ms,
+      opacity 200ms;
     transition-timing-function: cubic-bezier(0.06, 0.71, 0.55, 1);
   }
 
@@ -123,7 +135,10 @@
   user-select: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 150ms, border-color 150ms, color 150ms;
+  transition:
+    background 150ms,
+    border-color 150ms,
+    color 150ms;
 
   background: transparent;
   border: 1px solid var(--demo-border-emphasized, currentColor);

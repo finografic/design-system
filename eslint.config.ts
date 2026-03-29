@@ -127,12 +127,7 @@ const config: Linter.Config[] = [
 
   {
     files: ['**/*.md'],
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      '.cursor/**',
-      '.github/instructions/**',
-    ],
+    ignores: ['node_modules/**', 'dist/**', '.cursor/**', '.github/instructions/**'],
     languageOptions: {
       parser: markdownlintParser,
     },
@@ -157,7 +152,7 @@ const config: Linter.Config[] = [
       'markdownlint/md045': 'off', // images require alt text
 
       // Formatting consistency
-      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
+      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
       'stylistic/no-trailing-spaces': 'error',
       'stylistic/no-multi-spaces': ['error', { exceptions: { Property: true } }],
     },

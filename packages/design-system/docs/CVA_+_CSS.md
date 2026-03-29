@@ -70,30 +70,26 @@ tsx
 // ❌ Emotion — manual variant logic
 import { css } from '@emotion/react';
 
-const getStatusStyles = (status: 'idle' | 'active' | 'error') =>
-  css`
+const getStatusStyles = (status: 'idle' | 'active' | 'error') => css`
   padding: var(--spacing-2) var(--spacing-3);
   border-radius: var(--radii-sm);
   font-size: var(--font-sizes-sm);
 
-  ${
-    status === 'idle' && `
+  ${status === 'idle' &&
+  `
     background: var(--colors-neutral-100);
     color: var(--colors-neutral-700);
+  `}
+  ${status === 'active' &&
   `
-  }
-  ${
-    status === 'active' && `
     background: var(--colors-success-100);
     color: var(--colors-success-800);
+  `}
+  ${status === 'error' &&
   `
-  }
-  ${
-    status === 'error' && `
     background: var(--colors-danger-100);
     color: var(--colors-danger-800);
-  `
-  }
+  `}
 `;
 
 <div css={getStatusStyles(status)}>...</div>;
@@ -162,14 +158,15 @@ tsx
 
 ```tsx
 // This is hard to express in Panda — keep in Emotion
-const gridItem = (colSpan: number, rowStart: number, isDragging: boolean) =>
-  css`
+const gridItem = (colSpan: number, rowStart: number, isDragging: boolean) => css`
   grid-column: span ${colSpan};
   grid-row-start: ${rowStart};
   opacity: ${isDragging ? 0.5 : 1};
   transform: ${isDragging ? 'scale(0.98)' : 'none'};
   z-index: ${isDragging ? 10 : 'auto'};
-  transition: opacity 0.15s, transform 0.15s;
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
 `;
 ```
 

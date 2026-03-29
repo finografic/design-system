@@ -131,11 +131,7 @@ export const DialogGeneric: FC<DialogGenericProps> = ({
   );
 
   return (
-    <Dialog.Root
-      open={isOpen}
-      onOpenChange={(open) => !open && onClose()}
-      size={config.size ?? 'md'}
-    >
+    <Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()} size={config.size ?? 'md'}>
       <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content className={cx(contentStyle, className)} style={dynamicStyle}>
@@ -145,9 +141,7 @@ export const DialogGeneric: FC<DialogGenericProps> = ({
               <Dialog.Title>
                 {config.title}
                 {config.subtitle && (
-                  <span className={css({ fontWeight: 'normal', opacity: 0.7 })}>
-                    {config.subtitle}
-                  </span>
+                  <span className={css({ fontWeight: 'normal', opacity: 0.7 })}>{config.subtitle}</span>
                 )}
               </Dialog.Title>
             )}
@@ -168,30 +162,26 @@ export const DialogGeneric: FC<DialogGenericProps> = ({
 
           {/* BODY */}
           <Dialog.Body className={bodyStyle}>
-            {hasTabs
-              ? (
-                <Tabs.Root value={activeTab} onValueChange={({ value }) => handleTabChange(value)}>
-                  <Tabs.List>
-                    {config.tabs.map((tab) => (
-                      <Tabs.Trigger key={tab.id} value={tab.id} disabled={tab.disabled}>
-                        {tab.icon ?? null} {tab.label}
-                      </Tabs.Trigger>
-                    ))}
-                  </Tabs.List>
-                  <div className={scrollableStyle}>
-                    {config.tabs.map((tab) => (
-                      <Tabs.Content key={tab.id} value={tab.id}>
-                        {tab.content}
-                      </Tabs.Content>
-                    ))}
-                  </div>
-                </Tabs.Root>
-              )
-              : (
-                <div className={singleContentStyle}>
-                  {currentTab?.content}
+            {hasTabs ? (
+              <Tabs.Root value={activeTab} onValueChange={({ value }) => handleTabChange(value)}>
+                <Tabs.List>
+                  {config.tabs.map((tab) => (
+                    <Tabs.Trigger key={tab.id} value={tab.id} disabled={tab.disabled}>
+                      {tab.icon ?? null} {tab.label}
+                    </Tabs.Trigger>
+                  ))}
+                </Tabs.List>
+                <div className={scrollableStyle}>
+                  {config.tabs.map((tab) => (
+                    <Tabs.Content key={tab.id} value={tab.id}>
+                      {tab.content}
+                    </Tabs.Content>
+                  ))}
                 </div>
-              )}
+              </Tabs.Root>
+            ) : (
+              <div className={singleContentStyle}>{currentTab?.content}</div>
+            )}
           </Dialog.Body>
 
           {/* FOOTER */}
@@ -207,11 +197,9 @@ export const DialogGeneric: FC<DialogGenericProps> = ({
                   ...(footer.isFilled && { width: 'full' }),
                 })}
               >
-                {(footer.isRTL ? footer.buttons : [...footer.buttons].reverse()).map(
-                  (props, i) => (
-                    <Button key={i} size="md" palette="default" variant="solid" {...props} />
-                  ),
-                )}
+                {(footer.isRTL ? footer.buttons : [...footer.buttons].reverse()).map((props, i) => (
+                  <Button key={i} size="md" palette="default" variant="solid" {...props} />
+                ))}
               </div>
             </Dialog.Footer>
           )}

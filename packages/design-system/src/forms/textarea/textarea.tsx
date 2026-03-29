@@ -4,10 +4,8 @@ import { forwardRef, type TextareaHTMLAttributes } from 'react';
 import type { TextareaVariants } from './textarea.recipe';
 import { textareaRecipe } from './textarea.recipe';
 
-export type TextareaProps =
-  & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'>
-  & TextareaVariants
-  & {
+export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
+  TextareaVariants & {
     /** Marks the field invalid (adds `aria-invalid` + error border). */
     invalid?: boolean;
   };

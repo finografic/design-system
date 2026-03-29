@@ -29,10 +29,8 @@ import { Spinner } from '../spinner';
 import type { ButtonVariants } from './button.recipe';
 import { buttonRecipe } from './button.recipe';
 
-export type ButtonProps =
-  & ComponentPropsWithoutRef<'button'>
-  & Omit<ButtonVariants, 'iconOnly'>
-  & {
+export type ButtonProps = ComponentPropsWithoutRef<'button'> &
+  Omit<ButtonVariants, 'iconOnly'> & {
     /** Shows a spinner and disables interaction. Also sets `aria-busy`. */
     loading?: boolean;
     /** Icon element rendered before or after children. Hidden while `loading`. */
@@ -77,9 +75,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconOnly: Boolean((icon || loading) && !children),
     });
 
-    const spinnerNode = loading
-      ? <Spinner size={spinnerSizeMap[size ?? 'md']} aria-hidden />
-      : null;
+    const spinnerNode = loading ? <Spinner size={spinnerSizeMap[size ?? 'md']} aria-hidden /> : null;
 
     return (
       <ark.button

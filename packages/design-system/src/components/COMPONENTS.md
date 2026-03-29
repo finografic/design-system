@@ -82,7 +82,7 @@ DataTable uses `sva` but not `createStyleContext` because it wraps TanStack Tabl
 
 ### `text` — polymorphic component
 
-`Text` infers the HTML element from `variant` (h1–h6 → matching heading, body* → `<p>`,
+`Text` infers the HTML element from `variant` (h1–h6 → matching heading, body\* → `<p>`,
 caption/overline → `<span>`). Override with `as` prop.
 
 ```tsx

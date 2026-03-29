@@ -174,9 +174,7 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
         className={cx(styles.root, classNames.root)}
       >
         {label && (
-          <ArkDatePicker.Label className={cx(styles.label, classNames.label)}>
-            {label}
-          </ArkDatePicker.Label>
+          <ArkDatePicker.Label className={cx(styles.label, classNames.label)}>{label}</ArkDatePicker.Label>
         )}
 
         <ArkDatePicker.Control className={cx(styles.control, classNames.control)}>
@@ -188,9 +186,7 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
           <ArkDatePicker.ClearTrigger className={cx(styles.clearTrigger, classNames.clearTrigger)}>
             ✕
           </ArkDatePicker.ClearTrigger>
-          <ArkDatePicker.Trigger className={cx(styles.trigger, classNames.trigger)}>
-            📅
-          </ArkDatePicker.Trigger>
+          <ArkDatePicker.Trigger className={cx(styles.trigger, classNames.trigger)}>📅</ArkDatePicker.Trigger>
         </ArkDatePicker.Control>
 
         <ArkDatePicker.Positioner className={styles.positioner}>
@@ -200,15 +196,11 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
                 {(datePicker) => (
                   <>
                     <ArkDatePicker.ViewControl className={styles.viewControl}>
-                      <ArkDatePicker.PrevTrigger className={styles.prevTrigger}>
-                        ‹
-                      </ArkDatePicker.PrevTrigger>
+                      <ArkDatePicker.PrevTrigger className={styles.prevTrigger}>‹</ArkDatePicker.PrevTrigger>
                       <ArkDatePicker.ViewTrigger className={styles.viewTrigger}>
                         <ArkDatePicker.RangeText className={styles.rangeText} />
                       </ArkDatePicker.ViewTrigger>
-                      <ArkDatePicker.NextTrigger className={styles.nextTrigger}>
-                        ›
-                      </ArkDatePicker.NextTrigger>
+                      <ArkDatePicker.NextTrigger className={styles.nextTrigger}>›</ArkDatePicker.NextTrigger>
                     </ArkDatePicker.ViewControl>
                     <ArkDatePicker.Table className={styles.table}>
                       <thead>
@@ -224,11 +216,7 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
                         {datePicker.weeks.map((week, i) => (
                           <tr key={i}>
                             {week.map((day, j) => (
-                              <ArkDatePicker.TableCell
-                                key={j}
-                                value={day}
-                                className={styles.tableCell}
-                              >
+                              <ArkDatePicker.TableCell key={j} value={day} className={styles.tableCell}>
                                 <ArkDatePicker.TableCellTrigger className={styles.tableCellTrigger}>
                                   {day.day}
                                 </ArkDatePicker.TableCellTrigger>
@@ -248,22 +236,15 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
                 {(datePicker) => (
                   <>
                     <ArkDatePicker.ViewControl className={styles.viewControl}>
-                      <ArkDatePicker.PrevTrigger className={styles.prevTrigger}>
-                        ‹
-                      </ArkDatePicker.PrevTrigger>
+                      <ArkDatePicker.PrevTrigger className={styles.prevTrigger}>‹</ArkDatePicker.PrevTrigger>
                       <ArkDatePicker.ViewTrigger className={styles.viewTrigger}>
                         <ArkDatePicker.RangeText className={styles.rangeText} />
                       </ArkDatePicker.ViewTrigger>
-                      <ArkDatePicker.NextTrigger className={styles.nextTrigger}>
-                        ›
-                      </ArkDatePicker.NextTrigger>
+                      <ArkDatePicker.NextTrigger className={styles.nextTrigger}>›</ArkDatePicker.NextTrigger>
                     </ArkDatePicker.ViewControl>
                     <ArkDatePicker.Table className={styles.table}>
                       <tbody>
-                        {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((
-                          months,
-                          i,
-                        ) => (
+                        {datePicker.getMonthsGrid({ columns: 4, format: 'short' }).map((months, i) => (
                           <tr key={i}>
                             {months.map((month, j) => (
                               <ArkDatePicker.TableCell
@@ -290,15 +271,11 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
                 {(datePicker) => (
                   <>
                     <ArkDatePicker.ViewControl className={styles.viewControl}>
-                      <ArkDatePicker.PrevTrigger className={styles.prevTrigger}>
-                        ‹
-                      </ArkDatePicker.PrevTrigger>
+                      <ArkDatePicker.PrevTrigger className={styles.prevTrigger}>‹</ArkDatePicker.PrevTrigger>
                       <ArkDatePicker.ViewTrigger className={styles.viewTrigger}>
                         <ArkDatePicker.RangeText className={styles.rangeText} />
                       </ArkDatePicker.ViewTrigger>
-                      <ArkDatePicker.NextTrigger className={styles.nextTrigger}>
-                        ›
-                      </ArkDatePicker.NextTrigger>
+                      <ArkDatePicker.NextTrigger className={styles.nextTrigger}>›</ArkDatePicker.NextTrigger>
                     </ArkDatePicker.ViewControl>
                     <ArkDatePicker.Table className={styles.table}>
                       <tbody>
@@ -332,8 +309,4 @@ export const DatePickerDS = forwardRef<HTMLDivElement, DatePickerDSProps>(
 
 DatePickerDS.displayName = 'DatePickerDS';
 
-export type {
-  DatePickerOpenChangeDetails,
-  DatePickerValueChangeDetails,
-  DateValue,
-} from '@ark-ui/react';
+export type { DatePickerOpenChangeDetails, DatePickerValueChangeDetails, DateValue } from '@ark-ui/react';

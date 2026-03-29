@@ -81,12 +81,7 @@ export const ScrollAreaDS = forwardRef<HTMLDivElement, ScrollAreaDSProps>(
     const styles = scrollAreaRecipe();
 
     return (
-      <ArkScrollArea.Root
-        ref={ref}
-        dir={dir}
-        className={cx(styles.root, className)}
-        style={style}
-      >
+      <ArkScrollArea.Root ref={ref} dir={dir} className={cx(styles.root, className)} style={style}>
         <ArkScrollArea.Viewport className={styles.viewport}>
           <ArkScrollArea.Content className={styles.content}>{children}</ArkScrollArea.Content>
         </ArkScrollArea.Viewport>

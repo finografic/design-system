@@ -29,10 +29,10 @@ export const tabsRecipe = sva({
 
   base: {
     root: {
-      'display': 'flex',
-      'flexDirection': 'column',
-      'width': 'full',
-      'color': 'fg',
+      display: 'flex',
+      flexDirection: 'column',
+      width: 'full',
+      color: 'fg',
       '&[data-orientation="horizontal"]': {
         flexDirection: 'column',
       },
@@ -42,11 +42,11 @@ export const tabsRecipe = sva({
     },
 
     list: {
-      'display': 'inline-flex',
-      'position': 'relative',
-      'isolation': 'isolate',
-      'alignItems': 'center',
-      'gap': '1',
+      display: 'inline-flex',
+      position: 'relative',
+      isolation: 'isolate',
+      alignItems: 'center',
+      gap: '1',
       '&[data-orientation="horizontal"]': {
         flexDirection: 'row',
       },
@@ -57,38 +57,38 @@ export const tabsRecipe = sva({
     },
 
     trigger: {
-      'display': 'inline-flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'gap': '2',
-      'px': '3',
-      'fontFamily': 'inherit',
-      'fontSize': 'sm',
-      'fontWeight': 'medium',
-      'lineHeight': 'normal',
-      'color': 'fg.muted',
-      'cursor': 'pointer',
-      'whiteSpace': 'nowrap',
-      'flexShrink': 0,
-      'userSelect': 'none',
-      'border': 'none',
-      'bg': 'transparent',
-      'borderRadius': 'sm',
-      'transitionProperty': 'color, border-color, background-color, box-shadow',
-      'transitionDuration': 'fast',
-      '_selected': {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '2',
+      px: '3',
+      fontFamily: 'inherit',
+      fontSize: 'sm',
+      fontWeight: 'medium',
+      lineHeight: 'normal',
+      color: 'fg.muted',
+      cursor: 'pointer',
+      whiteSpace: 'nowrap',
+      flexShrink: 0,
+      userSelect: 'none',
+      border: 'none',
+      bg: 'transparent',
+      borderRadius: 'sm',
+      transitionProperty: 'color, border-color, background-color, box-shadow',
+      transitionDuration: 'fast',
+      _selected: {
         color: 'accent.solid',
       },
-      '_hover': {
+      _hover: {
         color: 'fg',
       },
-      '_disabled': {
+      _disabled: {
         opacity: 0.5,
         cursor: 'not-allowed',
         filter: 'grayscale(100%)',
         pointerEvents: 'none',
       },
-      '_focusVisible': focusRing,
+      _focusVisible: focusRing,
       '&:is(a)': {
         color: 'inherit',
       },
@@ -101,14 +101,14 @@ export const tabsRecipe = sva({
     },
 
     content: {
-      'outline': 'none',
-      'fontSize': 'sm',
-      'lineHeight': 'normal',
-      'color': 'fg',
-      '_open': {
+      outline: 'none',
+      fontSize: 'sm',
+      lineHeight: 'normal',
+      color: 'fg',
+      _open: {
         animation: 'fade-in 150ms ease',
       },
-      '_focusVisible': {
+      _focusVisible: {
         outline: '2px solid',
         outlineColor: 'accent.focusRing',
         outlineOffset: '-2px',
@@ -176,7 +176,7 @@ export const tabsRecipe = sva({
           },
         },
         indicator: {
-          'bg': 'accent.subtle',
+          bg: 'accent.subtle',
           '&[data-orientation="horizontal"]': {
             height: 'var(--height, 2rem)',
             width: 'var(--width)',
@@ -192,10 +192,10 @@ export const tabsRecipe = sva({
     size: {
       sm: {
         trigger: {
-          'px': '2.5',
-          'py': '1',
-          'fontSize': 'xs',
-          'gap': '1.5',
+          px: '2.5',
+          py: '1',
+          fontSize: 'xs',
+          gap: '1.5',
           '&[data-orientation="horizontal"]': {
             height: '7',
           },
@@ -209,10 +209,10 @@ export const tabsRecipe = sva({
       },
       md: {
         trigger: {
-          'px': '3',
-          'py': '1.5',
-          'fontSize': 'sm',
-          'gap': '2',
+          px: '3',
+          py: '1.5',
+          fontSize: 'sm',
+          gap: '2',
           '&[data-orientation="horizontal"]': {
             height: '8',
           },
@@ -226,10 +226,10 @@ export const tabsRecipe = sva({
       },
       lg: {
         trigger: {
-          'px': '4',
-          'py': '2',
-          'fontSize': 'md',
-          'gap': '2',
+          px: '4',
+          py: '2',
+          fontSize: 'md',
+          gap: '2',
           '&[data-orientation="horizontal"]': {
             height: '9',
           },

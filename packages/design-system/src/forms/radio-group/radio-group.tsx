@@ -164,9 +164,7 @@ export const RadioGroupDS = forwardRef<HTMLDivElement, RadioGroupDSProps>(
         className={cx(styles.root, classNames.root, className)}
       >
         {label && (
-          <ArkRadioGroup.Label className={cx(styles.label, classNames.label)}>
-            {label}
-          </ArkRadioGroup.Label>
+          <ArkRadioGroup.Label className={cx(styles.label, classNames.label)}>{label}</ArkRadioGroup.Label>
         )}
 
         {options.map((opt) => (

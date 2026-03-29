@@ -13,12 +13,6 @@ export type {
   MediaQueryProps,
   ScreenClass,
 } from './viewport';
-export {
-  BREAKPOINT_VALUES,
-  BREAKPOINTS,
-  BREAKPOINTS_EM,
-  BREAKPOINTS_PX,
-  BREAKPOINTS_REM,
-} from './viewport';
+export { BREAKPOINT_VALUES, BREAKPOINTS, BREAKPOINTS_EM, BREAKPOINTS_PX, BREAKPOINTS_REM } from './viewport';
 export { MEDIA_QUERIES, QUERIES_MAX, QUERIES_MIN } from './viewport';
 export { convertPxToRem, convertRemToPx, max, min, sizes } from './viewport';

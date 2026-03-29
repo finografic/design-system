@@ -23,17 +23,14 @@ function toIconName(exportName: string): string {
  *
  * No external deps — className merge is done inline.
  */
-export const createIconWrapper = (
-  IconComponent: React.ComponentType<IconProps>,
-  exportName?: string,
-) => {
+export const createIconWrapper = (IconComponent: React.ComponentType<IconProps>, exportName?: string) => {
   const iconName = exportName ? toIconName(exportName) : 'unknown';
 
   const WrappedIcon = forwardRef<SVGSVGElement, IconProps>(({ className, ...props }, ref) => {
     const cls = ['icon', `icon-name--${iconName}`, className].filter(Boolean).join(' ');
     return React.createElement(IconComponent, {
       ref,
-      'className': cls,
+      className: cls,
       'data-icon-name': iconName,
       ...props,
     });

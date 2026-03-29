@@ -14,19 +14,16 @@ import type { DialogRootPropsDS } from './dialog.types';
 const { withProvider, withContext } = createStyleContext(dialogRecipe);
 
 /** Base div forwardRef — used for Header / Body / Footer slots that render as plain divs. */
-const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <div {...props} ref={ref} />,
-);
+const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
+  <div {...props} ref={ref} />
+));
 Div.displayName = 'Div';
 
 const _DialogRoot = withProvider(ArkDialog.Root, 'root');
 
 function Root({ onOpenChange, ...props }: DialogRootPropsDS) {
   return (
-    <_DialogRoot
-      onOpenChange={onOpenChange ? ({ open }) => onOpenChange(open) : undefined}
-      {...props}
-    />
+    <_DialogRoot onOpenChange={onOpenChange ? ({ open }) => onOpenChange(open) : undefined} {...props} />
   );
 }
 Root.displayName = 'Dialog.Root';
@@ -176,10 +173,7 @@ export const DialogDS = forwardRef<HTMLButtonElement, DialogDSProps>(
     const styles = dialogRecipe({ size });
 
     return (
-      <ArkDialog.Root
-        open={open}
-        onOpenChange={({ open: o }) => onOpenChange?.(o)}
-      >
+      <ArkDialog.Root open={open} onOpenChange={({ open: o }) => onOpenChange?.(o)}>
         {trigger && (
           <ArkDialog.Trigger ref={ref} asChild>
             {trigger}
@@ -192,14 +186,10 @@ export const DialogDS = forwardRef<HTMLButtonElement, DialogDSProps>(
             {(title || closeButton) && (
               <div className={cx(styles.header, classNames.header)}>
                 {title && (
-                  <ArkDialog.Title className={cx(styles.title, classNames.title)}>
-                    {title}
-                  </ArkDialog.Title>
+                  <ArkDialog.Title className={cx(styles.title, classNames.title)}>{title}</ArkDialog.Title>
                 )}
                 {closeButton && (
-                  <ArkDialog.CloseTrigger
-                    className={cx(styles.closeTrigger, classNames.closeTrigger)}
-                  >
+                  <ArkDialog.CloseTrigger className={cx(styles.closeTrigger, classNames.closeTrigger)}>
                     <CloseIcon aria-hidden />
                   </ArkDialog.CloseTrigger>
                 )}

@@ -36,7 +36,9 @@
   border-radius: 0.375rem;
   color: var(--demo-neutral-fg);
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 
   &::placeholder {
     color: var(--demo-neutral-emphasized);
@@ -77,7 +79,9 @@
   color: var(--demo-neutral-fg);
   outline: none;
   flex-shrink: 0;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 
   & svg {
     width: 1rem;
@@ -150,7 +154,9 @@
   color: var(--demo-neutral-fg);
   outline: none;
   white-space: nowrap;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 
   &:hover:not(:disabled, [data-disabled]) {
     background: var(--demo-neutral-muted);
@@ -244,7 +250,9 @@
   border-radius: 0.375rem;
   color: var(--demo-neutral-fg);
   outline: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 
   & svg {
     width: 1rem;

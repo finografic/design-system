@@ -16,16 +16,7 @@ import type { RecipeProps } from '../../types/recipes.types';
 export const listboxRecipe = sva({
   className: 'listbox',
 
-  slots: [
-    'root',
-    'label',
-    'content',
-    'item',
-    'itemText',
-    'itemIndicator',
-    'itemGroup',
-    'itemGroupLabel',
-  ],
+  slots: ['root', 'label', 'content', 'item', 'itemText', 'itemIndicator', 'itemGroup', 'itemGroupLabel'],
 
   base: {
     root: {
@@ -86,8 +77,8 @@ export const listboxRecipe = sva({
     },
 
     itemGroup: {
-      'display': 'flex',
-      'flexDirection': 'column',
+      display: 'flex',
+      flexDirection: 'column',
       '& + &': { marginTop: '1' },
     },
 
@@ -107,17 +98,17 @@ export const listboxRecipe = sva({
       sm: {
         item: { px: '2', py: '1', fontSize: 'sm' },
         itemText: { fontSize: 'sm' },
-        itemIndicator: { 'w': '4', 'h': '4', '& svg': { w: '3', h: '3' } },
+        itemIndicator: { w: '4', h: '4', '& svg': { w: '3', h: '3' } },
       },
       md: {
         item: { px: '3', py: '1.5', fontSize: 'sm' },
         itemText: { fontSize: 'sm' },
-        itemIndicator: { 'w': '5', 'h': '5', '& svg': { w: '3.5', h: '3.5' } },
+        itemIndicator: { w: '5', h: '5', '& svg': { w: '3.5', h: '3.5' } },
       },
       lg: {
         item: { px: '3', py: '2', fontSize: 'md' },
         itemText: { fontSize: 'md' },
-        itemIndicator: { 'w': '5', 'h': '5', '& svg': { w: '4', h: '4' } },
+        itemIndicator: { w: '5', h: '5', '& svg': { w: '4', h: '4' } },
       },
     },
   },

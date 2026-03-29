@@ -4,22 +4,23 @@ import { type HTMLAttributes } from 'react';
 import type { TextElement, TextVariants } from './text.recipe';
 import { textRecipe } from './text.recipe';
 
-export type TextProps = TextVariants & HTMLAttributes<HTMLElement> & {
-  as?: TextElement;
-};
+export type TextProps = TextVariants &
+  HTMLAttributes<HTMLElement> & {
+    as?: TextElement;
+  };
 
 const variantToElement: Record<string, TextElement> = {
-  'h1': 'h1',
-  'h2': 'h2',
-  'h3': 'h3',
-  'h4': 'h4',
-  'h5': 'h5',
-  'h6': 'h6',
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
   'body-lg': 'p',
-  'body': 'p',
+  body: 'p',
   'body-sm': 'p',
-  'caption': 'span',
-  'overline': 'span',
+  caption: 'span',
+  overline: 'span',
 };
 
 /**
@@ -37,9 +38,7 @@ const variantToElement: Record<string, TextElement> = {
  * <Text variant="overline" as="div">Category label</Text>
  * ```
  */
-export function Text(
-  { as, variant = 'body', color, truncate, className, children, ...props }: TextProps,
-) {
+export function Text({ as, variant = 'body', color, truncate, className, children, ...props }: TextProps) {
   const Tag = as ?? variantToElement[variant];
   const styles = textRecipe({ variant, color, truncate });
   return (

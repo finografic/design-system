@@ -25,7 +25,7 @@ const createIconWrapper = (IconComponent, exportName) => {
 		].filter(Boolean).join(" ");
 		return React.createElement(IconComponent, {
 			ref,
-			"className": cls,
+			className: cls,
 			"data-icon-name": iconName,
 			...props
 		});

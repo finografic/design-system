@@ -24,13 +24,7 @@
  * />
  * ```
  */
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-  PlusIcon,
-  XIcon,
-} from '@finografic/icons';
+import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from '@finografic/icons';
 
 import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
@@ -64,10 +58,7 @@ export function SelectSearchable({
   const [inputValue, setInputValue] = useState('');
   const canAddNew = typeof onAddNew === 'function';
 
-  const selectedOption = useMemo(
-    () => options.find((o) => o.value === value),
-    [options, value],
-  );
+  const selectedOption = useMemo(() => options.find((o) => o.value === value), [options, value]);
 
   const filtered = useMemo(() => {
     if (!inputValue.trim()) return options.slice(0, windowSize);
@@ -89,9 +80,7 @@ export function SelectSearchable({
 
   const exactMatch = useMemo(() => {
     const q = inputValue.trim().toLowerCase();
-    return options.some(
-      (o) => o.value.toLowerCase() === q || (o.label ?? '').toLowerCase() === q,
-    );
+    return options.some((o) => o.value.toLowerCase() === q || (o.label ?? '').toLowerCase() === q);
   }, [options, inputValue]);
 
   const showAddNew = canAddNew && inputValue.trim().length > 0 && !exactMatch;
@@ -142,9 +131,7 @@ export function SelectSearchable({
 
         <ArkCombobox.Input
           className={styles.input}
-          placeholder={selectedOption
-            ? (selectedOption.label ?? selectedOption.value)
-            : placeholder}
+          placeholder={selectedOption ? (selectedOption.label ?? selectedOption.value) : placeholder}
         />
 
         {value && onClear && (
@@ -178,16 +165,14 @@ export function SelectSearchable({
             {filtered.map((item) => (
               <ArkCombobox.Item key={item.value} item={item} className={styles.item}>
                 <ArkCombobox.ItemText className={styles.itemText}>
-                  {item.label && item.label !== item.value
-                    ? (
-                      <>
-                        <span>{item.label}</span>
-                        <span className={itemSubLabelStyle}>{item.value}</span>
-                      </>
-                    )
-                    : (
-                      item.value
-                    )}
+                  {item.label && item.label !== item.value ? (
+                    <>
+                      <span>{item.label}</span>
+                      <span className={itemSubLabelStyle}>{item.value}</span>
+                    </>
+                  ) : (
+                    item.value
+                  )}
                 </ArkCombobox.ItemText>
                 <ArkCombobox.ItemIndicator className={styles.itemIndicator}>
                   <CheckIcon className="icon icon-sm" aria-hidden />

@@ -118,18 +118,13 @@ export const SwitchDS = forwardRef<HTMLLabelElement, SwitchDSProps>(
         {(label || description || errorMessage) && (
           <div className={textColumnStyle}>
             {label && (
-              <ArkSwitch.Label className={cx(styles.label, classNames.label)}>
-                {label}
-              </ArkSwitch.Label>
+              <ArkSwitch.Label className={cx(styles.label, classNames.label)}>{label}</ArkSwitch.Label>
             )}
             {description && (
               <span className={cx(styles.description, classNames.description)}>{description}</span>
             )}
             {errorMessage && (
-              <span
-                className={cx(styles.errorText, classNames.errorText)}
-                role="alert"
-              >
+              <span className={cx(styles.errorText, classNames.errorText)} role="alert">
                 {errorMessage}
               </span>
             )}

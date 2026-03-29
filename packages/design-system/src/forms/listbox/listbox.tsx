@@ -103,10 +103,7 @@ export type ListboxDSProps = ListboxRecipeProps & {
   /** Called when the selected values change. */
   onChange?: (value: string[], items: ListboxDSItem[]) => void;
   /** Called when the highlighted (keyboard-focused) item changes. */
-  onHighlightChange?: (
-    value: string | null,
-    item: ListboxDSItem | null,
-  ) => void;
+  onHighlightChange?: (value: string | null, item: ListboxDSItem | null) => void;
   /** Called when an item is selected. */
   onSelect?: (value: string, item: ListboxDSItem) => void;
   /** Optional label above the list. */
@@ -152,10 +149,7 @@ export const ListboxDS = forwardRef<HTMLDivElement, ListboxDSProps>(
   ) => {
     const styles = listboxRecipe({ size });
 
-    const collection = useMemo(
-      () => createListCollection({ items }),
-      [items],
-    );
+    const collection = useMemo(() => createListCollection({ items }), [items]);
 
     return (
       <ArkListbox.Root
@@ -166,32 +160,23 @@ export const ListboxDS = forwardRef<HTMLDivElement, ListboxDSProps>(
         selectionMode={multiple ? 'multiple' : 'single'}
         onValueChange={({ value: v, items: its }) => onChange?.(v, its as ListboxDSItem[])}
         onHighlightChange={({ highlightedValue, highlightedItem }) =>
-          onHighlightChange?.(highlightedValue, highlightedItem as ListboxDSItem | null)}
+          onHighlightChange?.(highlightedValue, highlightedItem as ListboxDSItem | null)
+        }
         onSelect={({ value: v }) => {
           const item = items.find((i) => i.value === v);
           if (item) onSelect?.(v, item);
         }}
         className={cx(styles.root, classNames.root)}
       >
-        {label && (
-          <ArkListbox.Label className={cx(styles.label, classNames.label)}>
-            {label}
-          </ArkListbox.Label>
-        )}
+        {label && <ArkListbox.Label className={cx(styles.label, classNames.label)}>{label}</ArkListbox.Label>}
         <ArkListbox.Content className={cx(styles.content, classNames.content)}>
           <ArkListbox.ItemGroup className={cx(styles.itemGroup)}>
             {items.map((item) => (
-              <ArkListbox.Item
-                key={item.value}
-                item={item}
-                className={cx(styles.item, classNames.item)}
-              >
+              <ArkListbox.Item key={item.value} item={item} className={cx(styles.item, classNames.item)}>
                 <ArkListbox.ItemText className={cx(styles.itemText, classNames.itemText)}>
                   {item.label}
                 </ArkListbox.ItemText>
-                <ArkListbox.ItemIndicator
-                  className={cx(styles.itemIndicator, classNames.itemIndicator)}
-                >
+                <ArkListbox.ItemIndicator className={cx(styles.itemIndicator, classNames.itemIndicator)}>
                   ✓
                 </ArkListbox.ItemIndicator>
               </ArkListbox.Item>

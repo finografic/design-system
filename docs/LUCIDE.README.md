@@ -220,8 +220,8 @@ Both are gitignored. On first run, `dev/` is created automatically and `dev/icon
 pnpm typecheck       # TypeScript type check (no emit)
 pnpm lint            # ESLint
 pnpm lint.fix        # ESLint with auto-fix
-pnpm format          # dprint format check (with diff)
-pnpm format.check    # dprint format check (CI-safe)
+pnpm format          # oxfmt (write)
+pnpm format.check    # oxfmt --check (CI-safe)
 pnpm test.run        # Run tests once
 pnpm test            # Run tests in watch mode
 ```

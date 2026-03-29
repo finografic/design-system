@@ -25,16 +25,9 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
  * </Container>
  * ```
  */
-const Container = forwardRef<HTMLDivElement, ContainerProps>(
-  ({ fluid, className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cx('ds-container', className)}
-      data-fluid={fluid || undefined}
-      {...props}
-    />
-  ),
-);
+const Container = forwardRef<HTMLDivElement, ContainerProps>(({ fluid, className, ...props }, ref) => (
+  <div ref={ref} className={cx('ds-container', className)} data-fluid={fluid || undefined} {...props} />
+));
 
 Container.displayName = 'Container';
 

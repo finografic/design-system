@@ -157,9 +157,7 @@ export const SliderDS = forwardRef<HTMLDivElement, SliderDSProps>(
         {label && (
           <ArkSlider.Label className={cx(styles.label, classNames.label)}>
             {label}
-            {showValue && (
-              <ArkSlider.ValueText className={cx(styles.valueText, classNames.valueText)} />
-            )}
+            {showValue && <ArkSlider.ValueText className={cx(styles.valueText, classNames.valueText)} />}
           </ArkSlider.Label>
         )}
 

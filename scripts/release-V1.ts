@@ -41,10 +41,7 @@ try {
   execSync('git diff --exit-code --quiet', { stdio: 'pipe' });
   execSync('git diff --cached --exit-code --quiet', { stdio: 'pipe' });
 } catch {
-  console.error(
-    '\n  ✘  Working tree is dirty.\n'
-      + '     Build and commit all changes before releasing.\n',
-  );
+  console.error('\n  ✘  Working tree is dirty.\n' + '     Build and commit all changes before releasing.\n');
   process.exit(1);
 }
 
@@ -78,6 +75,5 @@ run(`pnpm --filter @finografic/design-system publish --no-git-checks --registry 
 run('git push --follow-tags');
 
 console.log(
-  `\n  ✔  Released @finografic/design-system@${dsVersion}`
-    + ` + @finografic/icons@${iconsVersion}\n`,
+  `\n  ✔  Released @finografic/design-system@${dsVersion}` + ` + @finografic/icons@${iconsVersion}\n`,
 );

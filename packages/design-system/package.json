@@ -90,8 +90,8 @@
     "lint": "eslint .",
     "lint.fix": "eslint . --fix",
     "·········· FORMATTING": "················································",
-    "format": "dprint fmt --diff",
-    "format.check": "dprint check",
+    "format": "oxfmt",
+    "format.check": "oxfmt --check",
     "·········· UTILS": "·····················································",
     "typecheck": "tsc --noEmit",
     "prepare": "panda codegen"

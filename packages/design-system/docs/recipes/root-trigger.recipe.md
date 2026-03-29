@@ -28,7 +28,7 @@
   <Dialog.Trigger tone="surface">Open</Dialog.Trigger>
   <Dialog.Trigger tone="solid">Open</Dialog.Trigger>
   ...
-</Dialog.Root>;
+</Dialog.Root>
 ```
 
 `pnpm exec panda codegen` completed successfully; ESLint is clean on the touched files.

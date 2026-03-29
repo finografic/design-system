@@ -44,7 +44,7 @@ Use `FieldBox` to wrap any control with RHF-aware label/hint/error layout:
 ```tsx
 <FieldBox name="email" label="Email" hint="We'll never share this">
   <InputField.Root {...field} />
-</FieldBox>;
+</FieldBox>
 ```
 
 `FieldBox` auto-wires to `useFormContext()` when inside a `<FormProvider>` — error
@@ -91,7 +91,7 @@ separate recipe file). It builds an Ark `createListCollection` from a plain
 `options: SelectOption[]` prop.
 
 ```tsx
-<SelectDefault options={opts} value={val} onSelect={(v) => setValue(v)} />;
+<SelectDefault options={opts} value={val} onSelect={(v) => setValue(v)} />
 ```
 
 ### `select-searchable` — Ark Combobox
@@ -99,7 +99,7 @@ separate recipe file). It builds an Ark `createListCollection` from a plain
 Uses `ArkCombobox` (not `ArkSelect`) to support keyboard filtering via `match-sorter`.
 
 ```tsx
-<SelectSearchable options={opts} value={val} onSelect={onChange} onAddNew={(v) => create(v)} />;
+<SelectSearchable options={opts} value={val} onSelect={onChange} onAddNew={(v) => create(v)} />
 ```
 
 ## Adding a new form component

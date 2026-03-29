@@ -19,7 +19,7 @@ import { defineTokens } from '@pandacss/dev';
 export const sizingTokens = defineTokens.sizes({
   // ── Numeric scale (rem) ─────────────────────────────────────────────────
   '0': { value: '0' },
-  'px': { value: '1px' },
+  px: { value: '1px' },
   '0.5': { value: '0.125rem' }, //   2px
   '1': { value: '0.25rem' }, //   4px
   '1.5': { value: '0.375rem' }, //   6px
@@ -39,9 +39,9 @@ export const sizingTokens = defineTokens.sizes({
 
   // ── Named layout sizes ───────────────────────────────────────────────────
   // Override at the app level with CSS vars (see layout.tokens.ts).
-  'navbar': { value: '41px' },
-  'header': { value: '70px' },
-  'footer': { value: '70px' },
-  'sidebar': { value: '300px' },
-  'content': { value: '1200px' },
+  navbar: { value: '41px' },
+  header: { value: '70px' },
+  footer: { value: '70px' },
+  sidebar: { value: '300px' },
+  content: { value: '1200px' },
 });

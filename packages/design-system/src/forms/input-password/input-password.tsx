@@ -155,10 +155,7 @@ export const InputPasswordDS = forwardRef<HTMLDivElement, InputPasswordDSProps>(
         className={cx(styles.root, classNames.root)}
       >
         {label && (
-          <ArkPasswordInput.Label
-            htmlFor={id}
-            className={cx(styles.label, classNames.label)}
-          >
+          <ArkPasswordInput.Label htmlFor={id} className={cx(styles.label, classNames.label)}>
             {label}
           </ArkPasswordInput.Label>
         )}
@@ -180,16 +177,14 @@ export const InputPasswordDS = forwardRef<HTMLDivElement, InputPasswordDSProps>(
             aria-label="Toggle password visibility"
           >
             <ArkPasswordInput.Context>
-              {({ visible }) => visible ? <EyeOffIcon aria-hidden /> : <EyeOnIcon aria-hidden />}
+              {({ visible }) => (visible ? <EyeOffIcon aria-hidden /> : <EyeOnIcon aria-hidden />)}
             </ArkPasswordInput.Context>
           </ArkPasswordInput.VisibilityTrigger>
         </ArkPasswordInput.Control>
 
         {(description || errorMessage) && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {description && (
-              <span className={cx(styles.label, classNames.description)}>{description}</span>
-            )}
+            {description && <span className={cx(styles.label, classNames.description)}>{description}</span>}
             {errorMessage && (
               <span
                 className={classNames.errorText}

@@ -1,5 +1,5 @@
-import { createIconWrapper } from "./src/icons.utils.js";
-import { ICON_NAMES, icons } from "./src/icons.js";
+import { createIconWrapper } from "./icons.utils.js";
+import { ICON_NAMES, icons } from "./icons.js";
 //#region src/index.ts
 /**
 * src/index.ts — @workspace/icons

@@ -91,7 +91,7 @@ css({ display: ['flex', null, 'grid'] });
 Ark UI wrappers accept responsive Panda values for `size`, `variant`, etc.:
 
 ```tsx
-<Button size={{ base: 'sm', md: 'md' }}>Submit</Button>;
+<Button size={{ base: 'sm', md: 'md' }}>Submit</Button>
 ```
 
 Prominent components where this is relevant:
@@ -113,7 +113,9 @@ import { min } from '@workspace/design-system/viewport';
 
 const styles = css`
   padding: 1rem;
-  ${min.md} { padding: 2rem; }
+  ${min.md} {
+    padding: 2rem;
+  }
 `;
 ```
 

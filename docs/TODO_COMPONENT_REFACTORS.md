@@ -21,7 +21,7 @@
 - [x] DataTable — inline `style={{}}` → `css()`, JSDoc with `@example`
 - [x] Dialog — `createStyleContext` wiring, recipe slots replace BEM, `size` moves to Root, `xs`/`cover` variants added, JSDoc
 - [x] GenericDialog — footer inline `style={{}}` → `css()`, JSDoc
-- [x] Menu — scale animation, maxH guard, item truncation, _checked, arrowTip border
+- [x] Menu — scale animation, maxH guard, item truncation, \_checked, arrowTip border
 - [x] Popover — section comment, JSDoc on compound export, per-member docs
 - [x] Spinner
 - [x] Tabs — `py` content padding, `_disabled` grayscale filter

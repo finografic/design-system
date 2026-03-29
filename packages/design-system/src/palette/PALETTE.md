@@ -144,7 +144,7 @@ a separate custom property value for each mode:
   --colors-bg: white;
   --colors-fg: oklch(28% 0 0);
 }
-[data-theme="dark"] {
+[data-theme='dark'] {
   --colors-bg: black;
   --colors-fg: oklch(93% 0 0);
 }

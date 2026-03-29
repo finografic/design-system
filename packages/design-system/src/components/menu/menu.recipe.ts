@@ -105,19 +105,19 @@ export const menuRecipe = sva({
     },
 
     itemIndicator: {
-      'display': 'flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'flexShrink': 0,
-      'width': '4',
-      'height': '4',
-      'color': 'accent.solid',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
+      width: '4',
+      height: '4',
+      color: 'accent.solid',
       '& svg': { w: '3.5', h: '3.5' },
     },
 
     itemGroup: {
-      'display': 'flex',
-      'flexDirection': 'column',
+      display: 'flex',
+      flexDirection: 'column',
       '& + &': { marginTop: '2' },
     },
 
@@ -145,9 +145,9 @@ export const menuRecipe = sva({
     },
 
     indicator: {
-      'display': 'inline-flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       '& svg': { w: '4', h: '4' },
     },
   },

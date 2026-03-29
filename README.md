@@ -17,10 +17,7 @@ import { designSystemPreset } from '@finografic/design-system/panda.preset';
 
 export default defineConfig({
   presets: ['@pandacss/dev/presets', designSystemPreset],
-  include: [
-    './src/**/*.{ts,tsx}',
-    './node_modules/@finografic/design-system/src/**/*.{ts,tsx}',
-  ],
+  include: ['./src/**/*.{ts,tsx}', './node_modules/@finografic/design-system/src/**/*.{ts,tsx}'],
   outdir: 'styled-system',
   jsxFramework: 'react',
 });
@@ -268,8 +265,12 @@ import { Row, Col, Container } from '@workspace/design-system/grid';
 
 <Container>
   <Row>
-    <Col xs={12} md={8}>main content</Col>
-    <Col xs={12} md={4}>sidebar</Col>
+    <Col xs={12} md={8}>
+      main content
+    </Col>
+    <Col xs={12} md={4}>
+      sidebar
+    </Col>
   </Row>
 </Container>;
 ```

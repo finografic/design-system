@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsdown';
 
 const browserEntries = {
-  'index': 'src/index.ts',
+  index: 'src/index.ts',
   'tokens/index': 'src/tokens/index.ts',
   'recipes/index': 'src/recipes/index.ts',
   'components/index': 'src/components/index.ts',

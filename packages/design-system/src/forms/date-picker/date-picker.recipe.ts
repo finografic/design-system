@@ -219,23 +219,23 @@ export const datePickerRecipe = sva({
     },
 
     tableCellTrigger: {
-      'display': 'flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'width': 'full',
-      'borderRadius': 'sm',
-      'cursor': 'pointer',
-      'fontFamily': 'inherit',
-      'fontSize': 'sm',
-      'color': 'fg',
-      'bg': 'transparent',
-      'border': 'none',
-      'transitionProperty': 'color, background-color',
-      'transitionDuration': 'fast',
-      '_hover': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 'full',
+      borderRadius: 'sm',
+      cursor: 'pointer',
+      fontFamily: 'inherit',
+      fontSize: 'sm',
+      color: 'fg',
+      bg: 'transparent',
+      border: 'none',
+      transitionProperty: 'color, background-color',
+      transitionDuration: 'fast',
+      _hover: {
         bg: 'bg.subtle',
       },
-      '_selected': {
+      _selected: {
         bg: 'accent.solid',
         color: 'accent.contrast',
         fontWeight: 'semibold',
@@ -263,7 +263,7 @@ export const datePickerRecipe = sva({
         color: 'fg.subtle',
         opacity: 0.5,
       },
-      '_disabled': {
+      _disabled: {
         opacity: 0.4,
         cursor: 'not-allowed',
         pointerEvents: 'none',
@@ -274,7 +274,7 @@ export const datePickerRecipe = sva({
         pointerEvents: 'none',
         textDecoration: 'line-through',
       },
-      '_focusVisible': {
+      _focusVisible: {
         outline: '2px solid',
         outlineColor: 'accent.focusRing',
         outlineOffset: '2px',

@@ -29,7 +29,9 @@
   background: var(--demo-neutral-muted);
   border-radius: 9999px;
 
-  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
 
   &[data-state="checked"] {
     background: var(--demo-coral-solid);

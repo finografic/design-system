@@ -152,9 +152,7 @@ export const PopoverDS = forwardRef<HTMLButtonElement, PopoverDSProps>(
               </ArkPopover.CloseTrigger>
             )}
             {title && (
-              <ArkPopover.Title className={cx(styles.title, classNames.title)}>
-                {title}
-              </ArkPopover.Title>
+              <ArkPopover.Title className={cx(styles.title, classNames.title)}>{title}</ArkPopover.Title>
             )}
             {description && (
               <ArkPopover.Description className={cx(styles.description, classNames.description)}>

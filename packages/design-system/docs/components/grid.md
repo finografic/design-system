@@ -175,18 +175,26 @@ Understanding what's emitted is useful for debugging in DevTools.
 
 ```tsx
 <Row>
-  <Col xs={12} md={6}>Left</Col>
-  <Col xs={12} md={6}>Right</Col>
-</Row>;
+  <Col xs={12} md={6}>
+    Left
+  </Col>
+  <Col xs={12} md={6}>
+    Right
+  </Col>
+</Row>
 ```
 
 ### Three-column with sidebar
 
 ```tsx
 <Row>
-  <Col xs={12} lg={3}>Sidebar</Col>
-  <Col xs={12} lg={9}>Main content</Col>
-</Row>;
+  <Col xs={12} lg={3}>
+    Sidebar
+  </Col>
+  <Col xs={12} lg={9}>
+    Main content
+  </Col>
+</Row>
 ```
 
 ### Row with alignment
@@ -195,7 +203,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row justify="space-between" align="center">
   <Col xs="content">Logo</Col>
   <Col xs="content">Nav</Col>
-</Row>;
+</Row>
 ```
 
 ### No gutter
@@ -204,7 +212,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row nogutter>
   <Col xs={6}>A</Col>
   <Col xs={6}>B</Col>
-</Row>;
+</Row>
 ```
 
 ### Custom gutter
@@ -213,7 +221,7 @@ Understanding what's emitted is useful for debugging in DevTools.
 <Row gutterWidth={32}>
   <Col xs={6}>A</Col>
   <Col xs={6}>B</Col>
-</Row>;
+</Row>
 ```
 
 ### Inside a Container
@@ -221,10 +229,14 @@ Understanding what's emitted is useful for debugging in DevTools.
 ```tsx
 <Container>
   <Row>
-    <Col xs={12} md={8}>Content</Col>
-    <Col xs={12} md={4}>Aside</Col>
+    <Col xs={12} md={8}>
+      Content
+    </Col>
+    <Col xs={12} md={4}>
+      Aside
+    </Col>
   </Row>
-</Container>;
+</Container>
 ```
 
 ---

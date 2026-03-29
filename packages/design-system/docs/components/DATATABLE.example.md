@@ -76,7 +76,7 @@ The recipe reads this directly — no transformation needed:
 ```tsx
 <span className={stylesTable.sortIcon} data-sort={String(column.getIsSorted())}>
   ...
-</span>;
+</span>
 // data-sort="false"  → icon opacity 0.4, neutral color
 // data-sort="asc"    → icon opacity 1.0, accent.solid color
 // data-sort="desc"   → icon opacity 1.0, accent.solid color
@@ -171,12 +171,14 @@ export const orderColumns: ColumnDef<Order>[] = [
     // Header checkbox — selects/deselects all visible rows
     header: ({ table }) => (
       <CheckboxField
-        checked={table.getIsAllPageRowsSelected()
-          ? true
-          : table.getIsSomePageRowsSelected()
-          ? 'indeterminate'
-          : false}
-        onCheckedChange={value => table.toggleAllPageRowsSelected(!!value)}
+        checked={
+          table.getIsAllPageRowsSelected()
+            ? true
+            : table.getIsSomePageRowsSelected()
+              ? 'indeterminate'
+              : false
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
         classNames={stylesCheckbox}
       />
@@ -185,7 +187,7 @@ export const orderColumns: ColumnDef<Order>[] = [
     cell: ({ row }) => (
       <CheckboxField
         checked={row.getIsSelected()}
-        onCheckedChange={value => row.toggleSelected(!!value)}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
         classNames={stylesCheckbox}
       />
@@ -326,9 +328,9 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
 
           {/* ── Header ─────────────────────────────────────────── */}
           <thead className={stylesTable.thead}>
-            {table.getHeaderGroups().map(headerGroup => (
+            {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className={stylesTable.headerRow}>
-                {headerGroup.headers.map(header => {
+                {headerGroup.headers.map((header) => {
                   const canSort = header.column.getCanSort();
                   const canFilter = header.column.getCanFilter();
 
@@ -355,9 +357,9 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
                         <input
                           className={filterClasses}
                           value={(header.column.getFilterValue() as string) ?? ''}
-                          onChange={e => header.column.setFilterValue(e.target.value)}
+                          onChange={(e) => header.column.setFilterValue(e.target.value)}
                           placeholder="Filter…"
-                          onClick={e => e.stopPropagation()} // don't trigger sort
+                          onClick={(e) => e.stopPropagation()} // don't trigger sort
                           style={{ marginTop: 'var(--spacing-1)', width: '100%' }}
                         />
                       )}
@@ -370,47 +372,40 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
 
           {/* ── Body ───────────────────────────────────────────── */}
           <tbody className={stylesTable.tbody}>
-            {loading
-              ? (
-                // Loading state — single spanning cell with spinner
-                <tr className={stylesTable.tr}>
-                  <td
-                    className={stylesTable.td}
-                    colSpan={table.getAllColumns().length}
-                    style={{ textAlign: 'center', padding: 'var(--spacing-8)' }}
-                  >
-                    <Spinner size={20} />
-                  </td>
+            {loading ? (
+              // Loading state — single spanning cell with spinner
+              <tr className={stylesTable.tr}>
+                <td
+                  className={stylesTable.td}
+                  colSpan={table.getAllColumns().length}
+                  style={{ textAlign: 'center', padding: 'var(--spacing-8)' }}
+                >
+                  <Spinner size={20} />
+                </td>
+              </tr>
+            ) : table.getRowModel().rows.length === 0 ? (
+              // Empty state
+              <tr className={stylesTable.tr}>
+                <td colSpan={table.getAllColumns().length} className={stylesTable.emptyState}>
+                  No orders found.
+                </td>
+              </tr>
+            ) : (
+              // Data rows
+              table.getRowModel().rows.map((row) => (
+                <tr
+                  key={row.id}
+                  className={stylesTable.tr}
+                  data-selected={row.getIsSelected() ? 'true' : undefined}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <td key={cell.id} className={stylesTable.td}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  ))}
                 </tr>
-              )
-              : table.getRowModel().rows.length === 0
-              ? (
-                // Empty state
-                <tr className={stylesTable.tr}>
-                  <td
-                    colSpan={table.getAllColumns().length}
-                    className={stylesTable.emptyState}
-                  >
-                    No orders found.
-                  </td>
-                </tr>
-              )
-              : (
-                // Data rows
-                table.getRowModel().rows.map(row => (
-                  <tr
-                    key={row.id}
-                    className={stylesTable.tr}
-                    data-selected={row.getIsSelected() ? 'true' : undefined}
-                  >
-                    {row.getVisibleCells().map(cell => (
-                      <td key={cell.id} className={stylesTable.td}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    ))}
-                  </tr>
-                ))
-              )}
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -428,9 +423,8 @@ export function OrdersTable({ data, loading = false }: OrdersTableProps) {
       >
         {/* Row count */}
         <span>
-          {table.getFilteredSelectedRowModel().rows.length > 0 && (
-            `${table.getFilteredSelectedRowModel().rows.length} of `
-          )}
+          {table.getFilteredSelectedRowModel().rows.length > 0 &&
+            `${table.getFilteredSelectedRowModel().rows.length} of `}
           {table.getFilteredRowModel().rows.length} row(s)
         </span>
 
@@ -572,9 +566,7 @@ const stylesTable = tableRecipe({ size: 'sm', stickyHeader: true });
 
 // Give the root a max height so it scrolls vertically
 <div className={stylesTable.root} style={{ maxHeight: '400px', overflowY: 'auto' }}>
-  <table className={stylesTable.table}>
-    ...
-  </table>
+  <table className={stylesTable.table}>...</table>
 </div>;
 ```
 

@@ -109,10 +109,10 @@ app.post('/api/icons-json', async (c) => {
 
   for (const entry of body) {
     if (
-      typeof entry !== 'object'
-      || entry === null
-      || typeof (entry as IconEntry).lucideName !== 'string'
-      || typeof (entry as IconEntry).exportName !== 'string'
+      typeof entry !== 'object' ||
+      entry === null ||
+      typeof (entry as IconEntry).lucideName !== 'string' ||
+      typeof (entry as IconEntry).exportName !== 'string'
     ) {
       return c.json({ error: 'Each entry must have lucideName and exportName strings' }, 400);
     }

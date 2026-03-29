@@ -70,8 +70,9 @@ export function FieldBox({
   const formState = formContext?.formState;
 
   const rhfError = fieldState?.error;
-  const resolvedError: FieldError | undefined = rhfError
-    ?? (externalError
+  const resolvedError: FieldError | undefined =
+    rhfError ??
+    (externalError
       ? typeof externalError === 'string'
         ? ({ message: externalError } as FieldError)
         : externalError
@@ -111,10 +112,10 @@ export function FieldBox({
   const usesArkField = hasArkFieldInput(children);
 
   const rootProps = {
-    'className': cx(styles.root, className) || undefined,
+    className: cx(styles.root, className) || undefined,
     'data-invalid': showError ? 'true' : undefined,
     'data-required': required ? 'true' : undefined,
-    'onBlur': handleBlur,
+    onBlur: handleBlur,
   };
 
   const labelNode = label && (
@@ -131,9 +132,7 @@ export function FieldBox({
   const feedbackNode = (
     <>
       {showHint && <span className={styles.helperText}>{hint}</span>}
-      {showDebouncedWarning && !showError && message && (
-        <span className={styles.warningText}>{message}</span>
-      )}
+      {showDebouncedWarning && !showError && message && <span className={styles.warningText}>{message}</span>}
       {showError && message && (
         <span className={styles.errorText} role="alert">
           {message}
@@ -156,9 +155,7 @@ export function FieldBox({
         {showDebouncedWarning && !showError && message && (
           <Field.HelperText className={styles.warningText}>{message}</Field.HelperText>
         )}
-        {showError && message && (
-          <Field.ErrorText className={styles.errorText}>{message}</Field.ErrorText>
-        )}
+        {showError && message && <Field.ErrorText className={styles.errorText}>{message}</Field.ErrorText>}
       </Field.Root>
     );
   }
@@ -179,7 +176,6 @@ FieldBox.displayName = 'FieldBox';
 function hasArkFieldInput(children: ReactNode): boolean {
   if (!children) return false;
   return Children.toArray(children).some(
-    (child: any) =>
-      isValidElement(child) && (child.type === Field.Input || child.type === Field.Textarea),
+    (child: any) => isValidElement(child) && (child.type === Field.Input || child.type === Field.Textarea),
   );
 }

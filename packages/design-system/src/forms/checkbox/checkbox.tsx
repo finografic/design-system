@@ -133,9 +133,7 @@ export const CheckboxDS = forwardRef<HTMLLabelElement, CheckboxDSProps>(
         {(label || description || errorMessage) && (
           <div className={textColumnStyle}>
             {label && (
-              <ArkCheckbox.Label className={cx(styles.label, classNames.label)}>
-                {label}
-              </ArkCheckbox.Label>
+              <ArkCheckbox.Label className={cx(styles.label, classNames.label)}>{label}</ArkCheckbox.Label>
             )}
             {description && (
               <span className={cx(styles.description, classNames.description)}>{description}</span>

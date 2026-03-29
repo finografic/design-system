@@ -94,14 +94,14 @@ export const selectComboboxRecipe = sva({
     },
 
     trigger: {
-      'display': 'flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'flexShrink': 0,
-      'color': 'fg.muted',
-      'cursor': 'pointer',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: 0,
+      color: 'fg.muted',
+      cursor: 'pointer',
       '& svg': { transition: 'transform 150ms ease' },
-      '_open': { '& svg': { transform: 'rotate(180deg)' } },
+      _open: { '& svg': { transform: 'rotate(180deg)' } },
     },
 
     positioner: {

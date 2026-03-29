@@ -98,10 +98,7 @@ export type TooltipDSProps = {
  * ```
  */
 export const TooltipDS = forwardRef<HTMLButtonElement, TooltipDSProps>(
-  (
-    { trigger, content, openDelay, closeDelay, open, onOpenChange, arrow = false, classNames = {} },
-    ref,
-  ) => {
+  ({ trigger, content, openDelay, closeDelay, open, onOpenChange, arrow = false, classNames = {} }, ref) => {
     const styles = tooltipRecipe();
 
     return (

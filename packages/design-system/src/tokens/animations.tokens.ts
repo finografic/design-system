@@ -42,7 +42,7 @@ export const keyframes = defineKeyframes({
     '0%': { transform: 'translateX(0)' },
     '100%': { transform: 'translateX(100%)' },
   },
-  'spin': {
+  spin: {
     '0%': { transform: 'rotate(0deg)' },
     '100%': { transform: 'rotate(360deg)' },
   },
@@ -67,8 +67,8 @@ export const durationTokens = defineTokens.durations({
 // ============================================================================
 
 export const easingTokens = defineTokens.easings({
-  'default': { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
-  'in': { value: 'cubic-bezier(0.4, 0, 1, 1)' },
-  'out': { value: 'cubic-bezier(0, 0, 0.2, 1)' },
+  default: { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+  in: { value: 'cubic-bezier(0.4, 0, 1, 1)' },
+  out: { value: 'cubic-bezier(0, 0, 0.2, 1)' },
   'in-out': { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
 });

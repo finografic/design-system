@@ -102,7 +102,7 @@ Use `FieldBox` to add label/hint/error layout around any control:
 ```tsx
 <FieldBox name="email" label="Email" hint="We'll never share this">
   <InputField.Root {...field} />
-</FieldBox>;
+</FieldBox>
 ```
 
 `FieldBox` auto-wires to `useFormContext()` when inside a `<FormProvider>`.

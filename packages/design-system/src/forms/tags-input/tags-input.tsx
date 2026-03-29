@@ -187,9 +187,7 @@ export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
         className={cx(styles.root, classNames.root, className)}
       >
         {label && (
-          <ArkTagsInput.Label className={cx(styles.label, classNames.label)}>
-            {label}
-          </ArkTagsInput.Label>
+          <ArkTagsInput.Label className={cx(styles.label, classNames.label)}>{label}</ArkTagsInput.Label>
         )}
 
         <ArkTagsInput.Control className={cx(styles.control, classNames.control)}>
@@ -200,9 +198,7 @@ export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
               value={tag}
               className={cx(styles.item, classNames.item)}
             >
-              <ArkTagsInput.ItemPreview
-                className={cx(styles.itemPreview, classNames.itemPreview)}
-              >
+              <ArkTagsInput.ItemPreview className={cx(styles.itemPreview, classNames.itemPreview)}>
                 <ArkTagsInput.ItemText className={cx(styles.itemText, classNames.itemText)}>
                   {tag}
                 </ArkTagsInput.ItemText>
@@ -215,10 +211,7 @@ export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
               <ArkTagsInput.ItemInput className={styles.itemInput} />
             </ArkTagsInput.Item>
           ))}
-          <ArkTagsInput.Input
-            className={cx(styles.input, classNames.input)}
-            placeholder={placeholder}
-          />
+          <ArkTagsInput.Input className={cx(styles.input, classNames.input)} placeholder={placeholder} />
         </ArkTagsInput.Control>
 
         {(description || errorMessage) && (

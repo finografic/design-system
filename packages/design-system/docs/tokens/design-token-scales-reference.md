@@ -125,22 +125,22 @@ width: '9'; // → var(--sizes-9)       → 2.25rem (36px)
 
 ## 3. Font Sizes (Panda CSS)
 
-| Key   | rem      | px    | ✦ | My Map |
-| ----- | -------- | ----- | - | ------ |
-| `2xs` | 0.5rem   | 8px   |   |        |
-| `xs`  | 0.75rem  | 12px  |   |        |
-| `sm`  | 0.875rem | 14px  |   |        |
-| `md`  | 1rem     | 16px  | ✦ |        |
-| `lg`  | 1.125rem | 18px  |   |        |
-| `xl`  | 1.25rem  | 20px  |   |        |
-| `2xl` | 1.5rem   | 24px  |   |        |
-| `3xl` | 1.875rem | 30px  |   |        |
-| `4xl` | 2.25rem  | 36px  |   |        |
-| `5xl` | 3rem     | 48px  |   |        |
-| `6xl` | 3.75rem  | 60px  |   |        |
-| `7xl` | 4.5rem   | 72px  |   |        |
-| `8xl` | 6rem     | 96px  |   |        |
-| `9xl` | 8rem     | 128px |   |        |
+| Key   | rem      | px    | ✦   | My Map |
+| ----- | -------- | ----- | --- | ------ |
+| `2xs` | 0.5rem   | 8px   |     |        |
+| `xs`  | 0.75rem  | 12px  |     |        |
+| `sm`  | 0.875rem | 14px  |     |        |
+| `md`  | 1rem     | 16px  | ✦   |        |
+| `lg`  | 1.125rem | 18px  |     |        |
+| `xl`  | 1.25rem  | 20px  |     |        |
+| `2xl` | 1.5rem   | 24px  |     |        |
+| `3xl` | 1.875rem | 30px  |     |        |
+| `4xl` | 2.25rem  | 36px  |     |        |
+| `5xl` | 3rem     | 48px  |     |        |
+| `6xl` | 3.75rem  | 60px  |     |        |
+| `7xl` | 4.5rem   | 72px  |     |        |
+| `8xl` | 6rem     | 96px  |     |        |
+| `9xl` | 8rem     | 128px |     |        |
 
 > **Scale range:** `2xs` through `9xl` (14 steps). ✦ `md` = 1rem (browser default body font size).
 
@@ -148,17 +148,17 @@ width: '9'; // → var(--sizes-9)       → 2.25rem (36px)
 
 ## 4. Font Weights (Panda CSS)
 
-| Key          | Value | ✦ | My Map |
-| ------------ | ----- | - | ------ |
-| `thin`       | 100   |   |        |
-| `extralight` | 200   |   |        |
-| `light`      | 300   |   |        |
-| `normal`     | 400   | ✦ |        |
-| `medium`     | 500   |   |        |
-| `semibold`   | 600   |   |        |
-| `bold`       | 700   |   |        |
-| `extrabold`  | 800   |   |        |
-| `black`      | 900   |   |        |
+| Key          | Value | ✦   | My Map |
+| ------------ | ----- | --- | ------ |
+| `thin`       | 100   |     |        |
+| `extralight` | 200   |     |        |
+| `light`      | 300   |     |        |
+| `normal`     | 400   | ✦   |        |
+| `medium`     | 500   |     |        |
+| `semibold`   | 600   |     |        |
+| `bold`       | 700   |     |        |
+| `extrabold`  | 800   |     |        |
+| `black`      | 900   |     |        |
 
 > ✦ `normal` (400) is the CSS default font weight.
 
@@ -166,17 +166,17 @@ width: '9'; // → var(--sizes-9)       → 2.25rem (36px)
 
 ## 5. Border Radius (Panda CSS)
 
-| Key    | rem      | px     | ✦ | My Map |
-| ------ | -------- | ------ | - | ------ |
-| `xs`   | 0.125rem | 2px    |   |        |
-| `sm`   | 0.25rem  | 4px    |   |        |
-| `md`   | 0.375rem | 6px    | ✦ |        |
-| `lg`   | 0.5rem   | 8px    |   |        |
-| `xl`   | 0.75rem  | 12px   |   |        |
-| `2xl`  | 1rem     | 16px   |   |        |
-| `3xl`  | 1.5rem   | 24px   |   |        |
-| `4xl`  | 2rem     | 32px   |   |        |
-| `full` | 9999px   | 9999px |   |        |
+| Key    | rem      | px     | ✦   | My Map |
+| ------ | -------- | ------ | --- | ------ |
+| `xs`   | 0.125rem | 2px    |     |        |
+| `sm`   | 0.25rem  | 4px    |     |        |
+| `md`   | 0.375rem | 6px    | ✦   |        |
+| `lg`   | 0.5rem   | 8px    |     |        |
+| `xl`   | 0.75rem  | 12px   |     |        |
+| `2xl`  | 1rem     | 16px   |     |        |
+| `3xl`  | 1.5rem   | 24px   |     |        |
+| `4xl`  | 2rem     | 32px   |     |        |
+| `full` | 9999px   | 9999px |     |        |
 
 > ✦ `md` is most commonly referenced via Park UI's `l2` layer token.
 >
@@ -186,15 +186,15 @@ width: '9'; // → var(--sizes-9)       → 2.25rem (36px)
 
 ## 6. Shadows (Panda CSS)
 
-| Key   | Description                     | ✦ | My Map |
-| ----- | ------------------------------- | - | ------ |
-| `2xs` | `0 1px rgb(0 0 0 / 0.05)`       |   |        |
-| `xs`  | `0 1px 2px 0 rgb(0 0 0 / 0.05)` |   |        |
-| `sm`  | 2-layer, subtle offset          |   |        |
-| `md`  | 2-layer, medium offset          | ✦ |        |
-| `lg`  | 2-layer, large spread           |   |        |
-| `xl`  | 2-layer, extra large spread     |   |        |
-| `2xl` | Deep shadow, 25% opacity        |   |        |
+| Key   | Description                     | ✦   | My Map |
+| ----- | ------------------------------- | --- | ------ |
+| `2xs` | `0 1px rgb(0 0 0 / 0.05)`       |     |        |
+| `xs`  | `0 1px 2px 0 rgb(0 0 0 / 0.05)` |     |        |
+| `sm`  | 2-layer, subtle offset          |     |        |
+| `md`  | 2-layer, medium offset          | ✦   |        |
+| `lg`  | 2-layer, large spread           |     |        |
+| `xl`  | 2-layer, extra large spread     |     |        |
+| `2xl` | Deep shadow, 25% opacity        |     |        |
 
 Also includes `inset-2xs`, `inset-xs`, `inset-sm` for inner shadows.
 
@@ -204,18 +204,18 @@ Also includes `inset-2xs`, `inset-xs`, `inset-sm` for inner shadows.
 
 ## 7. Z-Index (Panda CSS)
 
-| Key        | Typical Use         | ✦ | My Map |
-| ---------- | ------------------- | - | ------ |
-| `hide`     | Hidden / -1         |   |        |
-| `base`     | Default             | ✦ |        |
-| `docked`   | Docked panels       |   |        |
-| `dropdown` | Dropdowns, menus    |   |        |
-| `sticky`   | Sticky headers      |   |        |
-| `banner`   | Banners, notices    |   |        |
-| `overlay`  | Backdrop overlays   |   |        |
-| `modal`    | Modal dialogs       |   |        |
-| `popover`  | Popovers, tooltips  |   |        |
-| `toast`    | Toast notifications |   |        |
+| Key        | Typical Use         | ✦   | My Map |
+| ---------- | ------------------- | --- | ------ |
+| `hide`     | Hidden / -1         |     |        |
+| `base`     | Default             | ✦   |        |
+| `docked`   | Docked panels       |     |        |
+| `dropdown` | Dropdowns, menus    |     |        |
+| `sticky`   | Sticky headers      |     |        |
+| `banner`   | Banners, notices    |     |        |
+| `overlay`  | Backdrop overlays   |     |        |
+| `modal`    | Modal dialogs       |     |        |
+| `popover`  | Popovers, tooltips  |     |        |
+| `toast`    | Toast notifications |     |        |
 
 ---
 
@@ -223,24 +223,24 @@ Also includes `inset-2xs`, `inset-xs`, `inset-sm` for inner shadows.
 
 ### Durations
 
-| Key       | Typical Value | ✦ | My Map |
-| --------- | ------------- | - | ------ |
-| `fastest` | ~50ms         |   |        |
-| `faster`  | ~100ms        |   |        |
-| `fast`    | ~150ms        |   |        |
-| `normal`  | ~200ms        | ✦ |        |
-| `slow`    | ~300ms        |   |        |
-| `slower`  | ~400ms        |   |        |
-| `slowest` | ~500ms        |   |        |
+| Key       | Typical Value | ✦   | My Map |
+| --------- | ------------- | --- | ------ |
+| `fastest` | ~50ms         |     |        |
+| `faster`  | ~100ms        |     |        |
+| `fast`    | ~150ms        |     |        |
+| `normal`  | ~200ms        | ✦   |        |
+| `slow`    | ~300ms        |     |        |
+| `slower`  | ~400ms        |     |        |
+| `slowest` | ~500ms        |     |        |
 
 ### Easings
 
-| Key       | Description   | ✦ | My Map |
-| --------- | ------------- | - | ------ |
-| `default` | Standard ease | ✦ |        |
-| `in`      | Ease-in       |   |        |
-| `out`     | Ease-out      |   |        |
-| `in-out`  | Ease-in-out   |   |        |
+| Key       | Description   | ✦   | My Map |
+| --------- | ------------- | --- | ------ |
+| `default` | Standard ease | ✦   |        |
+| `in`      | Ease-in       |     |        |
+| `out`     | Ease-out      |     |        |
+| `in-out`  | Ease-in-out   |     |        |
 
 ---
 
@@ -250,19 +250,19 @@ Panda CSS includes the Tailwind color palette. All colors use a **numeric shade 
 
 Example colors shown below — the same shade structure applies to all 22 palette colors (rose, pink, fuchsia, purple, violet, indigo, blue, sky, cyan, teal, emerald, green, lime, yellow, amber, orange, red, neutral, stone, zinc, gray, slate).
 
-| Shade | red       | blue      | green     | amber     | slate     | ✦ | My Map |
-| ----- | --------- | --------- | --------- | --------- | --------- | - | ------ |
-| `50`  | `#fef2f2` | `#eff6ff` | `#f0fdf4` | `#fffbeb` | `#f8fafc` |   |        |
-| `100` | `#fee2e2` | `#dbeafe` | `#dcfce7` | `#fef3c7` | `#f1f5f9` |   |        |
-| `200` | `#fecaca` | `#bfdbfe` | `#bbf7d0` | `#fde68a` | `#e2e8f0` |   |        |
-| `300` | `#fca5a5` | `#93c5fd` | `#86efac` | `#fcd34d` | `#cbd5e1` |   |        |
-| `400` | `#f87171` | `#60a5fa` | `#4ade80` | `#fbbf24` | `#94a3b8` |   |        |
-| `500` | `#ef4444` | `#3b82f6` | `#22c55e` | `#f59e0b` | `#64748b` | ✦ |        |
-| `600` | `#dc2626` | `#2563eb` | `#16a34a` | `#d97706` | `#475569` |   |        |
-| `700` | `#b91c1c` | `#1d4ed8` | `#15803d` | `#b45309` | `#334155` |   |        |
-| `800` | `#991b1b` | `#1e40af` | `#166534` | `#92400e` | `#1e293b` |   |        |
-| `900` | `#7f1d1d` | `#1e3a8a` | `#14532d` | `#78350f` | `#0f172a` |   |        |
-| `950` | `#450a0a` | `#172554` | `#052e16` | `#451a03` | `#020617` |   |        |
+| Shade | red       | blue      | green     | amber     | slate     | ✦   | My Map |
+| ----- | --------- | --------- | --------- | --------- | --------- | --- | ------ |
+| `50`  | `#fef2f2` | `#eff6ff` | `#f0fdf4` | `#fffbeb` | `#f8fafc` |     |        |
+| `100` | `#fee2e2` | `#dbeafe` | `#dcfce7` | `#fef3c7` | `#f1f5f9` |     |        |
+| `200` | `#fecaca` | `#bfdbfe` | `#bbf7d0` | `#fde68a` | `#e2e8f0` |     |        |
+| `300` | `#fca5a5` | `#93c5fd` | `#86efac` | `#fcd34d` | `#cbd5e1` |     |        |
+| `400` | `#f87171` | `#60a5fa` | `#4ade80` | `#fbbf24` | `#94a3b8` |     |        |
+| `500` | `#ef4444` | `#3b82f6` | `#22c55e` | `#f59e0b` | `#64748b` | ✦   |        |
+| `600` | `#dc2626` | `#2563eb` | `#16a34a` | `#d97706` | `#475569` |     |        |
+| `700` | `#b91c1c` | `#1d4ed8` | `#15803d` | `#b45309` | `#334155` |     |        |
+| `800` | `#991b1b` | `#1e40af` | `#166534` | `#92400e` | `#1e293b` |     |        |
+| `900` | `#7f1d1d` | `#1e3a8a` | `#14532d` | `#78350f` | `#0f172a` |     |        |
+| `950` | `#450a0a` | `#172554` | `#052e16` | `#451a03` | `#020617` |     |        |
 
 > **Token syntax:** `red.500`, `blue.200`, `slate.950`, etc.
 > ✦ `500` is the conventional "base" shade — used as the default `solid` background in most component color schemes.

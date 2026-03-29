@@ -9,16 +9,7 @@ import type { RecipeProps } from '../../types/recipes.types';
 
 export const popoverRecipe = sva({
   className: 'popover',
-  slots: [
-    'trigger',
-    'positioner',
-    'content',
-    'title',
-    'description',
-    'closeTrigger',
-    'arrow',
-    'arrowTip',
-  ],
+  slots: ['trigger', 'positioner', 'content', 'title', 'description', 'closeTrigger', 'arrow', 'arrowTip'],
 
   base: {
     trigger: {},

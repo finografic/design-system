@@ -12,8 +12,8 @@ import * as Lucide from 'lucide-react';
 import { createIconWrapper } from './icons.utils';
 
 // ── Icon registry ──────────────────────────────────────────────────────────────
+// Formatted by oxfmt: excluded via root ignorePatterns (packages/icons/src/icons.ts).
 
-/* dprint-ignore-start */
 const ICONS = {
   AddIcon:                  Lucide.Plus,
   ApertureIcon:             Lucide.Aperture,
@@ -95,7 +95,6 @@ const ICONS = {
   XIcon:                    Lucide.X,
   ZapIcon:                  Lucide.Zap,
 } as const;
-/* dprint-ignore-end */
 
 // ── Auto-wrap ──────────────────────────────────────────────────────────────────
 
