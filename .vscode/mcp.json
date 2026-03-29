@@ -2,13 +2,7 @@
   "mcpServers": {
     "panda": {
       "command": "pnpm",
-      "args": [
-        "--filter",
-        "@finografic/design-system",
-        "exec",
-        "panda",
-        "mcp"
-      ]
+      "args": ["--filter", "@finografic/design-system", "exec", "panda", "mcp"]
     },
     "ark-ui": {
       "command": "npx",
