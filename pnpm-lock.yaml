@@ -18,8 +18,8 @@ importers:
         specifier: ^9.39.3
         version: 9.39.4
       '@finografic/oxfmt-config':
-        specifier: ^1.0.0
-        version: 1.0.0(oxfmt@0.42.0)
+        specifier: ^1.0.3
+        version: 1.0.3(oxfmt@0.42.0)
       '@finografic/project-scripts':
         specifier: 8.12.0
         version: 8.12.0(@types/node@24.12.0)(jsonc-eslint-parser@2.4.2)(tsx@4.21.0)
@@ -823,8 +823,8 @@ packages:
       react-dom: '>=18'
       vite: '>=5'
 
-  '@finografic/oxfmt-config@1.0.0':
-    resolution: {integrity: sha512-WwedQ2jF7tngT8tZ6/GCTIVa96CPGt7mdSLFuTQ9tuQ8Lpn1yLfRN0Eaf3OeIhMQHqFixVBYt84NzqQNMThHMw==, tarball: https://npm.pkg.github.com/download/@finografic/oxfmt-config/1.0.0/034b912102f02330d08dc605ba2a55d5a6b4cd80}
+  '@finografic/oxfmt-config@1.0.3':
+    resolution: {integrity: sha512-/eoji1XSlnKLZMdot7fwjrP9An1xnbIvUCY7BJqfXhgR/erlA2DARkRzspAxPJakKGRyeWJA1CRzhuNdBQJUGw==, tarball: https://npm.pkg.github.com/download/@finografic/oxfmt-config/1.0.3/7e491d21d257035647bff440f511d95d855c91b2}
     peerDependencies:
       oxfmt: '>=0.41.0'
 
@@ -5549,7 +5549,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@finografic/oxfmt-config@1.0.0(oxfmt@0.42.0)':
+  '@finografic/oxfmt-config@1.0.3(oxfmt@0.42.0)':
     dependencies:
       oxfmt: 0.42.0
 
