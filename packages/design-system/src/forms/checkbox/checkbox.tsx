@@ -16,12 +16,12 @@ const { withProvider, withContext } = createStyleContext(checkboxRecipe);
 /**
  * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
  *
- * Pass **`size`** on `Root` so slot styles resolve. Control state and handlers
+ * Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers
  * (`checked`, `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
  *
  * @example
  * ```tsx
- * <Checkbox.Root size="md" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
+ * <Checkbox.Root size="md" palette="success" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
  *   <Checkbox.Control>
  *     <Checkbox.Indicator>
  *       <CheckIcon aria-hidden />
@@ -33,7 +33,7 @@ const { withProvider, withContext } = createStyleContext(checkboxRecipe);
  * ```
  */
 export const Checkbox = {
-  /** Root — controlled state, handlers, and recipe variants (`size`). */
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */
   Root: withProvider(ArkCheckbox.Root, 'root'),
   /** Box + hit target; receives `control` slot classes from context. */
   Control: withContext(ArkCheckbox.Control, 'control'),
@@ -98,13 +98,14 @@ export const CheckboxDS = forwardRef<HTMLLabelElement, CheckboxDSProps>(
       name,
       disabled,
       size = 'md',
+      palette = 'primary',
       indicator,
       className,
       classNames = {},
     },
     ref,
   ) => {
-    const styles = checkboxRecipe({ size });
+    const styles = checkboxRecipe({ size, palette });
     const errorMessage = typeof error === 'string' ? error : error?.message;
 
     return (

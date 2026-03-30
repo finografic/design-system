@@ -10,12 +10,12 @@ import { FieldError } from "react-hook-form";
 /**
  * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
  *
- * Pass **`size`** on `Root` so slot styles resolve. Control state and handlers
+ * Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers
  * (`checked`, `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
  *
  * @example
  * ```tsx
- * <Checkbox.Root size="md" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
+ * <Checkbox.Root size="md" palette="success" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
  *   <Checkbox.Control>
  *     <Checkbox.Indicator>
  *       <CheckIcon aria-hidden />
@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "description" | "control" | "indicator" | "label" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "description" | "indicator" | "label" | "control" | "errorText", {
     size: {
       sm: {
         control: {
@@ -41,11 +41,19 @@ declare const Checkbox$1: {
           '@media (pointer: coarse)': {
             width: "5";
             height: "5";
+            '& svg': {
+              width: "3";
+              height: "3";
+            };
           };
         };
         indicator: {
           width: "2.5";
           height: "2.5";
+          '@media (pointer: coarse)': {
+            width: "3";
+            height: "3";
+          };
         };
         label: {
           fontSize: "sm";
@@ -66,10 +74,22 @@ declare const Checkbox$1: {
             width: "3";
             height: "3";
           };
+          '@media (pointer: coarse)': {
+            width: "6";
+            height: "6";
+            '& svg': {
+              width: "4";
+              height: "4";
+            };
+          };
         };
         indicator: {
           width: "3";
           height: "3";
+          '@media (pointer: coarse)': {
+            width: "4";
+            height: "4";
+          };
         };
         label: {
           fontSize: "md";
@@ -90,10 +110,22 @@ declare const Checkbox$1: {
             width: "4";
             height: "4";
           };
+          '@media (pointer: coarse)': {
+            width: "7";
+            height: "7";
+            '& svg': {
+              width: "4.5";
+              height: "4.5";
+            };
+          };
         };
         indicator: {
           width: "4";
           height: "4";
+          '@media (pointer: coarse)': {
+            width: "4.5";
+            height: "4.5";
+          };
         };
         label: {
           fontSize: "lg";
@@ -103,6 +135,72 @@ declare const Checkbox$1: {
         };
         errorText: {
           fontSize: "md";
+        };
+      };
+    };
+    palette: {
+      default: {
+        root: {
+          colorPalette: "neutral";
+        };
+        control: {
+          colorPalette: "neutral";
+        };
+      };
+      primary: {
+        root: {
+          colorPalette: "primary";
+        };
+        control: {
+          colorPalette: "primary";
+        };
+      };
+      secondary: {
+        root: {
+          colorPalette: "secondary";
+        };
+        control: {
+          colorPalette: "secondary";
+        };
+      };
+      success: {
+        root: {
+          colorPalette: "success";
+        };
+        control: {
+          colorPalette: "success";
+        };
+      };
+      warning: {
+        root: {
+          colorPalette: "warning";
+        };
+        control: {
+          colorPalette: "warning";
+        };
+      };
+      danger: {
+        root: {
+          colorPalette: "danger";
+        };
+        control: {
+          colorPalette: "danger";
+        };
+      };
+      info: {
+        root: {
+          colorPalette: "info";
+        };
+        control: {
+          colorPalette: "info";
+        };
+      };
+      grey: {
+        root: {
+          colorPalette: "grey";
+        };
+        control: {
+          colorPalette: "grey";
         };
       };
     };
@@ -141,6 +239,7 @@ type CheckboxDSProps = CheckboxVariants & {
  */
 declare const CheckboxDS: react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
+  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
 } & {
   /** Label text beside the checkbox */label?: ReactNode; /** Helper text below the label */
   description?: ReactNode; /** RHF FieldError or plain string */

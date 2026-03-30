@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/checkbox/checkbox.recipe.d.ts
-declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "control" | "indicator" | "label" | "errorText", {
+declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "indicator" | "label" | "control" | "errorText", {
   size: {
     sm: {
       control: {
@@ -16,11 +16,19 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "cont
         '@media (pointer: coarse)': {
           width: "5";
           height: "5";
+          '& svg': {
+            width: "3";
+            height: "3";
+          };
         };
       };
       indicator: {
         width: "2.5";
         height: "2.5";
+        '@media (pointer: coarse)': {
+          width: "3";
+          height: "3";
+        };
       };
       label: {
         fontSize: "sm";
@@ -41,10 +49,22 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "cont
           width: "3";
           height: "3";
         };
+        '@media (pointer: coarse)': {
+          width: "6";
+          height: "6";
+          '& svg': {
+            width: "4";
+            height: "4";
+          };
+        };
       };
       indicator: {
         width: "3";
         height: "3";
+        '@media (pointer: coarse)': {
+          width: "4";
+          height: "4";
+        };
       };
       label: {
         fontSize: "md";
@@ -65,10 +85,22 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "cont
           width: "4";
           height: "4";
         };
+        '@media (pointer: coarse)': {
+          width: "7";
+          height: "7";
+          '& svg': {
+            width: "4.5";
+            height: "4.5";
+          };
+        };
       };
       indicator: {
         width: "4";
         height: "4";
+        '@media (pointer: coarse)': {
+          width: "4.5";
+          height: "4.5";
+        };
       };
       label: {
         fontSize: "lg";
@@ -81,8 +113,76 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "cont
       };
     };
   };
+  palette: {
+    default: {
+      root: {
+        colorPalette: "neutral";
+      };
+      control: {
+        colorPalette: "neutral";
+      };
+    };
+    primary: {
+      root: {
+        colorPalette: "primary";
+      };
+      control: {
+        colorPalette: "primary";
+      };
+    };
+    secondary: {
+      root: {
+        colorPalette: "secondary";
+      };
+      control: {
+        colorPalette: "secondary";
+      };
+    };
+    success: {
+      root: {
+        colorPalette: "success";
+      };
+      control: {
+        colorPalette: "success";
+      };
+    };
+    warning: {
+      root: {
+        colorPalette: "warning";
+      };
+      control: {
+        colorPalette: "warning";
+      };
+    };
+    danger: {
+      root: {
+        colorPalette: "danger";
+      };
+      control: {
+        colorPalette: "danger";
+      };
+    };
+    info: {
+      root: {
+        colorPalette: "info";
+      };
+      control: {
+        colorPalette: "info";
+      };
+    };
+    grey: {
+      root: {
+        colorPalette: "grey";
+      };
+      control: {
+        colorPalette: "grey";
+      };
+    };
+  };
 }>;
 type CheckboxVariants = RecipeProps<typeof checkboxRecipe>;
+/** Semantic palette for checked / indeterminate fill (`colorPalette.base`). */
+type CheckboxPalette = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'grey';
 //#endregion
-export { CheckboxVariants, checkboxRecipe };
+export { CheckboxPalette, CheckboxVariants, checkboxRecipe };
 //# sourceMappingURL=checkbox.recipe.d.ts.map

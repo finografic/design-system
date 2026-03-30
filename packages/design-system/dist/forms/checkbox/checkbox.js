@@ -10,12 +10,12 @@ const { withProvider, withContext } = createStyleContext(checkboxRecipe);
 /**
 * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
 *
-* Pass **`size`** on `Root` so slot styles resolve. Control state and handlers
+* Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers
 * (`checked`, `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
 *
 * @example
 * ```tsx
-* <Checkbox.Root size="md" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
+* <Checkbox.Root size="md" palette="success" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
 *   <Checkbox.Control>
 *     <Checkbox.Indicator>
 *       <CheckIcon aria-hidden />
@@ -43,8 +43,11 @@ const textColumnStyle = css({
 * **`Checkbox`** stays the styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`;
 * bare **`Checkbox.Root`** still uses Ark's `onCheckedChange`).
 */
-const CheckboxDS = forwardRef(({ label, description, error, checked, onChange, onBlur, name, disabled, size = "md", indicator, className, classNames = {} }, ref) => {
-	const styles = checkboxRecipe({ size });
+const CheckboxDS = forwardRef(({ label, description, error, checked, onChange, onBlur, name, disabled, size = "md", palette = "primary", indicator, className, classNames = {} }, ref) => {
+	const styles = checkboxRecipe({
+		size,
+		palette
+	});
 	const errorMessage = typeof error === "string" ? error : error?.message;
 	return /* @__PURE__ */ jsxs(Checkbox.Root, {
 		ref,

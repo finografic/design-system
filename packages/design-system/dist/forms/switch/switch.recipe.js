@@ -8,13 +8,13 @@ import { sva } from "@styled-system/css";
 * `switchRecipe({ size, palette })` in `SwitchDS` (like `CheckboxField` uses its recipe).
 *
 * Slots:    root · label · control · thumb · description · errorText
-* Variants: size (sm | md | lg) · palette (sets `colorPalette` on root)
+* Variants: size (sm | md | lg) · palette (sets `colorPalette` per slot)
 *
-* **Color mechanism:** `palette` sets `colorPalette` on the **root** slot.
-* Child slots reference `colorPalette.*` tokens that resolve via CSS custom property
-* inheritance. **Control** checked fill uses an explicit `:is(:checked, …)` selector
-* (covers native + Ark/Zag attributes) with `colorPalette.light`; **thumb** uses
-* `colorPalette.base`.
+* **Color mechanism:** `variants.palette` maps each palette name to **`{ root, control, thumb }`**
+* (each with `colorPalette: 'primary' | 'info' | …`). Slots then use **`colorPalette.*`**
+* (`light`, `base`, `dark`, …) in `base` / `_checked` / `:is(:checked, …)` so one implementation
+* resolves to the right semantic colors for the chosen palette (e.g. `info` → info light/dark).
+* **Control** checked fill uses an explicit `:is(:checked, …)` selector (native + Ark/Zag attrs).
 *
 * Palette note: **`default`** maps to **`neutral`**. Omitting `palette` on `SwitchDS` uses
 * `defaultVariants` → **`primary`**.
