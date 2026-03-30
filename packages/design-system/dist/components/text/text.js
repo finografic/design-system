@@ -4,17 +4,17 @@ import { cx } from "@styled-system/css";
 import { jsx } from "react/jsx-runtime";
 //#region src/components/text/text.tsx
 const variantToElement = {
-	"h1": "h1",
-	"h2": "h2",
-	"h3": "h3",
-	"h4": "h4",
-	"h5": "h5",
-	"h6": "h6",
+	h1: "h1",
+	h2: "h2",
+	h3: "h3",
+	h4: "h4",
+	h5: "h5",
+	h6: "h6",
 	"body-lg": "p",
-	"body": "p",
+	body: "p",
 	"body-sm": "p",
-	"caption": "span",
-	"overline": "span"
+	caption: "span",
+	overline: "span"
 };
 /**
 * **Text** — semantic text element with variant-based typography scale.

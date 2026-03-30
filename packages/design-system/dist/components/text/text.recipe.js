@@ -11,32 +11,32 @@ const textRecipe = cva({
 	base: { margin: "0" },
 	variants: {
 		variant: {
-			"h1": {
+			h1: {
 				fontSize: "3xl",
 				fontWeight: "bold",
 				lineHeight: "tight"
 			},
-			"h2": {
+			h2: {
 				fontSize: "2xl",
 				fontWeight: "bold",
 				lineHeight: "tight"
 			},
-			"h3": {
+			h3: {
 				fontSize: "xl",
 				fontWeight: "semibold",
 				lineHeight: "snug"
 			},
-			"h4": {
+			h4: {
 				fontSize: "lg",
 				fontWeight: "semibold",
 				lineHeight: "snug"
 			},
-			"h5": {
+			h5: {
 				fontSize: "md",
 				fontWeight: "semibold",
 				lineHeight: "snug"
 			},
-			"h6": {
+			h6: {
 				fontSize: "sm",
 				fontWeight: "semibold",
 				lineHeight: "snug"
@@ -46,7 +46,7 @@ const textRecipe = cva({
 				fontWeight: "normal",
 				lineHeight: "normal"
 			},
-			"body": {
+			body: {
 				fontSize: "md",
 				fontWeight: "normal",
 				lineHeight: "normal"
@@ -56,12 +56,12 @@ const textRecipe = cva({
 				fontWeight: "normal",
 				lineHeight: "normal"
 			},
-			"caption": {
+			caption: {
 				fontSize: "xs",
 				fontWeight: "normal",
 				lineHeight: "normal"
 			},
-			"overline": {
+			overline: {
 				fontSize: "xs",
 				fontWeight: "semibold",
 				lineHeight: "normal",

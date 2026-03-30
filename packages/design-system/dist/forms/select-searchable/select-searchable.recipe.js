@@ -34,6 +34,7 @@ const selectSearchableRecipe = sva({
 		},
 		control: {
 			position: "relative",
+			isolation: "isolate",
 			display: "flex",
 			alignItems: "center",
 			width: "full",
@@ -56,15 +57,15 @@ const selectSearchableRecipe = sva({
 			}
 		},
 		leadIcon: {
-			"position": "absolute",
-			"display": "flex",
-			"alignItems": "center",
-			"justifyContent": "center",
-			"left": "0",
-			"top": "50%",
-			"transform": "translateY(-50%)",
-			"color": "fg.muted",
-			"pointerEvents": "none",
+			position: "absolute",
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			left: "0",
+			top: "50%",
+			transform: "translateY(-50%)",
+			color: "fg.muted",
+			pointerEvents: "none",
 			"&[data-interactive]": {
 				pointerEvents: "auto",
 				cursor: "pointer"
@@ -72,6 +73,7 @@ const selectSearchableRecipe = sva({
 		},
 		input: {
 			flex: "1",
+			minW: "0",
 			border: "none",
 			bg: "transparent",
 			color: "fg",
@@ -80,6 +82,8 @@ const selectSearchableRecipe = sva({
 			_disabled: { cursor: "not-allowed" }
 		},
 		clearTrigger: {
+			position: "relative",
+			zIndex: "1",
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "center",
@@ -90,14 +94,16 @@ const selectSearchableRecipe = sva({
 			_hover: { color: "fg" }
 		},
 		trigger: {
-			"display": "flex",
-			"alignItems": "center",
-			"justifyContent": "center",
-			"flexShrink": 0,
-			"color": "fg.muted",
-			"cursor": "pointer",
+			position: "relative",
+			zIndex: "1",
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			flexShrink: 0,
+			color: "fg.muted",
+			cursor: "pointer",
 			"& svg": { transition: "transform 150ms ease" },
-			"_open": { "& svg": { transform: "rotate(180deg)" } }
+			_open: { "& svg": { transform: "rotate(180deg)" } }
 		},
 		positioner: {
 			zIndex: "dropdown",

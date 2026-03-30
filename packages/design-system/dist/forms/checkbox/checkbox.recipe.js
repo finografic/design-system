@@ -26,67 +26,67 @@ const checkboxRecipe = sva({
 	],
 	base: {
 		root: {
-			"display": "inline-flex",
-			"alignItems": "flex-start",
-			"verticalAlign": "top",
-			"gap": "2",
-			"cursor": "pointer",
-			"userSelect": "none",
-			"_disabled": {
+			display: "inline-flex",
+			alignItems: "flex-start",
+			verticalAlign: "top",
+			gap: "2",
+			cursor: "pointer",
+			userSelect: "none",
+			_disabled: {
 				opacity: .55,
 				filter: "grayscale(100%)",
 				cursor: "not-allowed"
 			},
 			"@media (pointer: coarse)": { touchAction: "manipulation" },
-			"_indeterminate": {
+			_indeterminate: {
 				"& svg:not([data-indeterminate])": { display: "none" },
 				"& svg[data-indeterminate]": { display: "block" }
 			}
 		},
 		control: {
-			"display": "inline-flex",
-			"alignItems": "center",
-			"justifyContent": "center",
-			"flexShrink": 0,
-			"overflow": "hidden",
-			"borderRadius": "xs",
-			"borderWidth": "light",
-			"borderStyle": "solid",
-			"borderColor": "border",
-			"bg": "bg",
-			"color": "transparent",
-			"transitionProperty": "background-color, border-color, color",
-			"transitionDuration": "normal",
-			"_checked": {
+			display: "inline-flex",
+			alignItems: "center",
+			justifyContent: "center",
+			flexShrink: 0,
+			overflow: "hidden",
+			borderRadius: "xs",
+			borderWidth: "light",
+			borderStyle: "solid",
+			borderColor: "border",
+			bg: "bg",
+			color: "transparent",
+			transitionProperty: "background-color, border-color, color",
+			transitionDuration: "normal",
+			_checked: {
 				bg: "{colors.success.light}",
 				borderColor: "{colors.success.light}",
 				color: "white"
 			},
-			"_indeterminate": {
+			_indeterminate: {
 				bg: "{colors.success.light}",
 				borderColor: "{colors.success.light}",
 				color: "white"
 			},
-			"_hover": { borderColor: "accent.emphasized" },
-			"_disabled": {
+			_hover: { borderColor: "accent.emphasized" },
+			_disabled: {
 				bg: "bg.subtle",
 				borderColor: "border.muted"
 			},
-			"_focusVisible": {
+			_focusVisible: {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			"_invalid": { borderColor: "border.error" },
+			_invalid: { borderColor: "border.error" },
 			"&[data-invalid][data-focus-visible]": {
 				borderColor: "border.error",
 				boxShadow: "0 0 0 1px {colors.border.error}"
 			}
 		},
 		indicator: {
-			"display": "flex",
-			"alignItems": "center",
-			"justifyContent": "center",
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
 			"& svg[data-indeterminate]": { display: "none" }
 		},
 		label: {
@@ -111,9 +111,9 @@ const checkboxRecipe = sva({
 	variants: { size: {
 		sm: {
 			control: {
-				"width": "4",
-				"height": "4",
-				"marginTop": "0.5",
+				width: "4",
+				height: "4",
+				marginTop: "0.5",
 				"& svg": {
 					width: "2.5",
 					height: "2.5"
@@ -133,9 +133,9 @@ const checkboxRecipe = sva({
 		},
 		md: {
 			control: {
-				"width": "5",
-				"height": "5",
-				"marginTop": "0.5",
+				width: "5",
+				height: "5",
+				marginTop: "0.5",
 				"& svg": {
 					width: "3",
 					height: "3"
@@ -151,9 +151,9 @@ const checkboxRecipe = sva({
 		},
 		lg: {
 			control: {
-				"width": "6",
-				"height": "6",
-				"marginTop": "0.5",
+				width: "6",
+				height: "6",
+				marginTop: "0.5",
 				"& svg": {
 					width: "4",
 					height: "4"

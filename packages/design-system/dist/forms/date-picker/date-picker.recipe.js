@@ -213,21 +213,21 @@ const datePickerRecipe = sva({
 			padding: "0"
 		},
 		tableCellTrigger: {
-			"display": "flex",
-			"alignItems": "center",
-			"justifyContent": "center",
-			"width": "full",
-			"borderRadius": "sm",
-			"cursor": "pointer",
-			"fontFamily": "inherit",
-			"fontSize": "sm",
-			"color": "fg",
-			"bg": "transparent",
-			"border": "none",
-			"transitionProperty": "color, background-color",
-			"transitionDuration": "fast",
-			"_hover": { bg: "bg.subtle" },
-			"_selected": {
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			width: "full",
+			borderRadius: "sm",
+			cursor: "pointer",
+			fontFamily: "inherit",
+			fontSize: "sm",
+			color: "fg",
+			bg: "transparent",
+			border: "none",
+			transitionProperty: "color, background-color",
+			transitionDuration: "fast",
+			_hover: { bg: "bg.subtle" },
+			_selected: {
 				bg: "accent.solid",
 				color: "accent.contrast",
 				fontWeight: "semibold"
@@ -255,7 +255,7 @@ const datePickerRecipe = sva({
 				color: "fg.subtle",
 				opacity: .5
 			},
-			"_disabled": {
+			_disabled: {
 				opacity: .4,
 				cursor: "not-allowed",
 				pointerEvents: "none"
@@ -266,7 +266,7 @@ const datePickerRecipe = sva({
 				pointerEvents: "none",
 				textDecoration: "line-through"
 			},
-			"_focusVisible": {
+			_focusVisible: {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"

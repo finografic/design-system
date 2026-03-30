@@ -8,7 +8,7 @@ import {
   DoubleArrowRightIcon,
 } from '@finografic/icons';
 
-import { css } from '@styled-system/css';
+import { css, cx } from '@styled-system/css';
 import {
   type ColumnFiltersState,
   flexRender,
@@ -24,6 +24,7 @@ import {
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 
+import { InputField } from '../../forms/input-field';
 import { Spinner } from '../spinner';
 import { tableRecipe } from './data-table.recipe';
 import type { DataTableProps } from './data-table.types';
@@ -107,8 +108,9 @@ function PaginationButton({ className, disabled, children, ...rest }: Pagination
 /**
  * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
  *
- * Styles applied via `tableRecipe`. Pass `classNames.filterInput` and `classNames.paginationButton`
- * to style the per-column filter input and pagination buttons respectively.
+ * Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`)
+ * with `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper.
+ * Pass `classNames.paginationButton` for pagination buttons.
  *
  * @example
  * ```tsx
@@ -241,9 +243,10 @@ export function DataTable<TData>({
                         )}
                       </div>
 
-                      {canFilter && filterInput ? (
-                        <input
-                          className={[filterInput, filterInputStyles].filter(Boolean).join(' ')}
+                      {canFilter ? (
+                        <InputField.Root
+                          size="sm"
+                          className={cx(filterInputStyles, filterInput)}
                           value={(header.column.getFilterValue() as string) ?? ''}
                           onChange={(event) => header.column.setFilterValue(event.target.value)}
                           placeholder="Filter…"

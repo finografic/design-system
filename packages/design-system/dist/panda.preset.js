@@ -50,7 +50,7 @@ const designSystemPreset = definePreset({
 	},
 	globalCss: {
 		"*, *::before, *::after": { boxSizing: "border-box" },
-		"html": {
+		html: {
 			lineHeight: "1.5",
 			WebkitTextSizeAdjust: "100%",
 			WebkitFontSmoothing: "antialiased",
@@ -59,7 +59,7 @@ const designSystemPreset = definePreset({
 			touchAction: "manipulation",
 			fontFamily: "sans"
 		},
-		"body": {
+		body: {
 			minHeight: "100dvh",
 			position: "relative",
 			bg: "bg",
@@ -73,7 +73,7 @@ const designSystemPreset = definePreset({
 			maxWidth: "100%",
 			height: "auto"
 		},
-		"svg": { flexShrink: 0 },
+		svg: { flexShrink: 0 },
 		"svg.icon": {
 			width: "2rem",
 			height: "2rem",

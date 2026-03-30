@@ -35,7 +35,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const DatePicker$1: {
-  /** Root — value, handlers, locale, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<DatePicker.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "table" | "root" | "positioner" | "trigger" | "label" | "control" | "input" | "clearTrigger" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
+  /** Root — value, handlers, locale, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<DatePicker.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "table" | "trigger" | "positioner" | "control" | "label" | "input" | "view" | "clearTrigger" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
     size: {
       sm: {
         control: {
@@ -105,7 +105,7 @@ declare const DatePicker$1: {
       };
     };
   }>>; /** Root with external machine state from `useDatePicker`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<DatePicker.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "table" | "root" | "positioner" | "trigger" | "label" | "control" | "input" | "clearTrigger" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<DatePicker.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "table" | "trigger" | "positioner" | "control" | "label" | "input" | "view" | "clearTrigger" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
     size: {
       sm: {
         control: {

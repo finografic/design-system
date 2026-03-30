@@ -34,6 +34,7 @@ export const selectSearchableRecipe = sva({
 
     control: {
       position: 'relative',
+      isolation: 'isolate',
       display: 'flex',
       alignItems: 'center',
       width: 'full',
@@ -68,6 +69,7 @@ export const selectSearchableRecipe = sva({
 
     input: {
       flex: '1',
+      minW: '0',
       border: 'none',
       bg: 'transparent',
       color: 'fg',
@@ -77,6 +79,8 @@ export const selectSearchableRecipe = sva({
     },
 
     clearTrigger: {
+      position: 'relative',
+      zIndex: '1',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -88,6 +92,8 @@ export const selectSearchableRecipe = sva({
     },
 
     trigger: {
+      position: 'relative',
+      zIndex: '1',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

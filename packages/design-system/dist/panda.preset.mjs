@@ -79,7 +79,7 @@ const keyframes = defineKeyframes({
 		"0%": { transform: "translateX(0)" },
 		"100%": { transform: "translateX(100%)" }
 	},
-	"spin": {
+	spin: {
 		"0%": { transform: "rotate(0deg)" },
 		"100%": { transform: "rotate(360deg)" }
 	}
@@ -94,9 +94,9 @@ const durationTokens = defineTokens.durations({
 	slowest: { value: "500ms" }
 });
 const easingTokens = defineTokens.easings({
-	"default": { value: "cubic-bezier(0.4, 0, 0.2, 1)" },
-	"in": { value: "cubic-bezier(0.4, 0, 1, 1)" },
-	"out": { value: "cubic-bezier(0, 0, 0.2, 1)" },
+	default: { value: "cubic-bezier(0.4, 0, 0.2, 1)" },
+	in: { value: "cubic-bezier(0.4, 0, 1, 1)" },
+	out: { value: "cubic-bezier(0, 0, 0.2, 1)" },
 	"in-out": { value: "cubic-bezier(0.4, 0, 0.2, 1)" }
 });
 //#endregion
@@ -376,14 +376,14 @@ const semanticColorTokens = {
 * // In recipe: rounded: 'full' → border-radius: 9999px (pill shape)
 */
 const radiiTokens = defineTokens.radii({
-	"none": { value: "0" },
-	"xs": { value: "0.25rem" },
-	"sm": { value: "0.33rem" },
-	"md": { value: "0.5rem" },
-	"lg": { value: "0.66rem" },
-	"xl": { value: "1rem" },
+	none: { value: "0" },
+	xs: { value: "0.25rem" },
+	sm: { value: "0.33rem" },
+	md: { value: "0.5rem" },
+	lg: { value: "0.66rem" },
+	xl: { value: "1rem" },
 	"2xl": { value: "1.25rem" },
-	"full": { value: "9999px" }
+	full: { value: "9999px" }
 });
 /**
 * Border width tokens for Panda CSS.
@@ -436,7 +436,7 @@ const shadowTokens = defineTokens.shadows({ base: {
 */
 const sizingTokens = defineTokens.sizes({
 	"0": { value: "0" },
-	"px": { value: "1px" },
+	px: { value: "1px" },
 	"0.5": { value: "0.125rem" },
 	"1": { value: "0.25rem" },
 	"1.5": { value: "0.375rem" },
@@ -453,11 +453,11 @@ const sizingTokens = defineTokens.sizes({
 	"16": { value: "4rem" },
 	"20": { value: "5rem" },
 	"24": { value: "6rem" },
-	"navbar": { value: "41px" },
-	"header": { value: "70px" },
-	"footer": { value: "70px" },
-	"sidebar": { value: "300px" },
-	"content": { value: "1200px" }
+	navbar: { value: "41px" },
+	header: { value: "70px" },
+	footer: { value: "70px" },
+	sidebar: { value: "300px" },
+	content: { value: "1200px" }
 });
 //#endregion
 //#region src/tokens/spacing.tokens.ts
@@ -474,7 +474,7 @@ const sizingTokens = defineTokens.sizes({
 */
 const spacingTokens = defineTokens.spacing({
 	"0": { value: "0" },
-	"px": { value: "1px" },
+	px: { value: "1px" },
 	"0.5": { value: "0.125rem" },
 	"1": { value: "0.25rem" },
 	"1.5": { value: "0.375rem" },
@@ -545,11 +545,11 @@ const fontTokens = defineTokens.fonts({
 	mono: { value: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace" }
 });
 const fontSizeTokens = defineTokens.fontSizes({
-	"xs": { value: "0.75rem" },
-	"sm": { value: "0.875rem" },
-	"md": { value: "1rem" },
-	"lg": { value: "1.125rem" },
-	"xl": { value: "1.25rem" },
+	xs: { value: "0.75rem" },
+	sm: { value: "0.875rem" },
+	md: { value: "1rem" },
+	lg: { value: "1.125rem" },
+	xl: { value: "1.25rem" },
 	"2xl": { value: "1.5rem" },
 	"3xl": { value: "1.875rem" },
 	"4xl": { value: "2.25rem" },
@@ -643,11 +643,11 @@ const toEmNumeric = (px) => convertPxToRem(px);
 //#endregion
 //#region src/viewport/viewport.breakpoints.ts
 const BREAKPOINTS = {
-	"xs": 0,
-	"sm": 640,
-	"md": 768,
-	"lg": 1024,
-	"xl": 1280,
+	xs: 0,
+	sm: 640,
+	md: 768,
+	lg: 1024,
+	xl: 1280,
 	"2xl": 1536
 };
 const mapBreakpoints = (fn) => Object.fromEntries(Object.entries(BREAKPOINTS).map(([k, v]) => [k, fn(v)]));
@@ -701,7 +701,7 @@ const designSystemPreset = definePreset({
 	},
 	globalCss: {
 		"*, *::before, *::after": { boxSizing: "border-box" },
-		"html": {
+		html: {
 			lineHeight: "1.5",
 			WebkitTextSizeAdjust: "100%",
 			WebkitFontSmoothing: "antialiased",
@@ -710,7 +710,7 @@ const designSystemPreset = definePreset({
 			touchAction: "manipulation",
 			fontFamily: "sans"
 		},
-		"body": {
+		body: {
 			minHeight: "100dvh",
 			position: "relative",
 			bg: "bg",
@@ -724,7 +724,7 @@ const designSystemPreset = definePreset({
 			maxWidth: "100%",
 			height: "auto"
 		},
-		"svg": { flexShrink: 0 },
+		svg: { flexShrink: 0 },
 		"svg.icon": {
 			width: "2rem",
 			height: "2rem",

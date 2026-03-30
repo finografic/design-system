@@ -31,10 +31,10 @@ const sliderRecipe = sva({
 	],
 	base: {
 		root: {
-			"display": "flex",
-			"flexDirection": "column",
-			"gap": "3",
-			"width": "100%",
+			display: "flex",
+			flexDirection: "column",
+			gap: "3",
+			width: "100%",
 			"&[data-orientation=\"vertical\"]": {
 				height: "48",
 				maxWidth: "max-content",
@@ -57,11 +57,11 @@ const sliderRecipe = sva({
 			lineHeight: "1.25rem"
 		},
 		control: {
-			"position": "relative",
-			"display": "flex",
-			"alignItems": "center",
-			"width": "100%",
-			"height": "5",
+			position: "relative",
+			display: "flex",
+			alignItems: "center",
+			width: "100%",
+			height: "5",
 			"&[data-orientation=\"vertical\"]": {
 				flexDirection: "column",
 				height: "100%",
@@ -69,20 +69,20 @@ const sliderRecipe = sva({
 			}
 		},
 		track: {
-			"position": "relative",
-			"flex": "1",
-			"borderRadius": "full",
-			"bg": "bg.emphasized",
-			"overflow": "hidden",
+			position: "relative",
+			flex: "1",
+			borderRadius: "full",
+			bg: "bg.emphasized",
+			overflow: "hidden",
 			"&[data-orientation=\"vertical\"]": {
 				height: "100%",
 				width: "1.5"
 			}
 		},
 		range: {
-			"position": "absolute",
-			"bg": "accent.solid",
-			"borderRadius": "full",
+			position: "absolute",
+			bg: "accent.solid",
+			borderRadius: "full",
 			"&[data-orientation=\"vertical\"]": { width: "100%" }
 		},
 		thumb: {
@@ -113,9 +113,9 @@ const sliderRecipe = sva({
 			}
 		},
 		markerGroup: {
-			"display": "flex",
-			"justifyContent": "space-between",
-			"marginTop": "2",
+			display: "flex",
+			justifyContent: "space-between",
+			marginTop: "2",
 			"&[data-orientation=\"vertical\"]": {
 				flexDirection: "column",
 				height: "100%",
@@ -124,10 +124,10 @@ const sliderRecipe = sva({
 			}
 		},
 		marker: {
-			"position": "relative",
-			"fontSize": "xs",
-			"lineHeight": "1rem",
-			"color": "fg.subtle",
+			position: "relative",
+			fontSize: "xs",
+			lineHeight: "1rem",
+			color: "fg.subtle",
 			"&::before": {
 				content: "\"\"",
 				display: "block",
@@ -163,9 +163,9 @@ const sliderRecipe = sva({
 			track: { height: "1" },
 			range: { height: "100%" },
 			thumb: {
-				"width": "4",
-				"height": "4",
-				"marginTop": "-1.5",
+				width: "4",
+				height: "4",
+				marginTop: "-1.5",
 				"@media (max-width: 1024px) and (max-height: 600px) and (pointer: coarse)": {
 					width: "6",
 					height: "6"
@@ -184,9 +184,9 @@ const sliderRecipe = sva({
 			track: { height: "1.5" },
 			range: { height: "100%" },
 			thumb: {
-				"width": "5",
-				"height": "5",
-				"marginTop": "-1.75",
+				width: "5",
+				height: "5",
+				marginTop: "-1.75",
 				"@media (max-width: 1024px) and (max-height: 600px) and (pointer: coarse)": {
 					width: "7",
 					height: "7"
@@ -205,9 +205,9 @@ const sliderRecipe = sva({
 			track: { height: "2" },
 			range: { height: "100%" },
 			thumb: {
-				"width": "6",
-				"height": "6",
-				"marginTop": "-2",
+				width: "6",
+				height: "6",
+				marginTop: "-2",
 				"@media (max-width: 1024px) and (max-height: 600px) and (pointer: coarse)": {
 					width: "8",
 					height: "8"

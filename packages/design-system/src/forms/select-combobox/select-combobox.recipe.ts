@@ -47,6 +47,7 @@ export const selectComboboxRecipe = sva({
 
     control: {
       position: 'relative',
+      isolation: 'isolate',
       display: 'flex',
       alignItems: 'center',
       width: 'full',
@@ -68,6 +69,7 @@ export const selectComboboxRecipe = sva({
 
     input: {
       flex: '1',
+      minW: '0',
       border: 'none',
       bg: 'transparent',
       color: 'fg',
@@ -77,12 +79,16 @@ export const selectComboboxRecipe = sva({
     },
 
     indicators: {
+      position: 'relative',
+      zIndex: '1',
       display: 'flex',
       alignItems: 'center',
       flexShrink: 0,
     },
 
     clearTrigger: {
+      position: 'relative',
+      zIndex: '1',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -94,6 +100,8 @@ export const selectComboboxRecipe = sva({
     },
 
     trigger: {
+      position: 'relative',
+      zIndex: '1',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

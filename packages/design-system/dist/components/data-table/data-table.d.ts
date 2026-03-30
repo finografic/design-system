@@ -5,8 +5,9 @@ import * as react_jsx_runtime0 from "react/jsx-runtime";
 /**
  * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
  *
- * Styles applied via `tableRecipe`. Pass `classNames.filterInput` and `classNames.paginationButton`
- * to style the per-column filter input and pagination buttons respectively.
+ * Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`)
+ * with `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper.
+ * Pass `classNames.paginationButton` for pagination buttons.
  *
  * @example
  * ```tsx

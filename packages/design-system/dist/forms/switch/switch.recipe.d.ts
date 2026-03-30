@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/switch/switch.recipe.d.ts
-declare const switchRecipe: SlotRecipeRuntimeFn<"description" | "root" | "label" | "thumb" | "control" | "errorText", {
+declare const switchRecipe: SlotRecipeRuntimeFn<"root" | "description" | "control" | "label" | "errorText" | "thumb", {
   size: {
     sm: {
       control: {

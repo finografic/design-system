@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/select/select.recipe.d.ts
-declare const selectRecipe: SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "positioner" | "list" | "trigger" | "indicator" | "label" | "itemText" | "itemGroup" | "itemGroupLabel" | "control" | "clearTrigger" | "valueText", {
+declare const selectRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "control" | "indicator" | "label" | "list" | "clearTrigger" | "valueText" | "itemText" | "itemGroup" | "itemGroupLabel", {
   size: {
     sm: {
       label: {

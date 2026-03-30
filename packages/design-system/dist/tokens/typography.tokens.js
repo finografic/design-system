@@ -26,11 +26,11 @@ const fontTokens = defineTokens.fonts({
 	mono: { value: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace" }
 });
 const fontSizeTokens = defineTokens.fontSizes({
-	"xs": { value: "0.75rem" },
-	"sm": { value: "0.875rem" },
-	"md": { value: "1rem" },
-	"lg": { value: "1.125rem" },
-	"xl": { value: "1.25rem" },
+	xs: { value: "0.75rem" },
+	sm: { value: "0.875rem" },
+	md: { value: "1rem" },
+	lg: { value: "1.125rem" },
+	xl: { value: "1.25rem" },
 	"2xl": { value: "1.5rem" },
 	"3xl": { value: "1.875rem" },
 	"4xl": { value: "2.25rem" },

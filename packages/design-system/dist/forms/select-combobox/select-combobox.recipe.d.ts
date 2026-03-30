@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/select-combobox/select-combobox.recipe.d.ts
-declare const selectComboboxRecipe: SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "positioner" | "trigger" | "label" | "itemText" | "itemGroup" | "itemGroupLabel" | "control" | "input" | "clearTrigger" | "indicators", {
+declare const selectComboboxRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "control" | "label" | "input" | "clearTrigger" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicators", {
   size: {
     sm: {
       control: {

@@ -66,10 +66,10 @@ function FieldBox({ name, label, hint, required = false, size = "md", children, 
 	const showHint = hint && !showError && !(showDebouncedWarning && message);
 	const usesArkField = hasArkFieldInput(children);
 	const rootProps = {
-		"className": cx(styles.root, className) || void 0,
+		className: cx(styles.root, className) || void 0,
 		"data-invalid": showError ? "true" : void 0,
 		"data-required": required ? "true" : void 0,
-		"onBlur": handleBlur
+		onBlur: handleBlur
 	};
 	const labelNode = label && /* @__PURE__ */ jsxs("span", {
 		className: styles.label,

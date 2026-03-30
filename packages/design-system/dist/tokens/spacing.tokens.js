@@ -13,7 +13,7 @@ import { defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.9.0_typescri
 */
 const spacingTokens = defineTokens.spacing({
 	"0": { value: "0" },
-	"px": { value: "1px" },
+	px: { value: "1px" },
 	"0.5": { value: "0.125rem" },
 	"1": { value: "0.25rem" },
 	"1.5": { value: "0.375rem" },

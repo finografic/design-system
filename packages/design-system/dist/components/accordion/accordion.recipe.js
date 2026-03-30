@@ -66,14 +66,14 @@ const accordionRecipe = sva({
 			_closed: { animation: "collapse-height 100ms ease-in" }
 		},
 		itemIndicator: {
-			"display": "flex",
-			"alignItems": "center",
-			"justifyContent": "center",
-			"flexShrink": 0,
-			"color": "fg.muted",
-			"transitionProperty": "transform",
-			"transitionDuration": "normal",
-			"_open": { transform: "rotate(180deg)" },
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "center",
+			flexShrink: 0,
+			color: "fg.muted",
+			transitionProperty: "transform",
+			transitionDuration: "normal",
+			_open: { transform: "rotate(180deg)" },
 			"& svg": {
 				w: "4",
 				h: "4"

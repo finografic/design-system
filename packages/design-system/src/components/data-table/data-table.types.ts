@@ -19,8 +19,9 @@ export interface DataTableTableClassNames {
 export interface DataTableClassNames {
   table: DataTableTableClassNames;
   /**
-   * Class name for the per-column filter input inside headers.
-   * Typically from `inputRecipe({ size: 'sm' })`.
+   * Optional extra class names on the header filter field wrapper (`InputField.Root`).
+   * Filter chrome uses `inputFieldRecipe` inside the design system — do not pass the legacy
+   * standalone `input()` recipe here; use this only for layout or spacing overrides.
    */
   filterInput?: string;
   /**

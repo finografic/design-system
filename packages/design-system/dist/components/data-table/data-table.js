@@ -1,9 +1,11 @@
 import { Spinner } from "../spinner/spinner.js";
 import "../spinner/index.js";
+import { InputField } from "../../forms/input-field/input-field.js";
+import "../../forms/input-field/index.js";
 import { tableRecipe } from "./data-table.recipe.js";
 import { ArrowDownIcon, ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, ChevronsUpDownIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from "@finografic/icons";
 import { useState } from "react";
-import { css } from "@styled-system/css";
+import { css, cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
 //#region src/components/data-table/data-table.tsx
@@ -62,8 +64,9 @@ function PaginationButton({ className, disabled, children, ...rest }) {
 /**
 * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
 *
-* Styles applied via `tableRecipe`. Pass `classNames.filterInput` and `classNames.paginationButton`
-* to style the per-column filter input and pagination buttons respectively.
+* Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`)
+* with `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper.
+* Pass `classNames.paginationButton` for pagination buttons.
 *
 * @example
 * ```tsx
@@ -154,8 +157,9 @@ function DataTable({ data, columns, classNames, caption, loading = false, pageSi
 											sorted: header.column.getIsSorted(),
 											className: styles.sortIcon
 										})]
-									}), canFilter && filterInput ? /* @__PURE__ */ jsx("input", {
-										className: [filterInput, filterInputStyles].filter(Boolean).join(" "),
+									}), canFilter ? /* @__PURE__ */ jsx(InputField.Root, {
+										size: "sm",
+										className: cx(filterInputStyles, filterInput),
 										value: header.column.getFilterValue() ?? "",
 										onChange: (event) => header.column.setFilterValue(event.target.value),
 										placeholder: "Filter…",
