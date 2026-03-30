@@ -4,8 +4,8 @@ declare const toastRecipe: SlotRecipeRuntimeFn<"root" | "description" | "title" 
   status: {
     info: {
       root: {
-        borderLeftWidth: "4px";
-        borderLeftColor: "border.info";
+        bg: "bg.info";
+        borderColor: "border.info";
       };
       title: {
         color: "fg.info";
@@ -13,8 +13,8 @@ declare const toastRecipe: SlotRecipeRuntimeFn<"root" | "description" | "title" 
     };
     success: {
       root: {
-        borderLeftWidth: "4px";
-        borderLeftColor: "border.success";
+        bg: "bg.success";
+        borderColor: "border.success";
       };
       title: {
         color: "fg.success";
@@ -22,8 +22,8 @@ declare const toastRecipe: SlotRecipeRuntimeFn<"root" | "description" | "title" 
     };
     warning: {
       root: {
-        borderLeftWidth: "4px";
-        borderLeftColor: "border.warning";
+        bg: "bg.warning";
+        borderColor: "border.warning";
       };
       title: {
         color: "fg.warning";
@@ -31,8 +31,8 @@ declare const toastRecipe: SlotRecipeRuntimeFn<"root" | "description" | "title" 
     };
     error: {
       root: {
-        borderLeftWidth: "4px";
-        borderLeftColor: "border.error";
+        bg: "bg.error";
+        borderColor: "border.error";
       };
       title: {
         color: "fg.error";

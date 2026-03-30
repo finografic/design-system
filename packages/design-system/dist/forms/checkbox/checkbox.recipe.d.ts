@@ -181,8 +181,6 @@ declare const checkboxRecipe: SlotRecipeRuntimeFn<"root" | "description" | "indi
   };
 }>;
 type CheckboxVariants = RecipeProps<typeof checkboxRecipe>;
-/** Semantic palette for checked / indeterminate fill (`colorPalette.base`). */
-type CheckboxPalette = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'grey';
 //#endregion
-export { CheckboxPalette, CheckboxVariants, checkboxRecipe };
+export { CheckboxVariants, checkboxRecipe };
 //# sourceMappingURL=checkbox.recipe.d.ts.map

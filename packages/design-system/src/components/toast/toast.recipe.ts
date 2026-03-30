@@ -30,8 +30,14 @@ export const toastRecipe = sva({
       maxW: '24rem',
       bg: 'bg.panel',
       borderColor: 'border',
-      _open: { animation: 'slide-fade-in 200ms ease' },
-      _closed: { animation: 'slide-fade-out 150ms ease' },
+      _open: {
+        animation: 'slide-fade-in 200ms ease',
+        animationFillMode: 'forwards',
+      },
+      _closed: {
+        animation: 'slide-fade-out 150ms ease',
+        animationFillMode: 'forwards',
+      },
     },
 
     title: {
@@ -108,19 +114,31 @@ export const toastRecipe = sva({
   variants: {
     status: {
       info: {
-        root: { borderLeftWidth: '4px', borderLeftColor: 'border.info' },
+        root: {
+          bg: 'bg.info',
+          borderColor: 'border.info',
+        },
         title: { color: 'fg.info' },
       },
       success: {
-        root: { borderLeftWidth: '4px', borderLeftColor: 'border.success' },
+        root: {
+          bg: 'bg.success',
+          borderColor: 'border.success',
+        },
         title: { color: 'fg.success' },
       },
       warning: {
-        root: { borderLeftWidth: '4px', borderLeftColor: 'border.warning' },
+        root: {
+          bg: 'bg.warning',
+          borderColor: 'border.warning',
+        },
         title: { color: 'fg.warning' },
       },
       error: {
-        root: { borderLeftWidth: '4px', borderLeftColor: 'border.error' },
+        root: {
+          bg: 'bg.error',
+          borderColor: 'border.error',
+        },
         title: { color: 'fg.error' },
       },
     },

@@ -43,8 +43,8 @@ declare const Toast$1: {
     status: {
       info: {
         root: {
-          borderLeftWidth: "4px";
-          borderLeftColor: "border.info";
+          bg: "bg.info";
+          borderColor: "border.info";
         };
         title: {
           color: "fg.info";
@@ -52,8 +52,8 @@ declare const Toast$1: {
       };
       success: {
         root: {
-          borderLeftWidth: "4px";
-          borderLeftColor: "border.success";
+          bg: "bg.success";
+          borderColor: "border.success";
         };
         title: {
           color: "fg.success";
@@ -61,8 +61,8 @@ declare const Toast$1: {
       };
       warning: {
         root: {
-          borderLeftWidth: "4px";
-          borderLeftColor: "border.warning";
+          bg: "bg.warning";
+          borderColor: "border.warning";
         };
         title: {
           color: "fg.warning";
@@ -70,8 +70,8 @@ declare const Toast$1: {
       };
       error: {
         root: {
-          borderLeftWidth: "4px";
-          borderLeftColor: "border.error";
+          bg: "bg.error";
+          borderColor: "border.error";
         };
         title: {
           color: "fg.error";
