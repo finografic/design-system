@@ -154,14 +154,14 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
           {suffix && <span className={styles.suffix}>{suffix}</span>}
 
           {showStepper && (
-            <>
-              <ArkNumberInput.DecrementTrigger className={styles.decrementTrigger} aria-label="Decrement">
-                <ChevronDownIcon className="icon icon-sm" aria-hidden />
-              </ArkNumberInput.DecrementTrigger>
+            <div className={styles.triggerGroup}>
               <ArkNumberInput.IncrementTrigger className={styles.incrementTrigger} aria-label="Increment">
                 <ChevronUpIcon className="icon icon-sm" aria-hidden />
               </ArkNumberInput.IncrementTrigger>
-            </>
+              <ArkNumberInput.DecrementTrigger className={styles.decrementTrigger} aria-label="Decrement">
+                <ChevronDownIcon className="icon icon-sm" aria-hidden />
+              </ArkNumberInput.DecrementTrigger>
+            </div>
           )}
         </ArkNumberInput.Control>
 

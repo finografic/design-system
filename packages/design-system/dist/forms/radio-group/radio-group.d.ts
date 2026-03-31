@@ -33,7 +33,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const RadioGroup$1: {
-  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
+  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
     size: {
       sm: {
         label: {
@@ -146,7 +146,7 @@ declare const RadioGroup$1: {
       };
     };
   }>>; /** Root with external machine state from `useRadioGroup`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
     size: {
       sm: {
         label: {

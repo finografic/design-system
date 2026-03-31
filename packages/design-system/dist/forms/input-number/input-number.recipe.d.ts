@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/input-number/input-number.recipe.d.ts
-declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "errorText" | "input" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
+declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "errorText" | "input" | "triggerGroup" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
   size: {
     sm: {
       label: {
@@ -13,14 +13,16 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
       };
       input: {
         fontSize: "sm";
-        paddingInline: "2.5";
+        paddingInlineStart: "2.5";
+        paddingInlineEnd: "8";
+      };
+      triggerGroup: {
+        width: "7";
       };
       incrementTrigger: {
-        width: "7";
         fontSize: "xs";
       };
       decrementTrigger: {
-        width: "7";
         fontSize: "xs";
       };
       prefix: {
@@ -44,14 +46,16 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
       };
       input: {
         fontSize: "sm";
-        paddingInline: "3";
+        paddingInlineStart: "3";
+        paddingInlineEnd: "9";
+      };
+      triggerGroup: {
+        width: "8";
       };
       incrementTrigger: {
-        width: "8";
         fontSize: "sm";
       };
       decrementTrigger: {
-        width: "8";
         fontSize: "sm";
       };
       prefix: {
@@ -75,14 +79,16 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
       };
       input: {
         fontSize: "md";
-        paddingInline: "4";
+        paddingInlineStart: "4";
+        paddingInlineEnd: "11";
+      };
+      triggerGroup: {
+        width: "10";
       };
       incrementTrigger: {
-        width: "10";
         fontSize: "md";
       };
       decrementTrigger: {
-        width: "10";
         fontSize: "md";
       };
       prefix: {

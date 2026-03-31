@@ -5,11 +5,13 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI NumberInput example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · control · input · incrementTrigger · decrementTrigger · prefix · suffix · errorText
+* Slots:    root · label · control · input · triggerGroup · incrementTrigger · decrementTrigger · prefix · suffix · errorText
 * Variants: size (sm | md | lg)
 *
-* Stepper architecture: triggers sit inline inside the control (flex row) rather than
-* absolutely positioned, separated by an inline-start border from input/suffix.
+* Stepper architecture: `triggerGroup` is absolutely positioned on the right edge of the
+* control. It stacks `incrementTrigger` (top) and `decrementTrigger` (bottom) as a flex
+* column. The `input` gets `paddingInlineEnd` sized to match the triggerGroup width so
+* typed text never disappears under the buttons.
 */
 const inputNumberRecipe = sva({
 	className: "input-number",
@@ -18,6 +20,7 @@ const inputNumberRecipe = sva({
 		"label",
 		"control",
 		"input",
+		"triggerGroup",
 		"incrementTrigger",
 		"decrementTrigger",
 		"prefix",
@@ -78,14 +81,24 @@ const inputNumberRecipe = sva({
 			_disabled: { cursor: "not-allowed" },
 			_focusVisible: { zIndex: 1 }
 		},
+		triggerGroup: {
+			position: "absolute",
+			top: "1px",
+			bottom: "1px",
+			right: "1px",
+			display: "flex",
+			flexDirection: "column",
+			borderInlineStartWidth: "light",
+			borderInlineStartStyle: "solid",
+			borderInlineStartColor: "border",
+			overflow: "hidden",
+			zIndex: 1
+		},
 		incrementTrigger: {
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "center",
-			flexShrink: 0,
-			borderInlineStartWidth: "light",
-			borderInlineStartStyle: "solid",
-			borderInlineStartColor: "border",
+			flex: 1,
 			borderBottomWidth: "light",
 			borderBottomStyle: "solid",
 			borderBottomColor: "border",
@@ -113,10 +126,7 @@ const inputNumberRecipe = sva({
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "center",
-			flexShrink: 0,
-			borderInlineStartWidth: "light",
-			borderInlineStartStyle: "solid",
-			borderInlineStartColor: "border",
+			flex: 1,
 			color: "fg.muted",
 			cursor: "pointer",
 			userSelect: "none",
@@ -171,16 +181,12 @@ const inputNumberRecipe = sva({
 			control: { height: "9" },
 			input: {
 				fontSize: "sm",
-				paddingInline: "2.5"
+				paddingInlineStart: "2.5",
+				paddingInlineEnd: "8"
 			},
-			incrementTrigger: {
-				width: "7",
-				fontSize: "xs"
-			},
-			decrementTrigger: {
-				width: "7",
-				fontSize: "xs"
-			},
+			triggerGroup: { width: "7" },
+			incrementTrigger: { fontSize: "xs" },
+			decrementTrigger: { fontSize: "xs" },
 			prefix: {
 				paddingInline: "2",
 				fontSize: "xs"
@@ -196,16 +202,12 @@ const inputNumberRecipe = sva({
 			control: { height: "10" },
 			input: {
 				fontSize: "sm",
-				paddingInline: "3"
+				paddingInlineStart: "3",
+				paddingInlineEnd: "9"
 			},
-			incrementTrigger: {
-				width: "8",
-				fontSize: "sm"
-			},
-			decrementTrigger: {
-				width: "8",
-				fontSize: "sm"
-			},
+			triggerGroup: { width: "8" },
+			incrementTrigger: { fontSize: "sm" },
+			decrementTrigger: { fontSize: "sm" },
 			prefix: {
 				paddingInline: "2.5",
 				fontSize: "sm"
@@ -221,16 +223,12 @@ const inputNumberRecipe = sva({
 			control: { height: "12" },
 			input: {
 				fontSize: "md",
-				paddingInline: "4"
+				paddingInlineStart: "4",
+				paddingInlineEnd: "11"
 			},
-			incrementTrigger: {
-				width: "10",
-				fontSize: "md"
-			},
-			decrementTrigger: {
-				width: "10",
-				fontSize: "md"
-			},
+			triggerGroup: { width: "10" },
+			incrementTrigger: { fontSize: "md" },
+			decrementTrigger: { fontSize: "md" },
 			prefix: {
 				paddingInline: "3",
 				fontSize: "md"

@@ -2,7 +2,7 @@ import { inputNumberRecipe } from "./input-number.recipe.js";
 import { ChevronDownIcon, ChevronUpIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
-import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
+import { jsx, jsxs } from "react/jsx-runtime";
 import { NumberInput } from "@ark-ui/react";
 //#region src/forms/input-number/input-number.tsx
 const InputNumber = forwardRef(({ value, defaultValue, onChange, onValueCommit, onValueInvalid, onBlur, name, min, max, step = 1, precision, locale, formatOptions, prefix, suffix, showStepper = true, label, error, id, disabled, readOnly, placeholder, size = "md", className }, ref) => {
@@ -52,21 +52,24 @@ const InputNumber = forwardRef(({ value, defaultValue, onChange, onValueCommit, 
 						className: styles.suffix,
 						children: suffix
 					}),
-					showStepper && /* @__PURE__ */ jsxs(Fragment$1, { children: [/* @__PURE__ */ jsx(NumberInput.DecrementTrigger, {
-						className: styles.decrementTrigger,
-						"aria-label": "Decrement",
-						children: /* @__PURE__ */ jsx(ChevronDownIcon, {
-							className: "icon icon-sm",
-							"aria-hidden": true
-						})
-					}), /* @__PURE__ */ jsx(NumberInput.IncrementTrigger, {
-						className: styles.incrementTrigger,
-						"aria-label": "Increment",
-						children: /* @__PURE__ */ jsx(ChevronUpIcon, {
-							className: "icon icon-sm",
-							"aria-hidden": true
-						})
-					})] })
+					showStepper && /* @__PURE__ */ jsxs("div", {
+						className: styles.triggerGroup,
+						children: [/* @__PURE__ */ jsx(NumberInput.IncrementTrigger, {
+							className: styles.incrementTrigger,
+							"aria-label": "Increment",
+							children: /* @__PURE__ */ jsx(ChevronUpIcon, {
+								className: "icon icon-sm",
+								"aria-hidden": true
+							})
+						}), /* @__PURE__ */ jsx(NumberInput.DecrementTrigger, {
+							className: styles.decrementTrigger,
+							"aria-label": "Decrement",
+							children: /* @__PURE__ */ jsx(ChevronDownIcon, {
+								className: "icon icon-sm",
+								"aria-hidden": true
+							})
+						})]
+					})
 				]
 			}),
 			errorMessage && /* @__PURE__ */ jsx("span", {
