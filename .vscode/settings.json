@@ -3,7 +3,9 @@
 
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.eslint": "explicit",
+    // "source.fixAll.oxc": "explicit",
+    "source.format.oxc": "explicit"
   },
 
   "eslint.enable": true,

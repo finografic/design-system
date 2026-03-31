@@ -80,26 +80,26 @@ const config: Linter.Config[] = [
         { prefer: 'type-imports', fixStyle: 'separate-type-imports' },
       ],
 
-      'stylistic/semi': ['error'],
-      'stylistic/quotes': ['error', 'single'],
+      // 'stylistic/semi': ['error'],
+      // 'stylistic/quotes': ['error', 'single'],
       // TODO: REMOVE `ConditionalExpression` WHEN oxfmt IS ADDED TO
       'stylistic/indent': ['warn', 2, { SwitchCase: 1, ignoredNodes: ['ConditionalExpression'] }],
-      'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
-      'stylistic/no-multi-spaces': ['warn', { exceptions: { Property: true } }],
-      'stylistic/no-trailing-spaces': 'warn',
-      'stylistic/object-curly-spacing': ['error', 'always'],
-      'stylistic/comma-spacing': ['error', { before: false, after: true }],
-      'stylistic/comma-dangle': ['error', 'only-multiline'],
-      'stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
-      'stylistic/arrow-spacing': ['error', { before: true, after: true }],
-      'stylistic/type-annotation-spacing': [
-        'error',
-        {
-          before: false,
-          after: true,
-          overrides: { arrow: { before: true, after: true } },
-        },
-      ],
+      // 'stylistic/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 1 }],
+      // 'stylistic/no-multi-spaces': ['warn', { exceptions: { Property: true } }],
+      // 'stylistic/no-trailing-spaces': 'warn',
+      // 'stylistic/object-curly-spacing': ['error', 'always'],
+      // 'stylistic/comma-spacing': ['error', { before: false, after: true }],
+      // 'stylistic/comma-dangle': ['error', 'only-multiline'],
+      // 'stylistic/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
+      // 'stylistic/arrow-spacing': ['error', { before: true, after: true }],
+      // 'stylistic/type-annotation-spacing': [
+      //   'error',
+      //   {
+      //     before: false,
+      //     after: true,
+      //     overrides: { arrow: { before: true, after: true } },
+      //   },
+      // ],
 
       'simple-import-sort/imports': [
         'error',

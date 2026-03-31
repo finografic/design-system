@@ -5,5 +5,5 @@
     "oxc.oxc-vscode",
     "yzhang.markdown-all-in-one"
   ],
-  "unwantedRecommendations": ["dprint.dprint"]
+  "unwantedRecommendations": []
 }
