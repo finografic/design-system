@@ -56,7 +56,7 @@ declare const Select$1: {
    *  escapes `overflow: hidden` ancestors. Override via `positioning` prop if needed. */
   Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Omit<Omit<Omit<Select.RootProps<unknown>, never> & react.RefAttributes<HTMLDivElement>, "ref"> & {
     ref?: ((instance: HTMLDivElement | null) => void | react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | react.RefObject<HTMLDivElement> | null | undefined;
-  }, "ref"> & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "label" | "root" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "list" | "control" | "clearTrigger" | "valueText", {
+  }, "ref"> & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "label" | "list" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -150,7 +150,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "label" | "root" | "positioner" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "list" | "control" | "clearTrigger" | "valueText", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "label" | "list" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {

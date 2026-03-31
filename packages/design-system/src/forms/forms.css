@@ -250,6 +250,30 @@
   z-index: var(--z-index-dropdown, 1150) !important;
 }
 
+/* Menu positioner — same !important override for Ark inline style. */
+.menu__positioner,
+[data-scope="menu"][data-part="positioner"] {
+  z-index: var(--z-index-dropdown, 1150) !important;
+}
+
+/* DatePicker positioner */
+.date-picker__positioner,
+[data-scope="date-picker"][data-part="positioner"] {
+  z-index: var(--z-index-dropdown, 1150) !important;
+}
+
+/* Popover positioner (sits above dropdowns) */
+.popover__positioner,
+[data-scope="popover"][data-part="positioner"] {
+  z-index: var(--z-index-popover, 1500) !important;
+}
+
+/* Tooltip positioner (top of stack) */
+.tooltip__positioner,
+[data-scope="tooltip"][data-part="positioner"] {
+  z-index: var(--z-index-tooltip, 1800) !important;
+}
+
 .ds-select__content {
   background: var(--ds-dropdown-bg);
   border: var(--ds-input-border);

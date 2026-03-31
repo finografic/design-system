@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/select-searchable/select-searchable.recipe.d.ts
-declare const selectSearchableRecipe: SlotRecipeRuntimeFn<"content" | "input" | "root" | "emptyState" | "positioner" | "item" | "itemText" | "itemIndicator" | "trigger" | "list" | "control" | "clearTrigger" | "leadIcon" | "addNew", {
+declare const selectSearchableRecipe: SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "emptyState" | "positioner" | "itemText" | "trigger" | "list" | "control" | "input" | "clearTrigger" | "leadIcon" | "addNew", {
   size: {
     sm: {
       control: {

@@ -41,7 +41,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Listbox$1: {
-  /** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<Listbox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "label" | "root" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
+  /** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<Listbox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "itemText" | "itemGroup" | "itemGroupLabel" | "label", {
     size: {
       sm: {
         item: {
@@ -99,7 +99,7 @@ declare const Listbox$1: {
       };
     };
   }>>; /** Root with external machine state from `useListbox`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Listbox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "label" | "root" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Listbox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "itemText" | "itemGroup" | "itemGroupLabel" | "label", {
     size: {
       sm: {
         item: {
