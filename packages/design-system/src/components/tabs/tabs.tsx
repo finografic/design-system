@@ -151,7 +151,7 @@ export const TabsDS = forwardRef<HTMLDivElement, TabsDSProps>(
       onChange,
       onFocusChange,
       orientation,
-      variant = 'line',
+      variant = 'enclosed',
       size = 'md',
       className,
       classNames = {},

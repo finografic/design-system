@@ -8,8 +8,11 @@
  * Slots:    root · list · trigger · content · indicator
  * Variants: variant (line | enclosed) · size (sm | md | lg)
  *
- * - **line** — Underline selection; indicator is a 2px accent bar (width/position from Zag vars).
- * - **enclosed** — Pill list + sliding indicator (`z-index: -1`, `accent.subtle`), like the Ark docs demo.
+ * - **line** — Underline selection: indicator uses Zag’s `--top` / `--height` / `--left` / `--width`
+ *   so the bar sits on the **bottom edge of the active trigger** (Zag measures trigger `offset*`).
+ *   Grey rule: `border-bottom` matches indicator thickness. List omits bottom padding (`pb: 0`) so
+ *   size presets must not use `p` shorthand on `list` or it overrides `pb`.
+ * - **enclosed** — Pill list + sliding indicator behind labels (`z-index: -1`, `accent.subtle`).
  */
 import { sva } from '@styled-system/css';
 
@@ -122,8 +125,6 @@ export const tabsRecipe = sva({
 
     indicator: {
       position: 'absolute',
-      zIndex: -1,
-      borderRadius: 'sm',
       transitionProperty: 'width, height, left, top',
       transitionDuration: 'normal',
       transitionTimingFunction: 'ease-out',
@@ -134,28 +135,44 @@ export const tabsRecipe = sva({
     variant: {
       line: {
         list: {
-          borderBottomWidth: 'light',
+          gap: '0',
+          pb: '0',
+          borderBottomWidth: '3.4px',
           borderBottomStyle: 'solid',
           borderBottomColor: 'border',
-          gap: '0',
+          '&[data-orientation="horizontal"]': {
+            // Avoid vertically centering triggers when list is taller than the tab row (padding).
+            alignItems: 'flex-start',
+          },
         },
         trigger: {
-          borderRadius: 'sm',
-          marginBottom: '-1px',
-          borderBottomWidth: '2px',
-          borderBottomStyle: 'solid',
-          borderBottomColor: 'transparent',
+          position: 'relative',
+          zIndex: 1,
+          borderRadius: '0',
           _selected: {
-            borderBottomColor: 'accent.solid',
             color: 'accent.solid',
           },
         },
         indicator: {
-          bottom: '0',
-          left: 'var(--left, 0)',
-          width: 'var(--width)',
-          height: '2px',
+          zIndex: 0,
           bg: 'accent.solid',
+          borderRadius: '0',
+          '&[data-orientation="horizontal"]': {
+            // Zag sets `left: var(--left)` inline; `top` must track the measured trigger rect so the
+            // bar stays on the trigger’s bottom edge (not the list’s — avoids vertical drift).
+            left: 'var(--left, 0)',
+            width: 'var(--width)',
+            height: '3.4px',
+            top: 'calc(var(--top) + var(--height) - 3.4px)',
+            bottom: 'auto',
+          },
+          '&[data-orientation="vertical"]': {
+            top: 'var(--top, 0)',
+            left: '0',
+            width: '3.4px',
+            height: 'var(--height)',
+            bottom: 'auto',
+          },
         },
       },
 
@@ -176,6 +193,8 @@ export const tabsRecipe = sva({
           },
         },
         indicator: {
+          zIndex: -1,
+          borderRadius: 'sm',
           bg: 'accent.subtle',
           '&[data-orientation="horizontal"]': {
             height: 'var(--height, 2rem)',
@@ -204,24 +223,32 @@ export const tabsRecipe = sva({
           py: '3',
         },
         list: {
-          p: '0.5',
+          pt: '0.5',
+          pb: '0.5',
+          px: '0.5',
         },
       },
       md: {
         trigger: {
-          px: '3',
-          py: '1.5',
-          fontSize: 'sm',
+          // Was ~`sm`-sized; `md` is the default — extra padding vs previous md: +0.25rem block,
+          // +0.5rem inline; larger type for a true medium tab row.
+          px: '5',
+          pt: '0.625rem',
+          pb: '0.625rem',
+          fontSize: 'md',
           gap: '2',
           '&[data-orientation="horizontal"]': {
-            height: '8',
+            minHeight: '10',
+            height: 'auto',
           },
         },
         content: {
           py: '4',
         },
         list: {
-          p: '1',
+          pt: '1',
+          pb: '1',
+          px: '1',
         },
       },
       lg: {
@@ -238,14 +265,29 @@ export const tabsRecipe = sva({
           py: '5',
         },
         list: {
-          p: '1',
+          pt: '1',
+          pb: '1',
+          px: '1',
         },
       },
     },
   },
 
+  compoundVariants: [
+    // Size presets set `list.pb`; `p` shorthand used to wipe `pb: 0` on line. Splitting `pt`/`pb`/`px`
+    // on size helps, but compoundVariants still guarantees line tabs keep a flush bottom rule.
+    {
+      variant: 'line',
+      css: {
+        list: {
+          pb: '0',
+        },
+      },
+    },
+  ],
+
   defaultVariants: {
-    variant: 'line',
+    variant: 'enclosed',
     size: 'md',
   },
 });

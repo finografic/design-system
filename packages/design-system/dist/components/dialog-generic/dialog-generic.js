@@ -128,7 +128,7 @@ const DialogGeneric = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 					children: hasTabs ? /* @__PURE__ */ jsxs(Tabs.Root, {
 						value: activeTab,
 						onValueChange: ({ value }) => handleTabChange(value),
-						children: [/* @__PURE__ */ jsx(Tabs.List, { children: config.tabs.map((tab) => /* @__PURE__ */ jsxs(Tabs.Trigger, {
+						children: [/* @__PURE__ */ jsxs(Tabs.List, { children: [config.tabs.map((tab) => /* @__PURE__ */ jsxs(Tabs.Trigger, {
 							value: tab.id,
 							disabled: tab.disabled,
 							children: [
@@ -136,7 +136,7 @@ const DialogGeneric = ({ isOpen, onClose, config, className, defaultTab, onTabCh
 								" ",
 								tab.label
 							]
-						}, tab.id)) }), /* @__PURE__ */ jsx("div", {
+						}, tab.id)), /* @__PURE__ */ jsx(Tabs.Indicator, {})] }), /* @__PURE__ */ jsx("div", {
 							className: scrollableStyle,
 							children: config.tabs.map((tab) => /* @__PURE__ */ jsx(Tabs.Content, {
 								value: tab.id,

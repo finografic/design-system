@@ -88,7 +88,7 @@ const Tabs$1 = {
 * />
 * ```
 */
-const TabsDS = forwardRef(({ tabs, value, defaultValue, onChange, onFocusChange, orientation, variant = "line", size = "md", className, classNames = {} }, ref) => {
+const TabsDS = forwardRef(({ tabs, value, defaultValue, onChange, onFocusChange, orientation, variant = "enclosed", size = "md", className, classNames = {} }, ref) => {
 	const styles = tabsRecipe({
 		variant,
 		size

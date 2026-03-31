@@ -10,8 +10,11 @@ import { sva } from "@styled-system/css";
 * Slots:    root · list · trigger · content · indicator
 * Variants: variant (line | enclosed) · size (sm | md | lg)
 *
-* - **line** — Underline selection; indicator is a 2px accent bar (width/position from Zag vars).
-* - **enclosed** — Pill list + sliding indicator (`z-index: -1`, `accent.subtle`), like the Ark docs demo.
+* - **line** — Underline selection: indicator uses Zag’s `--top` / `--height` / `--left` / `--width`
+*   so the bar sits on the **bottom edge of the active trigger** (Zag measures trigger `offset*`).
+*   Grey rule: `border-bottom` matches indicator thickness. List omits bottom padding (`pb: 0`) so
+*   size presets must not use `p` shorthand on `list` or it overrides `pb`.
+* - **enclosed** — Pill list + sliding indicator behind labels (`z-index: -1`, `accent.subtle`).
 */
 const focusRing = {
 	outline: "2px solid",
@@ -105,8 +108,6 @@ const tabsRecipe = sva({
 		},
 		indicator: {
 			position: "absolute",
-			zIndex: -1,
-			borderRadius: "sm",
 			transitionProperty: "width, height, left, top",
 			transitionDuration: "normal",
 			transitionTimingFunction: "ease-out"
@@ -116,28 +117,37 @@ const tabsRecipe = sva({
 		variant: {
 			line: {
 				list: {
-					borderBottomWidth: "light",
+					gap: "0",
+					pb: "0",
+					borderBottomWidth: "3.4px",
 					borderBottomStyle: "solid",
 					borderBottomColor: "border",
-					gap: "0"
+					"&[data-orientation=\"horizontal\"]": { alignItems: "flex-start" }
 				},
 				trigger: {
-					borderRadius: "sm",
-					marginBottom: "-1px",
-					borderBottomWidth: "2px",
-					borderBottomStyle: "solid",
-					borderBottomColor: "transparent",
-					_selected: {
-						borderBottomColor: "accent.solid",
-						color: "accent.solid"
-					}
+					position: "relative",
+					zIndex: 1,
+					borderRadius: "0",
+					_selected: { color: "accent.solid" }
 				},
 				indicator: {
-					bottom: "0",
-					left: "var(--left, 0)",
-					width: "var(--width)",
-					height: "2px",
-					bg: "accent.solid"
+					zIndex: 0,
+					bg: "accent.solid",
+					borderRadius: "0",
+					"&[data-orientation=\"horizontal\"]": {
+						left: "var(--left, 0)",
+						width: "var(--width)",
+						height: "3.4px",
+						top: "calc(var(--top) + var(--height) - 3.4px)",
+						bottom: "auto"
+					},
+					"&[data-orientation=\"vertical\"]": {
+						top: "var(--top, 0)",
+						left: "0",
+						width: "3.4px",
+						height: "var(--height)",
+						bottom: "auto"
+					}
 				}
 			},
 			enclosed: {
@@ -155,6 +165,8 @@ const tabsRecipe = sva({
 					boxShadow: "none"
 				} },
 				indicator: {
+					zIndex: -1,
+					borderRadius: "sm",
 					bg: "accent.subtle",
 					"&[data-orientation=\"horizontal\"]": {
 						height: "var(--height, 2rem)",
@@ -177,18 +189,30 @@ const tabsRecipe = sva({
 					"&[data-orientation=\"horizontal\"]": { height: "7" }
 				},
 				content: { py: "3" },
-				list: { p: "0.5" }
+				list: {
+					pt: "0.5",
+					pb: "0.5",
+					px: "0.5"
+				}
 			},
 			md: {
 				trigger: {
-					px: "3",
-					py: "1.5",
-					fontSize: "sm",
+					px: "5",
+					pt: "0.625rem",
+					pb: "0.625rem",
+					fontSize: "md",
 					gap: "2",
-					"&[data-orientation=\"horizontal\"]": { height: "8" }
+					"&[data-orientation=\"horizontal\"]": {
+						minHeight: "10",
+						height: "auto"
+					}
 				},
 				content: { py: "4" },
-				list: { p: "1" }
+				list: {
+					pt: "1",
+					pb: "1",
+					px: "1"
+				}
 			},
 			lg: {
 				trigger: {
@@ -199,12 +223,20 @@ const tabsRecipe = sva({
 					"&[data-orientation=\"horizontal\"]": { height: "9" }
 				},
 				content: { py: "5" },
-				list: { p: "1" }
+				list: {
+					pt: "1",
+					pb: "1",
+					px: "1"
+				}
 			}
 		}
 	},
-	defaultVariants: {
+	compoundVariants: [{
 		variant: "line",
+		css: { list: { pb: "0" } }
+	}],
+	defaultVariants: {
+		variant: "enclosed",
 		size: "md"
 	}
 });

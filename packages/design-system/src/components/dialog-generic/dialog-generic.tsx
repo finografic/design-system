@@ -170,6 +170,7 @@ export const DialogGeneric: FC<DialogGenericProps> = ({
                       {tab.icon ?? null} {tab.label}
                     </Tabs.Trigger>
                   ))}
+                  <Tabs.Indicator />
                 </Tabs.List>
                 <div className={scrollableStyle}>
                   {config.tabs.map((tab) => (

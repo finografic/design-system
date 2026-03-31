@@ -2,32 +2,45 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "trigger" | "list", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
   variant: {
     line: {
       list: {
-        borderBottomWidth: "light";
+        gap: "0";
+        pb: "0";
+        borderBottomWidth: "3.4px";
         borderBottomStyle: "solid";
         borderBottomColor: "border";
-        gap: "0";
+        '&[data-orientation="horizontal"]': {
+          alignItems: "flex-start";
+        };
       };
       trigger: {
-        borderRadius: "sm";
-        marginBottom: "-1px";
-        borderBottomWidth: "2px";
-        borderBottomStyle: "solid";
-        borderBottomColor: "transparent";
+        position: "relative";
+        zIndex: number;
+        borderRadius: "0";
         _selected: {
-          borderBottomColor: "accent.solid";
           color: "accent.solid";
         };
       };
       indicator: {
-        bottom: "0";
-        left: "var(--left, 0)";
-        width: "var(--width)";
-        height: "2px";
+        zIndex: number;
         bg: "accent.solid";
+        borderRadius: "0";
+        '&[data-orientation="horizontal"]': {
+          left: "var(--left, 0)";
+          width: "var(--width)";
+          height: "3.4px";
+          top: "calc(var(--top) + var(--height) - 3.4px)";
+          bottom: "auto";
+        };
+        '&[data-orientation="vertical"]': {
+          top: "var(--top, 0)";
+          left: "0";
+          width: "3.4px";
+          height: "var(--height)";
+          bottom: "auto";
+        };
       };
     };
     enclosed: {
@@ -47,6 +60,8 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" |
         };
       };
       indicator: {
+        zIndex: number;
+        borderRadius: "sm";
         bg: "accent.subtle";
         '&[data-orientation="horizontal"]': {
           height: "var(--height, 2rem)";
@@ -74,24 +89,30 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" |
         py: "3";
       };
       list: {
-        p: "0.5";
+        pt: "0.5";
+        pb: "0.5";
+        px: "0.5";
       };
     };
     md: {
       trigger: {
-        px: "3";
-        py: "1.5";
-        fontSize: "sm";
+        px: "5";
+        pt: "0.625rem";
+        pb: "0.625rem";
+        fontSize: "md";
         gap: "2";
         '&[data-orientation="horizontal"]': {
-          height: "8";
+          minHeight: "10";
+          height: "auto";
         };
       };
       content: {
         py: "4";
       };
       list: {
-        p: "1";
+        pt: "1";
+        pb: "1";
+        px: "1";
       };
     };
     lg: {
@@ -108,7 +129,9 @@ declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "root" | "indicator" |
         py: "5";
       };
       list: {
-        p: "1";
+        pt: "1";
+        pb: "1";
+        px: "1";
       };
     };
   };

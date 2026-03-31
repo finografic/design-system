@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/components/menu/menu.recipe.d.ts
-declare const menuRecipe: SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "positioner" | "separator" | "itemText" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator", SlotRecipeVariantRecord<"content" | "root" | "item" | "itemIndicator" | "positioner" | "separator" | "itemText" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip" | "indicator">>;
+declare const menuRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "indicator" | "separator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "indicator" | "separator" | "itemGroup" | "itemGroupLabel" | "arrow" | "arrowTip">>;
 //#endregion
 export { menuRecipe };
 //# sourceMappingURL=menu.recipe.d.ts.map
