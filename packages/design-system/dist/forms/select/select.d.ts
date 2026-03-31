@@ -51,7 +51,12 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Select$1: {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */Root: _styled_system_jsx0.StyleContextProvider<Select.RootComponent<{}>, SlotRecipeRuntimeFn<"label" | "content" | "root" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "list" | "control" | "clearTrigger" | "valueText", {
+  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants.
+   *  Defaults to `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown
+   *  escapes `overflow: hidden` ancestors. Override via `positioning` prop if needed. */
+  Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Omit<Omit<Omit<Select.RootProps<unknown>, never> & react.RefAttributes<HTMLDivElement>, "ref"> & {
+    ref?: ((instance: HTMLDivElement | null) => void | react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | react.RefObject<HTMLDivElement> | null | undefined;
+  }, "ref"> & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemText" | "indicator" | "list" | "trigger" | "positioner" | "itemGroup" | "itemGroupLabel" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -145,7 +150,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"label" | "content" | "root" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "list" | "control" | "clearTrigger" | "valueText", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemText" | "indicator" | "list" | "trigger" | "positioner" | "itemGroup" | "itemGroupLabel" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -243,8 +248,10 @@ declare const Select$1: {
   Control: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.ControlProps & react.RefAttributes<HTMLDivElement>>>; /** The button that opens the dropdown — shows selected value and chevron. */
   Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.TriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Displays selected item label(s); truncates on overflow. */
   ValueText: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.ValueTextProps & react.RefAttributes<HTMLSpanElement>>>; /** Chevron icon wrapper; rotates 180° when open. */
-  Indicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.IndicatorProps & react.RefAttributes<HTMLDivElement>>>; /** Floating positioner — sets z-index and anchors to the trigger width. */
-  Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.PositionerProps & react.RefAttributes<HTMLDivElement>>>; /** Dropdown panel — scrollable list container with scale animation. */
+  Indicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.IndicatorProps & react.RefAttributes<HTMLDivElement>>>; /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
+  Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Omit<Omit<Select.PositionerProps & react.RefAttributes<HTMLDivElement>, "ref"> & {
+    ref?: ((instance: HTMLDivElement | null) => void | react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | react.RefObject<HTMLDivElement> | null | undefined;
+  }, "ref"> & react.RefAttributes<HTMLDivElement>>>; /** Dropdown panel — scrollable list container with scale animation. */
   Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.ContentProps & react.RefAttributes<HTMLDivElement>>>; /** Flex column wrapping all items and groups. */
   List: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.ListProps & react.RefAttributes<HTMLDivElement>>>; /** A single selectable row; check icon appears via `ItemIndicator` when selected. */
   Item: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Select.ItemProps & react.RefAttributes<HTMLDivElement>>>; /** Primary label inside an item — truncates on overflow. */

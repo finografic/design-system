@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/date-picker/date-picker.recipe.d.ts
-declare const datePickerRecipe: SlotRecipeRuntimeFn<"input" | "label" | "table" | "view" | "content" | "root" | "positioner" | "trigger" | "control" | "clearTrigger" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
+declare const datePickerRecipe: SlotRecipeRuntimeFn<"content" | "table" | "root" | "label" | "trigger" | "positioner" | "control" | "input" | "clearTrigger" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
   size: {
     sm: {
       control: {

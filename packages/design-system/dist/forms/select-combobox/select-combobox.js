@@ -1,7 +1,7 @@
 import { selectComboboxRecipe } from "./select-combobox.recipe.js";
 import { forwardRef } from "react";
 import { jsx } from "react/jsx-runtime";
-import { Combobox } from "@ark-ui/react";
+import { Combobox, Portal } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/select-combobox/select-combobox.tsx
 const { withProvider, withContext } = createStyleContext(selectComboboxRecipe);
@@ -11,6 +11,11 @@ const Div = forwardRef((props, ref) => /* @__PURE__ */ jsx("div", {
 	ref
 }));
 Div.displayName = "SelectComboboxIndicatorsDiv";
+const ArkComboboxPositionerPortal = forwardRef((props, ref) => /* @__PURE__ */ jsx(Portal, { children: /* @__PURE__ */ jsx(Combobox.Positioner, {
+	ref,
+	...props
+}) }));
+ArkComboboxPositionerPortal.displayName = "SelectCombobox.Positioner";
 /**
 * Styled Ark **Combobox** compound — low-level primitive for building searchable selects.
 * Each part is wired to `selectComboboxRecipe` via context.
@@ -67,7 +72,7 @@ const SelectCombobox = {
 	Indicators: withContext(Div, "indicators"),
 	Trigger: withContext(Combobox.Trigger, "trigger"),
 	ClearTrigger: withContext(Combobox.ClearTrigger, "clearTrigger"),
-	Positioner: withContext(Combobox.Positioner, "positioner"),
+	Positioner: withContext(ArkComboboxPositionerPortal, "positioner"),
 	Content: withContext(Combobox.Content, "content"),
 	ItemGroup: withContext(Combobox.ItemGroup, "itemGroup"),
 	ItemGroupLabel: withContext(Combobox.ItemGroupLabel, "itemGroupLabel"),

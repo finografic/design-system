@@ -53,7 +53,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const SelectCombobox: {
-  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"input" | "label" | "content" | "root" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "trigger" | "control" | "clearTrigger" | "indicators", {
+  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemText" | "trigger" | "positioner" | "itemGroup" | "itemGroupLabel" | "control" | "input" | "clearTrigger" | "indicators", {
     size: {
       sm: {
         control: {
@@ -144,7 +144,7 @@ declare const SelectCombobox: {
       };
     };
   }>>; /** Root with external machine state from `useCombobox`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"input" | "label" | "content" | "root" | "item" | "itemIndicator" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "trigger" | "control" | "clearTrigger" | "indicators", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemText" | "trigger" | "positioner" | "itemGroup" | "itemGroupLabel" | "control" | "input" | "clearTrigger" | "indicators", {
     size: {
       sm: {
         control: {
@@ -240,8 +240,12 @@ declare const SelectCombobox: {
   Input: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.InputProps & react.RefAttributes<HTMLInputElement>>>; /** Plain div wrapper for grouping `ClearTrigger` and `Trigger`. */
   Indicators: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & react.RefAttributes<HTMLDivElement>>>; /** Dropdown chevron button. */
   Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.TriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Clear (×) button — visible when a value is selected. */
-  ClearTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.ClearTriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Floating positioner that anchors the content below the control. */
-  Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.PositionerProps & react.RefAttributes<HTMLDivElement>>>; /** Dropdown list panel. */
+  ClearTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.ClearTriggerProps & react.RefAttributes<HTMLButtonElement>>>;
+  /** Floating positioner that anchors the content below the control. */
+  /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
+  Positioner: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Omit<Omit<Combobox.PositionerProps & react.RefAttributes<HTMLDivElement>, "ref"> & {
+    ref?: ((instance: HTMLDivElement | null) => void | react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | react.RefObject<HTMLDivElement> | null | undefined;
+  }, "ref"> & react.RefAttributes<HTMLDivElement>>>; /** Dropdown list panel. */
   Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.ContentProps & react.RefAttributes<HTMLDivElement>>>; /** Groups related items with optional label. */
   ItemGroup: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.ItemGroupProps & react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
   ItemGroupLabel: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Combobox.ItemGroupLabelProps & react.RefAttributes<HTMLDivElement>>>; /** A single option row — pass `item` from the collection. */

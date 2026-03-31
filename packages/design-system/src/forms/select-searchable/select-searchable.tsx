@@ -26,7 +26,7 @@
  */
 import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from '@finografic/icons';
 
-import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
+import { Combobox as ArkCombobox, createListCollection, Portal } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { matchSorter } from 'match-sorter';
 import { useMemo, useState } from 'react';
@@ -156,40 +156,42 @@ export function SelectSearchable({
         </ArkCombobox.Trigger>
       </ArkCombobox.Control>
 
-      <ArkCombobox.Positioner className={styles.positioner}>
-        <ArkCombobox.Content className={styles.content}>
-          <ArkCombobox.List className={styles.list}>
-            {filtered.length === 0 && !showAddNew && (
-              <div className={styles.emptyState}>No options found</div>
-            )}
+      <Portal>
+        <ArkCombobox.Positioner className={styles.positioner}>
+          <ArkCombobox.Content className={styles.content}>
+            <ArkCombobox.List className={styles.list}>
+              {filtered.length === 0 && !showAddNew && (
+                <div className={styles.emptyState}>No options found</div>
+              )}
 
-            {filtered.map((item) => (
-              <ArkCombobox.Item key={item.value} item={item} className={styles.item}>
-                <ArkCombobox.ItemText className={styles.itemText}>
-                  {item.label && item.label !== item.value ? (
-                    <>
-                      <span>{item.label}</span>
-                      <span className={itemSubLabelStyle}>{item.value}</span>
-                    </>
-                  ) : (
-                    item.value
-                  )}
-                </ArkCombobox.ItemText>
-                <ArkCombobox.ItemIndicator className={styles.itemIndicator}>
-                  <CheckIcon className="icon icon-sm" aria-hidden />
-                </ArkCombobox.ItemIndicator>
-              </ArkCombobox.Item>
-            ))}
+              {filtered.map((item) => (
+                <ArkCombobox.Item key={item.value} item={item} className={styles.item}>
+                  <ArkCombobox.ItemText className={styles.itemText}>
+                    {item.label && item.label !== item.value ? (
+                      <>
+                        <span>{item.label}</span>
+                        <span className={itemSubLabelStyle}>{item.value}</span>
+                      </>
+                    ) : (
+                      item.value
+                    )}
+                  </ArkCombobox.ItemText>
+                  <ArkCombobox.ItemIndicator className={styles.itemIndicator}>
+                    <CheckIcon className="icon icon-sm" aria-hidden />
+                  </ArkCombobox.ItemIndicator>
+                </ArkCombobox.Item>
+              ))}
 
-            {showAddNew && (
-              <button type="button" className={styles.addNew} onClick={handleAddNew}>
-                <PlusIcon className="icon icon-sm" aria-hidden />
-                Add &ldquo;{inputValue.trim()}&rdquo;
-              </button>
-            )}
-          </ArkCombobox.List>
-        </ArkCombobox.Content>
-      </ArkCombobox.Positioner>
+              {showAddNew && (
+                <button type="button" className={styles.addNew} onClick={handleAddNew}>
+                  <PlusIcon className="icon icon-sm" aria-hidden />
+                  Add &ldquo;{inputValue.trim()}&rdquo;
+                </button>
+              )}
+            </ArkCombobox.List>
+          </ArkCombobox.Content>
+        </ArkCombobox.Positioner>
+      </Portal>
     </ArkCombobox.Root>
   );
 }

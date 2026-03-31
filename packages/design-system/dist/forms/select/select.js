@@ -1,7 +1,24 @@
 import { selectRecipe } from "./select.recipe.js";
-import { Select, useListCollection } from "@ark-ui/react";
+import { forwardRef } from "react";
+import { jsx } from "react/jsx-runtime";
+import { Portal, Select, useListCollection } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
 //#region src/forms/select/select.tsx
+const SelectRootFixed = forwardRef(({ positioning, ...props }, ref) => /* @__PURE__ */ jsx(Select.Root, {
+	ref,
+	positioning: {
+		strategy: "fixed",
+		sameWidth: true,
+		...positioning
+	},
+	...props
+}));
+SelectRootFixed.displayName = "Select.Root";
+const ArkSelectPositionerPortal = forwardRef((props, ref) => /* @__PURE__ */ jsx(Portal, { children: /* @__PURE__ */ jsx(Select.Positioner, {
+	ref,
+	...props
+}) }));
+ArkSelectPositionerPortal.displayName = "Select.Positioner";
 const { withProvider, withContext } = createStyleContext(selectRecipe);
 /**
 * Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
@@ -50,14 +67,14 @@ const { withProvider, withContext } = createStyleContext(selectRecipe);
 * ```
 */
 const Select$1 = {
-	Root: withProvider(Select.Root, "root"),
+	Root: withProvider(SelectRootFixed, "root"),
 	RootProvider: withProvider(Select.RootProvider, "root"),
 	Label: withContext(Select.Label, "label"),
 	Control: withContext(Select.Control, "control"),
 	Trigger: withContext(Select.Trigger, "trigger"),
 	ValueText: withContext(Select.ValueText, "valueText"),
 	Indicator: withContext(Select.Indicator, "indicator"),
-	Positioner: withContext(Select.Positioner, "positioner"),
+	Positioner: withContext(ArkSelectPositionerPortal, "positioner"),
 	Content: withContext(Select.Content, "content"),
 	List: withContext(Select.List, "list"),
 	Item: withContext(Select.Item, "item"),

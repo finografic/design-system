@@ -3,7 +3,7 @@ import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from
 import { useMemo, useState } from "react";
 import { css, cx } from "@styled-system/css";
 import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
-import { Combobox, createListCollection } from "@ark-ui/react";
+import { Combobox, Portal, createListCollection } from "@ark-ui/react";
 import { matchSorter } from "match-sorter";
 //#region src/forms/select-searchable/select-searchable.tsx
 /**
@@ -140,7 +140,7 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onO
 					})
 				})
 			]
-		}), /* @__PURE__ */ jsx(Combobox.Positioner, {
+		}), /* @__PURE__ */ jsx(Portal, { children: /* @__PURE__ */ jsx(Combobox.Positioner, {
 			className: styles.positioner,
 			children: /* @__PURE__ */ jsx(Combobox.Content, {
 				className: styles.content,
@@ -185,7 +185,7 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onO
 					]
 				})
 			})
-		})]
+		}) })]
 	});
 }
 SelectSearchable.displayName = "SelectSearchable";

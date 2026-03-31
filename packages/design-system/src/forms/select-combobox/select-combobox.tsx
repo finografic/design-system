@@ -1,6 +1,7 @@
-import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
+import { Combobox as ArkCombobox, createListCollection, Portal } from '@ark-ui/react';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { ComponentPropsWithRef, ComponentRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 import { selectComboboxRecipe } from './select-combobox.recipe';
 
@@ -13,6 +14,17 @@ const Div = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, r
   <div {...props} ref={ref} />
 ));
 Div.displayName = 'SelectComboboxIndicatorsDiv';
+
+// Portal-wrapped positioner — renders into document.body to escape ancestor stacking contexts.
+const ArkComboboxPositionerPortal = forwardRef<
+  ComponentRef<typeof ArkCombobox.Positioner>,
+  ComponentPropsWithRef<typeof ArkCombobox.Positioner>
+>((props, ref) => (
+  <Portal>
+    <ArkCombobox.Positioner ref={ref} {...props} />
+  </Portal>
+));
+ArkComboboxPositionerPortal.displayName = 'SelectCombobox.Positioner';
 
 /**
  * Styled Ark **Combobox** compound — low-level primitive for building searchable selects.
@@ -79,7 +91,8 @@ export const SelectCombobox = {
   /** Clear (×) button — visible when a value is selected. */
   ClearTrigger: withContext(ArkCombobox.ClearTrigger, 'clearTrigger'),
   /** Floating positioner that anchors the content below the control. */
-  Positioner: withContext(ArkCombobox.Positioner, 'positioner'),
+  /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
+  Positioner: withContext(ArkComboboxPositionerPortal, 'positioner'),
   /** Dropdown list panel. */
   Content: withContext(ArkCombobox.Content, 'content'),
   /** Groups related items with optional label. */

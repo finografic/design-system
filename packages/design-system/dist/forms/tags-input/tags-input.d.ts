@@ -51,7 +51,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const TagsInput$1: {
-  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"input" | "label" | "description" | "root" | "item" | "itemText" | "control" | "errorText" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "label" | "itemText" | "errorText" | "control" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
     size: {
       sm: {
         label: {
@@ -187,7 +187,7 @@ declare const TagsInput$1: {
       };
     };
   }>>; /** Root with external machine state from `useTagsInput`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"input" | "label" | "description" | "root" | "item" | "itemText" | "control" | "errorText" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<TagsInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "label" | "itemText" | "errorText" | "control" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
     size: {
       sm: {
         label: {

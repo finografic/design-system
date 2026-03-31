@@ -34,7 +34,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const SegmentGroup$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<SegmentGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"label" | "root" | "item" | "itemText" | "indicator" | "itemControl", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<SegmentGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "label" | "itemText" | "itemControl" | "indicator", {
     size: {
       sm: {
         item: {
@@ -62,7 +62,7 @@ declare const SegmentGroup$1: {
       };
     };
   }>>; /** Root with external machine state from `useSegmentGroup`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<SegmentGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"label" | "root" | "item" | "itemText" | "indicator" | "itemControl", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<SegmentGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "label" | "itemText" | "itemControl" | "indicator", {
     size: {
       sm: {
         item: {

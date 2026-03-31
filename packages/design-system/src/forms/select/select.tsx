@@ -1,7 +1,32 @@
-import { Select as ArkSelect } from '@ark-ui/react';
+import { Portal, Select as ArkSelect } from '@ark-ui/react';
 import { createStyleContext } from '@styled-system/jsx';
+import type { ComponentPropsWithRef, ComponentRef } from 'react';
+import { forwardRef } from 'react';
 
 import { selectRecipe } from './select.recipe';
+
+// Thin wrapper that injects `strategy: 'fixed'` as a default so the positioner
+// escapes any `overflow: hidden` / stacking-context ancestors in the consuming app.
+// Callers can still override by passing their own `positioning` prop.
+const SelectRootFixed = forwardRef<
+  ComponentRef<typeof ArkSelect.Root>,
+  ComponentPropsWithRef<typeof ArkSelect.Root>
+>(({ positioning, ...props }, ref) => (
+  <ArkSelect.Root ref={ref} positioning={{ strategy: 'fixed', sameWidth: true, ...positioning }} {...props} />
+));
+SelectRootFixed.displayName = 'Select.Root';
+
+// Wrap positioner in Portal so it renders into document.body, escaping any
+// ancestor overflow/filter/stacking-context that would trap the dropdown.
+const ArkSelectPositionerPortal = forwardRef<
+  ComponentRef<typeof ArkSelect.Positioner>,
+  ComponentPropsWithRef<typeof ArkSelect.Positioner>
+>((props, ref) => (
+  <Portal>
+    <ArkSelect.Positioner ref={ref} {...props} />
+  </Portal>
+));
+ArkSelectPositionerPortal.displayName = 'Select.Positioner';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────
 
@@ -54,8 +79,10 @@ const { withProvider, withContext } = createStyleContext(selectRecipe);
  * ```
  */
 export const Select = {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants. */
-  Root: withProvider(ArkSelect.Root, 'root'),
+  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants.
+   *  Defaults to `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown
+   *  escapes `overflow: hidden` ancestors. Override via `positioning` prop if needed. */
+  Root: withProvider(SelectRootFixed, 'root'),
   /** Root with external machine state from `useSelect`. */
   RootProvider: withProvider(ArkSelect.RootProvider, 'root'),
   /** Text label above the trigger. */
@@ -68,8 +95,8 @@ export const Select = {
   ValueText: withContext(ArkSelect.ValueText, 'valueText'),
   /** Chevron icon wrapper; rotates 180° when open. */
   Indicator: withContext(ArkSelect.Indicator, 'indicator'),
-  /** Floating positioner — sets z-index and anchors to the trigger width. */
-  Positioner: withContext(ArkSelect.Positioner, 'positioner'),
+  /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
+  Positioner: withContext(ArkSelectPositionerPortal, 'positioner'),
   /** Dropdown panel — scrollable list container with scale animation. */
   Content: withContext(ArkSelect.Content, 'content'),
   /** Flex column wrapping all items and groups. */
