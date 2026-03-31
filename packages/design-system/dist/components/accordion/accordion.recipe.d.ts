@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/accordion/accordion.recipe.d.ts
-declare const accordionRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {
+declare const accordionRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "itemTrigger" | "itemContent" | "itemBody", {
   size: {
     sm: {
       itemTrigger: {

@@ -239,12 +239,15 @@
 /* Dropdown positioner — z-index guarantee (unlayered CSS beats @layer utilities).
    Targets Panda recipe slot class + Ark data-attributes as fallback.
    NOTE: ds-select__positioner was the old name before the recipe className changed
-         from 'ds-select' → 'select'. Kept for backwards compat. */
+         from 'ds-select' → 'select'. Kept for backwards compat.
+   !important is required: Ark UI sets `z-index: var(--z-index)` with `--z-index: auto`
+   directly in the positioner's inline style. Inline styles beat all stylesheet rules
+   unless !important is used. */
 .ds-select__positioner,
 .select__positioner,
 [data-scope="select"][data-part="positioner"],
 [data-scope="combobox"][data-part="positioner"] {
-  z-index: var(--z-index-dropdown, 1150);
+  z-index: var(--z-index-dropdown, 1150) !important;
 }
 
 .ds-select__content {
@@ -919,10 +922,11 @@
 }
 
 /* Positioner + content — same unlayered z-index guarantee as Select above.
-   ds-searchable-select__positioner = old name; select-searchable__positioner = Panda recipe slot class. */
+   ds-searchable-select__positioner = old name; select-searchable__positioner = Panda recipe slot class.
+   !important needed for same reason as above — Ark inline style sets --z-index: auto. */
 .ds-searchable-select__positioner,
 .select-searchable__positioner {
-  z-index: var(--z-index-dropdown, 1150);
+  z-index: var(--z-index-dropdown, 1150) !important;
 }
 
 .ds-searchable-select__content {

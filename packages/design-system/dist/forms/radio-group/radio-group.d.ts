@@ -33,7 +33,7 @@ import { FieldError } from "react-hook-form";
  * ```
  */
 declare const RadioGroup$1: {
-  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "label" | "itemText" | "itemControl" | "indicator" | "errorText" | "itemDescription", {
+  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "label" | "root" | "item" | "itemText" | "indicator" | "itemControl" | "errorText" | "itemDescription", {
     size: {
       sm: {
         label: {
@@ -146,7 +146,7 @@ declare const RadioGroup$1: {
       };
     };
   }>>; /** Root with external machine state from `useRadioGroup`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "label" | "itemText" | "itemControl" | "indicator" | "errorText" | "itemDescription", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "label" | "root" | "item" | "itemText" | "indicator" | "itemControl" | "errorText" | "itemDescription", {
     size: {
       sm: {
         label: {
@@ -323,7 +323,7 @@ type RadioGroupDSProps = RadioGroupVariants & {
 declare const RadioGroupDS: react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
   variant?: "default" | "card" | undefined;
-  orientation?: "vertical" | "horizontal" | undefined;
+  orientation?: "horizontal" | "vertical" | undefined;
 } & {
   /** The selectable options. */options: RadioGroupDSOption[]; /** Controlled selected value. */
   value?: string; /** Default selected value (uncontrolled). */

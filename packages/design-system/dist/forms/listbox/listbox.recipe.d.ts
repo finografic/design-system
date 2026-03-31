@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/listbox/listbox.recipe.d.ts
-declare const listboxRecipe: SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemText" | "itemGroup" | "itemGroupLabel", {
+declare const listboxRecipe: SlotRecipeRuntimeFn<"content" | "label" | "root" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
   size: {
     sm: {
       item: {
