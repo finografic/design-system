@@ -94,7 +94,8 @@ const SelectDefault = forwardRef((props, ref) => {
 		className: cx(styles.root, className),
 		positioning: {
 			sameWidth: true,
-			placement: "bottom-start"
+			placement: "bottom-start",
+			strategy: "fixed"
 		},
 		children: [
 			/* @__PURE__ */ jsx(Select.Control, {

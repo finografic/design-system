@@ -110,7 +110,7 @@ export const SelectDefault = forwardRef<HTMLButtonElement, SelectDefaultProps>((
       onHighlightChange={({ highlightedValue }) => onHighlightChange?.(highlightedValue)}
       disabled={disabled}
       className={cx(styles.root, className)}
-      positioning={{ sameWidth: true, placement: 'bottom-start' }}
+      positioning={{ sameWidth: true, placement: 'bottom-start', strategy: 'fixed' }}
     >
       <ArkSelect.Control className={styles.control}>
         <ArkSelect.Trigger ref={ref} className={styles.trigger}>

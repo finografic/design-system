@@ -117,7 +117,8 @@ export function SelectSearchable({
       disabled={disabled}
       openOnClick
       className={cx(styles.root, className)}
-      positioning={{ sameWidth: true, placement: 'bottom-start' }}
+      // `fixed` avoids `overflow: hidden` / stacking on ancestors (default was `absolute`).
+      positioning={{ sameWidth: true, placement: 'bottom-start', strategy: 'fixed' }}
     >
       <ArkCombobox.Control className={styles.control}>
         <span

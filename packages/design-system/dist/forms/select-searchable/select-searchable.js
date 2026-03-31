@@ -99,7 +99,8 @@ function SelectSearchable({ options, value = "", onSelect, onChange, onBlur, onO
 		className: cx(styles.root, className),
 		positioning: {
 			sameWidth: true,
-			placement: "bottom-start"
+			placement: "bottom-start",
+			strategy: "fixed"
 		},
 		children: [/* @__PURE__ */ jsxs(Combobox.Control, {
 			className: styles.control,

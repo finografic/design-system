@@ -238,7 +238,8 @@
 
 /* Dropdown */
 .ds-select__positioner {
-  z-index: 100;
+  /* Match Panda `zIndex: 'dropdown'` — above sticky (1100), below banner */
+  z-index: var(--z-index-dropdown, 1150);
 }
 
 .ds-select__content {
@@ -914,7 +915,7 @@
 
 /* Positioner + content */
 .ds-searchable-select__positioner {
-  z-index: 100;
+  z-index: var(--z-index-dropdown, 1150);
 }
 
 .ds-searchable-select__content {

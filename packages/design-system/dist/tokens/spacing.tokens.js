@@ -39,6 +39,10 @@ const spacingTokens = defineTokens.spacing({
 * Values use a spaced numeric scale to allow insertion without
 * renumbering (e.g. a new layer between overlay and modal).
 *
+* **Layering:** `dropdown` must stay **above** `sticky` (e.g. sticky table headers /
+* toolbars at 1100) so Select / Combobox / Menu positioners are not covered by the
+* next row or sticky chrome.
+*
 * @example
 * // In recipe: zIndex: 'tooltip' → z-index: 1800
 * // In css():  zIndex: 'overlay' → z-index: 1300
@@ -47,8 +51,8 @@ const zIndexTokens = defineTokens.zIndex({
 	hide: { value: -1 },
 	base: { value: 0 },
 	docked: { value: 10 },
-	dropdown: { value: 1e3 },
 	sticky: { value: 1100 },
+	dropdown: { value: 1150 },
 	banner: { value: 1200 },
 	overlay: { value: 1300 },
 	modal: { value: 1400 },

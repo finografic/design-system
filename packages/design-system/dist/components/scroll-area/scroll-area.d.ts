@@ -29,7 +29,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const ScrollArea$1: {
-  /** Root — `onScrollPositionChange`, `dir`, `scrollbarSize`. */Root: _styled_system_jsx0.StyleContextProvider<React.ForwardRefExoticComponent<ScrollArea.RootProps & React.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner">>>; /** Clips the content while preserving the ability to scroll. */
+  /** Root — `onScrollPositionChange`, `dir`, `scrollbarSize`. */Root: _styled_system_jsx0.StyleContextProvider<React.ForwardRefExoticComponent<ScrollArea.RootProps & React.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner">>>; /** Clips the content while preserving the ability to scroll. */
   Viewport: _styled_system_jsx0.StyleContextConsumer<React.ForwardRefExoticComponent<ScrollArea.ViewportProps & React.RefAttributes<HTMLDivElement>>>; /** Inner content wrapper — minimum width ensures horizontal scroll works correctly. */
   Content: _styled_system_jsx0.StyleContextConsumer<React.ForwardRefExoticComponent<ScrollArea.ContentProps & React.RefAttributes<HTMLDivElement>>>; /** Custom scrollbar track — pass `orientation="vertical" | "horizontal"`. */
   Scrollbar: _styled_system_jsx0.StyleContextConsumer<React.ForwardRefExoticComponent<ScrollArea.ScrollbarProps & React.RefAttributes<HTMLDivElement>>>; /** The draggable scrollbar thumb inside `Scrollbar`. */
