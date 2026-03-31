@@ -6,12 +6,17 @@ import { sva } from "@styled-system/css";
 * Port of Ark UI NumberInput example styles → Panda `sva` + semantic tokens.
 *
 * Slots:    root · label · control · input · triggerGroup · incrementTrigger · decrementTrigger · prefix · suffix · errorText
-* Variants: size (sm | md | lg)
+* Variants: size (sm | md | lg) · palette (default | primary | success | danger | warning | info)
 *
 * Stepper architecture: `triggerGroup` is absolutely positioned on the right edge of the
 * control. It stacks `incrementTrigger` (top) and `decrementTrigger` (bottom) as a flex
 * column. The `input` gets `paddingInlineEnd` sized to match the triggerGroup width so
 * typed text never disappears under the buttons.
+*
+* Prefix/suffix adornments: plain flex slots at the left/right edges of the control.
+* Pass any icon or text as `prefix` / `suffix`. The `palette` variant sets their
+* background and text color — use it to signal meaning (e.g. palette="danger" for a
+* red unit label on an out-of-range field). Default palette is neutral (`bg.muted`).
 */
 const inputNumberRecipe = sva({
 	className: "input-number",
@@ -150,24 +155,26 @@ const inputNumberRecipe = sva({
 		prefix: {
 			display: "flex",
 			alignItems: "center",
+			justifyContent: "center",
 			flexShrink: 0,
-			color: "fg.muted",
+			userSelect: "none",
 			borderInlineEndWidth: "light",
 			borderInlineEndStyle: "solid",
 			borderInlineEndColor: "border",
 			bg: "bg.muted",
-			userSelect: "none"
+			color: "fg.muted"
 		},
 		suffix: {
 			display: "flex",
 			alignItems: "center",
+			justifyContent: "center",
 			flexShrink: 0,
-			color: "fg.muted",
+			userSelect: "none",
 			borderInlineStartWidth: "light",
 			borderInlineStartStyle: "solid",
 			borderInlineStartColor: "border",
 			bg: "bg.muted",
-			userSelect: "none"
+			color: "fg.muted"
 		},
 		errorText: {
 			color: "fg.error",
@@ -175,72 +182,150 @@ const inputNumberRecipe = sva({
 			lineHeight: "1.25rem"
 		}
 	},
-	variants: { size: {
-		sm: {
-			label: { fontSize: "xs" },
-			control: { height: "9" },
-			input: {
-				fontSize: "sm",
-				paddingInlineStart: "2.5",
-				paddingInlineEnd: "8"
+	variants: {
+		size: {
+			sm: {
+				label: { fontSize: "xs" },
+				control: { height: "9" },
+				input: {
+					fontSize: "sm",
+					paddingInlineStart: "2.5",
+					paddingInlineEnd: "8"
+				},
+				triggerGroup: { width: "7" },
+				incrementTrigger: { fontSize: "xs" },
+				decrementTrigger: { fontSize: "xs" },
+				prefix: {
+					paddingInline: "2",
+					fontSize: "xs"
+				},
+				suffix: {
+					paddingInline: "2",
+					fontSize: "xs"
+				},
+				errorText: { fontSize: "xs" }
 			},
-			triggerGroup: { width: "7" },
-			incrementTrigger: { fontSize: "xs" },
-			decrementTrigger: { fontSize: "xs" },
-			prefix: {
-				paddingInline: "2",
-				fontSize: "xs"
+			md: {
+				label: { fontSize: "sm" },
+				control: { height: "10" },
+				input: {
+					fontSize: "sm",
+					paddingInlineStart: "3",
+					paddingInlineEnd: "9"
+				},
+				triggerGroup: { width: "8" },
+				incrementTrigger: { fontSize: "sm" },
+				decrementTrigger: { fontSize: "sm" },
+				prefix: {
+					paddingInline: "2.5",
+					fontSize: "sm"
+				},
+				suffix: {
+					paddingInline: "2.5",
+					fontSize: "sm"
+				},
+				errorText: { fontSize: "sm" }
 			},
-			suffix: {
-				paddingInline: "2",
-				fontSize: "xs"
-			},
-			errorText: { fontSize: "xs" }
+			lg: {
+				label: { fontSize: "md" },
+				control: { height: "12" },
+				input: {
+					fontSize: "md",
+					paddingInlineStart: "4",
+					paddingInlineEnd: "11"
+				},
+				triggerGroup: { width: "10" },
+				incrementTrigger: { fontSize: "md" },
+				decrementTrigger: { fontSize: "md" },
+				prefix: {
+					paddingInline: "3",
+					fontSize: "md"
+				},
+				suffix: {
+					paddingInline: "3",
+					fontSize: "md"
+				},
+				errorText: { fontSize: "sm" }
+			}
 		},
-		md: {
-			label: { fontSize: "sm" },
-			control: { height: "10" },
-			input: {
-				fontSize: "sm",
-				paddingInlineStart: "3",
-				paddingInlineEnd: "9"
+		palette: {
+			default: {},
+			primary: {
+				prefix: {
+					colorPalette: "primary",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineEndColor: "colorPalette.light"
+				},
+				suffix: {
+					colorPalette: "primary",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineStartColor: "colorPalette.light"
+				}
 			},
-			triggerGroup: { width: "8" },
-			incrementTrigger: { fontSize: "sm" },
-			decrementTrigger: { fontSize: "sm" },
-			prefix: {
-				paddingInline: "2.5",
-				fontSize: "sm"
+			success: {
+				prefix: {
+					colorPalette: "success",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineEndColor: "colorPalette.light"
+				},
+				suffix: {
+					colorPalette: "success",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineStartColor: "colorPalette.light"
+				}
 			},
-			suffix: {
-				paddingInline: "2.5",
-				fontSize: "sm"
+			danger: {
+				prefix: {
+					colorPalette: "danger",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineEndColor: "colorPalette.light"
+				},
+				suffix: {
+					colorPalette: "danger",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineStartColor: "colorPalette.light"
+				}
 			},
-			errorText: { fontSize: "sm" }
-		},
-		lg: {
-			label: { fontSize: "md" },
-			control: { height: "12" },
-			input: {
-				fontSize: "md",
-				paddingInlineStart: "4",
-				paddingInlineEnd: "11"
+			warning: {
+				prefix: {
+					colorPalette: "warning",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineEndColor: "colorPalette.light"
+				},
+				suffix: {
+					colorPalette: "warning",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineStartColor: "colorPalette.light"
+				}
 			},
-			triggerGroup: { width: "10" },
-			incrementTrigger: { fontSize: "md" },
-			decrementTrigger: { fontSize: "md" },
-			prefix: {
-				paddingInline: "3",
-				fontSize: "md"
-			},
-			suffix: {
-				paddingInline: "3",
-				fontSize: "md"
-			},
-			errorText: { fontSize: "sm" }
+			info: {
+				prefix: {
+					colorPalette: "info",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineEndColor: "colorPalette.light"
+				},
+				suffix: {
+					colorPalette: "info",
+					bg: "colorPalette.xlight",
+					color: "colorPalette.dark",
+					borderInlineStartColor: "colorPalette.light"
+				}
+			}
 		}
-	} },
-	defaultVariants: { size: "md" }
+	},
+	defaultVariants: {
+		size: "md",
+		palette: "default"
+	}
 });
 //#endregion
 export { inputNumberRecipe };

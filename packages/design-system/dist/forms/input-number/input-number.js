@@ -5,8 +5,11 @@ import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { NumberInput } from "@ark-ui/react";
 //#region src/forms/input-number/input-number.tsx
-const InputNumber = forwardRef(({ value, defaultValue, onChange, onValueCommit, onValueInvalid, onBlur, name, min, max, step = 1, precision, locale, formatOptions, prefix, suffix, showStepper = true, label, error, id, disabled, readOnly, placeholder, size = "md", className }, ref) => {
-	const styles = inputNumberRecipe({ size });
+const InputNumber = forwardRef(({ value, defaultValue, onChange, onValueCommit, onValueInvalid, onBlur, name, min, max, step = 1, precision, locale, formatOptions, prefix, suffix, showStepper = true, label, error, id, disabled, readOnly, placeholder, size = "md", palette = "default", className }, ref) => {
+	const styles = inputNumberRecipe({
+		size,
+		palette
+	});
 	const errorMessage = typeof error === "string" ? error : error?.message;
 	const resolvedFormatOptions = {
 		maximumFractionDigits: precision,

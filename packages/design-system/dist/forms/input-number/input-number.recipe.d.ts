@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/input-number/input-number.recipe.d.ts
-declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "errorText" | "input" | "triggerGroup" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
+declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "errorText" | "triggerGroup" | "incrementTrigger" | "decrementTrigger" | "prefix" | "suffix", {
   size: {
     sm: {
       label: {
@@ -101,6 +101,84 @@ declare const inputNumberRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control
       };
       errorText: {
         fontSize: "sm";
+      };
+    };
+  };
+  /**
+   * Colorizes the prefix/suffix adornment slots.
+   * `default` = neutral muted (no colorPalette — base styles apply).
+   * All other values set colorPalette on both slots so bg/color/border respond.
+   */
+  palette: {
+    default: {};
+    primary: {
+      prefix: {
+        colorPalette: "primary";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineEndColor: "colorPalette.light";
+      };
+      suffix: {
+        colorPalette: "primary";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineStartColor: "colorPalette.light";
+      };
+    };
+    success: {
+      prefix: {
+        colorPalette: "success";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineEndColor: "colorPalette.light";
+      };
+      suffix: {
+        colorPalette: "success";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineStartColor: "colorPalette.light";
+      };
+    };
+    danger: {
+      prefix: {
+        colorPalette: "danger";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineEndColor: "colorPalette.light";
+      };
+      suffix: {
+        colorPalette: "danger";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineStartColor: "colorPalette.light";
+      };
+    };
+    warning: {
+      prefix: {
+        colorPalette: "warning";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineEndColor: "colorPalette.light";
+      };
+      suffix: {
+        colorPalette: "warning";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineStartColor: "colorPalette.light";
+      };
+    };
+    info: {
+      prefix: {
+        colorPalette: "info";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineEndColor: "colorPalette.light";
+      };
+      suffix: {
+        colorPalette: "info";
+        bg: "colorPalette.xlight";
+        color: "colorPalette.dark";
+        borderInlineStartColor: "colorPalette.light";
       };
     };
   };

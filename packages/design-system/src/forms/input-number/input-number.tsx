@@ -62,9 +62,9 @@ export type InputNumberProps = InputNumberVariants & {
   formatOptions?: Intl.NumberFormatOptions;
 
   // ── Decoration ───────────────────────────────────────────────────────────
-  /** Content rendered before the input (e.g. "$", "€", an icon) */
+  /** Content rendered at the left edge of the control (e.g. "$", an icon). */
   prefix?: ReactNode;
-  /** Content rendered after the input (e.g. "%", "kg", "lbs") */
+  /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
   suffix?: ReactNode;
   /** Show increment/decrement stepper buttons. Default: true */
   showStepper?: boolean;
@@ -107,11 +107,12 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(
       readOnly,
       placeholder,
       size = 'md',
+      palette = 'default',
       className,
     },
     ref,
   ) => {
-    const styles = inputNumberRecipe({ size });
+    const styles = inputNumberRecipe({ size, palette });
     const errorMessage = typeof error === 'string' ? error : error?.message;
 
     const resolvedFormatOptions: Intl.NumberFormatOptions = {

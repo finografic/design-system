@@ -47,8 +47,8 @@ type InputNumberProps = InputNumberVariants & {
   step?: number; /** Decimal places shown and allowed. Default: any */
   precision?: number; /** Intl.NumberFormat locale (e.g. 'en-US', 'de-DE'). Default: navigator.language */
   locale?: string; /** Extra Intl.NumberFormat options (e.g. { style: 'currency', currency: 'USD' }) */
-  formatOptions?: Intl.NumberFormatOptions; /** Content rendered before the input (e.g. "$", "€", an icon) */
-  prefix?: ReactNode; /** Content rendered after the input (e.g. "%", "kg", "lbs") */
+  formatOptions?: Intl.NumberFormatOptions; /** Content rendered at the left edge of the control (e.g. "$", an icon). */
+  prefix?: ReactNode; /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
   suffix?: ReactNode; /** Show increment/decrement stepper buttons. Default: true */
   showStepper?: boolean;
   label?: ReactNode;
@@ -61,6 +61,7 @@ type InputNumberProps = InputNumberVariants & {
 };
 declare const InputNumber: react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
+  palette?: "primary" | "success" | "warning" | "danger" | "info" | "default" | undefined;
 } & {
   value?: number;
   defaultValue?: number;
@@ -86,8 +87,8 @@ declare const InputNumber: react.ForwardRefExoticComponent<{
   step?: number; /** Decimal places shown and allowed. Default: any */
   precision?: number; /** Intl.NumberFormat locale (e.g. 'en-US', 'de-DE'). Default: navigator.language */
   locale?: string; /** Extra Intl.NumberFormat options (e.g. { style: 'currency', currency: 'USD' }) */
-  formatOptions?: Intl.NumberFormatOptions; /** Content rendered before the input (e.g. "$", "€", an icon) */
-  prefix?: ReactNode; /** Content rendered after the input (e.g. "%", "kg", "lbs") */
+  formatOptions?: Intl.NumberFormatOptions; /** Content rendered at the left edge of the control (e.g. "$", an icon). */
+  prefix?: ReactNode; /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
   suffix?: ReactNode; /** Show increment/decrement stepper buttons. Default: true */
   showStepper?: boolean;
   label?: ReactNode;

@@ -4,12 +4,17 @@
  * Port of Ark UI NumberInput example styles → Panda `sva` + semantic tokens.
  *
  * Slots:    root · label · control · input · triggerGroup · incrementTrigger · decrementTrigger · prefix · suffix · errorText
- * Variants: size (sm | md | lg)
+ * Variants: size (sm | md | lg) · palette (default | primary | success | danger | warning | info)
  *
  * Stepper architecture: `triggerGroup` is absolutely positioned on the right edge of the
  * control. It stacks `incrementTrigger` (top) and `decrementTrigger` (bottom) as a flex
  * column. The `input` gets `paddingInlineEnd` sized to match the triggerGroup width so
  * typed text never disappears under the buttons.
+ *
+ * Prefix/suffix adornments: plain flex slots at the left/right edges of the control.
+ * Pass any icon or text as `prefix` / `suffix`. The `palette` variant sets their
+ * background and text color — use it to signal meaning (e.g. palette="danger" for a
+ * red unit label on an out-of-range field). Default palette is neutral (`bg.muted`).
  */
 import { sva } from '@styled-system/css';
 
@@ -87,7 +92,6 @@ export const inputNumberRecipe = sva({
     },
 
     // Absolute column on the right — stacks increment (top) + decrement (bottom).
-    // `overflow: hidden` clips the inner border-radius so the control's own border-radius shows.
     triggerGroup: {
       position: 'absolute',
       top: '1px',
@@ -146,25 +150,31 @@ export const inputNumberRecipe = sva({
     prefix: {
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'center',
       flexShrink: 0,
-      color: 'fg.muted',
+      userSelect: 'none',
+      // border separating from input
       borderInlineEndWidth: 'light',
       borderInlineEndStyle: 'solid',
       borderInlineEndColor: 'border',
+      // default neutral adornment — overridden by palette variant
       bg: 'bg.muted',
-      userSelect: 'none',
+      color: 'fg.muted',
     },
 
     suffix: {
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'center',
       flexShrink: 0,
-      color: 'fg.muted',
+      userSelect: 'none',
+      // border separating from input
       borderInlineStartWidth: 'light',
       borderInlineStartStyle: 'solid',
       borderInlineStartColor: 'border',
+      // default neutral adornment — overridden by palette variant
       bg: 'bg.muted',
-      userSelect: 'none',
+      color: 'fg.muted',
     },
 
     errorText: {
@@ -179,7 +189,6 @@ export const inputNumberRecipe = sva({
       sm: {
         label: { fontSize: 'xs' },
         control: { height: '9' },
-        // paddingInlineEnd leaves room for the triggerGroup (w_7 = 1.75rem)
         input: { fontSize: 'sm', paddingInlineStart: '2.5', paddingInlineEnd: '8' },
         triggerGroup: { width: '7' },
         incrementTrigger: { fontSize: 'xs' },
@@ -191,7 +200,6 @@ export const inputNumberRecipe = sva({
       md: {
         label: { fontSize: 'sm' },
         control: { height: '10' },
-        // paddingInlineEnd leaves room for the triggerGroup (w_8 = 2rem)
         input: { fontSize: 'sm', paddingInlineStart: '3', paddingInlineEnd: '9' },
         triggerGroup: { width: '8' },
         incrementTrigger: { fontSize: 'sm' },
@@ -203,7 +211,6 @@ export const inputNumberRecipe = sva({
       lg: {
         label: { fontSize: 'md' },
         control: { height: '12' },
-        // paddingInlineEnd leaves room for the triggerGroup (w_10 = 2.5rem)
         input: { fontSize: 'md', paddingInlineStart: '4', paddingInlineEnd: '11' },
         triggerGroup: { width: '10' },
         incrementTrigger: { fontSize: 'md' },
@@ -213,9 +220,90 @@ export const inputNumberRecipe = sva({
         errorText: { fontSize: 'sm' },
       },
     },
+
+    /**
+     * Colorizes the prefix/suffix adornment slots.
+     * `default` = neutral muted (no colorPalette — base styles apply).
+     * All other values set colorPalette on both slots so bg/color/border respond.
+     */
+    palette: {
+      default: {
+        // base styles (bg.muted / fg.muted) already apply — nothing to add
+      },
+      primary: {
+        prefix: {
+          colorPalette: 'primary',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineEndColor: 'colorPalette.light',
+        },
+        suffix: {
+          colorPalette: 'primary',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineStartColor: 'colorPalette.light',
+        },
+      },
+      success: {
+        prefix: {
+          colorPalette: 'success',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineEndColor: 'colorPalette.light',
+        },
+        suffix: {
+          colorPalette: 'success',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineStartColor: 'colorPalette.light',
+        },
+      },
+      danger: {
+        prefix: {
+          colorPalette: 'danger',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineEndColor: 'colorPalette.light',
+        },
+        suffix: {
+          colorPalette: 'danger',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineStartColor: 'colorPalette.light',
+        },
+      },
+      warning: {
+        prefix: {
+          colorPalette: 'warning',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineEndColor: 'colorPalette.light',
+        },
+        suffix: {
+          colorPalette: 'warning',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineStartColor: 'colorPalette.light',
+        },
+      },
+      info: {
+        prefix: {
+          colorPalette: 'info',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineEndColor: 'colorPalette.light',
+        },
+        suffix: {
+          colorPalette: 'info',
+          bg: 'colorPalette.xlight',
+          color: 'colorPalette.dark',
+          borderInlineStartColor: 'colorPalette.light',
+        },
+      },
+    },
   },
 
-  defaultVariants: { size: 'md' },
+  defaultVariants: { size: 'md', palette: 'default' },
 });
 
 export type InputNumberVariants = RecipeProps<typeof inputNumberRecipe>;
