@@ -84,3 +84,55 @@ All items are checked off. The file is kept as a reference log.
 - Watch script for linked library: `pnpm watch` runs `panda codegen -w` and `tsdown --watch` in parallel
 - Ark reference CSS files live in **`src/ark-reference/css/`** — translate into **`sva`** recipes only; never import or ship them as CSS modules. In an **`sva`**, any slot using **`colorPalette.*`** inside a **conditional state** (`_checked`, `_hover`, …) needs **`colorPalette`** on **that slot** in **`variants.palette`** (inheritance from root alone is not enough for Panda's extraction). See **`sva-components.instructions.md`** (colorPalette in slot recipes) and **`switch.recipe.ts`** / **`checkbox.recipe.ts`**.
 - **`sva` + conditional palette styles:** If utilities for **`_checked`** (or similar) + **`colorPalette.*`** are missing in the consumer's generated CSS, prefer **explicit recipe variants** / **`compoundVariants`** ([Panda slot recipes](https://panda-css.com/docs/concepts/slot-recipes#compound-variants)), **explicit checked selectors** (e.g. **`:is(:checked, [data-state='checked'], …)`** on the control), or **`staticCss`** / safelisting so the atomic combo is emitted — **`accent.solid`** may "work" only because it is generated elsewhere.
+
+## Dropdown / Portal Positioning (this repo)
+
+### Root cause of z-index / clipping bugs
+
+`filter` (e.g. `grayscale(100%)` on disabled elements), `transform`, `zoom`, `isolation: isolate`, and `will-change: transform` all create a new **CSS containing block** for `position: fixed` descendants. This means any Ark UI positioner using `strategy: 'fixed'` will still be trapped inside the ancestor that has one of those properties — regardless of its `z-index`. This is also the Ark docs' own pattern: `Root.css` uses `filter: grayscale(100%)` on `[data-disabled]`, so a disabled **FieldBox** (or any disabled trigger wrapper) will always trap its child positioner.
+
+`overflow: hidden` / `overflow: clip` clips `position: absolute` positioners. `position: fixed` normally escapes it, but **not** when an ancestor also has `filter`, `transform`, or `zoom`.
+
+### The correct fix: Portal rendering
+
+Wrap every Ark positioner in Ark's `<Portal>` from `@ark-ui/react`. This renders the positioner directly into `document.body`, escaping **all** ancestor CSS constraints. Apply `strategy: 'fixed'` in addition so Floating UI uses `position: fixed` for the anchor calculation.
+
+Current state — all three select primitives use Portal + fixed strategy:
+
+- **`SelectSearchable`** (`select-searchable.tsx`) — `<Portal>` wraps `ArkCombobox.Positioner`; `positioning={{ strategy: 'fixed', sameWidth: true }}`
+- **`Select`** (`select.tsx`) — `ArkSelectPositionerPortal` wrapper; `SelectRootFixed` injects `{ strategy: 'fixed', sameWidth: true }` as default (overridable via `positioning` prop)
+- **`SelectCombobox`** (`select-combobox.tsx`) — `ArkComboboxPositionerPortal` wrapper
+
+When adding **new overlay components** (DatePicker, ColorPicker, Popover, etc.) always:
+
+1. Wrap the `Positioner` part in `<Portal>`.
+2. Set `strategy: 'fixed'` in the root `positioning` prop.
+3. Keep the portal wrapper as a named `forwardRef` so `displayName` is preserved for DevTools.
+
+### z-index: layered dropdowns (future)
+
+The Ark docs reference CSS uses:
+
+```css
+z-index: calc(var(--demo-popover-z-index) + var(--layer-index, 0));
+```
+
+The `--layer-index` variable allows nested portals (e.g. a Select inside a Dialog) to stack correctly by incrementing the layer. Our recipes currently use the flat `zIndex: 'dropdown'` token (`1150`). If a "dropdown appearing behind dialog" regression is reported, add `--layer-index` support to the `content` slot of the affected recipe.
+
+### Open/close animations
+
+`Select.css` from the Ark docs defines **both** `scale-fade-in` (enter) and `scale-fade-out` (exit) keyed off `data-state="open"` / `data-state="closed"`. DS recipes may only ship the enter animation. Add the exit animation to the `content` slot (`_closed: { animation: 'scale-fade-out …' }`) when smooth close transitions are needed.
+
+### forms.css positioner class names
+
+`forms.css` must target **both** the Panda recipe class name **and** Ark's data-attributes as a fallback, because recipe class names can drift between builds:
+
+```css
+.select__positioner,
+[data-scope='select'][data-part='positioner'],
+[data-scope='combobox'][data-part='positioner'] {
+  z-index: var(--z-index-dropdown, 1150);
+}
+```
+
+Unlayered CSS in `forms.css` always wins over `@layer utilities` (Panda), so this override is reliable.
