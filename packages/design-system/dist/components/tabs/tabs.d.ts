@@ -60,7 +60,7 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Tabs$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
     variant: {
       line: {
         list: {
@@ -194,7 +194,7 @@ declare const Tabs$1: {
       };
     };
   }>>; /** Same styling as Root when using external machine state from `useTabs`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
     variant: {
       line: {
         list: {
