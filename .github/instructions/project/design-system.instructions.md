@@ -67,6 +67,16 @@ parts not exposed by the DS compounds — there is no `forms/primitives` escape 
 - Spacing props must be **numeric**: `gap={4}` not `gap="4"` (ESLint enforced).
 - `Row` justify uses full CSS values: `"space-between"` not `"between"`.
 
+## Overlay / dropdown z-index gotchas
+
+If a dropdown or floating panel appears **behind** page content:
+
+1. **`filter` on a disabled ancestor** — `FieldBox` applies `filter: grayscale(100%)` when disabled. This creates a new CSS containing block for `position: fixed` children, trapping the positioner regardless of z-index. All DS select/combobox positioners use Ark's `<Portal>` to escape this.
+
+2. **Ark inline style overrides z-index** — Ark's Floating UI integration sets `--z-index: auto` directly in the positioner's `style` attribute. Inline styles beat all stylesheet rules, so the Panda recipe `zIndex` token is silently ignored. The DS fixes this with `!important` in `forms.css`. If you add a new overlay component and its z-index seems wrong, check that a matching `!important` rule exists in `forms.css`.
+
+3. **`overflow: hidden` / `transform` on an ancestor** — clips or traps `position: absolute` / `position: fixed` positioners. The DS defaults `strategy: 'fixed'` + `<Portal>` to escape these. If a consumer layout wraps content in a transformed or overflow-hidden container, use the `positioning` prop override if needed.
+
 ## Tokens
 
 - Colors follow an 11-stop shade scale: `xxxlight → xxxdark`. No alpha variants.

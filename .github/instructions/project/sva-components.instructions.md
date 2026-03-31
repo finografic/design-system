@@ -235,6 +235,86 @@ This improves hover text in the IDE for **`Switch`**, **`Switch.Root`**, etc.
 
 ---
 
+## Overlay components — Portal + z-index rules
+
+Any component that renders a **floating panel** (Select, Menu, DatePicker, Tooltip, Popover, Dialog, …) must follow these rules:
+
+### 1. Always Portal-render the Positioner
+
+Wrap every `Positioner` part in Ark's `<Portal>` from `@ark-ui/react`. This renders the element directly into `document.body`, escaping all ancestor CSS constraints:
+
+- `filter` (e.g. `grayscale` on disabled `FieldBox`) — creates a new containing block for `position: fixed` descendants, trapping the dropdown inside the ancestor regardless of z-index.
+- `transform`, `zoom`, `will-change: transform`, `isolation: isolate` — same effect.
+- `overflow: hidden` — clips `position: absolute` positioners; `position: fixed` normally escapes it but not when combined with the above.
+
+```tsx
+// ✅ Correct
+const ArkSelectPositionerPortal = forwardRef<...>((props, ref) => (
+  <Portal>
+    <ArkSelect.Positioner ref={ref} {...props} />
+  </Portal>
+));
+ArkSelectPositionerPortal.displayName = 'Select.Positioner';
+
+// ❌ Wrong — positioner trapped inside ancestor CSS contexts
+Positioner: withContext(ArkSelect.Positioner, 'positioner'),
+```
+
+Always give the portal wrapper a named `forwardRef` with a `displayName` so DevTools remains readable.
+
+### 2. Use `strategy: 'fixed'` on floating components
+
+Set `strategy: 'fixed'` in the root `positioning` prop (Floating UI config) so the positioner uses `position: fixed` for anchor calculation — `position: absolute` is clipped by `overflow: hidden` ancestors.
+
+```tsx
+// On the Root component or wrapper:
+positioning={{ strategy: 'fixed', sameWidth: true, ...positioning }}
+```
+
+Make it a **default that consumers can override** via their own `positioning` prop.
+
+### 3. Override positioner z-index with `!important` in `forms.css`
+
+Ark UI sets `z-index: var(--z-index)` with `--z-index: auto` **directly in the positioner's inline style** (set by Floating UI). Inline styles beat all stylesheet rules regardless of specificity or `@layer` ordering — so the `zIndex` token set in the Panda recipe is silently ignored.
+
+The fix is `!important` on the positioner rule in `forms.css`. Each new overlay component must have a corresponding rule added there:
+
+```css
+/* Use the correct token per z-index layer */
+.menu__positioner,
+[data-scope='menu'][data-part='positioner'] {
+  z-index: var(--z-index-dropdown, 1150) !important;
+}
+```
+
+**Z-index token map** (from `spacing.tokens.ts`):
+
+| Token      | Value | Use for                            |
+| ---------- | ----- | ---------------------------------- |
+| `dropdown` | 1150  | Select, Combobox, Menu, DatePicker |
+| `overlay`  | 1300  | Backdrop / overlay layers          |
+| `modal`    | 1400  | Dialog                             |
+| `popover`  | 1500  | Popover                            |
+| `tooltip`  | 1800  | Tooltip                            |
+
+Target **both** the Panda recipe slot class and Ark's data-attributes as a fallback (class names can drift when recipes are renamed):
+
+```css
+.menu__positioner,
+[data-scope='menu'][data-part='positioner'] {
+  z-index: var(--z-index-dropdown, 1150) !important;
+}
+```
+
+### Checklist for new overlay components
+
+- [ ] Positioner wrapped in `<Portal>` (named `forwardRef` with `displayName`)
+- [ ] `strategy: 'fixed'` in default `positioning` (overridable)
+- [ ] `zIndex: '<token>'` set in the recipe `positioner` slot
+- [ ] `!important` z-index rule added to `forms.css` (recipe class + data-attribute selector)
+
+---
+
 ## Anti-patterns
 
 - **`cva` only on `Control`** while **Root / Label / Thumb** use ad hoc CSS modules — migrate to **one `sva`**.
@@ -243,3 +323,5 @@ This improves hover text in the IDE for **`Switch`**, **`Switch.Root`**, etc.
 - **`colorPalette` only on root when child slots need it conditionally** — if a child slot uses `colorPalette.*` inside `_checked` / `_hover` / etc., it needs `colorPalette` set directly on that slot in the palette variant. Inheritance from root is not sufficient for Panda's atomic extraction of conditional rules.
 - **Mixed `colorPalette.*` and fixed tokens for the same concern** — if a slot should respond to palette, **all** its color properties must use `colorPalette.*`. Using `accent.solid` on the control while `colorPalette.base` on the thumb breaks palette switching.
 - **Inline `style` attribute in DS wrappers** — use `css()` to keep everything in the Panda pipeline.
+- **Overlay Positioner without Portal** — any floating panel not portal-rendered will be trapped by ancestor `filter`/`transform`/`overflow` CSS. Always use `<Portal>` + `strategy: 'fixed'`.
+- **Relying on recipe `zIndex` token alone for overlay stacking** — Ark sets `--z-index: auto` inline; the recipe token is overridden. Always add `!important` to the positioner rule in `forms.css`.
