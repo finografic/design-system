@@ -7,19 +7,29 @@ import { FieldError } from "react-hook-form";
 /**
  * Numeric stepper input — Ark `NumberInput` wired to `inputNumberRecipe`.
  *
- * Supports optional prefix/suffix decorations and increment/decrement stepper buttons.
- * Pass `onChange(value)` — simplified from Ark's `onValueChange` detail object.
+ * **Stepper layout:** increment (↑) and decrement (↓) buttons are stacked vertically
+ * as an absolute column on the right edge of the control.
+ *
+ * **Adornments:** `prefix` renders at the left edge, `suffix` at the right edge (left
+ * of the stepper). Any ReactNode is accepted — text, icons, or strings. Use `palette`
+ * to tint the adornment background and text color to convey meaning.
+ *
+ * `onChange` is simplified from Ark's `onValueChange` detail — receives `(value: string,
+ * valueAsNumber: number)` directly. `valueAsNumber` is `NaN` when the input is empty.
  *
  * @example
  * ```tsx
- * <InputNumber
- *   label="Quantity"
- *   value={qty}
- *   onChange={setQty}
- *   min={0} max={100}
- *   prefix="$"
- *   size="md"
- * />
+ * // Basic
+ * <InputNumber label="Quantity" value={qty} onChange={(_, n) => setQty(n)} min={0} max={100} />
+ *
+ * // Currency prefix
+ * <InputNumber prefix="$" suffix="USD" value={price} onChange={(_, n) => setPrice(n)} />
+ *
+ * // Colored unit suffix (e.g. temperature)
+ * <InputNumber suffix="°C" palette="info" value={temp} onChange={(_, n) => setTemp(n)} />
+ *
+ * // Danger palette to signal out-of-range
+ * <InputNumber suffix="°C" palette="danger" value={temp} onChange={(_, n) => setTemp(n)} />
  * ```
  */
 type InputNumberProps = InputNumberVariants & {
