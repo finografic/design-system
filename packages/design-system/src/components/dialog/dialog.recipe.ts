@@ -66,9 +66,6 @@ export const dialogRecipe = sva({
       gap: '4',
       paddingInline: '6',
       paddingBlock: '4',
-      borderBottomWidth: 'light',
-      borderBottomStyle: 'solid',
-      borderBottomColor: 'border.subtle',
       flexShrink: 0,
     },
 
@@ -98,9 +95,6 @@ export const dialogRecipe = sva({
       gap: '3',
       paddingInline: '6',
       paddingBlock: '4',
-      borderTopWidth: 'light',
-      borderTopStyle: 'solid',
-      borderTopColor: 'border.subtle',
       flexShrink: 0,
     },
 
