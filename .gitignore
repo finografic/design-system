@@ -11,7 +11,7 @@ styled-system/
 **/.turbo
 
 # Specifc files
-release.log.txt
+# release.log.txt
 
 # Environment files
 .env
