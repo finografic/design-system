@@ -56,13 +56,17 @@ const dialogRecipe = sva({
 		header: {
 			display: "flex",
 			alignItems: "center",
-			justifyContent: "space-between",
+			justifyContent: "flex-start",
 			gap: "4",
 			paddingInline: "6",
 			paddingBlock: "4",
-			flexShrink: 0
+			flexShrink: 0,
+			width: "100%",
+			minH: "8"
 		},
 		title: {
+			flex: "1",
+			minWidth: "0",
 			fontSize: "xl",
 			fontWeight: "semibold",
 			color: "fg",
@@ -88,6 +92,8 @@ const dialogRecipe = sva({
 			flexShrink: 0
 		},
 		closeTrigger: {
+			flexShrink: "0",
+			marginLeft: "auto",
 			cursor: "pointer",
 			color: "fg.muted",
 			borderRadius: "sm",

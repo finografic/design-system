@@ -32,6 +32,8 @@ export const sizingTokens = defineTokens.sizes({
   '8': { value: '2rem' }, //  32px
   '9': { value: '2.25rem' }, //  36px
   '10': { value: '2.5rem' }, //  40px
+  /** Matches spacing.11 — height/min-width use `sizes`, not `spacing`. */
+  '11': { value: '2.75rem' }, //  44px
   '12': { value: '3rem' }, //  48px
   '16': { value: '4rem' }, //  64px
   '20': { value: '5rem' }, //  80px

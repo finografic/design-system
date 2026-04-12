@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/radio-group/radio-group.recipe.d.ts
-declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
+declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "description" | "errorText" | "item" | "itemText" | "itemControl" | "itemDescription", {
   size: {
     sm: {
       label: {

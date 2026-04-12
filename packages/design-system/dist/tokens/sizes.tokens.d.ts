@@ -41,6 +41,9 @@ declare const sizingTokens: {
   };
   '10': {
     value: string;
+  }; /** Matches spacing.11 — height/min-width use `sizes`, not `spacing`. */
+  '11': {
+    value: string;
   };
   '12': {
     value: string;
