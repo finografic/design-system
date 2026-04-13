@@ -3,7 +3,7 @@ import { sva } from "@styled-system/css";
 /**
 * Tooltip Slot Recipe
 *
-* Slots:    trigger | positioner | content | arrow | arrowTip
+* Slots: trigger | positioner | content | arrow | arrowTip
 */
 const tooltipRecipe = sva({
 	className: "tooltip",

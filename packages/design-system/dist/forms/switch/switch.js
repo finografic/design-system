@@ -9,21 +9,21 @@ const { withProvider, withContext } = createStyleContext(switchRecipe);
 /**
 * Styled Ark **Switch** compound — each part is wired to `switchRecipe` via context.
 *
-* **Anatomy:** put control props on **`Root`** (`checked`, `disabled`, `onCheckedChange`,
-* `name`, …). Ark UI uses the name `onCheckedChange` (detail object `{ checked }`), not
-* DOM `onChange` — same idea as a boolean toggle handler.
+* **Anatomy:** put control props on **`Root`** (`checked`, `disabled`, `onCheckedChange`, `name`, …). Ark UI
+* uses the name `onCheckedChange` (detail object `{ checked }`), not DOM `onChange` — same idea as a boolean
+* toggle handler.
 *
 * Pass **`size`** and **`palette`** on `Root` so slot styles resolve.
 *
 * @example
-* ```tsx
-* <Switch.Root size="md" palette="primary" checked={on} onCheckedChange={({ checked }) => setOn(checked)}>
-*   <Switch.Control>
-*     <Switch.Thumb />
-*   </Switch.Control>
-*   <Switch.Label>Notifications</Switch.Label>
-* </Switch.Root>
-* ```
+*   ```tsx
+*   <Switch.Root size="md" palette="primary" checked={on} onCheckedChange={({ checked }) => setOn(checked)}>
+*     <Switch.Control>
+*       <Switch.Thumb />
+*     </Switch.Control>
+*     <Switch.Label>Notifications</Switch.Label>
+*   </Switch.Root>;
+*   ```;
 */
 const Switch$1 = {
 	Root: withProvider(Switch.Root, "root"),
@@ -38,9 +38,9 @@ const textColumnStyle = css({
 	gap: "0.5"
 });
 /**
-* Design-system convenience switch — label, description, and error text included.
-* **`Switch`** stays the styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`;
-* bare **`Switch.Root`** still uses Ark's `onCheckedChange`).
+* Design-system convenience switch — label, description, and error text included. **`Switch`** stays the
+* styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`; bare **`Switch.Root`** still uses
+* Ark's `onCheckedChange`).
 */
 const SwitchDS = forwardRef(({ label, description, error, checked, onChange, onBlur, name, disabled, size = "md", palette = "primary", className, classNames = {} }, ref) => {
 	const styles = switchRecipe({

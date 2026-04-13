@@ -1,4 +1,4 @@
-import { CssKeyframes } from "../node_modules/.pnpm/@pandacss_types@1.9.0/node_modules/@pandacss/types/dist/system-types.js";
+import { CssKeyframes } from "../node_modules/.pnpm/@pandacss_types@1.9.1/node_modules/@pandacss/types/dist/system-types.js";
 //#region src/tokens/animations.tokens.d.ts
 declare const keyframes: CssKeyframes;
 declare const durationTokens: {

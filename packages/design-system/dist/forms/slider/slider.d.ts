@@ -1,45 +1,45 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { SliderVariants } from "./slider.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { Slider, SliderRootProps, SliderValueChangeDetails } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/slider/slider.d.ts
 /**
  * Styled Ark **Slider** compound — each part is wired to `sliderRecipe` via context.
  *
- * Ark handles all a11y: `slider` role, keyboard navigation (arrows, Home/End,
- * Page Up/Down), and ARIA attributes for value, min, max. Variant props go on **`Root`**.
+ * Ark handles all a11y: `slider` role, keyboard navigation (arrows, Home/End, Page Up/Down), and ARIA
+ * attributes for value, min, max. Variant props go on **`Root`**.
  *
- * **Orientation:** pass `orientation="vertical"` to `Slider.Root` — all parts respond
- * via `data-orientation="vertical"` attribute styles in the recipe.
+ * **Orientation:** pass `orientation="vertical"` to `Slider.Root` — all parts respond via
+ * `data-orientation="vertical"` attribute styles in the recipe.
  *
- * **Touch:** the thumb enlarges automatically at raspberry-pi breakpoints
- * (`max-width: 1024px / max-height: 600px` and `800 / 480`) when `pointer: coarse`.
+ * **Touch:** the thumb enlarges automatically at raspberry-pi breakpoints (`max-width: 1024px / max-height:
+ * 600px` and `800 / 480`) when `pointer: coarse`.
  *
  * @example
- * ```tsx
- * import { Slider } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { Slider } from '@finografic/design-system/forms';
  *
- * <Slider.Root size="md" value={[volume]} onValueChange={({ value }) => setVolume(value[0])}>
- *   <Slider.Label>
- *     Volume
- *     <Slider.ValueText />
- *   </Slider.Label>
- *   <Slider.Control>
- *     <Slider.Track>
- *       <Slider.Range />
- *     </Slider.Track>
- *     <Slider.Thumb index={0} />
- *   </Slider.Control>
- *   <Slider.HiddenInput />
- * </Slider.Root>
- * ```
+ *   <Slider.Root size="md" value={[volume]} onValueChange={({ value }) => setVolume(value[0])}>
+ *     <Slider.Label>
+ *       Volume
+ *       <Slider.ValueText />
+ *     </Slider.Label>
+ *     <Slider.Control>
+ *       <Slider.Track>
+ *         <Slider.Range />
+ *       </Slider.Track>
+ *       <Slider.Thumb index={0} />
+ *     </Slider.Control>
+ *     <Slider.HiddenInput />
+ *   </Slider.Root>;
+ *   ```;
  */
 declare const Slider$1: {
-  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Slider.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "marker" | "description" | "errorText" | "control" | "thumb" | "valueText" | "track" | "range" | "markerGroup", {
+  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Slider.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "root" | "description" | "label" | "errorText" | "control" | "valueText" | "track" | "range" | "thumb" | "markerGroup", {
     size: {
       sm: {
         label: {
@@ -142,15 +142,15 @@ declare const Slider$1: {
       };
     };
   }>>; /** Text label for the slider; also wraps `ValueText` for inline display. */
-  Label: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.LabelProps & react.RefAttributes<HTMLLabelElement>>>; /** Displays the current numeric value; renders as a `<span>`. */
-  ValueText: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.ValueTextProps & react.RefAttributes<HTMLDivElement>>>; /** Flex row that contains the track and thumb(s). */
-  Control: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.ControlProps & react.RefAttributes<HTMLDivElement>>>; /** The background rail — contains `Range`. */
-  Track: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.TrackProps & react.RefAttributes<HTMLDivElement>>>; /** Filled portion of the track representing the selected value. */
-  Range: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.RangeProps & react.RefAttributes<HTMLDivElement>>>; /** Draggable handle; pass `index={n}` for multi-thumb sliders. */
-  Thumb: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.ThumbProps & react.RefAttributes<HTMLDivElement>>>; /** Container for tick marks below the track. */
-  MarkerGroup: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.MarkerGroupProps & react.RefAttributes<HTMLDivElement>>>; /** Individual tick mark; renders a dot via `::before` and a label. */
-  Marker: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Slider.MarkerProps & react.RefAttributes<HTMLSpanElement>>>; /** Hidden native `<input>` for form integration — no recipe slot. */
-  HiddenInput: react.ForwardRefExoticComponent<Slider.HiddenInputProps & react.RefAttributes<HTMLInputElement>>;
+  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Displays the current numeric value; renders as a `<span>`. */
+  ValueText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.ValueTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Flex row that contains the track and thumb(s). */
+  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** The background rail — contains `Range`. */
+  Track: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.TrackProps & _$react.RefAttributes<HTMLDivElement>>>; /** Filled portion of the track representing the selected value. */
+  Range: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.RangeProps & _$react.RefAttributes<HTMLDivElement>>>; /** Draggable handle; pass `index={n}` for multi-thumb sliders. */
+  Thumb: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.ThumbProps & _$react.RefAttributes<HTMLDivElement>>>; /** Container for tick marks below the track. */
+  MarkerGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.MarkerGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Individual tick mark; renders a dot via `::before` and a label. */
+  Marker: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Slider.MarkerProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Hidden native `<input>` for form integration — no recipe slot. */
+  HiddenInput: _$react.ForwardRefExoticComponent<Slider.HiddenInputProps & _$react.RefAttributes<HTMLInputElement>>;
 };
 /** Slot class overrides for {@link SliderDS}. */
 interface SliderDSClassNames {
@@ -182,11 +182,11 @@ type SliderDSProps = SliderVariants & {
   classNames?: SliderDSClassNames;
 };
 /**
- * Design-system convenience slider — label, value display, description, and error included.
- * **`Slider`** stays the styled compound for full composition; **`SliderDS`** = packaged DS
- * API (`onChange(value: number)`; bare **`Slider.Root`** still uses Ark's `onValueChange`).
+ * Design-system convenience slider — label, value display, description, and error included. **`Slider`**
+ * stays the styled compound for full composition; **`SliderDS`** = packaged DS API (`onChange(value:
+ * number)`; bare **`Slider.Root`** still uses Ark's `onValueChange`).
  */
-declare const SliderDS: react.ForwardRefExoticComponent<{
+declare const SliderDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
   /** Current value(s) — pass a single-element array for single-thumb, two elements for range. */value?: number[]; /** Called continuously as the thumb(s) move — receives the full values array. */
@@ -204,7 +204,7 @@ declare const SliderDS: react.ForwardRefExoticComponent<{
   disabled?: boolean; /** Merged onto the root slot after recipe classes. */
   className?: string; /** Per-slot class overrides. */
   classNames?: SliderDSClassNames;
-} & react.RefAttributes<HTMLDivElement>>;
+} & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Slider$1 as Slider, SliderDS, SliderDSClassNames, SliderDSProps, type SliderRootProps, type SliderValueChangeDetails };
 //# sourceMappingURL=slider.d.ts.map

@@ -9,27 +9,26 @@ const { withProvider, withContext } = createStyleContext(radioGroupRecipe);
 /**
 * Styled Ark **RadioGroup** compound — each part is wired to `radioGroupRecipe` via context.
 *
-* Supports `size` (sm | md | lg), `variant` (default | card), and
-* `orientation` (vertical | horizontal) via `RadioGroup.Root`.
-* Ark manages keyboard navigation, focus management, and ARIA.
+* Supports `size` (sm | md | lg), `variant` (default | card), and `orientation` (vertical | horizontal) via
+* `RadioGroup.Root`. Ark manages keyboard navigation, focus management, and ARIA.
 *
 * @example
-* ```tsx
-* import { RadioGroup } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { RadioGroup } from '@finografic/design-system/forms';
 *
-* <RadioGroup.Root name="plan" size="md" value={plan} onValueChange={({ value }) => setPlan(value)}>
-*   <RadioGroup.Label>Billing plan</RadioGroup.Label>
-*   {options.map((opt) => (
-*     <RadioGroup.Item key={opt.value} value={opt.value}>
-*       <RadioGroup.ItemControl>
-*         <RadioGroup.Indicator />
-*       </RadioGroup.ItemControl>
-*       <RadioGroup.ItemText>{opt.label}</RadioGroup.ItemText>
-*       <RadioGroup.ItemHiddenInput />
-*     </RadioGroup.Item>
-*   ))}
-* </RadioGroup.Root>
-* ```
+*   <RadioGroup.Root name="plan" size="md" value={plan} onValueChange={({ value }) => setPlan(value)}>
+*     <RadioGroup.Label>Billing plan</RadioGroup.Label>
+*     {options.map((opt) => (
+*       <RadioGroup.Item key={opt.value} value={opt.value}>
+*         <RadioGroup.ItemControl>
+*           <RadioGroup.Indicator />
+*         </RadioGroup.ItemControl>
+*         <RadioGroup.ItemText>{opt.label}</RadioGroup.ItemText>
+*         <RadioGroup.ItemHiddenInput />
+*       </RadioGroup.Item>
+*     ))}
+*   </RadioGroup.Root>;
+*   ```;
 */
 const RadioGroup$1 = {
 	Root: withProvider(RadioGroup.Root, "root"),
@@ -49,23 +48,23 @@ const textColumnStyle = css({
 });
 /**
 * Design-system convenience radio group — label, options array, description, and error included.
-* **`RadioGroup`** stays the styled compound; **`RadioGroupDS`** = packaged DS API
-* (`onChange(value: string)` instead of Ark's `onValueChange` detail object).
+* **`RadioGroup`** stays the styled compound; **`RadioGroupDS`** = packaged DS API (`onChange(value: string)`
+* instead of Ark's `onValueChange` detail object).
 *
 * @example
-* ```tsx
-* import { RadioGroupDS } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { RadioGroupDS } from '@finografic/design-system/forms';
 *
-* <RadioGroupDS
-*   label="Billing plan"
-*   value={plan}
-*   onChange={setPlan}
-*   options={[
-*     { value: 'free', label: 'Free', description: 'Up to 3 projects' },
-*     { value: 'pro', label: 'Pro', description: 'Unlimited projects' },
-*   ]}
-* />
-* ```
+*   <RadioGroupDS
+*     label="Billing plan"
+*     value={plan}
+*     onChange={setPlan}
+*     options={[
+*       { value: 'free', label: 'Free', description: 'Up to 3 projects' },
+*       { value: 'pro', label: 'Pro', description: 'Unlimited projects' },
+*     ]}
+*   />;
+*   ```;
 */
 const RadioGroupDS = forwardRef(({ options, value, defaultValue, onChange, label, description, error, name, disabled, size = "md", variant = "default", orientation = "vertical", className, classNames = {} }, ref) => {
 	const styles = radioGroupRecipe({

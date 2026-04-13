@@ -1,10 +1,9 @@
-import { defineTextStyles, defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.9.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
+import { defineTextStyles, defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
 //#region src/tokens/typography.tokens.ts
 /**
 * 📝 Typography Tokens
 *
-* Mapped from the existing client styles typography system.
-* Font stacks, sizes, weights, and line heights.
+* Mapped from the existing client styles typography system. Font stacks, sizes, weights, and line heights.
 */
 const fontTokens = defineTokens.fonts({
 	sans: { value: [
@@ -26,11 +25,11 @@ const fontTokens = defineTokens.fonts({
 	mono: { value: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace" }
 });
 const fontSizeTokens = defineTokens.fontSizes({
-	xs: { value: "0.75rem" },
-	sm: { value: "0.875rem" },
-	md: { value: "1rem" },
-	lg: { value: "1.125rem" },
-	xl: { value: "1.25rem" },
+	"xs": { value: "0.75rem" },
+	"sm": { value: "0.875rem" },
+	"md": { value: "1rem" },
+	"lg": { value: "1.125rem" },
+	"xl": { value: "1.25rem" },
 	"2xl": { value: "1.5rem" },
 	"3xl": { value: "1.875rem" },
 	"4xl": { value: "2.25rem" },

@@ -5,12 +5,11 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI TagsInput example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · control · item · itemPreview · itemText ·
-*           itemInput · itemDeleteTrigger · input · clearTrigger ·
-*           description · errorText
-* Variants: size (sm | md | lg)
+* Slots: root · label · control · item · itemPreview · itemText · itemInput · itemDeleteTrigger · input ·
+* clearTrigger · description · errorText Variants: size (sm | md | lg)
 *
 * **Usage pattern:**
+*
 * - `control` is the full input box — flex-wrap, border, focus-within ring.
 * - Each tag is an `item` containing an `itemPreview` (chip) + `itemInput` (edit mode).
 * - `input` at the end of `control` accepts new tag text.
@@ -119,14 +118,14 @@ const tagsInputRecipe = sva({
 			outline: "none"
 		},
 		itemDeleteTrigger: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			bg: "transparent",
-			border: "none",
-			borderRadius: "xs",
-			color: "inherit",
-			cursor: "pointer",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"bg": "transparent",
+			"border": "none",
+			"borderRadius": "xs",
+			"color": "inherit",
+			"cursor": "pointer",
 			"& svg": {
 				w: "3.5",
 				h: "3.5"
@@ -143,17 +142,17 @@ const tagsInputRecipe = sva({
 			_placeholder: { color: "fg.subtle" }
 		},
 		clearTrigger: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			bg: "transparent",
-			border: "none",
-			borderRadius: "sm",
-			color: "fg.muted",
-			cursor: "pointer",
-			transitionProperty: "background-color, color",
-			transitionDuration: "fast",
-			_hover: {
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"bg": "transparent",
+			"border": "none",
+			"borderRadius": "sm",
+			"color": "fg.muted",
+			"cursor": "pointer",
+			"transitionProperty": "background-color, color",
+			"transitionDuration": "fast",
+			"_hover": {
 				bg: "bg.subtle",
 				color: "fg"
 			},
@@ -194,7 +193,7 @@ const tagsInputRecipe = sva({
 				fontSize: "xs"
 			},
 			itemDeleteTrigger: {
-				p: "0.5",
+				"p": "0.5",
 				"& svg": {
 					w: "3",
 					h: "3"
@@ -230,7 +229,7 @@ const tagsInputRecipe = sva({
 				fontSize: "sm"
 			},
 			itemDeleteTrigger: {
-				p: "0.5",
+				"p": "0.5",
 				"& svg": {
 					w: "3.5",
 					h: "3.5"
@@ -266,7 +265,7 @@ const tagsInputRecipe = sva({
 				fontSize: "sm"
 			},
 			itemDeleteTrigger: {
-				p: "1",
+				"p": "1",
 				"& svg": {
 					w: "3.5",
 					h: "3.5"

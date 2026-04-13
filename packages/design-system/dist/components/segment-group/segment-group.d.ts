@@ -1,40 +1,40 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { SegmentGroupRecipeProps } from "./segment-group.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { SegmentGroup, SegmentGroupValueChangeDetails } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/segment-group/segment-group.d.ts
 /**
  * Styled Ark **SegmentGroup** compound — each part is wired to `segmentGroupRecipe` via context.
  *
- * Renders a set of mutually exclusive options as a pill group with a sliding indicator background.
- * Ark handles all a11y: `radiogroup` role, keyboard navigation (arrows), and ARIA attributes.
- * Variant props (`size`) go on **`SegmentGroup.Root`**.
+ * Renders a set of mutually exclusive options as a pill group with a sliding indicator background. Ark
+ * handles all a11y: `radiogroup` role, keyboard navigation (arrows), and ARIA attributes. Variant props
+ * (`size`) go on **`SegmentGroup.Root`**.
  *
- * **Indicator:** the sliding pill is positioned via CSS vars `--width`, `--height`, `--top`,
- * `--left` injected by Zag — do not set position manually.
+ * **Indicator:** the sliding pill is positioned via CSS vars `--width`, `--height`, `--top`, `--left`
+ * injected by Zag — do not set position manually.
  *
  * @example
- * ```tsx
- * import { SegmentGroup } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { SegmentGroup } from '@finografic/design-system/components';
  *
- * <SegmentGroup.Root defaultValue="monthly" size="md">
- *   <SegmentGroup.Indicator />
- *   <SegmentGroup.Item value="monthly">
- *     <SegmentGroup.ItemText>Monthly</SegmentGroup.ItemText>
- *     <SegmentGroup.ItemHiddenInput />
- *   </SegmentGroup.Item>
- *   <SegmentGroup.Item value="annual">
- *     <SegmentGroup.ItemText>Annual</SegmentGroup.ItemText>
- *     <SegmentGroup.ItemHiddenInput />
- *   </SegmentGroup.Item>
- * </SegmentGroup.Root>
- * ```
+ *   <SegmentGroup.Root defaultValue="monthly" size="md">
+ *     <SegmentGroup.Indicator />
+ *     <SegmentGroup.Item value="monthly">
+ *       <SegmentGroup.ItemText>Monthly</SegmentGroup.ItemText>
+ *       <SegmentGroup.ItemHiddenInput />
+ *     </SegmentGroup.Item>
+ *     <SegmentGroup.Item value="annual">
+ *       <SegmentGroup.ItemText>Annual</SegmentGroup.ItemText>
+ *       <SegmentGroup.ItemHiddenInput />
+ *     </SegmentGroup.Item>
+ *   </SegmentGroup.Root>;
+ *   ```;
  */
 declare const SegmentGroup$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<SegmentGroup.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "itemControl" | "indicator", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<SegmentGroup.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "label" | "itemText" | "indicator" | "itemControl", {
     size: {
       sm: {
         item: {
@@ -62,7 +62,7 @@ declare const SegmentGroup$1: {
       };
     };
   }>>; /** Root with external machine state from `useSegmentGroup`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<SegmentGroup.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "itemControl" | "indicator", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<SegmentGroup.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "label" | "itemText" | "indicator" | "itemControl", {
     size: {
       sm: {
         item: {
@@ -90,12 +90,12 @@ declare const SegmentGroup$1: {
       };
     };
   }>>; /** Optional label rendered above the segment group. */
-  Label: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<SegmentGroup.LabelProps & react.RefAttributes<HTMLSpanElement>>>; /** A single segment option — wraps `ItemText`, `ItemControl`, `ItemHiddenInput`. */
-  Item: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<SegmentGroup.ItemProps & react.RefAttributes<HTMLLabelElement>>>; /** Text label inside a segment item. */
-  ItemText: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<SegmentGroup.ItemTextProps & react.RefAttributes<HTMLSpanElement>>>; /** Hidden radio control used by Ark internally — `display: none` in recipe. */
-  ItemControl: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<SegmentGroup.ItemControlProps & react.RefAttributes<HTMLDivElement>>>; /** Hidden native radio input for form integration. */
-  ItemHiddenInput: react.ForwardRefExoticComponent<SegmentGroup.ItemHiddenInputProps & react.RefAttributes<HTMLInputElement>>; /** Sliding background pill — position driven by Zag CSS vars. */
-  Indicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<SegmentGroup.IndicatorProps & react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** A single segment option — wraps `ItemText`, `ItemControl`, `ItemHiddenInput`. */
+  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.ItemProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Text label inside a segment item. */
+  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.ItemTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Hidden radio control used by Ark internally — `display: none` in recipe. */
+  ItemControl: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.ItemControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Hidden native radio input for form integration. */
+  ItemHiddenInput: _$react.ForwardRefExoticComponent<SegmentGroup.ItemHiddenInputProps & _$react.RefAttributes<HTMLInputElement>>; /** Sliding background pill — position driven by Zag CSS vars. */
+  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
   Context: (props: SegmentGroup.ContextProps) => ReactNode;
 };
 /** A single segment option descriptor for {@link SegmentGroupDS}. */
@@ -128,24 +128,24 @@ type SegmentGroupDSProps = SegmentGroupRecipeProps & {
 };
 /**
  * Design-system convenience segment group — pass an `items` array and get a pill-tab selector.
- * **`SegmentGroup`** stays the styled compound for full composition; **`SegmentGroupDS`** =
- * packaged DS API (`onChange(value)` instead of Ark's `onValueChange` detail object).
+ * **`SegmentGroup`** stays the styled compound for full composition; **`SegmentGroupDS`** = packaged DS API
+ * (`onChange(value)` instead of Ark's `onValueChange` detail object).
  *
  * @example
- * ```tsx
- * import { SegmentGroupDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { SegmentGroupDS } from '@finografic/design-system/components';
  *
- * <SegmentGroupDS
- *   defaultValue="monthly"
- *   onChange={(value) => setBilling(value)}
- *   items={[
- *     { value: 'monthly', label: 'Monthly' },
- *     { value: 'annual', label: 'Annual' },
- *   ]}
- * />
- * ```
+ *   <SegmentGroupDS
+ *     defaultValue="monthly"
+ *     onChange={(value) => setBilling(value)}
+ *     items={[
+ *       { value: 'monthly', label: 'Monthly' },
+ *       { value: 'annual', label: 'Annual' },
+ *     ]}
+ *   />;
+ *   ```;
  */
-declare const SegmentGroupDS: react.ForwardRefExoticComponent<{
+declare const SegmentGroupDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
   /** Segment descriptors. */items: SegmentGroupDSItem[]; /** Controlled selected value. */
@@ -157,7 +157,7 @@ declare const SegmentGroupDS: react.ForwardRefExoticComponent<{
   orientation?: "horizontal" | "vertical"; /** Merged onto the root slot after recipe classes. */
   className?: string; /** Per-slot class overrides. */
   classNames?: SegmentGroupDSClassNames;
-} & react.RefAttributes<HTMLDivElement>>;
+} & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
 export { SegmentGroup$1 as SegmentGroup, SegmentGroupDS, SegmentGroupDSClassNames, SegmentGroupDSItem, SegmentGroupDSProps, type SegmentGroupValueChangeDetails };
 //# sourceMappingURL=segment-group.d.ts.map

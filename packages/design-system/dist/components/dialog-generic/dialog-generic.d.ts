@@ -11,31 +11,30 @@ interface DialogGenericProps {
   onTabChange?: (tab: string) => void;
 }
 /**
- * **DialogGeneric** — pre-composed dialog supporting tabs, title/subtitle, and
- * optional footer buttons. Built on `Dialog.*` parts.
+ * **DialogGeneric** — pre-composed dialog supporting tabs, title/subtitle, and optional footer buttons. Built
+ * on `Dialog.*` parts.
  *
- * Mirrors the consumer's `GenericDialog` API. For full composition control,
- * use `Dialog.*` parts directly.
+ * Mirrors the consumer's `GenericDialog` API. For full composition control, use `Dialog.*` parts directly.
  *
  * @example
- * ```tsx
- * import { DialogGeneric } from '@finografic/design-system/components';
- * import type { DialogGenericConfig } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { DialogGeneric } from '@finografic/design-system/components';
+ *   import type { DialogGenericConfig } from '@finografic/design-system/components';
  *
- * const config: DialogGenericConfig = {
- *   title: 'Settings',
- *   size: 'lg',
- *   tabs: [{ id: 'general', label: 'General', content: <GeneralTab /> }],
- *   footer: {
- *     buttons: [
- *       { children: 'Cancel', variant: 'outline', onClick: handleClose },
- *       { children: 'Save', variant: 'solid', palette: 'primary', onClick: handleSave },
- *     ],
- *   },
- * };
+ *   const config: DialogGenericConfig = {
+ *     title: 'Settings',
+ *     size: 'lg',
+ *     tabs: [{ id: 'general', label: 'General', content: <GeneralTab /> }],
+ *     footer: {
+ *       buttons: [
+ *         { children: 'Cancel', variant: 'outline', onClick: handleClose },
+ *         { children: 'Save', variant: 'solid', palette: 'primary', onClick: handleSave },
+ *       ],
+ *     },
+ *   };
  *
- * <DialogGeneric isOpen={open} onClose={() => setOpen(false)} config={config} />
- * ```
+ *   <DialogGeneric isOpen={open} onClose={() => setOpen(false)} config={config} />;
+ *   ```;
  */
 declare const DialogGeneric: FC<DialogGenericProps>;
 //#endregion

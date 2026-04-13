@@ -10,21 +10,26 @@ const { withProvider, withContext } = createStyleContext(checkboxRecipe);
 /**
 * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
 *
-* Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers
-* (`checked`, `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
+* Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers (`checked`,
+* `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
 *
 * @example
-* ```tsx
-* <Checkbox.Root size="md" palette="success" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
-*   <Checkbox.Control>
-*     <Checkbox.Indicator>
-*       <CheckIcon aria-hidden />
-*     </Checkbox.Indicator>
-*   </Checkbox.Control>
-*   <Checkbox.Label>Accept terms</Checkbox.Label>
-*   <Checkbox.HiddenInput />
-* </Checkbox.Root>
-* ```
+*   ```tsx
+*   <Checkbox.Root
+*     size="md"
+*     palette="success"
+*     checked={checked}
+*     onCheckedChange={({ checked }) => setChecked(checked)}
+*   >
+*     <Checkbox.Control>
+*       <Checkbox.Indicator>
+*         <CheckIcon aria-hidden />
+*       </Checkbox.Indicator>
+*     </Checkbox.Control>
+*     <Checkbox.Label>Accept terms</Checkbox.Label>
+*     <Checkbox.HiddenInput />
+*   </Checkbox.Root>;
+*   ```;
 */
 const Checkbox$1 = {
 	Root: withProvider(Checkbox.Root, "root"),
@@ -39,9 +44,9 @@ const textColumnStyle = css({
 	gap: "0.5"
 });
 /**
-* Design-system convenience checkbox — label, description, and error text included.
-* **`Checkbox`** stays the styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`;
-* bare **`Checkbox.Root`** still uses Ark's `onCheckedChange`).
+* Design-system convenience checkbox — label, description, and error text included. **`Checkbox`** stays the
+* styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`; bare **`Checkbox.Root`** still
+* uses Ark's `onCheckedChange`).
 */
 const CheckboxDS = forwardRef(({ label, description, error, checked, onChange, onBlur, name, disabled, size = "md", palette = "primary", indicator, className, classNames = {} }, ref) => {
 	const styles = checkboxRecipe({

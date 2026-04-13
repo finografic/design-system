@@ -1,66 +1,68 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { TabsRecipeProps } from "./tabs.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { Tabs, TabsFocusChangeDetails, TabsValueChangeDetails } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/tabs/tabs.d.ts
 /**
  * Styled Ark **Tabs** compound — each part is wired to `tabsRecipe` via context.
  *
- * Zag provides roles, roving tabindex, and keyboard navigation. Variant props (`variant`, `size`)
- * live on **`Tabs.Root`** or **`Tabs.RootProvider`** and flow to **List / Trigger / Content /
- * Indicator** via context — you do **not** thread `className={styles.list}` on each part unless
- * you are merging extra classes (use `cx` with the slot class from `tabsRecipe`).
+ * Zag provides roles, roving tabindex, and keyboard navigation. Variant props (`variant`, `size`) live on
+ * **`Tabs.Root`** or **`Tabs.RootProvider`** and flow to **List / Trigger / Content / Indicator** via context
+ * — you do **not** thread `className={styles.list}` on each part unless you are merging extra classes (use
+ * `cx` with the slot class from `tabsRecipe`).
  *
- * **`Tabs.RootProvider`** — pass `value={tabs}` from Ark's **`useTabs`** when the machine is
- * created outside the tree (e.g. to show `tabs.value` in a sibling `<output>`).
+ * **`Tabs.RootProvider`** — pass `value={tabs}` from Ark's **`useTabs`** when the machine is created outside
+ * the tree (e.g. to show `tabs.value` in a sibling `<output>`).
  *
- * **Orientation:** pass `orientation="horizontal" | "vertical"` on the root — styles use
- * `data-orientation` on each part; do not add `orientation` as a Panda recipe variant or
- * `createStyleContext` will strip it from Ark.
+ * **Orientation:** pass `orientation="horizontal" | "vertical"` on the root — styles use `data-orientation`
+ * on each part; do not add `orientation` as a Panda recipe variant or `createStyleContext` will strip it from
+ * Ark.
  *
- * @example Built-in state (`Tabs.Root`)
- * ```tsx
- * import { Tabs } from '@finografic/design-system/components';
+ * @example
+ *   Built-in state (`Tabs.Root`)
+ *   ```tsx
+ *   import { Tabs } from '@finografic/design-system/components';
  *
- * <Tabs.Root defaultValue="account" variant="enclosed" size="md">
+ *   <Tabs.Root defaultValue="account" variant="enclosed" size="md">
  *   <Tabs.List>
- *     <Tabs.Trigger value="account">Account</Tabs.Trigger>
- *     <Tabs.Trigger value="password">Password</Tabs.Trigger>
- *     <Tabs.Indicator />
+ *   <Tabs.Trigger value="account">Account</Tabs.Trigger>
+ *   <Tabs.Trigger value="password">Password</Tabs.Trigger>
+ *   <Tabs.Indicator />
  *   </Tabs.List>
  *   <Tabs.Content value="account">…</Tabs.Content>
  *   <Tabs.Content value="password">…</Tabs.Content>
- * </Tabs.Root>
- * ```
+ *   </Tabs.Root>
+ *   ```
  *
- * @example External machine (`useTabs` + `Tabs.RootProvider`)
- * ```tsx
- * import { useTabs } from '@ark-ui/react';
- * import { Tabs } from '@finografic/design-system/components';
+ * @example
+ *   External machine (`useTabs` + `Tabs.RootProvider`)
+ *   ```tsx
+ *   import { useTabs } from '@ark-ui/react';
+ *   import { Tabs } from '@finografic/design-system/components';
  *
- * const tabs = useTabs({ id: 'example', defaultValue: 'account' });
+ *   const tabs = useTabs({ id: 'example', defaultValue: 'account' });
  *
- * return (
+ *   return (
  *   <div>
- *     <output>selected: {tabs.value}</output>
- *     <Tabs.RootProvider value={tabs} variant="line" size="md">
- *       <Tabs.List>
- *         <Tabs.Trigger value="account">Account</Tabs.Trigger>
- *         <Tabs.Trigger value="password">Password</Tabs.Trigger>
- *         <Tabs.Indicator />
- *       </Tabs.List>
- *       <Tabs.Content value="account">…</Tabs.Content>
- *       <Tabs.Content value="password">…</Tabs.Content>
- *     </Tabs.RootProvider>
+ *   <output>selected: {tabs.value}</output>
+ *   <Tabs.RootProvider value={tabs} variant="line" size="md">
+ *   <Tabs.List>
+ *   <Tabs.Trigger value="account">Account</Tabs.Trigger>
+ *   <Tabs.Trigger value="password">Password</Tabs.Trigger>
+ *   <Tabs.Indicator />
+ *   </Tabs.List>
+ *   <Tabs.Content value="account">…</Tabs.Content>
+ *   <Tabs.Content value="password">…</Tabs.Content>
+ *   </Tabs.RootProvider>
  *   </div>
- * );
- * ```
+ *   );
+ *   ```
  */
 declare const Tabs$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "content" | "list" | "trigger", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
     variant: {
       line: {
         list: {
@@ -192,7 +194,7 @@ declare const Tabs$1: {
       };
     };
   }>>; /** Same styling as Root when using external machine state from `useTabs`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "content" | "list" | "trigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
     variant: {
       line: {
         list: {
@@ -324,10 +326,10 @@ declare const Tabs$1: {
       };
     };
   }>>; /** Tab list — lays out triggers and hosts the indicator. */
-  List: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tabs.ListProps & react.RefAttributes<HTMLDivElement>>>; /** Tab trigger — one per panel `value`. */
-  Trigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tabs.TriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Tab panel — matches a trigger `value`. */
-  Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tabs.ContentProps & react.RefAttributes<HTMLDivElement>>>; /** Sliding highlight (enclosed) or underline bar (line) — place last inside `Tabs.List`. */
-  Indicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Tabs.IndicatorProps & react.RefAttributes<HTMLDivElement>>>; /** Render prop — forwards machine context; no DOM, no recipe slot. */
+  List: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.ListProps & _$react.RefAttributes<HTMLDivElement>>>; /** Tab trigger — one per panel `value`. */
+  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Tab panel — matches a trigger `value`. */
+  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Sliding highlight (enclosed) or underline bar (line) — place last inside `Tabs.List`. */
+  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — forwards machine context; no DOM, no recipe slot. */
   Context: (props: Tabs.ContextProps) => ReactNode;
 };
 /** A single tab descriptor for {@link TabsDS}. */
@@ -360,26 +362,26 @@ type TabsDSProps = TabsRecipeProps & {
   classNames?: TabsDSClassNames;
 };
 /**
- * Design-system convenience tabs — pass a `tabs` array and get triggers + panels automatically.
- * **`Tabs`** stays the styled compound for full composition; **`TabsDS`** = packaged DS API
- * (`onChange(value: string)` instead of Ark's `onValueChange` detail object).
+ * Design-system convenience tabs — pass a `tabs` array and get triggers + panels automatically. **`Tabs`**
+ * stays the styled compound for full composition; **`TabsDS`** = packaged DS API (`onChange(value: string)`
+ * instead of Ark's `onValueChange` detail object).
  *
  * @example
- * ```tsx
- * import { TabsDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { TabsDS } from '@finografic/design-system/components';
  *
- * <TabsDS
- *   defaultValue="account"
- *   variant="enclosed"
- *   onChange={(value) => console.log(value)}
- *   tabs={[
- *     { value: 'account', label: 'Account', content: <AccountPanel /> },
- *     { value: 'password', label: 'Password', content: <PasswordPanel /> },
- *   ]}
- * />
- * ```
+ *   <TabsDS
+ *     defaultValue="account"
+ *     variant="enclosed"
+ *     onChange={(value) => console.log(value)}
+ *     tabs={[
+ *       { value: 'account', label: 'Account', content: <AccountPanel /> },
+ *       { value: 'password', label: 'Password', content: <PasswordPanel /> },
+ *     ]}
+ *   />;
+ *   ```;
  */
-declare const TabsDS: react.ForwardRefExoticComponent<{
+declare const TabsDS: _$react.ForwardRefExoticComponent<{
   variant?: "line" | "enclosed" | undefined;
   size?: "sm" | "md" | "lg" | undefined;
 } & {
@@ -391,7 +393,7 @@ declare const TabsDS: react.ForwardRefExoticComponent<{
   orientation?: "horizontal" | "vertical"; /** Merged onto the root slot after recipe classes. */
   className?: string; /** Per-slot class overrides. */
   classNames?: TabsDSClassNames;
-} & react.RefAttributes<HTMLDivElement>>;
+} & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Tabs$1 as Tabs, TabsDS, TabsDSClassNames, TabsDSProps, TabsDSTab, type TabsFocusChangeDetails, type TabsValueChangeDetails };
 //# sourceMappingURL=tabs.d.ts.map

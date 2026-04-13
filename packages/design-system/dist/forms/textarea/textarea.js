@@ -9,16 +9,16 @@ import { jsx } from "react/jsx-runtime";
 * Pass **`size`** and **`resize`** for layout control. Use `invalid` for error state.
 *
 * @example
-* ```tsx
-* import { Textarea } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { Textarea } from '@finografic/design-system/forms';
 *
-* <Textarea
-*   size="md"
-*   resize="vertical"
-*   placeholder="Enter a description…"
-*   onChange={(e) => setValue(e.target.value)}
-* />
-* ```
+*   <Textarea
+*     size="md"
+*     resize="vertical"
+*     placeholder="Enter a description…"
+*     onChange={(e) => setValue(e.target.value)}
+*   />;
+*   ```;
 */
 const Textarea = forwardRef(({ className, size = "md", resize = "vertical", invalid, ...props }, ref) => /* @__PURE__ */ jsx("textarea", {
 	ref,

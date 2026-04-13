@@ -1,45 +1,47 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { EditableRecipeProps } from "./editable.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { Editable, EditableValueChangeDetails } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/forms/editable/editable.d.ts
 /**
  * Styled Ark **Editable** compound — each part is wired to `editableRecipe` via context.
  *
- * Renders as a read-only preview that switches to an input on click or trigger press.
- * Ark handles all a11y: `contenteditable` fallback, keyboard (Enter to submit, Escape to cancel).
- * Variant props (`size`) go on **`Editable.Root`**.
+ * Renders as a read-only preview that switches to an input on click or trigger press. Ark handles all a11y:
+ * `contenteditable` fallback, keyboard (Enter to submit, Escape to cancel). Variant props (`size`) go on
+ * **`Editable.Root`**.
  *
  * @example
- * ```tsx
- * import { Editable } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { Editable } from '@finografic/design-system/forms';
  *
- * <Editable.Root defaultValue="Hello world" size="md">
- *   <Editable.Label>Display name</Editable.Label>
- *   <Editable.Area>
- *     <Editable.Input />
- *     <Editable.Preview />
- *   </Editable.Area>
- *   <Editable.Control>
- *     <Editable.Context>
- *       {({ editing }) => editing ? (
- *         <>
- *           <Editable.SubmitTrigger>✓</Editable.SubmitTrigger>
- *           <Editable.CancelTrigger>✕</Editable.CancelTrigger>
- *         </>
- *       ) : (
- *         <Editable.EditTrigger>✎</Editable.EditTrigger>
- *       )}
- *     </Editable.Context>
- *   </Editable.Control>
- * </Editable.Root>
- * ```
+ *   <Editable.Root defaultValue="Hello world" size="md">
+ *     <Editable.Label>Display name</Editable.Label>
+ *     <Editable.Area>
+ *       <Editable.Input />
+ *       <Editable.Preview />
+ *     </Editable.Area>
+ *     <Editable.Control>
+ *       <Editable.Context>
+ *         {({ editing }) =>
+ *           editing ? (
+ *             <>
+ *               <Editable.SubmitTrigger>✓</Editable.SubmitTrigger>
+ *               <Editable.CancelTrigger>✕</Editable.CancelTrigger>
+ *             </>
+ *           ) : (
+ *             <Editable.EditTrigger>✎</Editable.EditTrigger>
+ *           )
+ *         }
+ *       </Editable.Context>
+ *     </Editable.Control>
+ *   </Editable.Root>;
+ *   ```;
  */
 declare const Editable$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Editable.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "textarea" | "input" | "control" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "area" | "input" | "preview" | "control" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
     size: {
       sm: {
         input: {
@@ -133,7 +135,7 @@ declare const Editable$1: {
       };
     };
   }>>; /** Root with external machine state from `useEditable`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Editable.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "textarea" | "input" | "control" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "area" | "input" | "preview" | "control" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
     size: {
       sm: {
         input: {
@@ -227,14 +229,14 @@ declare const Editable$1: {
       };
     };
   }>>; /** Optional text label above the editable field. */
-  Label: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.LabelProps & react.RefAttributes<HTMLLabelElement>>>; /** Wrapper that overlays `Input` and `Preview`. */
-  Area: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.AreaProps & react.RefAttributes<HTMLDivElement>>>; /** Text input — shown while editing. */
-  Input: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.InputProps & react.RefAttributes<HTMLInputElement>>>; /** Read-only display — shown while not editing. */
-  Preview: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.PreviewProps & react.RefAttributes<HTMLSpanElement>>>; /** Row of action triggers (Edit / Submit / Cancel). */
-  Control: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.ControlProps & react.RefAttributes<HTMLDivElement>>>; /** Ghost button that enters edit mode. */
-  EditTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.EditTriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Accent-filled button that commits the current value. */
-  SubmitTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.SubmitTriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Ghost button that discards changes and exits edit mode. */
-  CancelTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Editable.CancelTriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Render prop — exposes machine context (e.g. `editing`) to children; no DOM, no recipe slot. */
+  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Wrapper that overlays `Input` and `Preview`. */
+  Area: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.AreaProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text input — shown while editing. */
+  Input: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.InputProps & _$react.RefAttributes<HTMLInputElement>>>; /** Read-only display — shown while not editing. */
+  Preview: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.PreviewProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Row of action triggers (Edit / Submit / Cancel). */
+  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Ghost button that enters edit mode. */
+  EditTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.EditTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Accent-filled button that commits the current value. */
+  SubmitTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.SubmitTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Ghost button that discards changes and exits edit mode. */
+  CancelTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.CancelTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Render prop — exposes machine context (e.g. `editing`) to children; no DOM, no recipe slot. */
   Context: (props: Editable.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link EditableDS}. */
@@ -264,22 +266,18 @@ type EditableDSProps = EditableRecipeProps & {
   classNames?: EditableDSClassNames;
 };
 /**
- * Design-system convenience editable field — label, preview/input swap, and edit/submit/cancel
- * triggers included. **`Editable`** stays the styled compound for full composition;
- * **`EditableDS`** = packaged DS API with normalized handlers.
+ * Design-system convenience editable field — label, preview/input swap, and edit/submit/cancel triggers
+ * included. **`Editable`** stays the styled compound for full composition; **`EditableDS`** = packaged DS API
+ * with normalized handlers.
  *
  * @example
- * ```tsx
- * import { EditableDS } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { EditableDS } from '@finografic/design-system/forms';
  *
- * <EditableDS
- *   label="Display name"
- *   defaultValue="John Doe"
- *   onValueCommit={(value) => updateName(value)}
- * />
- * ```
+ *   <EditableDS label="Display name" defaultValue="John Doe" onValueCommit={(value) => updateName(value)} />;
+ *   ```;
  */
-declare const EditableDS: react.ForwardRefExoticComponent<{
+declare const EditableDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
   /** Controlled value. */value?: string; /** Default value (uncontrolled). */
@@ -293,7 +291,7 @@ declare const EditableDS: react.ForwardRefExoticComponent<{
   multiline?: boolean; /** Optional label above the field. */
   label?: ReactNode; /** Per-slot class overrides. */
   classNames?: EditableDSClassNames;
-} & react.RefAttributes<HTMLDivElement>>;
+} & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Editable$1 as Editable, EditableDS, EditableDSClassNames, EditableDSProps, type EditableValueChangeDetails };
 //# sourceMappingURL=editable.d.ts.map

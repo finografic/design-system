@@ -64,27 +64,20 @@ function PaginationButton({ className, disabled, children, ...rest }) {
 /**
 * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
 *
-* Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`)
-* with `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper.
-* Pass `classNames.paginationButton` for pagination buttons.
+* Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`) with
+* `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper. Pass
+* `classNames.paginationButton` for pagination buttons.
 *
 * @example
-* ```tsx
-* import { DataTable } from '@finografic/design-system/components';
-* import { createColumnHelper } from '@tanstack/react-table';
+*   ```tsx
+*   import { DataTable } from '@finografic/design-system/components';
+*   import { createColumnHelper } from '@tanstack/react-table';
 *
-* const col = createColumnHelper<User>();
-* const columns = [
-*   col.accessor('name', { header: 'Name' }),
-*   col.accessor('email', { header: 'Email' }),
-* ];
+*   const col = createColumnHelper<User>();
+*   const columns = [col.accessor('name', { header: 'Name' }), col.accessor('email', { header: 'Email' })];
 *
-* <DataTable
-*   data={users}
-*   columns={columns}
-*   classNames={{ table: {} }}
-* />
-* ```
+*   <DataTable data={users} columns={columns} classNames={{ table: {} }} />;
+*   ```;
 */
 function DataTable({ data, columns, classNames, caption, loading = false, pageSize = 20, emptyMessage = "No results found.", getRowId, selectedRows, onSelectionChange }) {
 	const [sorting, setSorting] = useState([]);

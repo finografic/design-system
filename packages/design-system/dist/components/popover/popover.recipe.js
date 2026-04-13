@@ -3,7 +3,7 @@ import { sva } from "@styled-system/css";
 /**
 * Popover Slot Recipe
 *
-* Slots:    trigger | positioner | content | title | description | closeTrigger | arrow | arrowTip
+* Slots: trigger | positioner | content | title | description | closeTrigger | arrow | arrowTip
 */
 const popoverRecipe = sva({
 	className: "popover",

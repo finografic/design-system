@@ -1,33 +1,38 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { CheckboxVariants } from "./checkbox.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { Checkbox } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/checkbox/checkbox.d.ts
 /**
  * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
  *
- * Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers
- * (`checked`, `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
+ * Pass **`size`** and **`palette`** on `Root` so slot styles resolve. Control state and handlers (`checked`,
+ * `onCheckedChange`, `disabled`, `name`) also go on **`Root`**.
  *
  * @example
- * ```tsx
- * <Checkbox.Root size="md" palette="success" checked={checked} onCheckedChange={({ checked }) => setChecked(checked)}>
- *   <Checkbox.Control>
- *     <Checkbox.Indicator>
- *       <CheckIcon aria-hidden />
- *     </Checkbox.Indicator>
- *   </Checkbox.Control>
- *   <Checkbox.Label>Accept terms</Checkbox.Label>
- *   <Checkbox.HiddenInput />
- * </Checkbox.Root>
- * ```
+ *   ```tsx
+ *   <Checkbox.Root
+ *     size="md"
+ *     palette="success"
+ *     checked={checked}
+ *     onCheckedChange={({ checked }) => setChecked(checked)}
+ *   >
+ *     <Checkbox.Control>
+ *       <Checkbox.Indicator>
+ *         <CheckIcon aria-hidden />
+ *       </Checkbox.Indicator>
+ *     </Checkbox.Control>
+ *     <Checkbox.Label>Accept terms</Checkbox.Label>
+ *     <Checkbox.HiddenInput />
+ *   </Checkbox.Root>;
+ *   ```;
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Checkbox.RootProps & react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "label" | "indicator" | "description" | "errorText" | "control", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Checkbox.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "description" | "label" | "errorText" | "control" | "indicator", {
     size: {
       sm: {
         control: {
@@ -205,10 +210,10 @@ declare const Checkbox$1: {
       };
     };
   }>>; /** Box + hit target; receives `control` slot classes from context. */
-  Control: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Checkbox.ControlProps & react.RefAttributes<HTMLDivElement>>>; /** Icon container; receives `indicator` slot classes from context. */
-  Indicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Checkbox.IndicatorProps & react.RefAttributes<HTMLDivElement>>>; /** Text label; receives `label` slot classes from context. */
-  Label: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Checkbox.LabelProps & react.RefAttributes<HTMLSpanElement>>>; /** Native input for forms; no recipe slot. */
-  HiddenInput: react.ForwardRefExoticComponent<Checkbox.HiddenInputProps & react.RefAttributes<HTMLInputElement>>;
+  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Checkbox.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Icon container; receives `indicator` slot classes from context. */
+  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Checkbox.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text label; receives `label` slot classes from context. */
+  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Checkbox.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Native input for forms; no recipe slot. */
+  HiddenInput: _$react.ForwardRefExoticComponent<Checkbox.HiddenInputProps & _$react.RefAttributes<HTMLInputElement>>;
 };
 /** Slot class overrides for {@link CheckboxDS}. */
 interface CheckboxDSClassNames {
@@ -233,11 +238,11 @@ type CheckboxDSProps = CheckboxVariants & {
   classNames?: CheckboxDSClassNames;
 };
 /**
- * Design-system convenience checkbox — label, description, and error text included.
- * **`Checkbox`** stays the styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`;
- * bare **`Checkbox.Root`** still uses Ark's `onCheckedChange`).
+ * Design-system convenience checkbox — label, description, and error text included. **`Checkbox`** stays the
+ * styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`; bare **`Checkbox.Root`** still
+ * uses Ark's `onCheckedChange`).
  */
-declare const CheckboxDS: react.ForwardRefExoticComponent<{
+declare const CheckboxDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
   palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
 } & {
@@ -252,7 +257,7 @@ declare const CheckboxDS: react.ForwardRefExoticComponent<{
   indicator?: ReactNode; /** Merged onto the root slot after recipe classes. */
   className?: string; /** Per-slot class overrides */
   classNames?: CheckboxDSClassNames;
-} & react.RefAttributes<HTMLLabelElement>>;
+} & _$react.RefAttributes<HTMLLabelElement>>;
 //#endregion
 export { Checkbox$1 as Checkbox, CheckboxDS, CheckboxDSClassNames, CheckboxDSProps };
 //# sourceMappingURL=checkbox.d.ts.map

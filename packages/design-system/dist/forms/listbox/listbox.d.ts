@@ -1,47 +1,49 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { ListboxRecipeProps } from "./listbox.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { Listbox, ListboxHighlightChangeDetails, ListboxValueChangeDetails } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/forms/listbox/listbox.d.ts
 /**
  * Styled Ark **Listbox** compound — each part is wired to `listboxRecipe` via context.
  *
- * An always-visible, keyboard-navigable list of selectable options. Ark handles all a11y:
- * `listbox` role, roving focus (`_highlighted`), `aria-selected` on chosen items.
- * Unlike Select/Combobox, the list is never hidden in a dropdown.
+ * An always-visible, keyboard-navigable list of selectable options. Ark handles all a11y: `listbox` role,
+ * roving focus (`_highlighted`), `aria-selected` on chosen items. Unlike Select/Combobox, the list is never
+ * hidden in a dropdown.
  *
  * @example
- * ```tsx
- * import { Listbox as ArkListbox, createListCollection } from '@ark-ui/react';
- * import { Listbox } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { Listbox as ArkListbox, createListCollection } from '@ark-ui/react';
+ *   import { Listbox } from '@finografic/design-system/forms';
  *
- * const collection = createListCollection({ items: [
- *   { value: 'en', label: 'English' },
- *   { value: 'es', label: 'Spanish' },
- * ]});
+ *   const collection = createListCollection({
+ *     items: [
+ *       { value: 'en', label: 'English' },
+ *       { value: 'es', label: 'Spanish' },
+ *     ],
+ *   });
  *
- * <Listbox.Root collection={collection} size="md">
- *   <Listbox.Label>Language</Listbox.Label>
- *   <Listbox.Content>
- *     <Listbox.ItemGroup>
- *       <ArkListbox.Items>
- *         {(item) => (
- *           <Listbox.Item key={item.value} item={item}>
- *             <Listbox.ItemText>{item.label}</Listbox.ItemText>
- *             <Listbox.ItemIndicator>✓</Listbox.ItemIndicator>
- *           </Listbox.Item>
- *         )}
- *       </ArkListbox.Items>
- *     </Listbox.ItemGroup>
- *   </Listbox.Content>
- * </Listbox.Root>
- * ```
+ *   <Listbox.Root collection={collection} size="md">
+ *     <Listbox.Label>Language</Listbox.Label>
+ *     <Listbox.Content>
+ *       <Listbox.ItemGroup>
+ *         <ArkListbox.Items>
+ *           {(item) => (
+ *             <Listbox.Item key={item.value} item={item}>
+ *               <Listbox.ItemText>{item.label}</Listbox.ItemText>
+ *               <Listbox.ItemIndicator>✓</Listbox.ItemIndicator>
+ *             </Listbox.Item>
+ *           )}
+ *         </ArkListbox.Items>
+ *       </Listbox.ItemGroup>
+ *     </Listbox.Content>
+ *   </Listbox.Root>;
+ *   ```;
  */
 declare const Listbox$1: {
-  /** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<Listbox.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "content" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
+  /** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Listbox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemGroup" | "itemGroupLabel" | "itemText", {
     size: {
       sm: {
         item: {
@@ -99,7 +101,7 @@ declare const Listbox$1: {
       };
     };
   }>>; /** Root with external machine state from `useListbox`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<Listbox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "content" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Listbox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "itemGroup" | "itemGroupLabel" | "itemText", {
     size: {
       sm: {
         item: {
@@ -157,13 +159,13 @@ declare const Listbox$1: {
       };
     };
   }>>; /** Text label above the list. */
-  Label: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.LabelProps & react.RefAttributes<HTMLSpanElement>>>; /** Scrollable list container. */
-  Content: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.ContentProps & react.RefAttributes<HTMLDivElement>>>; /** A single option row — pass `item` from the collection. */
-  Item: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.ItemProps & react.RefAttributes<HTMLDivElement>>>; /** Text label inside an item. */
-  ItemText: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.ItemTextProps & react.RefAttributes<HTMLDivElement>>>; /** Check indicator shown when the item is selected. */
-  ItemIndicator: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.ItemIndicatorProps & react.RefAttributes<HTMLDivElement>>>; /** Groups related items — provides visual separation. */
-  ItemGroup: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.ItemGroupProps & react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
-  ItemGroupLabel: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<Listbox.ItemGroupLabelProps & react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Scrollable list container. */
+  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single option row — pass `item` from the collection. */
+  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text label inside an item. */
+  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Check indicator shown when the item is selected. */
+  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Groups related items — provides visual separation. */
+  ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
+  ItemGroupLabel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemGroupLabelProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
   Context: <T extends unknown>(props: Listbox.ContextProps<T>) => ReactNode; /** Render prop — exposes per-item state inside `Item`. */
   ItemContext: (props: Listbox.ItemContextProps) => ReactNode;
 };
@@ -197,25 +199,24 @@ type ListboxDSProps = ListboxRecipeProps & {
   classNames?: ListboxDSClassNames;
 };
 /**
- * Design-system convenience listbox — renders a flat list of selectable items.
- * **`Listbox`** stays the styled compound for full composition; **`ListboxDS`** =
- * packaged DS API with normalized handlers.
+ * Design-system convenience listbox — renders a flat list of selectable items. **`Listbox`** stays the styled
+ * compound for full composition; **`ListboxDS`** = packaged DS API with normalized handlers.
  *
  * @example
- * ```tsx
- * import { ListboxDS } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { ListboxDS } from '@finografic/design-system/forms';
  *
- * <ListboxDS
- *   label="Language"
- *   items={[
- *     { value: 'en', label: 'English' },
- *     { value: 'es', label: 'Spanish' },
- *   ]}
- *   onChange={(value, items) => setLanguages(value)}
- * />
- * ```
+ *   <ListboxDS
+ *     label="Language"
+ *     items={[
+ *       { value: 'en', label: 'English' },
+ *       { value: 'es', label: 'Spanish' },
+ *     ]}
+ *     onChange={(value, items) => setLanguages(value)}
+ *   />;
+ *   ```;
  */
-declare const ListboxDS: react.ForwardRefExoticComponent<{
+declare const ListboxDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
   /** Item descriptors. */items: ListboxDSItem[]; /** Controlled selected values. */
@@ -227,7 +228,7 @@ declare const ListboxDS: react.ForwardRefExoticComponent<{
   onSelect?: (value: string, item: ListboxDSItem) => void; /** Optional label above the list. */
   label?: ReactNode; /** Per-slot class overrides. */
   classNames?: ListboxDSClassNames;
-} & react.RefAttributes<HTMLDivElement>>;
+} & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Listbox$1 as Listbox, ListboxDS, ListboxDSClassNames, ListboxDSItem, ListboxDSProps, type ListboxHighlightChangeDetails, type ListboxValueChangeDetails };
 //# sourceMappingURL=listbox.d.ts.map

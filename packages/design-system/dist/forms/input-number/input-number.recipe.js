@@ -5,18 +5,18 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI NumberInput example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · control · input · triggerGroup · incrementTrigger · decrementTrigger · prefix · suffix · errorText
-* Variants: size (sm | md | lg) · palette (default | primary | success | danger | warning | info)
+* Slots: root · label · control · input · triggerGroup · incrementTrigger · decrementTrigger · prefix ·
+* suffix · errorText Variants: size (sm | md | lg) · palette (default | primary | success | danger | warning
+* | info)
 *
-* Stepper architecture: `triggerGroup` is absolutely positioned on the right edge of the
-* control. It stacks `incrementTrigger` (top) and `decrementTrigger` (bottom) as a flex
-* column. The `input` gets `paddingInlineEnd` sized to match the triggerGroup width so
-* typed text never disappears under the buttons.
+* Stepper architecture: `triggerGroup` is absolutely positioned on the right edge of the control. It stacks
+* `incrementTrigger` (top) and `decrementTrigger` (bottom) as a flex column. The `input` gets
+* `paddingInlineEnd` sized to match the triggerGroup width so typed text never disappears under the buttons.
 *
-* Prefix/suffix adornments: plain flex slots at the left/right edges of the control.
-* Pass any icon or text as `prefix` / `suffix`. The `palette` variant sets their
-* background and text color — use it to signal meaning (e.g. palette="danger" for a
-* red unit label on an out-of-range field). Default palette is neutral (`bg.muted`).
+* Prefix/suffix adornments: plain flex slots at the left/right edges of the control. Pass any icon or text as
+* `prefix` / `suffix`. The `palette` variant sets their background and text color — use it to signal meaning
+* (e.g. palette="danger" for a red unit label on an out-of-range field). Default palette is neutral
+* (`bg.muted`).
 */
 const inputNumberRecipe = sva({
 	className: "input-number",

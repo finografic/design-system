@@ -1,38 +1,38 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { InputPasswordRecipeProps } from "./input-password.recipe.js";
-import * as react from "react";
+import * as _$react from "react";
 import { ReactNode } from "react";
 import { PasswordInput, PasswordInputVisibilityChangeDetails } from "@ark-ui/react";
-import * as _styled_system_jsx0 from "@styled-system/jsx";
+import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/input-password/input-password.d.ts
 /**
  * Styled Ark **PasswordInput** compound — each part is wired to `inputPasswordRecipe` via context.
  *
- * Provides a text/password toggle with accessible visibility trigger. Ark manages the
- * `data-state="visible" | "hidden"` attribute on the root and controls the input type.
- * Variant props (`size`) go on **`InputPassword.Root`**.
+ * Provides a text/password toggle with accessible visibility trigger. Ark manages the `data-state="visible" |
+ * "hidden"` attribute on the root and controls the input type. Variant props (`size`) go on
+ * **`InputPassword.Root`**.
  *
  * @example
- * ```tsx
- * import { InputPassword } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { InputPassword } from '@finografic/design-system/forms';
  *
- * <InputPassword.Root size="md">
- *   <InputPassword.Label>Password</InputPassword.Label>
- *   <InputPassword.Control>
- *     <InputPassword.Input placeholder="Enter password" />
- *     <InputPassword.VisibilityTrigger>
- *       <InputPassword.Context>
- *         {({ visible }) => visible ? <EyeOffIcon /> : <EyeOnIcon />}
- *       </InputPassword.Context>
- *     </InputPassword.VisibilityTrigger>
- *   </InputPassword.Control>
- * </InputPassword.Root>
- * ```
+ *   <InputPassword.Root size="md">
+ *     <InputPassword.Label>Password</InputPassword.Label>
+ *     <InputPassword.Control>
+ *       <InputPassword.Input placeholder="Enter password" />
+ *       <InputPassword.VisibilityTrigger>
+ *         <InputPassword.Context>
+ *           {({ visible }) => (visible ? <EyeOffIcon /> : <EyeOnIcon />)}
+ *         </InputPassword.Context>
+ *       </InputPassword.VisibilityTrigger>
+ *     </InputPassword.Control>
+ *   </InputPassword.Root>;
+ *   ```;
  */
 declare const InputPassword: {
-  /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<PasswordInput.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
+  /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
     size: {
       sm: {
         control: {
@@ -78,7 +78,7 @@ declare const InputPassword: {
       };
     };
   }>>; /** Root with external machine state from `usePasswordInput`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<PasswordInput.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
     size: {
       sm: {
         control: {
@@ -124,10 +124,10 @@ declare const InputPassword: {
       };
     };
   }>>; /** Optional text label above the control. */
-  Label: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<PasswordInput.LabelProps & react.RefAttributes<HTMLLabelElement>>>; /** Input + visibility toggle wrapper. */
-  Control: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<PasswordInput.ControlProps & react.RefAttributes<HTMLDivElement>>>; /** The password/text input field. */
-  Input: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<PasswordInput.InputProps & react.RefAttributes<HTMLInputElement>>>; /** Eye toggle button — switches between showing and hiding the password. */
-  VisibilityTrigger: _styled_system_jsx0.StyleContextConsumer<react.ForwardRefExoticComponent<PasswordInput.VisibilityTriggerProps & react.RefAttributes<HTMLButtonElement>>>; /** Render prop — exposes machine context (e.g. `visible`) to children; no DOM, no recipe slot. */
+  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Input + visibility toggle wrapper. */
+  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** The password/text input field. */
+  Input: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.InputProps & _$react.RefAttributes<HTMLInputElement>>>; /** Eye toggle button — switches between showing and hiding the password. */
+  VisibilityTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.VisibilityTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Render prop — exposes machine context (e.g. `visible`) to children; no DOM, no recipe slot. */
   Context: (props: PasswordInput.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link InputPasswordDS}. */
@@ -160,22 +160,22 @@ type InputPasswordDSProps = InputPasswordRecipeProps & {
 };
 /**
  * Design-system convenience password input — label, description, error, and eye toggle included.
- * **`InputPassword`** stays the styled compound for full composition; **`InputPasswordDS`** =
- * packaged DS API (`onChange(value: string)` from the native input event).
+ * **`InputPassword`** stays the styled compound for full composition; **`InputPasswordDS`** = packaged DS API
+ * (`onChange(value: string)` from the native input event).
  *
  * @example
- * ```tsx
- * import { InputPasswordDS } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { InputPasswordDS } from '@finografic/design-system/forms';
  *
- * <InputPasswordDS
- *   label="Password"
- *   placeholder="Enter your password"
- *   onChange={(value) => setPassword(value)}
- *   error={errors.password}
- * />
- * ```
+ *   <InputPasswordDS
+ *     label="Password"
+ *     placeholder="Enter your password"
+ *     onChange={(value) => setPassword(value)}
+ *     error={errors.password}
+ *   />;
+ *   ```;
  */
-declare const InputPasswordDS: react.ForwardRefExoticComponent<{
+declare const InputPasswordDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
 } & {
   /** Current value (controlled). */value?: string; /** Default value (uncontrolled). */
@@ -194,7 +194,7 @@ declare const InputPasswordDS: react.ForwardRefExoticComponent<{
   description?: ReactNode; /** RHF FieldError or plain string — renders an error message. */
   error?: FieldError | string; /** Per-slot class overrides. */
   classNames?: InputPasswordDSClassNames;
-} & react.RefAttributes<HTMLDivElement>>;
+} & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
 export { InputPassword, InputPasswordDS, InputPasswordDSClassNames, InputPasswordDSProps, type PasswordInputVisibilityChangeDetails };
 //# sourceMappingURL=input-password.d.ts.map

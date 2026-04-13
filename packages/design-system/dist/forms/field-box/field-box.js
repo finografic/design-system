@@ -25,15 +25,14 @@ function deriveValidationState(opts) {
 *
 * Renders: label · [control] · hint/warning/error text.
 *
-* When inside an RHF `<FormProvider>` and `name` is provided, field state is
-* read automatically — error shows only after submit, warning shows (debounced)
-* on touch/dirty-after-submit.
+* When inside an RHF `<FormProvider>` and `name` is provided, field state is read automatically — error shows
+* only after submit, warning shows (debounced) on touch/dirty-after-submit.
 *
 * When used outside RHF (or with `error` prop directly), pass `error` explicitly.
 *
-* If children include an Ark `Field.Input` or `Field.Textarea`, FieldBox wraps
-* them in `Field.Root` for automatic label linkage and aria-invalid wiring.
-* For all other controls (DS Select, custom), it uses a plain div.
+* If children include an Ark `Field.Input` or `Field.Textarea`, FieldBox wraps them in `Field.Root` for
+* automatic label linkage and aria-invalid wiring. For all other controls (DS Select, custom), it uses a
+* plain div.
 */
 function FieldBox({ name, label, hint, required = false, size = "md", children, className, error: externalError }) {
 	const styles = fieldBoxRecipe({ size });
@@ -66,10 +65,10 @@ function FieldBox({ name, label, hint, required = false, size = "md", children, 
 	const showHint = hint && !showError && !(showDebouncedWarning && message);
 	const usesArkField = hasArkFieldInput(children);
 	const rootProps = {
-		className: cx(styles.root, className) || void 0,
+		"className": cx(styles.root, className) || void 0,
 		"data-invalid": showError ? "true" : void 0,
 		"data-required": required ? "true" : void 0,
-		onBlur: handleBlur
+		"onBlur": handleBlur
 	};
 	const labelNode = label && /* @__PURE__ */ jsxs("span", {
 		className: styles.label,

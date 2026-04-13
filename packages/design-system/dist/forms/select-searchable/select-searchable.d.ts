@@ -1,5 +1,5 @@
 import { SelectSearchableProps } from "./select-searchable.types.js";
-import * as react_jsx_runtime0 from "react/jsx-runtime";
+import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 
 //#region src/forms/select-searchable/select-searchable.d.ts
 declare function SelectSearchable({
@@ -18,7 +18,7 @@ declare function SelectSearchable({
   windowSize,
   size,
   className
-}: SelectSearchableProps): react_jsx_runtime0.JSX.Element;
+}: SelectSearchableProps): _$react_jsx_runtime0.JSX.Element;
 declare namespace SelectSearchable {
   var displayName: string;
 }

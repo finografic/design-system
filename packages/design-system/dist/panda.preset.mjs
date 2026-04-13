@@ -1,4 +1,4 @@
-//#region ../../node_modules/.pnpm/@pandacss+dev@1.9.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.mjs
+//#region ../../node_modules/.pnpm/@pandacss+dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.mjs
 function definePreset(preset) {
 	return preset;
 }
@@ -79,7 +79,7 @@ const keyframes = defineKeyframes({
 		"0%": { transform: "translateX(0)" },
 		"100%": { transform: "translateX(100%)" }
 	},
-	spin: {
+	"spin": {
 		"0%": { transform: "rotate(0deg)" },
 		"100%": { transform: "rotate(360deg)" }
 	}
@@ -94,9 +94,9 @@ const durationTokens = defineTokens.durations({
 	slowest: { value: "500ms" }
 });
 const easingTokens = defineTokens.easings({
-	default: { value: "cubic-bezier(0.4, 0, 0.2, 1)" },
-	in: { value: "cubic-bezier(0.4, 0, 1, 1)" },
-	out: { value: "cubic-bezier(0, 0, 0.2, 1)" },
+	"default": { value: "cubic-bezier(0.4, 0, 0.2, 1)" },
+	"in": { value: "cubic-bezier(0.4, 0, 1, 1)" },
+	"out": { value: "cubic-bezier(0, 0, 0.2, 1)" },
 	"in-out": { value: "cubic-bezier(0.4, 0, 0.2, 1)" }
 });
 //#endregion
@@ -104,8 +104,8 @@ const easingTokens = defineTokens.easings({
 /**
 * 🎨 Design System Color Tokens
 *
-* Source-of-truth OKLCH color values, mapped from the existing client styles.
-* These are the base colors from which all semantic tokens are derived.
+* Source-of-truth OKLCH color values, mapped from the existing client styles. These are the base colors from
+* which all semantic tokens are derived.
 *
 * @see https://oklch.com — OKLCH color picker
 * @see https://www.w3.org/TR/css-color-4/#ok-lab — W3C specification
@@ -127,36 +127,27 @@ const BASE_COLORS = {
 /**
 * Shade scale (11 stops) — word names map to the TW/Panda/Ark numeric standard:
 *
-* SHADE SUFFIX    → SHADE  NOTES
-* ──────────────────────────────────────────────
-* xxxlight        → 50     near-white endpoint
-* xxlight         → 100
-* xlight          → 200
-* lighter         → 300    medium-light
-* light           → 400    hover-on-light-bg
-* base            → 500    anchor (DEFAULT)
-* dark            → 600    hover-on-solid-bg, active states
-* darker          → 700
-* xdark           → 800
-* xxdark          → 900
-* xxxdark         → 950    near-black endpoint
+* SHADE SUFFIX → SHADE NOTES ────────────────────────────────────────────── xxxlight → 50 near-white endpoint
+* xxlight → 100 xlight → 200 lighter → 300 medium-light light → 400 hover-on-light-bg base → 500 anchor
+* (DEFAULT) dark → 600 hover-on-solid-bg, active states darker → 700 xdark → 800 xxdark → 900 xxxdark → 950
+* near-black endpoint
 */
 //#endregion
 //#region src/palette/shades.utils.ts
 /**
 * Raw color palette for Panda CSS `tokens.colors`.
 *
-* Each color exposes 11 word-named shades plus a `DEFAULT` alias (= base)
-* so `{colors.primary}` resolves without a suffix.
+* Each color exposes 11 word-named shades plus a `DEFAULT` alias (= base) so `{colors.primary}` resolves
+* without a suffix.
 *
-* All shade values are computed at runtime via CSS color-mix(in oklch, …) —
-* zero build-time cost, perceptually uniform interpolation.
+* All shade values are computed at runtime via CSS color-mix(in oklch, …) — zero build-time cost,
+* perceptually uniform interpolation.
 *
-* Light-side percentages (% of base, remainder white):
-*   xxxlight → 5% | xxlight → 10% | xlight → 20% | lighter → 38% | light → 58%
+* Light-side percentages (% of base, remainder white): xxxlight → 5% | xxlight → 10% | xlight → 20% | lighter
+* → 38% | light → 58%
 *
-* Dark-side percentages (% of base, remainder black):
-*   dark → 82% | darker → 65% | xdark → 47% | xxdark → 30% | xxxdark → 15%
+* Dark-side percentages (% of base, remainder black): dark → 82% | darker → 65% | xdark → 47% | xxdark → 30%
+* | xxxdark → 15%
 */
 function buildShadeScale(base) {
 	return {
@@ -177,15 +168,15 @@ function buildShadeScale(base) {
 //#endregion
 //#region src/tokens/colors.tokens.ts
 /**
-* Color tokens for Panda CSS. Keys are referenced as strings in recipes:
-*   bg: 'primary', color: 'danger.dark', borderColor: 'grey.lighter'
+* Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
+* borderColor: 'grey.lighter'
 *
-* Each color group has 11 shade stops: base + 5 lighter + 5 darker.
-* Values use OKLCH color space for perceptually uniform gradients.
+* Each color group has 11 shade stops: base + 5 lighter + 5 darker. Values use OKLCH color space for
+* perceptually uniform gradients.
 *
 * @example
-* // In recipe: bg: 'primary' → background: oklch(48.8% 0.243 264.376)
-* // In recipe: color: 'danger.dark' → color: <computed dark shade>
+*   // In recipe: bg: 'primary' → background: oklch(48.8% 0.243 264.376)
+*   // In recipe: color: 'danger.dark' → color: <computed dark shade>
 */
 const colorTokens = {
 	primary: buildShadeScale(BASE_COLORS.primary),
@@ -201,14 +192,12 @@ const colorTokens = {
 	transparent: { value: BASE_COLORS.transparent }
 };
 /**
-* Semantic tokens — role-based color aliases.
-* These define what colors MEAN in context, not what they ARE.
+* Semantic tokens — role-based color aliases. These define what colors MEAN in context, not what they ARE.
 *
-* References like `{colors.grey.xlight}` resolve at build time to the
-* underlying color-mix(in oklch, …) value — OKLCH throughout.
+* References like `{colors.grey.xlight}` resolve at build time to the underlying color-mix(in oklch, …) value
+* — OKLCH throughout.
 *
-* Maps to the Ark UI blog's token structure:
-* bg, fg, border, accent — with light/dark mode conditions.
+* Maps to the Ark UI blog's token structure: bg, fg, border, accent — with light/dark mode conditions.
 */
 const semanticColorTokens = {
 	bg: {
@@ -367,32 +356,30 @@ const semanticColorTokens = {
 //#endregion
 //#region src/tokens/decorative.tokens.ts
 /**
-* Border radius tokens for Panda CSS.
-* Keys: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'
-* Used in recipes as: borderRadius: 'md', rounded: 'full'
+* Border radius tokens for Panda CSS. Keys: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' Used
+* in recipes as: borderRadius: 'md', rounded: 'full'
 *
 * @example
-* // In recipe: borderRadius: 'md' → border-radius: 0.5rem (8px)
-* // In recipe: rounded: 'full' → border-radius: 9999px (pill shape)
+*   // In recipe: borderRadius: 'md' → border-radius: 0.5rem (8px)
+*   // In recipe: rounded: 'full' → border-radius: 9999px (pill shape)
 */
 const radiiTokens = defineTokens.radii({
-	none: { value: "0" },
-	xs: { value: "0.25rem" },
-	sm: { value: "0.33rem" },
-	md: { value: "0.5rem" },
-	lg: { value: "0.66rem" },
-	xl: { value: "1rem" },
+	"none": { value: "0" },
+	"xs": { value: "0.25rem" },
+	"sm": { value: "0.33rem" },
+	"md": { value: "0.5rem" },
+	"lg": { value: "0.66rem" },
+	"xl": { value: "1rem" },
 	"2xl": { value: "1.25rem" },
-	full: { value: "9999px" }
+	"full": { value: "9999px" }
 });
 /**
-* Border width tokens for Panda CSS.
-* Keys: 'none' | 'light' | 'default' | 'heavy'
-* Used in recipes as: borderWidth: 'default', borderWidth: 'light'
+* Border width tokens for Panda CSS. Keys: 'none' | 'light' | 'default' | 'heavy' Used in recipes as:
+* borderWidth: 'default', borderWidth: 'light'
 *
 * @example
-* // In recipe: borderWidth: 'default' → border-width: 2px
-* // In recipe: borderWidth: 'light' → border-width: 1px
+*   // In recipe: borderWidth: 'default' → border-width: 2px
+*   // In recipe: borderWidth: 'light' → border-width: 1px
 */
 const borderWidthTokens = defineTokens.borderWidths({
 	none: { value: "0" },
@@ -401,15 +388,14 @@ const borderWidthTokens = defineTokens.borderWidths({
 	heavy: { value: "4px" }
 });
 /**
-* Box shadow tokens for Panda CSS.
-* Keys: 'base.sm' | 'base.md' | 'base.lg'
-* Used in recipes as: boxShadow: 'md', shadow: 'sm'
+* Box shadow tokens for Panda CSS. Keys: 'base.sm' | 'base.md' | 'base.lg' Used in recipes as: boxShadow:
+* 'md', shadow: 'sm'
 *
-* Note: Semantic shadow tokens (with light/dark variants) are defined
-* in panda.preset.ts under semanticTokens.shadows.
+* Note: Semantic shadow tokens (with light/dark variants) are defined in panda.preset.ts under
+* semanticTokens.shadows.
 *
 * @example
-* // In recipe: boxShadow: 'md' → box-shadow: <elevation shadow>
+*   // In recipe: boxShadow: 'md' → box-shadow: <elevation shadow>
 */
 const shadowTokens = defineTokens.shadows({ base: {
 	sm: { value: "0 1px 2px 0 rgba(16, 24, 40, 0.05)" },
@@ -421,22 +407,20 @@ const shadowTokens = defineTokens.shadows({ base: {
 /**
 * Sizes token scale for Panda CSS.
 *
-* Used by width, height, min-width, max-width, min-height, max-height.
-* Keys are referenced as strings in recipes and css() calls:
-*   width: '9', height: '5', maxWidth: 'sidebar'
+* Used by width, height, min-width, max-width, min-height, max-height. Keys are referenced as strings in
+* recipes and css() calls: width: '9', height: '5', maxWidth: 'sidebar'
 *
-* Includes:
-*   - Numeric scale (rem-based, mirrors spacing scale)
-*   - Named layout sizes (structural app dimensions)
+* Includes: - Numeric scale (rem-based, mirrors spacing scale) - Named layout sizes (structural app
+* dimensions)
 *
 * @example
-* // In recipe: width: '9'   → var(--sizes-9)   → 2.25rem (36px)
-* // In recipe: h: 'navbar'  → var(--sizes-navbar) → 41px
-* // In css():  maxWidth: 'content' → var(--sizes-content) → 1200px
+*   // In recipe: width: '9'   → var(--sizes-9)   → 2.25rem (36px)
+*   // In recipe: h: 'navbar'  → var(--sizes-navbar) → 41px
+*   // In css():  maxWidth: 'content' → var(--sizes-content) → 1200px
 */
 const sizingTokens = defineTokens.sizes({
 	"0": { value: "0" },
-	px: { value: "1px" },
+	"px": { value: "1px" },
 	"0.5": { value: "0.125rem" },
 	"1": { value: "0.25rem" },
 	"1.5": { value: "0.375rem" },
@@ -454,28 +438,27 @@ const sizingTokens = defineTokens.sizes({
 	"16": { value: "4rem" },
 	"20": { value: "5rem" },
 	"24": { value: "6rem" },
-	navbar: { value: "41px" },
-	header: { value: "70px" },
-	footer: { value: "70px" },
-	sidebar: { value: "300px" },
-	content: { value: "1200px" }
+	"navbar": { value: "41px" },
+	"header": { value: "70px" },
+	"footer": { value: "70px" },
+	"sidebar": { value: "300px" },
+	"content": { value: "1200px" }
 });
 //#endregion
 //#region src/tokens/spacing.tokens.ts
 /**
-* Spacing scale for Panda CSS. Used by margin, padding, gap.
-* Keys are referenced as strings in recipes and css() calls:
-*   px: '4', gap: '2', mt: '6'
+* Spacing scale for Panda CSS. Used by margin, padding, gap. Keys are referenced as strings in recipes and
+* css() calls: px: '4', gap: '2', mt: '6'
 *
 * Values are in rem (1rem = 16px at default). Panda resolves at codegen.
 *
 * @example
-* // In recipe: px: '4' → padding-inline: var(--spacing-4) → 1rem (16px)
-* // In css():  gap: '2' → gap: var(--spacing-2) → 0.5rem (8px)
+*   // In recipe: px: '4' → padding-inline: var(--spacing-4) → 1rem (16px)
+*   // In css():  gap: '2' → gap: var(--spacing-2) → 0.5rem (8px)
 */
 const spacingTokens = defineTokens.spacing({
 	"0": { value: "0" },
-	px: { value: "1px" },
+	"px": { value: "1px" },
 	"0.5": { value: "0.125rem" },
 	"1": { value: "0.25rem" },
 	"1.5": { value: "0.375rem" },
@@ -495,20 +478,18 @@ const spacingTokens = defineTokens.spacing({
 	"24": { value: "6rem" }
 });
 /**
-* Z-index scale for layered UI elements.
-* Keys are referenced as strings in recipes and css() calls:
-*   zIndex: 'modal', zIndex: 'tooltip'
+* Z-index scale for layered UI elements. Keys are referenced as strings in recipes and css() calls: zIndex:
+* 'modal', zIndex: 'tooltip'
 *
-* Values use a spaced numeric scale to allow insertion without
-* renumbering (e.g. a new layer between overlay and modal).
+* Values use a spaced numeric scale to allow insertion without renumbering (e.g. a new layer between overlay
+* and modal).
 *
-* **Layering:** `dropdown` must stay **above** `sticky` (e.g. sticky table headers /
-* toolbars at 1100) so Select / Combobox / Menu positioners are not covered by the
-* next row or sticky chrome.
+* **Layering:** `dropdown` must stay **above** `sticky` (e.g. sticky table headers / toolbars at 1100) so
+* Select / Combobox / Menu positioners are not covered by the next row or sticky chrome.
 *
 * @example
-* // In recipe: zIndex: 'tooltip' → z-index: 1800
-* // In css():  zIndex: 'overlay' → z-index: 1300
+*   // In recipe: zIndex: 'tooltip' → z-index: 1800
+*   // In css():  zIndex: 'overlay' → z-index: 1300
 */
 const zIndexTokens = defineTokens.zIndex({
 	hide: { value: -1 },
@@ -528,8 +509,7 @@ const zIndexTokens = defineTokens.zIndex({
 /**
 * 📝 Typography Tokens
 *
-* Mapped from the existing client styles typography system.
-* Font stacks, sizes, weights, and line heights.
+* Mapped from the existing client styles typography system. Font stacks, sizes, weights, and line heights.
 */
 const fontTokens = defineTokens.fonts({
 	sans: { value: [
@@ -551,11 +531,11 @@ const fontTokens = defineTokens.fonts({
 	mono: { value: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace" }
 });
 const fontSizeTokens = defineTokens.fontSizes({
-	xs: { value: "0.75rem" },
-	sm: { value: "0.875rem" },
-	md: { value: "1rem" },
-	lg: { value: "1.125rem" },
-	xl: { value: "1.25rem" },
+	"xs": { value: "0.75rem" },
+	"sm": { value: "0.875rem" },
+	"md": { value: "1rem" },
+	"lg": { value: "1.125rem" },
+	"xl": { value: "1.25rem" },
 	"2xl": { value: "1.5rem" },
 	"3xl": { value: "1.875rem" },
 	"4xl": { value: "2.25rem" },
@@ -641,19 +621,18 @@ const toPixelString = (value) => `${value}px`;
 /** Converts a pixel value to a numeric rem value. Used as a `mapBreakpoints` callback. */
 const toRemNumeric = (px) => convertPxToRem(px);
 /**
-* Converts a pixel value to a numeric em value.
-* In this context em === rem (assumes no inherited font-size scaling).
-* Used as a `mapBreakpoints` callback.
+* Converts a pixel value to a numeric em value. In this context em === rem (assumes no inherited font-size
+* scaling). Used as a `mapBreakpoints` callback.
 */
 const toEmNumeric = (px) => convertPxToRem(px);
 //#endregion
 //#region src/viewport/viewport.breakpoints.ts
 const BREAKPOINTS = {
-	xs: 0,
-	sm: 640,
-	md: 768,
-	lg: 1024,
-	xl: 1280,
+	"xs": 0,
+	"sm": 640,
+	"md": 768,
+	"lg": 1024,
+	"xl": 1280,
 	"2xl": 1536
 };
 const mapBreakpoints = (fn) => Object.fromEntries(Object.entries(BREAKPOINTS).map(([k, v]) => [k, fn(v)]));
@@ -707,7 +686,7 @@ const designSystemPreset = definePreset({
 	},
 	globalCss: {
 		"*, *::before, *::after": { boxSizing: "border-box" },
-		html: {
+		"html": {
 			lineHeight: "1.5",
 			WebkitTextSizeAdjust: "100%",
 			WebkitFontSmoothing: "antialiased",
@@ -716,7 +695,7 @@ const designSystemPreset = definePreset({
 			touchAction: "manipulation",
 			fontFamily: "sans"
 		},
-		body: {
+		"body": {
 			minHeight: "100dvh",
 			position: "relative",
 			bg: "bg",
@@ -730,7 +709,7 @@ const designSystemPreset = definePreset({
 			maxWidth: "100%",
 			height: "auto"
 		},
-		svg: { flexShrink: 0 },
+		"svg": { flexShrink: 0 },
 		"svg.icon": {
 			width: "2rem",
 			height: "2rem",

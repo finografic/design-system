@@ -1,6 +1,6 @@
 //#region src/palette/colors.palette.d.ts
 /**
- * colors — design-system color palette as CSS custom property references.
+ * Colors — design-system color palette as CSS custom property references.
  */
 declare const colors: {
   readonly white: string;

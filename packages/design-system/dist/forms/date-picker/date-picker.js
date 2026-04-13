@@ -9,30 +9,30 @@ const { withProvider, withContext } = createStyleContext(datePickerRecipe);
 /**
 * Styled Ark **DatePicker** compound — each part is wired to `datePickerRecipe` via context.
 *
-* Supports day, month, and year views with keyboard navigation. Handles single dates and
-* date ranges. Ark manages all a11y: `grid` role for the calendar, `button` for triggers,
-* and `aria-selected` / `aria-disabled` on cells.
+* Supports day, month, and year views with keyboard navigation. Handles single dates and date ranges. Ark
+* manages all a11y: `grid` role for the calendar, `button` for triggers, and `aria-selected` /
+* `aria-disabled` on cells.
 *
 * @example
-* ```tsx
-* import { DatePicker } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { DatePicker } from '@finografic/design-system/forms';
 *
-* <DatePicker.Root size="md">
-*   <DatePicker.Label>Date of birth</DatePicker.Label>
-*   <DatePicker.Control>
-*     <DatePicker.Input index={0} placeholder="dd/mm/yyyy" />
-*     <DatePicker.Trigger>📅</DatePicker.Trigger>
-*     <DatePicker.ClearTrigger>✕</DatePicker.ClearTrigger>
-*   </DatePicker.Control>
-*   <DatePicker.Positioner>
-*     <DatePicker.Content>
-*       <DatePicker.View view="day">…</DatePicker.View>
-*       <DatePicker.View view="month">…</DatePicker.View>
-*       <DatePicker.View view="year">…</DatePicker.View>
-*     </DatePicker.Content>
-*   </DatePicker.Positioner>
-* </DatePicker.Root>
-* ```
+*   <DatePicker.Root size="md">
+*     <DatePicker.Label>Date of birth</DatePicker.Label>
+*     <DatePicker.Control>
+*       <DatePicker.Input index={0} placeholder="dd/mm/yyyy" />
+*       <DatePicker.Trigger>📅</DatePicker.Trigger>
+*       <DatePicker.ClearTrigger>✕</DatePicker.ClearTrigger>
+*     </DatePicker.Control>
+*     <DatePicker.Positioner>
+*       <DatePicker.Content>
+*         <DatePicker.View view="day">…</DatePicker.View>
+*         <DatePicker.View view="month">…</DatePicker.View>
+*         <DatePicker.View view="year">…</DatePicker.View>
+*       </DatePicker.Content>
+*     </DatePicker.Positioner>
+*   </DatePicker.Root>;
+*   ```;
 */
 const DatePicker$1 = {
 	Root: withProvider(DatePicker.Root, "root"),
@@ -57,20 +57,16 @@ const DatePicker$1 = {
 	Context: DatePicker.Context
 };
 /**
-* Design-system convenience date picker — label, input, trigger, and calendar included.
-* **`DatePicker`** stays the styled compound for full composition; **`DatePickerDS`** =
-* packaged DS API with normalized handlers.
+* Design-system convenience date picker — label, input, trigger, and calendar included. **`DatePicker`**
+* stays the styled compound for full composition; **`DatePickerDS`** = packaged DS API with normalized
+* handlers.
 *
 * @example
-* ```tsx
-* import { DatePickerDS } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { DatePickerDS } from '@finografic/design-system/forms';
 *
-* <DatePickerDS
-*   label="Date of birth"
-*   placeholder="dd/mm/yyyy"
-*   onChange={(value) => setDate(value[0])}
-* />
-* ```
+*   <DatePickerDS label="Date of birth" placeholder="dd/mm/yyyy" onChange={(value) => setDate(value[0])} />;
+*   ```;
 */
 const DatePickerDS = forwardRef(({ value, defaultValue, onChange, onOpenChange, onViewChange, placeholder, min, max, disabled, name, label, size = "md", classNames = {} }, ref) => {
 	const styles = datePickerRecipe({ size });

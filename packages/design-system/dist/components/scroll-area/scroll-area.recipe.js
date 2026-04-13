@@ -5,7 +5,7 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI ScrollArea example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · viewport · content · scrollbar · thumb · corner
+* Slots: root · viewport · content · scrollbar · thumb · corner
 */
 const scrollAreaRecipe = sva({
 	className: "scroll-area",
@@ -32,11 +32,11 @@ const scrollAreaRecipe = sva({
 			display: "table"
 		},
 		scrollbar: {
-			display: "flex",
-			userSelect: "none",
-			touchAction: "none",
-			background: "transparent",
-			transition: "background 160ms ease-out",
+			"display": "flex",
+			"userSelect": "none",
+			"touchAction": "none",
+			"background": "transparent",
+			"transition": "background 160ms ease-out",
 			"&[data-orientation=\"vertical\"]": {
 				width: "2.5",
 				flexDirection: "column",
@@ -47,15 +47,15 @@ const scrollAreaRecipe = sva({
 				height: "2.5",
 				padding: "0.5"
 			},
-			_hover: { background: "bg.muted" }
+			"_hover": { background: "bg.muted" }
 		},
 		thumb: {
-			position: "relative",
-			flex: 1,
-			borderRadius: "full",
-			bg: "border.emphasized",
-			transitionProperty: "background",
-			transitionDuration: "fast",
+			"position": "relative",
+			"flex": 1,
+			"borderRadius": "full",
+			"bg": "border.emphasized",
+			"transitionProperty": "background",
+			"transitionDuration": "fast",
 			"&::before": {
 				content: "\"\"",
 				position: "absolute",
@@ -65,7 +65,7 @@ const scrollAreaRecipe = sva({
 				minWidth: "44px",
 				minHeight: "44px"
 			},
-			_hover: { bg: "fg.subtle" }
+			"_hover": { bg: "fg.subtle" }
 		},
 		corner: { background: "bg.subtle" }
 	}

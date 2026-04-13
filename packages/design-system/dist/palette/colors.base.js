@@ -2,8 +2,8 @@
 /**
 * 🎨 Design System Color Tokens
 *
-* Source-of-truth OKLCH color values, mapped from the existing client styles.
-* These are the base colors from which all semantic tokens are derived.
+* Source-of-truth OKLCH color values, mapped from the existing client styles. These are the base colors from
+* which all semantic tokens are derived.
 *
 * @see https://oklch.com — OKLCH color picker
 * @see https://www.w3.org/TR/css-color-4/#ok-lab — W3C specification
@@ -25,19 +25,10 @@ const BASE_COLORS = {
 /**
 * Shade scale (11 stops) — word names map to the TW/Panda/Ark numeric standard:
 *
-* SHADE SUFFIX    → SHADE  NOTES
-* ──────────────────────────────────────────────
-* xxxlight        → 50     near-white endpoint
-* xxlight         → 100
-* xlight          → 200
-* lighter         → 300    medium-light
-* light           → 400    hover-on-light-bg
-* base            → 500    anchor (DEFAULT)
-* dark            → 600    hover-on-solid-bg, active states
-* darker          → 700
-* xdark           → 800
-* xxdark          → 900
-* xxxdark         → 950    near-black endpoint
+* SHADE SUFFIX → SHADE NOTES ────────────────────────────────────────────── xxxlight → 50 near-white endpoint
+* xxlight → 100 xlight → 200 lighter → 300 medium-light light → 400 hover-on-light-bg base → 500 anchor
+* (DEFAULT) dark → 600 hover-on-solid-bg, active states darker → 700 xdark → 800 xxdark → 900 xxxdark → 950
+* near-black endpoint
 */
 //#endregion
 export { BASE_COLORS };

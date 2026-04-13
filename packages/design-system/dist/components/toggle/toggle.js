@@ -9,42 +9,38 @@ const { withProvider, withContext } = createStyleContext(toggleRecipe);
 /**
 * Styled Ark **Toggle** compound — each part is wired to `toggleRecipe` via context.
 *
-* A single on/off button. `data-state="on"` when pressed; `data-state="off"` when not.
-* Ark handles all a11y: `button` role with `aria-pressed`. Variant props (`size`) go on
-* **`Toggle.Root`**.
+* A single on/off button. `data-state="on"` when pressed; `data-state="off"` when not. Ark handles all a11y:
+* `button` role with `aria-pressed`. Variant props (`size`) go on **`Toggle.Root`**.
 *
 * @example
-* ```tsx
-* import { Toggle } from '@finografic/design-system/components';
+*   ```tsx
+*   import { Toggle } from '@finografic/design-system/components';
 *
-* <Toggle.Root defaultPressed={false} onPressedChange={(pressed) => setMuted(pressed)}>
-*   <Toggle.Indicator>
-*     <BoldIcon />
-*   </Toggle.Indicator>
-*   Bold
-* </Toggle.Root>
-* ```
+*   <Toggle.Root defaultPressed={false} onPressedChange={(pressed) => setMuted(pressed)}>
+*     <Toggle.Indicator>
+*       <BoldIcon />
+*     </Toggle.Indicator>
+*     Bold
+*   </Toggle.Root>;
+*   ```;
 */
 const Toggle$1 = {
 	Root: withProvider(Toggle.Root, "root"),
 	Indicator: withContext(Toggle.Indicator, "indicator")
 };
 /**
-* Design-system convenience toggle — single on/off button with accent pressed state.
-* **`Toggle`** stays the styled compound for full composition; **`ToggleDS`** = packaged DS API
-* (`onChange(pressed: boolean)` — Toggle fires a bare boolean, not a detail object).
+* Design-system convenience toggle — single on/off button with accent pressed state. **`Toggle`** stays the
+* styled compound for full composition; **`ToggleDS`** = packaged DS API (`onChange(pressed: boolean)` —
+* Toggle fires a bare boolean, not a detail object).
 *
 * @example
-* ```tsx
-* import { ToggleDS } from '@finografic/design-system/components';
+*   ```tsx
+*   import { ToggleDS } from '@finografic/design-system/components';
 *
-* <ToggleDS
-*   defaultPressed={false}
-*   onChange={(pressed) => setMuted(pressed)}
-* >
-*   Mute
-* </ToggleDS>
-* ```
+*   <ToggleDS defaultPressed={false} onChange={(pressed) => setMuted(pressed)}>
+*     Mute
+*   </ToggleDS>;
+*   ```;
 */
 const ToggleDS = forwardRef(({ pressed, defaultPressed, onChange, disabled, children, size = "md", className }, ref) => {
 	const styles = toggleRecipe({ size });

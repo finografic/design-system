@@ -6,16 +6,16 @@ import { jsx } from "react/jsx-runtime";
 /**
 * Label — styled `<label>` element sized to align with form control heights.
 *
-* Commonly composed inside `FieldBox`, `InputField`, `Checkbox`, etc.
-* Can also be used standalone with an `htmlFor` attribute.
+* Commonly composed inside `FieldBox`, `InputField`, `Checkbox`, etc. Can also be used standalone with an
+* `htmlFor` attribute.
 *
 * @example
-* ```tsx
-* import { Label } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { Label } from '@finografic/design-system/forms';
 *
-* <Label htmlFor="email">Email address</Label>
-* <Label size="sm">Small label</Label>
-* ```
+*   <Label htmlFor="email">Email address</Label>
+*   <Label size="sm">Small label</Label>
+*   ```;
 */
 const Label = forwardRef(({ size, className, children, ...props }, ref) => {
 	return /* @__PURE__ */ jsx("label", {

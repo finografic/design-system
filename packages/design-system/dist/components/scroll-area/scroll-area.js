@@ -9,25 +9,23 @@ const { withProvider, withContext } = createStyleContext(scrollAreaRecipe);
 /**
 * Styled Ark **ScrollArea** compound — each part is wired to `scrollAreaRecipe` via context.
 *
-* Provides custom scrollbars that match the design system theme. Scrollbars appear on hover
-* and use `data-orientation` to distinguish vertical vs horizontal.
+* Provides custom scrollbars that match the design system theme. Scrollbars appear on hover and use
+* `data-orientation` to distinguish vertical vs horizontal.
 *
 * @example
-* ```tsx
-* import { ScrollArea } from '@finografic/design-system/components';
+*   ```tsx
+*   import { ScrollArea } from '@finografic/design-system/components';
 *
-* <ScrollArea.Root style={{ height: '300px' }}>
-*   <ScrollArea.Viewport>
-*     <ScrollArea.Content>
-*       {longContent}
-*     </ScrollArea.Content>
-*   </ScrollArea.Viewport>
-*   <ScrollArea.Scrollbar orientation="vertical">
-*     <ScrollArea.Thumb />
-*   </ScrollArea.Scrollbar>
-*   <ScrollArea.Corner />
-* </ScrollArea.Root>
-* ```
+*   <ScrollArea.Root style={{ height: '300px' }}>
+*     <ScrollArea.Viewport>
+*       <ScrollArea.Content>{longContent}</ScrollArea.Content>
+*     </ScrollArea.Viewport>
+*     <ScrollArea.Scrollbar orientation="vertical">
+*       <ScrollArea.Thumb />
+*     </ScrollArea.Scrollbar>
+*     <ScrollArea.Corner />
+*   </ScrollArea.Root>;
+*   ```;
 */
 const ScrollArea$1 = {
 	Root: withProvider(ScrollArea.Root, "root"),
@@ -39,17 +37,17 @@ const ScrollArea$1 = {
 };
 /**
 * Design-system convenience scroll area — wraps content in a styled custom scrollbar container.
-* **`ScrollArea`** stays the styled compound for full composition; **`ScrollAreaDS`** = simple
-* passthrough with both vertical and horizontal scrollbars included.
+* **`ScrollArea`** stays the styled compound for full composition; **`ScrollAreaDS`** = simple passthrough
+* with both vertical and horizontal scrollbars included.
 *
 * @example
-* ```tsx
-* import { ScrollAreaDS } from '@finografic/design-system/components';
+*   ```tsx
+*   import { ScrollAreaDS } from '@finografic/design-system/components';
 *
-* <ScrollAreaDS style={{ height: '300px' }}>
-*   <div style={{ height: '1000px' }}>Tall content here</div>
-* </ScrollAreaDS>
-* ```
+*   <ScrollAreaDS style={{ height: '300px' }}>
+*     <div style={{ height: '1000px' }}>Tall content here</div>
+*   </ScrollAreaDS>;
+*   ```;
 */
 const ScrollAreaDS = forwardRef(({ children, dir, className, style }, ref) => {
 	const styles = scrollAreaRecipe();

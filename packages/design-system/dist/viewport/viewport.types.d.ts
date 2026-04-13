@@ -6,11 +6,11 @@ interface MediaQueryProps {
   props: unknown;
 }
 interface BreakpointDefaults extends BreakpointMap<number> {
-  xs?: number;
-  sm: number;
-  md: number;
-  lg: number;
-  xl: number;
+  'xs'?: number;
+  'sm': number;
+  'md': number;
+  'lg': number;
+  'xl': number;
   '2xl'?: number;
 }
 type MediaQueryType = 'min' | 'max';

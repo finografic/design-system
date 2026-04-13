@@ -5,9 +5,8 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI Combobox example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · control · input · indicators · trigger · clearTrigger ·
-*           positioner · content · itemGroup · itemGroupLabel · item · itemText · itemIndicator
-* Variants: size (sm | md | lg)
+* Slots: root · label · control · input · indicators · trigger · clearTrigger · positioner · content ·
+* itemGroup · itemGroupLabel · item · itemText · itemIndicator Variants: size (sm | md | lg)
 */
 const selectComboboxRecipe = sva({
 	className: "select-combobox",
@@ -93,16 +92,16 @@ const selectComboboxRecipe = sva({
 			_hover: { color: "fg" }
 		},
 		trigger: {
-			position: "relative",
-			zIndex: "1",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
-			color: "fg.muted",
-			cursor: "pointer",
+			"position": "relative",
+			"zIndex": "1",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
+			"color": "fg.muted",
+			"cursor": "pointer",
 			"& svg": { transition: "transform 150ms ease" },
-			_open: { "& svg": { transform: "rotate(180deg)" } }
+			"_open": { "& svg": { transform: "rotate(180deg)" } }
 		},
 		positioner: {
 			zIndex: "dropdown",

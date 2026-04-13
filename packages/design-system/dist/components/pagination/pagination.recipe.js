@@ -5,8 +5,7 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI Pagination example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · item · trigger · ellipsis
-* Variants: size (sm | md | lg)
+* Slots: root · item · trigger · ellipsis Variants: size (sm | md | lg)
 *
 * - **item** — numbered page buttons; `_selected` applies accent colour.
 * - **trigger** — prev/next nav buttons.

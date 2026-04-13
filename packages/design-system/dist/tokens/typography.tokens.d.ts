@@ -1,4 +1,4 @@
-import { TextStyles } from "../node_modules/.pnpm/@pandacss_types@1.9.0/node_modules/@pandacss/types/dist/composition.js";
+import { TextStyles } from "../node_modules/.pnpm/@pandacss_types@1.9.1/node_modules/@pandacss/types/dist/composition.js";
 //#region src/tokens/typography.tokens.d.ts
 declare const fontTokens: {
   sans: {

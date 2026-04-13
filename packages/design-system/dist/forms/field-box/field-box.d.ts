@@ -1,6 +1,6 @@
 import { FieldBoxVariants } from "./field-box.recipe.js";
 import { ReactNode } from "react";
-import * as react_jsx_runtime0 from "react/jsx-runtime";
+import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/field-box/field-box.d.ts
@@ -18,15 +18,14 @@ type FieldBoxProps = FieldBoxVariants & {
  *
  * Renders: label · [control] · hint/warning/error text.
  *
- * When inside an RHF `<FormProvider>` and `name` is provided, field state is
- * read automatically — error shows only after submit, warning shows (debounced)
- * on touch/dirty-after-submit.
+ * When inside an RHF `<FormProvider>` and `name` is provided, field state is read automatically — error shows
+ * only after submit, warning shows (debounced) on touch/dirty-after-submit.
  *
  * When used outside RHF (or with `error` prop directly), pass `error` explicitly.
  *
- * If children include an Ark `Field.Input` or `Field.Textarea`, FieldBox wraps
- * them in `Field.Root` for automatic label linkage and aria-invalid wiring.
- * For all other controls (DS Select, custom), it uses a plain div.
+ * If children include an Ark `Field.Input` or `Field.Textarea`, FieldBox wraps them in `Field.Root` for
+ * automatic label linkage and aria-invalid wiring. For all other controls (DS Select, custom), it uses a
+ * plain div.
  */
 declare function FieldBox({
   name,
@@ -37,7 +36,7 @@ declare function FieldBox({
   children,
   className,
   error: externalError
-}: FieldBoxProps): react_jsx_runtime0.JSX.Element;
+}: FieldBoxProps): _$react_jsx_runtime0.JSX.Element;
 declare namespace FieldBox {
   var displayName: string;
 }

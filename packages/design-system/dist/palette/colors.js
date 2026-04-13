@@ -1,6 +1,6 @@
 //#region src/palette/colors.palette.ts
 /**
-* colors — design-system color palette as CSS custom property references.
+* Colors — design-system color palette as CSS custom property references.
 */
 const v = (token) => `var(--colors-${token})`;
 const colors = {

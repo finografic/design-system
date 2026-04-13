@@ -8,13 +8,15 @@ declare const sizes: ScreenClass[];
  *
  * Intended for CSS-in-JS libraries (Emotion, styled-components, etc.).
  *
- * @example min.md → '@media (min-width: 768px)'
+ * @example
+ *   min.md → '@media (min-width: 768px)'
  */
 declare const min: Record<ScreenClass, string>;
 /**
  * `@media` max-width wrappers keyed by breakpoint name.
  *
- * @example max.lg → '@media (max-width: 1024px)'
+ * @example
+ *   max.lg → '@media (max-width: 1024px)'
  */
 declare const max: Record<ScreenClass, string>;
 //#endregion

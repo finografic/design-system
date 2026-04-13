@@ -9,33 +9,33 @@ const { withProvider, withContext } = createStyleContext(sliderRecipe);
 /**
 * Styled Ark **Slider** compound — each part is wired to `sliderRecipe` via context.
 *
-* Ark handles all a11y: `slider` role, keyboard navigation (arrows, Home/End,
-* Page Up/Down), and ARIA attributes for value, min, max. Variant props go on **`Root`**.
+* Ark handles all a11y: `slider` role, keyboard navigation (arrows, Home/End, Page Up/Down), and ARIA
+* attributes for value, min, max. Variant props go on **`Root`**.
 *
-* **Orientation:** pass `orientation="vertical"` to `Slider.Root` — all parts respond
-* via `data-orientation="vertical"` attribute styles in the recipe.
+* **Orientation:** pass `orientation="vertical"` to `Slider.Root` — all parts respond via
+* `data-orientation="vertical"` attribute styles in the recipe.
 *
-* **Touch:** the thumb enlarges automatically at raspberry-pi breakpoints
-* (`max-width: 1024px / max-height: 600px` and `800 / 480`) when `pointer: coarse`.
+* **Touch:** the thumb enlarges automatically at raspberry-pi breakpoints (`max-width: 1024px / max-height:
+* 600px` and `800 / 480`) when `pointer: coarse`.
 *
 * @example
-* ```tsx
-* import { Slider } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { Slider } from '@finografic/design-system/forms';
 *
-* <Slider.Root size="md" value={[volume]} onValueChange={({ value }) => setVolume(value[0])}>
-*   <Slider.Label>
-*     Volume
-*     <Slider.ValueText />
-*   </Slider.Label>
-*   <Slider.Control>
-*     <Slider.Track>
-*       <Slider.Range />
-*     </Slider.Track>
-*     <Slider.Thumb index={0} />
-*   </Slider.Control>
-*   <Slider.HiddenInput />
-* </Slider.Root>
-* ```
+*   <Slider.Root size="md" value={[volume]} onValueChange={({ value }) => setVolume(value[0])}>
+*     <Slider.Label>
+*       Volume
+*       <Slider.ValueText />
+*     </Slider.Label>
+*     <Slider.Control>
+*       <Slider.Track>
+*         <Slider.Range />
+*       </Slider.Track>
+*       <Slider.Thumb index={0} />
+*     </Slider.Control>
+*     <Slider.HiddenInput />
+*   </Slider.Root>;
+*   ```;
 */
 const Slider$1 = {
 	Root: withProvider(Slider.Root, "root"),
@@ -55,9 +55,9 @@ const textColumnStyle = css({
 	gap: "1"
 });
 /**
-* Design-system convenience slider — label, value display, description, and error included.
-* **`Slider`** stays the styled compound for full composition; **`SliderDS`** = packaged DS
-* API (`onChange(value: number)`; bare **`Slider.Root`** still uses Ark's `onValueChange`).
+* Design-system convenience slider — label, value display, description, and error included. **`Slider`**
+* stays the styled compound for full composition; **`SliderDS`** = packaged DS API (`onChange(value:
+* number)`; bare **`Slider.Root`** still uses Ark's `onValueChange`).
 */
 const SliderDS = forwardRef(({ value, onChange, onChangeEnd, onFocusChange, min, max, step, label, showValue = true, description, error, name, disabled, size = "md", className, classNames = {} }, ref) => {
 	const styles = sliderRecipe({ size });

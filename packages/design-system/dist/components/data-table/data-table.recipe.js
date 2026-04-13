@@ -3,13 +3,12 @@ import { sva } from "@styled-system/css";
 /**
 * Table Slot Recipe
 *
-* Slots:    root | table | thead | tbody | tfoot | tr | headerRow | th | td | sortIcon | emptyState | caption
+* Slots: root | table | thead | tbody | tfoot | tr | headerRow | th | td | sortIcon | emptyState | caption
 * Variants: size (sm | md | lg) · striped (boolean)
 *
-* Headless-first — pairs with TanStack Table (or any table logic layer).
-* Apply slot classNames to your own rendered markup.
-* Sort state via `data-sort="asc|desc|false"` on the sortIcon slot.
-* Selection state via `data-selected="true"` on tr.
+* Headless-first — pairs with TanStack Table (or any table logic layer). Apply slot classNames to your own
+* rendered markup. Sort state via `data-sort="asc|desc|false"` on the sortIcon slot. Selection state via
+* `data-selected="true"` on tr.
 */
 const tableRecipe = sva({
 	className: "table",

@@ -10,45 +10,46 @@ const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
 /**
 * Styled Ark **TagsInput** compound — each part is wired to `tagsInputRecipe` via context.
 *
-* Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to
-* delete, Enter to confirm), edit mode per tag, and ARIA for the tag list.
+* Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to delete, Enter to confirm),
+* edit mode per tag, and ARIA for the tag list.
 *
 * Each tag goes through three states:
+*
 * - **Preview** (`ItemPreview`) — the visible chip with a delete button.
 * - **Edit** (`ItemInput`) — an inline text field when double-clicking a tag.
 * - **Input** (`Input`) — the new-tag text field at the end of the list.
 *
-* Use `TagsInput.Context` / `TagsInput.ItemContext` inside the render for
-* access to machine state without lifting it up.
+* Use `TagsInput.Context` / `TagsInput.ItemContext` inside the render for access to machine state without
+* lifting it up.
 *
 * @example
-* ```tsx
-* import { TagsInput } from '@finografic/design-system/forms';
-* import { XIcon } from '@finografic/icons';
+*   ```tsx
+*   import { TagsInput } from '@finografic/design-system/forms';
+*   import { XIcon } from '@finografic/icons';
 *
-* <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
-*   <TagsInput.Label>Topics</TagsInput.Label>
-*   <TagsInput.Control>
-*     <TagsInput.Context>
-*       {({ value }) =>
-*         value.map((tag, index) => (
-*           <TagsInput.Item key={index} index={index} value={tag}>
-*             <TagsInput.ItemPreview>
-*               <TagsInput.ItemText>{tag}</TagsInput.ItemText>
-*               <TagsInput.ItemDeleteTrigger>
-*                 <XIcon aria-hidden />
-*               </TagsInput.ItemDeleteTrigger>
-*             </TagsInput.ItemPreview>
-*             <TagsInput.ItemInput />
-*           </TagsInput.Item>
-*         ))
-*       }
-*     </TagsInput.Context>
-*     <TagsInput.Input placeholder="Add tag…" />
-*   </TagsInput.Control>
-*   <TagsInput.HiddenInput />
-* </TagsInput.Root>
-* ```
+*   <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
+*     <TagsInput.Label>Topics</TagsInput.Label>
+*     <TagsInput.Control>
+*       <TagsInput.Context>
+*         {({ value }) =>
+*           value.map((tag, index) => (
+*             <TagsInput.Item key={index} index={index} value={tag}>
+*               <TagsInput.ItemPreview>
+*                 <TagsInput.ItemText>{tag}</TagsInput.ItemText>
+*                 <TagsInput.ItemDeleteTrigger>
+*                   <XIcon aria-hidden />
+*                 </TagsInput.ItemDeleteTrigger>
+*               </TagsInput.ItemPreview>
+*               <TagsInput.ItemInput />
+*             </TagsInput.Item>
+*           ))
+*         }
+*       </TagsInput.Context>
+*       <TagsInput.Input placeholder="Add tag…" />
+*     </TagsInput.Control>
+*     <TagsInput.HiddenInput />
+*   </TagsInput.Root>;
+*   ```;
 */
 const TagsInput$1 = {
 	Root: withProvider(TagsInput.Root, "root"),
@@ -72,9 +73,9 @@ const textColumnStyle = css({
 	gap: "0.5"
 });
 /**
-* Design-system convenience tags input — label, description, and error text included.
-* **`TagsInput`** stays the styled compound for full composition; **`TagsInputDS`** = packaged
-* DS API (`onChange(value: string[])`, tags rendered automatically from `value`).
+* Design-system convenience tags input — label, description, and error text included. **`TagsInput`** stays
+* the styled compound for full composition; **`TagsInputDS`** = packaged DS API (`onChange(value: string[])`,
+* tags rendered automatically from `value`).
 */
 const TagsInputDS = forwardRef(({ value = [], onChange, onInputValueChange, onHighlightChange, onValueInvalid, onBlur, label, description, error, placeholder = "Add tag…", max, validate, name, disabled, size = "md", className, classNames = {} }, ref) => {
 	const styles = tagsInputRecipe({ size });

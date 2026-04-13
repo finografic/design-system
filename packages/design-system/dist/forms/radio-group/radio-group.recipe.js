@@ -3,8 +3,7 @@ import { sva } from "@styled-system/css";
 /**
 * RadioGroup Recipe
 *
-* Slots:    root · label · item · itemControl · indicator · itemText · itemDescription ·
-*           description · errorText
+* Slots: root · label · item · itemControl · indicator · itemText · itemDescription · description · errorText
 * Variants: size (sm | md | lg) · variant (default | card) · orientation (vertical | horizontal)
 */
 const radioGroupRecipe = sva({

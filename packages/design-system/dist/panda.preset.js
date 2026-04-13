@@ -1,4 +1,4 @@
-import { definePreset } from "./node_modules/.pnpm/@pandacss_dev@1.9.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
+import { definePreset } from "./node_modules/.pnpm/@pandacss_dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
 import { durationTokens, easingTokens, keyframes } from "./tokens/animations.tokens.js";
 import { colorTokens, semanticColorTokens } from "./tokens/colors.tokens.js";
 import { borderWidthTokens, radiiTokens, shadowTokens } from "./tokens/decorative.tokens.js";
@@ -50,7 +50,7 @@ const designSystemPreset = definePreset({
 	},
 	globalCss: {
 		"*, *::before, *::after": { boxSizing: "border-box" },
-		html: {
+		"html": {
 			lineHeight: "1.5",
 			WebkitTextSizeAdjust: "100%",
 			WebkitFontSmoothing: "antialiased",
@@ -59,7 +59,7 @@ const designSystemPreset = definePreset({
 			touchAction: "manipulation",
 			fontFamily: "sans"
 		},
-		body: {
+		"body": {
 			minHeight: "100dvh",
 			position: "relative",
 			bg: "bg",
@@ -73,7 +73,7 @@ const designSystemPreset = definePreset({
 			maxWidth: "100%",
 			height: "auto"
 		},
-		svg: { flexShrink: 0 },
+		"svg": { flexShrink: 0 },
 		"svg.icon": {
 			width: "2rem",
 			height: "2rem",

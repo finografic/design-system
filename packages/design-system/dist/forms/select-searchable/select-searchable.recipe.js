@@ -3,9 +3,8 @@ import { sva } from "@styled-system/css";
 /**
 * SelectSearchable Recipe (Combobox)
 *
-* Slots:    root · control · input · trigger · clearTrigger · leadIcon ·
-*           positioner · content · list · item · itemText · itemIndicator · emptyState · addNew
-* Variants: size (sm | md | lg)
+* Slots: root · control · input · trigger · clearTrigger · leadIcon · positioner · content · list · item ·
+* itemText · itemIndicator · emptyState · addNew Variants: size (sm | md | lg)
 */
 const selectSearchableRecipe = sva({
 	className: "select-searchable",
@@ -57,15 +56,15 @@ const selectSearchableRecipe = sva({
 			}
 		},
 		leadIcon: {
-			position: "absolute",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			left: "0",
-			top: "50%",
-			transform: "translateY(-50%)",
-			color: "fg.muted",
-			pointerEvents: "none",
+			"position": "absolute",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"left": "0",
+			"top": "50%",
+			"transform": "translateY(-50%)",
+			"color": "fg.muted",
+			"pointerEvents": "none",
 			"&[data-interactive]": {
 				pointerEvents: "auto",
 				cursor: "pointer"
@@ -94,16 +93,16 @@ const selectSearchableRecipe = sva({
 			_hover: { color: "fg" }
 		},
 		trigger: {
-			position: "relative",
-			zIndex: "1",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
-			color: "fg.muted",
-			cursor: "pointer",
+			"position": "relative",
+			"zIndex": "1",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
+			"color": "fg.muted",
+			"cursor": "pointer",
 			"& svg": { transition: "transform 150ms ease" },
-			_open: { "& svg": { transform: "rotate(180deg)" } }
+			"_open": { "& svg": { transform: "rotate(180deg)" } }
 		},
 		positioner: {
 			zIndex: "dropdown",

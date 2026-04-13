@@ -9,28 +9,28 @@ import { matchSorter } from "match-sorter";
 /**
 * **SelectSearchable** — searchable single-select built on Ark UI Combobox.
 *
-* Filters options via `match-sorter` as the user types. Supports an optional
-* "Add new" affordance (`onAddNew`) and a clear button (`onClear`).
+* Filters options via `match-sorter` as the user types. Supports an optional "Add new" affordance
+* (`onAddNew`) and a clear button (`onClear`).
 *
 * For full composition control use Ark's `Combobox.*` parts directly.
 *
 * @example
-* ```tsx
-* import { SelectSearchable } from '@finografic/design-system/forms';
+*   ```tsx
+*   import { SelectSearchable } from '@finografic/design-system/forms';
 *
-* const options = [
-*   { value: 'en', label: 'English' },
-*   { value: 'es', label: 'Spanish' },
-* ];
+*   const options = [
+*     { value: 'en', label: 'English' },
+*     { value: 'es', label: 'Spanish' },
+*   ];
 *
-* <SelectSearchable
-*   options={options}
-*   value={lang}
-*   onSelect={setLang}
-*   onClear={() => setLang('')}
-*   placeholder="Search languages…"
-* />
-* ```
+*   <SelectSearchable
+*     options={options}
+*     value={lang}
+*     onSelect={setLang}
+*     onClear={() => setLang('')}
+*     placeholder="Search languages…"
+*   />;
+*   ```;
 */
 /** Small de-emphasised secondary label shown under the primary item label. */
 const itemSubLabelStyle = css({

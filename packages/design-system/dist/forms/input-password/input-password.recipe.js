@@ -5,8 +5,7 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI PasswordInput example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · control · input · visibilityTrigger
-* Variants: size (sm | md | lg)
+* Slots: root · label · control · input · visibilityTrigger Variants: size (sm | md | lg)
 */
 const inputPasswordRecipe = sva({
 	className: "input-password",
@@ -30,24 +29,24 @@ const inputPasswordRecipe = sva({
 			color: "fg"
 		},
 		control: {
-			position: "relative",
-			display: "flex",
-			alignItems: "center",
-			width: "full",
-			borderWidth: "default",
-			borderStyle: "solid",
-			borderColor: "border",
-			borderRadius: "md",
-			bg: "bg",
-			transitionProperty: "border-color, box-shadow",
-			transitionDuration: "fast",
-			_focusWithin: {
+			"position": "relative",
+			"display": "flex",
+			"alignItems": "center",
+			"width": "full",
+			"borderWidth": "default",
+			"borderStyle": "solid",
+			"borderColor": "border",
+			"borderRadius": "md",
+			"bg": "bg",
+			"transitionProperty": "border-color, box-shadow",
+			"transitionDuration": "fast",
+			"_focusWithin": {
 				borderColor: "accent.solid",
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"
 			},
-			_disabled: {
+			"_disabled": {
 				opacity: .55,
 				cursor: "not-allowed"
 			},

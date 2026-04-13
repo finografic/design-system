@@ -3,8 +3,8 @@ import { sva } from "@styled-system/css";
 /**
 * FieldBox Recipe
 *
-* Slots:    root · label · requiredIndicator · helperText · errorText · warningText
-* Variants: size (sm | md | lg)
+* Slots: root · label · requiredIndicator · helperText · errorText · warningText Variants: size (sm | md |
+* lg)
 */
 const fieldBoxRecipe = sva({
 	className: "field-box",

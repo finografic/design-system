@@ -3,18 +3,18 @@ import { sva } from "@styled-system/css";
 /**
 * Tabs Slot Recipe
 *
-* Port of Ark UI Tabs example styles → Panda `sva` + semantic tokens (no demo CSS variables).
-* Orientation follows Ark’s `data-orientation` on each part — do **not** add `orientation` as a
-* recipe variant, or `createStyleContext` would strip it from `Tabs.Root` and break Zag.
+* Port of Ark UI Tabs example styles → Panda `sva` + semantic tokens (no demo CSS variables). Orientation
+* follows Ark’s `data-orientation` on each part — do **not** add `orientation` as a recipe variant, or
+* `createStyleContext` would strip it from `Tabs.Root` and break Zag.
 *
-* Slots:    root · list · trigger · content · indicator
-* Variants: variant (line | enclosed) · size (sm | md | lg)
+* Slots: root · list · trigger · content · indicator Variants: variant (line | enclosed) · size (sm | md |
+* lg)
 *
-* - **line** — Underline selection: indicator uses Zag’s `--top` / `--height` / `--left` / `--width`
-*   so the bar sits on the **bottom edge of the active trigger** (Zag measures trigger `offset*`).
-*   The list uses **`box-shadow: inset`** for the grey rule (same thickness as the indicator), not
-*   `border-bottom`, so the active bar sits **on** the rule instead of floating above it. List omits
-*   bottom padding (`pb: 0`) so size presets must not use `p` shorthand on `list` or it overrides `pb`.
+* - **line** — Underline selection: indicator uses Zag’s `--top` / `--height` / `--left` / `--width` so the bar
+*   sits on the **bottom edge of the active trigger** (Zag measures trigger `offset*`). The list uses
+*   **`box-shadow: inset`** for the grey rule (same thickness as the indicator), not `border-bottom`, so the
+*   active bar sits **on** the rule instead of floating above it. List omits bottom padding (`pb: 0`) so size
+*   presets must not use `p` shorthand on `list` or it overrides `pb`.
 * - **enclosed** — Pill list + sliding indicator behind labels (`z-index: -1`, `accent.subtle`).
 */
 const focusRing = {
@@ -34,19 +34,19 @@ const tabsRecipe = sva({
 	],
 	base: {
 		root: {
-			display: "flex",
-			flexDirection: "column",
-			width: "full",
-			color: "fg",
+			"display": "flex",
+			"flexDirection": "column",
+			"width": "full",
+			"color": "fg",
 			"&[data-orientation=\"horizontal\"]": { flexDirection: "column" },
 			"&[data-orientation=\"vertical\"]": { flexDirection: "row" }
 		},
 		list: {
-			display: "inline-flex",
-			position: "relative",
-			isolation: "isolate",
-			alignItems: "center",
-			gap: "1",
+			"display": "inline-flex",
+			"position": "relative",
+			"isolation": "isolate",
+			"alignItems": "center",
+			"gap": "1",
 			"&[data-orientation=\"horizontal\"]": { flexDirection: "row" },
 			"&[data-orientation=\"vertical\"]": {
 				flexDirection: "column",
@@ -54,34 +54,34 @@ const tabsRecipe = sva({
 			}
 		},
 		trigger: {
-			display: "inline-flex",
-			alignItems: "center",
-			justifyContent: "center",
-			gap: "2",
-			px: "3",
-			fontFamily: "inherit",
-			fontSize: "sm",
-			fontWeight: "medium",
-			lineHeight: "normal",
-			color: "fg.muted",
-			cursor: "pointer",
-			whiteSpace: "nowrap",
-			flexShrink: 0,
-			userSelect: "none",
-			border: "none",
-			bg: "transparent",
-			borderRadius: "sm",
-			transitionProperty: "color, border-color, background-color, box-shadow",
-			transitionDuration: "fast",
-			_selected: { color: "accent.solid" },
-			_hover: { color: "fg" },
-			_disabled: {
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"gap": "2",
+			"px": "3",
+			"fontFamily": "inherit",
+			"fontSize": "sm",
+			"fontWeight": "medium",
+			"lineHeight": "normal",
+			"color": "fg.muted",
+			"cursor": "pointer",
+			"whiteSpace": "nowrap",
+			"flexShrink": 0,
+			"userSelect": "none",
+			"border": "none",
+			"bg": "transparent",
+			"borderRadius": "sm",
+			"transitionProperty": "color, border-color, background-color, box-shadow",
+			"transitionDuration": "fast",
+			"_selected": { color: "accent.solid" },
+			"_hover": { color: "fg" },
+			"_disabled": {
 				opacity: .5,
 				cursor: "not-allowed",
 				filter: "grayscale(100%)",
 				pointerEvents: "none"
 			},
-			_focusVisible: focusRing,
+			"_focusVisible": focusRing,
 			"&:is(a)": { color: "inherit" },
 			"&[data-orientation=\"vertical\"]": {
 				justifyContent: "flex-start",
@@ -91,12 +91,12 @@ const tabsRecipe = sva({
 			}
 		},
 		content: {
-			outline: "none",
-			fontSize: "sm",
-			lineHeight: "normal",
-			color: "fg",
-			_open: { animation: "fade-in 150ms ease" },
-			_focusVisible: {
+			"outline": "none",
+			"fontSize": "sm",
+			"lineHeight": "normal",
+			"color": "fg",
+			"_open": { animation: "fade-in 150ms ease" },
+			"_focusVisible": {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "-2px",
@@ -118,9 +118,9 @@ const tabsRecipe = sva({
 		variant: {
 			line: {
 				list: {
-					gap: "0",
-					pb: "0",
-					boxShadow: "inset 0 -3.4px 0 0 token(colors.border)",
+					"gap": "0",
+					"pb": "0",
+					"boxShadow": "inset 0 -3.4px 0 0 token(colors.border)",
 					"&[data-orientation=\"horizontal\"]": { alignItems: "flex-start" }
 				},
 				trigger: {
@@ -130,9 +130,9 @@ const tabsRecipe = sva({
 					_selected: { color: "accent.solid" }
 				},
 				indicator: {
-					zIndex: 0,
-					bg: "accent.solid",
-					borderRadius: "0",
+					"zIndex": 0,
+					"bg": "accent.solid",
+					"borderRadius": "0",
 					"&[data-orientation=\"horizontal\"]": {
 						left: "var(--left, 0)",
 						width: "var(--width)",
@@ -164,9 +164,9 @@ const tabsRecipe = sva({
 					boxShadow: "none"
 				} },
 				indicator: {
-					zIndex: -1,
-					borderRadius: "sm",
-					bg: "accent.subtle",
+					"zIndex": -1,
+					"borderRadius": "sm",
+					"bg": "accent.subtle",
 					"&[data-orientation=\"horizontal\"]": {
 						height: "var(--height, 2rem)",
 						width: "var(--width)"
@@ -181,10 +181,10 @@ const tabsRecipe = sva({
 		size: {
 			sm: {
 				trigger: {
-					px: "2.5",
-					py: "1",
-					fontSize: "xs",
-					gap: "1.5",
+					"px": "2.5",
+					"py": "1",
+					"fontSize": "xs",
+					"gap": "1.5",
 					"&[data-orientation=\"horizontal\"]": { height: "7" }
 				},
 				content: { py: "3" },
@@ -196,11 +196,11 @@ const tabsRecipe = sva({
 			},
 			md: {
 				trigger: {
-					px: "5",
-					pt: "0.625rem",
-					pb: "0.625rem",
-					fontSize: "md",
-					gap: "2",
+					"px": "5",
+					"pt": "0.625rem",
+					"pb": "0.625rem",
+					"fontSize": "md",
+					"gap": "2",
 					"&[data-orientation=\"horizontal\"]": {
 						minHeight: "10",
 						height: "auto"
@@ -215,10 +215,10 @@ const tabsRecipe = sva({
 			},
 			lg: {
 				trigger: {
-					px: "4",
-					py: "2",
-					fontSize: "md",
-					gap: "2",
+					"px": "4",
+					"py": "2",
+					"fontSize": "md",
+					"gap": "2",
 					"&[data-orientation=\"horizontal\"]": { height: "9" }
 				},
 				content: { py: "5" },

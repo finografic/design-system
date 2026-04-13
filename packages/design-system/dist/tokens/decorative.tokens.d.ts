@@ -26,13 +26,12 @@ declare const radiiTokens: {
   };
 };
 /**
- * Border width tokens for Panda CSS.
- * Keys: 'none' | 'light' | 'default' | 'heavy'
- * Used in recipes as: borderWidth: 'default', borderWidth: 'light'
+ * Border width tokens for Panda CSS. Keys: 'none' | 'light' | 'default' | 'heavy' Used in recipes as:
+ * borderWidth: 'default', borderWidth: 'light'
  *
  * @example
- * // In recipe: borderWidth: 'default' → border-width: 2px
- * // In recipe: borderWidth: 'light' → border-width: 1px
+ *   // In recipe: borderWidth: 'default' → border-width: 2px
+ *   // In recipe: borderWidth: 'light' → border-width: 1px
  */
 declare const borderWidthTokens: {
   none: {
@@ -49,15 +48,14 @@ declare const borderWidthTokens: {
   };
 };
 /**
- * Box shadow tokens for Panda CSS.
- * Keys: 'base.sm' | 'base.md' | 'base.lg'
- * Used in recipes as: boxShadow: 'md', shadow: 'sm'
+ * Box shadow tokens for Panda CSS. Keys: 'base.sm' | 'base.md' | 'base.lg' Used in recipes as: boxShadow:
+ * 'md', shadow: 'sm'
  *
- * Note: Semantic shadow tokens (with light/dark variants) are defined
- * in panda.preset.ts under semanticTokens.shadows.
+ * Note: Semantic shadow tokens (with light/dark variants) are defined in panda.preset.ts under
+ * semanticTokens.shadows.
  *
  * @example
- * // In recipe: boxShadow: 'md' → box-shadow: <elevation shadow>
+ *   // In recipe: boxShadow: 'md' → box-shadow: <elevation shadow>
  */
 declare const shadowTokens: {
   base: {

@@ -3,8 +3,8 @@ import { sva } from "@styled-system/css";
 /**
 * Toast Slot Recipe
 *
-* Slots:    root | title | description | closeTrigger | actionTrigger
-* Variants: status (info | success | warning | error)
+* Slots: root | title | description | closeTrigger | actionTrigger Variants: status (info | success | warning
+* | error)
 */
 const toastRecipe = sva({
 	className: "toast",
@@ -58,26 +58,26 @@ const toastRecipe = sva({
 			opacity: .8
 		},
 		closeTrigger: {
-			position: "absolute",
-			top: "1",
-			insetInlineEnd: "1",
-			display: "inline-flex",
-			alignItems: "center",
-			justifyContent: "center",
-			padding: "1",
-			cursor: "pointer",
-			color: "inherit",
-			opacity: .6,
-			borderRadius: "xs",
-			border: "none",
-			bg: "transparent",
-			transitionProperty: "background-color, opacity",
-			transitionDuration: "fast",
-			_hover: {
+			"position": "absolute",
+			"top": "1",
+			"insetInlineEnd": "1",
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"padding": "1",
+			"cursor": "pointer",
+			"color": "inherit",
+			"opacity": .6,
+			"borderRadius": "xs",
+			"border": "none",
+			"bg": "transparent",
+			"transitionProperty": "background-color, opacity",
+			"transitionDuration": "fast",
+			"_hover": {
 				opacity: 1,
 				bg: "bg.subtle"
 			},
-			_focusVisible: {
+			"_focusVisible": {
 				outline: "2px solid currentColor",
 				outlineOffset: "-1px"
 			},

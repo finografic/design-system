@@ -5,12 +5,10 @@ import { sva } from "@styled-system/css";
 *
 * Compound text input with optional leading/trailing decoration slots.
 *
-* Slots:    root · input · slot
-* Variants: size (sm | md | lg)
+* Slots: root · input · slot Variants: size (sm | md | lg)
 *
-* Slot positioning: apply `data-side="left"` or `data-side="right"` to the
-* slot element. The input's padding adjusts via `hasLeadingSlot` /
-* `hasTrailingSlot` compound variants on Root.
+* Slot positioning: apply `data-side="left"` or `data-side="right"` to the slot element. The input's padding
+* adjusts via `hasLeadingSlot` / `hasTrailingSlot` compound variants on Root.
 */
 const inputFieldRecipe = sva({
 	className: "input-field",
@@ -57,14 +55,14 @@ const inputFieldRecipe = sva({
 			}
 		},
 		slot: {
-			position: "absolute",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			top: "50%",
-			transform: "translateY(-50%)",
-			color: "fg.muted",
-			pointerEvents: "none",
+			"position": "absolute",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"top": "50%",
+			"transform": "translateY(-50%)",
+			"color": "fg.muted",
+			"pointerEvents": "none",
 			"&[data-side=\"left\"]": { left: "0" },
 			"&[data-side=\"right\"]": { right: "0" },
 			"&[data-interactive]": {

@@ -5,11 +5,11 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI Menu example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · positioner · content · separator · item · itemText · itemIndicator ·
-*           itemGroup · itemGroupLabel · arrow · arrowTip · indicator
+* Slots: root · positioner · content · separator · item · itemText · itemIndicator · itemGroup ·
+* itemGroupLabel · arrow · arrowTip · indicator
 *
-* `CheckboxItem` and `RadioItem` both share the `item` slot; `_checked` applies
-* accent colour for their selected state.
+* `CheckboxItem` and `RadioItem` both share the `item` slot; `_checked` applies accent colour for their
+* selected state.
 *
 * `Trigger` has no recipe slot — unstyled; compose with `asChild` + `<Button>` on the consumer side.
 */
@@ -91,21 +91,21 @@ const menuRecipe = sva({
 			whiteSpace: "nowrap"
 		},
 		itemIndicator: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
-			width: "4",
-			height: "4",
-			color: "accent.solid",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
+			"width": "4",
+			"height": "4",
+			"color": "accent.solid",
 			"& svg": {
 				w: "3.5",
 				h: "3.5"
 			}
 		},
 		itemGroup: {
-			display: "flex",
-			flexDirection: "column",
+			"display": "flex",
+			"flexDirection": "column",
 			"& + &": { marginTop: "2" }
 		},
 		itemGroupLabel: {
@@ -127,9 +127,9 @@ const menuRecipe = sva({
 			borderLeftColor: "border"
 		},
 		indicator: {
-			display: "inline-flex",
-			alignItems: "center",
-			justifyContent: "center",
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
 			"& svg": {
 				w: "4",
 				h: "4"

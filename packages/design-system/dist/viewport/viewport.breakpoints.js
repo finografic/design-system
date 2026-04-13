@@ -1,11 +1,11 @@
 import { toEmNumeric, toPixelString, toRemNumeric } from "./viewport.utils.js";
 //#region src/viewport/viewport.breakpoints.ts
 const BREAKPOINTS = {
-	xs: 0,
-	sm: 640,
-	md: 768,
-	lg: 1024,
-	xl: 1280,
+	"xs": 0,
+	"sm": 640,
+	"md": 768,
+	"lg": 1024,
+	"xl": 1280,
 	"2xl": 1536
 };
 const mapBreakpoints = (fn) => Object.fromEntries(Object.entries(BREAKPOINTS).map(([k, v]) => [k, fn(v)]));

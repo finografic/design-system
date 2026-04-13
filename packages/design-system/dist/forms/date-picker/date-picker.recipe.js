@@ -5,9 +5,8 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI DatePicker example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · control · input · trigger · clearTrigger · positioner · content ·
-*           view · viewControl · viewTrigger · prevTrigger · nextTrigger · rangeText ·
-*           table · tableHeader · tableCell · tableCellTrigger
+* Slots: root · label · control · input · trigger · clearTrigger · positioner · content · view · viewControl
+* · viewTrigger · prevTrigger · nextTrigger · rangeText · table · tableHeader · tableCell · tableCellTrigger
 * Variants: size (sm | md | lg)
 */
 const datePickerRecipe = sva({
@@ -213,21 +212,21 @@ const datePickerRecipe = sva({
 			padding: "0"
 		},
 		tableCellTrigger: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			width: "full",
-			borderRadius: "sm",
-			cursor: "pointer",
-			fontFamily: "inherit",
-			fontSize: "sm",
-			color: "fg",
-			bg: "transparent",
-			border: "none",
-			transitionProperty: "color, background-color",
-			transitionDuration: "fast",
-			_hover: { bg: "bg.subtle" },
-			_selected: {
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"width": "full",
+			"borderRadius": "sm",
+			"cursor": "pointer",
+			"fontFamily": "inherit",
+			"fontSize": "sm",
+			"color": "fg",
+			"bg": "transparent",
+			"border": "none",
+			"transitionProperty": "color, background-color",
+			"transitionDuration": "fast",
+			"_hover": { bg: "bg.subtle" },
+			"_selected": {
 				bg: "accent.solid",
 				color: "accent.contrast",
 				fontWeight: "semibold"
@@ -255,7 +254,7 @@ const datePickerRecipe = sva({
 				color: "fg.subtle",
 				opacity: .5
 			},
-			_disabled: {
+			"_disabled": {
 				opacity: .4,
 				cursor: "not-allowed",
 				pointerEvents: "none"
@@ -266,7 +265,7 @@ const datePickerRecipe = sva({
 				pointerEvents: "none",
 				textDecoration: "line-through"
 			},
-			_focusVisible: {
+			"_focusVisible": {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "2px"

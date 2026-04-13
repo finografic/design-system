@@ -5,11 +5,11 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI Listbox example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · label · content · item · itemText · itemIndicator · itemGroup · itemGroupLabel
-* Variants: size (sm | md | lg)
+* Slots: root · label · content · item · itemText · itemIndicator · itemGroup · itemGroupLabel Variants: size
+* (sm | md | lg)
 *
-* Unlike Select/Combobox, Listbox.Content is the always-visible scrollable list container.
-* Items have `_highlighted` (keyboard focus) and `_checked` (selected) states.
+* Unlike Select/Combobox, Listbox.Content is the always-visible scrollable list container. Items have
+* `_highlighted` (keyboard focus) and `_checked` (selected) states.
 */
 const listboxRecipe = sva({
 	className: "listbox",
@@ -86,8 +86,8 @@ const listboxRecipe = sva({
 			color: "accent.solid"
 		},
 		itemGroup: {
-			display: "flex",
-			flexDirection: "column",
+			"display": "flex",
+			"flexDirection": "column",
 			"& + &": { marginTop: "1" }
 		},
 		itemGroupLabel: {
@@ -109,8 +109,8 @@ const listboxRecipe = sva({
 			},
 			itemText: { fontSize: "sm" },
 			itemIndicator: {
-				w: "4",
-				h: "4",
+				"w": "4",
+				"h": "4",
 				"& svg": {
 					w: "3",
 					h: "3"
@@ -125,8 +125,8 @@ const listboxRecipe = sva({
 			},
 			itemText: { fontSize: "sm" },
 			itemIndicator: {
-				w: "5",
-				h: "5",
+				"w": "5",
+				"h": "5",
 				"& svg": {
 					w: "3.5",
 					h: "3.5"
@@ -141,8 +141,8 @@ const listboxRecipe = sva({
 			},
 			itemText: { fontSize: "md" },
 			itemIndicator: {
-				w: "5",
-				h: "5",
+				"w": "5",
+				"h": "5",
 				"& svg": {
 					w: "4",
 					h: "4"

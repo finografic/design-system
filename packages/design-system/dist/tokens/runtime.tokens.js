@@ -5,16 +5,13 @@ import { layoutTokens } from "./layout.tokens.js";
 import { colors } from "../palette/colors.js";
 //#region src/tokens/runtime.tokens.ts
 /**
-* @file runtime.tokens.ts
+* @file Runtime.tokens.ts CSS-in-JS runtime values for use in Emotion `css`` ` templates. Exports only two
+*   objects consumed by `*.styles.ts` files:
 *
-* CSS-in-JS runtime values for use in Emotion `css`` ` templates.
-*
-* Exports only two objects consumed by `*.styles.ts` files:
 *   - `colors` — full color palette (camelCase → CSS custom property strings)
-*   - `layout`  — core layout defaults (spacing, radii, structural dimensions)
-*
-* For Panda CSS / static design tokens, import directly from the specific
-* token files (e.g. `spacingTokens`, `fontSizeTokens`) instead.
+*   - `layout` — core layout defaults (spacing, radii, structural dimensions) For Panda CSS / static design
+*     tokens, import directly from the specific token files (e.g. `spacingTokens`, `fontSizeTokens`)
+*     instead.
 */
 const _border = {
 	width: { default: borderWidthTokens["default"].value },

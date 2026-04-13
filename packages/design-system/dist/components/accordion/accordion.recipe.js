@@ -5,8 +5,7 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI Accordion example styles → Panda `sva` + semantic tokens.
 *
-* Slots:    root · item · itemTrigger · itemContent · itemIndicator · itemBody
-* Variants: size (sm | md | lg)
+* Slots: root · item · itemTrigger · itemContent · itemIndicator · itemBody Variants: size (sm | md | lg)
 */
 const accordionRecipe = sva({
 	className: "accordion",
@@ -66,14 +65,14 @@ const accordionRecipe = sva({
 			_closed: { animation: "collapse-height 100ms ease-in" }
 		},
 		itemIndicator: {
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
-			color: "fg.muted",
-			transitionProperty: "transform",
-			transitionDuration: "normal",
-			_open: { transform: "rotate(180deg)" },
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
+			"color": "fg.muted",
+			"transitionProperty": "transform",
+			"transitionDuration": "normal",
+			"_open": { transform: "rotate(180deg)" },
 			"& svg": {
 				w: "4",
 				h: "4"

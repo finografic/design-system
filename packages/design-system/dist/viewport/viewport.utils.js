@@ -10,24 +10,25 @@ const toPixelString = (value) => `${value}px`;
 /** Converts a pixel value to a numeric rem value. Used as a `mapBreakpoints` callback. */
 const toRemNumeric = (px) => convertPxToRem(px);
 /**
-* Converts a pixel value to a numeric em value.
-* In this context em === rem (assumes no inherited font-size scaling).
-* Used as a `mapBreakpoints` callback.
+* Converts a pixel value to a numeric em value. In this context em === rem (assumes no inherited font-size
+* scaling). Used as a `mapBreakpoints` callback.
 */
 const toEmNumeric = (px) => convertPxToRem(px);
 /**
 * Returns a CSS `min-width` media query condition string (no `@media` wrapper).
 *
-* PX is used here for simplicity and Carbon/Radix compatibility.
-* See: https://betterprogramming.pub/px-em-or-rem-examining-media-query-units-in-2021-e00cf37b91a9
+* PX is used here for simplicity and Carbon/Radix compatibility. See:
+* https://betterprogramming.pub/px-em-or-rem-examining-media-query-units-in-2021-e00cf37b91a9
 *
-* @example toMediaMinWidth(768) → '(min-width: 768px)'
+* @example
+*   toMediaMinWidth(768) → '(min-width: 768px)'
 */
 const toMediaMinWidth = (value) => `(min-width: ${value}px)`;
 /**
 * Returns a CSS `max-width` media query condition string (no `@media` wrapper).
 *
-* @example toMediaMaxWidth(1024) → '(max-width: 1024px)'
+* @example
+*   toMediaMaxWidth(1024) → '(max-width: 1024px)'
 */
 const toMediaMaxWidth = (value) => `(max-width: ${value}px)`;
 //#endregion

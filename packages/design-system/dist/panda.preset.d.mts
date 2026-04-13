@@ -1,6 +1,6 @@
 /** Gets any `/// <reference path="..." />` comments. */
 /** Gets any `/// <reference types="..." />` comments. */
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/csstype.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/csstype.d.ts
 type Fallback<T> = { [P in keyof T]: T[P] | readonly NonNullable<T[P]>[] };
 interface StandardLonghandProperties<TLength = (string & {}) | 0, TTime = string & {}> {
   /**
@@ -10569,7 +10569,7 @@ declare namespace DataType {
   type VisualBox = "border-box" | "content-box" | "padding-box";
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/selectors.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/selectors.d.ts
 type AriaAttributes = '[aria-disabled]' | '[aria-hidden]' | '[aria-invalid]' | '[aria-readonly]' | '[aria-required]' | '[aria-selected]' | '[aria-checked]' | '[aria-expanded]' | '[aria-pressed]' | `[aria-current=${'page' | 'step' | 'location' | 'date' | 'time'}]` | '[aria-invalid]' | `[aria-sort=${'ascending' | 'descending'}]`;
 type DataAttributes = '[data-selected]' | '[data-highlighted]' | '[data-hover]' | '[data-active]' | '[data-checked]' | '[data-disabled]' | '[data-readonly]' | '[data-focus]' | '[data-focus-visible]' | '[data-focus-visible-added]' | '[data-invalid]' | '[data-pressed]' | '[data-expanded]' | '[data-grabbed]' | '[data-dragged]' | '[data-orientation=horizontal]' | '[data-orientation=vertical]' | '[data-in-range]' | '[data-out-of-range]' | '[data-placeholder-shown]' | `[data-part=${string}]` | `[data-attr=${string}]` | `[data-placement=${string}]` | `[data-theme=${string}]` | `[data-size=${string}]` | `[data-state=${string}]` | '[data-empty]' | '[data-loading]' | '[data-loaded]' | '[data-enter]' | '[data-entering]' | '[data-exited]' | '[data-exiting]';
 type AttributeSelector = `&${Pseudos | DataAttributes | AriaAttributes}`;
@@ -10578,7 +10578,7 @@ type AtRuleType = 'media' | 'layer' | 'container' | 'supports' | 'page' | 'scope
 type AnySelector = `${string}&` | `&${string}` | `@${AtRuleType}${string}`;
 type Selectors = AttributeSelector | ParentSelector;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/conditions.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/conditions.d.ts
 /* -----------------------------------------------------------------------------
  * Shadowed export (in CLI): DO NOT REMOVE
  * -----------------------------------------------------------------------------*/
@@ -10594,14 +10594,14 @@ type Condition = string;
 type ConditionalValue<V> = V | Array<V | null> | { [K in keyof Conditions]?: ConditionalValue<V> };
 type Nested<P> = (P & { [K in Selectors]?: Nested<P> } & { [K in AnySelector]?: Nested<P> }) | { [K in Condition]?: Nested<P> };
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/prop-type.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/prop-type.d.ts
 /* -----------------------------------------------------------------------------
  * Shadowed export (in CLI): DO NOT REMOVE
  * -----------------------------------------------------------------------------*/
 interface PropertyTypes {}
 type PropertyValue<K extends string> = K extends keyof PropertyTypes ? ConditionalValue<PropertyTypes[K]> : K extends keyof CssProperties ? ConditionalValue<CssProperties[K]> : never;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/style-props.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/style-props.d.ts
 type String$1 = string & {};
 type Number$1 = number & {};
 /* -----------------------------------------------------------------------------
@@ -10611,7 +10611,7 @@ type CssProperties$1 = PropertiesFallback<String$1 | Number$1>;
 type CssVarProperties = { [key in `--${string}`]?: ConditionalValue<string | number> };
 type SystemProperties = { [K in keyof CssProperties$1]?: PropertyValue<K> };
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/system-types.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/system-types.d.ts
 type String = string & {};
 type Number = number & {};
 type Pretty<T> = { [K in keyof T]: T[K] } & {};
@@ -10690,7 +10690,7 @@ interface ExtendableGlobalFontface {
   extend?: GlobalFontface | undefined;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/composition.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/composition.d.ts
 interface Token$2<T> {
   value: T;
   description?: string;
@@ -10721,7 +10721,7 @@ type AnimationStyleProperty = 'animation' | 'animationComposition' | 'animationD
 type AnimationStyle = CompositionStyleObject<AnimationStyleProperty>;
 type AnimationStyles = Recursive$1<Token$2<AnimationStyle>>;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/static-css.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/static-css.d.ts
 interface ConditionOptions {
   /**
    * The conditions to generate for the rule.
@@ -10771,7 +10771,7 @@ interface StaticCssOptions {
   themes?: string[];
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/recipe.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/recipe.d.ts
 type StringToBoolean<T> = T extends 'true' | 'false' ? boolean : T;
 type RecipeVariantRecord = Record<any, Record<any, SystemStyleObject>>;
 type RecipeSelection<T extends RecipeVariantRecord> = keyof any extends keyof T ? {} : { [K in keyof T]?: StringToBoolean<keyof T[K]> | undefined };
@@ -22056,14 +22056,14 @@ declare namespace ts {
   function transform<T extends Node>(source: T | T[], transformers: TransformerFactory<T>[], compilerOptions?: CompilerOptions): TransformationResult<T>;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/shared.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/shared.d.ts
 type Primitive$1 = string | number | boolean | null | undefined;
 type LiteralUnion$1<T, K extends Primitive$1 = string> = T | (K & Record<never, never>);
 interface Recursive<T> {
   [key: string]: T | Recursive<T>;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/tokens.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/tokens.d.ts
 interface Token$1<Value = any> {
   value: Value;
   description?: string;
@@ -22133,7 +22133,7 @@ type Tokens = { [key in keyof TokenDataTypes]?: Recursive<Token$1<TokenDataTypes
 type SemanticTokens<ConditionKey extends string = string> = { [key in keyof TokenDataTypes]?: Recursive<SemanticToken<TokenDataTypes[key], ConditionKey>> };
 type TokenCategory = keyof TokenDataTypes;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/pattern.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/pattern.d.ts
 type Primitive = string | number | boolean | null | undefined;
 type LiteralUnion<T, K extends Primitive = string> = T | (K & Record<never, never>);
 type PatternProperty = {
@@ -22214,7 +22214,7 @@ interface PatternConfig<T extends PatternProperties = PatternProperties> {
   blocklist?: LiteralUnion<CssProperty>[];
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/theme.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/theme.d.ts
 interface ColorPaletteOptions {
   /**
    * Whether to enable color palette generation.
@@ -22302,7 +22302,7 @@ interface ExtendableTheme extends Theme {
   extend?: PartialTheme | undefined;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/utility.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/utility.d.ts
 interface TokenFn {
   (path: string): string | undefined;
   raw: (path: string) => Token$1 | undefined;
@@ -22367,7 +22367,7 @@ type ExtendableUtilityConfig = UtilityConfigWithExtend & {
   extend?: UtilityConfig | undefined;
 };
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.0/node_modules/@pandacss/types/dist/config.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/config.d.ts
 interface Patterns {
   [pattern: string]: PatternConfig;
 }

@@ -59,20 +59,18 @@ declare const spacingTokens: {
   };
 };
 /**
- * Z-index scale for layered UI elements.
- * Keys are referenced as strings in recipes and css() calls:
- *   zIndex: 'modal', zIndex: 'tooltip'
+ * Z-index scale for layered UI elements. Keys are referenced as strings in recipes and css() calls: zIndex:
+ * 'modal', zIndex: 'tooltip'
  *
- * Values use a spaced numeric scale to allow insertion without
- * renumbering (e.g. a new layer between overlay and modal).
+ * Values use a spaced numeric scale to allow insertion without renumbering (e.g. a new layer between overlay
+ * and modal).
  *
- * **Layering:** `dropdown` must stay **above** `sticky` (e.g. sticky table headers /
- * toolbars at 1100) so Select / Combobox / Menu positioners are not covered by the
- * next row or sticky chrome.
+ * **Layering:** `dropdown` must stay **above** `sticky` (e.g. sticky table headers / toolbars at 1100) so
+ * Select / Combobox / Menu positioners are not covered by the next row or sticky chrome.
  *
  * @example
- * // In recipe: zIndex: 'tooltip' → z-index: 1800
- * // In css():  zIndex: 'overlay' → z-index: 1300
+ *   // In recipe: zIndex: 'tooltip' → z-index: 1800
+ *   // In css():  zIndex: 'overlay' → z-index: 1300
  */
 declare const zIndexTokens: {
   hide: {
