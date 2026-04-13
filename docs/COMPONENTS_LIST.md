@@ -45,6 +45,7 @@
 | Toast         | SVA     | — (createToaster) | —                                      | —                                                                     | `createToaster` API      |
 | Toggle        | SVA     | ToggleDS ✅       | `onChange(pressed: boolean)`           | —                                                                     | `onPressedChange`        |
 | Tooltip       | SVA     | —                 | `onOpenChange(open: boolean)`          | `onExitComplete()`                                                    | `onOpenChange`           |
+| TreeView      | SVA     | TreeViewDS ✅     | `onSelectionChange({ selectedValue })` | `onExpandedChange({ expandedValue })`                                 | `onSelectionChange`      |
 
 ---
 
@@ -56,6 +57,7 @@
 | DatePicker     | SVA     | DatePickerDS ✅                       | `onChange(value: DateValue[], valueAsString: string[])` | `onOpenChange(open: boolean)`, `onViewChange(view: string)`                                                            | `onValueChange`   |
 | Editable       | SVA     | EditableDS ✅                         | `onChange(value: string)`                               | `onValueCommit(value: string)`, `onValueRevert()`                                                                      | `onValueChange`   |
 | FieldBox       | Custom  | —                                     | —                                                       | —                                                                                                                      | —                 |
+| FileUpload     | SVA     | FileUploadDS ✅                       | `onChange({ acceptedFiles: File[] })`                   | —                                                                                                                      | `onFileChange`    |
 | InputField     | SVA     | — (IS the wrapper)                    | `onChange(value: string)`                               | `onFocus()`, `onBlur()`                                                                                                | `onChange`        |
 | InputNumber    | SVA     | — (IS the wrapper)                    | `onChange(value: string, valueAsNumber: number)`        | `onValueCommit(value, valueAsNumber)`, `onValueInvalid(reason: string)`                                                | `onValueChange`   |
 | InputPassword  | SVA     | InputPasswordDS ✅                    | `onChange(value: string)`                               | `onBlur()`                                                                                                             | `onChange`        |
@@ -80,6 +82,8 @@
   pass through on `*DS` with their original Ark signatures.
 - **`onEscapeKeyDown`** — Dialog, Popover, Menu. Receives a real `KeyboardEvent`; pass through as-is.
 - **`onExitComplete`** — animation lifecycle hook; no detail object. Expose as `onExitComplete?(): void`.
+- **`TreeViewDS.onSelectionChange`** — passes the raw Ark detail `{ selectedValue: string[] }` unchanged (not flattened). Same for `onExpandedChange({ expandedValue: string[] })`.
+- **`FileUploadDS.onChange`** — passes `{ acceptedFiles: File[] }`. Rejected files are not surfaced on the DS wrapper; use the bare compound `FileUpload.Context` to access `rejectedFiles`.
 - **`onChangeEnd` vs `onValueCommit`** — Slider has both live (`onChange`) and commit (`onChangeEnd`) variants.
   NumberInput uses `onValueCommit` (fires on blur/Enter); keep the Ark name.
 - **`Toggle.onPressedChange`** — receives a bare `boolean`, not a detail object. DS: `onChange(pressed: boolean)`.

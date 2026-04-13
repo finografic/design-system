@@ -62,7 +62,7 @@ declare const Select$1: {
    */
   Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Omit<Omit<Omit<Select.RootProps<unknown>, never> & _$react.RefAttributes<HTMLDivElement>, "ref"> & {
     ref?: ((instance: HTMLDivElement | null) => void | _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | _$react.RefObject<HTMLDivElement> | null | undefined;
-  }, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "control" | "positioner" | "trigger" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "itemText" | "indicator" | "list" | "valueText", {
+  }, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -156,7 +156,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "item" | "itemIndicator" | "label" | "control" | "positioner" | "trigger" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "itemText" | "indicator" | "list" | "valueText", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
     size: {
       sm: {
         label: {

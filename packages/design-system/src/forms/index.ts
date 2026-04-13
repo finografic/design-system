@@ -4,6 +4,7 @@ export * from './checkbox';
 export * from './date-picker';
 export * from './editable';
 export * from './field-box';
+export * from './file-upload';
 export * from './input-field';
 export * from './input-number';
 export * from './input-password';

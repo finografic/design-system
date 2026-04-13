@@ -32,7 +32,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const InputPassword: {
-  /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
+  /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "visibilityTrigger", {
     size: {
       sm: {
         control: {
@@ -78,7 +78,7 @@ declare const InputPassword: {
       };
     };
   }>>; /** Root with external machine state from `usePasswordInput`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "visibilityTrigger", {
     size: {
       sm: {
         control: {

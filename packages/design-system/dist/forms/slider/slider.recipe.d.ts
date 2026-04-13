@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/forms/slider/slider.recipe.d.ts
-declare const sliderRecipe: SlotRecipeRuntimeFn<"marker" | "root" | "description" | "label" | "errorText" | "control" | "valueText" | "track" | "range" | "thumb" | "markerGroup", {
+declare const sliderRecipe: SlotRecipeRuntimeFn<"root" | "marker" | "description" | "label" | "thumb" | "control" | "errorText" | "valueText" | "track" | "range" | "markerGroup", {
   size: {
     sm: {
       label: {

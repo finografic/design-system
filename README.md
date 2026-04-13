@@ -87,20 +87,21 @@ See [COMPONENTS_LIST.md](./docs/COMPONENTS_LIST.md) for the full inventory, patt
 
 Variant props (`size`, `variant`) go on the **Root**. Use `*DS` wrappers for the quick-start API; use the compound directly for full layout control.
 
-| Component           | DS Wrapper        | Sub-components                                                                                                 |
-| ------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------- |
-| `Accordion`         | `AccordionDS`     | Root · Item · ItemTrigger · ItemContent · ItemIndicator                                                        |
-| `Dialog`            | —                 | Root · Trigger · Backdrop · Positioner · Content · Header · Title · Description · Body · Footer · CloseTrigger |
-| `DialogGeneric`     | —                 | Config-driven modal; accepts `config: DialogGenericConfig`                                                     |
-| `Menu`              | —                 | Root · Trigger · Positioner · Content · Item · ItemGroup · ItemGroupLabel · Separator · Arrow                  |
-| `Pagination`        | `PaginationDS`    | Root · PrevTrigger · NextTrigger · PageTrigger · Ellipsis                                                      |
-| `Popover`           | —                 | Root · Trigger · Positioner · Content · Arrow · Title · Description · CloseTrigger                             |
-| `ScrollArea`        | `ScrollAreaDS`    | Root · Viewport · Content · Scrollbar · Thumb · Corner                                                         |
-| `SegmentGroup`      | `SegmentGroupDS`  | Root · Item · ItemText · ItemControl · Indicator                                                               |
-| `Tabs`              | `TabsDS`          | Root · List · Trigger · Content · Indicator                                                                    |
-| `Toast` / `Toaster` | — (createToaster) | Root · Title · Description · CloseTrigger · `createToaster`                                                    |
-| `Toggle`            | `ToggleDS`        | Root (single element with pressed state)                                                                       |
-| `Tooltip`           | —                 | Root · Trigger · Positioner · Content · Arrow                                                                  |
+| Component           | DS Wrapper        | Sub-components                                                                                                                                    |
+| ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Accordion`         | `AccordionDS`     | Root · Item · ItemTrigger · ItemContent · ItemIndicator                                                                                           |
+| `Dialog`            | —                 | Root · Trigger · Backdrop · Positioner · Content · Header · Title · Description · Body · Footer · CloseTrigger                                    |
+| `DialogGeneric`     | —                 | Config-driven modal; accepts `config: DialogGenericConfig`                                                                                        |
+| `Menu`              | —                 | Root · Trigger · Positioner · Content · Item · ItemGroup · ItemGroupLabel · Separator · Arrow                                                     |
+| `Pagination`        | `PaginationDS`    | Root · PrevTrigger · NextTrigger · PageTrigger · Ellipsis                                                                                         |
+| `Popover`           | —                 | Root · Trigger · Positioner · Content · Arrow · Title · Description · CloseTrigger                                                                |
+| `ScrollArea`        | `ScrollAreaDS`    | Root · Viewport · Content · Scrollbar · Thumb · Corner                                                                                            |
+| `SegmentGroup`      | `SegmentGroupDS`  | Root · Item · ItemText · ItemControl · Indicator                                                                                                  |
+| `Tabs`              | `TabsDS`          | Root · List · Trigger · Content · Indicator                                                                                                       |
+| `Toast` / `Toaster` | — (createToaster) | Root · Title · Description · CloseTrigger · `createToaster`                                                                                       |
+| `Toggle`            | `ToggleDS`        | Root (single element with pressed state)                                                                                                          |
+| `Tooltip`           | —                 | Root · Trigger · Positioner · Content · Arrow                                                                                                     |
+| `TreeView`          | `TreeViewDS`      | Root · Label · Tree · Branch · BranchControl · BranchIndicator · BranchText · BranchContent · BranchIndentGuide · Item · ItemText · ItemIndicator |
 
 ---
 
@@ -109,26 +110,27 @@ Variant props (`size`, `variant`) go on the **Root**. Use `*DS` wrappers for the
 All from `@workspace/design-system/forms`.
 See [COMPONENTS_LIST.md](./docs/COMPONENTS_LIST.md) for full handler signatures.
 
-| Component / DS wrapper              | Description                                                      |
-| ----------------------------------- | ---------------------------------------------------------------- |
-| `Checkbox` / `CheckboxDS`           | Checkbox compound + convenience wrapper                          |
-| `DatePicker` / `DatePickerDS`       | Calendar picker with month/year navigation                       |
-| `Editable` / `EditableDS`           | Inline preview→edit field; `multiline` prop switches to textarea |
-| `FieldBox`                          | RHF-aware label / hint / error layout wrapper                    |
-| `InputField`                        | Text input with leading/trailing decoration slots                |
-| `InputNumber`                       | Number input with prefix/suffix and `Intl` formatting            |
-| `InputPassword` / `InputPasswordDS` | Password input with visibility toggle                            |
-| `Label`                             | Plain `<label>` with size variant                                |
-| `Listbox` / `ListboxDS`             | Always-visible selectable list (no dropdown)                     |
-| `RadioGroup` / `RadioGroupDS`       | Radio group — default + card variant                             |
-| `Select`                            | Dropdown select compound — Root, Trigger, Content, Item, etc.    |
-| `SelectCombobox`                    | Low-level combobox compound — full composition control           |
-| `SelectDefault`                     | Convenience wrapper: `options: SelectOption[]`                   |
-| `SelectSearchable`                  | Searchable combobox with `match-sorter` filtering + `onAddNew`   |
-| `Slider` / `SliderDS`               | Range slider — single or multi-thumb                             |
-| `Switch` / `SwitchDS`               | Toggle switch                                                    |
-| `TagsInput` / `TagsInputDS`         | Token / tag input with keyboard editing                          |
-| `Textarea`                          | Styled `<textarea>` — `size` + `resize` variants                 |
+| Component / DS wrapper              | Description                                                                  |
+| ----------------------------------- | ---------------------------------------------------------------------------- |
+| `Checkbox` / `CheckboxDS`           | Checkbox compound + convenience wrapper                                      |
+| `DatePicker` / `DatePickerDS`       | Calendar picker with month/year navigation                                   |
+| `Editable` / `EditableDS`           | Inline preview→edit field; `multiline` prop switches to textarea             |
+| `FieldBox`                          | RHF-aware label / hint / error layout wrapper                                |
+| `FileUpload` / `FileUploadDS`       | File picker or drag-and-drop upload zone; `variant: 'trigger' \| 'dropzone'` |
+| `InputField`                        | Text input with leading/trailing decoration slots                            |
+| `InputNumber`                       | Number input with prefix/suffix and `Intl` formatting                        |
+| `InputPassword` / `InputPasswordDS` | Password input with visibility toggle                                        |
+| `Label`                             | Plain `<label>` with size variant                                            |
+| `Listbox` / `ListboxDS`             | Always-visible selectable list (no dropdown)                                 |
+| `RadioGroup` / `RadioGroupDS`       | Radio group — default + card variant                                         |
+| `Select`                            | Dropdown select compound — Root, Trigger, Content, Item, etc.                |
+| `SelectCombobox`                    | Low-level combobox compound — full composition control                       |
+| `SelectDefault`                     | Convenience wrapper: `options: SelectOption[]`                               |
+| `SelectSearchable`                  | Searchable combobox with `match-sorter` filtering + `onAddNew`               |
+| `Slider` / `SliderDS`               | Range slider — single or multi-thumb                                         |
+| `Switch` / `SwitchDS`               | Toggle switch                                                                |
+| `TagsInput` / `TagsInputDS`         | Token / tag input with keyboard editing                                      |
+| `Textarea`                          | Styled `<textarea>` — `size` + `resize` variants                             |
 
 ---
 
@@ -151,35 +153,37 @@ All exported from `@workspace/design-system/recipes`.
 
 ### Slot recipes (`sva`) — `*RecipeProps`
 
-| Recipe                   | `className`         | Slots                                                                                                                                                 |
-| ------------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `accordionRecipe`        | `accordion`         | root · item · itemTrigger · itemContent · itemIndicator                                                                                               |
-| `checkboxRecipe`         | `checkbox`          | root · control · indicator · label · description · errorText                                                                                          |
-| `datePickerRecipe`       | `date-picker`       | root · label · control · trigger · positioner · content · viewControl · prevTrigger · nextTrigger · grid · gridHeader · gridBody · cell · cellTrigger |
-| `dialogRecipe`           | `dialog`            | backdrop · positioner · content · header · body · footer · title · description · closeTrigger                                                         |
-| `editableRecipe`         | `editable`          | root · label · area · input · textarea · preview · control · editTrigger · submitTrigger · cancelTrigger                                              |
-| `fieldBoxRecipe`         | `field-box`         | root · label · requiredIndicator · helperText · errorText · warningText                                                                               |
-| `inputFieldRecipe`       | `input-field`       | root · input · slot                                                                                                                                   |
-| `inputNumberRecipe`      | `input-number`      | root · label · control · input · incrementTrigger · decrementTrigger · prefix · suffix                                                                |
-| `inputPasswordRecipe`    | `input-password`    | root · label · input · visibilityTrigger                                                                                                              |
-| `listboxRecipe`          | `listbox`           | root · label · content · item · itemText · itemIndicator · itemGroup · itemGroupLabel                                                                 |
-| `menuRecipe`             | `menu`              | root · positioner · content · trigger · item · itemGroup · itemGroupLabel · separator · arrow                                                         |
-| `paginationRecipe`       | `pagination`        | root · item · ellipsis · prevTrigger · nextTrigger · pageText                                                                                         |
-| `popoverRecipe`          | `popover`           | positioner · content · arrow · title · description · trigger · closeTrigger                                                                           |
-| `radioGroupRecipe`       | `radio-group`       | root · label · item · itemControl · indicator · itemText · itemDescription                                                                            |
-| `scrollAreaRecipe`       | `scroll-area`       | root · viewport · content · scrollbar · thumb · corner                                                                                                |
-| `segmentGroupRecipe`     | `segment-group`     | root · label · item · itemText · itemControl · indicator                                                                                              |
-| `selectRecipe`           | `select`            | root · control · trigger · valueText · indicator · positioner · content · item · itemText · itemIndicator · itemGroup · label · clearTrigger · list   |
-| `selectComboboxRecipe`   | `select-combobox`   | root · label · control · input · trigger · positioner · content · item · itemText · itemIndicator · itemGroup · clearTrigger · list                   |
-| `selectSearchableRecipe` | `select-searchable` | root · control · input · leadIcon · positioner · content · item · itemText · itemIndicator · itemGroup · emptyState · addNew                          |
-| `sliderRecipe`           | `slider`            | root · label · valueText · control · track · range · thumb · markerGroup · marker                                                                     |
-| `switchRecipe`           | `switch`            | root · label · control · thumb · description · errorText                                                                                              |
-| `tableRecipe`            | `table`             | root · table · thead · tbody · tfoot · tr · headerRow · th · td · sortIcon · emptyState · caption                                                     |
-| `tagsInputRecipe`        | `tags-input`        | root · label · control · item · itemPreview · itemText · itemInput · itemDeleteTrigger · input · clearTrigger · description · errorText               |
-| `tabsRecipe`             | `tabs`              | root · list · trigger · content · indicator                                                                                                           |
-| `toastRecipe`            | `toast`             | root · group · title · description · actionTrigger · closeTrigger                                                                                     |
-| `toggleRecipe`           | `toggle`            | root                                                                                                                                                  |
-| `tooltipRecipe`          | `tooltip`           | positioner · content · arrow · trigger                                                                                                                |
+| Recipe                   | `className`         | Slots                                                                                                                                                                                                                    |
+| ------------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `accordionRecipe`        | `accordion`         | root · item · itemTrigger · itemContent · itemIndicator                                                                                                                                                                  |
+| `checkboxRecipe`         | `checkbox`          | root · control · indicator · label · description · errorText                                                                                                                                                             |
+| `datePickerRecipe`       | `date-picker`       | root · label · control · trigger · positioner · content · viewControl · prevTrigger · nextTrigger · grid · gridHeader · gridBody · cell · cellTrigger                                                                    |
+| `dialogRecipe`           | `dialog`            | backdrop · positioner · content · header · body · footer · title · description · closeTrigger                                                                                                                            |
+| `editableRecipe`         | `editable`          | root · label · area · input · textarea · preview · control · editTrigger · submitTrigger · cancelTrigger                                                                                                                 |
+| `fieldBoxRecipe`         | `field-box`         | root · label · requiredIndicator · helperText · errorText · warningText                                                                                                                                                  |
+| `inputFieldRecipe`       | `input-field`       | root · input · slot                                                                                                                                                                                                      |
+| `inputNumberRecipe`      | `input-number`      | root · label · control · input · incrementTrigger · decrementTrigger · prefix · suffix                                                                                                                                   |
+| `inputPasswordRecipe`    | `input-password`    | root · label · input · visibilityTrigger                                                                                                                                                                                 |
+| `fileUploadRecipe`       | `file-upload`       | root · label · trigger · dropzone · dropzoneIcon · dropzoneContent · dropzoneTitle · dropzoneDescription · itemGroup · item · itemCompact · itemPreview · itemPreviewImage · itemName · itemSizeText · itemDeleteTrigger |
+| `listboxRecipe`          | `listbox`           | root · label · content · item · itemText · itemIndicator · itemGroup · itemGroupLabel                                                                                                                                    |
+| `menuRecipe`             | `menu`              | root · positioner · content · trigger · item · itemGroup · itemGroupLabel · separator · arrow                                                                                                                            |
+| `paginationRecipe`       | `pagination`        | root · item · ellipsis · prevTrigger · nextTrigger · pageText                                                                                                                                                            |
+| `popoverRecipe`          | `popover`           | positioner · content · arrow · title · description · trigger · closeTrigger                                                                                                                                              |
+| `radioGroupRecipe`       | `radio-group`       | root · label · item · itemControl · indicator · itemText · itemDescription                                                                                                                                               |
+| `scrollAreaRecipe`       | `scroll-area`       | root · viewport · content · scrollbar · thumb · corner                                                                                                                                                                   |
+| `segmentGroupRecipe`     | `segment-group`     | root · label · item · itemText · itemControl · indicator                                                                                                                                                                 |
+| `selectRecipe`           | `select`            | root · control · trigger · valueText · indicator · positioner · content · item · itemText · itemIndicator · itemGroup · label · clearTrigger · list                                                                      |
+| `selectComboboxRecipe`   | `select-combobox`   | root · label · control · input · trigger · positioner · content · item · itemText · itemIndicator · itemGroup · clearTrigger · list                                                                                      |
+| `selectSearchableRecipe` | `select-searchable` | root · control · input · leadIcon · positioner · content · item · itemText · itemIndicator · itemGroup · emptyState · addNew                                                                                             |
+| `sliderRecipe`           | `slider`            | root · label · valueText · control · track · range · thumb · markerGroup · marker                                                                                                                                        |
+| `switchRecipe`           | `switch`            | root · label · control · thumb · description · errorText                                                                                                                                                                 |
+| `tableRecipe`            | `table`             | root · table · thead · tbody · tfoot · tr · headerRow · th · td · sortIcon · emptyState · caption                                                                                                                        |
+| `tagsInputRecipe`        | `tags-input`        | root · label · control · item · itemPreview · itemText · itemInput · itemDeleteTrigger · input · clearTrigger · description · errorText                                                                                  |
+| `tabsRecipe`             | `tabs`              | root · list · trigger · content · indicator                                                                                                                                                                              |
+| `toastRecipe`            | `toast`             | root · group · title · description · actionTrigger · closeTrigger                                                                                                                                                        |
+| `toggleRecipe`           | `toggle`            | root                                                                                                                                                                                                                     |
+| `tooltipRecipe`          | `tooltip`           | positioner · content · arrow · trigger                                                                                                                                                                                   |
+| `treeViewRecipe`         | `tree-view`         | root · label · tree · branch · branchControl · branchIndicator · branchText · branchContent · branchIndentGuide · item · itemText · itemIndicator                                                                        |
 
 ---
 
@@ -362,13 +366,15 @@ packages/design-system/src/
 │   ├── text/
 │   ├── toast/
 │   ├── toggle/
-│   └── tooltip/
+│   ├── tooltip/
+│   └── tree-view/
 │
 ├── forms/                   ← Pre-composed form inputs (one folder per component)
 │   ├── checkbox/
 │   ├── date-picker/
 │   ├── editable/
 │   ├── field-box/
+│   ├── file-upload/
 │   ├── input-field/
 │   ├── input-number/
 │   ├── input-password/

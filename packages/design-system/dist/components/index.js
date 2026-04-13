@@ -36,4 +36,6 @@ import { Toast, Toaster, createToaster } from "./toast/toast.js";
 import "./toast/index.js";
 import { Tooltip, TooltipDS } from "./tooltip/tooltip.js";
 import "./tooltip/index.js";
-export { Accordion, AccordionDS, Badge, Button, Callout, Card, DataTable, Dialog, DialogDS, DialogGeneric, Menu, MenuDS, Pagination, PaginationDS, Popover, PopoverDS, ScrollArea, ScrollAreaDS, SegmentGroup, SegmentGroupDS, Spinner, Tabs, TabsDS, Text, Toast, Toaster, Toggle, ToggleDS, Tooltip, TooltipDS, createToaster };
+import { TreeView, TreeViewDS, createTreeCollection } from "./tree-view/tree-view.js";
+import "./tree-view/index.js";
+export { Accordion, AccordionDS, Badge, Button, Callout, Card, DataTable, Dialog, DialogDS, DialogGeneric, Menu, MenuDS, Pagination, PaginationDS, Popover, PopoverDS, ScrollArea, ScrollAreaDS, SegmentGroup, SegmentGroupDS, Spinner, Tabs, TabsDS, Text, Toast, Toaster, Toggle, ToggleDS, Tooltip, TooltipDS, TreeView, TreeViewDS, createToaster, createTreeCollection };

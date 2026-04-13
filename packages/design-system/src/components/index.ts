@@ -69,3 +69,12 @@ export { createToaster, Toast, Toaster } from './toast';
 export type { TooltipOpenChangeDetails } from './tooltip';
 export type { TooltipDSClassNames, TooltipDSProps } from './tooltip';
 export { Tooltip, TooltipDS } from './tooltip';
+export type {
+  TreeViewDSClassNames,
+  TreeViewDSNode,
+  TreeViewDSProps,
+  TreeViewExpandedChangeDetails,
+  TreeViewSelectionChangeDetails,
+} from './tree-view';
+export type { TreeViewRecipeProps, TreeViewSize } from './tree-view';
+export { createTreeCollection, TreeView, TreeViewDS } from './tree-view';
