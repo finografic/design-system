@@ -13,11 +13,11 @@ import {
 import { defineConfig } from 'oxfmt';
 
 /**
- * Workspace root oxfmt config — Panda `styled-system/` and generated icon registry
- * are excluded so generated output stays stable.
+ * Workspace root oxfmt config — Panda `styled-system/` and generated icon registry are excluded so generated
+ * output stays stable.
  *
- * Import order is handled by ESLint (`simple-import-sort`), not oxfmt `sortImports`, so
- * formatter and linter stay aligned.
+ * Import order is handled by ESLint (`simple-import-sort`), not oxfmt `sortImports`, so formatter and linter
+ * stay aligned.
  */
 export default defineConfig({
   $schema: './node_modules/oxfmt/configuration_schema.json',

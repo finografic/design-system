@@ -16,16 +16,16 @@ export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 's
  * Pass **`size`** and **`resize`** for layout control. Use `invalid` for error state.
  *
  * @example
- * ```tsx
- * import { Textarea } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { Textarea } from '@finografic/design-system/forms';
  *
- * <Textarea
- *   size="md"
- *   resize="vertical"
- *   placeholder="Enter a description…"
- *   onChange={(e) => setValue(e.target.value)}
- * />
- * ```
+ *   <Textarea
+ *     size="md"
+ *     resize="vertical"
+ *     placeholder="Enter a description…"
+ *     onChange={(e) => setValue(e.target.value)}
+ *   />;
+ *   ```;
  */
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, size = 'md', resize = 'vertical', invalid, ...props }, ref) => (

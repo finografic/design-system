@@ -1,13 +1,12 @@
 /**
- * scripts/release.ts
+ * Scripts/release.ts
  *
- * Bumps versions for both publishable packages, creates a release commit +
- * tags, publishes to GitHub Packages, and pushes.
+ * Bumps versions for both publishable packages, creates a release commit + tags, publishes to GitHub
+ * Packages, and pushes.
  *
  * Prerequisites: working tree must be clean — build and commit everything first.
  *
- * Usage:  tsx scripts/release.ts <patch|minor|major>
- * Via:    pnpm release.patch / release.minor / release.major
+ * Usage: tsx scripts/release.ts <patch|minor|major> Via: pnpm release.patch / release.minor / release.major
  */
 
 import { execSync } from 'node:child_process';

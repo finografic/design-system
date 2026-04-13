@@ -15,34 +15,36 @@ const { withProvider, withContext } = createStyleContext(editableRecipe);
 /**
  * Styled Ark **Editable** compound — each part is wired to `editableRecipe` via context.
  *
- * Renders as a read-only preview that switches to an input on click or trigger press.
- * Ark handles all a11y: `contenteditable` fallback, keyboard (Enter to submit, Escape to cancel).
- * Variant props (`size`) go on **`Editable.Root`**.
+ * Renders as a read-only preview that switches to an input on click or trigger press. Ark handles all a11y:
+ * `contenteditable` fallback, keyboard (Enter to submit, Escape to cancel). Variant props (`size`) go on
+ * **`Editable.Root`**.
  *
  * @example
- * ```tsx
- * import { Editable } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { Editable } from '@finografic/design-system/forms';
  *
- * <Editable.Root defaultValue="Hello world" size="md">
- *   <Editable.Label>Display name</Editable.Label>
- *   <Editable.Area>
- *     <Editable.Input />
- *     <Editable.Preview />
- *   </Editable.Area>
- *   <Editable.Control>
- *     <Editable.Context>
- *       {({ editing }) => editing ? (
- *         <>
- *           <Editable.SubmitTrigger>✓</Editable.SubmitTrigger>
- *           <Editable.CancelTrigger>✕</Editable.CancelTrigger>
- *         </>
- *       ) : (
- *         <Editable.EditTrigger>✎</Editable.EditTrigger>
- *       )}
- *     </Editable.Context>
- *   </Editable.Control>
- * </Editable.Root>
- * ```
+ *   <Editable.Root defaultValue="Hello world" size="md">
+ *     <Editable.Label>Display name</Editable.Label>
+ *     <Editable.Area>
+ *       <Editable.Input />
+ *       <Editable.Preview />
+ *     </Editable.Area>
+ *     <Editable.Control>
+ *       <Editable.Context>
+ *         {({ editing }) =>
+ *           editing ? (
+ *             <>
+ *               <Editable.SubmitTrigger>✓</Editable.SubmitTrigger>
+ *               <Editable.CancelTrigger>✕</Editable.CancelTrigger>
+ *             </>
+ *           ) : (
+ *             <Editable.EditTrigger>✎</Editable.EditTrigger>
+ *           )
+ *         }
+ *       </Editable.Context>
+ *     </Editable.Control>
+ *   </Editable.Root>;
+ *   ```;
  */
 export const Editable = {
   /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */
@@ -111,20 +113,16 @@ export type EditableDSProps = EditableRecipeProps & {
 };
 
 /**
- * Design-system convenience editable field — label, preview/input swap, and edit/submit/cancel
- * triggers included. **`Editable`** stays the styled compound for full composition;
- * **`EditableDS`** = packaged DS API with normalized handlers.
+ * Design-system convenience editable field — label, preview/input swap, and edit/submit/cancel triggers
+ * included. **`Editable`** stays the styled compound for full composition; **`EditableDS`** = packaged DS API
+ * with normalized handlers.
  *
  * @example
- * ```tsx
- * import { EditableDS } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { EditableDS } from '@finografic/design-system/forms';
  *
- * <EditableDS
- *   label="Display name"
- *   defaultValue="John Doe"
- *   onValueCommit={(value) => updateName(value)}
- * />
- * ```
+ *   <EditableDS label="Display name" defaultValue="John Doe" onValueCommit={(value) => updateName(value)} />;
+ *   ```;
  */
 export const EditableDS = forwardRef<HTMLDivElement, EditableDSProps>(
   (

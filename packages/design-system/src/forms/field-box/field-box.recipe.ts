@@ -1,8 +1,8 @@
 /**
  * FieldBox Recipe
  *
- * Slots:    root · label · requiredIndicator · helperText · errorText · warningText
- * Variants: size (sm | md | lg)
+ * Slots: root · label · requiredIndicator · helperText · errorText · warningText Variants: size (sm | md |
+ * lg)
  */
 import { sva } from '@styled-system/css';
 

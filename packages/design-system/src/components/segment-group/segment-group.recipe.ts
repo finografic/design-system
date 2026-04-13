@@ -3,10 +3,10 @@
  *
  * Port of Ark UI SegmentGroup example styles → Panda `sva` + semantic tokens.
  *
- * Slots:    root · label · item · itemText · itemControl · indicator
- * Variants: size (sm | md | lg)
+ * Slots: root · label · item · itemText · itemControl · indicator Variants: size (sm | md | lg)
  *
- * - **indicator** — sliding background pill; position driven by CSS vars `--width`, `--height`, `--top`, `--left` from Zag.
+ * - **indicator** — sliding background pill; position driven by CSS vars `--width`, `--height`, `--top`,
+ *   `--left` from Zag.
  * - **itemControl** — hidden native radio input (Ark uses internally).
  */
 import { sva } from '@styled-system/css';

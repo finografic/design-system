@@ -31,33 +31,35 @@ Root.displayName = 'Dialog.Root';
 /**
  * Styled Ark **Dialog** compound — each part is wired to `dialogRecipe` via context.
  *
- * Ark handles all a11y: `dialog` role, focus trap, `aria-labelledby`, `aria-describedby`,
- * and Escape to close. `size` variant lives on **`Dialog.Root`**.
+ * Ark handles all a11y: `dialog` role, focus trap, `aria-labelledby`, `aria-describedby`, and Escape to
+ * close. `size` variant lives on **`Dialog.Root`**.
  *
  * **`Dialog.Trigger`** is unstyled — compose it with `asChild` + `<Button>`.
  *
  * @example
- * ```tsx
- * import { Dialog } from '@finografic/design-system/components';
- * import { Button } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Dialog } from '@finografic/design-system/components';
+ *   import { Button } from '@finografic/design-system/components';
  *
- * <Dialog.Root size="md" open={open} onOpenChange={(open) => !open && onClose()}>
- *   <Dialog.Backdrop />
- *   <Dialog.Positioner>
- *     <Dialog.Content>
- *       <Dialog.Header>
- *         <Dialog.Title>Title</Dialog.Title>
- *         <Dialog.CloseTrigger asChild>
- *           <Button variant="ghost" size="sm" aria-label="Close"><CloseIcon /></Button>
- *         </Dialog.CloseTrigger>
- *       </Dialog.Header>
- *       <Dialog.Description>Hidden by default — for screen readers.</Dialog.Description>
- *       <Dialog.Body>…</Dialog.Body>
- *       <Dialog.Footer>…</Dialog.Footer>
- *     </Dialog.Content>
- *   </Dialog.Positioner>
- * </Dialog.Root>
- * ```
+ *   <Dialog.Root size="md" open={open} onOpenChange={(open) => !open && onClose()}>
+ *     <Dialog.Backdrop />
+ *     <Dialog.Positioner>
+ *       <Dialog.Content>
+ *         <Dialog.Header>
+ *           <Dialog.Title>Title</Dialog.Title>
+ *           <Dialog.CloseTrigger asChild>
+ *             <Button variant="ghost" size="sm" aria-label="Close">
+ *               <CloseIcon />
+ *             </Button>
+ *           </Dialog.CloseTrigger>
+ *         </Dialog.Header>
+ *         <Dialog.Description>Hidden by default — for screen readers.</Dialog.Description>
+ *         <Dialog.Body>…</Dialog.Body>
+ *         <Dialog.Footer>…</Dialog.Footer>
+ *       </Dialog.Content>
+ *     </Dialog.Positioner>
+ *   </Dialog.Root>;
+ *   ```;
  */
 export const Dialog = {
   /** Dialog root — accepts `size` variant (xs | sm | md | lg | xl | cover | full). @default 'md' */
@@ -103,15 +105,15 @@ export interface DialogDSClassNames {
 
 export type DialogDSProps = DialogVariants & {
   /**
-   * The trigger element — rendered inside `Dialog.Trigger asChild`.
-   * Omit for programmatic-only control (use `open` + `onOpenChange`).
+   * The trigger element — rendered inside `Dialog.Trigger asChild`. Omit for programmatic-only control (use
+   * `open` + `onOpenChange`).
    */
   trigger?: ReactNode;
   /** Dialog title rendered in the header. */
   title?: ReactNode;
   /**
-   * Visually-hidden description for screen readers — linked to `aria-describedby`.
-   * If omitted, the slot is not rendered.
+   * Visually-hidden description for screen readers — linked to `aria-describedby`. If omitted, the slot is
+   * not rendered.
    */
   description?: ReactNode;
   /** Body content — placed in the scrollable body area. */
@@ -130,29 +132,31 @@ export type DialogDSProps = DialogVariants & {
 
 /**
  * Design-system convenience dialog — pass a `trigger`, `title`, `children`, and `footer` for the common case.
- * **`Dialog`** stays the styled compound; **`DialogDS`** = packaged DS API
- * with normalized `onOpenChange(open: boolean)`.
+ * **`Dialog`** stays the styled compound; **`DialogDS`** = packaged DS API with normalized
+ * `onOpenChange(open: boolean)`.
  *
  * @example
- * ```tsx
- * import { DialogDS, Dialog } from '@finografic/design-system/components';
- * import { Button } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { DialogDS, Dialog } from '@finografic/design-system/components';
+ *   import { Button } from '@finografic/design-system/components';
  *
- * <DialogDS
- *   trigger={<Button>Open dialog</Button>}
- *   title="Confirm action"
- *   size="sm"
- *   onOpenChange={(open) => console.log(open)}
- *   footer={
- *     <>
- *       <Dialog.CloseTrigger asChild><Button variant="ghost">Cancel</Button></Dialog.CloseTrigger>
- *       <Button>Confirm</Button>
- *     </>
- *   }
- * >
- *   <p>Are you sure you want to continue?</p>
- * </DialogDS>
- * ```
+ *   <DialogDS
+ *     trigger={<Button>Open dialog</Button>}
+ *     title="Confirm action"
+ *     size="sm"
+ *     onOpenChange={(open) => console.log(open)}
+ *     footer={
+ *       <>
+ *         <Dialog.CloseTrigger asChild>
+ *           <Button variant="ghost">Cancel</Button>
+ *         </Dialog.CloseTrigger>
+ *         <Button>Confirm</Button>
+ *       </>
+ *     }
+ *   >
+ *     <p>Are you sure you want to continue?</p>
+ *   </DialogDS>;
+ *   ```;
  */
 export const DialogDS = forwardRef<HTMLButtonElement, DialogDSProps>(
   (

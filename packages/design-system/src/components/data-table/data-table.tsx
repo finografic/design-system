@@ -121,7 +121,7 @@ function PaginationButton({ className, disabled, children, ...rest }: Pagination
  *   const columns = [col.accessor('name', { header: 'Name' }), col.accessor('email', { header: 'Email' })];
  *
  *   <DataTable data={users} columns={columns} classNames={{ table: {} }} />;
- *   ```
+ *   ```;
  */
 export function DataTable<TData>({
   data,

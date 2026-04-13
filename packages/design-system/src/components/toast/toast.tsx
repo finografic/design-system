@@ -13,21 +13,24 @@ const { withProvider, withContext } = createStyleContext(toastRecipe);
  * Styled Ark **Toast** compound — each part is wired to `toastRecipe` via context.
  *
  * Setup (once in app root):
+ *
  * ```tsx
  * import { createToaster, Toaster } from '@finografic/design-system/components';
  *
  * export const toaster = createToaster({ placement: 'top-end', gap: 8 });
  *
  * // In your root component:
- * <Toaster toaster={toaster} />
+ * <Toaster toaster={toaster} />;
  * ```
  *
  * Fire a toast anywhere:
+ *
  * ```tsx
  * toaster.create({ title: 'Saved', description: 'Settings saved.', type: 'success' });
  * ```
  *
  * Custom render with styled Toast parts:
+ *
  * ```tsx
  * <Toaster
  *   toaster={toaster}
@@ -36,11 +39,13 @@ const { withProvider, withContext } = createStyleContext(toastRecipe);
  *       <Toast.Title>{toast.title}</Toast.Title>
  *       {toast.description && <Toast.Description>{toast.description}</Toast.Description>}
  *       <Toast.CloseTrigger asChild>
- *         <button aria-label="Dismiss"><XIcon /></button>
+ *         <button aria-label="Dismiss">
+ *           <XIcon />
+ *         </button>
  *       </Toast.CloseTrigger>
  *     </Toast.Root>
  *   )}
- * />
+ * />;
  * ```
  */
 export const Toast = {

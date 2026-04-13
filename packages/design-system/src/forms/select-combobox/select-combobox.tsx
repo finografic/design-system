@@ -27,51 +27,52 @@ const ArkComboboxPositionerPortal = forwardRef<
 ArkComboboxPositionerPortal.displayName = 'SelectCombobox.Positioner';
 
 /**
- * Styled Ark **Combobox** compound — low-level primitive for building searchable selects.
- * Each part is wired to `selectComboboxRecipe` via context.
+ * Styled Ark **Combobox** compound — low-level primitive for building searchable selects. Each part is wired
+ * to `selectComboboxRecipe` via context.
  *
- * Use `createListCollection` from `@ark-ui/react` to create the collection for `Root`.
- * Ark handles all a11y: `combobox` role, `listbox` popup, keyboard navigation (arrows,
- * Enter, Escape), and ARIA attributes.
+ * Use `createListCollection` from `@ark-ui/react` to create the collection for `Root`. Ark handles all a11y:
+ * `combobox` role, `listbox` popup, keyboard navigation (arrows, Enter, Escape), and ARIA attributes.
  *
- * **This is the low-level primitive** — for the high-level searchable select with filtering
- * use `SelectSearchable` from `@finografic/design-system/forms`.
+ * **This is the low-level primitive** — for the high-level searchable select with filtering use
+ * `SelectSearchable` from `@finografic/design-system/forms`.
  *
  * @example
- * ```tsx
- * import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
- * import { SelectCombobox } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { Combobox as ArkCombobox, createListCollection } from '@ark-ui/react';
+ *   import { SelectCombobox } from '@finografic/design-system/forms';
  *
- * const collection = createListCollection({ items: [
- *   { value: 'en', label: 'English' },
- *   { value: 'es', label: 'Spanish' },
- * ]});
+ *   const collection = createListCollection({
+ *     items: [
+ *       { value: 'en', label: 'English' },
+ *       { value: 'es', label: 'Spanish' },
+ *     ],
+ *   });
  *
- * <SelectCombobox.Root collection={collection} size="md">
- *   <SelectCombobox.Label>Language</SelectCombobox.Label>
- *   <SelectCombobox.Control>
- *     <SelectCombobox.Input placeholder="Search…" />
- *     <SelectCombobox.Indicators>
- *       <SelectCombobox.ClearTrigger>✕</SelectCombobox.ClearTrigger>
- *       <SelectCombobox.Trigger>▾</SelectCombobox.Trigger>
- *     </SelectCombobox.Indicators>
- *   </SelectCombobox.Control>
- *   <SelectCombobox.Positioner>
- *     <SelectCombobox.Content>
- *       <SelectCombobox.ItemGroup>
- *         <ArkCombobox.Items>
- *           {(item) => (
- *             <SelectCombobox.Item key={item.value} item={item}>
- *               <SelectCombobox.ItemText>{item.label}</SelectCombobox.ItemText>
- *               <SelectCombobox.ItemIndicator>✓</SelectCombobox.ItemIndicator>
- *             </SelectCombobox.Item>
- *           )}
- *         </ArkCombobox.Items>
- *       </SelectCombobox.ItemGroup>
- *     </SelectCombobox.Content>
- *   </SelectCombobox.Positioner>
- * </SelectCombobox.Root>
- * ```
+ *   <SelectCombobox.Root collection={collection} size="md">
+ *     <SelectCombobox.Label>Language</SelectCombobox.Label>
+ *     <SelectCombobox.Control>
+ *       <SelectCombobox.Input placeholder="Search…" />
+ *       <SelectCombobox.Indicators>
+ *         <SelectCombobox.ClearTrigger>✕</SelectCombobox.ClearTrigger>
+ *         <SelectCombobox.Trigger>▾</SelectCombobox.Trigger>
+ *       </SelectCombobox.Indicators>
+ *     </SelectCombobox.Control>
+ *     <SelectCombobox.Positioner>
+ *       <SelectCombobox.Content>
+ *         <SelectCombobox.ItemGroup>
+ *           <ArkCombobox.Items>
+ *             {(item) => (
+ *               <SelectCombobox.Item key={item.value} item={item}>
+ *                 <SelectCombobox.ItemText>{item.label}</SelectCombobox.ItemText>
+ *                 <SelectCombobox.ItemIndicator>✓</SelectCombobox.ItemIndicator>
+ *               </SelectCombobox.Item>
+ *             )}
+ *           </ArkCombobox.Items>
+ *         </SelectCombobox.ItemGroup>
+ *       </SelectCombobox.Content>
+ *     </SelectCombobox.Positioner>
+ *   </SelectCombobox.Root>;
+ *   ```;
  */
 export const SelectCombobox = {
   /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */

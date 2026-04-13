@@ -1,5 +1,5 @@
 /**
- * colors — design-system color palette as CSS custom property references.
+ * Colors — design-system color palette as CSS custom property references.
  */
 
 const v = (token: string): string => `var(--colors-${token})`;

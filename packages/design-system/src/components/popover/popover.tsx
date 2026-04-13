@@ -12,30 +12,31 @@ const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
 /**
  * Styled Ark **Popover** compound — each part is wired to `popoverRecipe` via context.
  *
- * Ark handles all a11y: dialog role, optional focus trap,
- * `aria-expanded`, `aria-controls`, Escape to close, click-outside to dismiss.
- * Recipe variant props are accepted directly on `Popover.Root`.
+ * Ark handles all a11y: dialog role, optional focus trap, `aria-expanded`, `aria-controls`, Escape to close,
+ * click-outside to dismiss. Recipe variant props are accepted directly on `Popover.Root`.
  *
  * @example
- * ```tsx
- * import { Popover } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Popover } from '@finografic/design-system/components';
  *
- * <Popover.Root>
- *   <Popover.Trigger asChild>
- *     <button>Open popover</button>
- *   </Popover.Trigger>
- *   <Popover.Positioner>
- *     <Popover.Content>
- *       <Popover.Arrow><Popover.ArrowTip /></Popover.Arrow>
- *       <Popover.Title>Title</Popover.Title>
- *       <Popover.Description>Some descriptive content.</Popover.Description>
- *       <Popover.CloseTrigger asChild>
- *         <button aria-label="Close" />
- *       </Popover.CloseTrigger>
- *     </Popover.Content>
- *   </Popover.Positioner>
- * </Popover.Root>
- * ```
+ *   <Popover.Root>
+ *     <Popover.Trigger asChild>
+ *       <button>Open popover</button>
+ *     </Popover.Trigger>
+ *     <Popover.Positioner>
+ *       <Popover.Content>
+ *         <Popover.Arrow>
+ *           <Popover.ArrowTip />
+ *         </Popover.Arrow>
+ *         <Popover.Title>Title</Popover.Title>
+ *         <Popover.Description>Some descriptive content.</Popover.Description>
+ *         <Popover.CloseTrigger asChild>
+ *           <button aria-label="Close" />
+ *         </Popover.CloseTrigger>
+ *       </Popover.Content>
+ *     </Popover.Positioner>
+ *   </Popover.Root>;
+ *   ```;
  */
 export const Popover = {
   Root: withRootProvider(ArkPopover.Root),
@@ -99,23 +100,22 @@ export type PopoverDSProps = {
 };
 
 /**
- * Design-system convenience popover — pass a `trigger` and content for the common case.
- * **`Popover`** stays the styled compound; **`PopoverDS`** = packaged DS API
- * with normalized `onOpenChange(open: boolean)`.
+ * Design-system convenience popover — pass a `trigger` and content for the common case. **`Popover`** stays
+ * the styled compound; **`PopoverDS`** = packaged DS API with normalized `onOpenChange(open: boolean)`.
  *
  * @example
- * ```tsx
- * import { PopoverDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { PopoverDS } from '@finografic/design-system/components';
  *
- * <PopoverDS
- *   trigger={<Button variant="outline">Open</Button>}
- *   title="Settings"
- *   description="Adjust your preferences below."
- *   onOpenChange={(open) => console.log(open)}
- * >
- *   <input type="text" />
- * </PopoverDS>
- * ```
+ *   <PopoverDS
+ *     trigger={<Button variant="outline">Open</Button>}
+ *     title="Settings"
+ *     description="Adjust your preferences below."
+ *     onOpenChange={(open) => console.log(open)}
+ *   >
+ *     <input type="text" />
+ *   </PopoverDS>;
+ *   ```;
  */
 export const PopoverDS = forwardRef<HTMLButtonElement, PopoverDSProps>(
   (

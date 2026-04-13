@@ -21,25 +21,27 @@ Div.displayName = 'AccordionItemBodyDiv';
 /**
  * Styled Ark **Accordion** compound — each part is wired to `accordionRecipe` via context.
  *
- * Ark handles all a11y: `disclosure` pattern, keyboard navigation (arrows, Home/End),
- * and ARIA attributes. Variant props (`size`) go on **`Accordion.Root`**.
+ * Ark handles all a11y: `disclosure` pattern, keyboard navigation (arrows, Home/End), and ARIA attributes.
+ * Variant props (`size`) go on **`Accordion.Root`**.
  *
  * @example
- * ```tsx
- * import { Accordion } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Accordion } from '@finografic/design-system/components';
  *
- * <Accordion.Root defaultValue={['item-1']} collapsible>
- *   <Accordion.Item value="item-1">
- *     <Accordion.ItemTrigger>
- *       Section 1
- *       <Accordion.ItemIndicator><ChevronDownIcon /></Accordion.ItemIndicator>
- *     </Accordion.ItemTrigger>
- *     <Accordion.ItemContent>
- *       <Accordion.ItemBody>Content goes here.</Accordion.ItemBody>
- *     </Accordion.ItemContent>
- *   </Accordion.Item>
- * </Accordion.Root>
- * ```
+ *   <Accordion.Root defaultValue={['item-1']} collapsible>
+ *     <Accordion.Item value="item-1">
+ *       <Accordion.ItemTrigger>
+ *         Section 1
+ *         <Accordion.ItemIndicator>
+ *           <ChevronDownIcon />
+ *         </Accordion.ItemIndicator>
+ *       </Accordion.ItemTrigger>
+ *       <Accordion.ItemContent>
+ *         <Accordion.ItemBody>Content goes here.</Accordion.ItemBody>
+ *       </Accordion.ItemContent>
+ *     </Accordion.Item>
+ *   </Accordion.Root>;
+ *   ```;
  */
 export const Accordion = {
   /** Root — `defaultValue` / `value` / `onValueChange`, `multiple`, `collapsible`, plus `size`. */
@@ -113,19 +115,19 @@ export type AccordionDSProps = AccordionRecipeProps & {
  * (`onChange(value: string[])` instead of Ark's `onValueChange` detail object).
  *
  * @example
- * ```tsx
- * import { AccordionDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { AccordionDS } from '@finografic/design-system/components';
  *
- * <AccordionDS
- *   collapsible
- *   defaultValue={['faq-1']}
- *   onChange={(value) => console.log(value)}
- *   items={[
- *     { value: 'faq-1', label: 'What is this?', content: <p>This is the answer.</p> },
- *     { value: 'faq-2', label: 'How does it work?', content: <p>Like this.</p> },
- *   ]}
- * />
- * ```
+ *   <AccordionDS
+ *     collapsible
+ *     defaultValue={['faq-1']}
+ *     onChange={(value) => console.log(value)}
+ *     items={[
+ *       { value: 'faq-1', label: 'What is this?', content: <p>This is the answer.</p> },
+ *       { value: 'faq-2', label: 'How does it work?', content: <p>Like this.</p> },
+ *     ]}
+ *   />;
+ *   ```;
  */
 export const AccordionDS = forwardRef<HTMLDivElement, AccordionDSProps>(
   (

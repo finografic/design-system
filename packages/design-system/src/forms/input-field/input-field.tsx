@@ -121,16 +121,20 @@ InputFieldRoot.displayName = 'InputField.Root';
 /**
  * Styled text input compound with optional leading/trailing decoration slots.
  *
- * Pass **`size`** and `invalid` on **`Root`**; place **`Slot`** children with
- * `side="left"` or `side="right"` — the recipe adjusts input padding automatically.
+ * Pass **`size`** and `invalid` on **`Root`**; place **`Slot`** children with `side="left"` or `side="right"`
+ * — the recipe adjusts input padding automatically.
  *
  * @example
- * ```tsx
- * <InputField.Root size="md" invalid={!!error}>
- *   <InputField.Slot side="left"><SearchIcon aria-hidden /></InputField.Slot>
- *   <InputField.Slot side="right" interactive><XIcon aria-hidden /></InputField.Slot>
- * </InputField.Root>
- * ```
+ *   ```tsx
+ *   <InputField.Root size="md" invalid={!!error}>
+ *     <InputField.Slot side="left">
+ *       <SearchIcon aria-hidden />
+ *     </InputField.Slot>
+ *     <InputField.Slot side="right" interactive>
+ *       <XIcon aria-hidden />
+ *     </InputField.Slot>
+ *   </InputField.Root>;
+ *   ```;
  */
 export const InputField = {
   /** Root — controlled state, size, invalid flag, and native input props. */

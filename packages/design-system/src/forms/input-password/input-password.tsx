@@ -16,26 +16,26 @@ const { withProvider, withContext } = createStyleContext(inputPasswordRecipe);
 /**
  * Styled Ark **PasswordInput** compound — each part is wired to `inputPasswordRecipe` via context.
  *
- * Provides a text/password toggle with accessible visibility trigger. Ark manages the
- * `data-state="visible" | "hidden"` attribute on the root and controls the input type.
- * Variant props (`size`) go on **`InputPassword.Root`**.
+ * Provides a text/password toggle with accessible visibility trigger. Ark manages the `data-state="visible" |
+ * "hidden"` attribute on the root and controls the input type. Variant props (`size`) go on
+ * **`InputPassword.Root`**.
  *
  * @example
- * ```tsx
- * import { InputPassword } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { InputPassword } from '@finografic/design-system/forms';
  *
- * <InputPassword.Root size="md">
- *   <InputPassword.Label>Password</InputPassword.Label>
- *   <InputPassword.Control>
- *     <InputPassword.Input placeholder="Enter password" />
- *     <InputPassword.VisibilityTrigger>
- *       <InputPassword.Context>
- *         {({ visible }) => visible ? <EyeOffIcon /> : <EyeOnIcon />}
- *       </InputPassword.Context>
- *     </InputPassword.VisibilityTrigger>
- *   </InputPassword.Control>
- * </InputPassword.Root>
- * ```
+ *   <InputPassword.Root size="md">
+ *     <InputPassword.Label>Password</InputPassword.Label>
+ *     <InputPassword.Control>
+ *       <InputPassword.Input placeholder="Enter password" />
+ *       <InputPassword.VisibilityTrigger>
+ *         <InputPassword.Context>
+ *           {({ visible }) => (visible ? <EyeOffIcon /> : <EyeOnIcon />)}
+ *         </InputPassword.Context>
+ *       </InputPassword.VisibilityTrigger>
+ *     </InputPassword.Control>
+ *   </InputPassword.Root>;
+ *   ```;
  */
 export const InputPassword = {
   /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */
@@ -104,20 +104,20 @@ export type InputPasswordDSProps = InputPasswordRecipeProps & {
 
 /**
  * Design-system convenience password input — label, description, error, and eye toggle included.
- * **`InputPassword`** stays the styled compound for full composition; **`InputPasswordDS`** =
- * packaged DS API (`onChange(value: string)` from the native input event).
+ * **`InputPassword`** stays the styled compound for full composition; **`InputPasswordDS`** = packaged DS API
+ * (`onChange(value: string)` from the native input event).
  *
  * @example
- * ```tsx
- * import { InputPasswordDS } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { InputPasswordDS } from '@finografic/design-system/forms';
  *
- * <InputPasswordDS
- *   label="Password"
- *   placeholder="Enter your password"
- *   onChange={(value) => setPassword(value)}
- *   error={errors.password}
- * />
- * ```
+ *   <InputPasswordDS
+ *     label="Password"
+ *     placeholder="Enter your password"
+ *     onChange={(value) => setPassword(value)}
+ *     error={errors.password}
+ *   />;
+ *   ```;
  */
 export const InputPasswordDS = forwardRef<HTMLDivElement, InputPasswordDSProps>(
   (

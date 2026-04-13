@@ -16,45 +16,46 @@ const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
 /**
  * Styled Ark **TagsInput** compound — each part is wired to `tagsInputRecipe` via context.
  *
- * Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to
- * delete, Enter to confirm), edit mode per tag, and ARIA for the tag list.
+ * Ark handles all a11y: keyboard navigation (arrows between tags, Backspace to delete, Enter to confirm),
+ * edit mode per tag, and ARIA for the tag list.
  *
  * Each tag goes through three states:
+ *
  * - **Preview** (`ItemPreview`) — the visible chip with a delete button.
  * - **Edit** (`ItemInput`) — an inline text field when double-clicking a tag.
  * - **Input** (`Input`) — the new-tag text field at the end of the list.
  *
- * Use `TagsInput.Context` / `TagsInput.ItemContext` inside the render for
- * access to machine state without lifting it up.
+ * Use `TagsInput.Context` / `TagsInput.ItemContext` inside the render for access to machine state without
+ * lifting it up.
  *
  * @example
- * ```tsx
- * import { TagsInput } from '@finografic/design-system/forms';
- * import { XIcon } from '@finografic/icons';
+ *   ```tsx
+ *   import { TagsInput } from '@finografic/design-system/forms';
+ *   import { XIcon } from '@finografic/icons';
  *
- * <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
- *   <TagsInput.Label>Topics</TagsInput.Label>
- *   <TagsInput.Control>
- *     <TagsInput.Context>
- *       {({ value }) =>
- *         value.map((tag, index) => (
- *           <TagsInput.Item key={index} index={index} value={tag}>
- *             <TagsInput.ItemPreview>
- *               <TagsInput.ItemText>{tag}</TagsInput.ItemText>
- *               <TagsInput.ItemDeleteTrigger>
- *                 <XIcon aria-hidden />
- *               </TagsInput.ItemDeleteTrigger>
- *             </TagsInput.ItemPreview>
- *             <TagsInput.ItemInput />
- *           </TagsInput.Item>
- *         ))
- *       }
- *     </TagsInput.Context>
- *     <TagsInput.Input placeholder="Add tag…" />
- *   </TagsInput.Control>
- *   <TagsInput.HiddenInput />
- * </TagsInput.Root>
- * ```
+ *   <TagsInput.Root size="md" value={tags} onValueChange={({ value }) => setTags(value)}>
+ *     <TagsInput.Label>Topics</TagsInput.Label>
+ *     <TagsInput.Control>
+ *       <TagsInput.Context>
+ *         {({ value }) =>
+ *           value.map((tag, index) => (
+ *             <TagsInput.Item key={index} index={index} value={tag}>
+ *               <TagsInput.ItemPreview>
+ *                 <TagsInput.ItemText>{tag}</TagsInput.ItemText>
+ *                 <TagsInput.ItemDeleteTrigger>
+ *                   <XIcon aria-hidden />
+ *                 </TagsInput.ItemDeleteTrigger>
+ *               </TagsInput.ItemPreview>
+ *               <TagsInput.ItemInput />
+ *             </TagsInput.Item>
+ *           ))
+ *         }
+ *       </TagsInput.Context>
+ *       <TagsInput.Input placeholder="Add tag…" />
+ *     </TagsInput.Control>
+ *     <TagsInput.HiddenInput />
+ *   </TagsInput.Root>;
+ *   ```;
  */
 export const TagsInput = {
   /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */
@@ -115,8 +116,8 @@ export type TagsInputDSProps = TagsInputVariants & {
   /** Called when keyboard/pointer highlight moves between tags. */
   onHighlightChange?: (value: string | null) => void;
   /**
-   * Called when a tag is rejected — e.g. over max count or failed `validate`.
-   * `reason` is one of: `'rangeOverflow' | 'invalidTag'`.
+   * Called when a tag is rejected — e.g. over max count or failed `validate`. `reason` is one of:
+   * `'rangeOverflow' | 'invalidTag'`.
    */
   onValueInvalid?: (reason: string) => void;
   onBlur?: () => void;
@@ -140,9 +141,9 @@ export type TagsInputDSProps = TagsInputVariants & {
 };
 
 /**
- * Design-system convenience tags input — label, description, and error text included.
- * **`TagsInput`** stays the styled compound for full composition; **`TagsInputDS`** = packaged
- * DS API (`onChange(value: string[])`, tags rendered automatically from `value`).
+ * Design-system convenience tags input — label, description, and error text included. **`TagsInput`** stays
+ * the styled compound for full composition; **`TagsInputDS`** = packaged DS API (`onChange(value: string[])`,
+ * tags rendered automatically from `value`).
  */
 export const TagsInputDS = forwardRef<HTMLDivElement, TagsInputDSProps>(
   (

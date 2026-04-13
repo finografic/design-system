@@ -2,15 +2,15 @@ import { BASE_COLORS } from '../palette/colors.base';
 import { buildShadeScale } from '../palette/shades.utils';
 
 /**
- * Color tokens for Panda CSS. Keys are referenced as strings in recipes:
- *   bg: 'primary', color: 'danger.dark', borderColor: 'grey.lighter'
+ * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
+ * borderColor: 'grey.lighter'
  *
- * Each color group has 11 shade stops: base + 5 lighter + 5 darker.
- * Values use OKLCH color space for perceptually uniform gradients.
+ * Each color group has 11 shade stops: base + 5 lighter + 5 darker. Values use OKLCH color space for
+ * perceptually uniform gradients.
  *
  * @example
- * // In recipe: bg: 'primary' → background: oklch(48.8% 0.243 264.376)
- * // In recipe: color: 'danger.dark' → color: <computed dark shade>
+ *   // In recipe: bg: 'primary' → background: oklch(48.8% 0.243 264.376)
+ *   // In recipe: color: 'danger.dark' → color: <computed dark shade>
  */
 export const colorTokens = {
   primary: buildShadeScale(BASE_COLORS.primary),
@@ -29,14 +29,12 @@ export const colorTokens = {
 } as const;
 
 /**
- * Semantic tokens — role-based color aliases.
- * These define what colors MEAN in context, not what they ARE.
+ * Semantic tokens — role-based color aliases. These define what colors MEAN in context, not what they ARE.
  *
- * References like `{colors.grey.xlight}` resolve at build time to the
- * underlying color-mix(in oklch, …) value — OKLCH throughout.
+ * References like `{colors.grey.xlight}` resolve at build time to the underlying color-mix(in oklch, …) value
+ * — OKLCH throughout.
  *
- * Maps to the Ark UI blog's token structure:
- * bg, fg, border, accent — with light/dark mode conditions.
+ * Maps to the Ark UI blog's token structure: bg, fg, border, accent — with light/dark mode conditions.
  */
 export const semanticColorTokens = {
   bg: {

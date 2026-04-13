@@ -13,29 +13,29 @@ const { withProvider, withContext } = createStyleContext(segmentGroupRecipe);
 /**
  * Styled Ark **SegmentGroup** compound — each part is wired to `segmentGroupRecipe` via context.
  *
- * Renders a set of mutually exclusive options as a pill group with a sliding indicator background.
- * Ark handles all a11y: `radiogroup` role, keyboard navigation (arrows), and ARIA attributes.
- * Variant props (`size`) go on **`SegmentGroup.Root`**.
+ * Renders a set of mutually exclusive options as a pill group with a sliding indicator background. Ark
+ * handles all a11y: `radiogroup` role, keyboard navigation (arrows), and ARIA attributes. Variant props
+ * (`size`) go on **`SegmentGroup.Root`**.
  *
- * **Indicator:** the sliding pill is positioned via CSS vars `--width`, `--height`, `--top`,
- * `--left` injected by Zag — do not set position manually.
+ * **Indicator:** the sliding pill is positioned via CSS vars `--width`, `--height`, `--top`, `--left`
+ * injected by Zag — do not set position manually.
  *
  * @example
- * ```tsx
- * import { SegmentGroup } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { SegmentGroup } from '@finografic/design-system/components';
  *
- * <SegmentGroup.Root defaultValue="monthly" size="md">
- *   <SegmentGroup.Indicator />
- *   <SegmentGroup.Item value="monthly">
- *     <SegmentGroup.ItemText>Monthly</SegmentGroup.ItemText>
- *     <SegmentGroup.ItemHiddenInput />
- *   </SegmentGroup.Item>
- *   <SegmentGroup.Item value="annual">
- *     <SegmentGroup.ItemText>Annual</SegmentGroup.ItemText>
- *     <SegmentGroup.ItemHiddenInput />
- *   </SegmentGroup.Item>
- * </SegmentGroup.Root>
- * ```
+ *   <SegmentGroup.Root defaultValue="monthly" size="md">
+ *     <SegmentGroup.Indicator />
+ *     <SegmentGroup.Item value="monthly">
+ *       <SegmentGroup.ItemText>Monthly</SegmentGroup.ItemText>
+ *       <SegmentGroup.ItemHiddenInput />
+ *     </SegmentGroup.Item>
+ *     <SegmentGroup.Item value="annual">
+ *       <SegmentGroup.ItemText>Annual</SegmentGroup.ItemText>
+ *       <SegmentGroup.ItemHiddenInput />
+ *     </SegmentGroup.Item>
+ *   </SegmentGroup.Root>;
+ *   ```;
  */
 export const SegmentGroup = {
   /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */
@@ -102,22 +102,22 @@ export type SegmentGroupDSProps = SegmentGroupRecipeProps & {
 
 /**
  * Design-system convenience segment group — pass an `items` array and get a pill-tab selector.
- * **`SegmentGroup`** stays the styled compound for full composition; **`SegmentGroupDS`** =
- * packaged DS API (`onChange(value)` instead of Ark's `onValueChange` detail object).
+ * **`SegmentGroup`** stays the styled compound for full composition; **`SegmentGroupDS`** = packaged DS API
+ * (`onChange(value)` instead of Ark's `onValueChange` detail object).
  *
  * @example
- * ```tsx
- * import { SegmentGroupDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { SegmentGroupDS } from '@finografic/design-system/components';
  *
- * <SegmentGroupDS
- *   defaultValue="monthly"
- *   onChange={(value) => setBilling(value)}
- *   items={[
- *     { value: 'monthly', label: 'Monthly' },
- *     { value: 'annual', label: 'Annual' },
- *   ]}
- * />
- * ```
+ *   <SegmentGroupDS
+ *     defaultValue="monthly"
+ *     onChange={(value) => setBilling(value)}
+ *     items={[
+ *       { value: 'monthly', label: 'Monthly' },
+ *       { value: 'annual', label: 'Annual' },
+ *     ]}
+ *   />;
+ *   ```;
  */
 export const SegmentGroupDS = forwardRef<HTMLDivElement, SegmentGroupDSProps>(
   (

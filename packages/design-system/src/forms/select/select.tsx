@@ -35,53 +35,59 @@ const { withProvider, withContext } = createStyleContext(selectRecipe);
 /**
  * Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
  *
- * Ark handles all a11y: `listbox` / `option` roles, keyboard navigation (arrows,
- * Home/End, typeahead), and Escape to close. Variant props go on **`Select.Root`**.
+ * Ark handles all a11y: `listbox` / `option` roles, keyboard navigation (arrows, Home/End, typeahead), and
+ * Escape to close. Variant props go on **`Select.Root`**.
  *
- * **Multi-select:** pass `multiple` to `Select.Root`. Ark manages selection state;
- * `Select.ItemIndicator` (check icon) shows for each selected item. `SelectDefault`
- * also accepts `multiple` for a simpler options-array API.
+ * **Multi-select:** pass `multiple` to `Select.Root`. Ark manages selection state; `Select.ItemIndicator`
+ * (check icon) shows for each selected item. `SelectDefault` also accepts `multiple` for a simpler
+ * options-array API.
  *
  * @example
- * ```tsx
- * import { Select, createListCollection } from '@finografic/design-system/forms';
- * import { CheckIcon, ChevronDownIcon } from '@finografic/icons';
+ *   ```tsx
+ *   import { Select, createListCollection } from '@finografic/design-system/forms';
+ *   import { CheckIcon, ChevronDownIcon } from '@finografic/icons';
  *
- * const collection = createListCollection({
- *   items: [
- *     { value: 'en', label: 'English' },
- *     { value: 'es', label: 'Spanish' },
- *   ],
- * });
+ *   const collection = createListCollection({
+ *     items: [
+ *       { value: 'en', label: 'English' },
+ *       { value: 'es', label: 'Spanish' },
+ *     ],
+ *   });
  *
- * <Select.Root collection={collection} onValueChange={({ value, items }) => setValue(value)}>
- *   <Select.Label>Language</Select.Label>
- *   <Select.Control>
- *     <Select.Trigger>
- *       <Select.ValueText placeholder="Pick one…" />
- *       <Select.Indicator><ChevronDownIcon aria-hidden /></Select.Indicator>
- *     </Select.Trigger>
- *   </Select.Control>
- *   <Select.Positioner>
- *     <Select.Content>
- *       <Select.List>
- *         {collection.items.map((item) => (
- *           <Select.Item key={item.value} item={item}>
- *             <Select.ItemText>{item.label}</Select.ItemText>
- *             <Select.ItemIndicator><CheckIcon aria-hidden /></Select.ItemIndicator>
- *           </Select.Item>
- *         ))}
- *       </Select.List>
- *     </Select.Content>
- *   </Select.Positioner>
- *   <Select.HiddenSelect />
- * </Select.Root>
- * ```
+ *   <Select.Root collection={collection} onValueChange={({ value, items }) => setValue(value)}>
+ *     <Select.Label>Language</Select.Label>
+ *     <Select.Control>
+ *       <Select.Trigger>
+ *         <Select.ValueText placeholder="Pick one…" />
+ *         <Select.Indicator>
+ *           <ChevronDownIcon aria-hidden />
+ *         </Select.Indicator>
+ *       </Select.Trigger>
+ *     </Select.Control>
+ *     <Select.Positioner>
+ *       <Select.Content>
+ *         <Select.List>
+ *           {collection.items.map((item) => (
+ *             <Select.Item key={item.value} item={item}>
+ *               <Select.ItemText>{item.label}</Select.ItemText>
+ *               <Select.ItemIndicator>
+ *                 <CheckIcon aria-hidden />
+ *               </Select.ItemIndicator>
+ *             </Select.Item>
+ *           ))}
+ *         </Select.List>
+ *       </Select.Content>
+ *     </Select.Positioner>
+ *     <Select.HiddenSelect />
+ *   </Select.Root>;
+ *   ```;
  */
 export const Select = {
-  /** Root — collection, value state, event handlers, multi-select flag, and recipe variants.
-   *  Defaults to `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown
-   *  escapes `overflow: hidden` ancestors. Override via `positioning` prop if needed. */
+  /**
+   * Root — collection, value state, event handlers, multi-select flag, and recipe variants. Defaults to
+   * `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown escapes `overflow: hidden`
+   * ancestors. Override via `positioning` prop if needed.
+   */
   Root: withProvider(SelectRootFixed, 'root'),
   /** Root with external machine state from `useSelect`. */
   RootProvider: withProvider(ArkSelect.RootProvider, 'root'),

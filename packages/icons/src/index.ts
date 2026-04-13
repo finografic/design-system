@@ -1,8 +1,8 @@
 /**
- * src/index.ts — @workspace/icons
+ * Src/index.ts — @workspace/icons
  *
- * !! GENERATED FILE — do not edit by hand.
- * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate
+ * !! GENERATED FILE — do not edit by hand. !! Edit src/icons.json via the picker UI, then run: pnpm
+ * icons.generate
  */
 
 import { icons } from './icons';

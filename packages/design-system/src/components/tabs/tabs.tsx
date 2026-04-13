@@ -13,55 +13,57 @@ const { withProvider, withContext } = createStyleContext(tabsRecipe);
 /**
  * Styled Ark **Tabs** compound — each part is wired to `tabsRecipe` via context.
  *
- * Zag provides roles, roving tabindex, and keyboard navigation. Variant props (`variant`, `size`)
- * live on **`Tabs.Root`** or **`Tabs.RootProvider`** and flow to **List / Trigger / Content /
- * Indicator** via context — you do **not** thread `className={styles.list}` on each part unless
- * you are merging extra classes (use `cx` with the slot class from `tabsRecipe`).
+ * Zag provides roles, roving tabindex, and keyboard navigation. Variant props (`variant`, `size`) live on
+ * **`Tabs.Root`** or **`Tabs.RootProvider`** and flow to **List / Trigger / Content / Indicator** via context
+ * — you do **not** thread `className={styles.list}` on each part unless you are merging extra classes (use
+ * `cx` with the slot class from `tabsRecipe`).
  *
- * **`Tabs.RootProvider`** — pass `value={tabs}` from Ark's **`useTabs`** when the machine is
- * created outside the tree (e.g. to show `tabs.value` in a sibling `<output>`).
+ * **`Tabs.RootProvider`** — pass `value={tabs}` from Ark's **`useTabs`** when the machine is created outside
+ * the tree (e.g. to show `tabs.value` in a sibling `<output>`).
  *
- * **Orientation:** pass `orientation="horizontal" | "vertical"` on the root — styles use
- * `data-orientation` on each part; do not add `orientation` as a Panda recipe variant or
- * `createStyleContext` will strip it from Ark.
+ * **Orientation:** pass `orientation="horizontal" | "vertical"` on the root — styles use `data-orientation`
+ * on each part; do not add `orientation` as a Panda recipe variant or `createStyleContext` will strip it from
+ * Ark.
  *
- * @example Built-in state (`Tabs.Root`)
- * ```tsx
- * import { Tabs } from '@finografic/design-system/components';
+ * @example
+ *   Built-in state (`Tabs.Root`)
+ *   ```tsx
+ *   import { Tabs } from '@finografic/design-system/components';
  *
- * <Tabs.Root defaultValue="account" variant="enclosed" size="md">
+ *   <Tabs.Root defaultValue="account" variant="enclosed" size="md">
  *   <Tabs.List>
- *     <Tabs.Trigger value="account">Account</Tabs.Trigger>
- *     <Tabs.Trigger value="password">Password</Tabs.Trigger>
- *     <Tabs.Indicator />
+ *   <Tabs.Trigger value="account">Account</Tabs.Trigger>
+ *   <Tabs.Trigger value="password">Password</Tabs.Trigger>
+ *   <Tabs.Indicator />
  *   </Tabs.List>
  *   <Tabs.Content value="account">…</Tabs.Content>
  *   <Tabs.Content value="password">…</Tabs.Content>
- * </Tabs.Root>
- * ```
+ *   </Tabs.Root>
+ *   ```
  *
- * @example External machine (`useTabs` + `Tabs.RootProvider`)
- * ```tsx
- * import { useTabs } from '@ark-ui/react';
- * import { Tabs } from '@finografic/design-system/components';
+ * @example
+ *   External machine (`useTabs` + `Tabs.RootProvider`)
+ *   ```tsx
+ *   import { useTabs } from '@ark-ui/react';
+ *   import { Tabs } from '@finografic/design-system/components';
  *
- * const tabs = useTabs({ id: 'example', defaultValue: 'account' });
+ *   const tabs = useTabs({ id: 'example', defaultValue: 'account' });
  *
- * return (
+ *   return (
  *   <div>
- *     <output>selected: {tabs.value}</output>
- *     <Tabs.RootProvider value={tabs} variant="line" size="md">
- *       <Tabs.List>
- *         <Tabs.Trigger value="account">Account</Tabs.Trigger>
- *         <Tabs.Trigger value="password">Password</Tabs.Trigger>
- *         <Tabs.Indicator />
- *       </Tabs.List>
- *       <Tabs.Content value="account">…</Tabs.Content>
- *       <Tabs.Content value="password">…</Tabs.Content>
- *     </Tabs.RootProvider>
+ *   <output>selected: {tabs.value}</output>
+ *   <Tabs.RootProvider value={tabs} variant="line" size="md">
+ *   <Tabs.List>
+ *   <Tabs.Trigger value="account">Account</Tabs.Trigger>
+ *   <Tabs.Trigger value="password">Password</Tabs.Trigger>
+ *   <Tabs.Indicator />
+ *   </Tabs.List>
+ *   <Tabs.Content value="account">…</Tabs.Content>
+ *   <Tabs.Content value="password">…</Tabs.Content>
+ *   </Tabs.RootProvider>
  *   </div>
- * );
- * ```
+ *   );
+ *   ```
  */
 export const Tabs = {
   /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */
@@ -123,24 +125,24 @@ export type TabsDSProps = TabsRecipeProps & {
 };
 
 /**
- * Design-system convenience tabs — pass a `tabs` array and get triggers + panels automatically.
- * **`Tabs`** stays the styled compound for full composition; **`TabsDS`** = packaged DS API
- * (`onChange(value: string)` instead of Ark's `onValueChange` detail object).
+ * Design-system convenience tabs — pass a `tabs` array and get triggers + panels automatically. **`Tabs`**
+ * stays the styled compound for full composition; **`TabsDS`** = packaged DS API (`onChange(value: string)`
+ * instead of Ark's `onValueChange` detail object).
  *
  * @example
- * ```tsx
- * import { TabsDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { TabsDS } from '@finografic/design-system/components';
  *
- * <TabsDS
- *   defaultValue="account"
- *   variant="enclosed"
- *   onChange={(value) => console.log(value)}
- *   tabs={[
- *     { value: 'account', label: 'Account', content: <AccountPanel /> },
- *     { value: 'password', label: 'Password', content: <PasswordPanel /> },
- *   ]}
- * />
- * ```
+ *   <TabsDS
+ *     defaultValue="account"
+ *     variant="enclosed"
+ *     onChange={(value) => console.log(value)}
+ *     tabs={[
+ *       { value: 'account', label: 'Account', content: <AccountPanel /> },
+ *       { value: 'password', label: 'Password', content: <PasswordPanel /> },
+ *     ]}
+ *   />;
+ *   ```;
  */
 export const TabsDS = forwardRef<HTMLDivElement, TabsDSProps>(
   (

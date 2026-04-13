@@ -3,28 +3,19 @@
  *
  * App-level structural dimensions — header, sidebar, navbar, etc.
  *
- * IMPORTANT: These are DEFAULT values. Consuming apps are expected to
- * override them to suit their own layout. Do NOT bake these into the
- * Panda preset — they live here as a shared reference and type contract.
+ * IMPORTANT: These are DEFAULT values. Consuming apps are expected to override them to suit their own layout.
+ * Do NOT bake these into the Panda preset — they live here as a shared reference and type contract.
  *
  * Recommended usage:
  *
- *   // In your app's global CSS / theme file:
- *   :root {
- *     --layout-header-height:    70px;
- *     --layout-footer-height:    70px;
- *     --layout-sidebar-width:    300px;
- *     --layout-navbar-height:    41px;
- *     --layout-content-max-width: 1200px;
- *   }
+ * // In your app's global CSS / theme file: :root { --layout-header-height: 70px; --layout-footer-height:
+ * 70px; --layout-sidebar-width: 300px; --layout-navbar-height: 41px; --layout-content-max-width: 1200px; }
  *
- *   // In Emotion templates — reference the CSS var:
- *   import { LAYOUT_VARS } from '@workspace/design-system/tokens';
- *   height: var(${LAYOUT_VARS.headerHeight});
+ * // In Emotion templates — reference the CSS var: import { LAYOUT_VARS } from
+ * '@workspace/design-system/tokens'; height: var(${LAYOUT_VARS.headerHeight});
  *
- *   // In TypeScript — reference the default value directly:
- *   import { layoutTokens } from '@workspace/design-system/tokens';
- *   const h = layoutTokens.header.height; // '70px'
+ * // In TypeScript — reference the default value directly: import { layoutTokens } from
+ * '@workspace/design-system/tokens'; const h = layoutTokens.header.height; // '70px'
  */
 
 // ============================================================================

@@ -16,8 +16,9 @@ export interface DialogGenericTab {
 export interface DialogGenericFooter {
   buttons: ButtonProps[];
   /**
-   * Render buttons in their original order + `flex-direction: row-reverse`.
-   * `false` reverses the array + normal flex direction.
+   * Render buttons in their original order + `flex-direction: row-reverse`. `false` reverses the array +
+   * normal flex direction.
+   *
    * @default true
    */
   isRTL?: boolean;
@@ -29,8 +30,8 @@ export interface DialogGenericConfig {
   title: string;
   subtitle?: string;
   /**
-   * Visually-hidden text for screen readers, appended to `aria-describedby`.
-   * Omit to skip the description slot entirely.
+   * Visually-hidden text for screen readers, appended to `aria-describedby`. Omit to skip the description
+   * slot entirely.
    */
   description?: string;
   /** Tabs to render. Pass a single tab for untabbed (no tab list shown). */

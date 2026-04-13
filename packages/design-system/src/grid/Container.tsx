@@ -10,20 +10,20 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
 /**
  * **Container** — centred layout wrapper with a max-width breakpoint.
  *
- * Add `fluid` to disable the max-width and span the full viewport.
- * Pairs with `Row` and `Col` for a 12-column grid layout.
+ * Add `fluid` to disable the max-width and span the full viewport. Pairs with `Row` and `Col` for a 12-column
+ * grid layout.
  *
  * @example
- * ```tsx
- * import { Container, Row, Col } from '@finografic/design-system/grid';
+ *   ```tsx
+ *   import { Container, Row, Col } from '@finografic/design-system/grid';
  *
- * <Container>
- *   <Row>
- *     <Col md={6}>Left</Col>
- *     <Col md={6}>Right</Col>
- *   </Row>
- * </Container>
- * ```
+ *   <Container>
+ *     <Row>
+ *       <Col md={6}>Left</Col>
+ *       <Col md={6}>Right</Col>
+ *     </Row>
+ *   </Container>;
+ *   ```;
  */
 const Container = forwardRef<HTMLDivElement, ContainerProps>(({ fluid, className, ...props }, ref) => (
   <div ref={ref} className={cx('ds-container', className)} data-fluid={fluid || undefined} {...props} />

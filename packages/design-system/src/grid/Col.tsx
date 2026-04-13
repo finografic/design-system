@@ -40,7 +40,7 @@ interface ColProps extends ComponentPropsWithoutRef<'div'> {
  *       Aside
  *     </Col>
  *   </Row>;
- *   ```
+ *   ```;
  */
 const Col = forwardRef<HTMLDivElement, ColProps>(
   ({ xs, sm, md, lg, xl, xxl, '2xl': xxl2, className, ...props }, ref) => {

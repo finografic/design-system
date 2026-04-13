@@ -3,7 +3,7 @@
  *
  * Port of Ark UI Editable example styles → Panda `sva` + semantic tokens.
  *
- * Slots:    root · label · area · input · preview · control · editTrigger · submitTrigger · cancelTrigger
+ * Slots: root · label · area · input · preview · control · editTrigger · submitTrigger · cancelTrigger
  * Variants: size (sm | md | lg)
  */
 import { sva } from '@styled-system/css';

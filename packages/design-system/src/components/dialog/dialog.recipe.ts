@@ -1,7 +1,7 @@
 /**
  * Dialog Slot Recipe
  *
- * Slots:    root | backdrop | positioner | content | header | title | description | body | footer | closeTrigger
+ * Slots: root | backdrop | positioner | content | header | title | description | body | footer | closeTrigger
  * Variants: size (xs | sm | md | lg | xl | cover | full)
  */
 import { sva } from '@styled-system/css';

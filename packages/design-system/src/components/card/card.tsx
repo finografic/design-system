@@ -10,14 +10,14 @@ export type CardProps = CardVariants & HTMLAttributes<HTMLDivElement>;
  * **Card** — surface container with border, background, and optional elevation.
  *
  * @example
- * ```tsx
- * import { Card } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Card } from '@finografic/design-system/components';
  *
- * <Card size="md" variant="elevated">
- *   <h3>Card title</h3>
- *   <p>Card content goes here.</p>
- * </Card>
- * ```
+ *   <Card size="md" variant="elevated">
+ *     <h3>Card title</h3>
+ *     <p>Card content goes here.</p>
+ *   </Card>;
+ *   ```;
  */
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ size, variant, className, children, ...props }, ref) => {

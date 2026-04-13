@@ -36,7 +36,7 @@ const variantToElement: Record<string, TextElement> = {
  *   <Text variant="h2">Section heading</Text>
  *   <Text variant="body-sm" color="muted">Supporting copy</Text>
  *   <Text variant="overline" as="div">Category label</Text>
- *   ```
+ *   ```;
  */
 export function Text({ as, variant = 'body', color, truncate, className, children, ...props }: TextProps) {
   const Tag = as ?? variantToElement[variant];

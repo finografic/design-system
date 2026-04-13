@@ -20,19 +20,19 @@ interface RowProps extends ComponentPropsWithoutRef<'div'> {
 /**
  * **Row** — flex row that houses `Col` components in the 12-column grid.
  *
- * Layout props (`align`, `justify`, `direction`, `wrap`) map to `data-*`
- * attributes consumed by `grid.css`. Use `nogutter` to strip the column
- * padding, or `gutterWidth` to set a custom gutter via CSS custom property.
+ * Layout props (`align`, `justify`, `direction`, `wrap`) map to `data-*` attributes consumed by `grid.css`.
+ * Use `nogutter` to strip the column padding, or `gutterWidth` to set a custom gutter via CSS custom
+ * property.
  *
  * @example
- * ```tsx
- * import { Row, Col } from '@finografic/design-system/grid';
+ *   ```tsx
+ *   import { Row, Col } from '@finografic/design-system/grid';
  *
- * <Row justify="space-between" align="center">
- *   <Col md={8}>Main content</Col>
- *   <Col md={4}>Sidebar</Col>
- * </Row>
- * ```
+ *   <Row justify="space-between" align="center">
+ *     <Col md={8}>Main content</Col>
+ *     <Col md={4}>Sidebar</Col>
+ *   </Row>;
+ *   ```;
  */
 const Row = forwardRef<HTMLDivElement, RowProps>(
   ({ align, justify, direction, wrap, nogutter, gutterWidth, className, style, ...props }, ref) => {

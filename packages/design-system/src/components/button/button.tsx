@@ -1,24 +1,22 @@
 /**
  * Button
  *
- * Single-element interactive control styled via `buttonRecipe`. Variant props
- * (`size`, `variant`, `palette`) are applied by the component — consumers pass
- * them as regular props; no manual recipe call needed.
+ * Single-element interactive control styled via `buttonRecipe`. Variant props (`size`, `variant`, `palette`)
+ * are applied by the component — consumers pass them as regular props; no manual recipe call needed.
  *
- * When `loading` is `true` a spinner replaces (or precedes) the icon slot and
- * interaction is disabled.
+ * When `loading` is `true` a spinner replaces (or precedes) the icon slot and interaction is disabled.
  *
  * @example
- * ```tsx
- * import { Button } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Button } from '@finografic/design-system/components';
  *
- * <Button variant="solid" palette="primary">Save</Button>
- * <Button variant="ghost" palette="danger" icon={<TrashIcon aria-hidden />}>Delete</Button>
- * <Button variant="outline" size="sm" loading>Saving…</Button>
- * <Button variant="solid" palette="primary" icon={<PlusIcon aria-hidden />} iconPosition="right">
+ *   <Button variant="solid" palette="primary">Save</Button>
+ *   <Button variant="ghost" palette="danger" icon={<TrashIcon aria-hidden />}>Delete</Button>
+ *   <Button variant="outline" size="sm" loading>Saving…</Button>
+ *   <Button variant="solid" palette="primary" icon={<PlusIcon aria-hidden />} iconPosition="right">
  *   Add item
- * </Button>
- * ```
+ *   </Button>
+ *   ```;
  */
 import { ark } from '@ark-ui/react';
 import { cx } from '@styled-system/css';

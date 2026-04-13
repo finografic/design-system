@@ -12,39 +12,39 @@ const { withProvider, withContext } = createStyleContext(menuRecipe);
 /**
  * Styled Ark **Menu** compound — each part is wired to `menuRecipe` via context.
  *
- * Ark handles all a11y: `menu` / `menuitem` roles, keyboard navigation (arrows,
- * Home/End, typeahead), and Escape to close. Variant props go on **`Menu.Root`**.
+ * Ark handles all a11y: `menu` / `menuitem` roles, keyboard navigation (arrows, Home/End, typeahead), and
+ * Escape to close. Variant props go on **`Menu.Root`**.
  *
- * **`Menu.Trigger`** is unstyled — compose it with `rootTriggerRecipe` or `buttonRecipe`
- * on the consumer side (or use `asChild` with your own element).
+ * **`Menu.Trigger`** is unstyled — compose it with `rootTriggerRecipe` or `buttonRecipe` on the consumer side
+ * (or use `asChild` with your own element).
  *
  * @example
- * ```tsx
- * import { Menu } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Menu } from '@finografic/design-system/components';
  *
- * <Menu.Root>
- *   <Menu.Trigger asChild>
- *     <button>Options</button>
- *   </Menu.Trigger>
- *   <Menu.Positioner>
- *     <Menu.Content>
- *       <Menu.ItemGroup>
- *         <Menu.ItemGroupLabel>Actions</Menu.ItemGroupLabel>
- *         <Menu.Item value="edit">
- *           <Menu.ItemText>Edit</Menu.ItemText>
+ *   <Menu.Root>
+ *     <Menu.Trigger asChild>
+ *       <button>Options</button>
+ *     </Menu.Trigger>
+ *     <Menu.Positioner>
+ *       <Menu.Content>
+ *         <Menu.ItemGroup>
+ *           <Menu.ItemGroupLabel>Actions</Menu.ItemGroupLabel>
+ *           <Menu.Item value="edit">
+ *             <Menu.ItemText>Edit</Menu.ItemText>
+ *           </Menu.Item>
+ *           <Menu.Item value="delete">
+ *             <Menu.ItemText>Delete</Menu.ItemText>
+ *           </Menu.Item>
+ *         </Menu.ItemGroup>
+ *         <Menu.Separator />
+ *         <Menu.Item value="archive">
+ *           <Menu.ItemText>Archive</Menu.ItemText>
  *         </Menu.Item>
- *         <Menu.Item value="delete">
- *           <Menu.ItemText>Delete</Menu.ItemText>
- *         </Menu.Item>
- *       </Menu.ItemGroup>
- *       <Menu.Separator />
- *       <Menu.Item value="archive">
- *         <Menu.ItemText>Archive</Menu.ItemText>
- *       </Menu.Item>
- *     </Menu.Content>
- *   </Menu.Positioner>
- * </Menu.Root>
- * ```
+ *       </Menu.Content>
+ *     </Menu.Positioner>
+ *   </Menu.Root>;
+ *   ```;
  */
 export const Menu = {
   /** Root — open state, event handlers (`onSelect`, `onOpenChange`), and recipe variants. */
@@ -120,15 +120,15 @@ export interface MenuDSClassNames {
 
 export type MenuDSProps = {
   /**
-   * The trigger element — rendered inside an unstyled `Menu.Trigger asChild`.
-   * Style it with `Button`, `rootTriggerRecipe`, or any element.
+   * The trigger element — rendered inside an unstyled `Menu.Trigger asChild`. Style it with `Button`,
+   * `rootTriggerRecipe`, or any element.
    */
   trigger: ReactNode;
   /** Flat list of items — convenience for single-group menus. */
   items?: MenuDSItem[];
   /**
-   * Grouped items — renders each group in an `ItemGroup` with an optional label
-   * and a `Separator` between groups. Takes precedence over `items`.
+   * Grouped items — renders each group in an `ItemGroup` with an optional label and a `Separator` between
+   * groups. Takes precedence over `items`.
    */
   groups?: MenuDSGroup[];
   /** Controlled open state. */
@@ -144,37 +144,39 @@ export type MenuDSProps = {
 };
 
 /**
- * Design-system convenience menu — pass a trigger + items array for the common case.
- * **`Menu`** stays the styled compound for full composition; **`MenuDS`** = packaged DS API
- * with normalized handlers (`onSelect(value)`, `onOpenChange(open)`).
+ * Design-system convenience menu — pass a trigger + items array for the common case. **`Menu`** stays the
+ * styled compound for full composition; **`MenuDS`** = packaged DS API with normalized handlers
+ * (`onSelect(value)`, `onOpenChange(open)`).
  *
- * @example Flat items
- * ```tsx
- * import { MenuDS } from '@finografic/design-system/components';
- * import { Button } from '@finografic/design-system/components';
+ * @example
+ *   Flat items
+ *   ```tsx
+ *   import { MenuDS } from '@finografic/design-system/components';
+ *   import { Button } from '@finografic/design-system/components';
  *
- * <MenuDS
+ *   <MenuDS
  *   trigger={<Button variant="outline">Options</Button>}
  *   items={[
- *     { value: 'edit', label: 'Edit' },
- *     { value: 'duplicate', label: 'Duplicate' },
- *     { value: 'delete', label: 'Delete' },
+ *   { value: 'edit', label: 'Edit' },
+ *   { value: 'duplicate', label: 'Duplicate' },
+ *   { value: 'delete', label: 'Delete' },
  *   ]}
  *   onSelect={(value) => handleAction(value)}
- * />
- * ```
+ *   />
+ *   ```
  *
- * @example Grouped items
- * ```tsx
- * <MenuDS
+ * @example
+ *   Grouped items
+ *   ```tsx
+ *   <MenuDS
  *   trigger={<Button>Options</Button>}
  *   groups={[
- *     { label: 'Actions', items: [{ value: 'edit', label: 'Edit' }] },
- *     { items: [{ value: 'delete', label: 'Delete' }] },
+ *   { label: 'Actions', items: [{ value: 'edit', label: 'Edit' }] },
+ *   { items: [{ value: 'delete', label: 'Delete' }] },
  *   ]}
  *   onSelect={(value) => handleAction(value)}
- * />
- * ```
+ *   />
+ *   ```
  */
 export const MenuDS = forwardRef<HTMLButtonElement, MenuDSProps>(
   ({ trigger, items, groups, open, onOpenChange, onSelect, onHighlightChange, classNames = {} }, ref) => {

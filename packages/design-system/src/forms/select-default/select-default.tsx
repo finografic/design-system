@@ -1,36 +1,35 @@
 /**
  * SelectDefault — pre-composed Select with a simple `options[]` API.
  *
- * Accepts a flat array of `SelectOption` objects instead of requiring an Ark
- * collection. Uses `selectRecipe` for styling — identical appearance to the
- * full `Select.*` compound.
+ * Accepts a flat array of `SelectOption` objects instead of requiring an Ark collection. Uses `selectRecipe`
+ * for styling — identical appearance to the full `Select.*` compound.
  *
- * **Single-select (default):** `value?: string`, `onSelect?: (v: string) => void`.
- * **Multi-select:** add `multiple` prop — `value` becomes `string[]` and
- * `onSelect` receives `string[]`. Selected rows show a check via `ItemIndicator`.
+ * **Single-select (default):** `value?: string`, `onSelect?: (v: string) => void`. **Multi-select:** add
+ * `multiple` prop — `value` becomes `string[]` and `onSelect` receives `string[]`. Selected rows show a check
+ * via `ItemIndicator`.
  *
- * For full composition control (groups, custom item content, clear trigger, etc.)
- * use `Select.*` parts directly.
+ * For full composition control (groups, custom item content, clear trigger, etc.) use `Select.*` parts
+ * directly.
  *
  * @example
- * ```tsx
- * import { SelectDefault } from '@finografic/design-system/forms';
+ *   ```tsx
+ *   import { SelectDefault } from '@finografic/design-system/forms';
  *
- * // Single
- * <SelectDefault
+ *   // Single
+ *   <SelectDefault
  *   options={[{ value: 'en', label: 'English' }, { value: 'es', label: 'Spanish' }]}
  *   value={lang}
  *   onSelect={setLang}
- * />
+ *   />
  *
- * // Multi
- * <SelectDefault
+ *   // Multi
+ *   <SelectDefault
  *   multiple
  *   options={roles}
  *   value={selectedRoles}
  *   onSelect={setSelectedRoles}
- * />
- * ```
+ *   />
+ *   ```;
  */
 import { CheckIcon, ChevronDownIcon } from '@finografic/icons';
 

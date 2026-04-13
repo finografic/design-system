@@ -1,12 +1,10 @@
 /**
- * scripts/generate.ts
+ * Scripts/generate.ts
  *
- * Reads src/icons.json and writes:
- *   src/icons.ts   — ICONS map, wrapped exports, public API
- *   src/index.ts   — named exports + re-exports
+ * Reads src/icons.json and writes: src/icons.ts — ICONS map, wrapped exports, public API src/index.ts — named
+ * exports + re-exports
  *
- * Run via: pnpm icons.generate
- * Also called in-process by the Hono server after every POST to /api/icons-json.
+ * Run via: pnpm icons.generate Also called in-process by the Hono server after every POST to /api/icons-json.
  *
  * !! Does NOT touch src/icons.utils.ts — that file is handwritten and permanent.
  */
@@ -42,9 +40,8 @@ function toLucideExport(lucideName: string): string {
 // ── Generate ───────────────────────────────────────────────────────────────────
 
 /**
- * Reads icons.json and writes icons.ts + index.ts.
- * Exported so the Hono server can call it directly on each POST
- * (avoids ESM module-cache issues with top-level side effects).
+ * Reads icons.json and writes icons.ts + index.ts. Exported so the Hono server can call it directly on each
+ * POST (avoids ESM module-cache issues with top-level side effects).
  */
 export function generate(): void {
   const entries: IconEntry[] = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));

@@ -1,19 +1,16 @@
 /**
- * server/icons-server.ts
+ * Server/icons-server.ts
  *
  * Minimal Hono HTTP server for the icon picker workflow.
  *
- * Routes:
- *   GET  /api/icons-json  → returns current src/icons.json as JSON array
- *   POST /api/icons-json  → validates + writes src/icons.json, runs generate in-process
+ * Routes: GET /api/icons-json → returns current src/icons.json as JSON array POST /api/icons-json → validates
+ * + writes src/icons.json, runs generate in-process
  *
- * Started via:
- *   pnpm icons.server  — server only (called by root `pnpm dev`)
- *   pnpm icons.config  — server + picker UI together (concurrently)
+ * Started via: pnpm icons.server — server only (called by root `pnpm dev`) pnpm icons.config — server +
+ * picker UI together (concurrently)
  *
- * Port: starts at 3001, auto-increments if busy.
- * The actual port is written to lucide-manager.config.json so the picker
- * always connects to the right URL.
+ * Port: starts at 3001, auto-increments if busy. The actual port is written to lucide-manager.config.json so
+ * the picker always connects to the right URL.
  *
  * This server is dev-only. It is not part of the package build output.
  */
@@ -57,9 +54,8 @@ interface IconEntry {
 // ── Generate (in-process) ─────────────────────────────────────────────────────
 
 /**
- * Runs codegen in-process. generate() is an exported function (not a
- * top-level side effect) so ESM module caching is not an issue —
- * the import is cached once, the function is called fresh each time.
+ * Runs codegen in-process. generate() is an exported function (not a top-level side effect) so ESM module
+ * caching is not an issue — the import is cached once, the function is called fresh each time.
  */
 async function runGenerate(): Promise<void> {
   const { generate } = await import('../scripts/generate.ts');

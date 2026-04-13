@@ -1,7 +1,7 @@
 /**
  * Tooltip Slot Recipe
  *
- * Slots:    trigger | positioner | content | arrow | arrowTip
+ * Slots: trigger | positioner | content | arrow | arrowTip
  */
 import { sva } from '@styled-system/css';
 

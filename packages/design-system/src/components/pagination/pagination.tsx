@@ -13,31 +13,35 @@ const { withProvider, withContext } = createStyleContext(paginationRecipe);
 /**
  * Styled Ark **Pagination** compound — each part is wired to `paginationRecipe` via context.
  *
- * Ark handles all a11y: `navigation` landmark, `aria-label`, `aria-current` on active page.
- * Variant props (`size`) go on **`Pagination.Root`**.
+ * Ark handles all a11y: `navigation` landmark, `aria-label`, `aria-current` on active page. Variant props
+ * (`size`) go on **`Pagination.Root`**.
  *
  * @example
- * ```tsx
- * import { Pagination } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { Pagination } from '@finografic/design-system/components';
  *
- * <Pagination.Root count={100} pageSize={10} defaultPage={1} size="md">
- *   <Pagination.Context>
- *     {({ pages }) => (
- *       <>
- *         <Pagination.PrevTrigger>Prev</Pagination.PrevTrigger>
- *         {pages.map((page, i) =>
- *           page.type === 'page' ? (
- *             <Pagination.Item key={i} {...page}>{page.value}</Pagination.Item>
- *           ) : (
- *             <Pagination.Ellipsis key={i} index={i}>&#8230;</Pagination.Ellipsis>
- *           )
- *         )}
- *         <Pagination.NextTrigger>Next</Pagination.NextTrigger>
- *       </>
- *     )}
- *   </Pagination.Context>
- * </Pagination.Root>
- * ```
+ *   <Pagination.Root count={100} pageSize={10} defaultPage={1} size="md">
+ *     <Pagination.Context>
+ *       {({ pages }) => (
+ *         <>
+ *           <Pagination.PrevTrigger>Prev</Pagination.PrevTrigger>
+ *           {pages.map((page, i) =>
+ *             page.type === 'page' ? (
+ *               <Pagination.Item key={i} {...page}>
+ *                 {page.value}
+ *               </Pagination.Item>
+ *             ) : (
+ *               <Pagination.Ellipsis key={i} index={i}>
+ *                 &#8230;
+ *               </Pagination.Ellipsis>
+ *             ),
+ *           )}
+ *           <Pagination.NextTrigger>Next</Pagination.NextTrigger>
+ *         </>
+ *       )}
+ *     </Pagination.Context>
+ *   </Pagination.Root>;
+ *   ```;
  */
 export const Pagination = {
   /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */
@@ -79,20 +83,20 @@ export type PaginationDSProps = PaginationRecipeProps & {
 
 /**
  * Design-system convenience pagination — renders prev, numbered pages, ellipsis, and next buttons.
- * **`Pagination`** stays the styled compound for full composition; **`PaginationDS`** = packaged DS
- * API (`onPageChange(page, pageSize)` instead of Ark's `onPageChange` detail object).
+ * **`Pagination`** stays the styled compound for full composition; **`PaginationDS`** = packaged DS API
+ * (`onPageChange(page, pageSize)` instead of Ark's `onPageChange` detail object).
  *
  * @example
- * ```tsx
- * import { PaginationDS } from '@finografic/design-system/components';
+ *   ```tsx
+ *   import { PaginationDS } from '@finografic/design-system/components';
  *
- * <PaginationDS
- *   count={200}
- *   pageSize={10}
- *   defaultPage={1}
- *   onPageChange={(page, pageSize) => fetchData({ page, pageSize })}
- * />
- * ```
+ *   <PaginationDS
+ *     count={200}
+ *     pageSize={10}
+ *     defaultPage={1}
+ *     onPageChange={(page, pageSize) => fetchData({ page, pageSize })}
+ *   />;
+ *   ```;
  */
 export const PaginationDS = forwardRef<HTMLElement, PaginationDSProps>(
   (
