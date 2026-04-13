@@ -1,8 +1,8 @@
 /**
  * Toast Slot Recipe
  *
- * Slots:    root | title | description | closeTrigger | actionTrigger
- * Variants: status (info | success | warning | error)
+ * Slots: root | title | description | closeTrigger | actionTrigger Variants: status (info | success | warning
+ * | error)
  */
 import { sva } from '@styled-system/css';
 
@@ -58,23 +58,23 @@ export const toastRecipe = sva({
     },
 
     closeTrigger: {
-      position: 'absolute',
-      top: '1',
-      insetInlineEnd: '1',
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '1',
-      cursor: 'pointer',
-      color: 'inherit',
-      opacity: 0.6,
-      borderRadius: 'xs',
-      border: 'none',
-      bg: 'transparent',
-      transitionProperty: 'background-color, opacity',
-      transitionDuration: 'fast',
-      _hover: { opacity: 1, bg: 'bg.subtle' },
-      _focusVisible: {
+      'position': 'absolute',
+      'top': '1',
+      'insetInlineEnd': '1',
+      'display': 'inline-flex',
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'padding': '1',
+      'cursor': 'pointer',
+      'color': 'inherit',
+      'opacity': 0.6,
+      'borderRadius': 'xs',
+      'border': 'none',
+      'bg': 'transparent',
+      'transitionProperty': 'background-color, opacity',
+      'transitionDuration': 'fast',
+      '_hover': { opacity: 1, bg: 'bg.subtle' },
+      '_focusVisible': {
         outline: '2px solid currentColor',
         outlineOffset: '-1px',
       },

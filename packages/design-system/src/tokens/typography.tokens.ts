@@ -1,8 +1,7 @@
 /**
  * 📝 Typography Tokens
  *
- * Mapped from the existing client styles typography system.
- * Font stacks, sizes, weights, and line heights.
+ * Mapped from the existing client styles typography system. Font stacks, sizes, weights, and line heights.
  */
 import { defineTextStyles, defineTokens } from '@pandacss/dev';
 
@@ -46,11 +45,11 @@ export const fontTokens = defineTokens.fonts({
 // ============================================================================
 
 export const fontSizeTokens = defineTokens.fontSizes({
-  xs: { value: '0.75rem' },
-  sm: { value: '0.875rem' },
-  md: { value: '1rem' },
-  lg: { value: '1.125rem' },
-  xl: { value: '1.25rem' },
+  'xs': { value: '0.75rem' },
+  'sm': { value: '0.875rem' },
+  'md': { value: '1rem' },
+  'lg': { value: '1.125rem' },
+  'xl': { value: '1.25rem' },
   '2xl': { value: '1.5rem' },
   '3xl': { value: '1.875rem' },
   '4xl': { value: '2.25rem' },

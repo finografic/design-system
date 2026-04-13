@@ -1,25 +1,23 @@
 /**
  * Sizes token scale for Panda CSS.
  *
- * Used by width, height, min-width, max-width, min-height, max-height.
- * Keys are referenced as strings in recipes and css() calls:
- *   width: '9', height: '5', maxWidth: 'sidebar'
+ * Used by width, height, min-width, max-width, min-height, max-height. Keys are referenced as strings in
+ * recipes and css() calls: width: '9', height: '5', maxWidth: 'sidebar'
  *
- * Includes:
- *   - Numeric scale (rem-based, mirrors spacing scale)
- *   - Named layout sizes (structural app dimensions)
+ * Includes: - Numeric scale (rem-based, mirrors spacing scale) - Named layout sizes (structural app
+ * dimensions)
  *
  * @example
- * // In recipe: width: '9'   → var(--sizes-9)   → 2.25rem (36px)
- * // In recipe: h: 'navbar'  → var(--sizes-navbar) → 41px
- * // In css():  maxWidth: 'content' → var(--sizes-content) → 1200px
+ *   // In recipe: width: '9'   → var(--sizes-9)   → 2.25rem (36px)
+ *   // In recipe: h: 'navbar'  → var(--sizes-navbar) → 41px
+ *   // In css():  maxWidth: 'content' → var(--sizes-content) → 1200px
  */
 import { defineTokens } from '@pandacss/dev';
 
 export const sizingTokens = defineTokens.sizes({
   // ── Numeric scale (rem) ─────────────────────────────────────────────────
   '0': { value: '0' },
-  px: { value: '1px' },
+  'px': { value: '1px' },
   '0.5': { value: '0.125rem' }, //   2px
   '1': { value: '0.25rem' }, //   4px
   '1.5': { value: '0.375rem' }, //   6px
@@ -41,9 +39,9 @@ export const sizingTokens = defineTokens.sizes({
 
   // ── Named layout sizes ───────────────────────────────────────────────────
   // Override at the app level with CSS vars (see layout.tokens.ts).
-  navbar: { value: '41px' },
-  header: { value: '70px' },
-  footer: { value: '70px' },
-  sidebar: { value: '300px' },
-  content: { value: '1200px' },
+  'navbar': { value: '41px' },
+  'header': { value: '70px' },
+  'footer': { value: '70px' },
+  'sidebar': { value: '300px' },
+  'content': { value: '1200px' },
 });

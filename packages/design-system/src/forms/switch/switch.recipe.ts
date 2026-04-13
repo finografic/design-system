@@ -1,21 +1,21 @@
 /**
  * Switch slot recipe (`sva`)
  *
- * Port of Ark UI docs Switch example CSS (`.Root`, `.Label`, `.Control`, `.Thumb`).
- * Use with `createStyleContext(switchRecipe)` for `Switch.*` parts, or call
- * `switchRecipe({ size, palette })` in `SwitchDS` (like `CheckboxField` uses its recipe).
+ * Port of Ark UI docs Switch example CSS (`.Root`, `.Label`, `.Control`, `.Thumb`). Use with
+ * `createStyleContext(switchRecipe)` for `Switch.*` parts, or call `switchRecipe({ size, palette })` in
+ * `SwitchDS` (like `CheckboxField` uses its recipe).
  *
- * Slots:    root · label · control · thumb · description · errorText
- * Variants: size (sm | md | lg) · palette (sets `colorPalette` per slot)
+ * Slots: root · label · control · thumb · description · errorText Variants: size (sm | md | lg) · palette
+ * (sets `colorPalette` per slot)
  *
- * **Color mechanism:** `variants.palette` maps each palette name to **`{ root, control, thumb }`**
- * (each with `colorPalette: 'primary' | 'info' | …`). Slots then use **`colorPalette.*`**
- * (`light`, `base`, `dark`, …) in `base` / `_checked` / `:is(:checked, …)` so one implementation
- * resolves to the right semantic colors for the chosen palette (e.g. `info` → info light/dark).
- * **Control** checked fill uses an explicit `:is(:checked, …)` selector (native + Ark/Zag attrs).
+ * **Color mechanism:** `variants.palette` maps each palette name to **`{ root, control, thumb }`** (each with
+ * `colorPalette: 'primary' | 'info' | …`). Slots then use **`colorPalette.*`** (`light`, `base`, `dark`, …)
+ * in `base` / `_checked` / `:is(:checked, …)` so one implementation resolves to the right semantic colors for
+ * the chosen palette (e.g. `info` → info light/dark). **Control** checked fill uses an explicit
+ * `:is(:checked, …)` selector (native + Ark/Zag attrs).
  *
- * Palette note: **`default`** maps to **`neutral`**. Omitting `palette` on `SwitchDS` uses
- * `defaultVariants` → **`primary`**.
+ * Palette note: **`default`** maps to **`neutral`**. Omitting `palette` on `SwitchDS` uses `defaultVariants`
+ * → **`primary`**.
  */
 import { sva } from '@styled-system/css';
 
@@ -28,14 +28,14 @@ export const switchRecipe = sva({
 
   base: {
     root: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      gap: '2',
-      position: 'relative',
-      color: 'fg',
-      cursor: 'pointer',
-      userSelect: 'none',
-      _disabled: {
+      'display': 'inline-flex',
+      'alignItems': 'center',
+      'gap': '2',
+      'position': 'relative',
+      'color': 'fg',
+      'cursor': 'pointer',
+      'userSelect': 'none',
+      '_disabled': {
         opacity: 0.5,
         filter: 'grayscale(100%)',
         cursor: 'not-allowed',
@@ -103,15 +103,15 @@ export const switchRecipe = sva({
     size: {
       sm: {
         control: {
-          width: '8',
-          height: '4',
-          padding: '0.5',
+          'width': '8',
+          'height': '4',
+          'padding': '0.5',
           '@media (pointer: coarse)': { width: '10', height: '6' },
         },
         thumb: {
-          width: '3',
-          height: '3',
-          _checked: { transform: 'translateX(0.75rem)' },
+          'width': '3',
+          'height': '3',
+          '_checked': { transform: 'translateX(0.75rem)' },
           '@media (pointer: coarse)': {
             width: '5',
             height: '5',

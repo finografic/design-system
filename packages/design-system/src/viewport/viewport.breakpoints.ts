@@ -1,13 +1,13 @@
 /**
  * Breakpoint values (numeric pixels).
  *
- * We follow the Panda CSS / Tailwind CSS default breakpoint scale,
- * which aligns with Park UI (the official Ark UI + Panda design system).
+ * We follow the Panda CSS / Tailwind CSS default breakpoint scale, which aligns with Park UI (the official
+ * Ark UI + Panda design system).
  *
  * Reference values:
  *
- *   Tailwind/Panda  xs:   0  sm: 640  md: 768  lg: 1024  xl: 1280  2xl: 1536  ← active
- *   Radix UI        xs:   0  sm: 520  md: 768  lg: 1024  xl: 1280  2xl: 1640  (V1 client used this)
+ * Tailwind/Panda xs: 0 sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1536 ← active Radix UI xs: 0 sm: 520 md: 768
+ * lg: 1024 xl: 1280 2xl: 1640 (V1 client used this)
  *
  * @see https://panda-css.com/docs/customization/theme#breakpoints
  * @see https://tailwindcss.com/docs/responsive-design
@@ -25,11 +25,11 @@ import { toEmNumeric, toPixelString, toRemNumeric } from './viewport.utils';
 // ============================================================================
 
 export const BREAKPOINTS: Record<ScreenClass, number> = {
-  xs: 0,
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
+  'xs': 0,
+  'sm': 640,
+  'md': 768,
+  'lg': 1024,
+  'xl': 1280,
   '2xl': 1536,
 } as const;
 

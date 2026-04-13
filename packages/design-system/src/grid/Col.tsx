@@ -7,17 +7,17 @@ type ColSpan = number | 'content';
 
 interface ColProps extends ComponentPropsWithoutRef<'div'> {
   /** Span at the `xs` breakpoint and up (≥ 0 px). */
-  xs?: ColSpan;
+  'xs'?: ColSpan;
   /** Span at the `sm` breakpoint and up. */
-  sm?: ColSpan;
+  'sm'?: ColSpan;
   /** Span at the `md` breakpoint and up. */
-  md?: ColSpan;
+  'md'?: ColSpan;
   /** Span at the `lg` breakpoint and up. */
-  lg?: ColSpan;
+  'lg'?: ColSpan;
   /** Span at the `xl` breakpoint and up. */
-  xl?: ColSpan;
+  'xl'?: ColSpan;
   /** Span at the `xxl` breakpoint and up (alias of `2xl`). */
-  xxl?: ColSpan;
+  'xxl'?: ColSpan;
   /** Span at the `2xl` breakpoint and up. */
   '2xl'?: ColSpan;
 }
@@ -25,19 +25,22 @@ interface ColProps extends ComponentPropsWithoutRef<'div'> {
 /**
  * **Col** — responsive column inside a `Row`.
  *
- * Pass breakpoint props to control the column span at each viewport width.
- * Omitting a breakpoint inherits the previous breakpoint's span (mobile-first).
- * Use `'content'` to size the column to its natural width.
+ * Pass breakpoint props to control the column span at each viewport width. Omitting a breakpoint inherits the
+ * previous breakpoint's span (mobile-first). Use `'content'` to size the column to its natural width.
  *
  * @example
- * ```tsx
- * import { Row, Col } from '@finografic/design-system/grid';
+ *   ```tsx
+ *   import { Row, Col } from '@finografic/design-system/grid';
  *
- * <Row>
- *   <Col xs={12} md={8}>Main</Col>
- *   <Col xs={12} md={4}>Aside</Col>
- * </Row>
- * ```
+ *   <Row>
+ *     <Col xs={12} md={8}>
+ *       Main
+ *     </Col>
+ *     <Col xs={12} md={4}>
+ *       Aside
+ *     </Col>
+ *   </Row>;
+ *   ```
  */
 const Col = forwardRef<HTMLDivElement, ColProps>(
   ({ xs, sm, md, lg, xl, xxl, '2xl': xxl2, className, ...props }, ref) => {

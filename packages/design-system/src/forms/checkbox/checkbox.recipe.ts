@@ -1,23 +1,22 @@
 /**
  * Checkbox slot recipe (`sva`)
  *
- * Port of Ark UI docs Checkbox example CSS (`.Root`, `.Label`, `.Control`, `.Indicator`).
- * Use with `createStyleContext(checkboxRecipe)` for `Checkbox.*` parts, or call
- * `checkboxRecipe({ size, palette })` in `CheckboxDS`.
+ * Port of Ark UI docs Checkbox example CSS (`.Root`, `.Label`, `.Control`, `.Indicator`). Use with
+ * `createStyleContext(checkboxRecipe)` for `Checkbox.*` parts, or call `checkboxRecipe({ size, palette })` in
+ * `CheckboxDS`.
  *
- * Slots:    root · control · indicator · label · description · errorText
- * Variants: size (sm | md | lg) · palette (semantic fill when checked / indeterminate)
+ * Slots: root · control · indicator · label · description · errorText Variants: size (sm | md | lg) · palette
+ * (semantic fill when checked / indeterminate)
  *
  * **Palette:** `variants.palette` sets **`colorPalette`** on **root** and **control** so
- * **`colorPalette.base`** drives the checked/indeterminate fill (darker than `*.light`).
- * Matches **Switch**’s palette model.
+ * **`colorPalette.base`** drives the checked/indeterminate fill (darker than `*.light`). Matches **Switch**’s
+ * palette model.
  *
- * **Touch:** `sm` / `md` (and `lg`) use **`@media (pointer: coarse)`** to enlarge the control
- * and icon — important for small touch screens (e.g. kiosk / Raspberry Pi).
+ * **Touch:** `sm` / `md` (and `lg`) use **`@media (pointer: coarse)`** to enlarge the control and icon —
+ * important for small touch screens (e.g. kiosk / Raspberry Pi).
  *
- * **Indeterminate icons:** `MinusIcon` carries `data-indeterminate` and is hidden by
- * default via the `indicator` slot; `root._indeterminate` toggles visibility so only
- * the correct icon shows for each state.
+ * **Indeterminate icons:** `MinusIcon` carries `data-indeterminate` and is hidden by default via the
+ * `indicator` slot; `root._indeterminate` toggles visibility so only the correct icon shows for each state.
  */
 import { sva } from '@styled-system/css';
 
@@ -30,52 +29,52 @@ export const checkboxRecipe = sva({
 
   base: {
     root: {
-      display: 'inline-flex',
-      alignItems: 'flex-start',
-      verticalAlign: 'top',
-      gap: '2',
-      cursor: 'pointer',
-      userSelect: 'none',
-      _disabled: { opacity: 0.55, filter: 'grayscale(100%)', cursor: 'not-allowed' },
+      'display': 'inline-flex',
+      'alignItems': 'flex-start',
+      'verticalAlign': 'top',
+      'gap': '2',
+      'cursor': 'pointer',
+      'userSelect': 'none',
+      '_disabled': { opacity: 0.55, filter: 'grayscale(100%)', cursor: 'not-allowed' },
       '@media (pointer: coarse)': { touchAction: 'manipulation' },
-      _indeterminate: {
+      '_indeterminate': {
         '& svg:not([data-indeterminate])': { display: 'none' },
         '& svg[data-indeterminate]': { display: 'block' },
       },
     },
 
     control: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexShrink: 0,
-      overflow: 'hidden',
-      borderRadius: 'xs',
-      borderWidth: 'light',
-      borderStyle: 'solid',
-      borderColor: 'border',
-      bg: 'bg',
-      color: 'transparent',
-      transitionProperty: 'background-color, border-color, color',
-      transitionDuration: 'normal',
-      _checked: {
+      'display': 'inline-flex',
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'flexShrink': 0,
+      'overflow': 'hidden',
+      'borderRadius': 'xs',
+      'borderWidth': 'light',
+      'borderStyle': 'solid',
+      'borderColor': 'border',
+      'bg': 'bg',
+      'color': 'transparent',
+      'transitionProperty': 'background-color, border-color, color',
+      'transitionDuration': 'normal',
+      '_checked': {
         bg: 'colorPalette.base',
         borderColor: 'colorPalette.base',
         color: 'white',
       },
-      _indeterminate: {
+      '_indeterminate': {
         bg: 'colorPalette.base',
         borderColor: 'colorPalette.base',
         color: 'white',
       },
-      _hover: { borderColor: 'colorPalette.emphasized' },
-      _disabled: { bg: 'bg.subtle', borderColor: 'border.muted' },
-      _focusVisible: {
+      '_hover': { borderColor: 'colorPalette.emphasized' },
+      '_disabled': { bg: 'bg.subtle', borderColor: 'border.muted' },
+      '_focusVisible': {
         outline: '2px solid',
         outlineColor: 'accent.focusRing',
         outlineOffset: '2px',
       },
-      _invalid: { borderColor: 'border.error' },
+      '_invalid': { borderColor: 'border.error' },
       '&[data-invalid][data-focus-visible]': {
         borderColor: 'border.error',
         boxShadow: '0 0 0 1px {colors.border.error}',
@@ -83,10 +82,10 @@ export const checkboxRecipe = sva({
     },
 
     indicator: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'inherit',
+      'display': 'flex',
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'color': 'inherit',
       '& svg[data-indeterminate]': { display: 'none' },
       '& svg': {
         strokeWidth: '2.5',
@@ -120,19 +119,19 @@ export const checkboxRecipe = sva({
     size: {
       sm: {
         control: {
-          width: '4',
-          height: '4',
-          marginTop: '0.5',
+          'width': '4',
+          'height': '4',
+          'marginTop': '0.5',
           '& svg': { width: '2.5', height: '2.5' },
           '@media (pointer: coarse)': {
-            width: '5',
-            height: '5',
+            'width': '5',
+            'height': '5',
             '& svg': { width: '3', height: '3' },
           },
         },
         indicator: {
-          width: '2.5',
-          height: '2.5',
+          'width': '2.5',
+          'height': '2.5',
           '@media (pointer: coarse)': { width: '3', height: '3' },
         },
         label: { fontSize: 'sm' },
@@ -141,19 +140,19 @@ export const checkboxRecipe = sva({
       },
       md: {
         control: {
-          width: '5',
-          height: '5',
-          marginTop: '0.5',
+          'width': '5',
+          'height': '5',
+          'marginTop': '0.5',
           '& svg': { width: '3', height: '3' },
           '@media (pointer: coarse)': {
-            width: '6',
-            height: '6',
+            'width': '6',
+            'height': '6',
             '& svg': { width: '4', height: '4' },
           },
         },
         indicator: {
-          width: '3',
-          height: '3',
+          'width': '3',
+          'height': '3',
           '@media (pointer: coarse)': { width: '4', height: '4' },
         },
         label: { fontSize: 'md' },
@@ -162,19 +161,19 @@ export const checkboxRecipe = sva({
       },
       lg: {
         control: {
-          width: '6',
-          height: '6',
-          marginTop: '0.5',
+          'width': '6',
+          'height': '6',
+          'marginTop': '0.5',
           '& svg': { width: '4', height: '4' },
           '@media (pointer: coarse)': {
-            width: '7',
-            height: '7',
+            'width': '7',
+            'height': '7',
             '& svg': { width: '4.5', height: '4.5' },
           },
         },
         indicator: {
-          width: '4',
-          height: '4',
+          'width': '4',
+          'height': '4',
           '@media (pointer: coarse)': { width: '4.5', height: '4.5' },
         },
         label: { fontSize: 'lg' },

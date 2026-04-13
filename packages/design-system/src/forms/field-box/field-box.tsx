@@ -41,15 +41,14 @@ function deriveValidationState(opts: {
  *
  * Renders: label · [control] · hint/warning/error text.
  *
- * When inside an RHF `<FormProvider>` and `name` is provided, field state is
- * read automatically — error shows only after submit, warning shows (debounced)
- * on touch/dirty-after-submit.
+ * When inside an RHF `<FormProvider>` and `name` is provided, field state is read automatically — error shows
+ * only after submit, warning shows (debounced) on touch/dirty-after-submit.
  *
  * When used outside RHF (or with `error` prop directly), pass `error` explicitly.
  *
- * If children include an Ark `Field.Input` or `Field.Textarea`, FieldBox wraps
- * them in `Field.Root` for automatic label linkage and aria-invalid wiring.
- * For all other controls (DS Select, custom), it uses a plain div.
+ * If children include an Ark `Field.Input` or `Field.Textarea`, FieldBox wraps them in `Field.Root` for
+ * automatic label linkage and aria-invalid wiring. For all other controls (DS Select, custom), it uses a
+ * plain div.
  */
 export function FieldBox({
   name,
@@ -112,10 +111,10 @@ export function FieldBox({
   const usesArkField = hasArkFieldInput(children);
 
   const rootProps = {
-    className: cx(styles.root, className) || undefined,
+    'className': cx(styles.root, className) || undefined,
     'data-invalid': showError ? 'true' : undefined,
     'data-required': required ? 'true' : undefined,
-    onBlur: handleBlur,
+    'onBlur': handleBlur,
   };
 
   const labelNode = label && (

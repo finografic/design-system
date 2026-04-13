@@ -3,12 +3,11 @@
  *
  * Port of Ark UI TagsInput example styles → Panda `sva` + semantic tokens.
  *
- * Slots:    root · label · control · item · itemPreview · itemText ·
- *           itemInput · itemDeleteTrigger · input · clearTrigger ·
- *           description · errorText
- * Variants: size (sm | md | lg)
+ * Slots: root · label · control · item · itemPreview · itemText · itemInput · itemDeleteTrigger · input ·
+ * clearTrigger · description · errorText Variants: size (sm | md | lg)
  *
  * **Usage pattern:**
+ *
  * - `control` is the full input box — flex-wrap, border, focus-within ring.
  * - Each tag is an `item` containing an `itemPreview` (chip) + `itemInput` (edit mode).
  * - `input` at the end of `control` accepts new tag text.
@@ -126,14 +125,14 @@ export const tagsInputRecipe = sva({
     },
 
     itemDeleteTrigger: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      bg: 'transparent',
-      border: 'none',
-      borderRadius: 'xs',
-      color: 'inherit',
-      cursor: 'pointer',
+      'display': 'flex',
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'bg': 'transparent',
+      'border': 'none',
+      'borderRadius': 'xs',
+      'color': 'inherit',
+      'cursor': 'pointer',
       '& svg': { w: '3.5', h: '3.5' },
     },
 
@@ -149,17 +148,17 @@ export const tagsInputRecipe = sva({
     },
 
     clearTrigger: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      bg: 'transparent',
-      border: 'none',
-      borderRadius: 'sm',
-      color: 'fg.muted',
-      cursor: 'pointer',
-      transitionProperty: 'background-color, color',
-      transitionDuration: 'fast',
-      _hover: { bg: 'bg.subtle', color: 'fg' },
+      'display': 'flex',
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'bg': 'transparent',
+      'border': 'none',
+      'borderRadius': 'sm',
+      'color': 'fg.muted',
+      'cursor': 'pointer',
+      'transitionProperty': 'background-color, color',
+      'transitionDuration': 'fast',
+      '_hover': { bg: 'bg.subtle', color: 'fg' },
       '& svg': { w: '4', h: '4' },
     },
 
@@ -185,7 +184,7 @@ export const tagsInputRecipe = sva({
         control: { minH: '9', px: '2', py: '0.5' },
         itemPreview: { px: '1.5', py: '0.5', fontSize: 'xs' },
         itemInput: { px: '1.5', py: '0.5', fontSize: 'xs' },
-        itemDeleteTrigger: { p: '0.5', '& svg': { w: '3', h: '3' } },
+        itemDeleteTrigger: { 'p': '0.5', '& svg': { w: '3', h: '3' } },
         input: { h: '6', px: '1', fontSize: 'xs' },
         clearTrigger: { '& svg': { w: '3', h: '3' } },
         description: { fontSize: 'xs' },
@@ -196,7 +195,7 @@ export const tagsInputRecipe = sva({
         control: { minH: '10', px: '2', py: '1' },
         itemPreview: { px: '2', py: '0.5', fontSize: 'sm' },
         itemInput: { px: '2', py: '0.5', fontSize: 'sm' },
-        itemDeleteTrigger: { p: '0.5', '& svg': { w: '3.5', h: '3.5' } },
+        itemDeleteTrigger: { 'p': '0.5', '& svg': { w: '3.5', h: '3.5' } },
         input: { h: '7', px: '1', fontSize: 'sm' },
         clearTrigger: { '& svg': { w: '4', h: '4' } },
         description: { fontSize: 'sm' },
@@ -207,7 +206,7 @@ export const tagsInputRecipe = sva({
         control: { minH: '11', px: '3', py: '1.5' },
         itemPreview: { px: '2', py: '1', fontSize: 'sm' },
         itemInput: { px: '2', py: '1', fontSize: 'sm' },
-        itemDeleteTrigger: { p: '1', '& svg': { w: '3.5', h: '3.5' } },
+        itemDeleteTrigger: { 'p': '1', '& svg': { w: '3.5', h: '3.5' } },
         input: { h: '7', px: '1', fontSize: 'md' },
         clearTrigger: { '& svg': { w: '4', h: '4' } },
         description: { fontSize: 'md' },

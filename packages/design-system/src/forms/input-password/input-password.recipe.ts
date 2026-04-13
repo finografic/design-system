@@ -3,8 +3,7 @@
  *
  * Port of Ark UI PasswordInput example styles → Panda `sva` + semantic tokens.
  *
- * Slots:    root · label · control · input · visibilityTrigger
- * Variants: size (sm | md | lg)
+ * Slots: root · label · control · input · visibilityTrigger Variants: size (sm | md | lg)
  */
 import { sva } from '@styled-system/css';
 
@@ -30,24 +29,24 @@ export const inputPasswordRecipe = sva({
     },
 
     control: {
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      width: 'full',
-      borderWidth: 'default',
-      borderStyle: 'solid',
-      borderColor: 'border',
-      borderRadius: 'md',
-      bg: 'bg',
-      transitionProperty: 'border-color, box-shadow',
-      transitionDuration: 'fast',
-      _focusWithin: {
+      'position': 'relative',
+      'display': 'flex',
+      'alignItems': 'center',
+      'width': 'full',
+      'borderWidth': 'default',
+      'borderStyle': 'solid',
+      'borderColor': 'border',
+      'borderRadius': 'md',
+      'bg': 'bg',
+      'transitionProperty': 'border-color, box-shadow',
+      'transitionDuration': 'fast',
+      '_focusWithin': {
         borderColor: 'accent.solid',
         outline: '2px solid',
         outlineColor: 'accent.focusRing',
         outlineOffset: '2px',
       },
-      _disabled: { opacity: 0.55, cursor: 'not-allowed' },
+      '_disabled': { opacity: 0.55, cursor: 'not-allowed' },
       '[data-invalid]&': {
         borderColor: 'danger.solid',
       },

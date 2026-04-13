@@ -4,8 +4,8 @@ export type IconProps = React.SVGProps<SVGSVGElement> & {
   [key: `data-${string}`]: string | undefined;
 };
 
-/** Convert PascalCase export name to kebab-case icon identifier.
- *  e.g. 'ChevronDownIcon' → 'chevron-down'
+/**
+ * Convert PascalCase export name to kebab-case icon identifier. e.g. 'ChevronDownIcon' → 'chevron-down'
  */
 function toIconName(exportName: string): string {
   return exportName
@@ -15,11 +15,9 @@ function toIconName(exportName: string): string {
 }
 
 /**
- * Wraps a Lucide (or any SVG) component with:
- *  - `.icon` class  (picks up global icon sizing from global.css)
- *  - `.icon-name--{kebab}` class  (useful for CSS targeting / debugging)
- *  - `data-icon-name` attribute
- *  - forwarded ref + displayName
+ * Wraps a Lucide (or any SVG) component with: - `.icon` class (picks up global icon sizing from global.css) -
+ * `.icon-name--{kebab}` class (useful for CSS targeting / debugging) - `data-icon-name` attribute - forwarded
+ * ref + displayName
  *
  * No external deps — className merge is done inline.
  */
@@ -30,7 +28,7 @@ export const createIconWrapper = (IconComponent: React.ComponentType<IconProps>,
     const cls = ['icon', `icon-name--${iconName}`, className].filter(Boolean).join(' ');
     return React.createElement(IconComponent, {
       ref,
-      className: cls,
+      'className': cls,
       'data-icon-name': iconName,
       ...props,
     });

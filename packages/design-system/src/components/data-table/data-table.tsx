@@ -90,11 +90,11 @@ function SortIcon({ sorted, className }: SortIconProps) {
 }
 
 interface PaginationProps {
-  className?: string;
-  disabled?: boolean;
+  'className'?: string;
+  'disabled'?: boolean;
   'aria-label': string;
-  onClick: () => void;
-  children: ReactNode;
+  'onClick': () => void;
+  'children': ReactNode;
 }
 
 function PaginationButton({ className, disabled, children, ...rest }: PaginationProps) {
@@ -108,27 +108,20 @@ function PaginationButton({ className, disabled, children, ...rest }: Pagination
 /**
  * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
  *
- * Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`)
- * with `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper.
- * Pass `classNames.paginationButton` for pagination buttons.
+ * Styles applied via `tableRecipe`. Header filters use **`InputField.Root`** (`inputFieldRecipe`) with
+ * `size="sm"`. Pass optional `classNames.filterInput` for extra classes on the filter wrapper. Pass
+ * `classNames.paginationButton` for pagination buttons.
  *
  * @example
- * ```tsx
- * import { DataTable } from '@finografic/design-system/components';
- * import { createColumnHelper } from '@tanstack/react-table';
+ *   ```tsx
+ *   import { DataTable } from '@finografic/design-system/components';
+ *   import { createColumnHelper } from '@tanstack/react-table';
  *
- * const col = createColumnHelper<User>();
- * const columns = [
- *   col.accessor('name', { header: 'Name' }),
- *   col.accessor('email', { header: 'Email' }),
- * ];
+ *   const col = createColumnHelper<User>();
+ *   const columns = [col.accessor('name', { header: 'Name' }), col.accessor('email', { header: 'Email' })];
  *
- * <DataTable
- *   data={users}
- *   columns={columns}
- *   classNames={{ table: {} }}
- * />
- * ```
+ *   <DataTable data={users} columns={columns} classNames={{ table: {} }} />;
+ *   ```
  */
 export function DataTable<TData>({
   data,

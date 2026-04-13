@@ -123,7 +123,7 @@ import styles from './tree-view.module.css';
 
 // mock api result
 const response: Record<string, Node[]> = {
-  node_modules: [
+  'node_modules': [
     { id: 'zag-js', name: 'zag-js' },
     { id: 'pandacss', name: 'panda' },
     { id: '@types', name: '@types', childrenCount: 2 },
@@ -132,7 +132,7 @@ const response: Record<string, Node[]> = {
     { id: 'react', name: 'react' },
     { id: 'react-dom', name: 'react-dom' },
   ],
-  src: [
+  'src': [
     { id: 'app.tsx', name: 'app.tsx' },
     { id: 'index.ts', name: 'index.ts' },
   ],

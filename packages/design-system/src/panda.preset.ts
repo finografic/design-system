@@ -69,7 +69,7 @@ export const designSystemPreset = definePreset({
       boxSizing: 'border-box',
     },
 
-    html: {
+    'html': {
       lineHeight: '1.5',
       WebkitTextSizeAdjust: '100%',
       WebkitFontSmoothing: 'antialiased',
@@ -79,7 +79,7 @@ export const designSystemPreset = definePreset({
       fontFamily: 'sans',
     },
 
-    body: {
+    'body': {
       minHeight: '100dvh',
       position: 'relative',
       bg: 'bg',
@@ -96,7 +96,7 @@ export const designSystemPreset = definePreset({
       height: 'auto',
     },
 
-    svg: {
+    'svg': {
       flexShrink: 0,
     },
 
