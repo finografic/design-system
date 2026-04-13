@@ -60,15 +60,13 @@ import * as _styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Tabs$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "indicator" | "list", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "content" | "list" | "trigger", {
     variant: {
       line: {
         list: {
           gap: "0";
           pb: "0";
-          borderBottomWidth: "3.4px";
-          borderBottomStyle: "solid";
-          borderBottomColor: "border";
+          boxShadow: "inset 0 -3.4px 0 0 token(colors.border)";
           '&[data-orientation="horizontal"]': {
             alignItems: "flex-start";
           };
@@ -194,15 +192,13 @@ declare const Tabs$1: {
       };
     };
   }>>; /** Same styling as Root when using external machine state from `useTabs`. */
-  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "indicator" | "list", {
+  RootProvider: _styled_system_jsx0.StyleContextProvider<react.ForwardRefExoticComponent<Tabs.RootProviderProps & react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "content" | "list" | "trigger", {
     variant: {
       line: {
         list: {
           gap: "0";
           pb: "0";
-          borderBottomWidth: "3.4px";
-          borderBottomStyle: "solid";
-          borderBottomColor: "border";
+          boxShadow: "inset 0 -3.4px 0 0 token(colors.border)";
           '&[data-orientation="horizontal"]': {
             alignItems: "flex-start";
           };

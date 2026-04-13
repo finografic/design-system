@@ -2,15 +2,13 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../types/recipes.types.js";
 
 //#region src/components/tabs/tabs.recipe.d.ts
-declare const tabsRecipe: SlotRecipeRuntimeFn<"content" | "trigger" | "root" | "indicator" | "list", {
+declare const tabsRecipe: SlotRecipeRuntimeFn<"root" | "indicator" | "content" | "list" | "trigger", {
   variant: {
     line: {
       list: {
         gap: "0";
         pb: "0";
-        borderBottomWidth: "3.4px";
-        borderBottomStyle: "solid";
-        borderBottomColor: "border";
+        boxShadow: "inset 0 -3.4px 0 0 token(colors.border)";
         '&[data-orientation="horizontal"]': {
           alignItems: "flex-start";
         };

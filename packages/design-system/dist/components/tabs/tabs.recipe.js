@@ -12,8 +12,9 @@ import { sva } from "@styled-system/css";
 *
 * - **line** — Underline selection: indicator uses Zag’s `--top` / `--height` / `--left` / `--width`
 *   so the bar sits on the **bottom edge of the active trigger** (Zag measures trigger `offset*`).
-*   Grey rule: `border-bottom` matches indicator thickness. List omits bottom padding (`pb: 0`) so
-*   size presets must not use `p` shorthand on `list` or it overrides `pb`.
+*   The list uses **`box-shadow: inset`** for the grey rule (same thickness as the indicator), not
+*   `border-bottom`, so the active bar sits **on** the rule instead of floating above it. List omits
+*   bottom padding (`pb: 0`) so size presets must not use `p` shorthand on `list` or it overrides `pb`.
 * - **enclosed** — Pill list + sliding indicator behind labels (`z-index: -1`, `accent.subtle`).
 */
 const focusRing = {
@@ -119,9 +120,7 @@ const tabsRecipe = sva({
 				list: {
 					gap: "0",
 					pb: "0",
-					borderBottomWidth: "3.4px",
-					borderBottomStyle: "solid",
-					borderBottomColor: "border",
+					boxShadow: "inset 0 -3.4px 0 0 token(colors.border)",
 					"&[data-orientation=\"horizontal\"]": { alignItems: "flex-start" }
 				},
 				trigger: {
