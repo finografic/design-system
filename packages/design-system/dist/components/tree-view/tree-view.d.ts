@@ -75,7 +75,7 @@ import { TreeView, TreeViewExpandedChangeDetails, TreeViewSelectionChangeDetails
  *   ```;
  */
 declare const TreeView$1: {
-  /** Root — `collection`, `selectedValue`, `onSelectionChange`, `selectionMode`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<TreeView.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemIndicator" | "itemText" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
+  /** Root — `collection`, `selectedValue`, `onSelectionChange`, `selectionMode`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<TreeView.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "itemText" | "label" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
     size: {
       sm: {
         root: {
@@ -145,7 +145,7 @@ declare const TreeView$1: {
       };
     };
   }>>; /** Root with external machine state from `useTreeView`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<TreeView.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemIndicator" | "itemText" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<TreeView.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "itemText" | "label" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
     size: {
       sm: {
         root: {

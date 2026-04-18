@@ -54,7 +54,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const SelectCombobox: {
-  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "root" | "control" | "label" | "item" | "itemIndicator" | "input" | "clearTrigger" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicators", {
+  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "trigger" | "label" | "control" | "clearTrigger" | "input" | "indicators", {
     size: {
       sm: {
         control: {
@@ -145,7 +145,7 @@ declare const SelectCombobox: {
       };
     };
   }>>; /** Root with external machine state from `useCombobox`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "root" | "control" | "label" | "item" | "itemIndicator" | "input" | "clearTrigger" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicators", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "trigger" | "label" | "control" | "clearTrigger" | "input" | "indicators", {
     size: {
       sm: {
         control: {

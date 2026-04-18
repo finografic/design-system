@@ -32,7 +32,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Checkbox.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "control" | "indicator" | "label" | "description" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Checkbox.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "description" | "indicator" | "label" | "control" | "errorText", {
     size: {
       sm: {
         control: {
