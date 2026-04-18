@@ -99,9 +99,7 @@ const easingTokens = defineTokens.easings({
 	"out": { value: "cubic-bezier(0, 0, 0.2, 1)" },
 	"in-out": { value: "cubic-bezier(0.4, 0, 0.2, 1)" }
 });
-//#endregion
-//#region src/palette/colors.base.ts
-const BASE_COLORS_THEME = {
+const BASE_COLORS = {
 	primary: "oklch(48.8% 0.243 264.376)",
 	secondary: "oklch(49.6% 0.265 301.924)",
 	success: "oklch(60.4% 0.194 149.214)",
@@ -110,16 +108,10 @@ const BASE_COLORS_THEME = {
 	info: "oklch(58.8% 0.158 241.966)",
 	default: "oklch(65.3% 0.013 58.071)",
 	grey: "oklch(55.2% 0.016 285.938)",
-	text: "oklch(28% 0 0)"
-};
-const BASE_COLORS_FIXED = {
+	text: "oklch(28% 0 0)",
 	white: "#ffffff",
 	black: "#000000",
 	transparent: "transparent"
-};
-const BASE_COLORS = {
-	...BASE_COLORS_THEME,
-	...BASE_COLORS_FIXED
 };
 /**
 * Shade scale (11 stops) — word names map to the TW/Panda/Ark numeric standard:
@@ -130,7 +122,7 @@ const BASE_COLORS = {
 * near-black endpoint
 */
 //#endregion
-//#region src/palette/shades.utils.ts
+//#region src/palette/palette.utils.ts
 /**
 * Raw color palette for Panda CSS `tokens.colors`.
 *
@@ -146,15 +138,14 @@ const BASE_COLORS = {
 * Dark-side percentages (% of base, remainder black): dark → 82% | darker → 65% | xdark → 47% | xxdark → 30%
 * | xxxdark → 15%
 */
-function buildShadeScale(base) {
+function buildShade(base) {
 	return {
-		DEFAULT: { value: base },
 		xxxlight: { value: `color-mix(in oklch, ${base} 5%, white)` },
 		xxlight: { value: `color-mix(in oklch, ${base} 10%, white)` },
 		xlight: { value: `color-mix(in oklch, ${base} 20%, white)` },
 		lighter: { value: `color-mix(in oklch, ${base} 38%, white)` },
 		light: { value: `color-mix(in oklch, ${base} 58%, white)` },
-		base: { value: base },
+		DEFAULT: { value: base },
 		dark: { value: `color-mix(in oklch, ${base} 82%, black)` },
 		darker: { value: `color-mix(in oklch, ${base} 65%, black)` },
 		xdark: { value: `color-mix(in oklch, ${base} 47%, black)` },
@@ -176,14 +167,14 @@ function buildShadeScale(base) {
 *   // In recipe: color: 'danger.dark' → color: <computed dark shade>
 */
 const colorTokens = {
-	primary: buildShadeScale(BASE_COLORS.primary),
-	secondary: buildShadeScale(BASE_COLORS.secondary),
-	success: buildShadeScale(BASE_COLORS.success),
-	warning: buildShadeScale(BASE_COLORS.warning),
-	danger: buildShadeScale(BASE_COLORS.danger),
-	info: buildShadeScale(BASE_COLORS.info),
-	grey: buildShadeScale(BASE_COLORS.grey),
-	neutral: buildShadeScale(BASE_COLORS.default),
+	primary: buildShade(BASE_COLORS.primary),
+	secondary: buildShade(BASE_COLORS.secondary),
+	success: buildShade(BASE_COLORS.success),
+	warning: buildShade(BASE_COLORS.warning),
+	danger: buildShade(BASE_COLORS.danger),
+	info: buildShade(BASE_COLORS.info),
+	grey: buildShade(BASE_COLORS.grey),
+	neutral: buildShade(BASE_COLORS.default),
 	white: { value: BASE_COLORS.white },
 	black: { value: BASE_COLORS.black },
 	transparent: { value: BASE_COLORS.transparent }

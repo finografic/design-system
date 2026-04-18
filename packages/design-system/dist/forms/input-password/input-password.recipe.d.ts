@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import { RecipeProps } from "../../types/recipes.types.js";
+import { RecipeProps } from "../../recipes/recipes.types.js";
 
 //#region src/forms/input-password/input-password.recipe.d.ts
-declare const inputPasswordRecipe: SlotRecipeRuntimeFn<"root" | "label" | "input" | "control" | "visibilityTrigger", {
+declare const inputPasswordRecipe: SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "visibilityTrigger", {
   size: {
     sm: {
       control: {

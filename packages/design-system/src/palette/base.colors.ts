@@ -8,7 +8,7 @@
  * @see https://www.w3.org/TR/css-color-4/#ok-lab — W3C specification
  */
 
-import type { ColorName, OKLCH } from '../types/palette.types';
+import type { ColorName, OKLCH } from './color.types';
 
 export const BASE_COLORS_THEME: Record<ColorName, OKLCH> = {
   primary: 'oklch(48.8% 0.243 264.376)',
@@ -22,15 +22,11 @@ export const BASE_COLORS_THEME: Record<ColorName, OKLCH> = {
   text: 'oklch(28% 0 0)',
 } as const;
 
-export const BASE_COLORS_FIXED = {
+export const BASE_COLORS = {
+  ...BASE_COLORS_THEME,
   white: '#ffffff',
   black: '#000000',
   transparent: 'transparent',
-} as const;
-
-export const BASE_COLORS = {
-  ...BASE_COLORS_THEME,
-  ...BASE_COLORS_FIXED,
 } as const;
 
 /**

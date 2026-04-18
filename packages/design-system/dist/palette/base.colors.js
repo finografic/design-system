@@ -1,4 +1,4 @@
-//#region src/palette/colors.base.ts
+//#region src/palette/base.colors.ts
 const BASE_COLORS_THEME = {
 	primary: "oklch(48.8% 0.243 264.376)",
 	secondary: "oklch(49.6% 0.265 301.924)",
@@ -10,14 +10,11 @@ const BASE_COLORS_THEME = {
 	grey: "oklch(55.2% 0.016 285.938)",
 	text: "oklch(28% 0 0)"
 };
-const BASE_COLORS_FIXED = {
+const BASE_COLORS = {
+	...BASE_COLORS_THEME,
 	white: "#ffffff",
 	black: "#000000",
 	transparent: "transparent"
-};
-const BASE_COLORS = {
-	...BASE_COLORS_THEME,
-	...BASE_COLORS_FIXED
 };
 /**
 * Shade scale (11 stops) — word names map to the TW/Panda/Ark numeric standard:
@@ -28,6 +25,6 @@ const BASE_COLORS = {
 * near-black endpoint
 */
 //#endregion
-export { BASE_COLORS, BASE_COLORS_FIXED, BASE_COLORS_THEME };
+export { BASE_COLORS, BASE_COLORS_THEME };
 
-//# sourceMappingURL=colors.base.js.map
+//# sourceMappingURL=base.colors.js.map

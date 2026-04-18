@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import { RecipeProps } from "../../types/recipes.types.js";
+import { RecipeProps } from "../../recipes/recipes.types.js";
 
 //#region src/forms/date-picker/date-picker.recipe.d.ts
-declare const datePickerRecipe: SlotRecipeRuntimeFn<"content" | "table" | "root" | "label" | "input" | "control" | "trigger" | "clearTrigger" | "positioner" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
+declare const datePickerRecipe: SlotRecipeRuntimeFn<"root" | "content" | "table" | "positioner" | "trigger" | "label" | "control" | "input" | "clearTrigger" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
   size: {
     sm: {
       control: {

@@ -1,4 +1,4 @@
-//#region src/palette/colors.palette.ts
+//#region src/palette/palette.colors.ts
 /**
 * Colors — design-system color palette as CSS custom property references.
 */
@@ -109,4 +109,4 @@ const colors = {
 //#endregion
 export { colors };
 
-//# sourceMappingURL=colors.js.map
+//# sourceMappingURL=palette.colors.js.map

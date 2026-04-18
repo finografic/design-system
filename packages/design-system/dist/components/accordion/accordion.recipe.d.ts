@@ -1,5 +1,5 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import { RecipeProps } from "../../types/recipes.types.js";
+import { RecipeProps } from "../../recipes/recipes.types.js";
 
 //#region src/components/accordion/accordion.recipe.d.ts
 declare const accordionRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {

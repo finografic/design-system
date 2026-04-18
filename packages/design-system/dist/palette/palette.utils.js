@@ -1,4 +1,5 @@
-//#region src/palette/shades.utils.ts
+import { BASE_COLORS, BASE_COLORS_THEME } from "./base.colors.js";
+//#region src/palette/palette.utils.ts
 /**
 * Raw color palette for Panda CSS `tokens.colors`.
 *
@@ -14,15 +15,14 @@
 * Dark-side percentages (% of base, remainder black): dark → 82% | darker → 65% | xdark → 47% | xxdark → 30%
 * | xxxdark → 15%
 */
-function buildShadeScale(base) {
+function buildShade(base) {
 	return {
-		DEFAULT: { value: base },
 		xxxlight: { value: `color-mix(in oklch, ${base} 5%, white)` },
 		xxlight: { value: `color-mix(in oklch, ${base} 10%, white)` },
 		xlight: { value: `color-mix(in oklch, ${base} 20%, white)` },
 		lighter: { value: `color-mix(in oklch, ${base} 38%, white)` },
 		light: { value: `color-mix(in oklch, ${base} 58%, white)` },
-		base: { value: base },
+		DEFAULT: { value: base },
 		dark: { value: `color-mix(in oklch, ${base} 82%, black)` },
 		darker: { value: `color-mix(in oklch, ${base} 65%, black)` },
 		xdark: { value: `color-mix(in oklch, ${base} 47%, black)` },
@@ -30,7 +30,35 @@ function buildShadeScale(base) {
 		xxxdark: { value: `color-mix(in oklch, ${base} 15%, black)` }
 	};
 }
+/**
+* Generate color tokens with custom base color overrides.
+*
+* Merges `overrides` with the default BASE_COLORS_THEME, then rebuilds the full shade scale for every named
+* color. Pass the result to `theme.extend.tokens.colors` in your panda.config.ts.
+*
+* @example
+*   theme: { extend: { tokens: { colors: createColorTokens({ primary: 'oklch(59% 0.234 277)' }) } } }
+*/
+function createColorTokens(overrides = {}) {
+	const merged = {
+		...BASE_COLORS_THEME,
+		...overrides
+	};
+	return {
+		primary: buildShade(merged.primary),
+		secondary: buildShade(merged.secondary),
+		success: buildShade(merged.success),
+		warning: buildShade(merged.warning),
+		danger: buildShade(merged.danger),
+		info: buildShade(merged.info),
+		grey: buildShade(merged.grey),
+		neutral: buildShade(merged.default),
+		white: { value: BASE_COLORS.white },
+		black: { value: BASE_COLORS.black },
+		transparent: { value: BASE_COLORS.transparent }
+	};
+}
 //#endregion
-export { buildShadeScale };
+export { buildShade, createColorTokens };
 
-//# sourceMappingURL=shades.utils.js.map
+//# sourceMappingURL=palette.utils.js.map

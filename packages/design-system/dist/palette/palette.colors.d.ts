@@ -1,4 +1,4 @@
-//#region src/palette/colors.palette.d.ts
+//#region src/palette/palette.colors.d.ts
 /**
  * Colors — design-system color palette as CSS custom property references.
  */
@@ -108,4 +108,4 @@ declare const colors: {
 type ColorsKey = keyof typeof colors;
 //#endregion
 export { ColorsKey, colors };
-//# sourceMappingURL=colors.d.ts.map
+//# sourceMappingURL=palette.colors.d.ts.map

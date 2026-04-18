@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
-import { RecipeProps } from "../../types/recipes.types.js";
+import { RecipeProps } from "../../recipes/recipes.types.js";
 
 //#region src/components/scroll-area/scroll-area.recipe.d.ts
-declare const scrollAreaRecipe: SlotRecipeRuntimeFn<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner">>;
+declare const scrollAreaRecipe: SlotRecipeRuntimeFn<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner">>;
 type ScrollAreaRecipeProps = RecipeProps<typeof scrollAreaRecipe>;
 //#endregion
 export { ScrollAreaRecipeProps, scrollAreaRecipe };

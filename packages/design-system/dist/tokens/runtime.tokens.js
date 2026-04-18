@@ -2,7 +2,7 @@ import { borderWidthTokens, radiiTokens } from "./decorative.tokens.js";
 import { spacingTokens } from "./spacing.tokens.js";
 import { textStyles } from "./typography.tokens.js";
 import { layoutTokens } from "./layout.tokens.js";
-import { colors } from "../palette/colors.js";
+import { colors } from "../palette/palette.colors.js";
 //#region src/tokens/runtime.tokens.ts
 /**
 * @file Runtime.tokens.ts CSS-in-JS runtime values for use in Emotion `css`` ` templates. Exports only two

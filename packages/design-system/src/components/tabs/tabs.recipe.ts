@@ -17,7 +17,7 @@
  */
 import { sva } from '@styled-system/css';
 
-import type { RecipeProps } from '../../types/recipes.types';
+import type { RecipeProps } from '../../recipes/recipes.types';
 
 const focusRing = {
   outline: '2px solid',

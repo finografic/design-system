@@ -51,16 +51,14 @@
       "types": "./dist/viewport/index.d.ts",
       "import": "./dist/viewport/index.js"
     },
-    "./palette/colors.base": {
-      "types": "./dist/palette/colors.palette.d.ts",
-      "import": "./dist/palette/colors.palette.js"
+    "./palette": {
+      "types": "./dist/palette/index.d.mts",
+      "import": "./dist/palette/index.mjs"
     },
     "./panda.preset": {
       "types": "./dist/panda.preset.d.mts",
       "import": "./dist/panda.preset.mjs"
     },
-    "./styles/reset.css": "./src/styles/reset.css",
-    "./styles/keyframes.css": "./src/styles/keyframes.css",
     "./styles/global.css": "./src/styles/global.css",
     "./grid/grid.css": "./src/grid/grid.css",
     "./forms/forms.css": "./src/forms/forms.css",
@@ -68,8 +66,6 @@
   },
   "files": [
     "dist",
-    "src/styles/reset.css",
-    "src/styles/keyframes.css",
     "src/styles/global.css",
     "src/grid/grid.css",
     "src/forms/forms.css",

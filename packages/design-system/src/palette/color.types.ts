@@ -9,22 +9,19 @@ export type ColorName =
   | 'grey'
   | 'text';
 
-type Percentage = `${number}%`;
-type NumberLike = `${number}` | number;
-
-export type OKLCH =
-  | `oklch(${Percentage} ${NumberLike} ${NumberLike})`
-  | `oklch(${Percentage} ${NumberLike} ${NumberLike} / ${NumberLike | Percentage})`;
-
-export type ShadeScale =
+export type ColorShade =
   | 'xxxlight'
   | 'xxlight'
   | 'xlight'
   | 'lighter'
   | 'light'
-  | 'base'
+  | 'DEFAULT'
   | 'dark'
   | 'darker'
   | 'xdark'
   | 'xxdark'
   | 'xxxdark';
+
+export type OKLCH =
+  | `oklch(${number}% ${number} ${number})`
+  | `oklch(${number} ${number} ${number} / ${number | `${number}%`})`;

@@ -12,7 +12,7 @@ type ButtonProps = ComponentPropsWithoutRef<'button'> & Omit<ButtonVariants, 'ic
 declare const Button: _$react.ForwardRefExoticComponent<Omit<_$react.DetailedHTMLProps<_$react.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, "ref"> & Omit<{
   size?: "xs" | "sm" | "md" | "lg" | "xl" | undefined;
   variant?: "outline" | "solid" | "link" | "subtle" | "ghost" | undefined;
-  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "default" | "grey" | undefined;
+  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
   iconOnly?: boolean | undefined;
   fullWidth?: boolean | undefined;
 }, "iconOnly"> & {

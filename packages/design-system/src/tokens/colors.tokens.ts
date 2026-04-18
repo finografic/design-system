@@ -1,6 +1,5 @@
-import { BASE_COLORS, BASE_COLORS_THEME } from '../palette/colors.base';
-import { buildShadeScale } from '../palette/shades.utils';
-import type { ColorName, OKLCH } from '../types/palette.types';
+import { BASE_COLORS } from '../palette/base.colors';
+import { buildShade } from '../palette/palette.utils';
 
 /**
  * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
@@ -14,16 +13,14 @@ import type { ColorName, OKLCH } from '../types/palette.types';
  *   // In recipe: color: 'danger.dark' → color: <computed dark shade>
  */
 export const colorTokens = {
-  primary: buildShadeScale(BASE_COLORS.primary),
-  secondary: buildShadeScale(BASE_COLORS.secondary),
-  success: buildShadeScale(BASE_COLORS.success),
-  warning: buildShadeScale(BASE_COLORS.warning),
-  danger: buildShadeScale(BASE_COLORS.danger),
-  info: buildShadeScale(BASE_COLORS.info),
-  grey: buildShadeScale(BASE_COLORS.grey),
-  neutral: buildShadeScale(BASE_COLORS.default),
-
-  // fixed colors (not shades)
+  primary: buildShade(BASE_COLORS.primary),
+  secondary: buildShade(BASE_COLORS.secondary),
+  success: buildShade(BASE_COLORS.success),
+  warning: buildShade(BASE_COLORS.warning),
+  danger: buildShade(BASE_COLORS.danger),
+  info: buildShade(BASE_COLORS.info),
+  grey: buildShade(BASE_COLORS.grey),
+  neutral: buildShade(BASE_COLORS.default),
   white: { value: BASE_COLORS.white },
   black: { value: BASE_COLORS.black },
   transparent: { value: BASE_COLORS.transparent },
@@ -83,29 +80,3 @@ export const semanticColorTokens = {
     focusRing: { value: { base: '{colors.primary.light}', _dark: '{colors.primary.light}' } },
   },
 } as const;
-
-/**
- * Generate color tokens with custom base color overrides.
- *
- * Merges `overrides` with the default BASE_COLORS_THEME, then rebuilds the full shade scale for every named
- * color. Pass the result to `theme.extend.tokens.colors` in your panda.config.ts.
- *
- * @example
- *   theme: { extend: { tokens: { colors: createColorTokens({ primary: 'oklch(59% 0.234 277)' }) } } }
- */
-export function createColorTokens(overrides: Partial<Record<ColorName, OKLCH>> = {}) {
-  const merged = { ...BASE_COLORS_THEME, ...overrides };
-  return {
-    primary: buildShadeScale(merged.primary),
-    secondary: buildShadeScale(merged.secondary),
-    success: buildShadeScale(merged.success),
-    warning: buildShadeScale(merged.warning),
-    danger: buildShadeScale(merged.danger),
-    info: buildShadeScale(merged.info),
-    grey: buildShadeScale(merged.grey),
-    neutral: buildShadeScale(merged.default),
-    white: { value: BASE_COLORS.white },
-    black: { value: BASE_COLORS.black },
-    transparent: { value: BASE_COLORS.transparent },
-  };
-}

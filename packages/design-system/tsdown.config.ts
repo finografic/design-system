@@ -8,9 +8,7 @@ const browserEntries = {
   'forms/index': 'src/forms/index.ts',
   'grid/index': 'src/grid/index.ts',
   'viewport/index': 'src/viewport/index.ts',
-  'palette/colors': 'src/palette/colors.palette.ts',
-  'palette/colors.base': 'src/palette/colors.base.ts',
-  'palette/shades.utils': 'src/palette/shades.utils.ts',
+  'palette/index': 'src/palette/index.ts',
 };
 
 // panda.preset runs in Node at panda codegen time — never in the browser

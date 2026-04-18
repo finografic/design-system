@@ -1,5 +1,4 @@
-import { ColorName, OKLCH, ShadeScale } from "../types/palette.types.js";
-
+import { ColorShade, OKLCH } from "../palette/color.types.js";
 //#region src/tokens/colors.tokens.d.ts
 /**
  * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
@@ -13,28 +12,28 @@ import { ColorName, OKLCH, ShadeScale } from "../types/palette.types.js";
  *   // In recipe: color: 'danger.dark' → color: <computed dark shade>
  */
 declare const colorTokens: {
-  readonly primary: Record<ShadeScale | "DEFAULT", {
+  readonly primary: Record<ColorShade, {
     value: string;
   }>;
-  readonly secondary: Record<ShadeScale | "DEFAULT", {
+  readonly secondary: Record<ColorShade, {
     value: string;
   }>;
-  readonly success: Record<ShadeScale | "DEFAULT", {
+  readonly success: Record<ColorShade, {
     value: string;
   }>;
-  readonly warning: Record<ShadeScale | "DEFAULT", {
+  readonly warning: Record<ColorShade, {
     value: string;
   }>;
-  readonly danger: Record<ShadeScale | "DEFAULT", {
+  readonly danger: Record<ColorShade, {
     value: string;
   }>;
-  readonly info: Record<ShadeScale | "DEFAULT", {
+  readonly info: Record<ColorShade, {
     value: string;
   }>;
-  readonly grey: Record<ShadeScale | "DEFAULT", {
+  readonly grey: Record<ColorShade, {
     value: string;
   }>;
-  readonly neutral: Record<ShadeScale | "DEFAULT", {
+  readonly neutral: Record<ColorShade, {
     value: string;
   }>;
   readonly white: {
@@ -281,50 +280,6 @@ declare const semanticColorTokens: {
     };
   };
 };
-/**
- * Generate color tokens with custom base color overrides.
- *
- * Merges `overrides` with the default BASE_COLORS_THEME, then rebuilds the full shade scale for every named
- * color. Pass the result to `theme.extend.tokens.colors` in your panda.config.ts.
- *
- * @example
- *   theme: { extend: { tokens: { colors: createColorTokens({ primary: 'oklch(59% 0.234 277)' }) } } }
- */
-declare function createColorTokens(overrides?: Partial<Record<ColorName, OKLCH>>): {
-  primary: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  secondary: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  success: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  warning: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  danger: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  info: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  grey: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  neutral: Record<ShadeScale | "DEFAULT", {
-    value: string;
-  }>;
-  white: {
-    value: "#ffffff";
-  };
-  black: {
-    value: "#000000";
-  };
-  transparent: {
-    value: "transparent";
-  };
-};
 //#endregion
-export { colorTokens, createColorTokens, semanticColorTokens };
+export { colorTokens, semanticColorTokens };
 //# sourceMappingURL=colors.tokens.d.ts.map

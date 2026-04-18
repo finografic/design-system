@@ -1,4 +1,4 @@
-//#region src/types/recipes.types.d.ts
+//#region src/recipes/recipes.types.d.ts
 /**
  * Extracts the props object accepted by a Panda CSS recipe function.
  *
