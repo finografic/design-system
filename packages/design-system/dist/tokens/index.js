@@ -1,5 +1,5 @@
-import { durationTokens, easingTokens, keyframes } from "./animations.tokens.js";
 import { BASE_COLORS_THEME } from "../palette/base.colors.js";
+import { durationTokens, easingTokens, keyframes } from "./animations.tokens.js";
 import { colorTokens, semanticColorTokens } from "./colors.tokens.js";
 import { borderWidthTokens, radiiTokens, shadowTokens } from "./decorative.tokens.js";
 import { sizingTokens } from "./sizes.tokens.js";

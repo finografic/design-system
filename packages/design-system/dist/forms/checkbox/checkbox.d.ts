@@ -32,7 +32,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Checkbox.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "description" | "indicator" | "label" | "control" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Checkbox.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "indicator" | "label" | "control" | "errorText", {
     size: {
       sm: {
         control: {
@@ -244,7 +244,7 @@ type CheckboxDSProps = CheckboxVariants & {
  */
 declare const CheckboxDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
-  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
+  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "default" | "grey" | undefined;
 } & {
   /** Label text beside the checkbox */label?: ReactNode; /** Helper text below the label */
   description?: ReactNode; /** RHF FieldError or plain string */

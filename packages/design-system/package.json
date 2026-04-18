@@ -52,8 +52,8 @@
       "import": "./dist/viewport/index.js"
     },
     "./palette": {
-      "types": "./dist/palette/index.d.mts",
-      "import": "./dist/palette/index.mjs"
+      "types": "./dist/palette/index.d.ts",
+      "import": "./dist/palette/index.ts"
     },
     "./panda.preset": {
       "types": "./dist/panda.preset.d.mts",
