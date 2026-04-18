@@ -41,7 +41,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const Editable$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "area" | "input" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
     size: {
       sm: {
         input: {
@@ -135,7 +135,7 @@ declare const Editable$1: {
       };
     };
   }>>; /** Root with external machine state from `useEditable`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "area" | "input" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
     size: {
       sm: {
         input: {

@@ -54,7 +54,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const SelectCombobox: {
-  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "label" | "control" | "input" | "clearTrigger" | "indicators", {
+  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "trigger" | "label" | "control" | "input" | "clearTrigger" | "indicators", {
     size: {
       sm: {
         control: {
@@ -145,7 +145,7 @@ declare const SelectCombobox: {
       };
     };
   }>>; /** Root with external machine state from `useCombobox`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "label" | "control" | "input" | "clearTrigger" | "indicators", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "trigger" | "label" | "control" | "input" | "clearTrigger" | "indicators", {
     size: {
       sm: {
         control: {
@@ -244,9 +244,7 @@ declare const SelectCombobox: {
   ClearTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ClearTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>;
   /** Floating positioner that anchors the content below the control. */
   /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Omit<Omit<Combobox.PositionerProps & _$react.RefAttributes<HTMLDivElement>, "ref"> & {
-    ref?: ((instance: HTMLDivElement | null) => void | _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | _$react.RefObject<HTMLDivElement> | null | undefined;
-  }, "ref"> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown list panel. */
+  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Omit<Combobox.PositionerProps & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown list panel. */
   Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Groups related items with optional label. */
   ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
   ItemGroupLabel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemGroupLabelProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single option row — pass `item` from the collection. */

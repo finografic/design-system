@@ -8,7 +8,9 @@
  * @see https://www.w3.org/TR/css-color-4/#ok-lab — W3C specification
  */
 
-export const BASE_COLORS = {
+import type { ColorName, OKLCH } from '../types/palette.types';
+
+export const BASE_COLORS_THEME: Record<ColorName, OKLCH> = {
   primary: 'oklch(48.8% 0.243 264.376)', // Tailwind blue-700
   secondary: 'oklch(49.6% 0.265 301.924)', // Tailwind purple-700
   success: 'oklch(60.4% 0.194 149.214)', // Tailwind green-600
@@ -18,11 +20,17 @@ export const BASE_COLORS = {
   default: 'oklch(65.3% 0.013 58.071)', // Tailwind stone-500
   grey: 'oklch(55.2% 0.016 285.938)', // Tailwind zinc-500
   text: 'oklch(28% 0 0)', // Tailwind neutral-800
+} as const;
 
-  // fixed colors (not shades)
+export const BASE_COLORS_FIXED = {
   white: '#ffffff',
   black: '#000000',
   transparent: 'transparent',
+} as const;
+
+export const BASE_COLORS = {
+  ...BASE_COLORS_THEME,
+  ...BASE_COLORS_FIXED,
 } as const;
 
 /**

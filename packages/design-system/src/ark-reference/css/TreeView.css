@@ -56,10 +56,7 @@
   --tree-depth: calc(var(--depth) - 1);
   --tree-indentation-offset: calc(var(--tree-indentation) * var(--tree-depth));
   --tree-icon-offset: calc(var(--tree-icon-size) * var(--tree-depth) * 0.5);
-  --tree-offset: calc(
-    var(--tree-padding-inline) + var(--tree-indentation-offset) +
-      var(--tree-icon-offset)
-  );
+  --tree-offset: calc(var(--tree-padding-inline) + var(--tree-indentation-offset) + var(--tree-icon-offset));
 
   padding-inline-start: var(--tree-offset);
   padding-inline-end: var(--tree-padding-inline);
@@ -89,19 +86,19 @@
 .BranchContent {
   position: relative;
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     animation:
       expand-height 150ms ease-out,
       fade-in 150ms ease-out;
   }
 
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     animation:
       collapse-height 150ms ease-out,
       fade-out 150ms ease-out;
   }
 
-  [data-animate="false"] &[data-state] {
+  [data-animate='false'] &[data-state] {
     animation: none;
   }
 }
@@ -115,9 +112,7 @@
 
   --tree-depth: calc(var(--depth) - 1);
   --tree-indentation-offset: calc(var(--tree-indentation) * var(--tree-depth));
-  --tree-offset: calc(
-    var(--tree-padding-inline) + var(--tree-indentation-offset)
-  );
+  --tree-offset: calc(var(--tree-padding-inline) + var(--tree-indentation-offset));
   --tree-icon-offset: calc(var(--tree-icon-size) * 0.5 * var(--depth));
 
   inset-inline-start: calc(var(--tree-offset) + var(--tree-icon-offset));
@@ -131,7 +126,7 @@
   transform-origin: center;
   transition: transform 150ms ease;
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     transform: rotate(90deg);
   }
 
@@ -179,10 +174,7 @@
   --tree-depth: calc(var(--depth) - 1);
   --tree-indentation-offset: calc(var(--tree-indentation) * var(--tree-depth));
   --tree-icon-offset: calc(var(--tree-icon-size) * var(--tree-depth) * 0.5);
-  --tree-offset: calc(
-    var(--tree-padding-inline) + var(--tree-indentation-offset) +
-      var(--tree-icon-offset)
-  );
+  --tree-offset: calc(var(--tree-padding-inline) + var(--tree-indentation-offset) + var(--tree-icon-offset));
 
   padding-inline-start: var(--tree-offset);
   padding-inline-end: var(--tree-padding-inline);
@@ -245,8 +237,8 @@
   color: var(--demo-coral-contrast);
   cursor: pointer;
 
-  &[data-state="checked"],
-  &[data-state="indeterminate"] {
+  &[data-state='checked'],
+  &[data-state='indeterminate'] {
     background: var(--demo-coral-solid);
     border-color: var(--demo-coral-solid);
   }

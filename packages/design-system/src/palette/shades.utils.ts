@@ -1,3 +1,5 @@
+import type { ShadeScale } from '../types/palette.types';
+
 /**
  * Raw color palette for Panda CSS `tokens.colors`.
  *
@@ -13,7 +15,7 @@
  * Dark-side percentages (% of base, remainder black): dark → 82% | darker → 65% | xdark → 47% | xxdark → 30%
  * | xxxdark → 15%
  */
-export function buildShadeScale(base: string) {
+export function buildShadeScale(base: string): Record<ShadeScale | 'DEFAULT', { value: string }> {
   return {
     DEFAULT: { value: base },
     xxxlight: { value: `color-mix(in oklch, ${base} 5%, white)` },

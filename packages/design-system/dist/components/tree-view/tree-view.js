@@ -10,12 +10,11 @@ const { withProvider, withContext } = createStyleContext(treeViewRecipe);
 /**
 * Styled Ark **TreeView** compound — each part is wired to `treeViewRecipe` via context.
 *
-* A keyboard-navigable tree of nested nodes. Ark handles all a11y: `tree` / `treeitem` roles,
-* arrow-key navigation, expand/collapse, and single/multi selection. Variant props (`size`) go on
-* **`TreeView.Root`**.
+* A keyboard-navigable tree of nested nodes. Ark handles all a11y: `tree` / `treeitem` roles, arrow-key
+* navigation, expand/collapse, and single/multi selection. Variant props (`size`) go on **`TreeView.Root`**.
 *
-* Depth-based indentation is automatic — Ark sets `--depth` on every node; the recipe derives
-* `--tree-offset` from it. No inline styles are needed.
+* Depth-based indentation is automatic — Ark sets `--depth` on every node; the recipe derives `--tree-offset`
+* from it. No inline styles are needed.
 *
 * @example
 *   ```tsx
@@ -94,10 +93,10 @@ const TreeView$1 = {
 	NodeContext: TreeView.NodeContext
 };
 /**
-* Design-system convenience tree view — pass a `nodes` array and get a fully keyboard-navigable
-* tree. **`TreeView`** stays the styled compound for full composition (custom icons, async loading,
-* checkboxes); **`TreeViewDS`** = packaged DS API with `ChevronRightIcon` branch indicators and
-* normalized `onSelectionChange` handler.
+* Design-system convenience tree view — pass a `nodes` array and get a fully keyboard-navigable tree.
+* **`TreeView`** stays the styled compound for full composition (custom icons, async loading, checkboxes);
+* **`TreeViewDS`** = packaged DS API with `ChevronRightIcon` branch indicators and normalized
+* `onSelectionChange` handler.
 *
 * @example
 *   ```tsx

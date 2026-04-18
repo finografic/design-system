@@ -20,9 +20,9 @@ const { withProvider, withContext } = createStyleContext(fileUploadRecipe);
 /**
 * Styled Ark **FileUpload** compound — each part is wired to `fileUploadRecipe` via context.
 *
-* Supports a trigger-only mode (just the file-picker button) and a dropzone mode (drag-and-drop
-* area). Ark handles a11y, file validation, drag state, and the hidden input. Variant props
-* (`size`) go on **`FileUpload.Root`**.
+* Supports a trigger-only mode (just the file-picker button) and a dropzone mode (drag-and-drop area). Ark
+* handles a11y, file validation, drag state, and the hidden input. Variant props (`size`) go on
+* **`FileUpload.Root`**.
 *
 * @example
 *   ```tsx
@@ -106,9 +106,9 @@ const FileUpload$1 = {
 	HiddenInput: FileUpload.HiddenInput
 };
 /**
-* Design-system convenience file upload — renders either a trigger button or a full dropzone with
-* a file list. **`FileUpload`** stays the styled compound for full composition; **`FileUploadDS`** =
-* packaged DS API with normalized `onChange(details)` handler.
+* Design-system convenience file upload — renders either a trigger button or a full dropzone with a file
+* list. **`FileUpload`** stays the styled compound for full composition; **`FileUploadDS`** = packaged DS API
+* with normalized `onChange(details)` handler.
 *
 * @example
 *   ```tsx

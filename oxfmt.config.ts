@@ -38,6 +38,6 @@ export default defineConfig({
       excludeFiles: [],
       options: { ...agentMarkdown },
     },
-    { files: ['*.css', '*.scss'], excludeFiles: [], options: { ...css } },
+    { files: ['*.css', '*.scss'], excludeFiles: ['**/ark-reference/css/**'], options: { ...css } },
   ],
 } satisfies ReturnType<typeof defineConfig>);

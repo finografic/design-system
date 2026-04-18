@@ -60,9 +60,7 @@ declare const Select$1: {
    * `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown escapes `overflow: hidden`
    * ancestors. Override via `positioning` prop if needed.
    */
-  Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Omit<Omit<Omit<Select.RootProps<unknown>, never> & _$react.RefAttributes<HTMLDivElement>, "ref"> & {
-    ref?: ((instance: HTMLDivElement | null) => void | _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | _$react.RefObject<HTMLDivElement> | null | undefined;
-  }, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
+  Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Omit<Omit<Select.RootProps<unknown>, never> & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "label" | "control" | "clearTrigger" | "list" | "valueText", {
     size: {
       sm: {
         label: {
@@ -156,7 +154,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "trigger" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "list" | "label" | "control" | "clearTrigger" | "valueText", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "content" | "positioner" | "itemText" | "itemGroup" | "itemGroupLabel" | "indicator" | "trigger" | "label" | "control" | "clearTrigger" | "list" | "valueText", {
     size: {
       sm: {
         label: {
@@ -255,9 +253,7 @@ declare const Select$1: {
   Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Displays selected item label(s); truncates on overflow. */
   ValueText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ValueTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Chevron icon wrapper; rotates 180° when open. */
   Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Omit<Omit<Select.PositionerProps & _$react.RefAttributes<HTMLDivElement>, "ref"> & {
-    ref?: ((instance: HTMLDivElement | null) => void | _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES[keyof _$react.DO_NOT_USE_OR_YOU_WILL_BE_FIRED_CALLBACK_REF_RETURN_VALUES]) | _$react.RefObject<HTMLDivElement> | null | undefined;
-  }, "ref"> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown panel — scrollable list container with scale animation. */
+  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Omit<Select.PositionerProps & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown panel — scrollable list container with scale animation. */
   Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Flex column wrapping all items and groups. */
   List: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ListProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single selectable row; check icon appears via `ItemIndicator` when selected. */
   Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Primary label inside an item — truncates on overflow. */

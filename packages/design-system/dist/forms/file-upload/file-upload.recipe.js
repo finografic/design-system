@@ -6,12 +6,11 @@ import { sva } from "@styled-system/css";
 * Port of Ark UI FileUpload example styles → Panda `sva` + semantic tokens.
 *
 * Slots: root · label · trigger · dropzone · dropzoneIcon · dropzoneContent · dropzoneTitle ·
-*        dropzoneDescription · itemGroup · item · itemCompact · itemPreview · itemPreviewImage ·
-*        itemName · itemSizeText · itemDeleteTrigger
-* Variants: size (sm | md | lg)
+* dropzoneDescription · itemGroup · item · itemCompact · itemPreview · itemPreviewImage · itemName ·
+* itemSizeText · itemDeleteTrigger Variants: size (sm | md | lg)
 *
-* Trigger displays a file-picker button (basic mode). Dropzone renders a dashed drag-and-drop target.
-* Item is the full grid layout (preview + name + size + delete). ItemCompact is the inline compact row.
+* Trigger displays a file-picker button (basic mode). Dropzone renders a dashed drag-and-drop target. Item is
+* the full grid layout (preview + name + size + delete). ItemCompact is the inline compact row.
 */
 const fileUploadRecipe = sva({
 	className: "file-upload",
@@ -50,32 +49,32 @@ const fileUploadRecipe = sva({
 			_disabled: { opacity: .5 }
 		},
 		trigger: {
-			display: "inline-flex",
-			alignItems: "center",
-			justifyContent: "center",
-			gap: "2",
-			fontFamily: "inherit",
-			fontWeight: "medium",
-			lineHeight: "1.25rem",
-			borderRadius: "md",
-			userSelect: "none",
-			whiteSpace: "nowrap",
-			cursor: "pointer",
-			transitionProperty: "background, border-color",
-			transitionDuration: "fast",
-			bg: "transparent",
-			borderWidth: "default",
-			borderStyle: "solid",
-			borderColor: "border",
-			color: "fg",
+			"display": "inline-flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"gap": "2",
+			"fontFamily": "inherit",
+			"fontWeight": "medium",
+			"lineHeight": "1.25rem",
+			"borderRadius": "md",
+			"userSelect": "none",
+			"whiteSpace": "nowrap",
+			"cursor": "pointer",
+			"transitionProperty": "background, border-color",
+			"transitionDuration": "fast",
+			"bg": "transparent",
+			"borderWidth": "default",
+			"borderStyle": "solid",
+			"borderColor": "border",
+			"color": "fg",
 			"& svg": { flexShrink: 0 },
-			_hover: { bg: "bg.muted" },
-			_focusVisible: {
+			"_hover": { bg: "bg.muted" },
+			"_focusVisible": {
 				outline: "2px solid",
 				outlineColor: "accent.focusRing",
 				outlineOffset: "-1px"
 			},
-			_disabled: {
+			"_disabled": {
 				opacity: .5,
 				cursor: "not-allowed"
 			}
@@ -141,16 +140,16 @@ const fileUploadRecipe = sva({
 			margin: "0"
 		},
 		item: {
-			display: "grid",
-			gridTemplateColumns: "auto 1fr auto",
-			gridTemplateAreas: "\"preview name delete\" \"preview size delete\"",
-			alignItems: "center",
-			columnGap: "3",
-			bg: "bg",
-			borderWidth: "default",
-			borderStyle: "solid",
-			borderColor: "border",
-			borderRadius: "lg",
+			"display": "grid",
+			"gridTemplateColumns": "auto 1fr auto",
+			"gridTemplateAreas": "\"preview name delete\" \"preview size delete\"",
+			"alignItems": "center",
+			"columnGap": "3",
+			"bg": "bg",
+			"borderWidth": "default",
+			"borderStyle": "solid",
+			"borderColor": "border",
+			"borderRadius": "lg",
 			"&[data-rejected]": {
 				bg: "accent.subtle",
 				borderColor: "accent.fg"
@@ -164,11 +163,11 @@ const fileUploadRecipe = sva({
 			borderRadius: "md"
 		},
 		itemPreview: {
-			gridArea: "preview",
-			display: "flex",
-			alignItems: "center",
-			justifyContent: "center",
-			flexShrink: 0,
+			"gridArea": "preview",
+			"display": "flex",
+			"alignItems": "center",
+			"justifyContent": "center",
+			"flexShrink": 0,
 			"& svg": { color: "fg.muted" }
 		},
 		itemPreviewImage: {
@@ -216,9 +215,9 @@ const fileUploadRecipe = sva({
 	variants: { size: {
 		sm: {
 			trigger: {
-				px: "3",
-				py: "1.5",
-				fontSize: "xs",
+				"px": "3",
+				"py": "1.5",
+				"fontSize": "xs",
 				"& svg": {
 					w: "3.5",
 					h: "3.5"
@@ -247,8 +246,8 @@ const fileUploadRecipe = sva({
 				h: "8"
 			},
 			itemDeleteTrigger: {
-				w: "5",
-				h: "5",
+				"w": "5",
+				"h": "5",
 				"& svg": {
 					w: "3.5",
 					h: "3.5"
@@ -257,9 +256,9 @@ const fileUploadRecipe = sva({
 		},
 		md: {
 			trigger: {
-				px: "4",
-				py: "2",
-				fontSize: "sm",
+				"px": "4",
+				"py": "2",
+				"fontSize": "sm",
 				"& svg": {
 					w: "4",
 					h: "4"
@@ -288,8 +287,8 @@ const fileUploadRecipe = sva({
 				h: "10"
 			},
 			itemDeleteTrigger: {
-				w: "6",
-				h: "6",
+				"w": "6",
+				"h": "6",
 				"& svg": {
 					w: "4",
 					h: "4"
@@ -298,9 +297,9 @@ const fileUploadRecipe = sva({
 		},
 		lg: {
 			trigger: {
-				px: "5",
-				py: "2.5",
-				fontSize: "md",
+				"px": "5",
+				"py": "2.5",
+				"fontSize": "md",
 				"& svg": {
 					w: "5",
 					h: "5"
@@ -329,8 +328,8 @@ const fileUploadRecipe = sva({
 				h: "12"
 			},
 			itemDeleteTrigger: {
-				w: "7",
-				h: "7",
+				"w": "7",
+				"h": "7",
 				"& svg": {
 					w: "4",
 					h: "4"
