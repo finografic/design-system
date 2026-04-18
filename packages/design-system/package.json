@@ -68,7 +68,9 @@
   },
   "files": [
     "dist",
-    "src/styles",
+    "src/styles/reset.css",
+    "src/styles/keyframes.css",
+    "src/styles/global.css",
     "src/grid/grid.css",
     "src/forms/forms.css",
     "src/components/generic-dialog/generic-dialog.css",
