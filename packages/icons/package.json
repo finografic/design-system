@@ -23,11 +23,14 @@
     "icons.config": "concurrently -n \"server,config\" -c \"cyan,green\" \"tsx server/icons-server.ts\" \"lucide-manager\"",
     "icons.server": "tsx server/icons-server.ts",
     "·········· BUILD": "·····················································",
-    "build": "tsx scripts/generate.ts && tsdown",
     "dev": "tsdown --watch --no-clean",
-    "typecheck": "tsc --noEmit",
+    "link": "pnpm build && pnpm link --global",
+    "unlink": "pnpm unlink --global",
+    "build": "tsx scripts/generate.ts && tsdown",
     "·········· PACKAGES": "···················································",
-    "lucide-manager": "pnpm update @finografic/lucide-manager --latest"
+    "lucide-manager": "pnpm update @finografic/lucide-manager --latest",
+    "·········· UTILS": "·····················································",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^1.8.0"

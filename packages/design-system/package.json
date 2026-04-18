@@ -79,6 +79,8 @@
     "dev": "panda cssgen --watch",
     "dev.ts": "tsdown --watch",
     "watch": "concurrently --names codegen,tsdown \"panda codegen -w\" \"tsdown --watch\"",
+    "link": "pnpm build && pnpm link --global",
+    "unlink": "pnpm unlink --global",
     "build": "panda codegen --clean && tsdown",
     "·········· PANDA": "·····················································",
     "panda:codegen": "panda codegen",
