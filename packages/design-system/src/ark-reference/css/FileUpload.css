@@ -183,8 +183,8 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas:
-    "preview name delete"
-    "preview size delete";
+    'preview name delete'
+    'preview size delete';
   align-items: center;
   column-gap: 0.75rem;
   padding: 0.75rem;
@@ -298,11 +298,11 @@
   letter-spacing: 0.025em;
   color: var(--demo-neutral-emphasized);
 
-  &[data-status="accepted"] {
+  &[data-status='accepted'] {
     color: #16a34a;
   }
 
-  &[data-status="rejected"] {
+  &[data-status='rejected'] {
     color: var(--demo-coral-fg);
   }
 }

@@ -50,7 +50,7 @@
   pointer-events: none;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
   }
 
@@ -64,7 +64,7 @@
     pointer-events: auto;
   }
 
-  &[data-orientation="vertical"] {
+  &[data-orientation='vertical'] {
     width: 0.25rem;
 
     &::before {
@@ -79,7 +79,7 @@
     }
   }
 
-  &[data-orientation="horizontal"] {
+  &[data-orientation='horizontal'] {
     height: 0.25rem;
 
     &::before {
@@ -101,7 +101,7 @@
   border-radius: inherit;
   background-color: var(--demo-neutral-solid);
 
-  [data-orientation="horizontal"] & {
+  [data-orientation='horizontal'] & {
     width: unset;
     height: 100%;
   }

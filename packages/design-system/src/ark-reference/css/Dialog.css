@@ -6,11 +6,11 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: calc(var(--demo-popover-z-index) + var(--layer-index, 0));
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     animation: fade-in 0.15s ease-out;
   }
 
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     animation: fade-out 0.1s ease-in;
   }
 }
@@ -53,11 +53,11 @@
     transform: scale(calc(1 - var(--nested-layer-count) * 0.05));
   }
 
-  &[data-state="open"] {
+  &[data-state='open'] {
     animation: scale-fade-in 0.15s ease-out;
   }
 
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     animation: scale-fade-out 0.1s ease-in;
   }
 }

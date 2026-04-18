@@ -1,5 +1,6 @@
 import { durationTokens, easingTokens, keyframes } from "./animations.tokens.js";
-import { colorTokens, semanticColorTokens } from "./colors.tokens.js";
+import { BASE_COLORS_THEME } from "../palette/colors.base.js";
+import { colorTokens, createColorTokens, semanticColorTokens } from "./colors.tokens.js";
 import { borderWidthTokens, radiiTokens, shadowTokens } from "./decorative.tokens.js";
 import { sizingTokens } from "./sizes.tokens.js";
 import { spacingTokens, zIndexTokens } from "./spacing.tokens.js";
@@ -9,4 +10,4 @@ import { min } from "../viewport/viewport.emotion.js";
 import { LAYOUT_VARS, layoutTokens } from "./layout.tokens.js";
 import { colors } from "../palette/colors.js";
 import { layout } from "./runtime.tokens.js";
-export { BREAKPOINTS, LAYOUT_VARS, borderWidthTokens, colorTokens, colors, durationTokens, easingTokens, fontSizeTokens, fontTokens, fontWeightTokens, keyframes, layout, layoutTokens, lineHeightTokens, min, radiiTokens, semanticColorTokens, shadowTokens, sizingTokens, spacingTokens, textStyles, zIndexTokens };
+export { BASE_COLORS_THEME, BREAKPOINTS, LAYOUT_VARS, borderWidthTokens, colorTokens, colors, createColorTokens, durationTokens, easingTokens, fontSizeTokens, fontTokens, fontWeightTokens, keyframes, layout, layoutTokens, lineHeightTokens, min, radiiTokens, semanticColorTokens, shadowTokens, sizingTokens, spacingTokens, textStyles, zIndexTokens };

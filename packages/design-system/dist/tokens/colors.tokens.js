@@ -1,4 +1,4 @@
-import { BASE_COLORS } from "../palette/colors.base.js";
+import { BASE_COLORS, BASE_COLORS_THEME } from "../palette/colors.base.js";
 import { buildShadeScale } from "../palette/shades.utils.js";
 //#region src/tokens/colors.tokens.ts
 /**
@@ -187,7 +187,35 @@ const semanticColorTokens = {
 		} }
 	}
 };
+/**
+* Generate color tokens with custom base color overrides.
+*
+* Merges `overrides` with the default BASE_COLORS_THEME, then rebuilds the full shade scale for every named
+* color. Pass the result to `theme.extend.tokens.colors` in your panda.config.ts.
+*
+* @example
+*   theme: { extend: { tokens: { colors: createColorTokens({ primary: 'oklch(59% 0.234 277)' }) } } }
+*/
+function createColorTokens(overrides = {}) {
+	const merged = {
+		...BASE_COLORS_THEME,
+		...overrides
+	};
+	return {
+		primary: buildShadeScale(merged.primary),
+		secondary: buildShadeScale(merged.secondary),
+		success: buildShadeScale(merged.success),
+		warning: buildShadeScale(merged.warning),
+		danger: buildShadeScale(merged.danger),
+		info: buildShadeScale(merged.info),
+		grey: buildShadeScale(merged.grey),
+		neutral: buildShadeScale(merged.default),
+		white: { value: BASE_COLORS.white },
+		black: { value: BASE_COLORS.black },
+		transparent: { value: BASE_COLORS.transparent }
+	};
+}
 //#endregion
-export { colorTokens, semanticColorTokens };
+export { colorTokens, createColorTokens, semanticColorTokens };
 
 //# sourceMappingURL=colors.tokens.js.map

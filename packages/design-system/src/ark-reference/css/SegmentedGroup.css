@@ -38,7 +38,7 @@
   color: var(--demo-neutral-fg);
   position: relative;
 
-  &[data-orientation="vertical"] {
+  &[data-orientation='vertical'] {
     width: 100%;
     justify-content: flex-start;
   }
@@ -48,7 +48,7 @@
     cursor: not-allowed;
   }
 
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     color: var(--demo-coral-fg);
   }
 

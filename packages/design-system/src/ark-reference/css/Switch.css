@@ -33,7 +33,7 @@
     background-color 0.15s ease,
     box-shadow 0.15s ease;
 
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     background: var(--demo-coral-solid);
   }
 
@@ -54,7 +54,7 @@
   box-shadow: var(--demo-shadow-sm);
   transition: transform 0.15s ease;
 
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     transform: translateX(1rem);
   }
 }

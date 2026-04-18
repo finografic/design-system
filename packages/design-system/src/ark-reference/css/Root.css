@@ -31,7 +31,7 @@
   border: 1px solid var(--demo-border-emphasized);
   color: var(--demo-neutral-fg);
 
-  &:is(:hover, [aria-expanded="true"]):not(:disabled, [data-disabled]) {
+  &:is(:hover, [aria-expanded='true']):not(:disabled, [data-disabled]) {
     background: var(--demo-neutral-subtle);
   }
 
@@ -46,13 +46,13 @@
   }
 
   /* Surface: outline + coral text */
-  &[data-variant="surface"] {
+  &[data-variant='surface'] {
     border-color: var(--demo-border-emphasized);
     color: var(--demo-coral-fg);
   }
 
   /* Solid: solid bg + contrast text */
-  &[data-variant="solid"] {
+  &[data-variant='solid'] {
     background: var(--demo-coral-solid);
     border-color: var(--demo-coral-solid);
     color: var(--demo-coral-contrast);

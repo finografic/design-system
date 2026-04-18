@@ -9,15 +9,15 @@
  *   4. MinusIcon (data-indeterminate) hidden by default, shown when indeterminate
  */
 
-[data-scope="checkbox"][data-part="control"] {
+[data-scope='checkbox'][data-part='control'] {
   overflow: hidden;
 
   & svg {
     flex-shrink: 0;
   }
 
-  &[data-state="checked"],
-  &[data-state="indeterminate"] {
+  &[data-state='checked'],
+  &[data-state='indeterminate'] {
     background: var(--colors-success-light);
     border-color: var(--colors-success-light);
     color: white;
@@ -25,34 +25,30 @@
 }
 
 /* Icon size by size variant (data-size set on the root by CheckboxField) */
-[data-scope="checkbox"][data-size="sm"] [data-part="control"] svg {
+[data-scope='checkbox'][data-size='sm'] [data-part='control'] svg {
   width: 0.625rem;
   height: 0.625rem;
 }
 
-[data-scope="checkbox"][data-size="md"] [data-part="control"] svg {
+[data-scope='checkbox'][data-size='md'] [data-part='control'] svg {
   width: 0.75rem;
   height: 0.75rem;
 }
 
-[data-scope="checkbox"][data-size="lg"] [data-part="control"] svg {
+[data-scope='checkbox'][data-size='lg'] [data-part='control'] svg {
   width: 1rem;
   height: 1rem;
 }
 
 /* MinusIcon hidden by default; CheckIcon hidden when indeterminate */
-[data-scope="checkbox"] [data-part="indicator"] svg[data-indeterminate] {
+[data-scope='checkbox'] [data-part='indicator'] svg[data-indeterminate] {
   display: none;
 }
 
-[data-scope="checkbox"][data-state="indeterminate"]
-  [data-part="indicator"]
-  svg:not([data-indeterminate]) {
+[data-scope='checkbox'][data-state='indeterminate'] [data-part='indicator'] svg:not([data-indeterminate]) {
   display: none;
 }
 
-[data-scope="checkbox"][data-state="indeterminate"]
-  [data-part="indicator"]
-  svg[data-indeterminate] {
+[data-scope='checkbox'][data-state='indeterminate'] [data-part='indicator'] svg[data-indeterminate] {
   display: block;
 }

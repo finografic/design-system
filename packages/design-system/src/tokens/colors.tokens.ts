@@ -1,5 +1,6 @@
-import { BASE_COLORS } from '../palette/colors.base';
+import { BASE_COLORS, BASE_COLORS_THEME } from '../palette/colors.base';
 import { buildShadeScale } from '../palette/shades.utils';
+import type { ColorName, OKLCH } from '../types/palette.types';
 
 /**
  * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
@@ -82,3 +83,29 @@ export const semanticColorTokens = {
     focusRing: { value: { base: '{colors.primary.light}', _dark: '{colors.primary.light}' } },
   },
 } as const;
+
+/**
+ * Generate color tokens with custom base color overrides.
+ *
+ * Merges `overrides` with the default BASE_COLORS_THEME, then rebuilds the full shade scale for every named
+ * color. Pass the result to `theme.extend.tokens.colors` in your panda.config.ts.
+ *
+ * @example
+ *   theme: { extend: { tokens: { colors: createColorTokens({ primary: 'oklch(59% 0.234 277)' }) } } }
+ */
+export function createColorTokens(overrides: Partial<Record<ColorName, OKLCH>> = {}) {
+  const merged = { ...BASE_COLORS_THEME, ...overrides };
+  return {
+    primary: buildShadeScale(merged.primary),
+    secondary: buildShadeScale(merged.secondary),
+    success: buildShadeScale(merged.success),
+    warning: buildShadeScale(merged.warning),
+    danger: buildShadeScale(merged.danger),
+    info: buildShadeScale(merged.info),
+    grey: buildShadeScale(merged.grey),
+    neutral: buildShadeScale(merged.default),
+    white: { value: BASE_COLORS.white },
+    black: { value: BASE_COLORS.black },
+    transparent: { value: BASE_COLORS.transparent },
+  };
+}

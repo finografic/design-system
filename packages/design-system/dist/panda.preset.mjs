@@ -101,16 +101,7 @@ const easingTokens = defineTokens.easings({
 });
 //#endregion
 //#region src/palette/colors.base.ts
-/**
-* 🎨 Design System Color Tokens
-*
-* Source-of-truth OKLCH color values, mapped from the existing client styles. These are the base colors from
-* which all semantic tokens are derived.
-*
-* @see https://oklch.com — OKLCH color picker
-* @see https://www.w3.org/TR/css-color-4/#ok-lab — W3C specification
-*/
-const BASE_COLORS = {
+const BASE_COLORS_THEME = {
 	primary: "oklch(48.8% 0.243 264.376)",
 	secondary: "oklch(49.6% 0.265 301.924)",
 	success: "oklch(60.4% 0.194 149.214)",
@@ -119,10 +110,16 @@ const BASE_COLORS = {
 	info: "oklch(58.8% 0.158 241.966)",
 	default: "oklch(65.3% 0.013 58.071)",
 	grey: "oklch(55.2% 0.016 285.938)",
-	text: "oklch(28% 0 0)",
+	text: "oklch(28% 0 0)"
+};
+const BASE_COLORS_FIXED = {
 	white: "#ffffff",
 	black: "#000000",
 	transparent: "transparent"
+};
+const BASE_COLORS = {
+	...BASE_COLORS_THEME,
+	...BASE_COLORS_FIXED
 };
 /**
 * Shade scale (11 stops) — word names map to the TW/Panda/Ark numeric standard:

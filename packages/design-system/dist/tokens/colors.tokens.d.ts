@@ -1,3 +1,5 @@
+import { ColorName, OKLCH, ShadeScale } from "../types/palette.types.js";
+
 //#region src/tokens/colors.tokens.d.ts
 /**
  * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
@@ -11,310 +13,30 @@
  *   // In recipe: color: 'danger.dark' → color: <computed dark shade>
  */
 declare const colorTokens: {
-  readonly primary: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly secondary: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly success: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly warning: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly danger: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly info: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly grey: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
-  readonly neutral: {
-    DEFAULT: {
-      value: string;
-    };
-    xxxlight: {
-      value: string;
-    };
-    xxlight: {
-      value: string;
-    };
-    xlight: {
-      value: string;
-    };
-    lighter: {
-      value: string;
-    };
-    light: {
-      value: string;
-    };
-    base: {
-      value: string;
-    };
-    dark: {
-      value: string;
-    };
-    darker: {
-      value: string;
-    };
-    xdark: {
-      value: string;
-    };
-    xxdark: {
-      value: string;
-    };
-    xxxdark: {
-      value: string;
-    };
-  };
+  readonly primary: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly secondary: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly success: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly warning: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly danger: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly info: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly grey: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  readonly neutral: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
   readonly white: {
     readonly value: "#ffffff";
   };
@@ -405,7 +127,7 @@ declare const semanticColorTokens: {
   readonly fg: {
     readonly DEFAULT: {
       readonly value: {
-        readonly base: "oklch(28% 0 0)";
+        readonly base: OKLCH;
         readonly _dark: "oklch(93% 0 0)";
       };
     };
@@ -479,7 +201,7 @@ declare const semanticColorTokens: {
     };
     readonly inverted: {
       readonly value: {
-        readonly base: "oklch(28% 0 0)";
+        readonly base: OKLCH;
         readonly _dark: "oklch(90% 0 0)";
       };
     };
@@ -559,6 +281,50 @@ declare const semanticColorTokens: {
     };
   };
 };
+/**
+ * Generate color tokens with custom base color overrides.
+ *
+ * Merges `overrides` with the default BASE_COLORS_THEME, then rebuilds the full shade scale for every named
+ * color. Pass the result to `theme.extend.tokens.colors` in your panda.config.ts.
+ *
+ * @example
+ *   theme: { extend: { tokens: { colors: createColorTokens({ primary: 'oklch(59% 0.234 277)' }) } } }
+ */
+declare function createColorTokens(overrides?: Partial<Record<ColorName, OKLCH>>): {
+  primary: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  secondary: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  success: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  warning: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  danger: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  info: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  grey: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  neutral: Record<ShadeScale | "DEFAULT", {
+    value: string;
+  }>;
+  white: {
+    value: "#ffffff";
+  };
+  black: {
+    value: "#000000";
+  };
+  transparent: {
+    value: "transparent";
+  };
+};
 //#endregion
-export { colorTokens, semanticColorTokens };
+export { colorTokens, createColorTokens, semanticColorTokens };
 //# sourceMappingURL=colors.tokens.d.ts.map
