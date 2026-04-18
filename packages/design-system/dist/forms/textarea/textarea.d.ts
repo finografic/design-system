@@ -25,7 +25,7 @@ type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
  */
 declare const Textarea: _$react.ForwardRefExoticComponent<Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size"> & {
   size?: "sm" | "md" | "lg" | undefined;
-  resize?: "none" | "both" | "vertical" | "horizontal" | undefined;
+  resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
 } & {
   /** Marks the field invalid (adds `aria-invalid` + error border). */invalid?: boolean;
 } & _$react.RefAttributes<HTMLTextAreaElement>>;
