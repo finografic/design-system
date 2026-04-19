@@ -1,6 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
 //#region src/components/popover/popover.recipe.d.ts
-declare const popoverRecipe: SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "arrow" | "arrowTip" | "title" | "closeTrigger" | "trigger", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "arrow" | "arrowTip" | "title" | "closeTrigger" | "trigger">>;
+declare const popoverRecipe: SlotRecipeRuntimeFn<"content" | "positioner" | "title" | "description" | "closeTrigger" | "trigger" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "positioner" | "title" | "description" | "closeTrigger" | "trigger" | "arrow" | "arrowTip">>;
 //#endregion
 export { popoverRecipe };
 //# sourceMappingURL=popover.recipe.d.ts.map

@@ -39,7 +39,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const Pagination$1: {
-  /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "item" | "ellipsis" | "trigger", {
+  /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "item" | "trigger" | "ellipsis", {
     size: {
       sm: {
         item: {
@@ -91,7 +91,7 @@ declare const Pagination$1: {
       };
     };
   }>>; /** Root with external machine state from `usePagination`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProviderProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "item" | "ellipsis" | "trigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProviderProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "item" | "trigger" | "ellipsis", {
     size: {
       sm: {
         item: {
