@@ -18,11 +18,19 @@ release.log.txt
 .env.local
 .env.*.local
 
-# IDE — ignore Cursor state; keep project config (.cursor/mcp.json) committed
-.cursor/chats/
-.cursor/hooks/
-.claude/**
+# Agents
+.codex/
+.claude/
 !.claude/settings.json
+!.claude/handoff.md
+.worktrees/
+**/worktrees/
+
+# IDE
+**/.cursor/**
+!**/.cursor/.gitkeep
+!.cursor/rules/
+!.vscode/settings.json
 .idea/
 *.swp
 *.swo
