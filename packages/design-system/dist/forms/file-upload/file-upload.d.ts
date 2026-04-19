@@ -73,7 +73,7 @@ import { FileUpload, FileUploadFileChangeDetails } from "@ark-ui/react/file-uplo
  *   ```;
  */
 declare const FileUpload$1: {
-  /** Root — `maxFiles`, `accept`, `maxFileSize`, `onFileChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<FileUpload.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "trigger" | "itemGroup" | "label" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
+  /** Root — `maxFiles`, `accept`, `maxFileSize`, `onFileChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<FileUpload.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemGroup" | "trigger" | "label" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
     size: {
       sm: {
         trigger: {
@@ -212,7 +212,7 @@ declare const FileUpload$1: {
       };
     };
   }>>; /** Root with external machine state from `useFileUpload`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<FileUpload.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "trigger" | "itemGroup" | "label" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<FileUpload.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemGroup" | "trigger" | "label" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
     size: {
       sm: {
         trigger: {

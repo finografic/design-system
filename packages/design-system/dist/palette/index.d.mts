@@ -32,8 +32,8 @@ declare const BASE_COLORS: {
  *
  * Symmetric scale — light and dark sides mirror each other at equal intervals (~17% steps):
  *
- * Light-side percentages (% of base, remainder white): xxxlight → 15% | xxlight → 30% | xlight → 50% | lighter
- * → 65% | light → 82%
+ * Light-side percentages (% of base, remainder white): xxxlight → 15% | xxlight → 30% | xlight → 50% |
+ * lighter → 65% | light → 82%
  *
  * Dark-side percentages (% of base, remainder black): dark → 82% | darker → 65% | xdark → 50% | xxdark → 30%
  * | xxxdark → 15%

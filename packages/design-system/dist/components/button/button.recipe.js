@@ -119,16 +119,16 @@ const buttonRecipe = cva({
 		},
 		variant: {
 			solid: {
-				bg: "colorPalette.base",
+				bg: "colorPalette",
 				color: "white",
-				borderColor: "colorPalette.base",
+				borderColor: "colorPalette",
 				_hover: {
-					bg: "colorPalette.dark",
-					borderColor: "colorPalette.dark"
-				},
-				_active: {
 					bg: "colorPalette.darker",
 					borderColor: "colorPalette.darker"
+				},
+				_active: {
+					bg: "colorPalette.xdark",
+					borderColor: "colorPalette.xdark"
 				}
 			},
 			subtle: {
@@ -147,18 +147,18 @@ const buttonRecipe = cva({
 			},
 			outline: {
 				bg: "transparent",
-				color: "colorPalette.base",
-				borderColor: "colorPalette.base",
+				color: "colorPalette",
+				borderColor: "colorPalette",
 				_hover: {
 					bg: "colorPalette.xlight",
 					color: "colorPalette.dark",
-					borderColor: "colorPalette.dark"
+					borderColor: "colorPalette.xlight"
 				},
 				_active: { bg: "colorPalette.lighter" }
 			},
 			ghost: {
 				bg: "transparent",
-				color: "colorPalette.base",
+				color: "colorPalette",
 				borderColor: "transparent",
 				_hover: {
 					bg: "colorPalette.xlight",
@@ -168,7 +168,7 @@ const buttonRecipe = cva({
 			},
 			link: {
 				bg: "transparent",
-				color: "colorPalette.base",
+				color: "colorPalette",
 				borderColor: "transparent",
 				paddingInline: "0",
 				height: "auto",

@@ -70,16 +70,16 @@ declare const buttonRecipe: RecipeRuntimeFn<{
   };
   variant: {
     solid: {
-      bg: "colorPalette.base";
+      bg: "colorPalette";
       color: "white";
-      borderColor: "colorPalette.base";
+      borderColor: "colorPalette";
       _hover: {
-        bg: "colorPalette.dark";
-        borderColor: "colorPalette.dark";
-      };
-      _active: {
         bg: "colorPalette.darker";
         borderColor: "colorPalette.darker";
+      };
+      _active: {
+        bg: "colorPalette.xdark";
+        borderColor: "colorPalette.xdark";
       };
     };
     subtle: {
@@ -98,12 +98,12 @@ declare const buttonRecipe: RecipeRuntimeFn<{
     };
     outline: {
       bg: "transparent";
-      color: "colorPalette.base";
-      borderColor: "colorPalette.base";
+      color: "colorPalette";
+      borderColor: "colorPalette";
       _hover: {
         bg: "colorPalette.xlight";
         color: "colorPalette.dark";
-        borderColor: "colorPalette.dark";
+        borderColor: "colorPalette.xlight";
       };
       _active: {
         bg: "colorPalette.lighter";
@@ -111,7 +111,7 @@ declare const buttonRecipe: RecipeRuntimeFn<{
     };
     ghost: {
       bg: "transparent";
-      color: "colorPalette.base";
+      color: "colorPalette";
       borderColor: "transparent";
       _hover: {
         bg: "colorPalette.xlight";
@@ -123,7 +123,7 @@ declare const buttonRecipe: RecipeRuntimeFn<{
     };
     link: {
       bg: "transparent";
-      color: "colorPalette.base";
+      color: "colorPalette";
       borderColor: "transparent";
       paddingInline: "0";
       height: "auto";

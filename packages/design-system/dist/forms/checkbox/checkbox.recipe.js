@@ -11,7 +11,7 @@ import { sva } from "@styled-system/css";
 * (semantic fill when checked / indeterminate)
 *
 * **Palette:** `variants.palette` sets **`colorPalette`** on **root** and **control** so
-* **`colorPalette.base`** drives the checked/indeterminate fill (darker than `*.light`). Matches **Switch**’s
+* **`colorPalette`** drives the checked/indeterminate fill (darker than `*.light`). Matches **Switch**’s
 * palette model.
 *
 * **Touch:** `sm` / `md` (and `lg`) use **`@media (pointer: coarse)`** to enlarge the control and icon —
@@ -64,13 +64,13 @@ const checkboxRecipe = sva({
 			"transitionProperty": "background-color, border-color, color",
 			"transitionDuration": "normal",
 			"_checked": {
-				bg: "colorPalette.base",
-				borderColor: "colorPalette.base",
+				bg: "colorPalette",
+				borderColor: "colorPalette",
 				color: "white"
 			},
 			"_indeterminate": {
-				bg: "colorPalette.base",
-				borderColor: "colorPalette.base",
+				bg: "colorPalette",
+				borderColor: "colorPalette",
 				color: "white"
 			},
 			"_hover": { borderColor: "colorPalette.emphasized" },

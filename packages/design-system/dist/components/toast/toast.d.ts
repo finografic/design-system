@@ -44,7 +44,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Toast$1: {
-  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Toast.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "title" | "description" | "closeTrigger" | "actionTrigger", {
+  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Toast.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "title" | "closeTrigger" | "actionTrigger", {
     status: {
       info: {
         root: {

@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../recipes/recipes.types.js";
 
 //#region src/forms/editable/editable.recipe.d.ts
-declare const editableRecipe: SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+declare const editableRecipe: SlotRecipeRuntimeFn<"root" | "textarea" | "label" | "control" | "area" | "input" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
   size: {
     sm: {
       input: {
