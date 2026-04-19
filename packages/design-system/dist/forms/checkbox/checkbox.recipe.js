@@ -10,9 +10,8 @@ import { sva } from "@styled-system/css";
 * Slots: root · control · indicator · label · description · errorText Variants: size (sm | md | lg) · palette
 * (semantic fill when checked / indeterminate)
 *
-* **Palette:** `variants.palette` sets **`colorPalette`** on **root** and **control** so
-* **`colorPalette`** drives the checked/indeterminate fill (darker than `*.light`). Matches **Switch**’s
-* palette model.
+* **Palette:** `variants.palette` sets **`colorPalette`** on **root** and **control** so **`colorPalette`**
+* drives the checked/indeterminate fill (darker than `*.light`). Matches **Switch**’s palette model.
 *
 * **Touch:** `sm` / `md` (and `lg`) use **`@media (pointer: coarse)`** to enlarge the control and icon —
 * important for small touch screens (e.g. kiosk / Raspberry Pi).
