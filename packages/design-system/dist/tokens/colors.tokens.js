@@ -21,6 +21,7 @@ const colorTokens = {
 	info: buildShade(BASE_COLORS.info),
 	grey: buildShade(BASE_COLORS.grey),
 	neutral: buildShade(BASE_COLORS.default),
+	text: { value: BASE_COLORS.text },
 	white: { value: BASE_COLORS.white },
 	black: { value: BASE_COLORS.black },
 	transparent: { value: BASE_COLORS.transparent }
@@ -41,15 +42,15 @@ const semanticColorTokens = {
 		} },
 		subtle: { value: {
 			base: "{colors.grey.xlight}",
-			_dark: "oklch(15% 0.01 285)"
+			_dark: "{colors.grey.xdark}"
 		} },
 		muted: { value: {
 			base: "{colors.grey.lighter}",
-			_dark: "oklch(20% 0.01 285)"
+			_dark: "{colors.grey.darker}"
 		} },
 		emphasized: { value: {
 			base: "{colors.grey.light}",
-			_dark: "oklch(25% 0.01 285)"
+			_dark: "{colors.grey.dark}"
 		} },
 		inverted: { value: {
 			base: "{colors.black}",
@@ -65,25 +66,25 @@ const semanticColorTokens = {
 		} },
 		error: { value: {
 			base: "{colors.danger.xlight}",
-			_dark: "oklch(20% 0.08 27)"
+			_dark: "{colors.danger.xdark}"
 		} },
 		warning: { value: {
 			base: "{colors.warning.xlight}",
-			_dark: "oklch(20% 0.06 70)"
+			_dark: "{colors.warning.xdark}"
 		} },
 		success: { value: {
 			base: "{colors.success.xlight}",
-			_dark: "oklch(20% 0.06 149)"
+			_dark: "{colors.success.xdark}"
 		} },
 		info: { value: {
 			base: "{colors.info.xlight}",
-			_dark: "oklch(20% 0.05 242)"
+			_dark: "{colors.info.xdark}"
 		} }
 	},
 	fg: {
 		DEFAULT: { value: {
-			base: BASE_COLORS.text,
-			_dark: "oklch(93% 0 0)"
+			base: "{colors.text}",
+			_dark: "{colors.grey.xxlight}"
 		} },
 		muted: { value: {
 			base: "oklch(40% 0.01 285)",
@@ -91,7 +92,7 @@ const semanticColorTokens = {
 		} },
 		subtle: { value: {
 			base: "{colors.grey}",
-			_dark: "oklch(55% 0.01 285)"
+			_dark: "{colors.grey}"
 		} },
 		inverted: { value: {
 			base: "{colors.white}",
@@ -117,23 +118,23 @@ const semanticColorTokens = {
 	border: {
 		DEFAULT: { value: {
 			base: "{colors.grey.lighter}",
-			_dark: "oklch(30% 0.01 285)"
+			_dark: "{colors.grey.darker}"
 		} },
 		muted: { value: {
 			base: "{colors.grey.xlight}",
-			_dark: "oklch(25% 0.01 285)"
+			_dark: "{colors.grey.xdark}"
 		} },
 		subtle: { value: {
 			base: "{colors.grey.xlight}",
-			_dark: "oklch(20% 0.01 285)"
+			_dark: "{colors.grey.xxdark}"
 		} },
 		emphasized: { value: {
 			base: "{colors.grey.light}",
-			_dark: "oklch(40% 0.01 285)"
+			_dark: "{colors.grey.dark}"
 		} },
 		inverted: { value: {
-			base: BASE_COLORS.text,
-			_dark: "oklch(90% 0 0)"
+			base: "{colors.text}",
+			_dark: "{colors.grey.xlight}"
 		} },
 		error: { value: {
 			base: "{colors.danger}",
@@ -167,15 +168,15 @@ const semanticColorTokens = {
 		} },
 		subtle: { value: {
 			base: "{colors.primary.xlight}",
-			_dark: "oklch(20% 0.08 264)"
+			_dark: "{colors.primary.xdark}"
 		} },
 		muted: { value: {
 			base: "{colors.primary.lighter}",
-			_dark: "oklch(25% 0.1 264)"
+			_dark: "{colors.primary.darker}"
 		} },
 		emphasized: { value: {
 			base: "{colors.primary.light}",
-			_dark: "oklch(35% 0.15 264)"
+			_dark: "{colors.primary.dark}"
 		} },
 		solid: { value: {
 			base: "{colors.primary}",

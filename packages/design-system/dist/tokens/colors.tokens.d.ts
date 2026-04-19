@@ -36,6 +36,9 @@ declare const colorTokens: {
   readonly neutral: Record<ColorShade, {
     value: string;
   }>;
+  readonly text: {
+    readonly value: OKLCH;
+  };
   readonly white: {
     readonly value: "#ffffff";
   };
@@ -65,19 +68,19 @@ declare const semanticColorTokens: {
     readonly subtle: {
       readonly value: {
         readonly base: "{colors.grey.xlight}";
-        readonly _dark: "oklch(15% 0.01 285)";
+        readonly _dark: "{colors.grey.xdark}";
       };
     };
     readonly muted: {
       readonly value: {
         readonly base: "{colors.grey.lighter}";
-        readonly _dark: "oklch(20% 0.01 285)";
+        readonly _dark: "{colors.grey.darker}";
       };
     };
     readonly emphasized: {
       readonly value: {
         readonly base: "{colors.grey.light}";
-        readonly _dark: "oklch(25% 0.01 285)";
+        readonly _dark: "{colors.grey.dark}";
       };
     };
     readonly inverted: {
@@ -101,33 +104,33 @@ declare const semanticColorTokens: {
     readonly error: {
       readonly value: {
         readonly base: "{colors.danger.xlight}";
-        readonly _dark: "oklch(20% 0.08 27)";
+        readonly _dark: "{colors.danger.xdark}";
       };
     };
     readonly warning: {
       readonly value: {
         readonly base: "{colors.warning.xlight}";
-        readonly _dark: "oklch(20% 0.06 70)";
+        readonly _dark: "{colors.warning.xdark}";
       };
     };
     readonly success: {
       readonly value: {
         readonly base: "{colors.success.xlight}";
-        readonly _dark: "oklch(20% 0.06 149)";
+        readonly _dark: "{colors.success.xdark}";
       };
     };
     readonly info: {
       readonly value: {
         readonly base: "{colors.info.xlight}";
-        readonly _dark: "oklch(20% 0.05 242)";
+        readonly _dark: "{colors.info.xdark}";
       };
     };
   };
   readonly fg: {
     readonly DEFAULT: {
       readonly value: {
-        readonly base: OKLCH;
-        readonly _dark: "oklch(93% 0 0)";
+        readonly base: "{colors.text}";
+        readonly _dark: "{colors.grey.xxlight}";
       };
     };
     readonly muted: {
@@ -139,7 +142,7 @@ declare const semanticColorTokens: {
     readonly subtle: {
       readonly value: {
         readonly base: "{colors.grey}";
-        readonly _dark: "oklch(55% 0.01 285)";
+        readonly _dark: "{colors.grey}";
       };
     };
     readonly inverted: {
@@ -177,31 +180,31 @@ declare const semanticColorTokens: {
     readonly DEFAULT: {
       readonly value: {
         readonly base: "{colors.grey.lighter}";
-        readonly _dark: "oklch(30% 0.01 285)";
+        readonly _dark: "{colors.grey.darker}";
       };
     };
     readonly muted: {
       readonly value: {
         readonly base: "{colors.grey.xlight}";
-        readonly _dark: "oklch(25% 0.01 285)";
+        readonly _dark: "{colors.grey.xdark}";
       };
     };
     readonly subtle: {
       readonly value: {
         readonly base: "{colors.grey.xlight}";
-        readonly _dark: "oklch(20% 0.01 285)";
+        readonly _dark: "{colors.grey.xxdark}";
       };
     };
     readonly emphasized: {
       readonly value: {
         readonly base: "{colors.grey.light}";
-        readonly _dark: "oklch(40% 0.01 285)";
+        readonly _dark: "{colors.grey.dark}";
       };
     };
     readonly inverted: {
       readonly value: {
-        readonly base: OKLCH;
-        readonly _dark: "oklch(90% 0 0)";
+        readonly base: "{colors.text}";
+        readonly _dark: "{colors.grey.xlight}";
       };
     };
     readonly error: {
@@ -251,19 +254,19 @@ declare const semanticColorTokens: {
     readonly subtle: {
       readonly value: {
         readonly base: "{colors.primary.xlight}";
-        readonly _dark: "oklch(20% 0.08 264)";
+        readonly _dark: "{colors.primary.xdark}";
       };
     };
     readonly muted: {
       readonly value: {
         readonly base: "{colors.primary.lighter}";
-        readonly _dark: "oklch(25% 0.1 264)";
+        readonly _dark: "{colors.primary.darker}";
       };
     };
     readonly emphasized: {
       readonly value: {
         readonly base: "{colors.primary.light}";
-        readonly _dark: "oklch(35% 0.15 264)";
+        readonly _dark: "{colors.primary.dark}";
       };
     };
     readonly solid: {

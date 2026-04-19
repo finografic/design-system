@@ -13,8 +13,8 @@ declare const BASE_COLORS: {
   readonly danger: OKLCH;
   readonly info: OKLCH;
   readonly grey: OKLCH;
-  readonly default: OKLCH;
   readonly text: OKLCH;
+  readonly default: OKLCH;
 };
 //#endregion
 export { BASE_COLORS, BASE_COLORS_THEME };
