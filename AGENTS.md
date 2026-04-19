@@ -8,6 +8,19 @@ FILE ZONES — read before editing this file
   (universal) section. Never treat (this repo) content as if it applies to other codebases.
 -->
 
+## Roadmap and Planning Docs
+
+**`docs/todo/ROADMAP.md` is the primary high-level plan for this project.**
+**`docs/todo/NEXT_STEPS.md` is the near-term working list** — small tasks, fixes, and manual testing checklists too small for ROADMAP.
+
+- Before proposing or generating new features, check the roadmap for existing items.
+- When conceiving a new feature or initiative, add it to the appropriate priority tier.
+- Detailed planning docs live alongside in `docs/todo/` as `TODO_*.md` (active) or `DONE_*.md` (complete).
+- **TODO/DONE doc conventions:** `.github/instructions/documentation/todo-done-docs.instructions.md`
+  — rules for naming, status headers, checkboxes, and graduating `TODO_` → `DONE_`.
+
+---
+
 ## Rules — Project-Specific (this repo)
 
 - Project-specific rules live in `.github/instructions/project/**/*.instructions.md`.
@@ -86,20 +99,39 @@ Unlayered CSS in `forms.css` always wins over `@layer utilities` (Panda), so thi
 
 ---
 
-## Rules — Global (universal)
+## Rules — Global
 
-- General: `.github/instructions/00-general.instructions.md`
-- File Naming: `.github/instructions/01-file-naming.instructions.md`
-- TypeScript: `.github/instructions/02-typescript-patterns.instructions.md`
-- ESLint & Style: `.github/instructions/04-eslint-code-style.instructions.md`
-- Documentation: `.github/instructions/05-documentation.instructions.md`
-- Modern TS Patterns: `.github/instructions/06-modern-typescript-patterns.instructions.md`
-- Variable Naming: `.github/instructions/07-variable-naming.instructions.md`
-- README Standards: `.github/instructions/08-readme-standards.instructions.md`
-- Picocolors CLI styling: `.github/instructions/09-picocolors-cli-styling.instructions.md`
-- Git Policy: `.github/instructions/10-git-policy.instructions.md`
-- Agent-facing Markdown: `.github/instructions/11-agent-facing-markdown.instructions.md`
-- Feature Design Specs: `.github/instructions/12-feature-design-specs.instructions.md`
+Rules are canonical in `.github/instructions/` — see `README.md` there for folder structure.
+Shared across Claude Code, Cursor, and GitHub Copilot.
+
+**General**
+
+- General baseline: `.github/instructions/general.instructions.md`
+
+**Code**
+
+- TypeScript patterns: `.github/instructions/code/typescript-patterns.instructions.md`
+- Modern TS patterns: `.github/instructions/code/modern-typescript-patterns.instructions.md`
+- ESLint & style: `.github/instructions/code/eslint-code-style.instructions.md`
+- Provider/context patterns: `.github/instructions/code/provider-context-patterns.instructions.md`
+- Picocolors CLI styling: `.github/instructions/code/picocolors-cli-styling.instructions.md`
+
+**Naming**
+
+- File naming: `.github/instructions/naming/file-naming.instructions.md`
+- Variable naming: `.github/instructions/naming/variable-naming.instructions.md`
+
+**Documentation**
+
+- Documentation: `.github/instructions/documentation/documentation.instructions.md`
+- README standards: `.github/instructions/documentation/readme-standards.instructions.md`
+- Agent-facing markdown: `.github/instructions/documentation/agent-facing-markdown.instructions.md`
+- Feature design specs: `.github/instructions/documentation/feature-design-specs.instructions.md`
+- TODO/DONE docs: `.github/instructions/documentation/todo-done-docs.instructions.md`
+
+**Git**
+
+- Git policy: `.github/instructions/git/git-policy.instructions.md`
 
 ---
 
@@ -141,3 +173,12 @@ Unlayered CSS in `forms.css` always wins over `@layer utilities` (Panda), so thi
 - **TreeView depth indentation:** `treeViewRecipe` sets `--tree-depth`, `--tree-offset`, etc. as CSS custom props on `branchControl` and `item` slots. These derive from Ark's runtime-injected `--depth` var. The root slot's size variant overrides `--tree-indentation`, `--tree-padding-inline`, etc. No inline styles are needed — indentation is fully CSS-driven.
 - **FileUpload compound layout modes:** `FileUpload.Item` (slot `'item'`) uses a CSS Grid layout (preview + name + size + delete). `FileUpload.ItemCompact` (slot `'itemCompact'`) is a second `withContext` alias of the same `ArkFileUpload.Item` part — same Ark element, different recipe slot class, inline-flex compact layout. Use `ItemCompact` in the trigger-only (basic) mode; use `Item` in the dropzone mode with `ItemPreview`.
 - **Listbox vs Select:** `Listbox` is always visible (no dropdown, no positioner). Use it for side-panel or inline multi-select UI. For dropdown single-select use `SelectDefault`; for searchable dropdown use `SelectSearchable`.
+
+## Claude Code — Session Memory and Handoff
+
+> This section applies to Claude Code only. Other agents can ignore it.
+
+- **Session log:** `.claude/memory.md` (gitignored) — maintenance rules are in that file.
+- **Project state snapshot:** `.ai/handoff.md` (git-tracked) — maintenance rules are in that file.
+
+---
