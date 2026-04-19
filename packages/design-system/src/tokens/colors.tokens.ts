@@ -1,4 +1,4 @@
-import { BASE_COLORS } from '../palette/base.colors';
+import { BASE_COLORS } from '../palette/base.palette';
 import { buildShade } from '../palette/palette.utils';
 
 /**

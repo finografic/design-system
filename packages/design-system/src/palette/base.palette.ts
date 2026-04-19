@@ -8,7 +8,7 @@
  * @see https://www.w3.org/TR/css-color-4/#ok-lab — W3C specification
  */
 
-import type { ColorName, OKLCH } from './color.types';
+import type { ColorName, OKLCH } from './palette.types';
 
 export const BASE_COLORS_THEME: Record<ColorName, OKLCH> = {
   primary: 'oklch(48.8% 0.243 264.376)',

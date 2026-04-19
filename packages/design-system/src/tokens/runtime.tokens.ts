@@ -8,7 +8,7 @@
  *     instead.
  */
 
-import { colors } from '../palette/palette.colors';
+import { colors } from '../palette/colors.palette';
 import { borderWidthTokens, radiiTokens } from './decorative.tokens';
 import { layoutTokens } from './layout.tokens';
 import { spacingTokens } from './spacing.tokens';

@@ -1,6 +1,6 @@
-export { BASE_COLORS_THEME } from '../palette/base.colors';
-export type { ColorName, OKLCH } from '../palette/color.types';
-export type { ColorsKey } from '../palette/palette.colors';
+export { BASE_COLORS_THEME } from '../palette/base.palette';
+export type { ColorsKey } from '../palette/colors.palette';
+export type { ColorName, OKLCH } from '../palette/palette.types';
 export { BREAKPOINTS } from '../viewport/viewport.breakpoints';
 export { min } from '../viewport/viewport.emotion';
 export { durationTokens, easingTokens, keyframes } from './animations.tokens';
