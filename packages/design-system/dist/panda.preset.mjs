@@ -1,3 +1,4 @@
+import { r as BASE_COLORS, t as buildShade } from "./palette.utils-B1rxZTA3.mjs";
 //#region ../../node_modules/.pnpm/@pandacss+dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.mjs
 function definePreset(preset) {
 	return preset;
@@ -99,60 +100,6 @@ const easingTokens = defineTokens.easings({
 	"out": { value: "cubic-bezier(0, 0, 0.2, 1)" },
 	"in-out": { value: "cubic-bezier(0.4, 0, 0.2, 1)" }
 });
-const BASE_COLORS = {
-	primary: "oklch(48.8% 0.243 264.376)",
-	secondary: "oklch(49.6% 0.265 301.924)",
-	success: "oklch(60.4% 0.194 149.214)",
-	warning: "oklch(71% 0.188 70.08)",
-	danger: "oklch(55.7% 0.245 27.325)",
-	info: "oklch(58.8% 0.158 241.966)",
-	default: "oklch(65.3% 0.013 58.071)",
-	grey: "oklch(55.2% 0.016 285.938)",
-	text: "oklch(28% 0 0)",
-	white: "#ffffff",
-	black: "#000000",
-	transparent: "transparent"
-};
-/**
-* Shade scale (11 stops) — word names map to the TW/Panda/Ark numeric standard:
-*
-* SHADE SUFFIX → SHADE NOTES ────────────────────────────────────────────── xxxlight → 50 near-white endpoint
-* xxlight → 100 xlight → 200 lighter → 300 medium-light light → 400 hover-on-light-bg base → 500 anchor
-* (DEFAULT) dark → 600 hover-on-solid-bg, active states darker → 700 xdark → 800 xxdark → 900 xxxdark → 950
-* near-black endpoint
-*/
-//#endregion
-//#region src/palette/palette.utils.ts
-/**
-* Raw color palette for Panda CSS `tokens.colors`.
-*
-* Each color exposes 11 word-named shades plus a `DEFAULT` alias (= base) so `{colors.primary}` resolves
-* without a suffix.
-*
-* All shade values are computed at runtime via CSS color-mix(in oklch, …) — zero build-time cost,
-* perceptually uniform interpolation.
-*
-* Light-side percentages (% of base, remainder white): xxxlight → 5% | xxlight → 10% | xlight → 20% | lighter
-* → 38% | light → 58%
-*
-* Dark-side percentages (% of base, remainder black): dark → 82% | darker → 65% | xdark → 47% | xxdark → 30%
-* | xxxdark → 15%
-*/
-function buildShade(base) {
-	return {
-		xxxlight: { value: `color-mix(in oklch, ${base} 5%, white)` },
-		xxlight: { value: `color-mix(in oklch, ${base} 10%, white)` },
-		xlight: { value: `color-mix(in oklch, ${base} 20%, white)` },
-		lighter: { value: `color-mix(in oklch, ${base} 38%, white)` },
-		light: { value: `color-mix(in oklch, ${base} 58%, white)` },
-		DEFAULT: { value: base },
-		dark: { value: `color-mix(in oklch, ${base} 82%, black)` },
-		darker: { value: `color-mix(in oklch, ${base} 65%, black)` },
-		xdark: { value: `color-mix(in oklch, ${base} 47%, black)` },
-		xxdark: { value: `color-mix(in oklch, ${base} 30%, black)` },
-		xxxdark: { value: `color-mix(in oklch, ${base} 15%, black)` }
-	};
-}
 //#endregion
 //#region src/tokens/colors.tokens.ts
 /**

@@ -8,12 +8,12 @@ const browserEntries = {
   'forms/index': 'src/forms/index.ts',
   'grid/index': 'src/grid/index.ts',
   'viewport/index': 'src/viewport/index.ts',
-  'palette/index': 'src/palette/index.ts',
 };
 
-// panda.preset runs in Node at panda codegen time — never in the browser
+// Node-only entries: run at panda codegen time, never in the browser
 const nodeEntries = {
   'panda.preset': 'src/panda.preset.ts',
+  'palette/index': 'src/palette/index.ts',
 };
 
 export default defineConfig([
