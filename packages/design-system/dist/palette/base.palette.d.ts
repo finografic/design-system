@@ -1,6 +1,6 @@
-import { ColorName, OKLCH } from "./color.types.js";
+import { ColorName, OKLCH } from "./palette.types.js";
 
-//#region src/palette/base.colors.d.ts
+//#region src/palette/base.palette.d.ts
 declare const BASE_COLORS_THEME: Record<ColorName, OKLCH>;
 declare const BASE_COLORS: {
   readonly white: "#ffffff";
@@ -18,4 +18,4 @@ declare const BASE_COLORS: {
 };
 //#endregion
 export { BASE_COLORS, BASE_COLORS_THEME };
-//# sourceMappingURL=base.colors.d.ts.map
+//# sourceMappingURL=base.palette.d.ts.map

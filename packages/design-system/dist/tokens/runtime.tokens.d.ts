@@ -1,4 +1,4 @@
-import { colors } from "../palette/palette.colors.js";
+import { colors } from "../palette/colors.palette.js";
 
 //#region src/tokens/runtime.tokens.d.ts
 declare const layout: {

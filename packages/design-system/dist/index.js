@@ -19,7 +19,7 @@ import { Toast, Toaster, createToaster } from "./components/toast/toast.js";
 import { Tooltip, TooltipDS } from "./components/tooltip/tooltip.js";
 import { TreeView, TreeViewDS, createTreeCollection } from "./components/tree-view/tree-view.js";
 import "./components/index.js";
-import { BASE_COLORS, BASE_COLORS_THEME } from "./palette/base.colors.js";
+import { BASE_COLORS, BASE_COLORS_THEME } from "./palette/base.palette.js";
 import { buildShade, createColorTokens } from "./palette/palette.utils.js";
 import "./palette/index.js";
 import { durationTokens, easingTokens, keyframes } from "./tokens/animations.tokens.js";
@@ -33,7 +33,7 @@ import { BREAKPOINTS, BREAKPOINTS_EM, BREAKPOINTS_PX, BREAKPOINTS_REM, BREAKPOIN
 import { designSystemPreset } from "./panda.preset.js";
 import { max, min, sizes } from "./viewport/viewport.emotion.js";
 import { LAYOUT_VARS, layoutTokens } from "./tokens/layout.tokens.js";
-import { colors } from "./palette/palette.colors.js";
+import { colors } from "./palette/colors.palette.js";
 import { layout } from "./tokens/runtime.tokens.js";
 import "./tokens/index.js";
 import { MEDIA_QUERIES, QUERIES_MAX, QUERIES_MIN } from "./viewport/viewport.queries.js";

@@ -1,4 +1,4 @@
-//#region src/palette/base.colors.ts
+//#region src/palette/base.palette.ts
 const BASE_COLORS_THEME = {
 	primary: "oklch(48.8% 0.243 264.376)",
 	secondary: "oklch(49.6% 0.265 301.924)",
@@ -27,4 +27,4 @@ const BASE_COLORS = {
 //#endregion
 export { BASE_COLORS, BASE_COLORS_THEME };
 
-//# sourceMappingURL=base.colors.js.map
+//# sourceMappingURL=base.palette.js.map

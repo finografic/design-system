@@ -1,4 +1,4 @@
-import { BASE_COLORS } from "../palette/base.colors.js";
+import { BASE_COLORS } from "../palette/base.palette.js";
 import { buildShade } from "../palette/palette.utils.js";
 //#region src/tokens/colors.tokens.ts
 /**

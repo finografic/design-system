@@ -1,6 +1,6 @@
-import { ColorName, OKLCH } from "../palette/color.types.js";
-import { BASE_COLORS_THEME } from "../palette/base.colors.js";
-import { ColorsKey, colors } from "../palette/palette.colors.js";
+import { ColorName, OKLCH } from "../palette/palette.types.js";
+import { BASE_COLORS_THEME } from "../palette/base.palette.js";
+import { ColorsKey, colors } from "../palette/colors.palette.js";
 import { BREAKPOINTS } from "../viewport/viewport.breakpoints.js";
 import { min } from "../viewport/viewport.emotion.js";
 import { durationTokens, easingTokens, keyframes } from "./animations.tokens.js";

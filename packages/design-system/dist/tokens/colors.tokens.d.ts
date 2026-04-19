@@ -1,4 +1,4 @@
-import { ColorShade, OKLCH } from "../palette/color.types.js";
+import { ColorShade, OKLCH } from "../palette/palette.types.js";
 //#region src/tokens/colors.tokens.d.ts
 /**
  * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',

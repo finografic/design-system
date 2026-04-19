@@ -1,4 +1,4 @@
-import { BASE_COLORS, BASE_COLORS_THEME } from "./base.colors.js";
+import { BASE_COLORS, BASE_COLORS_THEME } from "./base.palette.js";
 //#region src/palette/palette.utils.ts
 /**
 * Raw color palette for Panda CSS `tokens.colors`.

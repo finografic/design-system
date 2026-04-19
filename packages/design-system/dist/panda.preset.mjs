@@ -1,4 +1,4 @@
-import { r as BASE_COLORS, t as buildShade } from "./palette.utils-B1rxZTA3.mjs";
+import { r as BASE_COLORS, t as buildShade } from "./palette.utils-BIu82-O0.mjs";
 //#region ../../node_modules/.pnpm/@pandacss+dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.mjs
 function definePreset(preset) {
 	return preset;

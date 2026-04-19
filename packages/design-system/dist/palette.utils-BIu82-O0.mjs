@@ -1,4 +1,4 @@
-//#region src/palette/base.colors.ts
+//#region src/palette/base.palette.ts
 const BASE_COLORS_THEME = {
 	primary: "oklch(48.8% 0.243 264.376)",
 	secondary: "oklch(49.6% 0.265 301.924)",
@@ -87,4 +87,4 @@ function createColorTokens(overrides = {}) {
 //#endregion
 export { BASE_COLORS_THEME as i, createColorTokens as n, BASE_COLORS as r, buildShade as t };
 
-//# sourceMappingURL=palette.utils-B1rxZTA3.mjs.map
+//# sourceMappingURL=palette.utils-BIu82-O0.mjs.map

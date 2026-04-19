@@ -1,4 +1,4 @@
-import { ColorName, ColorShade, OKLCH } from "./color.types.js";
+import { ColorName, ColorShade, OKLCH } from "./palette.types.js";
 
 //#region src/palette/palette.utils.d.ts
 /**

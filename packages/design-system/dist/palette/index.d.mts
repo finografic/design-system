@@ -1,9 +1,9 @@
-//#region src/palette/color.types.d.ts
+//#region src/palette/palette.types.d.ts
 type ColorName = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'default' | 'grey' | 'text';
 type ColorShade = 'xxxlight' | 'xxlight' | 'xlight' | 'lighter' | 'light' | 'DEFAULT' | 'dark' | 'darker' | 'xdark' | 'xxdark' | 'xxxdark';
 type OKLCH = `oklch(${number}% ${number} ${number})` | `oklch(${number} ${number} ${number} / ${number | `${number}%`})`;
 //#endregion
-//#region src/palette/base.colors.d.ts
+//#region src/palette/base.palette.d.ts
 declare const BASE_COLORS_THEME: Record<ColorName, OKLCH>;
 declare const BASE_COLORS: {
   readonly white: "#ffffff";
