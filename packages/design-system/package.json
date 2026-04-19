@@ -60,6 +60,8 @@
       "import": "./dist/panda.preset.mjs"
     },
     "./styles/global.css": "./src/styles/global.css",
+    "./styles/reset.css": "./src/styles/reset.css",
+    "./styles/keyframes.css": "./src/styles/keyframes.css",
     "./grid/grid.css": "./src/grid/grid.css",
     "./forms/forms.css": "./src/forms/forms.css",
     "./components/generic-dialog.css": "./src/components/generic-dialog/generic-dialog.css"
@@ -67,6 +69,8 @@
   "files": [
     "dist",
     "src/styles/global.css",
+    "src/styles/reset.css",
+    "src/styles/keyframes.css",
     "src/grid/grid.css",
     "src/forms/forms.css",
     "src/components/generic-dialog/generic-dialog.css",
