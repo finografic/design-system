@@ -5,7 +5,6 @@
  * Variants: size (sm | md | lg) · variant (default | card) · orientation (vertical | horizontal)
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const radioGroupRecipe = sva({

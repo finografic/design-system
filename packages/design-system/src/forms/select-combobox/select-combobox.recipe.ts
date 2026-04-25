@@ -7,7 +7,6 @@
  * itemGroup · itemGroupLabel · item · itemText · itemIndicator Variants: size (sm | md | lg)
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const selectComboboxRecipe = sva({

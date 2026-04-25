@@ -10,7 +10,6 @@
  * - **itemControl** — hidden native radio input (Ark uses internally).
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const segmentGroupRecipe = sva({

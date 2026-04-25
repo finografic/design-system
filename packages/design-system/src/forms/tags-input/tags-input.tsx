@@ -1,13 +1,12 @@
 import { XIcon } from '@finografic/icons';
-
 import { TagsInput as ArkTagsInput } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { TagsInputVariants } from './tags-input.recipe';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
-import type { TagsInputVariants } from './tags-input.recipe';
 import { tagsInputRecipe } from './tags-input.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

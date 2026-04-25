@@ -130,7 +130,7 @@ export function DataTable<TData>({
   getRowId,
   selectedRows,
   onSelectionChange,
-}: DataTableProps<TData>) {
+}: DataTableProps<TData>): React.ReactNode {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [internalRowSelection, setInternalRowSelection] = useState<RowSelectionState>({});

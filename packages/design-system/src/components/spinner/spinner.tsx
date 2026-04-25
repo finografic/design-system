@@ -1,7 +1,6 @@
 import { LoaderIcon } from '@finografic/icons';
-
-import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
 import { spinnerRecipe } from './spinner.recipe';
 

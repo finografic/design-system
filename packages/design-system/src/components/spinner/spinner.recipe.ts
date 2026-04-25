@@ -4,7 +4,6 @@
  * Base: continuous spin animation via the `spin` Panda keyframe.
  */
 import { cva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const spinnerRecipe = cva({

@@ -1,6 +1,6 @@
 export type {
   TreeViewDSClassNames,
-  TreeViewDSNode,
+  TreeViewNode,
   TreeViewDSProps,
   TreeViewExpandedChangeDetails,
   TreeViewSelectionChangeDetails,

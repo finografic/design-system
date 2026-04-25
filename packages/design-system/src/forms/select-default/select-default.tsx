@@ -32,13 +32,12 @@
  *   ```;
  */
 import { CheckIcon, ChevronDownIcon } from '@finografic/icons';
-
 import { createListCollection, Select as ArkSelect } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { forwardRef, useMemo } from 'react';
+import type { SelectDefaultProps } from './select-default.types';
 
 import { selectRecipe } from '../select/select.recipe';
-import type { SelectDefaultProps } from './select-default.types';
 
 export const SelectDefault = forwardRef<HTMLButtonElement, SelectDefaultProps>((props, ref) => {
   const {

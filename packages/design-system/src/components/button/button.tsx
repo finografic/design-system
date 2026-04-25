@@ -20,11 +20,11 @@
  */
 import { ark } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import type { ButtonVariants } from './button.recipe';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import { Spinner } from '../spinner';
-import type { ButtonVariants } from './button.recipe';
 import { buttonRecipe } from './button.recipe';
 
 export type ButtonProps = ComponentPropsWithoutRef<'button'> &

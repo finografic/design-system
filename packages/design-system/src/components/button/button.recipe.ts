@@ -8,7 +8,6 @@
  * work across all color schemes with no compound variants (except warning+solid which needs dark fg).
  */
 import { cva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const buttonRecipe = cva({

@@ -1,6 +1,6 @@
 import { cx } from '@styled-system/css';
-import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
 import { forwardRef } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties } from 'react';
 
 interface RowProps extends ComponentPropsWithoutRef<'div'> {
   /** Cross-axis alignment of child columns. */

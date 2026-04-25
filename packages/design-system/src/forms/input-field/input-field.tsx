@@ -1,9 +1,9 @@
 import { Field } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { Children, forwardRef, isValidElement } from 'react';
+import type { InputFieldVariants } from './input-field.recipe';
 import type { HTMLAttributes, InputHTMLAttributes, ReactNode } from 'react';
 
-import type { InputFieldVariants } from './input-field.recipe';
 import { inputFieldRecipe } from './input-field.recipe';
 
 // ── InputField.Slot ───────────────────────────────────────────────────────────

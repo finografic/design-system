@@ -6,7 +6,6 @@
  * Variants: size (sm | md | lg) · resize (none | vertical | horizontal | both)
  */
 import { cva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const textareaRecipe = cva({

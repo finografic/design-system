@@ -6,7 +6,6 @@
  * Slots: root · viewport · content · scrollbar · thumb · corner
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const scrollAreaRecipe = sva({

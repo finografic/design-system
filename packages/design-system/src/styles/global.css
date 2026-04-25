@@ -128,13 +128,13 @@ svg.icon-spin {
   input,
   select,
   textarea,
-  [role="button"],
-  [role="checkbox"],
-  [role="switch"],
-  [role="slider"],
-  [data-part="control"],
-  [data-part="thumb"],
-  [data-part="trigger"] {
+  [role='button'],
+  [role='checkbox'],
+  [role='switch'],
+  [role='slider'],
+  [data-part='control'],
+  [data-part='thumb'],
+  [data-part='trigger'] {
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -142,7 +142,7 @@ svg.icon-spin {
   button,
   a,
   label,
-  [role="button"] {
+  [role='button'] {
     touch-action: manipulation;
   }
 

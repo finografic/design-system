@@ -16,7 +16,6 @@
  * - **enclosed** — Pill list + sliding indicator behind labels (`z-index: -1`, `accent.subtle`).
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 const focusRing = {

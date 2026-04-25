@@ -17,7 +17,6 @@
  * (`bg.muted`).
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const inputNumberRecipe = sva({

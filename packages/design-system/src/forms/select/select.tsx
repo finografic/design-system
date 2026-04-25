@@ -1,7 +1,7 @@
 import { Portal, Select as ArkSelect } from '@ark-ui/react';
 import { createStyleContext } from '@styled-system/jsx';
-import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { forwardRef } from 'react';
+import type { ComponentPropsWithRef, ComponentRef } from 'react';
 
 import { selectRecipe } from './select.recipe';
 

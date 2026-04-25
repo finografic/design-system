@@ -1,12 +1,9 @@
-// @ts-nocheck
-/* eslint-disable */
-
 // ======================================================================== //
 // NOTE: EXAMPLE - Basic
 // https://ark-ui.com/docs/components/listbox
 
+import { CheckIcon } from '@finografic/icons';
 import { createListCollection, Listbox } from '@ark-ui/react/listbox';
-import { CheckIcon } from 'lucide-react';
 
 import styles from './listbox.module.css';
 
@@ -44,11 +41,6 @@ export const Basic = () => {
 // NOTE: EXAMPLE - Multiple
 // https://ark-ui.com/docs/components/listbox
 
-import { createListCollection, Listbox } from '@ark-ui/react/listbox';
-import { CheckIcon } from 'lucide-react';
-
-import styles from './listbox.module.css';
-
 export const Multiple = () => {
   const collection = createListCollection({
     items: [
@@ -84,10 +76,8 @@ export const Multiple = () => {
 // https://ark-ui.com/docs/components/listbox
 
 import { useListCollection } from '@ark-ui/react/collection';
-import { Listbox } from '@ark-ui/react/listbox';
-import { CheckIcon } from 'lucide-react';
+
 import field from './field.module.css';
-import styles from './listbox.module.css';
 
 export const Filtering = () => {
   const { collection, filter } = useListCollection({

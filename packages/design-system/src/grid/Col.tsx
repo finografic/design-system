@@ -1,6 +1,6 @@
 import { cx } from '@styled-system/css';
-import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
 /** A column span: a number from 1–12, or `'content'` to size to the column's content. */
 type ColSpan = number | 'content';

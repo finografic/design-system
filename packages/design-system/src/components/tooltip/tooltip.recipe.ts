@@ -4,7 +4,6 @@
  * Slots: trigger | positioner | content | arrow | arrowTip
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const tooltipRecipe = sva({

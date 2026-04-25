@@ -18,7 +18,6 @@
  * `indicator` slot; `root._indeterminate` toggles visibility so only the correct icon shows for each state.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const checkboxRecipe = sva({

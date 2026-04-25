@@ -11,7 +11,6 @@
  * scales automatically with nesting level.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const treeViewRecipe = sva({

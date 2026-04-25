@@ -4,7 +4,6 @@
  * Slots: trigger | positioner | content | title | description | closeTrigger | arrow | arrowTip
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const popoverRecipe = sva({

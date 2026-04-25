@@ -1,12 +1,11 @@
 import { CheckIcon, EditIcon, XIcon } from '@finografic/icons';
-
 import { Editable as ArkEditable } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { EditableRecipeProps } from './editable.recipe';
 import type { ReactNode } from 'react';
 
-import type { EditableRecipeProps } from './editable.recipe';
 import { editableRecipe } from './editable.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

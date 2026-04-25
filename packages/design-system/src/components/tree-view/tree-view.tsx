@@ -1,12 +1,11 @@
 import { ChevronRightIcon } from '@finografic/icons';
-
 import { createTreeCollection, TreeView as ArkTreeView } from '@ark-ui/react/tree-view';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { TreeViewRecipeProps } from './tree-view.recipe';
 import type { ReactNode } from 'react';
 
-import type { TreeViewRecipeProps } from './tree-view.recipe';
 import { treeViewRecipe } from './tree-view.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

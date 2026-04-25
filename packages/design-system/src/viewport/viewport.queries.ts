@@ -1,5 +1,6 @@
-import { BREAKPOINTS } from './viewport.breakpoints';
 import type { BreakpointMap, ScreenClass } from './viewport.types';
+
+import { BREAKPOINTS } from './viewport.breakpoints';
 import { toMediaMaxWidth, toMediaMinWidth } from './viewport.utils';
 
 /** Min-width media query strings for each breakpoint (no `@media` wrapper). */

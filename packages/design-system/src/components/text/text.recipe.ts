@@ -5,7 +5,6 @@
  * inverted | error | success | warning | info) truncate (boolean)
  */
 import { cva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const textRecipe = cva({

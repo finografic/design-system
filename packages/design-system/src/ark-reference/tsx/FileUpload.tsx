@@ -38,9 +38,7 @@ export const Basic = () => (
 // NOTE: EXAMPLE - Dropzone
 // https://ark-ui.com/docs/components/file-upload
 
-import { FileUpload } from '@ark-ui/react/file-upload';
-import { FileIcon, UploadIcon, XIcon } from 'lucide-react';
-import styles from './file-upload.module.css';
+import { FileIcon, UploadIcon } from 'lucide-react';
 
 export const Dropzone = () => (
   <FileUpload.Root maxFiles={5} className={styles.Root}>
@@ -81,11 +79,9 @@ export const Dropzone = () => (
 // NOTE: EXAMPLE - Root Provider
 // https://ark-ui.com/docs/components/file-upload
 
-import { FileUpload, useFileUpload } from '@ark-ui/react/file-upload';
-import { FileIcon, UploadIcon, XIcon } from 'lucide-react';
+import { useFileUpload } from '@ark-ui/react/file-upload';
 
 import button from './button.module.css';
-import styles from './file-upload.module.css';
 
 export const RootProvider = () => {
   const fileUpload = useFileUpload({ maxFiles: 5 });

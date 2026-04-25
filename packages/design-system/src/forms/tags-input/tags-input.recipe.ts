@@ -14,7 +14,6 @@
  * - `clearTrigger` clears all tags; place it after `control` or inside it.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const tagsInputRecipe = sva({

@@ -1,7 +1,6 @@
-import type React from 'react';
-
 import type { ButtonProps } from '../button/button';
 import type { DialogSize } from '../dialog/dialog.types';
+import type React from 'react';
 
 export type { DialogSize };
 

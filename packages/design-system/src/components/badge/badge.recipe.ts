@@ -4,7 +4,6 @@
  * Variants: size (sm | md | lg) · variant (solid | soft | outline) · palette
  */
 import { cva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const badgeRecipe = cva({

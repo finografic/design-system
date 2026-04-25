@@ -48,6 +48,14 @@ export default defineConfig({
     // 'eslint/no-redeclare': 'off',
 
     'curly': ['error', 'multi-line'],
+
+    'jsdoc/check-tag-names': [
+      'warn',
+      {
+        definedTags: ['finografic', 'finografic/design-system/styles/reset.css'],
+      },
+    ],
+
     'react-perf/jsx-no-new-function-as-prop': 'off',
     'prefer-const': ['error', { destructuring: 'all' }],
     'prefer-destructuring': [
@@ -93,8 +101,7 @@ export default defineConfig({
     'typescript/no-floating-promises': 'off',
     'typescript/await-thenable': 'error',
     'typescript/consistent-indexed-object-style': ['error', 'record'],
-    // 'typescript/explicit-function-return-type': ['error', { allowIIFEs: 'warn' }],
-    // NEW:
+
     'typescript/explicit-function-return-type': [
       'warn',
       {
@@ -108,6 +115,7 @@ export default defineConfig({
       },
     ],
   },
+
   overrides: [
     {
       files: ['**/*.spec.ts', '**/*.test.ts', '__tests__/**/*.ts'],
@@ -139,5 +147,6 @@ export default defineConfig({
     '**/*.min.*',
     '**/*.map',
     '*.d.ts',
+    '**/ark-reference/**',
   ],
 } satisfies OxlintConfig);

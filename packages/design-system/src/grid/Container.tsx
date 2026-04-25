@@ -1,6 +1,6 @@
 import { cx } from '@styled-system/css';
-import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
 
 interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   /** When true, removes the max-width constraint — container spans the full viewport width. */

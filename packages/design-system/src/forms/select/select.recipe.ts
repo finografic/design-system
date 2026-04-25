@@ -10,7 +10,6 @@
  * `item` both style selected rows.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const selectRecipe = sva({

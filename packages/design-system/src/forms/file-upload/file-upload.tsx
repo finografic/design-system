@@ -1,12 +1,11 @@
 import { UploadIcon, XIcon } from '@finografic/icons';
-
 import { FileUpload as ArkFileUpload } from '@ark-ui/react/file-upload';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { FileUploadRecipeProps } from './file-upload.recipe';
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import type { FileUploadRecipeProps } from './file-upload.recipe';
 import { fileUploadRecipe } from './file-upload.recipe';
 
 // ── Plain-element wrappers for unstyled inner dropzone parts ─────────────────

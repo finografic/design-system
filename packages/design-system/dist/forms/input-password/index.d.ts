@@ -1,2 +1,0 @@
-import { InputPasswordRecipeProps, InputPasswordSize, inputPasswordRecipe } from "./input-password.recipe.js";
-import { InputPassword, InputPasswordDS, InputPasswordDSClassNames, InputPasswordDSProps, PasswordInputVisibilityChangeDetails } from "./input-password.js";

@@ -1,7 +1,7 @@
 import { Combobox as ArkCombobox, createListCollection, Portal } from '@ark-ui/react';
 import { createStyleContext } from '@styled-system/jsx';
-import type { ComponentPropsWithRef, ComponentRef, HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
+import type { ComponentPropsWithRef, ComponentRef, HTMLAttributes } from 'react';
 
 import { selectComboboxRecipe } from './select-combobox.recipe';
 

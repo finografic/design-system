@@ -18,6 +18,7 @@
  */
 
 import type { ScreenClass } from './viewport.types';
+
 import { toEmNumeric, toPixelString, toRemNumeric } from './viewport.utils';
 
 // ============================================================================

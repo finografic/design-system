@@ -10,7 +10,6 @@
  * `_highlighted` (keyboard focus) and `_checked` (selected) states.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const listboxRecipe = sva({

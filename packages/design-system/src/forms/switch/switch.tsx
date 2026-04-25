@@ -2,10 +2,10 @@ import { Switch as ArkSwitch } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { SwitchVariants } from './switch.recipe';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
-import type { SwitchVariants } from './switch.recipe';
 import { switchRecipe } from './switch.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

@@ -71,7 +71,7 @@ export type { TooltipDSClassNames, TooltipDSProps } from './tooltip';
 export { Tooltip, TooltipDS } from './tooltip';
 export type {
   TreeViewDSClassNames,
-  TreeViewDSNode,
+  TreeViewNode,
   TreeViewDSProps,
   TreeViewExpandedChangeDetails,
   TreeViewSelectionChangeDetails,

@@ -14,9 +14,9 @@
  */
 import { cx } from '@styled-system/css';
 import { forwardRef } from 'react';
+import type { LabelVariants } from './label.recipe';
 import type { LabelHTMLAttributes } from 'react';
 
-import type { LabelVariants } from './label.recipe';
 import { labelRecipe } from './label.recipe';
 
 export type LabelProps = LabelVariants & LabelHTMLAttributes<HTMLLabelElement>;

@@ -1,6 +1,6 @@
+import type { ColorName, ColorShade, OKLCH } from 'palette/palette.types';
+
 import { BASE_COLORS, BASE_COLORS_THEME } from './base.palette';
-import type { ColorShade } from './palette.types';
-import type { ColorName, OKLCH } from './palette.types';
 
 /**
  * Raw color palette for Panda CSS `tokens.colors`.

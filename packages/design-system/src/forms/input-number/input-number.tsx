@@ -1,12 +1,11 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@finografic/icons';
-
 import { NumberInput as ArkNumberInput } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { forwardRef } from 'react';
+import type { InputNumberVariants } from './input-number.recipe';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
-import type { InputNumberVariants } from './input-number.recipe';
 import { inputNumberRecipe } from './input-number.recipe';
 
 /**

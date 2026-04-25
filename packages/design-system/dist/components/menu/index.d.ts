@@ -1,2 +1,0 @@
-import { Menu, MenuDS, MenuDSClassNames, MenuDSGroup, MenuDSItem, MenuDSProps, MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionDetails } from "./menu.js";
-import { menuRecipe } from "./menu.recipe.js";

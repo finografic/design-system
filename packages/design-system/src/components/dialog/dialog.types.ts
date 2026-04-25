@@ -1,7 +1,6 @@
+import type { DialogVariants } from './dialog.recipe';
 import type { DialogRootProps } from '@ark-ui/react';
 import type React from 'react';
-
-import type { DialogVariants } from './dialog.recipe';
 
 // ── Size scale ────────────────────────────────────────────────────────────────
 

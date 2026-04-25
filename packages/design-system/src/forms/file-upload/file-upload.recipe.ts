@@ -11,7 +11,6 @@
  * the full grid layout (preview + name + size + delete). ItemCompact is the inline compact row.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const fileUploadRecipe = sva({

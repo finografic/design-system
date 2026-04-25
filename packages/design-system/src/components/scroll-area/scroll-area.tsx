@@ -1,11 +1,11 @@
 import { ScrollArea as ArkScrollArea } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import type React from 'react';
 import { forwardRef } from 'react';
+import type { ScrollAreaRecipeProps } from './scroll-area.recipe';
+import type React from 'react';
 import type { ReactNode } from 'react';
 
-import type { ScrollAreaRecipeProps } from './scroll-area.recipe';
 import { scrollAreaRecipe } from './scroll-area.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

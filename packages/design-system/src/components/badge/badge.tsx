@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
+import type { BadgeVariants } from './badge.recipe';
 import type { HTMLAttributes } from 'react';
 
-import type { BadgeVariants } from './badge.recipe';
 import { badgeRecipe } from './badge.recipe';
 
 export type BadgeProps = BadgeVariants & HTMLAttributes<HTMLSpanElement>;

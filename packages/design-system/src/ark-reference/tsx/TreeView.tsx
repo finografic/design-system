@@ -115,11 +115,9 @@ const collection = createTreeCollection<Node>({
 // NOTE: EXAMPLE - Lazy Loading
 // https://ark-ui.com/docs/components/tree-view
 
-import { createTreeCollection, TreeView, useTreeViewNodeContext } from '@ark-ui/react/tree-view';
-import { ChevronRightIcon, FileIcon, FolderIcon, FolderOpenIcon, LoaderIcon } from 'lucide-react';
+import { useTreeViewNodeContext } from '@ark-ui/react/tree-view';
+import { LoaderIcon } from 'lucide-react';
 import { useState } from 'react';
-
-import styles from './tree-view.module.css';
 
 // mock api result
 const response: Record<string, Node[]> = {

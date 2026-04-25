@@ -12,7 +12,6 @@
  * `Trigger` has no recipe slot — unstyled; compose with `asChild` + `<Button>` on the consumer side.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const menuRecipe = sva({

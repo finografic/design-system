@@ -9,7 +9,6 @@
  * - **indicator** — optional icon indicator rendered inside the root button.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const toggleRecipe = sva({

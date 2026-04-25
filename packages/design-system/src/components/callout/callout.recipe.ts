@@ -4,7 +4,6 @@
  * Variants: status (error | warning | success | info)
  */
 import { cva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const calloutRecipe = cva({

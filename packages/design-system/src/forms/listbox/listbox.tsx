@@ -2,9 +2,9 @@ import { createListCollection, Listbox as ArkListbox } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef, useMemo } from 'react';
+import type { ListboxRecipeProps } from './listbox.recipe';
 import type { ReactNode } from 'react';
 
-import type { ListboxRecipeProps } from './listbox.recipe';
 import { listboxRecipe } from './listbox.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

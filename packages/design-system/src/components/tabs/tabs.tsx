@@ -2,9 +2,9 @@ import { Tabs as ArkTabs } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { TabsRecipeProps } from './tabs.recipe';
 import type { ReactNode } from 'react';
 
-import type { TabsRecipeProps } from './tabs.recipe';
 import { tabsRecipe } from './tabs.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

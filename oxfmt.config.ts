@@ -7,8 +7,8 @@ import {
   markdown,
   sorting,
 } from '@finografic/oxc-config/oxfmt';
-import { defineConfig } from 'oxfmt';
 import type { OxfmtConfig, OxfmtOverrideConfig } from '@finografic/oxc-config/oxfmt';
+import { defineConfig } from 'oxfmt';
 
 export default defineConfig({
   ignorePatterns: [...ignorePatterns],
@@ -28,4 +28,3 @@ export default defineConfig({
     },
   ] satisfies OxfmtOverrideConfig[],
 } satisfies OxfmtConfig);
-

@@ -1,9 +1,7 @@
 import React from "react";
 
 //#region src/icons.utils.d.ts
-type IconProps = React.SVGProps<SVGSVGElement> & {
-  [key: `data-${string}`]: string | undefined;
-};
+type IconProps = React.SVGProps<SVGSVGElement> & Record<`data-${string}`, string | undefined>;
 /**
  * Wraps a Lucide (or any SVG) component with: - `.icon` class (picks up global icon sizing from global.css) -
  * `.icon-name--{kebab}` class (useful for CSS targeting / debugging) - `data-icon-name` attribute - forwarded

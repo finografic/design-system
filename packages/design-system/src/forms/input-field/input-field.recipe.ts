@@ -9,7 +9,6 @@
  * adjusts via `hasLeadingSlot` / `hasTrailingSlot` compound variants on Root.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const inputFieldRecipe = sva({

@@ -2,10 +2,10 @@ import { RadioGroup as ArkRadioGroup } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { RadioGroupVariants } from './radio-group.recipe';
 import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
-import type { RadioGroupVariants } from './radio-group.recipe';
 import { radioGroupRecipe } from './radio-group.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

@@ -1,5 +1,6 @@
-import { BREAKPOINTS } from './viewport.breakpoints';
 import type { ScreenClass } from './viewport.types';
+
+import { BREAKPOINTS } from './viewport.breakpoints';
 
 /** All breakpoint keys in definition order — useful for iteration. */
 export const sizes = Object.keys(BREAKPOINTS) as ScreenClass[];

@@ -2,8 +2,8 @@ import { Pagination as ArkPagination } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
-
 import type { PaginationRecipeProps } from './pagination.recipe';
+
 import { paginationRecipe } from './pagination.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

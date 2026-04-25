@@ -9,7 +9,6 @@
  * `data-selected="true"` on tr.
  */
 import { sva } from '@styled-system/css';
-
 import type { RecipeProps } from '../../recipes/recipes.types';
 
 export const tableRecipe = sva({

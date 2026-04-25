@@ -1,8 +1,8 @@
 import { cx } from '@styled-system/css';
 import { forwardRef } from 'react';
+import type { TextareaVariants } from './textarea.recipe';
 import type { TextareaHTMLAttributes } from 'react';
 
-import type { TextareaVariants } from './textarea.recipe';
 import { textareaRecipe } from './textarea.recipe';
 
 export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &

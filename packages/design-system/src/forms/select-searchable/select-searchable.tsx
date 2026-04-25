@@ -25,14 +25,13 @@
  *   ```;
  */
 import { CheckIcon, ChevronDownIcon, MagnifyingGlassIcon, PlusIcon, XIcon } from '@finografic/icons';
-
 import { Combobox as ArkCombobox, createListCollection, Portal } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { matchSorter } from 'match-sorter';
 import { useMemo, useState } from 'react';
+import type { SelectSearchableProps } from './select-searchable.types';
 
 import { selectSearchableRecipe } from './select-searchable.recipe';
-import type { SelectSearchableProps } from './select-searchable.types';
 
 /** Small de-emphasised secondary label shown under the primary item label. */
 const itemSubLabelStyle = css({ fontSize: '0.75em', opacity: 0.6 });

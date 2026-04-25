@@ -2,9 +2,9 @@ import { Toggle as ArkToggle } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
+import type { ToggleRecipeProps } from './toggle.recipe';
 import type { ReactNode } from 'react';
 
-import type { ToggleRecipeProps } from './toggle.recipe';
 import { toggleRecipe } from './toggle.recipe';
 
 // ── Compound (createStyleContext) ─────────────────────────────────────────────

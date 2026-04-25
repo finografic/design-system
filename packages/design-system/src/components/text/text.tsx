@@ -1,7 +1,7 @@
 import { cx } from '@styled-system/css';
+import type { TextElement, TextVariants } from './text.recipe';
 import type { HTMLAttributes } from 'react';
 
-import type { TextElement, TextVariants } from './text.recipe';
 import { textRecipe } from './text.recipe';
 
 export type TextProps = TextVariants &

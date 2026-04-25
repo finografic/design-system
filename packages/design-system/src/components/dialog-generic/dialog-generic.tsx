@@ -1,13 +1,12 @@
 import { CloseIcon } from '@finografic/icons';
-
 import { css, cx } from '@styled-system/css';
-import type { CSSProperties, FC } from 'react';
 import { useCallback, useMemo, useState } from 'react';
+import type { DialogGenericConfig } from './dialog-generic.types';
+import type { CSSProperties, FC } from 'react';
 
 import { Button } from '../button/button';
 import { Dialog } from '../dialog/dialog';
 import { Tabs } from '../tabs/tabs';
-import type { DialogGenericConfig } from './dialog-generic.types';
 
 // ── Structural styles (translated from generic-dialog.css) ────────────────────
 
