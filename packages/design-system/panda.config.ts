@@ -15,7 +15,7 @@ export default defineConfig({
   /**
    * Disable Panda's built-in preflight — client already has
    *
-   * @finografic/design-system/styles/reset.css imported in theme.css.
+   * Finografic/design-system/styles/reset.css imported in theme.css.
    */
   preflight: false,
 

@@ -49,13 +49,6 @@ export default defineConfig({
 
     'curly': ['error', 'multi-line'],
 
-    'jsdoc/check-tag-names': [
-      'warn',
-      {
-        definedTags: ['finografic', 'finografic/design-system/styles/reset.css'],
-      },
-    ],
-
     'react-perf/jsx-no-new-function-as-prop': 'off',
     'prefer-const': ['error', { destructuring: 'all' }],
     'prefer-destructuring': [
