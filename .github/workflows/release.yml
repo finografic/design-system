@@ -36,7 +36,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build icons
-        run: pnpm build.icons
+        run: pnpm build:icons
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

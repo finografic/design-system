@@ -79,7 +79,7 @@
   "scripts": {
     "---------- DEV": "-------------------------------------------------------",
     "dev": "panda cssgen --watch",
-    "dev.ts": "tsdown --watch",
+    "dev:ts": "tsdown --watch",
     "watch": "concurrently --names codegen,tsdown \"panda codegen -w\" \"tsdown --watch\"",
     "link": "pnpm build && pnpm link --global",
     "unlink": "pnpm unlink --global",
@@ -92,10 +92,10 @@
     "panda:mcp": "panda mcp",
     "·········· LINTING": "···················································",
     "lint": "eslint .",
-    "lint.fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix",
     "·········· FORMATTING": "················································",
     "format": "oxfmt",
-    "format.check": "oxfmt --check",
+    "format:check": "oxfmt --check",
     "·········· UTILS": "·····················································",
     "typecheck": "tsc --noEmit",
     "prepare": "panda codegen"

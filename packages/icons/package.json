@@ -20,8 +20,8 @@
   ],
   "scripts": {
     "·········· ICONS": "·····················································",
-    "icons.config": "concurrently -n \"server,config\" -c \"cyan,green\" \"tsx server/icons-server.ts\" \"lucide-manager\"",
-    "icons.server": "tsx server/icons-server.ts",
+    "icons:config": "concurrently -n \"server,config\" -c \"cyan,green\" \"tsx server/icons-server.ts\" \"lucide-manager\"",
+    "icons:server": "tsx server/icons-server.ts",
     "·········· BUILD": "·····················································",
     "dev": "tsdown --watch --no-clean",
     "link": "pnpm build && pnpm link --global",

@@ -46,19 +46,19 @@ This wires up the `workspace:*` symlink so `packages/design-system` can resolve
 pnpm install
 
 # Build icons (required before DS build if icons changed)
-pnpm build.icons
+pnpm build:icons
 
 # Build design-system (runs panda codegen then tsdown)
 pnpm build
 
 # Build both in sequence
-pnpm build.all
+pnpm build:all
 
 # Type-check all packages
 pnpm typecheck
 
 # Lint (workspace-wide)
-pnpm lint.fix
+pnpm lint:fix
 
 # Format
 pnpm format
@@ -74,7 +74,7 @@ Before releasing, the working tree must be clean. Build both packages, then comm
 everything (including `dist/`) in a normal feature/fix commit:
 
 ```bash
-pnpm build.all
+pnpm build:all
 git add packages/icons/dist packages/design-system/dist
 git commit -m "feat: ..."   # or whatever describes your changes
 ```
@@ -82,9 +82,9 @@ git commit -m "feat: ..."   # or whatever describes your changes
 ### Step 2 — Run the release script
 
 ```bash
-pnpm release.patch   # 0.0.x → 0.0.x+1  (bug fixes)
-pnpm release.minor   # 0.x.0 → 0.x+1.0  (new features, backwards-compatible)
-pnpm release.major   # x.0.0 → x+1.0.0  (breaking changes)
+pnpm release:patch   # 0.0.x → 0.0.x+1  (bug fixes)
+pnpm release:minor   # 0.x.0 → 0.x+1.0  (new features, backwards-compatible)
+pnpm release:major   # x.0.0 → x+1.0.0  (breaking changes)
 ```
 
 The script (`scripts/release.ts`) will:

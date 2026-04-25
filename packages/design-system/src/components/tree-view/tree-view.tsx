@@ -116,7 +116,7 @@ export const TreeView = {
 // ── TreeViewDS — convenience wrapper ─────────────────────────────────────────
 
 /** A node descriptor for {@link TreeViewDS}. */
-export interface TreeViewDSNode {
+export interface TreeViewNode {
   /** Unique identifier — used as both tree value and accessibility label. */
   id: string;
   /** Display label. */
@@ -124,7 +124,7 @@ export interface TreeViewDSNode {
   /** String form of the label for accessibility (defaults to `id` if omitted). */
   accessibleLabel?: string;
   /** Child nodes — presence of this field marks the node as a branch. */
-  children?: TreeViewDSNode[];
+  children?: TreeViewNode[];
 }
 
 /** Slot class overrides for {@link TreeViewDS}. */
@@ -140,7 +140,7 @@ export interface TreeViewDSClassNames {
 
 export type TreeViewDSProps = TreeViewRecipeProps & {
   /** Tree nodes to render. Nested `children` create branch nodes. */
-  nodes: TreeViewDSNode[];
+  nodes: TreeViewNode[];
   /** Controlled selected node IDs. */
   selectedValue?: string[];
   /** Default selected node IDs (uncontrolled). */
@@ -252,14 +252,14 @@ TreeViewDS.displayName = 'TreeViewDS';
 
 // ── Internal recursive node renderer ─────────────────────────────────────────
 
-interface TreeViewDSNodeProps {
+interface TreeViewNodeProps {
   node: CollectionNode;
   indexPath: number[];
   styles: ReturnType<typeof treeViewRecipe>;
   classNames: TreeViewDSClassNames;
 }
 
-function TreeViewDSNode({ node, indexPath, styles, classNames }: TreeViewDSNodeProps) {
+function TreeViewDSNode({ node, indexPath, styles, classNames }: TreeViewNodeProps) {
   return (
     <ArkTreeView.NodeProvider node={node} indexPath={indexPath}>
       {node.children ? (
@@ -298,7 +298,7 @@ function TreeViewDSNode({ node, indexPath, styles, classNames }: TreeViewDSNodeP
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-function buildCollectionNodes(nodes: TreeViewDSNode[]): CollectionNode[] {
+function buildCollectionNodes(nodes: TreeViewNode[]): CollectionNode[] {
   return nodes.map((node) => ({
     id: node.id,
     label: node.accessibleLabel ?? (typeof node.label === 'string' ? node.label : node.id),

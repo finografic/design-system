@@ -91,7 +91,7 @@ The generator is invoked two ways:
 
 - Automatically in-process by the Hono server after every POST (so the picker
   always reflects current state without a manual step)
-- Manually via `pnpm icons.generate` (useful after hand-editing `icons.json`)
+- Manually via `pnpm icons:generate` (useful after hand-editing `icons.json`)
 
 ### The server (`server/icons-server.ts`)
 
@@ -144,7 +144,7 @@ pnpm icons
 lucide-manager dev
 
 # Re-run codegen manually if needed (e.g. after hand-editing icons.json)
-pnpm icons.generate
+pnpm icons:generate
 
 # Build the package for workspace consumers
 pnpm build
@@ -200,13 +200,13 @@ The following still need to be created or confirmed:
 
 | File               | Notes                                                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `package.json`     | Add `hono`, `@hono/node-server`, `tsx` as devDeps. Add `"icons"` and `"icons.generate"` scripts. See scripts section above. |
+| `package.json`     | Add `hono`, `@hono/node-server`, `tsx` as devDeps. Add `"icons"` and `"icons:generate"` scripts. See scripts section above. |
 | `tsconfig.json`    | Ensure `scripts/` and `server/` are included in `include` array                                                             |
 | `tsdown.config.ts` | Entry point is `src/index.ts` — same pattern as `@workspace/design-system`                                                  |
 
 After dropping in the new files, run `pnpm install` from the monorepo root,
 then `pnpm icons` from `packages/icons` to verify the server starts cleanly.
-Run `pnpm icons.generate` once to confirm the generator writes correctly
+Run `pnpm icons:generate` once to confirm the generator writes correctly
 before opening the picker.
 
 ---
