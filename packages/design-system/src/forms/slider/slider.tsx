@@ -1,7 +1,8 @@
 import { Slider as ArkSlider } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
 import type { SliderVariants } from './slider.recipe';

@@ -13,7 +13,8 @@
  *   ```;
  */
 import { cx } from '@styled-system/css';
-import { forwardRef, type LabelHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { LabelHTMLAttributes } from 'react';
 
 import type { LabelVariants } from './label.recipe';
 import { labelRecipe } from './label.recipe';

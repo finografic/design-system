@@ -37,7 +37,7 @@ export interface DataTableClassNames {
 
 export interface DataTableProps<TData> {
   data: TData[];
-  columns: DataTableColumn<TData>[];
+  columns: Array<DataTableColumn<TData>>;
   classNames: DataTableClassNames;
   caption?: string;
   loading?: boolean;

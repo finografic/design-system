@@ -2,31 +2,19 @@ import {
   AGENT_DOC_MARKDOWN_PATHS,
   agentMarkdown,
   base,
-  css,
   ignorePatterns,
   json,
   markdown,
   sorting,
-  typescript,
-} from '@finografic/oxfmt-config';
-
+} from '@finografic/oxc-config/oxfmt';
 import { defineConfig } from 'oxfmt';
+import type { OxfmtConfig, OxfmtOverrideConfig } from '@finografic/oxc-config/oxfmt';
 
-/**
- * Workspace root oxfmt config — Panda `styled-system/` and generated icon registry are excluded so generated
- * output stays stable.
- *
- * Import order is handled by ESLint (`simple-import-sort`), not oxfmt `sortImports`, so formatter and linter
- * stay aligned.
- */
 export default defineConfig({
-  $schema: './node_modules/oxfmt/configuration_schema.json',
-  ignorePatterns: [...ignorePatterns, '**/styled-system/**', 'packages/icons/src/icons.ts'],
+  ignorePatterns: [...ignorePatterns],
   ...base,
-  rules: sorting.rules,
-  sortPackageJson: sorting.sortPackageJson,
+  ...sorting,
   overrides: [
-    { files: ['*.ts', '*.tsx'], excludeFiles: [], options: { ...typescript } },
     { files: ['*.json', '*.jsonc'], excludeFiles: [], options: { ...json } },
     {
       files: ['*.md', '*.mdx'],
@@ -38,6 +26,6 @@ export default defineConfig({
       excludeFiles: [],
       options: { ...agentMarkdown },
     },
-    { files: ['*.css', '*.scss'], excludeFiles: ['**/ark-reference/css/**'], options: { ...css } },
-  ],
-} satisfies ReturnType<typeof defineConfig>);
+  ] satisfies OxfmtOverrideConfig[],
+} satisfies OxfmtConfig);
+

@@ -3,7 +3,8 @@ import { ChevronDownIcon } from '@finografic/icons';
 import { Accordion as ArkAccordion } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { AccordionRecipeProps } from './accordion.recipe';
 import { accordionRecipe } from './accordion.recipe';

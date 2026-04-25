@@ -1,5 +1,6 @@
 import { cx } from '@styled-system/css';
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { CardVariants } from './card.recipe';
 import { cardRecipe } from './card.recipe';

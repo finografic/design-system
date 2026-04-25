@@ -1,7 +1,8 @@
 import { Popover as ArkPopover } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
 
 import { popoverRecipe } from './popover.recipe';
 
@@ -78,7 +79,7 @@ export interface PopoverDSClassNames {
   arrowTip?: string;
 }
 
-export type PopoverDSProps = {
+export interface PopoverDSProps {
   /** The trigger element — rendered inside `Popover.Trigger asChild`. */
   trigger: ReactNode;
   /** Title rendered at the top of the popover. */
@@ -97,7 +98,7 @@ export type PopoverDSProps = {
   arrow?: boolean;
   /** Per-slot class overrides. */
   classNames?: PopoverDSClassNames;
-};
+}
 
 /**
  * Design-system convenience popover — pass a `trigger` and content for the common case. **`Popover`** stays

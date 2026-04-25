@@ -3,7 +3,8 @@ import { UploadIcon, XIcon } from '@finografic/icons';
 import { FileUpload as ArkFileUpload } from '@ark-ui/react/file-upload';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { FileUploadRecipeProps } from './file-upload.recipe';
 import { fileUploadRecipe } from './file-upload.recipe';

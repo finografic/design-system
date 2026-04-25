@@ -1,7 +1,8 @@
 import { createListCollection, Listbox as ArkListbox } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type ReactNode, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
+import type { ReactNode } from 'react';
 
 import type { ListboxRecipeProps } from './listbox.recipe';
 import { listboxRecipe } from './listbox.recipe';

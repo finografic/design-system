@@ -1,7 +1,8 @@
 import { Tooltip as ArkTooltip } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
 
 import { tooltipRecipe } from './tooltip.recipe';
 
@@ -65,7 +66,7 @@ export interface TooltipDSClassNames {
   arrowTip?: string;
 }
 
-export type TooltipDSProps = {
+export interface TooltipDSProps {
   /** The trigger element — rendered inside `Tooltip.Trigger asChild`. */
   trigger: ReactNode;
   /** The tooltip content. */
@@ -82,7 +83,7 @@ export type TooltipDSProps = {
   arrow?: boolean;
   /** Per-slot class overrides. */
   classNames?: TooltipDSClassNames;
-};
+}
 
 /**
  * Design-system convenience tooltip — pass a `trigger` element and `content` for the common case.

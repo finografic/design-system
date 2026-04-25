@@ -1,7 +1,8 @@
 import { Menu as ArkMenu } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, Fragment, type ReactNode } from 'react';
+import { forwardRef, Fragment } from 'react';
+import type { ReactNode } from 'react';
 
 import { menuRecipe } from './menu.recipe';
 
@@ -118,7 +119,7 @@ export interface MenuDSClassNames {
   separator?: string;
 }
 
-export type MenuDSProps = {
+export interface MenuDSProps {
   /**
    * The trigger element — rendered inside an unstyled `Menu.Trigger asChild`. Style it with `Button`,
    * `rootTriggerRecipe`, or any element.
@@ -141,7 +142,7 @@ export type MenuDSProps = {
   onHighlightChange?: (highlightedValue: string | null) => void;
   /** Per-slot class overrides. */
   classNames?: MenuDSClassNames;
-};
+}
 
 /**
  * Design-system convenience menu — pass a trigger + items array for the common case. **`Menu`** stays the

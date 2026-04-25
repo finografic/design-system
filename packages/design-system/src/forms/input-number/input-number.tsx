@@ -2,7 +2,8 @@ import { ChevronDownIcon, ChevronUpIcon } from '@finografic/icons';
 
 import { NumberInput as ArkNumberInput } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
 import type { InputNumberVariants } from './input-number.recipe';

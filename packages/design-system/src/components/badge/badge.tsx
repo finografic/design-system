@@ -1,4 +1,5 @@
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { BadgeVariants } from './badge.recipe';
 import { badgeRecipe } from './badge.recipe';

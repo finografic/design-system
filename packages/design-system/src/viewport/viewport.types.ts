@@ -1,6 +1,6 @@
 export type ScreenClass = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
-export type BreakpointMap<T> = { [key in ScreenClass]?: T };
+export type BreakpointMap<T> = Partial<Record<ScreenClass, T>>;
 
 export interface MediaQueryProps {
   query: string;
@@ -17,6 +17,6 @@ export interface BreakpointDefaults extends BreakpointMap<number> {
 }
 
 export type MediaQueryType = 'min' | 'max';
-export type MediaQueryMap = { [key in MediaQueryType]: Partial<BreakpointMap<number>> };
+export type MediaQueryMap = Record<MediaQueryType, Partial<BreakpointMap<number>>>;
 
 export interface ColumnSizes extends BreakpointMap<number> {}

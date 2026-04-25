@@ -1,29 +1,29 @@
 {
   "npm.packageManager": "pnpm",
-
   "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    // "source.fixAll.oxc": "explicit",
-    "source.format.oxc": "explicit"
+    "source.fixAll.oxc": "explicit",
+    "source.organizeImports": "explicit"
   },
-
-  "eslint.enable": true,
-  "eslint.useFlatConfig": true,
-  "eslint.format.enable": true,
-
+  "eslint.enable": false,
+  "eslint.validate": [
+    "javascript",
+    "typescript"
+  ],
   "prettier.enable": false,
-
-  "oxc.fmt.configPath": "oxfmt.config.ts",
-
+  "oxc.typeAware": true,
+  "oxc.lint.run": "onSave",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "javascript.suggestionActions.enabled": false,
-
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
   "[javascript]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[typescript]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[javascriptreact]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[typescriptreact]": {
@@ -41,30 +41,31 @@
   "[toml]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode"
-  },
   "[css]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
-
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "stylelint.enable": true,
-  "stylelint.validate": ["css"],
-  "css.validate": false,
-
+  "[scss]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+    "editor.formatOnSave": true
+  },
   "markdownlint.config": {
     "default": true,
-    "MD001": false, // Heading levels should only increment by one level at a time
-    "MD013": false, // Line length
-    "MD024": false, // Duplicate headings
-    "MD025": false, // Allow multiple top-level headings (useful for TODO files)
-    "MD026": false, // Allow trailing punctuation in headings ':'
-    "MD036": false, // No emphasis as heading
-    "MD040": false, // Don't require language for code blocks
-    "MD041": false // Don't require first line to be a top-level heading
+    "MD001": false,
+    "MD013": false,
+    "MD024": false,
+    "MD025": false,
+    "MD026": false,
+    "MD036": false,
+    "MD040": false,
+    "MD041": false
   },
-
-  "markdown-preview-enhanced.scrollSync": false,
-  "markdown.styles": [".vscode/markdown-github-light.css"]
+  "markdown.styles": [
+    ".vscode/markdown-github-light.css"
+  ]
 }

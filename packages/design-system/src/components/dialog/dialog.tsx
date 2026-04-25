@@ -3,7 +3,8 @@ import { CloseIcon } from '@finografic/icons';
 import { Dialog as ArkDialog } from '@ark-ui/react';
 import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { DialogVariants } from './dialog.recipe';
 import { dialogRecipe } from './dialog.recipe';

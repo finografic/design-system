@@ -7,27 +7,23 @@ import {
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,
 } from '@finografic/icons';
-
 import { css, cx } from '@styled-system/css';
 import {
-  type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  type RowSelectionState,
-  type SortingState,
-  type Updater,
   useReactTable,
 } from '@tanstack/react-table';
-import type { ReactNode } from 'react';
 import { useState } from 'react';
+import type { DataTableProps } from './data-table.types';
+import type { ColumnFiltersState, RowSelectionState, SortingState, Updater } from '@tanstack/react-table';
+import type { ReactNode } from 'react';
 
 import { InputField } from '../../forms/input-field';
 import { Spinner } from '../spinner';
 import { tableRecipe } from './data-table.recipe';
-import type { DataTableProps } from './data-table.types';
 
 // ── Module-level style constants ──────────────────────────────────────────────
 
@@ -79,7 +75,7 @@ interface SortIconProps {
   className?: string;
 }
 
-function SortIcon({ sorted, className }: SortIconProps) {
+function SortIcon({ sorted, className }: SortIconProps): React.ReactNode {
   return (
     <span className={className} data-sort={String(sorted)}>
       {sorted === 'asc' && <ArrowUpIcon className="icon icon-sm" />}
@@ -97,7 +93,7 @@ interface PaginationProps {
   'children': ReactNode;
 }
 
-function PaginationButton({ className, disabled, children, ...rest }: PaginationProps) {
+function PaginationButton({ className, disabled, children, ...rest }: PaginationProps): React.ReactNode {
   return (
     <button className={className} disabled={disabled} type="button" {...rest}>
       {children}

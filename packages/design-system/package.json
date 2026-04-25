@@ -109,6 +109,7 @@
     "@ark-ui/react": "^5.36.1",
     "@pandacss/dev": "^1.9.1",
     "@pandacss/studio": "^1.9.1",
+    "@types/node": "^24.12.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "concurrently": "^9.1.2",

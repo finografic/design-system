@@ -1,5 +1,6 @@
 import { cx } from '@styled-system/css';
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { CalloutVariants } from './callout.recipe';
 import { calloutRecipe } from './callout.recipe';

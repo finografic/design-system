@@ -20,8 +20,9 @@
     "typecheck:ds": "pnpm --filter @finografic/design-system typecheck",
     "typecheck:icons": "pnpm --filter @finografic/icons typecheck",
     "·········· LINTING": "···················································",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "oxlint -c oxlint.config.ts",
+    "lint:fix": "oxlint -c oxlint.config.ts --fix",
+    "lint:ci": "oxlint -c oxlint.config.ts --quiet",
     "·········· FORMATTING": "················································",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
@@ -33,45 +34,40 @@
     "release:minor": "tsx scripts/release.ts minor",
     "release:major": "tsx scripts/release.ts major",
     "·········· PACKAGES": "··················································",
-    "update:oxfmt-config": "pnpm update @finografic/oxfmt-config --latest",
     "update:project-scripts": "pnpm update @finografic/project-scripts --latest",
+    "update:oxc-config": "pnpm update @finografic/oxc-config --latest && pnpm update oxfmt --latest && pnpm update oxlint --latest",
     "upgrade:deps:all": "pnpm update --latest",
     "·········· UTILS": "·····················································",
     "tsc:debug": "tsc --pretty --project tsconfig.json",
+    "tsc:scripts": "tsc -p tsconfig.scripts.json",
     "postinstall": "simple-git-hooks"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.4.4",
     "@commitlint/config-conventional": "^20.4.4",
-    "@eslint/js": "^9.39.3",
-    "@finografic/oxfmt-config": "^1.7.4",
+    "@finografic/oxc-config": "^2.3.5",
     "@finografic/project-scripts": "1.3.3",
-    "@stylistic/eslint-plugin": "^4.4.1",
-    "@stylistic/stylelint-plugin": "^5.0.1",
-    "@types/node": "^24.12.0",
+    "@types/node": "24",
     "concurrently": "^9.2.1",
-    "eslint": "^9.33.0",
     "eslint-plugin-markdownlint": "^0.9.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "globals": "17.3.0",
     "lint-staged": "^16.4.0",
     "oxfmt": "^0.44.0",
+    "oxlint": "^1.61.0",
+    "oxlint-tsgolint": "^0.21.1",
     "simple-git-hooks": "^2.13.1",
-    "stylelint": "^17.5.0",
     "tsdown": "^0.21.7",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.2",
-    "typescript-eslint": "^8.55.0"
+    "typescript": "^5.9.2"
   },
   "packageManager": "pnpm@10.32.1",
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [
-      "eslint --fix",
-      "oxfmt --no-error-on-unmatched-pattern"
+      "oxfmt --no-error-on-unmatched-pattern",
+      "oxlint -c oxlint.config.ts --fix --no-error-on-unmatched-pattern"
     ],
     "*.md": [
-      "eslint --fix",
-      "oxfmt --no-error-on-unmatched-pattern"
+      "oxfmt --no-error-on-unmatched-pattern",
+      "oxlint -c oxlint.config.ts --fix --no-error-on-unmatched-pattern"
     ],
     "*.{json,jsonc,yml,yaml,toml}": [
       "oxfmt --no-error-on-unmatched-pattern"

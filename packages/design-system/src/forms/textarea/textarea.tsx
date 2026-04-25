@@ -1,5 +1,6 @@
 import { cx } from '@styled-system/css';
-import { forwardRef, type TextareaHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { TextareaHTMLAttributes } from 'react';
 
 import type { TextareaVariants } from './textarea.recipe';
 import { textareaRecipe } from './textarea.recipe';

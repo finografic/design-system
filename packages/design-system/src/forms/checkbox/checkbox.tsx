@@ -3,7 +3,8 @@ import { CheckIcon, MinusIcon } from '@finografic/icons';
 import { Checkbox as ArkCheckbox } from '@ark-ui/react';
 import { css, cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
 import type { FieldError } from 'react-hook-form';
 
 import type { CheckboxVariants } from './checkbox.recipe';
