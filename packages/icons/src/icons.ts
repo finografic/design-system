@@ -1,8 +1,8 @@
 /**
  * Icon Registry — @workspace/icons
  *
- * !! GENERATED FILE — do not edit by hand. !! Edit src/icons.json via the picker UI, then run: pnpm
- * icons.generate
+ * !! GENERATED FILE — do not edit by hand.
+ * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate
  *
  * Source of truth: packages/icons/src/icons.json
  */
