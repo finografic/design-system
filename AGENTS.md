@@ -8,20 +8,7 @@ FILE ZONES — read before editing this file
   (universal) section. Never treat (this repo) content as if it applies to other codebases.
 -->
 
-## Roadmap and Planning Docs
-
-**`docs/todo/ROADMAP.md` is the primary high-level plan for this project.**
-**`docs/todo/NEXT_STEPS.md` is the near-term working list** — small tasks, fixes, and manual testing checklists too small for ROADMAP.
-
-- Before proposing or generating new features, check the roadmap for existing items.
-- When conceiving a new feature or initiative, add it to the appropriate priority tier.
-- Detailed planning docs live alongside in `docs/todo/` as `TODO_*.md` (active) or `DONE_*.md` (complete).
-- **TODO/DONE doc conventions:** `.github/instructions/documentation/todo-done-docs.instructions.md`
-  — rules for naming, status headers, checkboxes, and graduating `TODO_` → `DONE_`.
-
----
-
-## Rules — Project-Specific (this repo)
+## Rules — Project-Specific
 
 - Project-specific rules live in `.github/instructions/project/**/*.instructions.md`.
 - Do not reference `@workspace/*` — all imports and deps must use published package names.
@@ -97,8 +84,6 @@ The `--layer-index` variable allows nested portals (e.g. a Select inside a Dialo
 
 Unlayered CSS in `forms.css` always wins over `@layer utilities` (Panda), so this override is reliable.
 
----
-
 ## Rules — Global
 
 Rules are canonical in `.github/instructions/` — see `README.md` there for folder structure.
@@ -135,10 +120,30 @@ Shared across Claude Code, Cursor, and GitHub Copilot.
 
 ---
 
-## Rules — Markdown Tables (universal)
+## Rules — Markdown Tables
 
 - Padded pipes: one space on each side of every `|`, including the separator row.
 - Align column widths so all cells in the same column are equal width.
+
+---
+
+## Git Policy
+
+- IMPORTANT: NEVER include `Co-Authored-By` lines in commit messages. Non-negotiable.
+- `.github/instructions/git/git-policy.instructions.md` (see Commits and Releases sections)
+
+---
+
+## Roadmap and Planning Docs
+
+**`docs/todo/ROADMAP.md` is the primary high-level plan for this project.**
+**`docs/todo/NEXT_STEPS.md` is the near-term working list** — small tasks, fixes, and manual testing checklists too small for ROADMAP.
+
+- Before proposing or generating new features, check the roadmap for existing items.
+- When conceiving a new feature or initiative, add it to the appropriate priority tier.
+- Detailed planning docs live alongside in `docs/todo/` as `TODO_*.md` (active) or `DONE_*.md` (complete).
+- **TODO/DONE doc conventions:** `.github/instructions/documentation/todo-done-docs.instructions.md`
+  — rules for naming, status headers, checkboxes, and graduating `TODO_` → `DONE_`.
 
 ---
 
@@ -173,12 +178,5 @@ Shared across Claude Code, Cursor, and GitHub Copilot.
 - **TreeView depth indentation:** `treeViewRecipe` sets `--tree-depth`, `--tree-offset`, etc. as CSS custom props on `branchControl` and `item` slots. These derive from Ark's runtime-injected `--depth` var. The root slot's size variant overrides `--tree-indentation`, `--tree-padding-inline`, etc. No inline styles are needed — indentation is fully CSS-driven.
 - **FileUpload compound layout modes:** `FileUpload.Item` (slot `'item'`) uses a CSS Grid layout (preview + name + size + delete). `FileUpload.ItemCompact` (slot `'itemCompact'`) is a second `withContext` alias of the same `ArkFileUpload.Item` part — same Ark element, different recipe slot class, inline-flex compact layout. Use `ItemCompact` in the trigger-only (basic) mode; use `Item` in the dropzone mode with `ItemPreview`.
 - **Listbox vs Select:** `Listbox` is always visible (no dropdown, no positioner). Use it for side-panel or inline multi-select UI. For dropdown single-select use `SelectDefault`; for searchable dropdown use `SelectSearchable`.
-
-## Claude Code — Session Memory and Handoff
-
-> This section applies to Claude Code only. Other agents can ignore it.
-
-- **Session log:** `.claude/memory.md` (gitignored) — maintenance rules are in that file.
-- **Project state snapshot:** `.agents/handoff.md` (git-tracked) — maintenance rules are in that file.
 
 ---
