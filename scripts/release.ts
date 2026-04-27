@@ -76,7 +76,7 @@ console.log(`\n  ✔  icons → ${iconsVersion}   design-system → ${dsVersion}
 // ── Release commit ────────────────────────────────────────────────────────────
 
 run('git add packages/icons/package.json packages/design-system/package.json');
-run(`git commit -m "release v${dsVersion}"`);
+run(`git commit -m "feat: release v${dsVersion}"`);
 
 // ── Tags ──────────────────────────────────────────────────────────────────────
 
