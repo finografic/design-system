@@ -1,5 +1,5 @@
+import { ChevronRightIcon, FileIcon, FolderIcon, FolderOpenIcon } from '@finografic/icons';
 import { TreeView, createTreeCollection, useTreeView } from '@ark-ui/react/tree-view';
-import { ChevronRightIcon, FileIcon, FolderIcon, FolderOpenIcon } from 'lucide-react';
 
 import styles from './tree-view.module.css';
 
