@@ -39,14 +39,23 @@ Div.displayName = "AccordionItemBodyDiv";
 *   ```;
 */
 const Accordion$1 = {
+	/** Root — `defaultValue` / `value` / `onValueChange`, `multiple`, `collapsible`, plus `size`. */
 	Root: withProvider(Accordion.Root, "root"),
+	/** Root with external machine state from `useAccordion`. */
 	RootProvider: withProvider(Accordion.RootProvider, "root"),
+	/** A single accordion entry — pass a unique `value`. */
 	Item: withContext(Accordion.Item, "item"),
+	/** The clickable header button that expands/collapses the item. */
 	ItemTrigger: withContext(Accordion.ItemTrigger, "itemTrigger"),
+	/** Collapsible region that shows/hides the body. */
 	ItemContent: withContext(Accordion.ItemContent, "itemContent"),
+	/** Rotating chevron (or any icon) placed inside `ItemTrigger`. */
 	ItemIndicator: withContext(Accordion.ItemIndicator, "itemIndicator"),
+	/** Plain div wrapper for the body content inside `ItemContent`. */
 	ItemBody: withContext(Div, "itemBody"),
+	/** Render prop — exposes machine context to children; no DOM, no recipe slot. */
 	Context: Accordion.Context,
+	/** Render prop — exposes per-item context inside `Item`. */
 	ItemContext: Accordion.ItemContext
 };
 /**

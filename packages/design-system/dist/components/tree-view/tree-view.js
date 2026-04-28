@@ -76,20 +76,35 @@ const { withProvider, withContext } = createStyleContext(treeViewRecipe);
 *   ```;
 */
 const TreeView$1 = {
+	/** Root — `collection`, `selectedValue`, `onSelectionChange`, `selectionMode`, plus `size`. */
 	Root: withProvider(TreeView.Root, "root"),
+	/** Root with external machine state from `useTreeView`. */
 	RootProvider: withProvider(TreeView.RootProvider, "root"),
+	/** Text label above the tree. */
 	Label: withContext(TreeView.Label, "label"),
+	/** The scrollable tree container — renders as `<ul>`. */
 	Tree: withContext(TreeView.Tree, "tree"),
+	/** A branch node that has children — wraps BranchControl + BranchContent. */
 	Branch: withContext(TreeView.Branch, "branch"),
+	/** Clickable header row of a branch — place BranchIndicator + BranchText inside. */
 	BranchControl: withContext(TreeView.BranchControl, "branchControl"),
+	/** Rotating chevron that signals expand/collapse state. */
 	BranchIndicator: withContext(TreeView.BranchIndicator, "branchIndicator"),
+	/** Text + optional icon content inside BranchControl. */
 	BranchText: withContext(TreeView.BranchText, "branchText"),
+	/** Collapsible content area containing child nodes. */
 	BranchContent: withContext(TreeView.BranchContent, "branchContent"),
+	/** Vertical line guide that visually connects children to their parent. */
 	BranchIndentGuide: withContext(TreeView.BranchIndentGuide, "branchIndentGuide"),
+	/** A leaf node — renders as `<li>`. */
 	Item: withContext(TreeView.Item, "item"),
+	/** Text + optional icon content inside Item. */
 	ItemText: withContext(TreeView.ItemText, "itemText"),
+	/** Optional selection indicator inside Item. */
 	ItemIndicator: withContext(TreeView.ItemIndicator, "itemIndicator"),
+	/** Context provider for a node — required wrapper for Branch and Item. */
 	NodeProvider: TreeView.NodeProvider,
+	/** Render prop that exposes node state (expanded, selected, loading) to children. */
 	NodeContext: TreeView.NodeContext
 };
 /**

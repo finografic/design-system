@@ -77,7 +77,9 @@ InputFieldRoot.displayName = "InputField.Root";
 *   ```;
 */
 const InputField = {
+	/** Root — controlled state, size, invalid flag, and native input props. */
 	Root: InputFieldRoot,
+	/** Decoration slot — place icons or buttons; `side="left" | "right"` positions it. */
 	Slot: InputFieldSlot
 };
 //#endregion

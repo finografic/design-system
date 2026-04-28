@@ -44,25 +44,45 @@ const { withProvider, withContext } = createStyleContext(menuRecipe);
 *   ```;
 */
 const Menu$1 = {
+	/** Root — open state, event handlers (`onSelect`, `onOpenChange`), and recipe variants. */
 	Root: withProvider(Menu.Root, "root"),
+	/** Root with external machine state from `useMenu`. */
 	RootProvider: withProvider(Menu.RootProvider, "root"),
+	/** Floating positioner — sets z-index and anchors the panel. */
 	Positioner: withContext(Menu.Positioner, "positioner"),
+	/** Menu panel — the scrollable list container. */
 	Content: withContext(Menu.Content, "content"),
+	/** Horizontal rule between sections. */
 	Separator: withContext(Menu.Separator, "separator"),
+	/** A single action row; also used for `CheckboxItem` and `RadioItem`. */
 	Item: withContext(Menu.Item, "item"),
+	/** Text label inside an item — truncates on overflow. */
 	ItemText: withContext(Menu.ItemText, "itemText"),
+	/** Check/radio tick shown when the item is selected. */
 	ItemIndicator: withContext(Menu.ItemIndicator, "itemIndicator"),
+	/** Wraps a set of related items; adds vertical spacing between groups. */
 	ItemGroup: withContext(Menu.ItemGroup, "itemGroup"),
+	/** Section heading for an item group. */
 	ItemGroupLabel: withContext(Menu.ItemGroupLabel, "itemGroupLabel"),
+	/** Checkbox-style toggleable item — shares the `item` slot. */
 	CheckboxItem: withContext(Menu.CheckboxItem, "item"),
+	/** Radio-style item (exclusive within a group) — shares the `item` slot. */
 	RadioItem: withContext(Menu.RadioItem, "item"),
+	/** Radio item group — shares the `itemGroup` slot. */
 	RadioItemGroup: withContext(Menu.RadioItemGroup, "itemGroup"),
+	/** Arrow element for the floating panel (when `withArrow` is used). */
 	Arrow: withContext(Menu.Arrow, "arrow"),
+	/** The visible arrow tip; styled with a border to match the panel edge. */
 	ArrowTip: withContext(Menu.ArrowTip, "arrowTip"),
+	/** Open/close chevron indicator inside a trigger. */
 	Indicator: withContext(Menu.Indicator, "indicator"),
+	/** Unstyled trigger — style with `rootTriggerRecipe` or `buttonRecipe` on the consumer side. */
 	Trigger: Menu.Trigger,
+	/** Right-click context menu trigger — no recipe slot. */
 	ContextTrigger: Menu.ContextTrigger,
+	/** Render prop — exposes machine context to children. */
 	Context: Menu.Context,
+	/** Render prop — exposes per-item context inside `Item`. */
 	ItemContext: Menu.ItemContext
 };
 /**

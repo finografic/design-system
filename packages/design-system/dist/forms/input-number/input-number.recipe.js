@@ -248,6 +248,10 @@ const inputNumberRecipe = sva({
 				errorText: { fontSize: "sm" }
 			}
 		},
+		/**
+		* Colorizes the prefix/suffix adornment slots. `default` = neutral muted (no colorPalette — base styles
+		* apply). All other values set colorPalette on both slots so bg/color/border respond.
+		*/
 		palette: {
 			default: {},
 			primary: {

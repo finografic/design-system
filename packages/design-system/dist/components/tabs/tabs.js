@@ -62,12 +62,19 @@ const { withProvider, withContext } = createStyleContext(tabsRecipe);
 *   ```
 */
 const Tabs$1 = {
+	/** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */
 	Root: withProvider(Tabs.Root, "root"),
+	/** Same styling as Root when using external machine state from `useTabs`. */
 	RootProvider: withProvider(Tabs.RootProvider, "root"),
+	/** Tab list — lays out triggers and hosts the indicator. */
 	List: withContext(Tabs.List, "list"),
+	/** Tab trigger — one per panel `value`. */
 	Trigger: withContext(Tabs.Trigger, "trigger"),
+	/** Tab panel — matches a trigger `value`. */
 	Content: withContext(Tabs.Content, "content"),
+	/** Sliding highlight (enclosed) or underline bar (line) — place last inside `Tabs.List`. */
 	Indicator: withContext(Tabs.Indicator, "indicator"),
+	/** Render prop — forwards machine context; no DOM, no recipe slot. */
 	Context: Tabs.Context
 };
 /**

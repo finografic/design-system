@@ -52,19 +52,33 @@ const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
 *   ```;
 */
 const TagsInput$1 = {
+	/** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */
 	Root: withProvider(TagsInput.Root, "root"),
+	/** Root with external machine state from `useTagsInput`. */
 	RootProvider: withProvider(TagsInput.RootProvider, "root"),
+	/** Text label above the control. */
 	Label: withContext(TagsInput.Label, "label"),
+	/** Flex-wrap container that holds tag chips and the text input. */
 	Control: withContext(TagsInput.Control, "control"),
+	/** Wrapper for a single tag — contains `ItemPreview` and `ItemInput`. */
 	Item: withContext(TagsInput.Item, "item"),
+	/** Visible chip — shown in default (non-edit) state. */
 	ItemPreview: withContext(TagsInput.ItemPreview, "itemPreview"),
+	/** Tag label text inside the chip. */
 	ItemText: withContext(TagsInput.ItemText, "itemText"),
+	/** Inline text field shown when the user double-clicks a tag to edit it. */
 	ItemInput: withContext(TagsInput.ItemInput, "itemInput"),
+	/** Button to remove a single tag — place inside `ItemPreview`. */
 	ItemDeleteTrigger: withContext(TagsInput.ItemDeleteTrigger, "itemDeleteTrigger"),
+	/** Text input at the end of the tag list for adding new tags. */
 	Input: withContext(TagsInput.Input, "input"),
+	/** Button to remove all tags at once — place after `Control`. */
 	ClearTrigger: withContext(TagsInput.ClearTrigger, "clearTrigger"),
+	/** Hidden native `<input>` for form integration — no recipe slot. */
 	HiddenInput: TagsInput.HiddenInput,
+	/** Render prop — exposes machine context (value, etc.) to children. */
 	Context: TagsInput.Context,
+	/** Render prop — exposes per-item context inside `Item`. */
 	ItemContext: TagsInput.ItemContext
 };
 const textColumnStyle = css({

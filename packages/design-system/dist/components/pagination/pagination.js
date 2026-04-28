@@ -40,12 +40,19 @@ const { withProvider, withContext } = createStyleContext(paginationRecipe);
 *   ```;
 */
 const Pagination$1 = {
+	/** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */
 	Root: withProvider(Pagination.Root, "root"),
+	/** Root with external machine state from `usePagination`. */
 	RootProvider: withProvider(Pagination.RootProvider, "root"),
+	/** Numbered page button. */
 	Item: withContext(Pagination.Item, "item"),
+	/** Previous-page navigation button — uses `trigger` slot. */
 	PrevTrigger: withContext(Pagination.PrevTrigger, "trigger"),
+	/** Next-page navigation button — uses `trigger` slot. */
 	NextTrigger: withContext(Pagination.NextTrigger, "trigger"),
+	/** Ellipsis spacer between page clusters. */
 	Ellipsis: withContext(Pagination.Ellipsis, "ellipsis"),
+	/** Render prop — exposes machine context including `pages` array to children. */
 	Context: Pagination.Context
 };
 /**

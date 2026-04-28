@@ -65,21 +65,38 @@ ArkComboboxPositionerPortal.displayName = "SelectCombobox.Positioner";
 *   ```;
 */
 const SelectCombobox = {
+	/** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */
 	Root: withProvider(Combobox.Root, "root"),
+	/** Root with external machine state from `useCombobox`. */
 	RootProvider: withProvider(Combobox.RootProvider, "root"),
+	/** Text label above the control. */
 	Label: withContext(Combobox.Label, "label"),
+	/** Input + indicator wrapper — contains `Input`, `ClearTrigger`, `Trigger`. */
 	Control: withContext(Combobox.Control, "control"),
+	/** Text input for filtering options. */
 	Input: withContext(Combobox.Input, "input"),
+	/** Plain div wrapper for grouping `ClearTrigger` and `Trigger`. */
 	Indicators: withContext(Div, "indicators"),
+	/** Dropdown chevron button. */
 	Trigger: withContext(Combobox.Trigger, "trigger"),
+	/** Clear (×) button — visible when a value is selected. */
 	ClearTrigger: withContext(Combobox.ClearTrigger, "clearTrigger"),
+	/** Floating positioner that anchors the content below the control. */
+	/** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
 	Positioner: withContext(ArkComboboxPositionerPortal, "positioner"),
+	/** Dropdown list panel. */
 	Content: withContext(Combobox.Content, "content"),
+	/** Groups related items with optional label. */
 	ItemGroup: withContext(Combobox.ItemGroup, "itemGroup"),
+	/** Section heading for an item group. */
 	ItemGroupLabel: withContext(Combobox.ItemGroupLabel, "itemGroupLabel"),
+	/** A single option row — pass `item` from the collection. */
 	Item: withContext(Combobox.Item, "item"),
+	/** Text label inside an item. */
 	ItemText: withContext(Combobox.ItemText, "itemText"),
+	/** Check indicator shown when the item is selected. */
 	ItemIndicator: withContext(Combobox.ItemIndicator, "itemIndicator"),
+	/** Render prop — exposes machine context to children; no DOM, no recipe slot. */
 	Context: Combobox.Context
 };
 //#endregion

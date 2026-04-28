@@ -34,14 +34,23 @@ const { withProvider, withContext } = createStyleContext(segmentGroupRecipe);
 *   ```;
 */
 const SegmentGroup$1 = {
+	/** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */
 	Root: withProvider(SegmentGroup.Root, "root"),
+	/** Root with external machine state from `useSegmentGroup`. */
 	RootProvider: withProvider(SegmentGroup.RootProvider, "root"),
+	/** Optional label rendered above the segment group. */
 	Label: withContext(SegmentGroup.Label, "label"),
+	/** A single segment option — wraps `ItemText`, `ItemControl`, `ItemHiddenInput`. */
 	Item: withContext(SegmentGroup.Item, "item"),
+	/** Text label inside a segment item. */
 	ItemText: withContext(SegmentGroup.ItemText, "itemText"),
+	/** Hidden radio control used by Ark internally — `display: none` in recipe. */
 	ItemControl: withContext(SegmentGroup.ItemControl, "itemControl"),
+	/** Hidden native radio input for form integration. */
 	ItemHiddenInput: SegmentGroup.ItemHiddenInput,
+	/** Sliding background pill — position driven by Zag CSS vars. */
 	Indicator: withContext(SegmentGroup.Indicator, "indicator"),
+	/** Render prop — exposes machine context to children; no DOM, no recipe slot. */
 	Context: SegmentGroup.Context
 };
 /**

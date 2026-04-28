@@ -28,11 +28,17 @@ const { withProvider, withContext } = createStyleContext(scrollAreaRecipe);
 *   ```;
 */
 const ScrollArea$1 = {
+	/** Root — `onScrollPositionChange`, `dir`, `scrollbarSize`. */
 	Root: withProvider(ScrollArea.Root, "root"),
+	/** Clips the content while preserving the ability to scroll. */
 	Viewport: withContext(ScrollArea.Viewport, "viewport"),
+	/** Inner content wrapper — minimum width ensures horizontal scroll works correctly. */
 	Content: withContext(ScrollArea.Content, "content"),
+	/** Custom scrollbar track — pass `orientation="vertical" | "horizontal"`. */
 	Scrollbar: withContext(ScrollArea.Scrollbar, "scrollbar"),
+	/** The draggable scrollbar thumb inside `Scrollbar`. */
 	Thumb: withContext(ScrollArea.Thumb, "thumb"),
+	/** Corner piece shown when both scrollbars are present. */
 	Corner: withContext(ScrollArea.Corner, "corner")
 };
 /**

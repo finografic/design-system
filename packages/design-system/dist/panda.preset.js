@@ -1,4 +1,4 @@
-import { definePreset } from "./node_modules/.pnpm/@pandacss_dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
+import { definePreset } from "./node_modules/.pnpm/@pandacss_dev@1.10.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
 import { durationTokens, easingTokens, keyframes } from "./tokens/animations.tokens.js";
 import { colorTokens, semanticColorTokens } from "./tokens/colors.tokens.js";
 import { borderWidthTokens, radiiTokens, shadowTokens } from "./tokens/decorative.tokens.js";

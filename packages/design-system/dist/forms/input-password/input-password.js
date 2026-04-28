@@ -32,12 +32,19 @@ const { withProvider, withContext } = createStyleContext(inputPasswordRecipe);
 *   ```;
 */
 const InputPassword = {
+	/** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */
 	Root: withProvider(PasswordInput.Root, "root"),
+	/** Root with external machine state from `usePasswordInput`. */
 	RootProvider: withProvider(PasswordInput.RootProvider, "root"),
+	/** Optional text label above the control. */
 	Label: withContext(PasswordInput.Label, "label"),
+	/** Input + visibility toggle wrapper. */
 	Control: withContext(PasswordInput.Control, "control"),
+	/** The password/text input field. */
 	Input: withContext(PasswordInput.Input, "input"),
+	/** Eye toggle button — switches between showing and hiding the password. */
 	VisibilityTrigger: withContext(PasswordInput.VisibilityTrigger, "visibilityTrigger"),
+	/** Render prop — exposes machine context (e.g. `visible`) to children; no DOM, no recipe slot. */
 	Context: PasswordInput.Context
 };
 /**

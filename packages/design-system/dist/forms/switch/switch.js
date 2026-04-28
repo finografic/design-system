@@ -26,10 +26,15 @@ const { withProvider, withContext } = createStyleContext(switchRecipe);
 *   ```;
 */
 const Switch$1 = {
+	/** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */
 	Root: withProvider(Switch.Root, "root"),
+	/** Track + hit target; receives `control` slot classes from context. */
 	Control: withContext(Switch.Control, "control"),
+	/** Knob; receives `thumb` slot classes from context. */
 	Thumb: withContext(Switch.Thumb, "thumb"),
+	/** Text label; receives `label` slot classes from context. */
 	Label: withContext(Switch.Label, "label"),
+	/** Native input for forms; no recipe slot. */
 	HiddenInput: Switch.HiddenInput
 };
 const textColumnStyle = css({

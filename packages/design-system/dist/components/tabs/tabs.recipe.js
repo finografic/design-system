@@ -1,28 +1,4 @@
 import { sva } from "@styled-system/css";
-//#region src/components/tabs/tabs.recipe.ts
-/**
-* Tabs Slot Recipe
-*
-* Port of Ark UI Tabs example styles → Panda `sva` + semantic tokens (no demo CSS variables). Orientation
-* follows Ark’s `data-orientation` on each part — do **not** add `orientation` as a recipe variant, or
-* `createStyleContext` would strip it from `Tabs.Root` and break Zag.
-*
-* Slots: root · list · trigger · content · indicator Variants: variant (line | enclosed) · size (sm | md |
-* lg)
-*
-* - **line** — Underline selection: indicator uses Zag’s `--top` / `--height` / `--left` / `--width` so the bar
-*   sits on the **bottom edge of the active trigger** (Zag measures trigger `offset*`). The list uses
-*   **`box-shadow: inset`** for the grey rule (same thickness as the indicator), not `border-bottom`, so the
-*   active bar sits **on** the rule instead of floating above it. List omits bottom padding (`pb: 0`) so size
-*   presets must not use `p` shorthand on `list` or it overrides `pb`.
-* - **enclosed** — Pill list + sliding indicator behind labels (`z-index: -1`, `accent.subtle`).
-*/
-const focusRing = {
-	outline: "2px solid",
-	outlineColor: "accent.focusRing",
-	outlineOffset: "2px",
-	borderRadius: "sm"
-};
 const tabsRecipe = sva({
 	className: "tabs",
 	slots: [
@@ -81,7 +57,12 @@ const tabsRecipe = sva({
 				filter: "grayscale(100%)",
 				pointerEvents: "none"
 			},
-			"_focusVisible": focusRing,
+			"_focusVisible": {
+				outline: "2px solid",
+				outlineColor: "accent.focusRing",
+				outlineOffset: "2px",
+				borderRadius: "sm"
+			},
 			"&:is(a)": { color: "inherit" },
 			"&[data-orientation=\"vertical\"]": {
 				justifyContent: "flex-start",

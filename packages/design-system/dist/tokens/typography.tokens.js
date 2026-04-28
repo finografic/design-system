@@ -1,4 +1,4 @@
-import { defineTextStyles, defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
+import { defineTextStyles, defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.10.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
 //#region src/tokens/typography.tokens.ts
 /**
 * 📝 Typography Tokens

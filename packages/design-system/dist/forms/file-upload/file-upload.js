@@ -84,25 +84,45 @@ const { withProvider, withContext } = createStyleContext(fileUploadRecipe);
 *   ```;
 */
 const FileUpload$1 = {
+	/** Root — `maxFiles`, `accept`, `maxFileSize`, `onFileChange`, plus `size`. */
 	Root: withProvider(FileUpload.Root, "root"),
+	/** Root with external machine state from `useFileUpload`. */
 	RootProvider: withProvider(FileUpload.RootProvider, "root"),
+	/** Text label above the upload control. */
 	Label: withContext(FileUpload.Label, "label"),
+	/** Button that opens the native file picker. */
 	Trigger: withContext(FileUpload.Trigger, "trigger"),
+	/** Drag-and-drop zone. Gains `data-dragging` when a file is dragged over it. */
 	Dropzone: withContext(FileUpload.Dropzone, "dropzone"),
+	/** Icon wrapper inside the dropzone (no Ark part — plain div). */
 	DropzoneIcon: withContext(Div, "dropzoneIcon"),
+	/** Content wrapper (title + description) inside the dropzone. */
 	DropzoneContent: withContext(Div, "dropzoneContent"),
+	/** "Drag and drop files here" text inside the dropzone. */
 	DropzoneTitle: withContext(Span, "dropzoneTitle"),
+	/** "or click to browse" secondary text inside the dropzone. */
 	DropzoneDescription: withContext(Span, "dropzoneDescription"),
+	/** List container — renders as `<ul>` internally. */
 	ItemGroup: withContext(FileUpload.ItemGroup, "itemGroup"),
+	/** Full-layout file row: grid with preview area, name, size, and delete. */
 	Item: withContext(FileUpload.Item, "item"),
+	/** Compact file row: inline flex with just name and delete. */
 	ItemCompact: withContext(FileUpload.Item, "itemCompact"),
+	/** Preview area for a file item — use `type="image/*"` or `type=".*"` to target file types. */
 	ItemPreview: withContext(FileUpload.ItemPreview, "itemPreview"),
+	/** `<img>` rendered inside `ItemPreview` for image files. */
 	ItemPreviewImage: withContext(FileUpload.ItemPreviewImage, "itemPreviewImage"),
+	/** File name text — auto-populated from the `File` object. */
 	ItemName: withContext(FileUpload.ItemName, "itemName"),
+	/** Human-readable file size — auto-populated from the `File` object. */
 	ItemSizeText: withContext(FileUpload.ItemSizeText, "itemSizeText"),
+	/** Button that removes the file from the list. */
 	ItemDeleteTrigger: withContext(FileUpload.ItemDeleteTrigger, "itemDeleteTrigger"),
+	/** Button that clears all accepted files. No recipe slot — style via className. */
 	ClearTrigger: FileUpload.ClearTrigger,
+	/** Render prop — exposes machine context (acceptedFiles, rejectedFiles, …) to children. */
 	Context: FileUpload.Context,
+	/** Hidden `<input type="file">` — always include at the end of Root. */
 	HiddenInput: FileUpload.HiddenInput
 };
 /**

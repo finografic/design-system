@@ -25,7 +25,9 @@ const { withProvider, withContext } = createStyleContext(toggleRecipe);
 *   ```;
 */
 const Toggle$1 = {
+	/** Root — `pressed` / `defaultPressed` / `onPressedChange`, `disabled`, plus `size`. */
 	Root: withProvider(Toggle.Root, "root"),
+	/** Optional icon/indicator slot inside the root button. */
 	Indicator: withContext(Toggle.Indicator, "indicator")
 };
 /**

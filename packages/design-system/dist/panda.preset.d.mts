@@ -1,6 +1,6 @@
 /** Gets any `/// <reference path="..." />` comments. */
 /** Gets any `/// <reference types="..." />` comments. */
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/csstype.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/csstype.d.ts
 type Fallback<T> = { [P in keyof T]: T[P] | readonly NonNullable<T[P]>[] };
 interface StandardLonghandProperties<TLength = (string & {}) | 0, TTime = string & {}> {
   /**
@@ -10569,7 +10569,7 @@ declare namespace DataType {
   type VisualBox = "border-box" | "content-box" | "padding-box";
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/selectors.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/selectors.d.ts
 type AriaAttributes = '[aria-disabled]' | '[aria-hidden]' | '[aria-invalid]' | '[aria-readonly]' | '[aria-required]' | '[aria-selected]' | '[aria-checked]' | '[aria-expanded]' | '[aria-pressed]' | `[aria-current=${'page' | 'step' | 'location' | 'date' | 'time'}]` | '[aria-invalid]' | `[aria-sort=${'ascending' | 'descending'}]`;
 type DataAttributes = '[data-selected]' | '[data-highlighted]' | '[data-hover]' | '[data-active]' | '[data-checked]' | '[data-disabled]' | '[data-readonly]' | '[data-focus]' | '[data-focus-visible]' | '[data-focus-visible-added]' | '[data-invalid]' | '[data-pressed]' | '[data-expanded]' | '[data-grabbed]' | '[data-dragged]' | '[data-orientation=horizontal]' | '[data-orientation=vertical]' | '[data-in-range]' | '[data-out-of-range]' | '[data-placeholder-shown]' | `[data-part=${string}]` | `[data-attr=${string}]` | `[data-placement=${string}]` | `[data-theme=${string}]` | `[data-size=${string}]` | `[data-state=${string}]` | '[data-empty]' | '[data-loading]' | '[data-loaded]' | '[data-enter]' | '[data-entering]' | '[data-exited]' | '[data-exiting]';
 type AttributeSelector = `&${Pseudos | DataAttributes | AriaAttributes}`;
@@ -10578,7 +10578,7 @@ type AtRuleType = 'media' | 'layer' | 'container' | 'supports' | 'page' | 'scope
 type AnySelector = `${string}&` | `&${string}` | `@${AtRuleType}${string}`;
 type Selectors = AttributeSelector | ParentSelector;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/conditions.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/conditions.d.ts
 /* -----------------------------------------------------------------------------
  * Shadowed export (in CLI): DO NOT REMOVE
  * -----------------------------------------------------------------------------*/
@@ -10594,14 +10594,14 @@ type Condition = string;
 type ConditionalValue<V> = V | Array<V | null> | { [K in keyof Conditions]?: ConditionalValue<V> };
 type Nested<P> = (P & { [K in Selectors]?: Nested<P> } & { [K in AnySelector]?: Nested<P> }) | { [K in Condition]?: Nested<P> };
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/prop-type.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/prop-type.d.ts
 /* -----------------------------------------------------------------------------
  * Shadowed export (in CLI): DO NOT REMOVE
  * -----------------------------------------------------------------------------*/
 interface PropertyTypes {}
 type PropertyValue<K extends string> = K extends keyof PropertyTypes ? ConditionalValue<PropertyTypes[K]> : K extends keyof CssProperties ? ConditionalValue<CssProperties[K]> : never;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/style-props.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/style-props.d.ts
 type String$1 = string & {};
 type Number$1 = number & {};
 /* -----------------------------------------------------------------------------
@@ -10611,7 +10611,7 @@ type CssProperties$1 = PropertiesFallback<String$1 | Number$1>;
 type CssVarProperties = { [key in `--${string}`]?: ConditionalValue<string | number> };
 type SystemProperties = { [K in keyof CssProperties$1]?: PropertyValue<K> };
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/system-types.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/system-types.d.ts
 type String = string & {};
 type Number = number & {};
 type Pretty<T> = { [K in keyof T]: T[K] } & {};
@@ -10690,7 +10690,7 @@ interface ExtendableGlobalFontface {
   extend?: GlobalFontface | undefined;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/composition.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/composition.d.ts
 interface Token$2<T> {
   value: T;
   description?: string;
@@ -10721,7 +10721,7 @@ type AnimationStyleProperty = 'animation' | 'animationComposition' | 'animationD
 type AnimationStyle = CompositionStyleObject<AnimationStyleProperty>;
 type AnimationStyles = Recursive$1<Token$2<AnimationStyle>>;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/static-css.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/static-css.d.ts
 interface ConditionOptions {
   /**
    * The conditions to generate for the rule.
@@ -10771,7 +10771,7 @@ interface StaticCssOptions {
   themes?: string[];
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/recipe.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/recipe.d.ts
 type StringToBoolean<T> = T extends 'true' | 'false' ? boolean : T;
 type RecipeVariantRecord = Record<any, Record<any, SystemStyleObject>>;
 type RecipeSelection<T extends RecipeVariantRecord> = keyof any extends keyof T ? {} : { [K in keyof T]?: StringToBoolean<keyof T[K]> | undefined };
@@ -10864,7 +10864,7 @@ interface SlotRecipeDefinition<S extends string = string, T extends SlotRecipeVa
 }
 type SlotRecipeConfig<S extends string = string, T extends SlotRecipeVariantRecord<S> = SlotRecipeVariantRecord<S>> = SlotRecipeDefinition<S, T> & RecipeConfigMeta;
 //#endregion
-//#region ../../node_modules/.pnpm/@ts-morph+common@0.28.1/node_modules/@ts-morph/common/lib/typescript.d.ts
+//#region ../../node_modules/.pnpm/@ts-morph+common@0.29.0/node_modules/@ts-morph/common/lib/typescript.d.ts
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -10874,7 +10874,7 @@ License at http://www.apache.org/licenses/LICENSE-2.0
 THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
 KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
 WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
+MERCHANTABILITY OR NON-INFRINGEMENT.
 
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
@@ -13373,6 +13373,7 @@ declare namespace ts {
         Node = "node",
         /** @deprecated Renamed to `Node10` */
         NodeJs = "node",
+        /** @deprecated */
         Node10 = "node10",
         Node16 = "node16",
         NodeNext = "nodenext",
@@ -13385,6 +13386,7 @@ declare namespace ts {
       export enum ScriptTarget {
         /** @deprecated */
         ES3 = "es3",
+        /** @deprecated */
         ES5 = "es5",
         ES6 = "es6",
         ES2015 = "es2015",
@@ -13397,9 +13399,11 @@ declare namespace ts {
         ES2022 = "es2022",
         ES2023 = "es2023",
         ES2024 = "es2024",
+        ES2025 = "es2025",
         ESNext = "esnext",
         JSON = "json",
-        Latest = "esnext"
+        Latest = "esnext",
+        LatestStandard = "es2025"
       }
     }
     namespace typingsInstaller {
@@ -14483,7 +14487,7 @@ declare namespace ts {
       readDirectory(rootDir: string, extensions: readonly string[], excludes: readonly string[] | undefined, includes: readonly string[] | undefined, depth?: number): string[];
     }
   }
-  const versionMajorMinor = "5.9";
+  const versionMajorMinor = "6.0";
   /** The version of the TypeScript compiler release */
   const version: string;
   /**
@@ -16529,7 +16533,6 @@ declare namespace ts {
    */
   interface SourceFileLike {
     readonly text: string;
-    languageVariant?: LanguageVariant;
   }
   interface SourceFileLike {
     getLineAndCharacterOfPosition(pos: number): LineAndCharacter;
@@ -16548,14 +16551,7 @@ declare namespace ts {
     libReferenceDirectives: readonly FileReference[];
     languageVariant: LanguageVariant;
     isDeclarationFile: boolean;
-    /**
-     * lib.d.ts should have a reference comment like
-     *
-     *  /// <reference no-default-lib="true"/>
-     *
-     * If any other file has this comment, it signals not to include lib.d.ts
-     * because this containing file is intended to act as a default library.
-     */
+    /** @deprecated Always false. Use a Program to determine if a file is a lib file. */
     hasNoDefaultLib: boolean;
     languageVersion: ScriptTarget;
     /**
@@ -17213,53 +17209,53 @@ declare namespace ts {
   enum TypeFlags {
     Any = 1,
     Unknown = 2,
-    String = 4,
-    Number = 8,
-    Boolean = 16,
-    Enum = 32,
-    BigInt = 64,
-    StringLiteral = 128,
-    NumberLiteral = 256,
-    BooleanLiteral = 512,
-    EnumLiteral = 1024,
-    BigIntLiteral = 2048,
-    ESSymbol = 4096,
-    UniqueESSymbol = 8192,
-    Void = 16384,
-    Undefined = 32768,
-    Null = 65536,
-    Never = 131072,
-    TypeParameter = 262144,
-    Object = 524288,
-    Union = 1048576,
-    Intersection = 2097152,
-    Index = 4194304,
-    IndexedAccess = 8388608,
-    Conditional = 16777216,
-    Substitution = 33554432,
-    NonPrimitive = 67108864,
-    TemplateLiteral = 134217728,
-    StringMapping = 268435456,
-    Literal = 2944,
-    Unit = 109472,
-    Freshable = 2976,
-    StringOrNumberLiteral = 384,
-    PossiblyFalsy = 117724,
-    StringLike = 402653316,
-    NumberLike = 296,
-    BigIntLike = 2112,
-    BooleanLike = 528,
-    EnumLike = 1056,
-    ESSymbolLike = 12288,
-    VoidLike = 49152,
-    UnionOrIntersection = 3145728,
-    StructuredType = 3670016,
-    TypeVariable = 8650752,
-    InstantiableNonPrimitive = 58982400,
-    InstantiablePrimitive = 406847488,
-    Instantiable = 465829888,
-    StructuredOrInstantiable = 469499904,
-    Narrowable = 536624127
+    Undefined = 4,
+    Null = 8,
+    Void = 16,
+    String = 32,
+    Number = 64,
+    BigInt = 128,
+    Boolean = 256,
+    ESSymbol = 512,
+    StringLiteral = 1024,
+    NumberLiteral = 2048,
+    BigIntLiteral = 4096,
+    BooleanLiteral = 8192,
+    UniqueESSymbol = 16384,
+    EnumLiteral = 32768,
+    Enum = 65536,
+    NonPrimitive = 131072,
+    Never = 262144,
+    TypeParameter = 524288,
+    Object = 1048576,
+    Index = 2097152,
+    TemplateLiteral = 4194304,
+    StringMapping = 8388608,
+    Substitution = 16777216,
+    IndexedAccess = 33554432,
+    Conditional = 67108864,
+    Union = 134217728,
+    Intersection = 268435456,
+    Literal = 15360,
+    Unit = 97292,
+    Freshable = 80896,
+    StringOrNumberLiteral = 3072,
+    PossiblyFalsy = 15868,
+    StringLike = 12583968,
+    NumberLike = 67648,
+    BigIntLike = 4224,
+    BooleanLike = 8448,
+    EnumLike = 98304,
+    ESSymbolLike = 16896,
+    VoidLike = 20,
+    UnionOrIntersection = 402653184,
+    StructuredType = 403701760,
+    TypeVariable = 34078720,
+    InstantiableNonPrimitive = 117964800,
+    InstantiablePrimitive = 14680064,
+    Instantiable = 132644864,
+    StructuredOrInstantiable = 536346624,
+    Narrowable = 536575971
   }
   type DestructuringPattern = BindingPattern | ObjectLiteralExpression | ArrayLiteralExpression;
   interface Type {
@@ -17559,6 +17555,7 @@ declare namespace ts {
     Message = 3
   }
   enum ModuleResolutionKind {
+    /** @deprecated */
     Classic = 1,
     /**
      * @deprecated
@@ -17566,6 +17563,9 @@ declare namespace ts {
      * Use the new name or consider switching to a modern module resolution target.
      */
     NodeJs = 2,
+    /**
+     * @deprecated
+     */
     Node10 = 2,
     Node16 = 3,
     NodeNext = 99,
@@ -17628,6 +17628,7 @@ declare namespace ts {
     allowUnreachableCode?: boolean;
     allowUnusedLabels?: boolean;
     alwaysStrict?: boolean;
+    /** @deprecated */
     baseUrl?: string;
     /** @deprecated */
     charset?: string;
@@ -17641,6 +17642,7 @@ declare namespace ts {
     disableSourceOfProjectReferenceRedirect?: boolean;
     disableSolutionSearching?: boolean;
     disableReferencedProjectLoad?: boolean;
+    /** @deprecated */
     downlevelIteration?: boolean;
     emitBOM?: boolean;
     emitDecoratorMetadata?: boolean;
@@ -17758,10 +17760,14 @@ declare namespace ts {
     [option: string]: CompilerOptionsValue | undefined;
   }
   enum ModuleKind {
+    /** @deprecated */
     None = 0,
     CommonJS = 1,
+    /** @deprecated */
     AMD = 2,
+    /** @deprecated */
     UMD = 3,
+    /** @deprecated */
     System = 4,
     ES2015 = 5,
     ES2020 = 6,
@@ -17813,6 +17819,7 @@ declare namespace ts {
   enum ScriptTarget {
     /** @deprecated */
     ES3 = 0,
+    /** @deprecated */
     ES5 = 1,
     ES2015 = 2,
     ES2016 = 3,
@@ -17824,9 +17831,11 @@ declare namespace ts {
     ES2022 = 9,
     ES2023 = 10,
     ES2024 = 11,
+    ES2025 = 12,
     ESNext = 99,
     JSON = 100,
-    Latest = 99
+    Latest = 99,
+    LatestStandard = 12
   }
   enum LanguageVariant {
     Standard = 0,
@@ -19937,7 +19946,7 @@ declare namespace ts {
    * Given a set of options, returns the set of type directive names
    *   that should be included for this program automatically.
    * This list could either come from the config file,
-   *   or from enumerating the types root + initial secondary types lookup location.
+   *   and/or from enumerating the types root + initial secondary types lookup location given "*" compat wildcard.
    * More type directives might appear in the program later as a result of loading actual source files;
    *   this list is only the set of defaults that are implicitly included.
    */
@@ -20660,6 +20669,7 @@ declare namespace ts {
     libReferenceDirectives: FileReference[];
     importedFiles: FileReference[];
     ambientExternalModules?: string[];
+    /** @deprecated Always false. Use a Program to determine if a file is a lib file. */
     isLibFile: boolean;
   }
   interface HostCancellationToken {
@@ -22056,14 +22066,14 @@ declare namespace ts {
   function transform<T extends Node>(source: T | T[], transformers: TransformerFactory<T>[], compilerOptions?: CompilerOptions): TransformationResult<T>;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/shared.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/shared.d.ts
 type Primitive$1 = string | number | boolean | null | undefined;
 type LiteralUnion$1<T, K extends Primitive$1 = string> = T | (K & Record<never, never>);
 interface Recursive<T> {
   [key: string]: T | Recursive<T>;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/tokens.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/tokens.d.ts
 interface Token$1<Value = any> {
   value: Value;
   description?: string;
@@ -22133,7 +22143,7 @@ type Tokens = { [key in keyof TokenDataTypes]?: Recursive<Token$1<TokenDataTypes
 type SemanticTokens<ConditionKey extends string = string> = { [key in keyof TokenDataTypes]?: Recursive<SemanticToken<TokenDataTypes[key], ConditionKey>> };
 type TokenCategory = keyof TokenDataTypes;
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/pattern.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/pattern.d.ts
 type Primitive = string | number | boolean | null | undefined;
 type LiteralUnion<T, K extends Primitive = string> = T | (K & Record<never, never>);
 type PatternProperty = {
@@ -22214,7 +22224,7 @@ interface PatternConfig<T extends PatternProperties = PatternProperties> {
   blocklist?: LiteralUnion<CssProperty>[];
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/theme.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/theme.d.ts
 interface ColorPaletteOptions {
   /**
    * Whether to enable color palette generation.
@@ -22302,7 +22312,7 @@ interface ExtendableTheme extends Theme {
   extend?: PartialTheme | undefined;
 }
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/utility.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/utility.d.ts
 interface TokenFn {
   (path: string): string | undefined;
   raw: (path: string) => Token$1 | undefined;
@@ -22367,7 +22377,7 @@ type ExtendableUtilityConfig = UtilityConfigWithExtend & {
   extend?: UtilityConfig | undefined;
 };
 //#endregion
-//#region ../../node_modules/.pnpm/@pandacss+types@1.9.1/node_modules/@pandacss/types/dist/config.d.ts
+//#region ../../node_modules/.pnpm/@pandacss+types@1.10.0/node_modules/@pandacss/types/dist/config.d.ts
 interface Patterns {
   [pattern: string]: PatternConfig;
 }

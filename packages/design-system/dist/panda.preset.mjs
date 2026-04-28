@@ -1,5 +1,5 @@
 import { r as BASE_COLORS, t as buildShade } from "./palette.utils-DzS5VqxG.mjs";
-//#region ../../node_modules/.pnpm/@pandacss+dev@1.9.1_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.mjs
+//#region ../../node_modules/.pnpm/@pandacss+dev@1.10.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.mjs
 function definePreset(preset) {
 	return preset;
 }
@@ -369,6 +369,7 @@ const sizingTokens = defineTokens.sizes({
 	"8": { value: "2rem" },
 	"9": { value: "2.25rem" },
 	"10": { value: "2.5rem" },
+	/** Matches spacing.11 — height/min-width use `sizes`, not `spacing`. */
 	"11": { value: "2.75rem" },
 	"12": { value: "3rem" },
 	"16": { value: "4rem" },
@@ -407,6 +408,7 @@ const spacingTokens = defineTokens.spacing({
 	"8": { value: "2rem" },
 	"9": { value: "2.25rem" },
 	"10": { value: "2.5rem" },
+	/** Between 10 and 12 — used by button `lg`, select trigger, editable, tags-input, etc. */
 	"11": { value: "2.75rem" },
 	"12": { value: "3rem" },
 	"16": { value: "4rem" },
@@ -432,6 +434,7 @@ const zIndexTokens = defineTokens.zIndex({
 	base: { value: 0 },
 	docked: { value: 10 },
 	sticky: { value: 1100 },
+	/** Floating lists: must be > sticky */
 	dropdown: { value: 1150 },
 	banner: { value: 1200 },
 	overlay: { value: 1300 },

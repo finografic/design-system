@@ -42,16 +42,27 @@ const { withProvider, withContext } = createStyleContext(editableRecipe);
 *   ```;
 */
 const Editable$1 = {
+	/** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */
 	Root: withProvider(Editable.Root, "root"),
+	/** Root with external machine state from `useEditable`. */
 	RootProvider: withProvider(Editable.RootProvider, "root"),
+	/** Optional text label above the editable field. */
 	Label: withContext(Editable.Label, "label"),
+	/** Wrapper that overlays `Input` and `Preview`. */
 	Area: withContext(Editable.Area, "area"),
+	/** Text input — shown while editing. */
 	Input: withContext(Editable.Input, "input"),
+	/** Read-only display — shown while not editing. */
 	Preview: withContext(Editable.Preview, "preview"),
+	/** Row of action triggers (Edit / Submit / Cancel). */
 	Control: withContext(Editable.Control, "control"),
+	/** Ghost button that enters edit mode. */
 	EditTrigger: withContext(Editable.EditTrigger, "editTrigger"),
+	/** Accent-filled button that commits the current value. */
 	SubmitTrigger: withContext(Editable.SubmitTrigger, "submitTrigger"),
+	/** Ghost button that discards changes and exits edit mode. */
 	CancelTrigger: withContext(Editable.CancelTrigger, "cancelTrigger"),
+	/** Render prop — exposes machine context (e.g. `editing`) to children; no DOM, no recipe slot. */
 	Context: Editable.Context
 };
 /**

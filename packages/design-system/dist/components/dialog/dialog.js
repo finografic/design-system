@@ -55,17 +55,29 @@ Root.displayName = "Dialog.Root";
 *   ```;
 */
 const Dialog$1 = {
+	/** Dialog root — accepts `size` variant (xs | sm | md | lg | xl | cover | full). @default 'md' */
 	Root,
+	/** Unstyled trigger — compose with `asChild` + `<Button>` to open the dialog. */
 	Trigger: Dialog.Trigger,
+	/** Fixed overlay behind the dialog panel. */
 	Backdrop: withContext(Dialog.Backdrop, "backdrop"),
+	/** Centres the Content panel in the viewport. */
 	Positioner: withContext(Dialog.Positioner, "positioner"),
+	/** The dialog panel itself. */
 	Content: withContext(Dialog.Content, "content"),
+	/** Flex row: title on the left, close trigger on the right. */
 	Header: withContext(Div, "header"),
+	/** Dialog title — linked to ARIA `aria-labelledby`. */
 	Title: withContext(Dialog.Title, "title"),
+	/** Visually-hidden description for screen readers — linked to `aria-describedby`. */
 	Description: withContext(Dialog.Description, "description"),
+	/** Scrollable body area. */
 	Body: withContext(Div, "body"),
+	/** Footer row — right-aligned actions. */
 	Footer: withContext(Div, "footer"),
+	/** Closes the dialog; use `asChild` to render as a Button. */
 	CloseTrigger: withContext(Dialog.CloseTrigger, "closeTrigger"),
+	/** Ark render-prop context. */
 	Context: Dialog.Context
 };
 /**

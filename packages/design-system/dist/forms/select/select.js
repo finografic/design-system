@@ -71,23 +71,45 @@ const { withProvider, withContext } = createStyleContext(selectRecipe);
 *   ```;
 */
 const Select$1 = {
+	/**
+	* Root — collection, value state, event handlers, multi-select flag, and recipe variants. Defaults to
+	* `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown escapes `overflow: hidden`
+	* ancestors. Override via `positioning` prop if needed.
+	*/
 	Root: withProvider(SelectRootFixed, "root"),
+	/** Root with external machine state from `useSelect`. */
 	RootProvider: withProvider(Select.RootProvider, "root"),
+	/** Text label above the trigger. */
 	Label: withContext(Select.Label, "label"),
+	/** Flex row wrapping the trigger and optional clear button. */
 	Control: withContext(Select.Control, "control"),
+	/** The button that opens the dropdown — shows selected value and chevron. */
 	Trigger: withContext(Select.Trigger, "trigger"),
+	/** Displays selected item label(s); truncates on overflow. */
 	ValueText: withContext(Select.ValueText, "valueText"),
+	/** Chevron icon wrapper; rotates 180° when open. */
 	Indicator: withContext(Select.Indicator, "indicator"),
+	/** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
 	Positioner: withContext(ArkSelectPositionerPortal, "positioner"),
+	/** Dropdown panel — scrollable list container with scale animation. */
 	Content: withContext(Select.Content, "content"),
+	/** Flex column wrapping all items and groups. */
 	List: withContext(Select.List, "list"),
+	/** A single selectable row; check icon appears via `ItemIndicator` when selected. */
 	Item: withContext(Select.Item, "item"),
+	/** Primary label inside an item — truncates on overflow. */
 	ItemText: withContext(Select.ItemText, "itemText"),
+	/** Check indicator shown when the item is selected. */
 	ItemIndicator: withContext(Select.ItemIndicator, "itemIndicator"),
+	/** Wraps a set of related items; adds vertical spacing between groups. */
 	ItemGroup: withContext(Select.ItemGroup, "itemGroup"),
+	/** Section heading for an item group. */
 	ItemGroupLabel: withContext(Select.ItemGroupLabel, "itemGroupLabel"),
+	/** Button to clear the current selection — renders inside `Control`. */
 	ClearTrigger: withContext(Select.ClearTrigger, "clearTrigger"),
+	/** Hidden native `<select>` for form integration — no recipe slot. */
 	HiddenSelect: Select.HiddenSelect,
+	/** Render prop — exposes machine context to children. */
 	Context: Select.Context
 };
 //#endregion

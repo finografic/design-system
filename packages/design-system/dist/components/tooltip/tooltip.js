@@ -36,11 +36,17 @@ const { withRootProvider, withContext } = createStyleContext(tooltipRecipe);
 const Tooltip$1 = {
 	Root: withRootProvider(Tooltip.Root),
 	RootProvider: withRootProvider(Tooltip.RootProvider),
+	/** Element that triggers the tooltip on hover/focus. */
 	Trigger: withContext(Tooltip.Trigger, "trigger"),
+	/** Positions the floating content. */
 	Positioner: withContext(Tooltip.Positioner, "positioner"),
+	/** The tooltip bubble. */
 	Content: withContext(Tooltip.Content, "content"),
+	/** Arrow wrapper — place inside Content. */
 	Arrow: withContext(Tooltip.Arrow, "arrow"),
+	/** The visible arrow triangle. */
 	ArrowTip: withContext(Tooltip.ArrowTip, "arrowTip"),
+	/** Ark render-prop context. */
 	Context: Tooltip.Context
 };
 /**

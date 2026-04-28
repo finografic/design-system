@@ -2426,11 +2426,11 @@ var import_picocolors = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin((
 * Reads icons.json (or icons.config.json) and writes TypeScript icon registry files.
 *
 * DS mode (default — run from the package root):
-*   Writes src/icons.ts + src/index.ts
+* Writes src/icons.ts + src/index.ts
 *
 * Consumer mode (run from a host project via the published bin):
-*   Writes a single standalone icons.generated.ts that imports createIconWrapper
-*   from @finografic/icons, so consumers don't need to maintain any wrapper code.
+* Writes a single standalone icons.generated.ts that imports createIconWrapper
+* from @finografic/icons, so consumers don't need to maintain any wrapper code.
 *
 * Run via: pnpm build (calls tsx scripts/generate.ts directly)
 * Also called in-process by the Hono server after every POST to /api/icons-json.
@@ -2581,19 +2581,19 @@ if (argv1.endsWith("/generate.ts") || argv1.endsWith("/generate.js")) generate()
 * Minimal Hono HTTP server for the icon picker workflow.
 *
 * Routes:
-*   GET  /api/icons-json → returns current icon selections as JSON array
-*   POST /api/icons-json → validates + writes selections, runs codegen in-process
+* GET  /api/icons-json → returns current icon selections as JSON array
+* POST /api/icons-json → validates + writes selections, runs codegen in-process
 *
 * Two modes — detected automatically from process.cwd():
 *
-*   DS mode (CWD === package root):
-*     Reads/writes src/icons.json. Generates src/icons.ts + src/index.ts.
-*     Used when running pnpm icons:config from within packages/icons/.
+* DS mode (CWD === package root):
+* Reads/writes src/icons.json. Generates src/icons.ts + src/index.ts.
+* Used when running pnpm icons:config from within packages/icons/.
 *
-*   Consumer mode (CWD is a host project):
-*     Reads/writes icons.config.json in CWD. Seeds it from src/icons.json defaults
-*     on first run. Generates icons.generated.ts in CWD.
-*     Used when consumers run pnpm exec icons-server from their project root.
+* Consumer mode (CWD is a host project):
+* Reads/writes icons.config.json in CWD. Seeds it from src/icons.json defaults
+* on first run. Generates icons.generated.ts in CWD.
+* Used when consumers run pnpm exec icons-server from their project root.
 *
 * Port: fixed at 5001. lucide-manager.config.json is written to CWD on startup
 * so the picker (lucide-manager) can always connect regardless of context.

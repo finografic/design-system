@@ -31,14 +31,23 @@ const { withProvider, withContext } = createStyleContext(radioGroupRecipe);
 *   ```;
 */
 const RadioGroup$1 = {
+	/** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */
 	Root: withProvider(RadioGroup.Root, "root"),
+	/** Root with external machine state from `useRadioGroup`. */
 	RootProvider: withProvider(RadioGroup.RootProvider, "root"),
+	/** Group label above the options. */
 	Label: withContext(RadioGroup.Label, "label"),
+	/** Clickable row wrapping control + text. */
 	Item: withContext(RadioGroup.Item, "item"),
+	/** The radio circle (border + checked fill). */
 	ItemControl: withContext(RadioGroup.ItemControl, "itemControl"),
+	/** Hidden native input for form submission. */
 	ItemHiddenInput: RadioGroup.ItemHiddenInput,
+	/** The inner dot shown when checked. */
 	Indicator: withContext(RadioGroup.Indicator, "indicator"),
+	/** Primary label text for the option. */
 	ItemText: withContext(RadioGroup.ItemText, "itemText"),
+	/** Secondary description text for the option. */
 	ItemDescription: withContext("span", "itemDescription")
 };
 const textColumnStyle = css({

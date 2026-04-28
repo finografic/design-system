@@ -35,25 +35,45 @@ const { withProvider, withContext } = createStyleContext(datePickerRecipe);
 *   ```;
 */
 const DatePicker$1 = {
+	/** Root — value, handlers, locale, plus `size`. */
 	Root: withProvider(DatePicker.Root, "root"),
+	/** Root with external machine state from `useDatePicker`. */
 	RootProvider: withProvider(DatePicker.RootProvider, "root"),
+	/** Text label above the control. */
 	Label: withContext(DatePicker.Label, "label"),
+	/** Input + trigger wrapper. */
 	Control: withContext(DatePicker.Control, "control"),
+	/** Text input for the date value; pass `index={0}` for start, `index={1}` for end (range). */
 	Input: withContext(DatePicker.Input, "input"),
+	/** Calendar icon button that opens the picker. */
 	Trigger: withContext(DatePicker.Trigger, "trigger"),
+	/** Clear (×) button — visible when a value is selected. */
 	ClearTrigger: withContext(DatePicker.ClearTrigger, "clearTrigger"),
+	/** Floating positioner that anchors the content panel. */
 	Positioner: withContext(DatePicker.Positioner, "positioner"),
+	/** Calendar panel container. */
 	Content: withContext(DatePicker.Content, "content"),
+	/** A single calendar view (day / month / year) — conditionally rendered by Zag state. */
 	View: withContext(DatePicker.View, "view"),
+	/** Header row of the view — contains `PrevTrigger`, `ViewTrigger`, `NextTrigger`. */
 	ViewControl: withContext(DatePicker.ViewControl, "viewControl"),
+	/** Button that cycles through day → month → year views. */
 	ViewTrigger: withContext(DatePicker.ViewTrigger, "viewTrigger"),
+	/** Previous month/year/decade navigation button. */
 	PrevTrigger: withContext(DatePicker.PrevTrigger, "prevTrigger"),
+	/** Next month/year/decade navigation button. */
 	NextTrigger: withContext(DatePicker.NextTrigger, "nextTrigger"),
+	/** Displays the current month/year range label. */
 	RangeText: withContext(DatePicker.RangeText, "rangeText"),
+	/** Calendar `<table>` element. */
 	Table: withContext(DatePicker.Table, "table"),
+	/** Weekday column heading cell (`<th>`). */
 	TableHeader: withContext(DatePicker.TableHeader, "tableHeader"),
+	/** Individual date cell (`<td>`). */
 	TableCell: withContext(DatePicker.TableCell, "tableCell"),
+	/** Clickable button inside a date cell — carries selection/range data attributes. */
 	TableCellTrigger: withContext(DatePicker.TableCellTrigger, "tableCellTrigger"),
+	/** Render prop — exposes machine context to children; no DOM, no recipe slot. */
 	Context: DatePicker.Context
 };
 /**

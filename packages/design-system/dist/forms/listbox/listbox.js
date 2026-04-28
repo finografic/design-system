@@ -43,16 +43,27 @@ const { withProvider, withContext } = createStyleContext(listboxRecipe);
 *   ```;
 */
 const Listbox$1 = {
+	/** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */
 	Root: withProvider(Listbox.Root, "root"),
+	/** Root with external machine state from `useListbox`. */
 	RootProvider: withProvider(Listbox.RootProvider, "root"),
+	/** Text label above the list. */
 	Label: withContext(Listbox.Label, "label"),
+	/** Scrollable list container. */
 	Content: withContext(Listbox.Content, "content"),
+	/** A single option row — pass `item` from the collection. */
 	Item: withContext(Listbox.Item, "item"),
+	/** Text label inside an item. */
 	ItemText: withContext(Listbox.ItemText, "itemText"),
+	/** Check indicator shown when the item is selected. */
 	ItemIndicator: withContext(Listbox.ItemIndicator, "itemIndicator"),
+	/** Groups related items — provides visual separation. */
 	ItemGroup: withContext(Listbox.ItemGroup, "itemGroup"),
+	/** Section heading for an item group. */
 	ItemGroupLabel: withContext(Listbox.ItemGroupLabel, "itemGroupLabel"),
+	/** Render prop — exposes machine context to children; no DOM, no recipe slot. */
 	Context: Listbox.Context,
+	/** Render prop — exposes per-item state inside `Item`. */
 	ItemContext: Listbox.ItemContext
 };
 /**

@@ -43,11 +43,17 @@ const { withProvider, withContext } = createStyleContext(toastRecipe);
 * ```
 */
 const Toast$1 = {
+	/** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */
 	Root: withProvider(Toast.Root, "root"),
+	/** Toast title — bold label at the top. */
 	Title: withContext(Toast.Title, "title"),
+	/** Optional supporting description below the title. */
 	Description: withContext(Toast.Description, "description"),
+	/** Absolutely-positioned dismiss button (top-right corner). */
 	CloseTrigger: withContext(Toast.CloseTrigger, "closeTrigger"),
+	/** Optional inline action button. */
 	ActionTrigger: withContext(Toast.ActionTrigger, "actionTrigger"),
+	/** Ark render-prop context. */
 	Context: Toast.Context
 };
 //#endregion

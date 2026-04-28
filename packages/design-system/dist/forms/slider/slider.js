@@ -38,15 +38,25 @@ const { withProvider, withContext } = createStyleContext(sliderRecipe);
 *   ```;
 */
 const Slider$1 = {
+	/** Root — value state, event handlers, orientation, and recipe variants (`size`). */
 	Root: withProvider(Slider.Root, "root"),
+	/** Text label for the slider; also wraps `ValueText` for inline display. */
 	Label: withContext(Slider.Label, "label"),
+	/** Displays the current numeric value; renders as a `<span>`. */
 	ValueText: withContext(Slider.ValueText, "valueText"),
+	/** Flex row that contains the track and thumb(s). */
 	Control: withContext(Slider.Control, "control"),
+	/** The background rail — contains `Range`. */
 	Track: withContext(Slider.Track, "track"),
+	/** Filled portion of the track representing the selected value. */
 	Range: withContext(Slider.Range, "range"),
+	/** Draggable handle; pass `index={n}` for multi-thumb sliders. */
 	Thumb: withContext(Slider.Thumb, "thumb"),
+	/** Container for tick marks below the track. */
 	MarkerGroup: withContext(Slider.MarkerGroup, "markerGroup"),
+	/** Individual tick mark; renders a dot via `::before` and a label. */
 	Marker: withContext(Slider.Marker, "marker"),
+	/** Hidden native `<input>` for form integration — no recipe slot. */
 	HiddenInput: Slider.HiddenInput
 };
 const textColumnStyle = css({

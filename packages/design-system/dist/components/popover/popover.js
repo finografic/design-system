@@ -38,15 +38,25 @@ const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
 const Popover$1 = {
 	Root: withRootProvider(Popover.Root),
 	RootProvider: withRootProvider(Popover.RootProvider),
+	/** Button or element that opens the popover. */
 	Trigger: withContext(Popover.Trigger, "trigger"),
+	/** Positioning anchor — no recipe slot, pure layout. */
 	Anchor: Popover.Anchor,
+	/** Positions the floating content panel. */
 	Positioner: withContext(Popover.Positioner, "positioner"),
+	/** The floating panel itself. */
 	Content: withContext(Popover.Content, "content"),
+	/** Bold heading at the top of the popover. */
 	Title: withContext(Popover.Title, "title"),
+	/** Supporting text below the title. */
 	Description: withContext(Popover.Description, "description"),
+	/** Absolutely-positioned close button. */
 	CloseTrigger: withContext(Popover.CloseTrigger, "closeTrigger"),
+	/** Arrow wrapper — place inside Content. */
 	Arrow: withContext(Popover.Arrow, "arrow"),
+	/** The visible arrow triangle. */
 	ArrowTip: withContext(Popover.ArrowTip, "arrowTip"),
+	/** Ark render-prop context. */
 	Context: Popover.Context
 };
 /**

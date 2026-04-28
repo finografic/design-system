@@ -32,10 +32,15 @@ const { withProvider, withContext } = createStyleContext(checkboxRecipe);
 *   ```;
 */
 const Checkbox$1 = {
+	/** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */
 	Root: withProvider(Checkbox.Root, "root"),
+	/** Box + hit target; receives `control` slot classes from context. */
 	Control: withContext(Checkbox.Control, "control"),
+	/** Icon container; receives `indicator` slot classes from context. */
 	Indicator: withContext(Checkbox.Indicator, "indicator"),
+	/** Text label; receives `label` slot classes from context. */
 	Label: withContext(Checkbox.Label, "label"),
+	/** Native input for forms; no recipe slot. */
 	HiddenInput: Checkbox.HiddenInput
 };
 const textColumnStyle = css({
