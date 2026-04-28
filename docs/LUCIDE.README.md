@@ -1,262 +1,232 @@
-# 🎨 @finografic/lucide-manager
+# @finografic/icons — Icon Manager Guide
 
-> A local developer tool for managing a [Lucide](https://lucide.dev) icon registry in a design system package.
-> Browse all 1500+ Lucide icons in a fast picker UI, select the ones you want, and generate strongly-typed TypeScript registry files from the result.
-
-**This is a `devDependency` — not a runtime library.** It is installed in the host package (e.g. your design system) and launched from there. It is never imported or bundled into production code.
-
-![Lucide Manager screenshot](./screenshot.png)
-
-## How it works
-
-The host package maintains a single source-of-truth file — `icons.json` — that lists which Lucide icons are in its registry. `lucide-manager` provides two commands that work with that file:
-
-```
-icons.json  ──(lucide-manager generate)──▶  icons.ts + index.ts  ──(pnpm build)──▶  dist/
-     ▲
-lucide-manager dev  (picker UI writes here on every selection)
-```
-
-| File             | Managed by                         | Description                                               |
-| ---------------- | ---------------------------------- | --------------------------------------------------------- |
-| `icons.json`     | You (via the picker UI or by hand) | Source of truth — which icons are included                |
-| `icons.ts`       | `lucide-manager generate`          | Icon registry — `ICONS` object, wrapped exports           |
-| `index.ts`       | `lucide-manager generate`          | Named exports — `ArrowUpIcon`, `ChevronDownIcon`, etc.    |
-| `icons.utils.ts` | You (handwritten, permanent)       | `createIconWrapper` + `IconProps` — **never overwritten** |
+> How to manage the Lucide icon registry — both inside the DS repo and from a consumer project.
 
 ---
 
-## Installation
+## Overview
 
-Install as a `devDependency` in your design system package:
+The icon set is managed by two packages working together:
+
+| Package                          | Role                                                                                                        |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **`@finografic/icons`**          | The icon library. Owns the Hono server, codegen script, and `src/icons.json`. Publishes `bin/icons-server`. |
+| **`@finografic/lucide-manager`** | The browser picker UI only. No file I/O. Talks to the server over HTTP.                                     |
+
+When you run the icon manager, the server handles all file reads and writes. The picker
+is a dumb UI — it fetches the current selection, lets you toggle icons, and POSTs the
+updated list back. Codegen runs automatically after every save.
+
+### Two modes, same server
+
+The server detects its context from `process.cwd()`:
+
+|                   | **DS mode**                     | **Consumer mode**                        |
+| ----------------- | ------------------------------- | ---------------------------------------- |
+| When              | CWD = `packages/icons/`         | CWD = consumer project root              |
+| Source file       | `src/icons.json`                | `icons.config.json` in CWD               |
+| Generated output  | `src/icons.ts` + `src/index.ts` | `icons.generated.ts` in CWD              |
+| Seed on first run | —                               | copies DS defaults from `src/icons.json` |
+
+---
+
+## Workflow A — Inside the DS repo
+
+> **Run from:** `packages/icons/` (or via `pnpm --filter @finografic/icons icons:config` from root)
+
+This is for managing the default icon set that ships with `@finografic/icons`.
+
+### Start the manager
 
 ```bash
-# From your monorepo root, targeting the design system package:
-pnpm add --filter @workspace/design-system --save-dev @finografic/lucide-manager
+pnpm icons:config
+```
 
-# Or from within the design system package directly:
+This starts two processes concurrently:
+
+- **Icons Server** on `http://localhost:5001` — reads/writes `src/icons.json`, runs codegen on save
+- **Lucide Manager UI** on `http://localhost:5199` — opens automatically in your browser
+
+### Make your selections
+
+The browser UI shows all 1700+ Lucide icons. Toggle icons in/out of the registry.
+Every change auto-saves — the server writes `src/icons.json` and regenerates
+`src/icons.ts` + `src/index.ts` immediately.
+
+### Commit
+
+```bash
+git add src/icons.json src/icons.ts src/index.ts
+git commit -m "icons: ..."
+```
+
+All three files are committed. `src/icons.json` is the source of truth; the generated
+files are committed so consumers and CI never need to run codegen.
+
+### Manual codegen (if needed)
+
+```bash
+pnpm build   # generates icons.ts + index.ts, then compiles dist/
+```
+
+---
+
+## Workflow B — Consumer project
+
+> **Run from:** your consumer project root (the package that installs `@finografic/icons`)
+
+This is for projects that want a **custom icon set** separate from the DS defaults.
+On first run the server seeds `icons.config.json` from the DS defaults so you have a
+starting point. After that you own the file.
+
+### 1. Install the picker UI
+
+`@finografic/lucide-manager` is a peer — add it as a devDependency in your project:
+
+```bash
 pnpm add -D @finografic/lucide-manager
 ```
 
----
+(`@finografic/icons` is already installed as a dep; the server comes with it.)
 
-## Configuration
+### 2. Add the script
 
-### 1. Create `lucide-manager.config.json`
-
-Place this file in your **host package root** (alongside its `package.json`):
-
-```json
-{
-  "iconsJsonPath": "./src/icons/icons.json",
-  "iconsDir": "./src/icons"
-}
-```
-
-| Field           | Description                                                 |
-| --------------- | ----------------------------------------------------------- |
-| `iconsJsonPath` | Path to `icons.json` — the file the picker reads and writes |
-| `iconsDir`      | Directory where `icons.ts` and `index.ts` will be generated |
-
-Both paths are relative to the config file's location and resolved to absolute paths at runtime.
-
-### 2. Add scripts to `package.json`
+In your project's `package.json`:
 
 ```json
 {
   "scripts": {
-    "icons": "lucide-manager dev",
-    "generate:icons": "lucide-manager generate"
+    "icons": "concurrently \"pnpm exec icons-server\" \"pnpm exec lucide-manager\""
   }
 }
 ```
 
-You can name these scripts whatever you prefer — the above is the recommended convention.
+> `concurrently` is available from `@finografic/icons`'s devDeps — if it's not on your
+> PATH, add it: `pnpm add -D concurrently`.
 
-### 3. Seed `icons.json`
+### 3. Run it
 
-Create the initial `icons.json` in the directory specified by `iconsJsonPath`. The shape is an array of entries:
+```bash
+pnpm icons
+```
+
+**First run only:**
+
+1. Server starts on `http://localhost:5001`, writes `lucide-manager.config.json` to your project root.
+2. No `icons.config.json` found → seeds it from the DS defaults.
+3. Picker opens at `http://localhost:5199`.
+
+**Every run:** reads and writes your local `icons.config.json`.
+
+### 4. Select your icons
+
+Toggle icons in the browser UI. Every save writes `icons.config.json` and generates
+`icons.generated.ts` in your project root.
+
+### 5. Commit and import
+
+```bash
+# Commit the source of truth
+git add icons.config.json
+git commit -m "icons: initial consumer icon set"
+
+# icons.generated.ts is regenerated on every save — you can either commit it
+# (recommended, so your project works without running the server) or gitignore it
+# (and always regenerate before build). Committing is simpler.
+git add icons.generated.ts
+```
+
+Import from the generated file in your app:
+
+```ts
+import { ArrowDownIcon, CheckIcon, CloseIcon } from './icons.generated';
+import { icons, ICON_NAMES } from './icons.generated';
+import type { IconName, IconComponent } from './icons.generated';
+```
+
+### Subsequent runs
+
+```bash
+pnpm icons   # opens picker, loads icons.config.json, saves on toggle
+```
+
+---
+
+## File reference
+
+### DS repo files
+
+| File                         | Managed by                     | Notes                                                    |
+| ---------------------------- | ------------------------------ | -------------------------------------------------------- |
+| `src/icons.json`             | Picker (server writes on save) | Source of truth — commit this                            |
+| `src/icons.ts`               | Codegen (auto after save)      | Generated — commit, never edit                           |
+| `src/index.ts`               | Codegen (auto after save)      | Generated — commit, never edit                           |
+| `src/icons.utils.ts`         | You (handwritten)              | `createIconWrapper` + `IconProps` — never overwritten    |
+| `lucide-manager.config.json` | Server (written on startup)    | `{ "serverUrl": "http://localhost:5001" }` — commit this |
+
+### Consumer project files
+
+| File                         | Managed by                     | Notes                                               |
+| ---------------------------- | ------------------------------ | --------------------------------------------------- |
+| `icons.config.json`          | Picker (server writes on save) | Your icon selections — commit this                  |
+| `icons.generated.ts`         | Codegen (auto after save)      | Generated — commit or gitignore (see above)         |
+| `lucide-manager.config.json` | Server (written on startup)    | Created automatically on first run — gitignore this |
+
+---
+
+## How the picker connects to the server
+
+`lucide-manager` reads `lucide-manager.config.json` from your project root (or the first
+parent directory that contains it) on startup. The file has one field:
 
 ```json
-[
-  { "lucideName": "arrow-up", "exportName": "ArrowUp" },
-  { "lucideName": "chevron-down", "exportName": "ChevronDown" },
-  { "lucideName": "x", "exportName": "Close" }
-]
+{ "serverUrl": "http://localhost:5001" }
 ```
 
-| Field        | Description                                                                                                                                                                                                   |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `lucideName` | Kebab-case name as Lucide uses it (e.g. `"arrow-up"`)                                                                                                                                                         |
-| `exportName` | PascalCase name without the `Icon` suffix (e.g. `"ArrowUp"`). Normally derived automatically from `lucideName`, but can be overridden — useful when you want a semantic name like `"Close"` instead of `"X"`. |
-
-### 4. Ensure `icons.utils.ts` exists
-
-The `generate` command writes `icons.ts` and `index.ts`, which import from `./icons.utils`. That file is **not generated** — it must exist in `iconsDir` before you run `generate` for the first time.
-
-`icons.utils.ts` must export:
-
-- `IconProps` — the SVG prop type used by all icon components
-- `createIconWrapper(IconComponent, exportName)` — wraps a Lucide component with a stable `.icon` class, `data-icon-name` attribute, `displayName`, and forwarded ref
-
-See the [reference implementation](./.claude/assets/icons.utils.ts) for the expected interface.
+The server writes this file to `process.cwd()` every time it starts — so the picker
+always connects to the correct URL without any manual configuration.
 
 ---
 
-## Usage
+## Troubleshooting
 
-All commands are run from the **host package root** (the directory containing `lucide-manager.config.json`).
+### "Save failed" / "Included: 0" in the picker
 
-### Open the icon picker
+The picker shows "Save failed" when its initial GET to `/api/icons-json` fails. This
+means the server is not running or is on a different port than what was baked into the
+picker at startup.
 
-```bash
-pnpm icons
-# → opens http://localhost:5199
-```
+**Fix:** Always start server and picker together (via the `concurrently` script). Never
+open the picker URL from a previous session after restarting only the server.
 
-The picker fetches all Lucide icon metadata from the public Lucide API on startup (cached for 24 hours). Browse by category, search by name, and click any icon to open its detail panel. Use the **Add / Remove** button to toggle it in or out of your registry.
+### Port 5001 already in use
 
-Selections are saved automatically to `icons.json` as you click — no manual save step.
-
-### Generate the TypeScript registry
+A previous run of the server may still be running. Find and kill it:
 
 ```bash
-pnpm generate:icons
+lsof -ti :5001 | xargs kill
 ```
 
-Reads `icons.json` and writes two files into `iconsDir`:
+Then restart normally.
 
-- **`icons.ts`** — the `ICONS` map, auto-wrapped exports, `icons` object, `IconName` type, `ICON_NAMES` array, `IconComponent` type
-- **`index.ts`** — named exports (`ArrowUpIcon`, `ChevronDownIcon`, …), plus re-exports of `icons`, `ICON_NAMES`, `IconName`, `IconProps`, `createIconWrapper`
+### `icons.config.json` not seeded / empty
 
-These are generated artifacts. Commit them (for readability and to avoid requiring codegen in CI), but never edit them by hand.
+If `src/icons.json` is not included in the installed package (should not happen with
+published versions ≥ 1.14), the server will log a clear error and exit. Confirm the
+installed version includes `src/icons.json` in its `files` field.
 
-### Typical workflow
+### Consumer: `lucide-manager` not found
+
+`lucide-manager` must be a direct devDependency of your project — pnpm does not expose
+transitive-dep binaries by default. Run `pnpm add -D @finografic/lucide-manager`.
+
+### Consumer: `icons-server` not found
+
+`icons-server` is the bin published with `@finografic/icons`. Confirm it is installed:
 
 ```bash
-# 1. Open the picker and make your selections
-pnpm icons
-
-# 2. After closing, regenerate the registry files
-pnpm generate:icons
-
-# 3. Rebuild the design system
-pnpm build
+pnpm exec icons-server --help   # should print nothing / start the server
 ```
 
----
-
-## Generated file format
-
-### `icons.ts` (example with 3 icons)
-
-```ts
-/**
- * Icon Registry — @workspace/design-system
- *
- * !! GENERATED FILE — do not edit by hand.
- * !! Edit icons.json via the lucide-manager picker, then run: lucide-manager generate
- */
-
-import * as Lucide from 'lucide-react';
-import { createIconWrapper } from './icons.utils';
-
-const ICONS = {
-  ArrowUpIcon: Lucide.ArrowUp,
-  CloseIcon: Lucide.X,
-  ChevronDownIcon: Lucide.ChevronDown,
-} as const;
-
-// ... wrapped exports, public API
-export const icons = wrappedIcons;
-export type IconName = keyof typeof ICONS;
-export const ICON_NAMES = (Object.keys(ICONS) as IconName[]).sort();
-export type IconComponent = ReturnType<typeof createIconWrapper>;
-```
-
-### `index.ts` (named exports)
-
-```ts
-export type { IconComponent, IconName } from './icons';
-export { ICON_NAMES, icons } from './icons';
-
-export const { ArrowUpIcon, ChevronDownIcon, CloseIcon } = icons;
-
-export type { IconProps } from './icons.utils';
-export { createIconWrapper } from './icons.utils';
-```
-
----
-
-## Development
-
-These instructions are for working on `lucide-manager` itself.
-
-### Setup
-
-```bash
-# Clone and install dependencies (sets up git hooks automatically)
-pnpm install
-```
-
-### Run the picker in self-dev mode
-
-```bash
-pnpm dev
-```
-
-When run from this package's own root, `lucide-manager` detects that it is operating on itself and uses fixed local test paths instead of looking for a `lucide-manager.config.json`:
-
-|                  | Self-dev path    |
-| ---------------- | ---------------- |
-| Icons JSON       | `dev/icons.json` |
-| Icons output dir | `dev/`           |
-
-Both are gitignored. On first run, `dev/` is created automatically and `dev/icons.json` is seeded from the root `icons.json`.
-
-### Other scripts
-
-```bash
-pnpm typecheck       # TypeScript type check (no emit)
-pnpm lint            # ESLint
-pnpm lint:fix        # ESLint with auto-fix
-pnpm format          # oxfmt (write)
-pnpm format:check    # oxfmt --check (CI-safe)
-pnpm test.run        # Run tests once
-pnpm test            # Run tests in watch mode
-```
-
-### Project structure
-
-```
-bin/
-  lucide-manager.js       CLI shim — dev → vite, generate → tsx
-scripts/
-  generate-icons-ts.ts    Reads icons.json, writes icons.ts + index.ts
-src/
-  config/
-    colors.ts             All UI color tokens (single source of truth)
-    defaults.ts           Config filename, self-dev paths, server defaults
-    loadConfig.ts         Mode-aware config resolver (self-dev vs. installed)
-  components/
-    CategorySidebar.tsx   Left sidebar with category filter
-    IconCard.tsx          Single icon cell in the grid
-    IconDetail.tsx        Bottom detail panel (add/remove/rename)
-    IconSvg.tsx           Renders icons from SVG node trees (no React imports)
-  hooks/
-    useIconsJson.ts       Manages local icons.json state via /api/icons-json
-    useLucideData.ts      Fetches icon metadata from the Lucide public API
-  server/
-    plugin.ts             Vite plugin — GET/POST /api/icons-json
-  App.tsx                 Main application shell
-  main.tsx                React entry point
-icons.json                Seed file used to populate dev/ on first self-dev run
-index.html                Vite entry point
-vite.config.ts            Vite config (port 5199)
-```
-
----
-
-## License
-
-MIT © [Justin Rankin](https://github.com/finografic)
+If it's missing, the installed version of `@finografic/icons` may be older than `1.14`.
+Update: `pnpm update @finografic/icons --latest`.

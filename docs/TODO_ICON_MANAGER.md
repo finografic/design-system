@@ -1,6 +1,6 @@
 # TODO — Icon Manager: Consumer Project Support
 
-> **Status:** Phases 1–2 complete (2026-04-28). Phase 3 (docs) not started.
+> **Status:** Complete (2026-04-28). All phases shipped.
 
 ---
 
@@ -59,7 +59,7 @@ regression).
 
 - [x] Phase 1 — Server + generate support consumer mode (context detection, seeding, consumer template) (2026-04-28)
 - [x] Phase 2 — Compile server to `dist/server.mjs`; publish via `bin/icons-server.js`; update `files` in package.json (2026-04-28)
-- [ ] Phase 3 — Document consumer setup in `docs/LUCIDE.README.md`
+- [x] Phase 3 — Rewrote `docs/LUCIDE.README.md` with DS + consumer workflows; updated `packages/icons/README.md` (2026-04-28)
 
 ---
 
