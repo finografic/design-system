@@ -64,7 +64,7 @@ export function generate(): void {
 
   const iconsTsContent = `\
 /**
- * Icon Registry — @workspace/icons
+ * Icon Registry — @finografic/icons
  *
  * !! GENERATED FILE — do not edit by hand.
  * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate
@@ -112,7 +112,7 @@ export type IconComponent = ReturnType<typeof createIconWrapper>;
 
   const indexTsContent = `\
 /**
- * src/index.ts — @workspace/icons
+ * src/index.ts — @finografic/icons
  *
  * !! GENERATED FILE — do not edit by hand.
  * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate

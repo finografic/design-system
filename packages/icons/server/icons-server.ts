@@ -9,14 +9,13 @@
  * Started via: pnpm icons.server — server only (called by root `pnpm dev`) pnpm icons.config — server +
  * picker UI together (concurrently)
  *
- * Port: starts at 3001, auto-increments if busy. The actual port is written to lucide-manager.config.json so
- * the picker always connects to the right URL.
+ * Port: fixed at 5001. lucide-manager.config.json is committed with this value so the picker always connects
+ * to the right URL. If 5001 is already in use, the server exits with a clear error.
  *
  * This server is dev-only. It is not part of the package build output.
  */
 
 import fs from 'node:fs';
-import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serve } from '@hono/node-server';
@@ -28,20 +27,10 @@ import pc from 'picocolors';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const jsonPath = path.join(root, 'src', 'icons.json');
-const configPath = path.join(root, 'lucide-manager.config.json');
 
-// ── Port discovery ─────────────────────────────────────────────────────────────
+// ── Port ───────────────────────────────────────────────────────────────────────
 
-function findAvailablePort(startPort: number): Promise<number> {
-  return new Promise((resolve) => {
-    const server = net.createServer();
-    server.listen(startPort, () => {
-      const { port } = server.address() as net.AddressInfo;
-      server.close(() => resolve(port));
-    });
-    server.on('error', () => resolve(findAvailablePort(startPort + 1)));
-  });
-}
+const PORT = 5001;
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -139,15 +128,8 @@ app.post('/api/icons-json', async (c) => {
 
 // ── Start ─────────────────────────────────────────────────────────────────────
 
-const port = await findAvailablePort(5001);
-const serverUrl = `http://localhost:${port}`;
-
-// Write the actual port to lucide-manager.config.json so the picker connects
-// to the right URL regardless of which port we landed on.
-fs.writeFileSync(configPath, JSON.stringify({ serverUrl }, null, 2) + '\n', 'utf8');
-
-serve({ fetch: app.fetch, port }, () => {
+serve({ fetch: app.fetch, port: PORT }, () => {
   console.log('');
-  console.log(`  ${pc.cyan('●')}  Icons Server:  ${pc.cyan(serverUrl)}`);
+  console.log(`  ${pc.cyan('●')}  Icons Server:  ${pc.cyan(`http://localhost:${PORT}`)}`);
   console.log('');
 });
