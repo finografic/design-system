@@ -1,10 +1,17 @@
 /**
  * Scripts/generate.ts
  *
- * Reads src/icons.json and writes: src/icons.ts — ICONS map, wrapped exports, public API src/index.ts — named
- * exports + re-exports
+ * Reads icons.json (or icons.config.json) and writes TypeScript icon registry files.
  *
- * Run via: pnpm icons.generate Also called in-process by the Hono server after every POST to /api/icons-json.
+ * DS mode (default — run from the package root):
+ * Writes src/icons.ts + src/index.ts
+ *
+ * Consumer mode (run from a host project via the published bin):
+ * Writes a single standalone icons.generated.ts that imports createIconWrapper
+ * from @finografic/icons, so consumers don't need to maintain any wrapper code.
+ *
+ * Run via: pnpm build (calls tsx scripts/generate.ts directly)
+ * Also called in-process by the Hono server after every POST to /api/icons-json.
  *
  * !! Does NOT touch src/icons.utils.ts — that file is handwritten and permanent.
  */
@@ -16,15 +23,32 @@ import { fileURLToPath } from 'node:url';
 // ── Paths ──────────────────────────────────────────────────────────────────────
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const jsonPath = path.join(root, 'src', 'icons.json');
-const tsPath = path.join(root, 'src', 'icons.ts');
-const indexPath = path.join(root, 'src', 'index.ts');
+const defaultJsonPath = path.join(root, 'src', 'icons.json');
+const defaultTsPath = path.join(root, 'src', 'icons.ts');
+const defaultIndexPath = path.join(root, 'src', 'index.ts');
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
 interface IconEntry {
-  lucideName: string; // kebab-case Lucide name, e.g. "arrow-up"
-  exportName: string; // PascalCase without "Icon" suffix, e.g. "ArrowUp"
+  lucideName: string;
+  exportName: string;
+}
+
+export interface GenerateOptions {
+  /** Path to the JSON icon list. Defaults to src/icons.json (DS mode). */
+  jsonPath?: string;
+  /** Path to write the icon registry TS file. Defaults to src/icons.ts (DS mode). */
+  tsOutputPath?: string;
+  /**
+   * Path to write the re-export index. Only written in DS mode.
+   * Pass null to skip (consumer mode always skips this).
+   */
+  indexOutputPath?: string | null;
+  /**
+   * 'ds' — generates src/icons.ts + src/index.ts, importing from ./icons.utils
+   * 'consumer' — generates a standalone file, importing from @finografic/icons
+   */
+  mode?: 'ds' | 'consumer';
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
@@ -39,17 +63,18 @@ function toLucideExport(lucideName: string): string {
 
 // ── Generate ───────────────────────────────────────────────────────────────────
 
-/**
- * Reads icons.json and writes icons.ts + index.ts. Exported so the Hono server can call it directly on each
- * POST (avoids ESM module-cache issues with top-level side effects).
- */
-export function generate(): void {
+export function generate(options: GenerateOptions = {}): void {
+  const {
+    jsonPath = defaultJsonPath,
+    tsOutputPath = defaultTsPath,
+    indexOutputPath = defaultIndexPath,
+    mode = 'ds',
+  } = options;
+
   const entries: IconEntry[] = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
   // Stable alphabetical order by exportName — diffs are always readable
   entries.sort((a, b) => a.exportName.localeCompare(b.exportName));
-
-  // ── Build icons.ts ───────────────────────────────────────────────────────────
 
   const maxKeyLen = Math.max(...entries.map((e) => `${e.exportName}Icon`.length));
 
@@ -62,7 +87,10 @@ export function generate(): void {
     })
     .join('\n');
 
-  const iconsTsContent = `\
+  // ── DS mode: icons.ts + index.ts ─────────────────────────────────────────────
+
+  if (mode === 'ds') {
+    const iconsTsContent = `\
 /**
  * Icon Registry — @finografic/icons
  *
@@ -106,11 +134,13 @@ export const ICON_NAMES = (Object.keys(ICONS) as IconName[]).sort();
 export type IconComponent = ReturnType<typeof createIconWrapper>;
 `;
 
-  // ── Build index.ts ───────────────────────────────────────────────────────────
+    fs.writeFileSync(tsOutputPath, iconsTsContent, 'utf8');
+    console.log(`✓ icons.ts   — ${entries.length} icons`);
 
-  const namedExports = entries.map(({ exportName }) => `  ${exportName}Icon,`).join('\n');
+    if (indexOutputPath) {
+      const namedExports = entries.map(({ exportName }) => `  ${exportName}Icon,`).join('\n');
 
-  const indexTsContent = `\
+      const indexTsContent = `\
 /**
  * src/index.ts — @finografic/icons
  *
@@ -133,16 +163,64 @@ export type { IconProps } from './icons.utils';
 export { createIconWrapper } from './icons.utils';
 `;
 
-  // ── Write ─────────────────────────────────────────────────────────────────────
+      fs.writeFileSync(indexOutputPath, indexTsContent, 'utf8');
+      console.log(`✓ index.ts   — ${entries.length} named exports`);
+    }
 
-  fs.writeFileSync(tsPath, iconsTsContent, 'utf8');
-  fs.writeFileSync(indexPath, indexTsContent, 'utf8');
+    return;
+  }
 
-  console.log(`✓ icons.ts   — ${entries.length} icons`);
-  console.log(`✓ index.ts   — ${entries.length} named exports`);
+  // ── Consumer mode: single standalone icons.generated.ts ──────────────────────
+
+  const iconsTsContent = `\
+/**
+ * icons.generated.ts
+ *
+ * !! GENERATED FILE — managed by @finografic/icons icon manager.
+ * !! To update: run your icons manager script (pnpm icons or similar).
+ */
+
+import * as Lucide from 'lucide-react';
+import { createIconWrapper } from '@finografic/icons';
+
+// ── Icon registry ──────────────────────────────────────────────────────────────
+
+const ICONS = {
+${registryLines}
+} as const;
+
+// ── Auto-wrap ──────────────────────────────────────────────────────────────────
+
+type WrappedIconMap = { [K in keyof typeof ICONS]: ReturnType<typeof createIconWrapper> };
+
+const wrappedIcons = Object.fromEntries(
+  Object.entries(ICONS).map(([name, icon]) => [name, createIconWrapper(icon, name)]),
+) as WrappedIconMap;
+
+// ── Public API ─────────────────────────────────────────────────────────────────
+
+/** All registered icons as a strongly-typed object. */
+export const icons = wrappedIcons;
+
+/** Union of all registered icon export names. */
+export type IconName = keyof typeof ICONS;
+
+/** Sorted list of all registered icon names. */
+export const ICON_NAMES = (Object.keys(ICONS) as IconName[]).sort();
+
+/** Type of any wrapped icon component. */
+export type IconComponent = ReturnType<typeof createIconWrapper>;
+`;
+
+  fs.writeFileSync(tsOutputPath, iconsTsContent, 'utf8');
+  console.log(`✓ icons.generated.ts   — ${entries.length} icons`);
 }
 
 // ── CLI entry point ────────────────────────────────────────────────────────────
-// Called directly via: pnpm icons.generate (tsx scripts/generate.ts)
+// Only auto-runs when invoked directly (not when imported by the server).
+// Checks argv[1] filename so this guard works for both tsx source and compiled JS.
 
-generate();
+const argv1 = process.argv[1] ?? '';
+if (argv1.endsWith('/generate.ts') || argv1.endsWith('/generate.js')) {
+  generate();
+}

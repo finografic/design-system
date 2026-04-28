@@ -314,5 +314,17 @@
   {
     "exportName": "Apple",
     "lucideName": "apple"
+  },
+  {
+    "exportName": "File",
+    "lucideName": "file"
+  },
+  {
+    "exportName": "Folder",
+    "lucideName": "folder"
+  },
+  {
+    "exportName": "FolderOpen",
+    "lucideName": "folder-open"
   }
 ]

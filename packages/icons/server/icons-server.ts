@@ -3,16 +3,25 @@
  *
  * Minimal Hono HTTP server for the icon picker workflow.
  *
- * Routes: GET /api/icons-json → returns current src/icons.json as JSON array POST /api/icons-json → validates
- * + writes src/icons.json, runs generate in-process
+ * Routes:
+ * GET  /api/icons-json → returns current icon selections as JSON array
+ * POST /api/icons-json → validates + writes selections, runs codegen in-process
  *
- * Started via: pnpm icons.server — server only (called by root `pnpm dev`) pnpm icons.config — server +
- * picker UI together (concurrently)
+ * Two modes — detected automatically from process.cwd():
  *
- * Port: fixed at 5001. lucide-manager.config.json is committed with this value so the picker always connects
- * to the right URL. If 5001 is already in use, the server exits with a clear error.
+ * DS mode (CWD === package root):
+ * Reads/writes src/icons.json. Generates src/icons.ts + src/index.ts.
+ * Used when running pnpm icons:config from within packages/icons/.
  *
- * This server is dev-only. It is not part of the package build output.
+ * Consumer mode (CWD is a host project):
+ * Reads/writes icons.config.json in CWD. Seeds it from src/icons.json defaults
+ * on first run. Generates icons.generated.ts in CWD.
+ * Used when consumers run pnpm exec icons-server from their project root.
+ *
+ * Port: fixed at 5001. lucide-manager.config.json is written to CWD on startup
+ * so the picker (lucide-manager) can always connect regardless of context.
+ *
+ * This server is dev-only. It is not part of the package library output.
  */
 
 import fs from 'node:fs';
@@ -23,14 +32,33 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import pc from 'picocolors';
 
+import { generate } from '../scripts/generate.js';
+
 // ── Paths ──────────────────────────────────────────────────────────────────────
 
-const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const jsonPath = path.join(root, 'src', 'icons.json');
+// When compiled to dist/server.js: two dirnames up = package root ✓
+// When run via tsx server/icons-server.ts: two dirnames up = package root ✓
+const packageRoot = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const cwd = process.cwd();
+
+// ── Mode detection ─────────────────────────────────────────────────────────────
+
+const isConsumerMode = path.resolve(cwd) !== path.resolve(packageRoot);
+
+const jsonPath = isConsumerMode
+  ? path.join(cwd, 'icons.config.json')
+  : path.join(packageRoot, 'src', 'icons.json');
+
+const defaultsPath = path.join(packageRoot, 'src', 'icons.json');
+
+const generatedTsPath = isConsumerMode
+  ? path.join(cwd, 'icons.generated.ts')
+  : path.join(packageRoot, 'src', 'icons.ts');
 
 // ── Port ───────────────────────────────────────────────────────────────────────
 
 const PORT = 5001;
+const configPath = path.join(cwd, 'lucide-manager.config.json');
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -39,22 +67,42 @@ interface IconEntry {
   exportName: string;
 }
 
-// ── Generate (in-process) ─────────────────────────────────────────────────────
+// ── Bootstrap ──────────────────────────────────────────────────────────────────
 
-/**
- * Runs codegen in-process. generate() is an exported function (not a top-level side effect) so ESM module
- * caching is not an issue — the import is cached once, the function is called fresh each time.
- */
-async function runGenerate(): Promise<void> {
-  const { generate } = await import('../scripts/generate.ts');
-  generate();
+// Write lucide-manager.config.json so the picker knows where to find this server.
+// Idempotent in DS mode (always 5001); creates it on first run in consumer mode.
+fs.writeFileSync(
+  configPath,
+  JSON.stringify({ serverUrl: `http://localhost:${PORT}` }, null, 2) + '\n',
+  'utf8',
+);
+
+// In consumer mode: seed icons.config.json from the DS defaults if it doesn't exist yet.
+if (isConsumerMode && !fs.existsSync(jsonPath)) {
+  if (!fs.existsSync(defaultsPath)) {
+    console.error(pc.red(`[icons-server] Cannot seed — defaults not found at: ${defaultsPath}`));
+    process.exit(1);
+  }
+  fs.copyFileSync(defaultsPath, jsonPath);
+  console.log('');
+  console.log(`  ${pc.green('✓')}  Created ${pc.cyan('icons.config.json')} from DS defaults`);
+}
+
+// ── Codegen ────────────────────────────────────────────────────────────────────
+
+function runGenerate(): void {
+  generate({
+    jsonPath,
+    tsOutputPath: generatedTsPath,
+    indexOutputPath: isConsumerMode ? null : undefined, // consumer skips index.ts
+    mode: isConsumerMode ? 'consumer' : 'ds',
+  });
 }
 
 // ── App ────────────────────────────────────────────────────────────────────────
 
 const app = new Hono();
 
-// Allow the picker UI (Vite dev server on a different port) to call this server
 app.use(
   '*',
   cors({
@@ -70,8 +118,8 @@ app.get('/api/icons-json', async (c) => {
     const content = fs.readFileSync(jsonPath, 'utf8');
     return c.json(JSON.parse(content));
   } catch (err) {
-    console.error('[icons-server] Failed to read icons.json:', err);
-    return c.json({ error: 'Failed to read icons.json' }, 500);
+    console.error('[icons-server] Failed to read icon selections:', err);
+    return c.json({ error: 'Failed to read icon selections' }, 500);
   }
 });
 
@@ -86,7 +134,6 @@ app.post('/api/icons-json', async (c) => {
     return c.json({ error: 'Invalid JSON body' }, 400);
   }
 
-  // Basic shape validation — must be an array of { lucideName, exportName }
   if (!Array.isArray(body)) {
     return c.json({ error: 'Body must be a JSON array' }, 400);
   }
@@ -104,22 +151,20 @@ app.post('/api/icons-json', async (c) => {
 
   const entries = body as IconEntry[];
 
-  // Write icons.json — exportName first so the file reads alphabetically
+  // Write selections — exportName first so the file is alphabetically readable
   const ordered = entries.map(({ exportName, lucideName }) => ({ exportName, lucideName }));
   try {
     fs.writeFileSync(jsonPath, JSON.stringify(ordered, null, 2) + '\n', 'utf8');
   } catch (err) {
-    console.error('[icons-server] Failed to write icons.json:', err);
-    return c.json({ error: 'Failed to write icons.json' }, 500);
+    console.error('[icons-server] Failed to write icon selections:', err);
+    return c.json({ error: 'Failed to write icon selections' }, 500);
   }
 
-  // Run generate in-process
   try {
-    await runGenerate();
+    runGenerate();
   } catch (err) {
-    // icons.json was saved successfully — generation failure shouldn't block the picker.
-    // Log the error and return a partial-success response so the UI can surface it.
-    console.error('[icons-server] Generate failed:', err);
+    // Selections were saved — generation failure shouldn't block the picker.
+    console.error('[icons-server] Codegen failed:', err);
     return c.json({ ok: true, count: entries.length, generateError: String(err) }, 200);
   }
 
@@ -129,7 +174,11 @@ app.post('/api/icons-json', async (c) => {
 // ── Start ─────────────────────────────────────────────────────────────────────
 
 serve({ fetch: app.fetch, port: PORT }, () => {
+  const modeLabel = isConsumerMode ? pc.yellow('consumer') : pc.blue('ds');
+  const fileLabel = isConsumerMode ? 'icons.config.json' : 'src/icons.json';
   console.log('');
-  console.log(`  ${pc.cyan('●')}  Icons Server:  ${pc.cyan(`http://localhost:${PORT}`)}`);
+  console.log(
+    `  ${pc.cyan('●')}  Icons Server:  ${pc.cyan(`http://localhost:${PORT}`)}  [${modeLabel} mode — ${fileLabel}]`,
+  );
   console.log('');
 });

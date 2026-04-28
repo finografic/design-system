@@ -16,8 +16,15 @@
     }
   },
   "files": [
-    "dist"
+    "bin",
+    "dist",
+    "server",
+    "scripts",
+    "src/icons.json"
   ],
+  "bin": {
+    "icons-server": "./bin/icons-server.js"
+  },
   "scripts": {
     "·········· ICONS": "·····················································",
     "icons:config": "concurrently -n \"server,config\" -c \"cyan,green\" \"tsx server/icons-server.ts\" \"lucide-manager\"",

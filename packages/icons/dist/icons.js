@@ -2,7 +2,7 @@ import { createIconWrapper } from "./icons.utils.js";
 import * as Lucide from "lucide-react";
 //#region src/icons.ts
 /**
-* Icon Registry — @workspace/icons
+* Icon Registry — @finografic/icons
 *
 * !! GENERATED FILE — do not edit by hand.
 * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate
@@ -42,6 +42,9 @@ const ICONS = {
 	EyeOffIcon: Lucide.EyeOff,
 	EyeOnIcon: Lucide.Eye,
 	FastForwardIcon: Lucide.FastForward,
+	FileIcon: Lucide.File,
+	FolderIcon: Lucide.Folder,
+	FolderOpenIcon: Lucide.FolderOpen,
 	FullscreenIcon: Lucide.Fullscreen,
 	GridIcon: Lucide.Grid3x3,
 	HomeIcon: Lucide.House,
