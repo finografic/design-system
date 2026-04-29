@@ -1,0 +1,2 @@
+import { Splitter, SplitterContextProps, SplitterExpandCollapseDetails, SplitterPanelData, SplitterResizeDetails, SplitterResizeEndDetails, UseSplitterProps, UseSplitterReturn, createSplitterRegistry, getSplitterLayout, useSplitter, useSplitterContext } from "./splitter.js";
+import { SplitterRecipeProps, splitterRecipe } from "./splitter.recipe.js";
