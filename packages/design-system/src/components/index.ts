@@ -37,6 +37,23 @@ export { Pagination, PaginationDS } from './pagination';
 export type { ScrollAreaDSProps, ScrollAreaScrollToDetails } from './scroll-area';
 export { ScrollArea, ScrollAreaDS } from './scroll-area';
 export type {
+  SplitterContextProps,
+  SplitterExpandCollapseDetails,
+  SplitterPanelData,
+  SplitterRecipeProps,
+  SplitterResizeDetails,
+  SplitterResizeEndDetails,
+  UseSplitterProps,
+  UseSplitterReturn,
+} from './splitter';
+export {
+  createSplitterRegistry,
+  getSplitterLayout,
+  Splitter,
+  useSplitter,
+  useSplitterContext,
+} from './splitter';
+export type {
   SegmentGroupDSClassNames,
   SegmentGroupDSItem,
   SegmentGroupDSProps,
