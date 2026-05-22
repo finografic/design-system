@@ -3,8 +3,8 @@ import { CheckIcon, MinusIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { css, cx } from "@styled-system/css";
 import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
-import { Checkbox } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Checkbox } from "@ark-ui/react";
 //#region src/forms/checkbox/checkbox.tsx
 const { withProvider, withContext } = createStyleContext(checkboxRecipe);
 /**

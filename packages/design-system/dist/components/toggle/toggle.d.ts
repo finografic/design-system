@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { ToggleRecipeProps } from "./toggle.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { Toggle } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Toggle } from "@ark-ui/react";
 
 //#region src/components/toggle/toggle.d.ts
 /**

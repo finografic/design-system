@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/des
 import * as _$react from "react";
 import { ReactNode } from "react";
 import * as _$react_jsx_runtime0 from "react/jsx-runtime";
-import { Popover, PopoverOpenChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Popover, PopoverOpenChangeDetails } from "@ark-ui/react";
 
 //#region src/components/popover/popover.d.ts
 /**
@@ -36,8 +36,8 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const Popover$1: {
-  Root: _$_styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "title" | "closeTrigger" | "trigger" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "title" | "closeTrigger" | "trigger" | "arrow" | "arrowTip">>>;
-  RootProvider: _$_styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProviderProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "title" | "closeTrigger" | "trigger" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "title" | "closeTrigger" | "trigger" | "arrow" | "arrowTip">>>; /** Button or element that opens the popover. */
+  Root: _$_styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "arrow" | "arrowTip" | "trigger" | "title" | "closeTrigger", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "arrow" | "arrowTip" | "trigger" | "title" | "closeTrigger">>>;
+  RootProvider: _$_styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProviderProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "description" | "positioner" | "arrow" | "arrowTip" | "trigger" | "title" | "closeTrigger", SlotRecipeVariantRecord<"content" | "description" | "positioner" | "arrow" | "arrowTip" | "trigger" | "title" | "closeTrigger">>>; /** Button or element that opens the popover. */
   Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Positioning anchor — no recipe slot, pure layout. */
   Anchor: _$react.ForwardRefExoticComponent<Popover.AnchorProps & _$react.RefAttributes<HTMLDivElement>>; /** Positions the floating content panel. */
   Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** The floating panel itself. */

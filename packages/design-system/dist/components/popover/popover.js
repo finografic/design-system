@@ -2,8 +2,8 @@ import { popoverRecipe } from "./popover.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { Popover } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Popover } from "@ark-ui/react";
 //#region src/components/popover/popover.tsx
 const { withRootProvider, withContext } = createStyleContext(popoverRecipe);
 /**

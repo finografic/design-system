@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import { PaginationRecipeProps } from "./pagination.recipe.js";
 import * as _$react from "react";
-import { Pagination, PaginationPageChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Pagination, PaginationPageChangeDetails } from "@ark-ui/react";
 
 //#region src/components/pagination/pagination.d.ts
 /**
@@ -39,7 +39,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const Pagination$1: {
-  /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "trigger" | "item" | "ellipsis", {
+  /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "item" | "ellipsis" | "trigger", {
     size: {
       sm: {
         item: {
@@ -91,7 +91,7 @@ declare const Pagination$1: {
       };
     };
   }>>; /** Root with external machine state from `usePagination`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProviderProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "trigger" | "item" | "ellipsis", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProviderProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "item" | "ellipsis" | "trigger", {
     size: {
       sm: {
         item: {

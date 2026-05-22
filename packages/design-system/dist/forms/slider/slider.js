@@ -2,8 +2,8 @@ import { sliderRecipe } from "./slider.recipe.js";
 import { forwardRef } from "react";
 import { css, cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { Slider } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Slider } from "@ark-ui/react";
 //#region src/forms/slider/slider.tsx
 const { withProvider, withContext } = createStyleContext(sliderRecipe);
 /**

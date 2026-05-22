@@ -3,8 +3,8 @@ import { EyeOffIcon, EyeOnIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { PasswordInput } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { PasswordInput } from "@ark-ui/react";
 //#region src/forms/input-password/input-password.tsx
 const { withProvider, withContext } = createStyleContext(inputPasswordRecipe);
 /**

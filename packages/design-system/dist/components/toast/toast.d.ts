@@ -1,7 +1,7 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
 import * as _$react from "react";
-import { Toast, Toaster, createToaster } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Toast, Toaster, createToaster } from "@ark-ui/react";
 
 //#region src/components/toast/toast.d.ts
 /**
@@ -44,7 +44,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  * ```
  */
 declare const Toast$1: {
-  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Toast.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "title" | "closeTrigger" | "actionTrigger", {
+  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Toast.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "description" | "title" | "closeTrigger" | "actionTrigger", {
     status: {
       info: {
         root: {

@@ -3,8 +3,8 @@ import { DialogRootPropsDS } from "./dialog.types.js";
 import * as _$react from "react";
 import { HTMLAttributes, ReactNode } from "react";
 import * as _$react_jsx_runtime0 from "react/jsx-runtime";
-import { Dialog } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Dialog } from "@ark-ui/react";
 
 //#region src/components/dialog/dialog.d.ts
 declare function Root({

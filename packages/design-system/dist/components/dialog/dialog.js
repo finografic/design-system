@@ -3,8 +3,8 @@ import { CloseIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { Dialog } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Dialog } from "@ark-ui/react";
 //#region src/components/dialog/dialog.tsx
 const { withProvider, withContext } = createStyleContext(dialogRecipe);
 /** Base div forwardRef — used for Header / Body / Footer slots that render as plain divs. */

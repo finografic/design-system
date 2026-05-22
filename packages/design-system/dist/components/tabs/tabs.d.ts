@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { TabsRecipeProps } from "./tabs.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { Tabs, TabsFocusChangeDetails, TabsValueChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Tabs, TabsFocusChangeDetails, TabsValueChangeDetails } from "@ark-ui/react";
 
 //#region src/components/tabs/tabs.d.ts
 /**
@@ -62,7 +62,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```
  */
 declare const Tabs$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
     variant: {
       line: {
         list: {
@@ -194,7 +194,7 @@ declare const Tabs$1: {
       };
     };
   }>>; /** Same styling as Root when using external machine state from `useTabs`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "indicator" | "list", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "indicator" | "trigger" | "list", {
     variant: {
       line: {
         list: {

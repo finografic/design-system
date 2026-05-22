@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
 import { ScrollAreaRecipeProps } from "./scroll-area.recipe.js";
 import React, { ReactNode } from "react";
-import { ScrollArea, ScrollAreaScrollToDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { ScrollArea, ScrollAreaScrollToDetails } from "@ark-ui/react";
 
 //#region src/components/scroll-area/scroll-area.d.ts
 /**
@@ -27,7 +27,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const ScrollArea$1: {
-  /** Root — `onScrollPositionChange`, `dir`, `scrollbarSize`. */Root: _$_styled_system_jsx0.StyleContextProvider<React.ForwardRefExoticComponent<ScrollArea.RootProps & React.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"content" | "scrollbar" | "root" | "viewport" | "thumb" | "corner">>>; /** Clips the content while preserving the ability to scroll. */
+  /** Root — `onScrollPositionChange`, `dir`, `scrollbarSize`. */Root: _$_styled_system_jsx0.StyleContextProvider<React.ForwardRefExoticComponent<ScrollArea.RootProps & React.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner", SlotRecipeVariantRecord<"root" | "content" | "scrollbar" | "viewport" | "thumb" | "corner">>>; /** Clips the content while preserving the ability to scroll. */
   Viewport: _$_styled_system_jsx0.StyleContextConsumer<React.ForwardRefExoticComponent<ScrollArea.ViewportProps & React.RefAttributes<HTMLDivElement>>>; /** Inner content wrapper — minimum width ensures horizontal scroll works correctly. */
   Content: _$_styled_system_jsx0.StyleContextConsumer<React.ForwardRefExoticComponent<ScrollArea.ContentProps & React.RefAttributes<HTMLDivElement>>>; /** Custom scrollbar track — pass `orientation="vertical" | "horizontal"`. */
   Scrollbar: _$_styled_system_jsx0.StyleContextConsumer<React.ForwardRefExoticComponent<ScrollArea.ScrollbarProps & React.RefAttributes<HTMLDivElement>>>; /** The draggable scrollbar thumb inside `Scrollbar`. */

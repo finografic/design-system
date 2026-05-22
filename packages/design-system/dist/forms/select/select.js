@@ -1,8 +1,8 @@
 import { selectRecipe } from "./select.recipe.js";
 import { forwardRef } from "react";
 import { jsx } from "react/jsx-runtime";
-import { Portal, Select, useListCollection } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Portal, Select, useListCollection } from "@ark-ui/react";
 //#region src/forms/select/select.tsx
 const SelectRootFixed = forwardRef(({ positioning, ...props }, ref) => /* @__PURE__ */ jsx(Select.Root, {
 	ref,

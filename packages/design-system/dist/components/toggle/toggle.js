@@ -2,8 +2,8 @@ import { toggleRecipe } from "./toggle.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx } from "react/jsx-runtime";
-import { Toggle } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Toggle } from "@ark-ui/react";
 //#region src/components/toggle/toggle.tsx
 const { withProvider, withContext } = createStyleContext(toggleRecipe);
 /**

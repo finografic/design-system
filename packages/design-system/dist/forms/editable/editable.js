@@ -3,8 +3,8 @@ import { CheckIcon, EditIcon, XIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
-import { Editable } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Editable } from "@ark-ui/react";
 //#region src/forms/editable/editable.tsx
 const { withProvider, withContext } = createStyleContext(editableRecipe);
 /**

@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { SliderVariants } from "./slider.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { Slider, SliderRootProps, SliderValueChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Slider, SliderRootProps, SliderValueChangeDetails } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/slider/slider.d.ts
@@ -39,7 +39,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Slider$1: {
-  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Slider.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "description" | "root" | "label" | "thumb" | "control" | "errorText" | "valueText" | "track" | "range" | "markerGroup", {
+  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Slider.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "marker" | "description" | "thumb" | "label" | "control" | "errorText" | "valueText" | "track" | "range" | "markerGroup", {
     size: {
       sm: {
         label: {

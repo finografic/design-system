@@ -3,8 +3,8 @@ import { XIcon } from "@finografic/icons";
 import { forwardRef } from "react";
 import { css, cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { TagsInput } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { TagsInput } from "@ark-ui/react";
 //#region src/forms/tags-input/tags-input.tsx
 const { withProvider, withContext } = createStyleContext(tagsInputRecipe);
 /**

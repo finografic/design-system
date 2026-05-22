@@ -2,8 +2,8 @@ import { tooltipRecipe } from "./tooltip.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { Tooltip } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Tooltip } from "@ark-ui/react";
 //#region src/components/tooltip/tooltip.tsx
 const { withRootProvider, withContext } = createStyleContext(tooltipRecipe);
 /**

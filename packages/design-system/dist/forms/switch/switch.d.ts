@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { SwitchVariants } from "./switch.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { Switch } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Switch } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/switch/switch.d.ts
@@ -27,7 +27,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Switch$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Switch.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"description" | "root" | "label" | "thumb" | "control" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Switch.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "description" | "thumb" | "label" | "control" | "errorText", {
     size: {
       sm: {
         control: {

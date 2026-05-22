@@ -1,6 +1,6 @@
 import { toastRecipe } from "./toast.recipe.js";
-import { Toast, Toaster, createToaster } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Toast, Toaster, createToaster } from "@ark-ui/react";
 //#region src/components/toast/toast.tsx
 const { withProvider, withContext } = createStyleContext(toastRecipe);
 /**

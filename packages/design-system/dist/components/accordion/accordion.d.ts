@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { AccordionRecipeProps } from "./accordion.recipe.js";
 import * as _$react from "react";
 import { HTMLAttributes, ReactNode } from "react";
-import { Accordion, AccordionFocusChangeDetails, AccordionValueChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { Accordion, AccordionFocusChangeDetails, AccordionValueChangeDetails } from "@ark-ui/react";
 
 //#region src/components/accordion/accordion.d.ts
 /**
@@ -32,7 +32,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const Accordion$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, `multiple`, `collapsible`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Accordion.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "itemTrigger" | "itemContent" | "itemBody", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, `multiple`, `collapsible`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Accordion.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {
     size: {
       sm: {
         itemTrigger: {
@@ -66,7 +66,7 @@ declare const Accordion$1: {
       };
     };
   }>>; /** Root with external machine state from `useAccordion`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Accordion.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemIndicator" | "itemTrigger" | "itemContent" | "itemBody", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Accordion.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {
     size: {
       sm: {
         itemTrigger: {

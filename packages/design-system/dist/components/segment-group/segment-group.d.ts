@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { SegmentGroupRecipeProps } from "./segment-group.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { SegmentGroup, SegmentGroupValueChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { SegmentGroup, SegmentGroupValueChangeDetails } from "@ark-ui/react";
 
 //#region src/components/segment-group/segment-group.d.ts
 /**

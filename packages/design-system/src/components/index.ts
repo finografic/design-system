@@ -5,6 +5,15 @@ export { Spinner } from './spinner';
 // ── Styled wrappers (recipe-ready) ───────────────────────────────────────────
 export type { BadgeProps } from './badge';
 export { Badge } from './badge';
+export type {
+  AvatarDSClassNames,
+  AvatarDSProps,
+  AvatarRecipeProps,
+  AvatarStatusChangeDetails,
+  UseAvatarProps,
+  UseAvatarReturn,
+} from './avatar';
+export { Avatar, AvatarDS, useAvatar, useAvatarContext } from './avatar';
 export type { ButtonProps } from './button';
 export { Button } from './button';
 export type { CalloutProps } from './callout';

@@ -2,8 +2,8 @@ import { menuRecipe } from "./menu.recipe.js";
 import { Fragment, forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { Menu } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Menu } from "@ark-ui/react";
 //#region src/components/menu/menu.tsx
 const { withProvider, withContext } = createStyleContext(menuRecipe);
 /**

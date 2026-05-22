@@ -2,8 +2,8 @@ import { segmentGroupRecipe } from "./segment-group.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { SegmentGroup } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { SegmentGroup } from "@ark-ui/react";
 //#region src/components/segment-group/segment-group.tsx
 const { withProvider, withContext } = createStyleContext(segmentGroupRecipe);
 /**

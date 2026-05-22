@@ -1,8 +1,8 @@
 import { selectComboboxRecipe } from "./select-combobox.recipe.js";
 import { forwardRef } from "react";
 import { jsx } from "react/jsx-runtime";
-import { Combobox, Portal } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Combobox, Portal } from "@ark-ui/react";
 //#region src/forms/select-combobox/select-combobox.tsx
 const { withProvider, withContext } = createStyleContext(selectComboboxRecipe);
 /** Plain div used for the Indicators slot (not an Ark part). */

@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { TagsInputVariants } from "./tags-input.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { TagsInput, TagsInputHighlightChangeDetails, TagsInputInputValueChangeDetails, TagsInputValueChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { TagsInput, TagsInputHighlightChangeDetails, TagsInputInputValueChangeDetails, TagsInputValueChangeDetails } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/tags-input/tags-input.d.ts
@@ -52,7 +52,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const TagsInput$1: {
-  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<TagsInput.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "label" | "control" | "errorText" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  /** Root — value state, event handlers, max tags, delimiters, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<TagsInput.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "label" | "control" | "input" | "clearTrigger" | "errorText" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
     size: {
       sm: {
         label: {
@@ -188,7 +188,7 @@ declare const TagsInput$1: {
       };
     };
   }>>; /** Root with external machine state from `useTagsInput`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<TagsInput.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "label" | "control" | "errorText" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<TagsInput.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "label" | "control" | "input" | "clearTrigger" | "errorText" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
     size: {
       sm: {
         label: {

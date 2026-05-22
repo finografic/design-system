@@ -2,8 +2,8 @@ import { tabsRecipe } from "./tabs.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { Tabs } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Tabs } from "@ark-ui/react";
 //#region src/components/tabs/tabs.tsx
 const { withProvider, withContext } = createStyleContext(tabsRecipe);
 /**

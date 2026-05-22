@@ -2,8 +2,8 @@ import { scrollAreaRecipe } from "./scroll-area.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { jsx, jsxs } from "react/jsx-runtime";
-import { ScrollArea } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { ScrollArea } from "@ark-ui/react";
 //#region src/components/scroll-area/scroll-area.tsx
 const { withProvider, withContext } = createStyleContext(scrollAreaRecipe);
 /**

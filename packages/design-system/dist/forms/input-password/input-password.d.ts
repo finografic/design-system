@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { InputPasswordRecipeProps } from "./input-password.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { PasswordInput, PasswordInputVisibilityChangeDetails } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { PasswordInput, PasswordInputVisibilityChangeDetails } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/input-password/input-password.d.ts

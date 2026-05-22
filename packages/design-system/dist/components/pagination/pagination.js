@@ -2,8 +2,8 @@ import { paginationRecipe } from "./pagination.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";
 import { Fragment as Fragment$1, jsx, jsxs } from "react/jsx-runtime";
-import { Pagination } from "@ark-ui/react";
 import { createStyleContext } from "@styled-system/jsx";
+import { Pagination } from "@ark-ui/react";
 //#region src/components/pagination/pagination.tsx
 const { withProvider, withContext } = createStyleContext(paginationRecipe);
 /**

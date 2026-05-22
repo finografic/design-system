@@ -2,8 +2,8 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RadioGroupVariants } from "./radio-group.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { RadioGroup, RadioGroupRootProps } from "@ark-ui/react";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import { RadioGroup, RadioGroupRootProps } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/radio-group/radio-group.d.ts
@@ -32,7 +32,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const RadioGroup$1: {
-  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<RadioGroup.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
+  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<RadioGroup.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
     size: {
       sm: {
         label: {
@@ -145,7 +145,7 @@ declare const RadioGroup$1: {
       };
     };
   }>>; /** Root with external machine state from `useRadioGroup`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "root" | "item" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "description" | "itemText" | "indicator" | "label" | "itemControl" | "errorText" | "itemDescription", {
     size: {
       sm: {
         label: {
