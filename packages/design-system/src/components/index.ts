@@ -6,9 +6,18 @@ export { Spinner } from './spinner';
 export type { BadgeProps } from './badge';
 export { Badge } from './badge';
 export type {
+  AvatarContextProps,
   AvatarDSClassNames,
   AvatarDSProps,
+  AvatarFallbackBaseProps,
+  AvatarFallbackProps,
+  AvatarImageBaseProps,
+  AvatarImageProps,
   AvatarRecipeProps,
+  AvatarRootBaseProps,
+  AvatarRootProps,
+  AvatarRootProviderBaseProps,
+  AvatarRootProviderProps,
   AvatarStatusChangeDetails,
   UseAvatarProps,
   UseAvatarReturn,

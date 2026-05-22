@@ -3,7 +3,7 @@ import { cx } from '@styled-system/css';
 import { createStyleContext } from '@styled-system/jsx';
 import { forwardRef } from 'react';
 import type { AvatarRecipeProps } from './avatar.recipe';
-import type { AvatarStatusChangeDetails } from '@ark-ui/react/avatar';
+import type { AvatarImageProps, AvatarRootProps } from '@ark-ui/react/avatar';
 import type { ReactNode } from 'react';
 
 import { avatarRecipe } from './avatar.recipe';
@@ -53,11 +53,22 @@ export const Avatar = {
   Context: ArkAvatar.Context,
 };
 
-export type { AvatarStatusChangeDetails } from '@ark-ui/react/avatar';
+export type {
+  AvatarContextProps,
+  AvatarFallbackBaseProps,
+  AvatarFallbackProps,
+  AvatarImageBaseProps,
+  AvatarImageProps,
+  AvatarRootBaseProps,
+  AvatarRootProps,
+  AvatarRootProviderBaseProps,
+  AvatarRootProviderProps,
+  AvatarStatusChangeDetails,
+  UseAvatarProps,
+  UseAvatarReturn,
+} from '@ark-ui/react/avatar';
 
 export { useAvatar, useAvatarContext } from '@ark-ui/react/avatar';
-
-export type { UseAvatarProps, UseAvatarReturn } from '@ark-ui/react/avatar';
 
 // ── AvatarDS — convenience wrapper ────────────────────────────────────────────
 
@@ -68,22 +79,21 @@ export interface AvatarDSClassNames {
   image?: string;
 }
 
-export type AvatarDSProps = AvatarRecipeProps & {
-  /** Image URL. Omit for fallback-only avatars. */
-  src?: string;
-  /** Accessible name for the image (required when `src` is set). */
-  alt: string;
-  /** Fallback content (e.g. initials). Used when `name` is not set. */
-  fallback?: ReactNode;
-  /** Derives up to two uppercase initials when `fallback` is omitted. */
-  name?: string;
-  /** Called when image status changes (`loading` | `loaded` | `error`). */
-  onStatusChange?: (details: AvatarStatusChangeDetails) => void;
-  /** Merged onto the root element after recipe classes. */
-  className?: string;
-  /** Per-slot class overrides. */
-  classNames?: AvatarDSClassNames;
-};
+type AvatarDSImageProps = Partial<
+  Pick<AvatarImageProps, 'src' | 'alt' | 'loading' | 'crossOrigin' | 'referrerPolicy' | 'sizes' | 'srcSet'>
+>;
+
+/** Recipe variants + Ark root/image props used by the convenience wrapper. */
+export type AvatarDSProps = AvatarRecipeProps &
+  Omit<AvatarRootProps, 'children'> &
+  AvatarDSImageProps & {
+    /** Fallback content (e.g. initials). Used when `name` is not set. */
+    fallback?: ReactNode;
+    /** Derives up to two uppercase initials when `fallback` is omitted. */
+    name?: string;
+    /** Per-slot class overrides. */
+    classNames?: AvatarDSClassNames;
+  };
 
 function initialsFromName(name: string): string {
   return name
@@ -126,6 +136,13 @@ export const AvatarDS = forwardRef<HTMLDivElement, AvatarDSProps>(
       className,
       classNames,
       onStatusChange,
+      ids,
+      asChild,
+      loading,
+      crossOrigin,
+      referrerPolicy,
+      sizes,
+      srcSet,
       ...rootProps
     },
     ref,
@@ -138,6 +155,8 @@ export const AvatarDS = forwardRef<HTMLDivElement, AvatarDSProps>(
         ref={ref}
         className={cx(styles.root, className, classNames?.root)}
         onStatusChange={onStatusChange}
+        ids={ids}
+        asChild={asChild}
         {...rootProps}
       >
         {fallbackContent != null ? (
@@ -145,7 +164,18 @@ export const AvatarDS = forwardRef<HTMLDivElement, AvatarDSProps>(
             {fallbackContent}
           </ArkAvatar.Fallback>
         ) : null}
-        {src ? <ArkAvatar.Image className={cx(styles.image, classNames?.image)} src={src} alt={alt} /> : null}
+        {src ? (
+          <ArkAvatar.Image
+            className={cx(styles.image, classNames?.image)}
+            src={src}
+            alt={alt}
+            loading={loading}
+            crossOrigin={crossOrigin}
+            referrerPolicy={referrerPolicy}
+            sizes={sizes}
+            srcSet={srcSet}
+          />
+        ) : null}
       </ArkAvatar.Root>
     );
   },

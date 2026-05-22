@@ -29,14 +29,16 @@ pnpm panda:mcp   # from packages/design-system/
 ```ts
 // Components
 import { Accordion, AccordionDS,
+         Avatar, AvatarDS,
          Badge, Button, Callout, Card, DataTable,
          Dialog, DialogGeneric,
          Menu, Pagination, PaginationDS,
          Popover, ScrollArea, ScrollAreaDS,
          SegmentGroup, SegmentGroupDS,
-         Spinner, Tabs, TabsDS,
+         Spinner, Splitter, Tabs, TabsDS,
          Text, Toast, Toggle, ToggleDS, Tooltip,
-         TreeView, TreeViewDS, createTreeCollection } from '@workspace/design-system/components';
+         TreeView, TreeViewDS, createTreeCollection,
+         createSplitterRegistry, getSplitterLayout, useAvatar, useSplitter } from '@workspace/design-system/components';
 
 // Forms
 import { Checkbox, CheckboxDS,

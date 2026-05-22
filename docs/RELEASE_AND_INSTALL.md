@@ -237,7 +237,7 @@ import '@finografic/design-system/forms/forms.css'; // if using form components
 ### 6. Import paths
 
 ```ts
-import { Button, Badge, Dialog, Tabs, Menu } from '@finografic/design-system/components';
+import { Avatar, AvatarDS, Button, Badge, Dialog, Tabs, Menu, Splitter } from '@finografic/design-system/components';
 import { InputField, Checkbox, Select, Slider } from '@finografic/design-system/forms';
 import { Row, Col, Container } from '@finografic/design-system/grid';
 import { colors } from '@finografic/design-system/tokens';

@@ -90,12 +90,14 @@ Variant props (`size`, `variant`) go on the **Root**. Use `*DS` wrappers for the
 | Component           | DS Wrapper        | Sub-components                                                                                                                                    |
 | ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Accordion`         | `AccordionDS`     | Root · Item · ItemTrigger · ItemContent · ItemIndicator                                                                                           |
+| `Avatar`            | `AvatarDS`        | Root · RootProvider · Fallback · Image · Context                                                                                                  |
 | `Dialog`            | —                 | Root · Trigger · Backdrop · Positioner · Content · Header · Title · Description · Body · Footer · CloseTrigger                                    |
 | `DialogGeneric`     | —                 | Config-driven modal; accepts `config: DialogGenericConfig`                                                                                        |
 | `Menu`              | —                 | Root · Trigger · Positioner · Content · Item · ItemGroup · ItemGroupLabel · Separator · Arrow                                                     |
 | `Pagination`        | `PaginationDS`    | Root · PrevTrigger · NextTrigger · PageTrigger · Ellipsis                                                                                         |
 | `Popover`           | —                 | Root · Trigger · Positioner · Content · Arrow · Title · Description · CloseTrigger                                                                |
 | `ScrollArea`        | `ScrollAreaDS`    | Root · Viewport · Content · Scrollbar · Thumb · Corner                                                                                            |
+| `Splitter`          | —                 | Root · RootProvider · Panel · ResizeTrigger · ResizeTriggerIndicator · Context (`createSplitterRegistry`, `getSplitterLayout`)                    |
 | `SegmentGroup`      | `SegmentGroupDS`  | Root · Item · ItemText · ItemControl · Indicator                                                                                                  |
 | `Tabs`              | `TabsDS`          | Root · List · Trigger · Content · Indicator                                                                                                       |
 | `Toast` / `Toaster` | — (createToaster) | Root · Title · Description · CloseTrigger · `createToaster`                                                                                       |

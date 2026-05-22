@@ -18,6 +18,7 @@ Each folder contains exactly four files:
 
 | Component    | Recipe type | Ark UI       | createStyleContext | Notes                                                                                                 |
 | ------------ | ----------- | ------------ | ------------------ | ----------------------------------------------------------------------------------------------------- |
+| `avatar`     | `sva`       | yes          | yes                | `withProvider` + `withContext`; `AvatarDS` wrapper; `size` + `variant` on root                        |
 | `badge`      | `cva`       | —            | —                  | `<span>` wrapper                                                                                      |
 | `button`     | `cva`       | `ark.button` | —                  | Self-applies recipe                                                                                   |
 | `callout`    | `cva`       | —            | —                  | `<div role="alert">` wrapper                                                                          |
@@ -27,6 +28,7 @@ Each folder contains exactly four files:
 | `menu`       | `sva`       | yes          | yes                | `withProvider` + `withContext`                                                                        |
 | `popover`    | `sva`       | yes          | yes                | `withRootProvider` + `withContext`                                                                    |
 | `spinner`    | `cva`       | —            | —                  | SVG; self-applies recipe via `className`                                                              |
+| `splitter`   | `sva`       | yes          | —                  | `withProvider` + `withContext`; nested layouts via `createSplitterRegistry`                           |
 | `tabs`       | `sva`       | yes          | yes                | `withProvider` + `withContext`                                                                        |
 | `text`       | `cva`       | —            | —                  | Polymorphic; element inferred from `variant`                                                          |
 | `toast`      | `sva`       | yes          | yes                | `withProvider` + `withContext`                                                                        |

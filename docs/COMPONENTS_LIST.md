@@ -27,6 +27,7 @@
 | Component     | Pattern | DS Wrapper        | `onChange` / primary handler           | Other DS handlers                                                     | Ark callback             |
 | ------------- | ------- | ----------------- | -------------------------------------- | --------------------------------------------------------------------- | ------------------------ |
 | Accordion     | SVA     | AccordionDS ✅    | `onChange(value: string[])`            | `onFocusChange(value: string \| null)`                                | `onValueChange`          |
+| Avatar        | SVA     | AvatarDS ✅       | —                                      | `onStatusChange(details)` (Ark `StatusChangeDetails`, pass-through)   | `onStatusChange`         |
 | Badge         | CVA     | —                 | —                                      | —                                                                     | —                        |
 | Button        | CVA     | —                 | —                                      | —                                                                     | —                        |
 | Callout       | CVA     | —                 | —                                      | —                                                                     | —                        |
@@ -38,6 +39,7 @@
 | Pagination    | SVA     | PaginationDS ✅   | `onPageChange(page, pageSize: number)` | `onPageSizeChange(pageSize: number)`                                  | `onPageChange`           |
 | Popover       | SVA     | —                 | `onOpenChange(open: boolean)`          | `onExitComplete()`                                                    | `onOpenChange`           |
 | ScrollArea    | SVA     | ScrollAreaDS ✅   | —                                      | `onScrollPositionChange(x: number, y: number)`                        | `onScrollPositionChange` |
+| Splitter      | SVA     | —                 | —                                      | —                                                                     | —                        |
 | SegmentGroup  | SVA     | SegmentGroupDS ✅ | `onChange(value: string \| null)`      | —                                                                     | `onValueChange`          |
 | Spinner       | CVA     | —                 | —                                      | —                                                                     | —                        |
 | Tabs          | SVA     | TabsDS ✅         | `onChange(value: string)`              | `onFocusChange(focusedValue: string \| null)`                         | `onValueChange`          |
@@ -88,6 +90,7 @@
   NumberInput uses `onValueCommit` (fires on blur/Enter); keep the Ark name.
 - **`Toggle.onPressedChange`** — receives a bare `boolean`, not a detail object. DS: `onChange(pressed: boolean)`.
 - **`onPageChange`** — Pagination; detail is `{ page, pageSize }`, expose as two args: `onPageChange(page, pageSize)`.
+- **`AvatarDS.onStatusChange`** — passes Ark `StatusChangeDetails` unchanged (`status`: `loading` \| `loaded` \| `error`). Use the compound `Avatar.Root` for the same callback shape.
 - **`Editable.multiline`** — `EditableDS` prop; when `true` renders `ArkEditable.Input asChild` wrapping a `<textarea>`.
   Ark v5 has no `Textarea` part; `asChild` bridges machine state onto the native element.
 - **No DS wrapper** — Dialog, Menu, Popover, Tooltip are overlay-heavy compounds where the trigger and content
