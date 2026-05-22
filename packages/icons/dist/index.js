@@ -2,7 +2,7 @@ import { createIconWrapper } from "./icons.utils.js";
 import { ICON_NAMES, icons } from "./icons.js";
 //#region src/index.ts
 /**
-* src/index.ts — @finografic/icons
+* Src/index.ts — @finografic/icons
 *
 * !! GENERATED FILE — do not edit by hand.
 * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate

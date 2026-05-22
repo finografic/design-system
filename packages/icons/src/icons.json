@@ -326,5 +326,29 @@
   {
     "exportName": "FolderOpen",
     "lucideName": "folder-open"
+  },
+  {
+    "exportName": "Smartphone",
+    "lucideName": "smartphone"
+  },
+  {
+    "exportName": "Phone",
+    "lucideName": "phone"
+  },
+  {
+    "exportName": "Globe",
+    "lucideName": "globe"
+  },
+  {
+    "exportName": "ExternalLink",
+    "lucideName": "external-link"
+  },
+  {
+    "exportName": "Link",
+    "lucideName": "link"
+  },
+  {
+    "exportName": "FileDown",
+    "lucideName": "file-down"
   }
 ]
