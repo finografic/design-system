@@ -2,7 +2,7 @@
 
 ## Anatomy
 
-{/_ <Anatomy id="listbox" /> _/}
+{/_<Anatomy id="listbox" />_/}
 
 ```tsx
 <Listbox.Root>

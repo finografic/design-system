@@ -1,0 +1,11 @@
+# Ignore Ark UI markdown reference files
+packages/design-system/src/ark-reference/
+
+# Ignore TODO docs
+**/docs/todo/
+**/TODO_*.md
+
+# Ignore node_modules
+**/node_modules/
+
+

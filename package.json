@@ -76,7 +76,7 @@
     ],
     "*.md": [
       "oxfmt --no-error-on-unmatched-pattern",
-      "oxlint -c oxlint.config.ts --fix --no-error-on-unmatched-pattern"
+      "md-lint --fix"
     ],
     "*.{json,jsonc,yml,yaml,toml}": [
       "oxfmt --no-error-on-unmatched-pattern"

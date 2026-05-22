@@ -1,6 +1,6 @@
 # Dialog
 
-<https://ark-ui.com/docs/components/dialog>
+[https://ark-ui.com/docs/components/dialog](https://ark-ui.com/docs/components/dialog)
 
 ## Anatomy
 

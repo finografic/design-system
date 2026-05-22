@@ -53,14 +53,19 @@
   },
   "markdownlint.config": {
     "default": true,
-    "MD001": false,
-    "MD013": false,
+    "MD013": {
+      "line_length": 120,
+      "tables": false,
+      "code_blocks": false
+    },
     "MD024": false,
     "MD025": false,
-    "MD026": false,
     "MD036": false,
     "MD040": false,
-    "MD041": false
+    "MD041": false,
+    "MD060": {
+      "style": "aligned"
+    }
   },
-  "markdown.styles": [".vscode/markdown-github-light.css"]
+  "markdown.styles": ["node_modules/@finografic/md-lint/styles/markdown-github-light.css"]
 }
