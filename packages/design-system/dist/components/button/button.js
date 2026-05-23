@@ -1,5 +1,4 @@
 import { Spinner } from "../spinner/spinner.js";
-import "../spinner/index.js";
 import { buttonRecipe } from "./button.recipe.js";
 import { forwardRef } from "react";
 import { cx } from "@styled-system/css";

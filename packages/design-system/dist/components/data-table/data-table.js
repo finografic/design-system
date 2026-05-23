@@ -1,7 +1,5 @@
 import { Spinner } from "../spinner/spinner.js";
-import "../spinner/index.js";
 import { InputField } from "../../forms/input-field/input-field.js";
-import "../../forms/input-field/index.js";
 import { tableRecipe } from "./data-table.recipe.js";
 import { ArrowDownIcon, ArrowUpIcon, ChevronLeftIcon, ChevronRightIcon, ChevronsUpDownIcon, DoubleArrowLeftIcon, DoubleArrowRightIcon } from "@finografic/icons";
 import { useState } from "react";
