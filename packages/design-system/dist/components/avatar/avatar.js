@@ -20,7 +20,7 @@ const { withProvider, withContext } = createStyleContext(avatarRecipe);
 *     <Avatar.Fallback>PA</Avatar.Fallback>
 *     <Avatar.Image src="https://example.com/photo.jpg" alt="Profile" />
 *   </Avatar.Root>;
-*   ```
+*   ```;
 *
 * @example
 *   ```tsx
@@ -32,7 +32,7 @@ const { withProvider, withContext } = createStyleContext(avatarRecipe);
 *     <Avatar.Fallback>PA</Avatar.Fallback>
 *     <Avatar.Image src="https://example.com/photo.jpg" alt="Profile" />
 *   </Avatar.RootProvider>;
-*   ```
+*   ```;
 */
 const Avatar$1 = {
 	/** Root — `onStatusChange`, `ids`; accepts `size` and `variant`. */
@@ -51,7 +51,8 @@ function initialsFromName(name) {
 }
 /**
 * Design-system convenience avatar — pass `src`, `alt`, and `fallback` or `name` for the common case.
-* **`Avatar`** stays the styled compound for full composition; **`AvatarDS`** wires root, fallback, and image.
+* **`Avatar`** stays the styled compound for full composition; **`AvatarDS`** wires root, fallback, and
+* image.
 *
 * @example
 *   ```tsx
@@ -64,9 +65,9 @@ function initialsFromName(name) {
 *     size="md"
 *     onStatusChange={({ status }) => console.log(status)}
 *   />;
-*   ```
+*   ```;
 */
-const AvatarDS = forwardRef(({ src, alt, fallback, name, size = "md", variant = "outlined", className, classNames, onStatusChange, ...rootProps }, ref) => {
+const AvatarDS = forwardRef(({ src, alt, fallback, name, size = "md", variant = "outlined", className, classNames, onStatusChange, ids, asChild, loading, crossOrigin, referrerPolicy, sizes, srcSet, ...rootProps }, ref) => {
 	const styles = avatarRecipe({
 		size,
 		variant
@@ -76,6 +77,8 @@ const AvatarDS = forwardRef(({ src, alt, fallback, name, size = "md", variant = 
 		ref,
 		className: cx(styles.root, className, classNames?.root),
 		onStatusChange,
+		ids,
+		asChild,
 		...rootProps,
 		children: [fallbackContent != null ? /* @__PURE__ */ jsx(Avatar.Fallback, {
 			className: cx(styles.fallback, classNames?.fallback),
@@ -83,7 +86,12 @@ const AvatarDS = forwardRef(({ src, alt, fallback, name, size = "md", variant = 
 		}) : null, src ? /* @__PURE__ */ jsx(Avatar.Image, {
 			className: cx(styles.image, classNames?.image),
 			src,
-			alt
+			alt,
+			loading,
+			crossOrigin,
+			referrerPolicy,
+			sizes,
+			srcSet
 		}) : null]
 	});
 });

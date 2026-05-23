@@ -1,2 +1,2 @@
 import { AvatarRecipeProps, avatarRecipe } from "./avatar.recipe.js";
-import { Avatar, AvatarDS, AvatarDSClassNames, AvatarDSProps, AvatarStatusChangeDetails, UseAvatarProps, UseAvatarReturn, useAvatar, useAvatarContext } from "./avatar.js";
+import { Avatar, AvatarContextProps, AvatarDS, AvatarDSClassNames, AvatarDSProps, AvatarFallbackBaseProps, AvatarFallbackProps, AvatarImageBaseProps, AvatarImageProps, AvatarRootBaseProps, AvatarRootProps, AvatarRootProviderBaseProps, AvatarRootProviderProps, AvatarStatusChangeDetails, UseAvatarProps, UseAvatarReturn, useAvatar, useAvatarContext } from "./avatar.js";

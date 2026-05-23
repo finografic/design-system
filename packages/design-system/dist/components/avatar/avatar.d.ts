@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { AvatarRecipeProps } from "./avatar.recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import { Avatar, AvatarStatusChangeDetails, AvatarStatusChangeDetails as AvatarStatusChangeDetails$1, UseAvatarProps, UseAvatarReturn, useAvatar, useAvatarContext } from "@ark-ui/react/avatar";
+import { Avatar, AvatarContextProps, AvatarFallbackBaseProps, AvatarFallbackProps, AvatarImageBaseProps, AvatarImageProps, AvatarImageProps as AvatarImageProps$1, AvatarRootBaseProps, AvatarRootProps, AvatarRootProps as AvatarRootProps$1, AvatarRootProviderBaseProps, AvatarRootProviderProps, AvatarStatusChangeDetails, UseAvatarProps, UseAvatarReturn, useAvatar, useAvatarContext } from "@ark-ui/react/avatar";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 
 //#region src/components/avatar/avatar.d.ts
@@ -20,7 +20,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *     <Avatar.Fallback>PA</Avatar.Fallback>
  *     <Avatar.Image src="https://example.com/photo.jpg" alt="Profile" />
  *   </Avatar.Root>;
- *   ```
+ *   ```;
  *
  * @example
  *   ```tsx
@@ -32,7 +32,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *     <Avatar.Fallback>PA</Avatar.Fallback>
  *     <Avatar.Image src="https://example.com/photo.jpg" alt="Profile" />
  *   </Avatar.RootProvider>;
- *   ```
+ *   ```;
  */
 declare const Avatar$1: {
   /** Root — `onStatusChange`, `ids`; accepts `size` and `variant`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Avatar.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "image" | "fallback", {
@@ -115,18 +115,17 @@ interface AvatarDSClassNames {
   fallback?: string;
   image?: string;
 }
-type AvatarDSProps = AvatarRecipeProps & {
-  /** Image URL. Omit for fallback-only avatars. */src?: string; /** Accessible name for the image (required when `src` is set). */
-  alt: string; /** Fallback content (e.g. initials). Used when `name` is not set. */
-  fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
-  name?: string; /** Called when image status changes (`loading` | `loaded` | `error`). */
-  onStatusChange?: (details: AvatarStatusChangeDetails) => void; /** Merged onto the root element after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+type AvatarDSImageProps = Partial<Pick<AvatarImageProps, 'src' | 'alt' | 'loading' | 'crossOrigin' | 'referrerPolicy' | 'sizes' | 'srcSet'>>;
+/** Recipe variants + Ark root/image props used by the convenience wrapper. */
+type AvatarDSProps = AvatarRecipeProps & Omit<AvatarRootProps, 'children'> & AvatarDSImageProps & {
+  /** Fallback content (e.g. initials). Used when `name` is not set. */fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
+  name?: string; /** Per-slot class overrides. */
   classNames?: AvatarDSClassNames;
 };
 /**
  * Design-system convenience avatar — pass `src`, `alt`, and `fallback` or `name` for the common case.
- * **`Avatar`** stays the styled compound for full composition; **`AvatarDS`** wires root, fallback, and image.
+ * **`Avatar`** stays the styled compound for full composition; **`AvatarDS`** wires root, fallback, and
+ * image.
  *
  * @example
  *   ```tsx
@@ -139,20 +138,16 @@ type AvatarDSProps = AvatarRecipeProps & {
  *     size="md"
  *     onStatusChange={({ status }) => console.log(status)}
  *   />;
- *   ```
+ *   ```;
  */
 declare const AvatarDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | undefined;
   variant?: "elevated" | "outlined" | undefined;
-} & {
-  /** Image URL. Omit for fallback-only avatars. */src?: string; /** Accessible name for the image (required when `src` is set). */
-  alt: string; /** Fallback content (e.g. initials). Used when `name` is not set. */
-  fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
-  name?: string; /** Called when image status changes (`loading` | `loaded` | `error`). */
-  onStatusChange?: (details: AvatarStatusChangeDetails) => void; /** Merged onto the root element after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "crossOrigin" | "loading" | "alt" | "referrerPolicy" | "src" | "srcSet">> & {
+  /** Fallback content (e.g. initials). Used when `name` is not set. */fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
+  name?: string; /** Per-slot class overrides. */
   classNames?: AvatarDSClassNames;
 } & _$react.RefAttributes<HTMLDivElement>>;
 //#endregion
-export { Avatar$1 as Avatar, AvatarDS, AvatarDSClassNames, AvatarDSProps, type AvatarStatusChangeDetails$1 as AvatarStatusChangeDetails, type UseAvatarProps, type UseAvatarReturn, useAvatar, useAvatarContext };
+export { Avatar$1 as Avatar, type AvatarContextProps, AvatarDS, AvatarDSClassNames, AvatarDSProps, type AvatarFallbackBaseProps, type AvatarFallbackProps, type AvatarImageBaseProps, type AvatarImageProps$1 as AvatarImageProps, type AvatarRootBaseProps, type AvatarRootProps$1 as AvatarRootProps, type AvatarRootProviderBaseProps, type AvatarRootProviderProps, type AvatarStatusChangeDetails, type UseAvatarProps, type UseAvatarReturn, useAvatar, useAvatarContext };
 //# sourceMappingURL=avatar.d.ts.map
