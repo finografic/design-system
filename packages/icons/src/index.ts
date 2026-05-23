@@ -1,5 +1,5 @@
 /**
- * Src/index.ts — @finografic/icons
+ * src/index.ts — @finografic/icons
  *
  * !! GENERATED FILE — do not edit by hand.
  * !! Edit src/icons.json via the picker UI, then run: pnpm icons.generate

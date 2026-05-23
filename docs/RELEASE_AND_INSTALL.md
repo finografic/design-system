@@ -90,7 +90,7 @@ The script (`scripts/release.ts`) will:
 2. **Guard** — abort if the working tree is dirty
 3. **Bump versions** — updates both `package.json` files (`--ignore-scripts` so `prepare` does not run)
 4. **Build** — `pnpm build:all`
-5. **Release commit** — `package.json` + both `dist/` trees → `feat: release v{version}`
+5. **Release commit** — `package.json`, both `dist/` trees, and generated `packages/icons/src/icons.ts` + `index.ts` → `feat: release v{version}`
 6. **Tags** — `v{version}` (design-system) + `icons-v{version}` (icons)
 7. **Publish** — both packages to GitHub Packages (`--ignore-scripts`)
 8. **Push** — `git push --follow-tags`

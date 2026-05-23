@@ -92,7 +92,7 @@ console.log('\n  Building packages (pnpm build:all)…\n');
 run('pnpm build:all');
 
 run(
-  'git add packages/icons/package.json packages/icons/dist packages/design-system/package.json packages/design-system/dist',
+  'git add packages/icons/package.json packages/icons/dist packages/icons/src/icons.ts packages/icons/src/index.ts packages/design-system/package.json packages/design-system/dist',
 );
 run(`git commit -m "feat: release v${dsVersion}"`);
 
