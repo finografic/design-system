@@ -57,6 +57,9 @@ declare const sizingTokens: {
   '24': {
     value: string;
   };
+  '25': {
+    value: string;
+  };
   navbar: {
     value: string;
   };

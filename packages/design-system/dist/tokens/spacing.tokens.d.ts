@@ -57,6 +57,9 @@ declare const spacingTokens: {
   '24': {
     value: string;
   };
+  '25': {
+    value: string;
+  };
 };
 /**
  * Z-index scale for layered UI elements. Keys are referenced as strings in recipes and css() calls: zIndex:

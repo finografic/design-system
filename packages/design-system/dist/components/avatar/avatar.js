@@ -10,7 +10,7 @@ const { withProvider, withContext } = createStyleContext(avatarRecipe);
 * Styled Ark **Avatar** compound — each part is wired to `avatarRecipe` via context.
 *
 * Shows a profile image with an optional initials (or custom) fallback when the image is loading or
-* unavailable. Variant props (`size`, `variant`) go on **`Avatar.Root`** or **`Avatar.RootProvider`**.
+* unavailable. Recipe props (`size`, `shape`, `variant`) go on **`Avatar.Root`** or **`Avatar.RootProvider`**.
 *
 * @example
 *   ```tsx
@@ -35,7 +35,7 @@ const { withProvider, withContext } = createStyleContext(avatarRecipe);
 *   ```;
 */
 const Avatar$1 = {
-	/** Root — `onStatusChange`, `ids`; accepts `size` and `variant`. */
+	/** Root — `onStatusChange`, `ids`; accepts `size`, `shape`, and `variant`. */
 	Root: withProvider(Avatar.Root, "root"),
 	/** Same root styles when using external state from `useAvatar`. */
 	RootProvider: withProvider(Avatar.RootProvider, "root"),
@@ -63,13 +63,15 @@ function initialsFromName(name) {
 *     alt="Jane Doe"
 *     name="Jane Doe"
 *     size="md"
+*     shape="rounded"
 *     onStatusChange={({ status }) => console.log(status)}
 *   />;
 *   ```;
 */
-const AvatarDS = forwardRef(({ src, alt, fallback, name, size = "md", variant = "outlined", className, classNames, onStatusChange, ids, asChild, loading, crossOrigin, referrerPolicy, sizes, srcSet, ...rootProps }, ref) => {
+const AvatarDS = forwardRef(({ src, alt, fallback, name, size = "md", shape = "circle", variant = "outlined", className, classNames, onStatusChange, ids, asChild, loading, crossOrigin, referrerPolicy, sizes, srcSet, ...rootProps }, ref) => {
 	const styles = avatarRecipe({
 		size,
+		shape,
 		variant
 	});
 	const fallbackContent = fallback ?? (name ? initialsFromName(name) : null);

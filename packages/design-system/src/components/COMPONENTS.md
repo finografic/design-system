@@ -18,7 +18,7 @@ Each folder contains exactly four files:
 
 | Component    | Recipe type | Ark UI       | createStyleContext | Notes                                                                                                 |
 | ------------ | ----------- | ------------ | ------------------ | ----------------------------------------------------------------------------------------------------- |
-| `avatar`     | `sva`       | yes          | yes                | `withProvider` + `withContext`; `AvatarDS` wrapper; `size` + `variant` on root                        |
+| `avatar`     | `sva`       | yes          | yes                | `AvatarDS` wrapper; `size` · `shape` · `variant` on root                                              |
 | `badge`      | `cva`       | —            | —                  | `<span>` wrapper                                                                                      |
 | `button`     | `cva`       | `ark.button` | —                  | Self-applies recipe                                                                                   |
 | `callout`    | `cva`       | —            | —                  | `<div role="alert">` wrapper                                                                          |

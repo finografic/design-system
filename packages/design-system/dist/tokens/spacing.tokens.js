@@ -30,7 +30,8 @@ const spacingTokens = defineTokens.spacing({
 	"12": { value: "3rem" },
 	"16": { value: "4rem" },
 	"20": { value: "5rem" },
-	"24": { value: "6rem" }
+	"24": { value: "6rem" },
+	"25": { value: "6.25rem" }
 });
 /**
 * Z-index scale for layered UI elements. Keys are referenced as strings in recipes and css() calls: zIndex:

@@ -91,6 +91,7 @@
 - **`Toggle.onPressedChange`** — receives a bare `boolean`, not a detail object. DS: `onChange(pressed: boolean)`.
 - **`onPageChange`** — Pagination; detail is `{ page, pageSize }`, expose as two args: `onPageChange(page, pageSize)`.
 - **`AvatarDS.onStatusChange`** — passes Ark `StatusChangeDetails` unchanged (`status`: `loading` \| `loaded` \| `error`). Use the compound `Avatar.Root` for the same callback shape.
+- **`Avatar` recipe props** — `size` (`sm` \| `md` \| `lg` \| `xl` \| `2xl`), `shape` (`circle` \| `square` \| `rounded`; default `circle`; `rounded` → `radii.md` / 0.5rem), `variant` (`outlined` \| `elevated`). See [avatar.md](../packages/design-system/docs/components/avatar.md).
 - **`Editable.multiline`** — `EditableDS` prop; when `true` renders `ArkEditable.Input asChild` wrapping a `<textarea>`.
   Ark v5 has no `Textarea` part; `asChild` bridges machine state onto the native element.
 - **No DS wrapper** — Dialog, Menu, Popover, Tooltip are overlay-heavy compounds where the trigger and content

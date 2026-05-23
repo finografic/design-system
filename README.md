@@ -118,12 +118,12 @@ See [COMPONENTS_LIST.md](./docs/COMPONENTS_LIST.md) for the full inventory, patt
 
 ### Headless compounds (SVA + `createStyleContext`)
 
-Variant props (`size`, `variant`) go on the **Root**. Use `*DS` wrappers for the quick-start API; use the compound directly for full layout control.
+Variant props (`size`, `variant`, and component-specific axes such as Avatar `shape`) go on the **Root**. Use `*DS` wrappers for the quick-start API; use the compound directly for full layout control. Avatar details: [avatar.md](./packages/design-system/docs/components/avatar.md).
 
 | Component           | DS Wrapper        | Sub-components                                                                                                                                    |
 | ------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Accordion`         | `AccordionDS`     | Root · Item · ItemTrigger · ItemContent · ItemIndicator                                                                                           |
-| `Avatar`            | `AvatarDS`        | Root · RootProvider · Fallback · Image · Context                                                                                                  |
+| `Avatar`            | `AvatarDS`        | Root · RootProvider · Fallback · Image · Context — recipe: `size`, `shape`, `variant`                                                             |
 | `Dialog`            | —                 | Root · Trigger · Backdrop · Positioner · Content · Header · Title · Description · Body · Footer · CloseTrigger                                    |
 | `DialogGeneric`     | —                 | Config-driven modal; accepts `config: DialogGenericConfig`                                                                                        |
 | `Menu`              | —                 | Root · Trigger · Positioner · Content · Item · ItemGroup · ItemGroupLabel · Separator · Arrow                                                     |

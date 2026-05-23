@@ -36,6 +36,7 @@ export const sizingTokens = defineTokens.sizes({
   '16': { value: '4rem' }, //  64px
   '20': { value: '5rem' }, //  80px
   '24': { value: '6rem' }, //  96px
+  '25': { value: '6.25rem' }, // 100px
 
   // ── Named layout sizes ───────────────────────────────────────────────────
   // Override at the app level with CSS vars (see layout.tokens.ts).

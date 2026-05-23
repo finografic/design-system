@@ -35,6 +35,7 @@ const sizingTokens = defineTokens.sizes({
 	"16": { value: "4rem" },
 	"20": { value: "5rem" },
 	"24": { value: "6rem" },
+	"25": { value: "6.25rem" },
 	"navbar": { value: "41px" },
 	"header": { value: "70px" },
 	"footer": { value: "70px" },

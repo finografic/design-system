@@ -10,7 +10,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  * Styled Ark **Avatar** compound — each part is wired to `avatarRecipe` via context.
  *
  * Shows a profile image with an optional initials (or custom) fallback when the image is loading or
- * unavailable. Variant props (`size`, `variant`) go on **`Avatar.Root`** or **`Avatar.RootProvider`**.
+ * unavailable. Recipe props (`size`, `shape`, `variant`) go on **`Avatar.Root`** or **`Avatar.RootProvider`**.
  *
  * @example
  *   ```tsx
@@ -35,7 +35,7 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  *   ```;
  */
 declare const Avatar$1: {
-  /** Root — `onStatusChange`, `ids`; accepts `size` and `variant`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Avatar.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "image" | "fallback", {
+  /** Root — `onStatusChange`, `ids`; accepts `size`, `shape`, and `variant`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Avatar.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "image" | "fallback", {
     size: {
       sm: {
         root: {
@@ -56,6 +56,37 @@ declare const Avatar$1: {
           width: "16";
           height: "16";
           fontSize: "lg";
+        };
+      };
+      xl: {
+        root: {
+          width: "20";
+          height: "20";
+          fontSize: "xl";
+        };
+      };
+      '2xl': {
+        root: {
+          width: "25";
+          height: "25";
+          fontSize: "2xl";
+        };
+      };
+    };
+    shape: {
+      circle: {
+        root: {
+          borderRadius: "full";
+        };
+      };
+      square: {
+        root: {
+          borderRadius: "none";
+        };
+      };
+      rounded: {
+        root: {
+          borderRadius: "md";
         };
       };
     };
@@ -91,6 +122,37 @@ declare const Avatar$1: {
           width: "16";
           height: "16";
           fontSize: "lg";
+        };
+      };
+      xl: {
+        root: {
+          width: "20";
+          height: "20";
+          fontSize: "xl";
+        };
+      };
+      '2xl': {
+        root: {
+          width: "25";
+          height: "25";
+          fontSize: "2xl";
+        };
+      };
+    };
+    shape: {
+      circle: {
+        root: {
+          borderRadius: "full";
+        };
+      };
+      square: {
+        root: {
+          borderRadius: "none";
+        };
+      };
+      rounded: {
+        root: {
+          borderRadius: "md";
         };
       };
     };
@@ -136,14 +198,16 @@ type AvatarDSProps = AvatarRecipeProps & Omit<AvatarRootProps, 'children'> & Ava
  *     alt="Jane Doe"
  *     name="Jane Doe"
  *     size="md"
+ *     shape="rounded"
  *     onStatusChange={({ status }) => console.log(status)}
  *   />;
  *   ```;
  */
 declare const AvatarDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | undefined;
+  shape?: "rounded" | "circle" | "square" | undefined;
   variant?: "elevated" | "outlined" | undefined;
-} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "alt" | "src" | "crossOrigin" | "loading" | "referrerPolicy" | "srcSet">> & {
+} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "loading" | "crossOrigin" | "alt" | "src" | "referrerPolicy" | "srcSet">> & {
   /** Fallback content (e.g. initials). Used when `name` is not set. */fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
   name?: string; /** Per-slot class overrides. */
   classNames?: AvatarDSClassNames;

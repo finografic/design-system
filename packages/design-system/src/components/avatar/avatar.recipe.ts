@@ -3,8 +3,8 @@
  *
  * Port of Ark UI Avatar demo styles → Panda `sva` + semantic tokens.
  *
- * Slots: root · fallback · image
- * Variants: size (sm | md | lg) · variant (elevated | outlined)
+ * Slots: root · fallback · image Variants: size (sm | md | lg | xl | 2xl) · shape (circle | square | rounded)
+ * · variant (elevated | outlined)
  */
 import { sva } from '@styled-system/css';
 import type { RecipeProps } from '../../recipes/recipes.types';
@@ -24,7 +24,6 @@ export const avatarRecipe = sva({
       verticalAlign: 'top',
       flexShrink: 0,
       userSelect: 'none',
-      borderRadius: 'full',
       bg: 'bg.subtle',
       color: 'fg',
       borderWidth: '1px',
@@ -51,14 +50,32 @@ export const avatarRecipe = sva({
 
   variants: {
     size: {
-      sm: {
+      'sm': {
         root: { width: '8', height: '8', fontSize: 'xs' },
       },
-      md: {
+      'md': {
         root: { width: '12', height: '12', fontSize: 'md' },
       },
-      lg: {
+      'lg': {
         root: { width: '16', height: '16', fontSize: 'lg' },
+      },
+      'xl': {
+        root: { width: '20', height: '20', fontSize: 'xl' },
+      },
+      '2xl': {
+        root: { width: '25', height: '25', fontSize: '2xl' },
+      },
+    },
+
+    shape: {
+      circle: {
+        root: { borderRadius: 'full' },
+      },
+      square: {
+        root: { borderRadius: 'none' },
+      },
+      rounded: {
+        root: { borderRadius: 'md' },
       },
     },
 
@@ -74,6 +91,7 @@ export const avatarRecipe = sva({
 
   defaultVariants: {
     size: 'md',
+    shape: 'circle',
     variant: 'outlined',
   },
 });

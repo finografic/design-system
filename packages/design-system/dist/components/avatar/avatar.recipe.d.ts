@@ -25,6 +25,37 @@ declare const avatarRecipe: SlotRecipeRuntimeFn<"root" | "image" | "fallback", {
         fontSize: "lg";
       };
     };
+    xl: {
+      root: {
+        width: "20";
+        height: "20";
+        fontSize: "xl";
+      };
+    };
+    '2xl': {
+      root: {
+        width: "25";
+        height: "25";
+        fontSize: "2xl";
+      };
+    };
+  };
+  shape: {
+    circle: {
+      root: {
+        borderRadius: "full";
+      };
+    };
+    square: {
+      root: {
+        borderRadius: "none";
+      };
+    };
+    rounded: {
+      root: {
+        borderRadius: "md";
+      };
+    };
   };
   variant: {
     elevated: {

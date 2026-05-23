@@ -31,6 +31,7 @@ export const spacingTokens = defineTokens.spacing({
   '16': { value: '4rem' }, // 64px
   '20': { value: '5rem' }, // 80px
   '24': { value: '6rem' }, // 96px
+  '25': { value: '6.25rem' }, // 100px
 });
 
 /**
