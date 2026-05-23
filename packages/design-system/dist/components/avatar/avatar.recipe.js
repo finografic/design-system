@@ -5,8 +5,8 @@ import { sva } from "@styled-system/css";
 *
 * Port of Ark UI Avatar demo styles → Panda `sva` + semantic tokens.
 *
-* Slots: root · fallback · image
-* Variants: size (sm | md | lg | xl | 2xl) · shape (circle | square | rounded) · variant (elevated | outlined)
+* Slots: root · fallback · image Variants: size (sm | md | lg | xl | 2xl) · shape (circle | square | rounded)
+* · variant (elevated | outlined)
 */
 const avatarRecipe = sva({
 	className: "avatar",
@@ -48,22 +48,22 @@ const avatarRecipe = sva({
 	},
 	variants: {
 		size: {
-			sm: { root: {
+			"sm": { root: {
 				width: "8",
 				height: "8",
 				fontSize: "xs"
 			} },
-			md: { root: {
+			"md": { root: {
 				width: "12",
 				height: "12",
 				fontSize: "md"
 			} },
-			lg: { root: {
+			"lg": { root: {
 				width: "16",
 				height: "16",
 				fontSize: "lg"
 			} },
-			xl: { root: {
+			"xl": { root: {
 				width: "20",
 				height: "20",
 				fontSize: "xl"

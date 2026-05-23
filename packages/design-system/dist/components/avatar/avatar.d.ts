@@ -10,7 +10,8 @@ import * as _$_styled_system_jsx0 from "@styled-system/jsx";
  * Styled Ark **Avatar** compound — each part is wired to `avatarRecipe` via context.
  *
  * Shows a profile image with an optional initials (or custom) fallback when the image is loading or
- * unavailable. Recipe props (`size`, `shape`, `variant`) go on **`Avatar.Root`** or **`Avatar.RootProvider`**.
+ * unavailable. Recipe props (`size`, `shape`, `variant`) go on **`Avatar.Root`** or
+ * **`Avatar.RootProvider`**.
  *
  * @example
  *   ```tsx
@@ -207,7 +208,7 @@ declare const AvatarDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | undefined;
   shape?: "rounded" | "circle" | "square" | undefined;
   variant?: "elevated" | "outlined" | undefined;
-} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "loading" | "crossOrigin" | "alt" | "src" | "referrerPolicy" | "srcSet">> & {
+} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "alt" | "src" | "crossOrigin" | "loading" | "referrerPolicy" | "srcSet">> & {
   /** Fallback content (e.g. initials). Used when `name` is not set. */fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
   name?: string; /** Per-slot class overrides. */
   classNames?: AvatarDSClassNames;

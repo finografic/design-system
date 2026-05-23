@@ -10,7 +10,8 @@ const { withProvider, withContext } = createStyleContext(avatarRecipe);
 * Styled Ark **Avatar** compound — each part is wired to `avatarRecipe` via context.
 *
 * Shows a profile image with an optional initials (or custom) fallback when the image is loading or
-* unavailable. Recipe props (`size`, `shape`, `variant`) go on **`Avatar.Root`** or **`Avatar.RootProvider`**.
+* unavailable. Recipe props (`size`, `shape`, `variant`) go on **`Avatar.Root`** or
+* **`Avatar.RootProvider`**.
 *
 * @example
 *   ```tsx
