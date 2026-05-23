@@ -45,6 +45,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Verify design-system dist
+        run: pnpm --filter @finografic/design-system run verify:dist
+
       - name: Publish design-system
         run: pnpm --filter @finografic/design-system publish --no-git-checks
         env:

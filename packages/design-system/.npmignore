@@ -1,0 +1,3 @@
+# Built output only — exclude accidental nested installs from tsdown/panda
+dist/node_modules
+dist/packages

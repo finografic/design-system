@@ -22,6 +22,9 @@
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -76,6 +79,16 @@
     "src/components/generic-dialog/generic-dialog.css",
     "src/components/dialog/dialog.css"
   ],
+  "finografic": {
+    "pandaConsumerInclude": [
+      "./src/**/*.{ts,tsx}",
+      "./node_modules/@finografic/design-system/dist/**/*.recipe.js"
+    ],
+    "viteResolveAlias": [
+      "@styled-system/css",
+      "@styled-system/jsx"
+    ]
+  },
   "scripts": {
     "---------- DEV": "-------------------------------------------------------",
     "dev": "panda cssgen --watch",
@@ -84,6 +97,8 @@
     "link": "pnpm build && pnpm link --global",
     "unlink": "pnpm unlink --global",
     "build": "panda codegen --clean && tsdown",
+    "verify:dist": "node ./scripts/verify-dist.mjs",
+    "prepublishOnly": "pnpm run build && pnpm run verify:dist",
     "·········· PANDA": "·····················································",
     "panda:codegen": "panda codegen",
     "panda:clean": "panda codegen --clean",

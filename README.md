@@ -4,26 +4,59 @@ Token-driven React design system — Panda CSS tokens, accessible headless input
 
 ---
 
-## Quick Start
+## Setup
 
-### 1. Configure Panda CSS in the consuming app
+### Configure `panda.config.ts` in the consuming app
 
-Scan **design-system source** so recipe CSS is generated (see [STYLING_GUIDE.md](./STYLING_GUIDE.md)):
+Every app that installs `@finografic/design-system` from the registry **must** add the compiled
+recipe glob below. Published packages ship recipes in `dist/components/*.recipe.js`, not in
+`src/components/` (source is not in the tarball). Without this line, DS components render but
+**recipe CSS is missing** (e.g. square avatars, unstyled buttons).
 
 ```ts
-// apps/client/panda.config.ts
+// panda.config.ts (consumer app)
 import { defineConfig } from '@pandacss/dev';
 import { designSystemPreset } from '@finografic/design-system/panda.preset';
 
 export default defineConfig({
+  preflight: false,
   presets: ['@pandacss/dev/presets', designSystemPreset],
-  include: ['./src/**/*.{ts,tsx}', './node_modules/@finografic/design-system/src/**/*.{ts,tsx}'],
-  outdir: 'styled-system',
+  include: [
+    './src/**/*.{ts,tsx}',
+
+    // REQUIRED for npm / GitHub Packages installs — do not omit
+    './node_modules/@finografic/design-system/dist/**/*.recipe.js',
+
+    // OPTIONAL — only when using pnpm link or a monorepo checkout with full src/
+    // './node_modules/@finografic/design-system/src/**/*.{ts,tsx}',
+  ],
+  outdir: './styled-system',
   jsxFramework: 'react',
 });
 ```
 
-> If you use a workspace alias (e.g. `@workspace/design-system`), substitute that in the `import` and keep the same `include` path to the package **source** under `node_modules`.
+| `include` entry                                                       | When                                         |
+| --------------------------------------------------------------------- | -------------------------------------------- |
+| `./src/**/*.{ts,tsx}`                                                 | Your app’s Panda usage                       |
+| **`./node_modules/@finografic/design-system/dist/**/\*.recipe.js`\*\* | **Always** for registry installs             |
+| `./node_modules/@finografic/design-system/src/**/*.{ts,tsx}`          | Optional — `pnpm link` / local checkout only |
+
+Canonical copy-paste list: `finografic.pandaConsumerInclude` in `packages/design-system/package.json`.
+
+**Vite (or Astro’s Vite layer):** alias `@styled-system/css` and `@styled-system/jsx` to the
+consumer’s generated `styled-system/` so imports inside DS `dist/` resolve at bundle time. See
+`finografic.viteResolveAlias` in the same `package.json`.
+
+After changing tokens, recipes, or `include`, run `pnpm panda:codegen` in the consumer app.
+
+---
+
+## Quick Start
+
+### 1. Configure Panda CSS
+
+Follow [Setup → Configure `panda.config.ts`](#configure-pandaconfigts-in-the-consuming-app) (required
+`dist/**/*.recipe.js` entry). See also [STYLING_GUIDE.md](./STYLING_GUIDE.md).
 
 ### 2. Import global styles once at app entry
 
@@ -34,7 +67,7 @@ import '@workspace/design-system/forms/forms.css';
 import '@workspace/design-system/grid/grid.css';
 ```
 
-### 3. Run Panda codegen
+### 3. Run Panda codegen in the consumer
 
 ```bash
 pnpm panda codegen
@@ -335,8 +368,9 @@ Any change to tokens or recipes requires the client to regenerate its `styled-sy
 pnpm panda:codegen
 ```
 
-The client's `panda.config.ts` extends `@workspace/design-system/panda.preset` and
-scans DS source files directly — stale codegen means missing or incorrect CSS.
+The client's `panda.config.ts` extends `@workspace/design-system/panda.preset` and must
+scan `node_modules/@finografic/design-system/dist/**/*.recipe.js` (registry) — stale codegen
+means missing or incorrect CSS.
 
 > **Build order:** `pnpm build` (DS) → `pnpm panda:codegen` (client) → `pnpm build` (client)
 
