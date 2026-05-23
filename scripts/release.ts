@@ -5,7 +5,10 @@
  * Bumps versions for both publishable packages, creates a release commit + tags, publishes to GitHub
  * Packages, and pushes.
  *
- * Prerequisites: working tree must be clean — build and commit everything first.
+ * Prerequisites:
+ *
+ * - `pnpm lint:md` must pass (same check as CI)
+ * - Working tree must be clean — build and commit everything first
  *
  * Usage: tsx scripts/release.ts <patch|minor|major> Via: pnpm release.patch / release.minor / release.major
  */
@@ -40,6 +43,11 @@ function run(cmd: string, opts: { cwd?: string } = {}): void {
 function readVersion(path: string): string {
   return (JSON.parse(readFileSync(path, 'utf8')) as { version: string }).version;
 }
+
+// ── Guard: markdown lint (CI parity) ──────────────────────────────────────────
+
+console.log('\n  Checking markdown (pnpm lint:md)…\n');
+run('pnpm lint:md');
 
 // ── Guard: require clean working tree ─────────────────────────────────────────
 

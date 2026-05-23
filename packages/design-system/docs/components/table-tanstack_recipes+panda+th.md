@@ -1,7 +1,6 @@
-```
-# USER
-Ok, perfect..  Could you show me how a filter input in header would look, when combined with the table recipe? Are the separate recipes combine in the implementation, or…?  I’m still new to panda css, recipes , etc..
-```
+# Table recipes and header filter inputs
+
+> **Question:** How does a filter input in a table header look when combined with the table recipe? Are separate recipes combined in the implementation?
 
 Good question — this is exactly where the mental model matters. Let me show you concretely.
 

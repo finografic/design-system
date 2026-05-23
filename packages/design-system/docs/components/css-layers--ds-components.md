@@ -34,9 +34,9 @@ If you ever have component styles that stay as raw CSS (not Panda), wrap them in
 
 ## The goal
 
-#### everything component-related → sva recipe → `@layer utilities`.
+### Everything component-related → sva recipe → `@layer utilities`
 
-#### Only truly global stuff (scrollbars, icon utilities) stays in `global.css`.
+### Only truly global stuff (scrollbars, icon utilities) stays in `global.css`
 
 ---
 

@@ -44,7 +44,7 @@ But the goal is: everything component-related → sva recipe → `@layer utiliti
 
 ---
 
-# Cascade Layers
+## Cascade Layers
 
 CSS cascade layers refer to the order in which CSS rules are applied to an HTML element.
 
@@ -157,7 +157,7 @@ exciting feature of CSS cascade layers.
 
 ## Customize layers
 
-Panda lets you customize the cascade layers, so your project can coexist with other solutions. Learn more about customizing layers [here](/docs/references/config#layers).
+Panda lets you customize the cascade layers, so your project can coexist with other solutions. Learn more in the [Panda `layers` configuration reference](/docs/references/config#layers).
 
 ## Polyfills
 
