@@ -2,7 +2,7 @@ import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/
 import { RecipeProps } from "../../recipes/recipes.types.js";
 
 //#region src/components/dialog/dialog.recipe.d.ts
-declare const dialogRecipe: SlotRecipeRuntimeFn<"root" | "header" | "footer" | "content" | "positioner" | "description" | "title" | "closeTrigger" | "backdrop" | "body", {
+declare const dialogRecipe: SlotRecipeRuntimeFn<"root" | "header" | "footer" | "content" | "description" | "backdrop" | "positioner" | "title" | "body" | "closeTrigger", {
   size: {
     xs: {
       content: {
