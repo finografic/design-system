@@ -33,17 +33,21 @@ declare const ICONS: {
   readonly DropdownIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly EditIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly ExclamationTriangleIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
+  readonly ExternalLinkIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly EyeOffIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly EyeOnIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly FastForwardIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly FileIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
+  readonly FileDownIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly FolderIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly FolderOpenIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly FullscreenIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
+  readonly GlobeIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly GridIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly HomeIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly InfoCircledIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly LanguageIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
+  readonly LinkIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly ListIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly ListChecksIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly LoaderIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
@@ -57,6 +61,7 @@ declare const ICONS: {
   readonly PanelBottomOpenIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly PanelLeftCloseIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly PanelLeftOpenIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
+  readonly PhoneIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly PlusIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly RadioIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly RefreshIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
@@ -64,6 +69,7 @@ declare const ICONS: {
   readonly SettingsIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly ShieldCheckIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly ShuffleIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
+  readonly SmartphoneIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly SpeakerLoudIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly StarIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
   readonly StopIcon: _$react.ForwardRefExoticComponent<Omit<Lucide.LucideProps, "ref"> & _$react.RefAttributes<SVGSVGElement>>;
@@ -93,7 +99,7 @@ declare const icons: WrappedIconMap;
 /** Union of all registered icon export names. */
 type IconName = keyof typeof ICONS;
 /** Sorted list of all registered icon names (useful for pickers / docs). */
-declare const ICON_NAMES: ("AddIcon" | "ApertureIcon" | "AppleIcon" | "ArrowDownIcon" | "ArrowLeftIcon" | "ArrowRightIcon" | "ArrowUpIcon" | "BadgeCheckIcon" | "CheckIcon" | "CheckCircleIcon" | "ChevronDownIcon" | "ChevronLeftIcon" | "ChevronRightIcon" | "ChevronsUpDownIcon" | "ChevronUpIcon" | "ClipboardIcon" | "CloseIcon" | "CoffeeIcon" | "Columns3Icon" | "Columns4Icon" | "CountdownTimerIcon" | "Cross2Icon" | "DeleteIcon" | "DialogIcon" | "DoubleArrowLeftIcon" | "DoubleArrowRightIcon" | "DropdownIcon" | "EditIcon" | "ExclamationTriangleIcon" | "EyeOffIcon" | "EyeOnIcon" | "FastForwardIcon" | "FileIcon" | "FolderIcon" | "FolderOpenIcon" | "FullscreenIcon" | "GridIcon" | "HomeIcon" | "InfoCircledIcon" | "LanguageIcon" | "ListIcon" | "ListChecksIcon" | "LoaderIcon" | "LockIcon" | "MagnifyingGlassIcon" | "MenuIcon" | "MinimizeIcon" | "MinusIcon" | "MoonIcon" | "PanelBottomCloseIcon" | "PanelBottomOpenIcon" | "PanelLeftCloseIcon" | "PanelLeftOpenIcon" | "PlusIcon" | "RadioIcon" | "RefreshIcon" | "ReloadIcon" | "SettingsIcon" | "ShieldCheckIcon" | "ShuffleIcon" | "SpeakerLoudIcon" | "StarIcon" | "StopIcon" | "SunIcon" | "TempIcon" | "TextAlignLeftIcon" | "TextAlignTopIcon" | "TimerIcon" | "TimerResetIcon" | "TrashIcon" | "UploadIcon" | "UserIcon" | "UserCircleIcon" | "UserLockIcon" | "UserRoundCheckIcon" | "UserShieldIcon" | "VolumeIcon" | "VolumeOffIcon" | "WindowIcon" | "WineIcon" | "XIcon" | "ZapIcon")[];
+declare const ICON_NAMES: ("AddIcon" | "ApertureIcon" | "AppleIcon" | "ArrowDownIcon" | "ArrowLeftIcon" | "ArrowRightIcon" | "ArrowUpIcon" | "BadgeCheckIcon" | "CheckIcon" | "CheckCircleIcon" | "ChevronDownIcon" | "ChevronLeftIcon" | "ChevronRightIcon" | "ChevronsUpDownIcon" | "ChevronUpIcon" | "ClipboardIcon" | "CloseIcon" | "CoffeeIcon" | "Columns3Icon" | "Columns4Icon" | "CountdownTimerIcon" | "Cross2Icon" | "DeleteIcon" | "DialogIcon" | "DoubleArrowLeftIcon" | "DoubleArrowRightIcon" | "DropdownIcon" | "EditIcon" | "ExclamationTriangleIcon" | "ExternalLinkIcon" | "EyeOffIcon" | "EyeOnIcon" | "FastForwardIcon" | "FileIcon" | "FileDownIcon" | "FolderIcon" | "FolderOpenIcon" | "FullscreenIcon" | "GlobeIcon" | "GridIcon" | "HomeIcon" | "InfoCircledIcon" | "LanguageIcon" | "LinkIcon" | "ListIcon" | "ListChecksIcon" | "LoaderIcon" | "LockIcon" | "MagnifyingGlassIcon" | "MenuIcon" | "MinimizeIcon" | "MinusIcon" | "MoonIcon" | "PanelBottomCloseIcon" | "PanelBottomOpenIcon" | "PanelLeftCloseIcon" | "PanelLeftOpenIcon" | "PhoneIcon" | "PlusIcon" | "RadioIcon" | "RefreshIcon" | "ReloadIcon" | "SettingsIcon" | "ShieldCheckIcon" | "ShuffleIcon" | "SmartphoneIcon" | "SpeakerLoudIcon" | "StarIcon" | "StopIcon" | "SunIcon" | "TempIcon" | "TextAlignLeftIcon" | "TextAlignTopIcon" | "TimerIcon" | "TimerResetIcon" | "TrashIcon" | "UploadIcon" | "UserIcon" | "UserCircleIcon" | "UserLockIcon" | "UserRoundCheckIcon" | "UserShieldIcon" | "VolumeIcon" | "VolumeOffIcon" | "WindowIcon" | "WineIcon" | "XIcon" | "ZapIcon")[];
 /** Type of any wrapped icon component returned by `createIconWrapper`. */
 type IconComponent = ReturnType<typeof createIconWrapper>;
 //#endregion
