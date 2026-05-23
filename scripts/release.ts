@@ -8,7 +8,9 @@
  * Prerequisites:
  *
  * - `pnpm lint:md` must pass (same check as CI)
- * - Working tree must be clean — build and commit everything first
+ * - Working tree must be clean — commit source changes first (do not pre-build `dist`; this script runs `pnpm
+ *   build:all`)
+ * - Stop `pnpm watch` / dev build processes so they do not rewrite `dist/` during release
  *
  * Usage: tsx scripts/release.ts <patch|minor|major> Via: pnpm release.patch / release.minor / release.major
  */
@@ -55,11 +57,14 @@ try {
   execSync('git diff --exit-code --quiet', { stdio: 'pipe' });
   execSync('git diff --cached --exit-code --quiet', { stdio: 'pipe' });
 } catch {
-  console.error('\n  ✘  Working tree is dirty.\n' + '     Build and commit all changes before releasing.\n');
+  console.error(
+    '\n  ✘  Working tree is dirty.\n' +
+      '     Commit source changes before releasing (dist is rebuilt and committed by this script).\n',
+  );
   process.exit(1);
 }
 
-// ── Gaurd: ensure packages existVersion bumps (no git ops) ────────────────────────────────────────────────
+// ── Guard: ensure packages exist ──────────────────────────────────────────────
 
 if (!existsSync('packages/design-system/package.json')) {
   console.error('Missing packages/design-system');
@@ -73,17 +78,22 @@ if (!existsSync('packages/icons/package.json')) {
 
 // ── Version bumps (no git ops) ────────────────────────────────────────────────
 
-run(`pnpm version ${bump} --no-git-tag-version`, { cwd: 'packages/icons' });
-run(`pnpm version ${bump} --no-git-tag-version`, { cwd: 'packages/design-system' });
+run(`pnpm version ${bump} --no-git-tag-version --ignore-scripts`, { cwd: 'packages/icons' });
+run(`pnpm version ${bump} --no-git-tag-version --ignore-scripts`, { cwd: 'packages/design-system' });
 
 const iconsVersion = readVersion('packages/icons/package.json');
 const dsVersion = readVersion('packages/design-system/package.json');
 
 console.log(`\n  ✔  icons → ${iconsVersion}   design-system → ${dsVersion}`);
 
-// ── Release commit ────────────────────────────────────────────────────────────
+// ── Build + release commit (package.json + committed dist/) ───────────────────
 
-run('git add packages/icons/package.json packages/design-system/package.json');
+console.log('\n  Building packages (pnpm build:all)…\n');
+run('pnpm build:all');
+
+run(
+  'git add packages/icons/package.json packages/icons/dist packages/design-system/package.json packages/design-system/dist',
+);
 run(`git commit -m "feat: release v${dsVersion}"`);
 
 // ── Tags ──────────────────────────────────────────────────────────────────────
@@ -93,8 +103,10 @@ run(`git tag -a "icons-v${iconsVersion}" -m "@finografic/icons v${iconsVersion}"
 
 // ── Publish ───────────────────────────────────────────────────────────────────
 
-run(`pnpm --filter @finografic/icons publish --no-git-checks --registry ${REGISTRY}`);
-run(`pnpm --filter @finografic/design-system publish --no-git-checks --registry ${REGISTRY}`);
+run(`pnpm --filter @finografic/icons publish --no-git-checks --ignore-scripts --registry ${REGISTRY}`);
+run(
+  `pnpm --filter @finografic/design-system publish --no-git-checks --ignore-scripts --registry ${REGISTRY}`,
+);
 
 // ── Push ──────────────────────────────────────────────────────────────────────
 

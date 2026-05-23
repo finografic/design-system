@@ -68,16 +68,13 @@ pnpm format
 
 ## Releasing
 
-### Step 1 — Build and commit your changes
+### Step 1 — Commit your changes
 
-Before releasing, the working tree must be clean. Build both packages, then commit
-everything (including `dist/`) in a normal feature/fix commit:
+Before releasing, the working tree must be clean. Commit source (and docs) in a normal
+feature/fix commit. You do **not** need to run `pnpm build:all` or commit `dist/` first — the
+release script rebuilds and commits `dist/` with the version bump.
 
-```bash
-pnpm build:all
-git add packages/icons/dist packages/design-system/dist
-git commit -m "feat: ..."   # or whatever describes your changes
-```
+Stop `pnpm watch` (or any dev build) before releasing so nothing rewrites `dist/` mid-script.
 
 ### Step 2 — Run the release script
 
@@ -89,13 +86,14 @@ pnpm release:major   # x.0.0 → x+1.0.0  (breaking changes)
 
 The script (`scripts/release.ts`) will:
 
-1. **Guard** — abort if the working tree is dirty
-2. **Bump versions** — updates both `package.json` files (no git ops yet)
-3. **Release commit** — `git commit -m "release v{version}"`
-4. **Tags** — `v{version}` (design-system) + `icons-v{version}` (icons)
-5. **Publish icons** — pushes `@finografic/icons` to GitHub Packages
-6. **Publish design-system** — pushes `@finografic/design-system` to GitHub Packages
-7. **Push** — `git push --follow-tags`
+1. **Markdown lint** — `pnpm lint:md` (same gate as CI)
+2. **Guard** — abort if the working tree is dirty
+3. **Bump versions** — updates both `package.json` files (`--ignore-scripts` so `prepare` does not run)
+4. **Build** — `pnpm build:all`
+5. **Release commit** — `package.json` + both `dist/` trees → `feat: release v{version}`
+6. **Tags** — `v{version}` (design-system) + `icons-v{version}` (icons)
+7. **Publish** — both packages to GitHub Packages (`--ignore-scripts`)
+8. **Push** — `git push --follow-tags`
 
 Git is clean when the script exits.
 
