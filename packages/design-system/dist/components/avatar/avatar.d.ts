@@ -208,7 +208,7 @@ declare const AvatarDS: _$react.ForwardRefExoticComponent<{
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | undefined;
   shape?: "rounded" | "circle" | "square" | undefined;
   variant?: "elevated" | "outlined" | undefined;
-} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "alt" | "src" | "crossOrigin" | "loading" | "referrerPolicy" | "srcSet">> & {
+} & Omit<Avatar.RootProps, "children"> & Partial<Pick<Avatar.ImageProps, "sizes" | "crossOrigin" | "loading" | "alt" | "referrerPolicy" | "src" | "srcSet">> & {
   /** Fallback content (e.g. initials). Used when `name` is not set. */fallback?: ReactNode; /** Derives up to two uppercase initials when `fallback` is omitted. */
   name?: string; /** Per-slot class overrides. */
   classNames?: AvatarDSClassNames;
