@@ -61,6 +61,7 @@ export const {
   LoaderIcon,
   LockIcon,
   MagnifyingGlassIcon,
+  MailIcon,
   MenuIcon,
   MinimizeIcon,
   MinusIcon,

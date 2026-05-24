@@ -350,5 +350,9 @@
   {
     "exportName": "FileDown",
     "lucideName": "file-down"
+  },
+  {
+    "exportName": "Mail",
+    "lucideName": "mail"
   }
 ]
