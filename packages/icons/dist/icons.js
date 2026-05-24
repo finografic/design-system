@@ -59,6 +59,7 @@ const ICONS = {
 	LoaderIcon: Lucide.Loader,
 	LockIcon: Lucide.Lock,
 	MagnifyingGlassIcon: Lucide.Search,
+	MailIcon: Lucide.Mail,
 	MenuIcon: Lucide.Menu,
 	MinimizeIcon: Lucide.Minimize,
 	MinusIcon: Lucide.Minus,
