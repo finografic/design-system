@@ -73,6 +73,8 @@ pnpm build   # generates icons.ts + index.ts, then compiles dist/
 
 ## Workflow B — Consumer project
 
+> **Future:** one-command `pnpm icons` without hand-rolling `concurrently` — see [`TODO_ICONS_CONSUMER_WORKFLOW.md`](./TODO_ICONS_CONSUMER_WORKFLOW.md). Completed baseline: [`DONE_ICON_MANAGER.md`](./DONE_ICON_MANAGER.md).
+
 > **Run from:** your consumer project root (the package that installs `@finografic/icons`)
 
 This is for projects that want a **custom icon set** separate from the DS defaults.
