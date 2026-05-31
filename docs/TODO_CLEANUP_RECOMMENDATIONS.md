@@ -83,7 +83,7 @@ So the cleanest approach when you do your docs cleanup is to not add anything to
 gitignore
 
 ```gitignore
-Icon?
+
 ```
 
 The `?` matches that carriage return character — it's a wildcard for exactly one character. This is the standard way to gitignore macOS custom folder icon files across the whole repo.
