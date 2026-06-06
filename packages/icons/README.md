@@ -72,7 +72,9 @@ import type { IconProps } from '@finografic/icons';
 
 Every exported icon component:
 
-- Accepts all `SVGProps<SVGSVGElement>` plus any `data-*` attribute
+- Accepts Lucide props: `size`, `color`, `strokeWidth`, `absoluteStrokeWidth`
+- Also accepts all `SVGProps<SVGSVGElement>` , and `data-*` attributes
 - Always carries `.icon` and `.icon-name--{kebab}` CSS classes
 - Exposes `data-icon-name="{kebab}"` for CSS targeting and debugging
 - Forwards its ref to the underlying `<svg>` element
+- When `size` or `color` are set, applies inline styles so they override global `.icon` CSS defaults
