@@ -78,3 +78,16 @@ Every exported icon component:
 - Exposes `data-icon-name="{kebab}"` for CSS targeting and debugging
 - Forwards its ref to the underlying `<svg>` element
 - When `size` or `color` are set, applies inline styles so they override global `.icon` CSS defaults
+
+---
+
+## Generated files and oxfmt
+
+`icons-server` writes lowercase file names in generated headers (`index.ts`, `icons.generated.ts`).
+If oxfmt formats those files, `@finografic/oxc-config`'s `jsdoc.capitalizeDescriptions` flips them to
+`Index.ts` on every run.
+
+**Ignore generated icon outputs in `oxfmt.config.ts`.** Shared `ignorePatterns` from
+`@finografic/oxc-config/oxfmt` includes `**/icons.generated.ts`, `**/icons/index.ts`, and
+`**/icons/**/index.ts` (consumer barrel + DS `src/index.ts`). This repo also ignores
+`packages/icons/src/icons.ts` locally (column-aligned registry padding).
