@@ -1,55 +1,42 @@
 # Dependencies
 node_modules/
-**/node_modules/
+.pnpm-store/
 
 # Build outputs
-styled-system/
-*.tgz
-
-# Turbo cache
-.turbo/
-**/.turbo
-
-# Specifc files
-release.log.txt
+dist/
+build/
 
 # Environment files
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
 
 # Agents
-.agents/
+.agents/*
+!.agents/
 !.agents/handoff.md
 .codex/
-.claude/
+.claude/*
 !.claude/settings.json
-!.claude/handoff.md
+!.claude/commands/
+!.claude/commands/**
 .worktrees/
-**/worktrees/
 
 # IDE
 **/.cursor/**
 !**/.cursor/.gitkeep
-!.cursor/rules/
+!**/.cursor/rules/
+!**/.cursor/rules/**
 !.vscode/settings.json
 .idea/
 *.swp
 *.swo
 
-# Package manager files
-.pnpm-store/
-.pnpm-debug.log*
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
+# Docs
+docs/drafts/
 
 # Logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Runtime data
 pids
@@ -57,18 +44,76 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage
+# Cache
+.cache/
+.llm-cache/
+.tmp/
+
+# Testing
 coverage/
+.playwright-mcp/
 
-# macOS
+# TypeScript
+*.tsbuildinfo
+
+# CSS tooling (generated)
+styled-system/
+
+# Monorepos
+.turbo/
+.moon/cache
+.moon/docker
+
+# Database and local app data
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+data/db/
+data/uploads/
+!data/migrations/
+
+# Web host folders
+cgi-bin/
+fcgi-bin/
+html/
+
+# HTTP client cookies
+cookies.txt
+cookies_*.txt
+
+# Graphify
+graphify-out/
+
+# Archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# OS files
 .DS_Store
-Thumbs.db
-!packages/icons/
-
-# Windows
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-
-# Linux
 *~
+
+# Security
+deps-xscan-report.json
+
+# Project-specific
+# Turbo cache
+**/.turbo
+
+# Specifc files
+release.log.txt
+
+# Package manager files
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# macOS
+!packages/icons/

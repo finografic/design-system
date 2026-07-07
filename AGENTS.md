@@ -10,12 +10,11 @@ FILE ZONES — read before editing this file
 
 ## Project Memory Model
 
-- `docs/todo/ROADMAP.md` = milestone plan and completed history.
-- `docs/todo/NEXT_STEPS.md` = near-term tasks and manual checks.
+- `docs/todo/ROADMAP.md` = milestone plan, near-term tasks, and completed history.
 - `.agents/handoff.md` = stable current project state.
 - `.agents/memory.md` = chronological session log.
 
-Promote durable findings from memory → handoff, priorities → roadmap, and concrete follow-ups → next steps.
+Promote durable findings from memory → handoff, priorities and follow-ups → roadmap.
 
 Reference: [`docs/process/PROJECT_MEMORY_MODEL.md`](./docs/process/PROJECT_MEMORY_MODEL.md)
 
@@ -24,7 +23,7 @@ Reference: [`docs/process/PROJECT_MEMORY_MODEL.md`](./docs/process/PROJECT_MEMOR
 ## Roadmap and Planning Docs
 
 - Check `ROADMAP.md` before proposing new initiatives.
-- Use `NEXT_STEPS.md` for small follow-ups and manual validation.
+- Use `ROADMAP.md#next` for small follow-ups and manual validation.
 - Keep detailed plans in `docs/todo/TODO_*.md`; graduate completed plans to `DONE_*.md`.
 - Follow `.github/instructions/documentation/todo-done-docs.instructions.md`.
 
@@ -38,6 +37,59 @@ Reference: [`docs/process/PROJECT_MEMORY_MODEL.md`](./docs/process/PROJECT_MEMOR
 - [Design System](.github/instructions/project/design-system.instructions.md)
 - [SVA components (slot recipes)](.github/instructions/project/sva-components.instructions.md)
 - [CVA components (atomic recipes)](.github/instructions/project/cva-components.instructions.md)
+
+## Rules — Global
+
+Rules are canonical in `.github/instructions/` — see `README.md` there for folder structure.
+Shared across Claude Code, Cursor, and GitHub Copilot.
+
+**General**
+
+- General baseline: `.github/instructions/general.instructions.md`
+
+**Code**
+
+- TypeScript patterns: `.github/instructions/code/typescript-patterns.instructions.md`
+- Modern TS patterns: `.github/instructions/code/modern-typescript-patterns.instructions.md`
+- Oxlint & style: `.github/instructions/code/linting-code-style.instructions.md`
+- Provider/context patterns: `.github/instructions/code/provider-context-patterns.instructions.md`
+- Picocolors CLI styling: `.github/instructions/code/picocolors-cli-styling.instructions.md`
+
+**Naming**
+
+- File naming: `.github/instructions/naming/file-naming.instructions.md`
+- Variable naming: `.github/instructions/naming/variable-naming.instructions.md`
+
+**Documentation**
+
+- Documentation: `.github/instructions/documentation/documentation.instructions.md`
+- README standards: `.github/instructions/documentation/readme-standards.instructions.md`
+- Agent-facing markdown: `.github/instructions/documentation/agent-facing-markdown.instructions.md`
+- Feature design specs: `.github/instructions/documentation/feature-design-specs.instructions.md`
+- TODO/DONE docs: `.github/instructions/documentation/todo-done-docs.instructions.md`
+
+**Git**
+
+- Git policy: `.github/instructions/git/git-policy.instructions.md`
+
+---
+
+## Rules — Markdown Tables
+
+- Padded pipes: one space on each side of every `|`, including the separator row.
+- **Do NOT manually align column widths or pad cells to equal width.** `oxfmt` (run automatically
+  by lint-staged on commit and by `pnpm format:fix`) fixes table alignment automatically. Spending
+  tokens counting characters and iterating on spacing is wasted effort — write the content, let the
+  formatter handle alignment.
+
+---
+
+## Git Policy
+
+- Do not include `Co-Authored-By` lines in commit messages.
+- `.github/instructions/git/git-policy.instructions.md` (see Commits and Releases sections)
+
+---
 
 ## Component Refactor Status (this repo)
 
@@ -106,56 +158,6 @@ The `--layer-index` variable allows nested portals (e.g. a Select inside a Dialo
 
 Unlayered CSS in `forms.css` always wins over `@layer utilities` (Panda), so this override is reliable.
 
-## Rules — Global
-
-Rules are canonical in `.github/instructions/` — see `README.md` there for folder structure.
-Shared across Claude Code, Cursor, and GitHub Copilot.
-
-**General**
-
-- General baseline: `.github/instructions/general.instructions.md`
-
-**Code**
-
-- TypeScript patterns: `.github/instructions/code/typescript-patterns.instructions.md`
-- Modern TS patterns: `.github/instructions/code/modern-typescript-patterns.instructions.md`
-- ESLint & style: `.github/instructions/code/linting-code-style.instructions.md`
-- Provider/context patterns: `.github/instructions/code/provider-context-patterns.instructions.md`
-- Picocolors CLI styling: `.github/instructions/code/picocolors-cli-styling.instructions.md`
-
-**Naming**
-
-- File naming: `.github/instructions/naming/file-naming.instructions.md`
-- Variable naming: `.github/instructions/naming/variable-naming.instructions.md`
-
-**Documentation**
-
-- Documentation: `.github/instructions/documentation/documentation.instructions.md`
-- README standards: `.github/instructions/documentation/readme-standards.instructions.md`
-- Agent-facing markdown: `.github/instructions/documentation/agent-facing-markdown.instructions.md`
-- Feature design specs: `.github/instructions/documentation/feature-design-specs.instructions.md`
-- TODO/DONE docs: `.github/instructions/documentation/todo-done-docs.instructions.md`
-
-**Git**
-
-- Git policy: `.github/instructions/git/git-policy.instructions.md`
-
----
-
-## Rules — Markdown Tables
-
-- Padded pipes: one space on each side of every `|`, including the separator row.
-- Align column widths so all cells in the same column are equal width.
-
----
-
-## Git Policy
-
-- Do not include `Co-Authored-By` lines in commit messages.
-- `.github/instructions/git/git-policy.instructions.md` (see Commits and Releases sections)
-
----
-
 ## Roadmap and Planning Docs
 
 **`docs/todo/ROADMAP.md` is the primary high-level plan for this project.**
@@ -166,6 +168,12 @@ Shared across Claude Code, Cursor, and GitHub Copilot.
 - Detailed planning docs live alongside in `docs/todo/` as `TODO_*.md` (active) or `DONE_*.md` (complete).
 - **TODO/DONE doc conventions:** `.github/instructions/documentation/todo-done-docs.instructions.md`
   — rules for naming, status headers, checkboxes, and graduating `TODO_` → `DONE_`.
+
+---
+
+## Cursor
+
+- Always-on rules: `.cursor/rules/` (`alwaysApply` — entry point is `AGENTS.md`, same as `CLAUDE.md`)
 
 ---
 
