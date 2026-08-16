@@ -64,11 +64,6 @@
     "vitest": "^4.1.10"
   },
   "packageManager": "pnpm@10.33.4",
-  "pnpm": {
-    "overrides": {
-      "pkg-types": "2.3.1"
-    }
-  },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [
       "oxfmt --no-error-on-unmatched-pattern",

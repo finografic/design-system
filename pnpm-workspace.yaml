@@ -5,3 +5,6 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - simple-git-hooks
+
+overrides:
+  pkg-types: 2.3.1
