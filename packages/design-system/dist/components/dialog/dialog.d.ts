@@ -2,7 +2,6 @@ import { DialogVariants } from "./dialog.recipe.js";
 import { DialogRootPropsDS } from "./dialog.types.js";
 import * as _$react from "react";
 import { HTMLAttributes, ReactNode } from "react";
-import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Dialog } from "@ark-ui/react";
 
@@ -10,7 +9,7 @@ import { Dialog } from "@ark-ui/react";
 declare function Root({
   onOpenChange,
   ...props
-}: DialogRootPropsDS): _$react_jsx_runtime0.JSX.Element;
+}: DialogRootPropsDS): _$react.JSX.Element;
 declare namespace Root {
   var displayName: string;
 }

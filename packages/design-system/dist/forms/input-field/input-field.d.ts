@@ -1,7 +1,6 @@
 import { InputFieldVariants } from "./input-field.recipe.js";
 import * as _$react from "react";
 import { HTMLAttributes, InputHTMLAttributes, ReactNode } from "react";
-import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 
 //#region src/forms/input-field/input-field.d.ts
 interface InputFieldSlotProps extends HTMLAttributes<HTMLDivElement> {
@@ -15,7 +14,7 @@ declare function InputFieldSlot({
   className,
   children,
   ...props
-}: InputFieldSlotProps): _$react_jsx_runtime0.JSX.Element;
+}: InputFieldSlotProps): _$react.JSX.Element;
 declare namespace InputFieldSlot {
   var displayName: string;
 }

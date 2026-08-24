@@ -1,7 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Menu, MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionDetails } from "@ark-ui/react";
 
@@ -44,8 +43,8 @@ import { Menu, MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionD
  *   ```;
  */
 declare const Menu$1: {
-  /** Root — open state, event handlers (`onSelect`, `onOpenChange`), and recipe variants. */Root: _$_styled_system_jsx0.StyleContextProvider<(props: Menu.RootProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "root" | "positioner" | "arrow" | "arrowTip" | "item" | "itemText" | "indicator" | "separator" | "itemIndicator" | "itemGroup" | "itemGroupLabel", SlotRecipeVariantRecord<"content" | "root" | "positioner" | "arrow" | "arrowTip" | "item" | "itemText" | "indicator" | "separator" | "itemIndicator" | "itemGroup" | "itemGroupLabel">>>; /** Root with external machine state from `useMenu`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<(props: Menu.RootProviderProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "root" | "positioner" | "arrow" | "arrowTip" | "item" | "itemText" | "indicator" | "separator" | "itemIndicator" | "itemGroup" | "itemGroupLabel", SlotRecipeVariantRecord<"content" | "root" | "positioner" | "arrow" | "arrowTip" | "item" | "itemText" | "indicator" | "separator" | "itemIndicator" | "itemGroup" | "itemGroupLabel">>>; /** Floating positioner — sets z-index and anchors the panel. */
+  /** Root — open state, event handlers (`onSelect`, `onOpenChange`), and recipe variants. */Root: _$_styled_system_jsx0.StyleContextProvider<(props: Menu.RootProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel", SlotRecipeVariantRecord<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel">>>; /** Root with external machine state from `useMenu`. */
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<(props: Menu.RootProviderProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel", SlotRecipeVariantRecord<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel">>>; /** Floating positioner — sets z-index and anchors the panel. */
   Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** Menu panel — the scrollable list container. */
   Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Horizontal rule between sections. */
   Separator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.SeparatorProps & _$react.RefAttributes<HTMLHRElement>>>; /** A single action row; also used for `CheckboxItem` and `RadioItem`. */

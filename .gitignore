@@ -3,7 +3,12 @@ node_modules/
 .pnpm-store/
 
 # Build outputs
+# Published package dist/ is committed — un-ignore so git add / lint-staged work.
 dist/
+!packages/design-system/dist/
+!packages/design-system/dist/**
+!packages/icons/dist/
+!packages/icons/dist/**
 build/
 
 # Environment files
@@ -117,3 +122,4 @@ lerna-debug.log*
 
 # macOS
 !packages/icons/
+

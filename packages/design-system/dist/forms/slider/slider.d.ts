@@ -39,7 +39,7 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Slider$1: {
-  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Slider.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "description" | "root" | "label" | "thumb" | "control" | "errorText" | "valueText" | "track" | "range" | "markerGroup", {
+  /** Root — value state, event handlers, orientation, and recipe variants (`size`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Slider.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"marker" | "root" | "label" | "description" | "control" | "errorText" | "valueText" | "track" | "range" | "thumb" | "markerGroup", {
     size: {
       sm: {
         label: {

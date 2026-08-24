@@ -60,7 +60,7 @@ declare const Select$1: {
    * `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown escapes `overflow: hidden`
    * ancestors. Override via `positioning` prop if needed.
    */
-  Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Omit<Omit<Select.RootProps<unknown>, never> & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "positioner" | "label" | "item" | "itemText" | "indicator" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "control" | "clearTrigger" | "valueText", {
+  Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Omit<Omit<Select.RootProps<unknown>, never> & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "valueText", {
     size: {
       sm: {
         label: {
@@ -154,7 +154,7 @@ declare const Select$1: {
       };
     };
   }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "positioner" | "label" | "item" | "itemText" | "indicator" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "list" | "control" | "clearTrigger" | "valueText", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "valueText", {
     size: {
       sm: {
         label: {

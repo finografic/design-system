@@ -1,6 +1,6 @@
 import { FieldBoxVariants } from "./field-box.recipe.js";
+import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 import { FieldError } from "react-hook-form";
 
 //#region src/forms/field-box/field-box.d.ts
@@ -36,7 +36,7 @@ declare function FieldBox({
   children,
   className,
   error: externalError
-}: FieldBoxProps): _$react_jsx_runtime0.JSX.Element;
+}: FieldBoxProps): _$react.JSX.Element;
 declare namespace FieldBox {
   var displayName: string;
 }

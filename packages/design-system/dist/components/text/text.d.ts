@@ -1,6 +1,6 @@
 import { TextElement, TextVariants } from "./text.recipe.js";
+import * as _$react from "react";
 import { HTMLAttributes } from "react";
-import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 
 //#region src/components/text/text.d.ts
 type TextProps = TextVariants & HTMLAttributes<HTMLElement> & {
@@ -29,7 +29,7 @@ declare function Text({
   className,
   children,
   ...props
-}: TextProps): _$react_jsx_runtime0.JSX.Element;
+}: TextProps): _$react.JSX.Element;
 //#endregion
 export { Text, TextProps };
 //# sourceMappingURL=text.d.ts.map

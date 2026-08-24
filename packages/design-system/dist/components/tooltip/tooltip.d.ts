@@ -1,7 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
 import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$react_jsx_runtime0 from "react/jsx-runtime";
 import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Tooltip, TooltipOpenChangeDetails } from "@ark-ui/react";
 
@@ -34,8 +33,8 @@ import { Tooltip, TooltipOpenChangeDetails } from "@ark-ui/react";
  *   ```;
  */
 declare const Tooltip$1: {
-  Root: _$_styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>;
-  RootProvider: _$_styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => _$react_jsx_runtime0.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>; /** Element that triggers the tooltip on hover/focus. */
+  Root: _$_styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>;
+  RootProvider: _$_styled_system_jsx0.StyleContextRootProvider<(props: Tooltip.RootProviderProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "positioner" | "arrow" | "arrowTip">>>; /** Element that triggers the tooltip on hover/focus. */
   Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tooltip.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Positions the floating content. */
   Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tooltip.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** The tooltip bubble. */
   Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tooltip.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Arrow wrapper — place inside Content. */

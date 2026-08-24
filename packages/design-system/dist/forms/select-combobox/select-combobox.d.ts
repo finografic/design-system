@@ -54,7 +54,7 @@ import { Combobox } from "@ark-ui/react";
  *   ```;
  */
 declare const SelectCombobox: {
-  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "positioner" | "label" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "control" | "input" | "clearTrigger" | "indicators", {
+  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "input" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "indicators", {
     size: {
       sm: {
         control: {
@@ -145,7 +145,7 @@ declare const SelectCombobox: {
       };
     };
   }>>; /** Root with external machine state from `useCombobox`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "positioner" | "label" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel" | "control" | "input" | "clearTrigger" | "indicators", {
+  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "input" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "indicators", {
     size: {
       sm: {
         control: {
