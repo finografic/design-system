@@ -116,7 +116,7 @@
     "prepare": "panda codegen"
   },
   "dependencies": {
-    "@finografic/icons": "workspace:*",
+    "@finografic/icons": "^1.21.0",
     "@tanstack/react-table": "8.21.3",
     "match-sorter": "8.2.0"
   },
