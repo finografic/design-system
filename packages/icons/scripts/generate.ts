@@ -172,6 +172,8 @@ export { createIconWrapper } from './icons.utils';
 
   // ── Consumer mode: single standalone icons.generated.ts ──────────────────────
 
+  const consumerNamedExports = entries.map(({ exportName }) => `  ${exportName}Icon,`).join('\n');
+
   const iconsTsContent = `\
 /**
  * icons.generated.ts
@@ -210,10 +212,24 @@ export const ICON_NAMES = (Object.keys(ICONS) as IconName[]).sort();
 
 /** Type of any wrapped icon component. */
 export type IconComponent = ReturnType<typeof createIconWrapper>;
+
+// ── Named exports ──────────────────────────────────────────────────────────────
+
+/**
+ * Every icon exported by name, so call sites read \`<GlobeIcon />\` rather than
+ * \`<icons.GlobeIcon />\`.
+ *
+ * Emitted into this same file on purpose. A separate barrel would be a second generated artifact
+ * able to fall out of step with this one — which is exactly why that approach needs a file watcher,
+ * and a watcher only runs in dev, so a fresh clone or a CI build can compile against a stale barrel.
+ */
+export const {
+${consumerNamedExports}
+} = icons;
 `;
 
   fs.writeFileSync(tsOutputPath, iconsTsContent, 'utf8');
-  console.log(`✓ icons.generated.ts   — ${entries.length} icons`);
+  console.log(`✓ icons.generated.ts   — ${entries.length} icons, ${entries.length} named exports`);
 }
 
 // ── CLI entry point ────────────────────────────────────────────────────────────
