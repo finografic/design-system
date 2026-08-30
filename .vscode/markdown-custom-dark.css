@@ -109,10 +109,12 @@ pre code {
 }
 
 /* Style diff lines via CSS when using a markdown renderer that adds classes */
-.language-diff .line:has(+) {
+.language-diff .line-added,
+.language-diff .addition {
   color: var(--green);
 }
-.language-diff .line:has(-) {
+.language-diff .line-removed,
+.language-diff .deletion {
   color: var(--red);
 }
 

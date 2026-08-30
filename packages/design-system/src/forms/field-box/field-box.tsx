@@ -94,6 +94,7 @@ export function FieldBox({
     if (showWarning && !showError) {
       warningTimerRef.current = setTimeout(() => setShowDebouncedWarning(true), 300);
     } else {
+      // oxlint-disable-next-line react/set-state-in-effect -- warning must clear immediately when validation state changes.
       setShowDebouncedWarning(false);
     }
     return () => {

@@ -2470,18 +2470,18 @@ opening twice.
 
 **Root Props:**
 
-| Prop                                                                | Type                      | Required       | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------------- | ------------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------- |
-| `accept`                                                            | `Record<string, string[]> | FileMimeType   | FileMimeType[]`                                                                                     | No                                             | The accept file types |
-| `acceptedFiles`                                                     | `File[]`                  | No             | The controlled accepted files                                                                       |
-| `allowDrop`                                                         | `boolean`                 | No             | Whether to allow drag and drop in the dropzone element                                              |
-| `asChild`                                                           | `boolean`                 | No             | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `capture`                                                           | `'user'                   | 'environment'` | No                                                                                                  | The default camera to use when capturing media |
-| `defaultAcceptedFiles`                                              | `File[]`                  | No             | The default accepted files when rendered.                                                           |
+| `accept` | `Record<string, string[]> | FileMimeType   | FileMimeType[]` | No | The accept file types |
+| `acceptedFiles` | `File[]` | No | The controlled accepted files |
+| `allowDrop` | `boolean` | No | Whether to allow drag and drop in the dropzone element |
+| `asChild` | `boolean` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `capture` | `'user'                   | 'environment'` | No | The default camera to use when capturing media |
+| `defaultAcceptedFiles` | `File[]` | No | The default accepted files when rendered. |
 | Use when you don't need to control the accepted files of the input. |
-| `directory`                                                         | `boolean`                 | No             | Whether to accept directories, only works in webkit browsers                                        |
-| `disabled`                                                          | `boolean`                 | No             | Whether the file input is disabled                                                                  |
-| `ids`                                                               | `Partial<{                |
+| `directory` | `boolean` | No | Whether to accept directories, only works in webkit browsers |
+| `disabled` | `boolean` | No | Whether the file input is disabled |
+| `ids` | `Partial<{ |
 
 root: string
 dropzone: string
@@ -2710,18 +2710,18 @@ itemDeleteTrigger: (id: string) => string
 
 **Root Props:**
 
-| Prop                                                                | Type                                     | Required       | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------------- | ---------------------------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------- |
-| `accept`                                                            | `Record<string, string[]>                | FileMimeType   | FileMimeType[]`                                                                                     | No                                             | The accept file types |
-| `acceptedFiles`                                                     | `File[]`                                 | No             | The controlled accepted files                                                                       |
-| `allowDrop`                                                         | `boolean`                                | No             | Whether to allow drag and drop in the dropzone element                                              |
-| `asChild`                                                           | `(props: ParentProps<'div'>) => Element` | No             | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `capture`                                                           | `'user'                                  | 'environment'` | No                                                                                                  | The default camera to use when capturing media |
-| `defaultAcceptedFiles`                                              | `File[]`                                 | No             | The default accepted files when rendered.                                                           |
+| `accept` | `Record<string, string[]>                | FileMimeType   | FileMimeType[]` | No | The accept file types |
+| `acceptedFiles` | `File[]` | No | The controlled accepted files |
+| `allowDrop` | `boolean` | No | Whether to allow drag and drop in the dropzone element |
+| `asChild` | `(props: ParentProps<'div'>) => Element` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `capture` | `'user'                                  | 'environment'` | No | The default camera to use when capturing media |
+| `defaultAcceptedFiles` | `File[]` | No | The default accepted files when rendered. |
 | Use when you don't need to control the accepted files of the input. |
-| `directory`                                                         | `boolean`                                | No             | Whether to accept directories, only works in webkit browsers                                        |
-| `disabled`                                                          | `boolean`                                | No             | Whether the file input is disabled                                                                  |
-| `ids`                                                               | `Partial<{                               |
+| `directory` | `boolean` | No | Whether to accept directories, only works in webkit browsers |
+| `disabled` | `boolean` | No | Whether the file input is disabled |
+| `ids` | `Partial<{ |
 
 root: string
 dropzone: string
@@ -2950,17 +2950,17 @@ itemDeleteTrigger: (id: string) => string
 
 **Root Props:**
 
-| Prop                   | Type                      | Required       | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ---------------------- | ------------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------- |
-| `accept`               | `Record<string, string[]> | FileMimeType   | FileMimeType[]`                                                                                     | No                                             | The accept file types |
-| `allowDrop`            | `boolean`                 | No             | Whether to allow drag and drop in the dropzone element                                              |
-| `asChild`              | `boolean`                 | No             | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `capture`              | `'user'                   | 'environment'` | No                                                                                                  | The default camera to use when capturing media |
-| `defaultAcceptedFiles` | `File[]`                  | No             | The default accepted files                                                                          |
-| `directory`            | `boolean`                 | No             | Whether to accept directories, only works in webkit browsers                                        |
-| `disabled`             | `boolean`                 | No             | Whether the file input is disabled                                                                  |
-| `id`                   | `string`                  | No             | The unique identifier of the machine.                                                               |
-| `ids`                  | `Partial<{                |
+| `accept` | `Record<string, string[]> | FileMimeType   | FileMimeType[]` | No | The accept file types |
+| `allowDrop` | `boolean` | No | Whether to allow drag and drop in the dropzone element |
+| `asChild` | `boolean` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `capture` | `'user'                   | 'environment'` | No | The default camera to use when capturing media |
+| `defaultAcceptedFiles` | `File[]` | No | The default accepted files |
+| `directory` | `boolean` | No | Whether to accept directories, only works in webkit browsers |
+| `disabled` | `boolean` | No | Whether the file input is disabled |
+| `id` | `string` | No | The unique identifier of the machine. |
+| `ids` | `Partial<{ |
 
 root: string
 dropzone: string
@@ -3186,19 +3186,19 @@ itemPreview(id: string): string
 
 **Root Props:**
 
-| Prop                                                                | Type                        | Required       | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------------- | --------------------------- | -------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------- |
-| `accept`                                                            | `Record<string, string[]>   | FileMimeType   | FileMimeType[]`                                                                                     | No                                             | The accept file types |
-| `acceptedFiles`                                                     | `File[]`                    | No             | The controlled accepted files                                                                       |
-| `allowDrop`                                                         | `boolean`                   | No             | Whether to allow drag and drop in the dropzone element                                              |
-| `asChild`                                                           | `Snippet<[PropsFn<'div'>]>` | No             | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `capture`                                                           | `'user'                     | 'environment'` | No                                                                                                  | The default camera to use when capturing media |
-| `defaultAcceptedFiles`                                              | `File[]`                    | No             | The default accepted files when rendered.                                                           |
+| `accept` | `Record<string, string[]>   | FileMimeType   | FileMimeType[]` | No | The accept file types |
+| `acceptedFiles` | `File[]` | No | The controlled accepted files |
+| `allowDrop` | `boolean` | No | Whether to allow drag and drop in the dropzone element |
+| `asChild` | `Snippet<[PropsFn<'div'>]>` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `capture` | `'user'                     | 'environment'` | No | The default camera to use when capturing media |
+| `defaultAcceptedFiles` | `File[]` | No | The default accepted files when rendered. |
 | Use when you don't need to control the accepted files of the input. |
-| `directory`                                                         | `boolean`                   | No             | Whether to accept directories, only works in webkit browsers                                        |
-| `disabled`                                                          | `boolean`                   | No             | Whether the file input is disabled                                                                  |
-| `id`                                                                | `string`                    | No             | The unique identifier of the machine.                                                               |
-| `ids`                                                               | `Partial<{                  |
+| `directory` | `boolean` | No | Whether to accept directories, only works in webkit browsers |
+| `disabled` | `boolean` | No | Whether the file input is disabled |
+| `id` | `string` | No | The unique identifier of the machine. |
+| `ids` | `Partial<{ |
 
 root: string
 dropzone: string

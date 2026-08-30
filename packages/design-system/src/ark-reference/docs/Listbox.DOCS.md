@@ -2473,11 +2473,11 @@ itemGroupLabel: (id: string | number) => string
 
 **ItemIndicator Data Attributes:**
 
-| Attribute      | Value          |
+| Attribute | Value |
 | -------------- | -------------- | ----------- |
-| `[data-scope]` | listbox        |
-| `[data-part]`  | item-indicator |
-| `[data-state]` | "checked"      | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-indicator |
+| `[data-state]` | "checked" | "unchecked" |
 
 **Item Props:**
 
@@ -2489,17 +2489,17 @@ itemGroupLabel: (id: string | number) => string
 
 **Item Data Attributes:**
 
-| Attribute            | Value                       |
+| Attribute | Value |
 | -------------------- | --------------------------- | ----------- |
-| `[data-scope]`       | listbox                     |
-| `[data-part]`        | item                        |
-| `[data-value]`       | The value of the item       |
-| `[data-selected]`    | Present when selected       |
-| `[data-layout]`      |                             |
-| `[data-state]`       | "checked"                   | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item |
+| `[data-value]` | The value of the item |
+| `[data-selected]` | Present when selected |
+| `[data-layout]` | |
+| `[data-state]` | "checked" | "unchecked" |
 | `[data-orientation]` | The orientation of the item |
-| `[data-highlighted]` | Present when highlighted    |
-| `[data-disabled]`    | Present when disabled       |
+| `[data-highlighted]` | Present when highlighted |
+| `[data-disabled]` | Present when disabled |
 
 **ItemText Props:**
 
@@ -2509,12 +2509,12 @@ itemGroupLabel: (id: string | number) => string
 
 **ItemText Data Attributes:**
 
-| Attribute            | Value                    |
+| Attribute | Value |
 | -------------------- | ------------------------ | ----------- |
-| `[data-scope]`       | listbox                  |
-| `[data-part]`        | item-text                |
-| `[data-state]`       | "checked"                | "unchecked" |
-| `[data-disabled]`    | Present when disabled    |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-text |
+| `[data-state]` | "checked" | "unchecked" |
+| `[data-disabled]` | Present when disabled |
 | `[data-highlighted]` | Present when highlighted |
 
 **Label Props:**
@@ -2677,11 +2677,11 @@ itemGroupLabel: (id: string | number) => string
 
 **ItemIndicator Data Attributes:**
 
-| Attribute      | Value          |
+| Attribute | Value |
 | -------------- | -------------- | ----------- |
-| `[data-scope]` | listbox        |
-| `[data-part]`  | item-indicator |
-| `[data-state]` | "checked"      | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-indicator |
+| `[data-state]` | "checked" | "unchecked" |
 
 **Item Props:**
 
@@ -2693,17 +2693,17 @@ itemGroupLabel: (id: string | number) => string
 
 **Item Data Attributes:**
 
-| Attribute            | Value                       |
+| Attribute | Value |
 | -------------------- | --------------------------- | ----------- |
-| `[data-scope]`       | listbox                     |
-| `[data-part]`        | item                        |
-| `[data-value]`       | The value of the item       |
-| `[data-selected]`    | Present when selected       |
-| `[data-layout]`      |                             |
-| `[data-state]`       | "checked"                   | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item |
+| `[data-value]` | The value of the item |
+| `[data-selected]` | Present when selected |
+| `[data-layout]` | |
+| `[data-state]` | "checked" | "unchecked" |
 | `[data-orientation]` | The orientation of the item |
-| `[data-highlighted]` | Present when highlighted    |
-| `[data-disabled]`    | Present when disabled       |
+| `[data-highlighted]` | Present when highlighted |
+| `[data-disabled]` | Present when disabled |
 
 **ItemText Props:**
 
@@ -2713,12 +2713,12 @@ itemGroupLabel: (id: string | number) => string
 
 **ItemText Data Attributes:**
 
-| Attribute            | Value                    |
+| Attribute | Value |
 | -------------------- | ------------------------ | ----------- |
-| `[data-scope]`       | listbox                  |
-| `[data-part]`        | item-text                |
-| `[data-state]`       | "checked"                | "unchecked" |
-| `[data-disabled]`    | Present when disabled    |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-text |
+| `[data-state]` | "checked" | "unchecked" |
+| `[data-disabled]` | Present when disabled |
 | `[data-highlighted]` | Present when highlighted |
 
 **Label Props:**
@@ -2878,11 +2878,11 @@ itemGroupLabel(id: string | number): string
 
 **ItemIndicator Data Attributes:**
 
-| Attribute      | Value          |
+| Attribute | Value |
 | -------------- | -------------- | ----------- |
-| `[data-scope]` | listbox        |
-| `[data-part]`  | item-indicator |
-| `[data-state]` | "checked"      | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-indicator |
+| `[data-state]` | "checked" | "unchecked" |
 
 **Item Props:**
 
@@ -2894,17 +2894,17 @@ itemGroupLabel(id: string | number): string
 
 **Item Data Attributes:**
 
-| Attribute            | Value                       |
+| Attribute | Value |
 | -------------------- | --------------------------- | ----------- |
-| `[data-scope]`       | listbox                     |
-| `[data-part]`        | item                        |
-| `[data-value]`       | The value of the item       |
-| `[data-selected]`    | Present when selected       |
-| `[data-layout]`      |                             |
-| `[data-state]`       | "checked"                   | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item |
+| `[data-value]` | The value of the item |
+| `[data-selected]` | Present when selected |
+| `[data-layout]` | |
+| `[data-state]` | "checked" | "unchecked" |
 | `[data-orientation]` | The orientation of the item |
-| `[data-highlighted]` | Present when highlighted    |
-| `[data-disabled]`    | Present when disabled       |
+| `[data-highlighted]` | Present when highlighted |
+| `[data-disabled]` | Present when disabled |
 
 **ItemText Props:**
 
@@ -2914,12 +2914,12 @@ itemGroupLabel(id: string | number): string
 
 **ItemText Data Attributes:**
 
-| Attribute            | Value                    |
+| Attribute | Value |
 | -------------------- | ------------------------ | ----------- |
-| `[data-scope]`       | listbox                  |
-| `[data-part]`        | item-text                |
-| `[data-state]`       | "checked"                | "unchecked" |
-| `[data-disabled]`    | Present when disabled    |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-text |
+| `[data-state]` | "checked" | "unchecked" |
+| `[data-disabled]` | Present when disabled |
 | `[data-highlighted]` | Present when highlighted |
 
 **Label Props:**
@@ -3100,11 +3100,11 @@ itemGroupLabel: (id: string | number) => string
 
 **ItemIndicator Data Attributes:**
 
-| Attribute      | Value          |
+| Attribute | Value |
 | -------------- | -------------- | ----------- |
-| `[data-scope]` | listbox        |
-| `[data-part]`  | item-indicator |
-| `[data-state]` | "checked"      | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-indicator |
+| `[data-state]` | "checked" | "unchecked" |
 
 **Item Props:**
 
@@ -3117,17 +3117,17 @@ itemGroupLabel: (id: string | number) => string
 
 **Item Data Attributes:**
 
-| Attribute            | Value                       |
+| Attribute | Value |
 | -------------------- | --------------------------- | ----------- |
-| `[data-scope]`       | listbox                     |
-| `[data-part]`        | item                        |
-| `[data-value]`       | The value of the item       |
-| `[data-selected]`    | Present when selected       |
-| `[data-layout]`      |                             |
-| `[data-state]`       | "checked"                   | "unchecked" |
+| `[data-scope]` | listbox |
+| `[data-part]` | item |
+| `[data-value]` | The value of the item |
+| `[data-selected]` | Present when selected |
+| `[data-layout]` | |
+| `[data-state]` | "checked" | "unchecked" |
 | `[data-orientation]` | The orientation of the item |
-| `[data-highlighted]` | Present when highlighted    |
-| `[data-disabled]`    | Present when disabled       |
+| `[data-highlighted]` | Present when highlighted |
+| `[data-disabled]` | Present when disabled |
 
 **ItemText Props:**
 
@@ -3138,12 +3138,12 @@ itemGroupLabel: (id: string | number) => string
 
 **ItemText Data Attributes:**
 
-| Attribute            | Value                    |
+| Attribute | Value |
 | -------------------- | ------------------------ | ----------- |
-| `[data-scope]`       | listbox                  |
-| `[data-part]`        | item-text                |
-| `[data-state]`       | "checked"                | "unchecked" |
-| `[data-disabled]`    | Present when disabled    |
+| `[data-scope]` | listbox |
+| `[data-part]` | item-text |
+| `[data-state]` | "checked" | "unchecked" |
+| `[data-disabled]` | Present when disabled |
 | `[data-highlighted]` | Present when highlighted |
 
 **Label Props:**

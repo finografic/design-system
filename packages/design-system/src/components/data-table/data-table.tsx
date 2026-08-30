@@ -162,6 +162,7 @@ export function DataTable<TData>({
     }
   };
 
+  // oxlint-disable-next-line react/incompatible-library -- TanStack Table manages mutable table state internally.
   const table = useReactTable<TData>({
     data,
     columns,

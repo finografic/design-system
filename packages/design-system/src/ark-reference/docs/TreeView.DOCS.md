@@ -5719,40 +5719,40 @@ const App = () => {
 
 **Root Props:**
 
-| Prop                                                                            | Type                                                                                      | Required  | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `collection`                                                                    | `TreeCollection<T>`                                                                       | Yes       | The collection of tree nodes                                                                        |
-| `asChild`                                                                       | `boolean`                                                                                 | No        | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `canRename`                                                                     | `(node: T, indexPath: IndexPath) => boolean`                                              | No        | Function to determine if a node can be renamed                                                      |
-| `checkedValue`                                                                  | `string[]`                                                                                | No        | The controlled checked node value                                                                   |
-| `defaultCheckedValue`                                                           | `string[]`                                                                                | No        | The initial checked node value when rendered.                                                       |
-| Use when you don't need to control the checked node value.                      |
-| `defaultExpandedValue`                                                          | `string[]`                                                                                | No        | The initial expanded node ids when rendered.                                                        |
-| Use when you don't need to control the expanded node value.                     |
-| `defaultFocusedValue`                                                           | `string`                                                                                  | No        | The initial focused node value when rendered.                                                       |
-| Use when you don't need to control the focused node value.                      |
-| `defaultSelectedValue`                                                          | `string[]`                                                                                | No        | The initial selected node value when rendered.                                                      |
-| Use when you don't need to control the selected node value.                     |
-| `expandedValue`                                                                 | `string[]`                                                                                | No        | The controlled expanded node ids                                                                    |
-| `expandOnClick`                                                                 | `boolean`                                                                                 | No        | Whether clicking on a branch should open it or not                                                  |
-| `focusedValue`                                                                  | `string`                                                                                  | No        | The value of the focused node                                                                       |
-| `ids`                                                                           | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | No        | The ids of the tree elements. Useful for composition.                                               |
-| `lazyMount`                                                                     | `boolean`                                                                                 | No        | Whether to enable lazy mounting                                                                     |
-| `loadChildren`                                                                  | `(details: LoadChildrenDetails<T>) => Promise<T[]>`                                       | No        | Function to load children for a node asynchronously.                                                |
+| `collection` | `TreeCollection<T>` | Yes | The collection of tree nodes |
+| `asChild` | `boolean` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `canRename` | `(node: T, indexPath: IndexPath) => boolean` | No | Function to determine if a node can be renamed |
+| `checkedValue` | `string[]` | No | The controlled checked node value |
+| `defaultCheckedValue` | `string[]` | No | The initial checked node value when rendered. |
+| Use when you don't need to control the checked node value. |
+| `defaultExpandedValue` | `string[]` | No | The initial expanded node ids when rendered. |
+| Use when you don't need to control the expanded node value. |
+| `defaultFocusedValue` | `string` | No | The initial focused node value when rendered. |
+| Use when you don't need to control the focused node value. |
+| `defaultSelectedValue` | `string[]` | No | The initial selected node value when rendered. |
+| Use when you don't need to control the selected node value. |
+| `expandedValue` | `string[]` | No | The controlled expanded node ids |
+| `expandOnClick` | `boolean` | No | Whether clicking on a branch should open it or not |
+| `focusedValue` | `string` | No | The value of the focused node |
+| `ids` | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | No | The ids of the tree elements. Useful for composition. |
+| `lazyMount` | `boolean` | No | Whether to enable lazy mounting |
+| `loadChildren` | `(details: LoadChildrenDetails<T>) => Promise<T[]>` | No | Function to load children for a node asynchronously. |
 | When provided, branches will wait for this promise to resolve before expanding. |
-| `onBeforeRename`                                                                | `(details: RenameCompleteDetails) => boolean`                                             | No        | Called before a rename is completed. Return false to prevent the rename.                            |
-| `onCheckedChange`                                                               | `(details: CheckedChangeDetails) => void`                                                 | No        | Called when the checked value changes                                                               |
-| `onExpandedChange`                                                              | `(details: ExpandedChangeDetails<T>) => void`                                             | No        | Called when the tree is opened or closed                                                            |
-| `onFocusChange`                                                                 | `(details: FocusChangeDetails<T>) => void`                                                | No        | Called when the focused node changes                                                                |
-| `onLoadChildrenComplete`                                                        | `(details: LoadChildrenCompleteDetails<T>) => void`                                       | No        | Called when a node finishes loading children                                                        |
-| `onLoadChildrenError`                                                           | `(details: LoadChildrenErrorDetails<T>) => void`                                          | No        | Called when loading children fails for one or more nodes                                            |
-| `onRenameComplete`                                                              | `(details: RenameCompleteDetails) => void`                                                | No        | Called when a node label rename is completed                                                        |
-| `onRenameStart`                                                                 | `(details: RenameStartDetails<T>) => void`                                                | No        | Called when a node starts being renamed                                                             |
-| `onSelectionChange`                                                             | `(details: SelectionChangeDetails<T>) => void`                                            | No        | Called when the selection changes                                                                   |
-| `scrollToIndexFn`                                                               | `(details: ScrollToIndexDetails<T>) => void`                                              | No        | Function to scroll to a specific index.                                                             |
-| Useful for virtualized tree views.                                              |
-| `selectedValue`                                                                 | `string[]`                                                                                | No        | The controlled selected node value                                                                  |
-| `selectionMode`                                                                 | `'multiple'                                                                               | 'single'` | No                                                                                                  | Whether the tree supports multiple selection |
+| `onBeforeRename` | `(details: RenameCompleteDetails) => boolean` | No | Called before a rename is completed. Return false to prevent the rename. |
+| `onCheckedChange` | `(details: CheckedChangeDetails) => void` | No | Called when the checked value changes |
+| `onExpandedChange` | `(details: ExpandedChangeDetails<T>) => void` | No | Called when the tree is opened or closed |
+| `onFocusChange` | `(details: FocusChangeDetails<T>) => void` | No | Called when the focused node changes |
+| `onLoadChildrenComplete` | `(details: LoadChildrenCompleteDetails<T>) => void` | No | Called when a node finishes loading children |
+| `onLoadChildrenError` | `(details: LoadChildrenErrorDetails<T>) => void` | No | Called when loading children fails for one or more nodes |
+| `onRenameComplete` | `(details: RenameCompleteDetails) => void` | No | Called when a node label rename is completed |
+| `onRenameStart` | `(details: RenameStartDetails<T>) => void` | No | Called when a node starts being renamed |
+| `onSelectionChange` | `(details: SelectionChangeDetails<T>) => void` | No | Called when the selection changes |
+| `scrollToIndexFn` | `(details: ScrollToIndexDetails<T>) => void` | No | Function to scroll to a specific index. |
+| Useful for virtualized tree views. |
+| `selectedValue` | `string[]` | No | The controlled selected node value |
+| `selectionMode` | `'multiple'                                                                               | 'single'` | No | Whether the tree supports multiple selection |
 
 - "single": only one node can be selected
 - "multiple": multiple nodes can be selected |
@@ -5767,13 +5767,13 @@ const App = () => {
 
 **BranchContent Data Attributes:**
 
-| Attribute      | Value                 |
+| Attribute | Value |
 | -------------- | --------------------- | -------- |
-| `[data-scope]` | tree-view             |
-| `[data-part]`  | branch-content        |
-| `[data-state]` | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-content |
+| `[data-state]` | "open" | "closed" |
 | `[data-depth]` | The depth of the item |
-| `[data-path]`  | The path of the item  |
+| `[data-path]` | The path of the item |
 | `[data-value]` | The value of the item |
 
 **BranchControl Props:**
@@ -5784,21 +5784,21 @@ const App = () => {
 
 **BranchControl Data Attributes:**
 
-| Attribute              | Value                 |
+| Attribute | Value |
 | ---------------------- | --------------------- | -------- |
-| `[data-scope]`         | tree-view             |
-| `[data-part]`          | branch-control        |
-| `[data-path]`          | The path of the item  |
-| `[data-state]`         | "open"                | "closed" |
-| `[data-disabled]`      | Present when disabled |
-| `[data-selected]`      | Present when selected |
-| `[data-focus]`         | Present when focused  |
-| `[data-renaming]`      |                       |
-| `[data-checked]`       | Present when checked  |
-| `[data-indeterminate]` |                       |
-| `[data-value]`         | The value of the item |
-| `[data-depth]`         | The depth of the item |
-| `[data-loading]`       | Present when loading  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-control |
+| `[data-path]` | The path of the item |
+| `[data-state]` | "open" | "closed" |
+| `[data-disabled]` | Present when disabled |
+| `[data-selected]` | Present when selected |
+| `[data-focus]` | Present when focused |
+| `[data-renaming]` | |
+| `[data-checked]` | Present when checked |
+| `[data-indeterminate]` | |
+| `[data-value]` | The value of the item |
+| `[data-depth]` | The depth of the item |
+| `[data-loading]` | Present when loading |
 
 **BranchIndentGuide Props:**
 
@@ -5822,15 +5822,15 @@ const App = () => {
 
 **BranchIndicator Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-indicator      |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-indicator |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
 | `[data-selected]` | Present when selected |
-| `[data-focus]`    | Present when focused  |
-| `[data-loading]`  | Present when loading  |
+| `[data-focus]` | Present when focused |
+| `[data-loading]` | Present when loading |
 
 **Branch Props:**
 
@@ -5840,18 +5840,18 @@ const App = () => {
 
 **Branch Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch                |
-| `[data-depth]`    | The depth of the item |
-| `[data-branch]`   |                       |
-| `[data-value]`    | The value of the item |
-| `[data-path]`     | The path of the item  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch |
+| `[data-depth]` | The depth of the item |
+| `[data-branch]` | |
+| `[data-value]` | The value of the item |
+| `[data-path]` | The path of the item |
 | `[data-selected]` | Present when selected |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
-| `[data-loading]`  | Present when loading  |
+| `[data-loading]` | Present when loading |
 
 **Branch CSS Variables:**
 
@@ -5867,13 +5867,13 @@ const App = () => {
 
 **BranchText Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-text           |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-text |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-loading]` | Present when loading |
 
 **BranchTrigger Props:**
 
@@ -5883,14 +5883,14 @@ const App = () => {
 
 **BranchTrigger Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-trigger        |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-trigger |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-value]`    | The value of the item |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-value]` | The value of the item |
+| `[data-loading]` | Present when loading |
 
 **ItemIndicator Props:**
 
@@ -5960,10 +5960,10 @@ const App = () => {
 
 **NodeCheckboxIndicator Props:**
 
-| Prop            | Type    | Required | Description |
+| Prop | Type | Required | Description |
 | --------------- | ------- | -------- | ----------- | ------- | ---------------------------- | --------------------------- | ------------------- | ----------- | ------------- | --- | --- |
-| `fallback`      | `string | number   | bigint      | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>` | No  |     |
-| `indeterminate` | `string | number   | bigint      | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>` | No  |     |
+| `fallback` | `string | number   | bigint      | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>` | No | |
+| `indeterminate` | `string | number   | bigint      | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...>` | No | |
 
 **NodeCheckbox Props:**
 
@@ -5973,11 +5973,11 @@ const App = () => {
 
 **NodeCheckbox Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | ----------- | --------------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | node-checkbox         |
-| `[data-state]`    | "checked"             | "unchecked" | "indeterminate" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | node-checkbox |
+| `[data-state]` | "checked" | "unchecked" | "indeterminate" |
 | `[data-disabled]` | Present when disabled |
 
 **NodeProvider Props:**
@@ -6012,41 +6012,41 @@ const App = () => {
 
 **Root Props:**
 
-| Prop                                                                            | Type                                                                                      | Required  | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `collection`                                                                    | `TreeCollection<T>`                                                                       | Yes       | The collection of tree nodes                                                                        |
-| `asChild`                                                                       | `(props: ParentProps<'div'>) => Element`                                                  | No        | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `canRename`                                                                     | `(node: any, indexPath: IndexPath) => boolean`                                            | No        | Function to determine if a node can be renamed                                                      |
-| `checkedValue`                                                                  | `string[]`                                                                                | No        | The controlled checked node value                                                                   |
-| `defaultCheckedValue`                                                           | `string[]`                                                                                | No        | The initial checked node value when rendered.                                                       |
-| Use when you don't need to control the checked node value.                      |
-| `defaultExpandedValue`                                                          | `string[]`                                                                                | No        | The initial expanded node ids when rendered.                                                        |
-| Use when you don't need to control the expanded node value.                     |
-| `defaultFocusedValue`                                                           | `string`                                                                                  | No        | The initial focused node value when rendered.                                                       |
-| Use when you don't need to control the focused node value.                      |
-| `defaultSelectedValue`                                                          | `string[]`                                                                                | No        | The initial selected node value when rendered.                                                      |
-| Use when you don't need to control the selected node value.                     |
-| `expandedValue`                                                                 | `string[]`                                                                                | No        | The controlled expanded node ids                                                                    |
-| `expandOnClick`                                                                 | `boolean`                                                                                 | No        | Whether clicking on a branch should open it or not                                                  |
-| `focusedValue`                                                                  | `string`                                                                                  | No        | The value of the focused node                                                                       |
-| `id`                                                                            | `string`                                                                                  | No        | The unique identifier of the machine.                                                               |
-| `ids`                                                                           | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | No        | The ids of the tree elements. Useful for composition.                                               |
-| `lazyMount`                                                                     | `boolean`                                                                                 | No        | Whether to enable lazy mounting                                                                     |
-| `loadChildren`                                                                  | `(details: LoadChildrenDetails<any>) => Promise<any[]>`                                   | No        | Function to load children for a node asynchronously.                                                |
+| `collection` | `TreeCollection<T>` | Yes | The collection of tree nodes |
+| `asChild` | `(props: ParentProps<'div'>) => Element` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `canRename` | `(node: any, indexPath: IndexPath) => boolean` | No | Function to determine if a node can be renamed |
+| `checkedValue` | `string[]` | No | The controlled checked node value |
+| `defaultCheckedValue` | `string[]` | No | The initial checked node value when rendered. |
+| Use when you don't need to control the checked node value. |
+| `defaultExpandedValue` | `string[]` | No | The initial expanded node ids when rendered. |
+| Use when you don't need to control the expanded node value. |
+| `defaultFocusedValue` | `string` | No | The initial focused node value when rendered. |
+| Use when you don't need to control the focused node value. |
+| `defaultSelectedValue` | `string[]` | No | The initial selected node value when rendered. |
+| Use when you don't need to control the selected node value. |
+| `expandedValue` | `string[]` | No | The controlled expanded node ids |
+| `expandOnClick` | `boolean` | No | Whether clicking on a branch should open it or not |
+| `focusedValue` | `string` | No | The value of the focused node |
+| `id` | `string` | No | The unique identifier of the machine. |
+| `ids` | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | No | The ids of the tree elements. Useful for composition. |
+| `lazyMount` | `boolean` | No | Whether to enable lazy mounting |
+| `loadChildren` | `(details: LoadChildrenDetails<any>) => Promise<any[]>` | No | Function to load children for a node asynchronously. |
 | When provided, branches will wait for this promise to resolve before expanding. |
-| `onBeforeRename`                                                                | `(details: RenameCompleteDetails) => boolean`                                             | No        | Called before a rename is completed. Return false to prevent the rename.                            |
-| `onCheckedChange`                                                               | `(details: CheckedChangeDetails) => void`                                                 | No        | Called when the checked value changes                                                               |
-| `onExpandedChange`                                                              | `(details: ExpandedChangeDetails<any>) => void`                                           | No        | Called when the tree is opened or closed                                                            |
-| `onFocusChange`                                                                 | `(details: FocusChangeDetails<any>) => void`                                              | No        | Called when the focused node changes                                                                |
-| `onLoadChildrenComplete`                                                        | `(details: LoadChildrenCompleteDetails<any>) => void`                                     | No        | Called when a node finishes loading children                                                        |
-| `onLoadChildrenError`                                                           | `(details: LoadChildrenErrorDetails<any>) => void`                                        | No        | Called when loading children fails for one or more nodes                                            |
-| `onRenameComplete`                                                              | `(details: RenameCompleteDetails) => void`                                                | No        | Called when a node label rename is completed                                                        |
-| `onRenameStart`                                                                 | `(details: RenameStartDetails<any>) => void`                                              | No        | Called when a node starts being renamed                                                             |
-| `onSelectionChange`                                                             | `(details: SelectionChangeDetails<any>) => void`                                          | No        | Called when the selection changes                                                                   |
-| `scrollToIndexFn`                                                               | `(details: ScrollToIndexDetails<any>) => void`                                            | No        | Function to scroll to a specific index.                                                             |
-| Useful for virtualized tree views.                                              |
-| `selectedValue`                                                                 | `string[]`                                                                                | No        | The controlled selected node value                                                                  |
-| `selectionMode`                                                                 | `'multiple'                                                                               | 'single'` | No                                                                                                  | Whether the tree supports multiple selection |
+| `onBeforeRename` | `(details: RenameCompleteDetails) => boolean` | No | Called before a rename is completed. Return false to prevent the rename. |
+| `onCheckedChange` | `(details: CheckedChangeDetails) => void` | No | Called when the checked value changes |
+| `onExpandedChange` | `(details: ExpandedChangeDetails<any>) => void` | No | Called when the tree is opened or closed |
+| `onFocusChange` | `(details: FocusChangeDetails<any>) => void` | No | Called when the focused node changes |
+| `onLoadChildrenComplete` | `(details: LoadChildrenCompleteDetails<any>) => void` | No | Called when a node finishes loading children |
+| `onLoadChildrenError` | `(details: LoadChildrenErrorDetails<any>) => void` | No | Called when loading children fails for one or more nodes |
+| `onRenameComplete` | `(details: RenameCompleteDetails) => void` | No | Called when a node label rename is completed |
+| `onRenameStart` | `(details: RenameStartDetails<any>) => void` | No | Called when a node starts being renamed |
+| `onSelectionChange` | `(details: SelectionChangeDetails<any>) => void` | No | Called when the selection changes |
+| `scrollToIndexFn` | `(details: ScrollToIndexDetails<any>) => void` | No | Function to scroll to a specific index. |
+| Useful for virtualized tree views. |
+| `selectedValue` | `string[]` | No | The controlled selected node value |
+| `selectionMode` | `'multiple'                                                                               | 'single'` | No | Whether the tree supports multiple selection |
 
 - "single": only one node can be selected
 - "multiple": multiple nodes can be selected |
@@ -6061,13 +6061,13 @@ const App = () => {
 
 **BranchContent Data Attributes:**
 
-| Attribute      | Value                 |
+| Attribute | Value |
 | -------------- | --------------------- | -------- |
-| `[data-scope]` | tree-view             |
-| `[data-part]`  | branch-content        |
-| `[data-state]` | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-content |
+| `[data-state]` | "open" | "closed" |
 | `[data-depth]` | The depth of the item |
-| `[data-path]`  | The path of the item  |
+| `[data-path]` | The path of the item |
 | `[data-value]` | The value of the item |
 
 **BranchControl Props:**
@@ -6078,21 +6078,21 @@ const App = () => {
 
 **BranchControl Data Attributes:**
 
-| Attribute              | Value                 |
+| Attribute | Value |
 | ---------------------- | --------------------- | -------- |
-| `[data-scope]`         | tree-view             |
-| `[data-part]`          | branch-control        |
-| `[data-path]`          | The path of the item  |
-| `[data-state]`         | "open"                | "closed" |
-| `[data-disabled]`      | Present when disabled |
-| `[data-selected]`      | Present when selected |
-| `[data-focus]`         | Present when focused  |
-| `[data-renaming]`      |                       |
-| `[data-checked]`       | Present when checked  |
-| `[data-indeterminate]` |                       |
-| `[data-value]`         | The value of the item |
-| `[data-depth]`         | The depth of the item |
-| `[data-loading]`       | Present when loading  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-control |
+| `[data-path]` | The path of the item |
+| `[data-state]` | "open" | "closed" |
+| `[data-disabled]` | Present when disabled |
+| `[data-selected]` | Present when selected |
+| `[data-focus]` | Present when focused |
+| `[data-renaming]` | |
+| `[data-checked]` | Present when checked |
+| `[data-indeterminate]` | |
+| `[data-value]` | The value of the item |
+| `[data-depth]` | The depth of the item |
+| `[data-loading]` | Present when loading |
 
 **BranchIndentGuide Props:**
 
@@ -6116,15 +6116,15 @@ const App = () => {
 
 **BranchIndicator Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-indicator      |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-indicator |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
 | `[data-selected]` | Present when selected |
-| `[data-focus]`    | Present when focused  |
-| `[data-loading]`  | Present when loading  |
+| `[data-focus]` | Present when focused |
+| `[data-loading]` | Present when loading |
 
 **Branch Props:**
 
@@ -6134,18 +6134,18 @@ const App = () => {
 
 **Branch Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch                |
-| `[data-depth]`    | The depth of the item |
-| `[data-branch]`   |                       |
-| `[data-value]`    | The value of the item |
-| `[data-path]`     | The path of the item  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch |
+| `[data-depth]` | The depth of the item |
+| `[data-branch]` | |
+| `[data-value]` | The value of the item |
+| `[data-path]` | The path of the item |
 | `[data-selected]` | Present when selected |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
-| `[data-loading]`  | Present when loading  |
+| `[data-loading]` | Present when loading |
 
 **Branch CSS Variables:**
 
@@ -6161,13 +6161,13 @@ const App = () => {
 
 **BranchText Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-text           |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-text |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-loading]` | Present when loading |
 
 **BranchTrigger Props:**
 
@@ -6177,14 +6177,14 @@ const App = () => {
 
 **BranchTrigger Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-trigger        |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-trigger |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-value]`    | The value of the item |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-value]` | The value of the item |
+| `[data-loading]` | Present when loading |
 
 **ItemIndicator Props:**
 
@@ -6254,10 +6254,10 @@ const App = () => {
 
 **NodeCheckboxIndicator Props:**
 
-| Prop            | Type    | Required | Description |
+| Prop | Type | Required | Description |
 | --------------- | ------- | -------- | ----------- | ------------- | ------------- | --- | --- |
-| `fallback`      | `number | boolean  | Node        | (string & {}) | ArrayElement` | No  |     |
-| `indeterminate` | `number | boolean  | Node        | (string & {}) | ArrayElement` | No  |     |
+| `fallback` | `number | boolean  | Node        | (string & {}) | ArrayElement` | No | |
+| `indeterminate` | `number | boolean  | Node        | (string & {}) | ArrayElement` | No | |
 
 **NodeCheckbox Props:**
 
@@ -6267,11 +6267,11 @@ const App = () => {
 
 **NodeCheckbox Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | ----------- | --------------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | node-checkbox         |
-| `[data-state]`    | "checked"             | "unchecked" | "indeterminate" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | node-checkbox |
+| `[data-state]` | "checked" | "unchecked" | "indeterminate" |
 | `[data-disabled]` | Present when disabled |
 
 **NodeProvider Props:**
@@ -6306,29 +6306,29 @@ const App = () => {
 
 **Root Props:**
 
-| Prop                                                         | Type                                                                                  | Required    | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `collection`                                                 | `TreeCollection<T>`                                                                   | Yes         | The collection of tree nodes                                                                        |
-| `asChild`                                                    | `boolean`                                                                             | No          | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `canRename`                                                  | `(node: T, indexPath: number[]) => boolean`                                           | No          | Function to determine if a node can be renamed                                                      |
-| `checkedValue`                                               | `string[]`                                                                            | No          | The controlled checked node values                                                                  |
-| `defaultCheckedValue`                                        | `string[]`                                                                            | No          | The initial checked node values when rendered.                                                      |
-| Use when you don't need to control the checked node values.  |
-| `defaultExpandedValue`                                       | `string[]`                                                                            | No          | The initial expanded node values when rendered.                                                     |
+| `collection` | `TreeCollection<T>` | Yes | The collection of tree nodes |
+| `asChild` | `boolean` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `canRename` | `(node: T, indexPath: number[]) => boolean` | No | Function to determine if a node can be renamed |
+| `checkedValue` | `string[]` | No | The controlled checked node values |
+| `defaultCheckedValue` | `string[]` | No | The initial checked node values when rendered. |
+| Use when you don't need to control the checked node values. |
+| `defaultExpandedValue` | `string[]` | No | The initial expanded node values when rendered. |
 | Use when you don't need to control the expanded node values. |
-| `defaultFocusedValue`                                        | `string`                                                                              | No          | The initial focused node value when rendered.                                                       |
-| Use when you don't need to control the focused node value.   |
-| `defaultSelectedValue`                                       | `string[]`                                                                            | No          | The initial selected node values when rendered.                                                     |
+| `defaultFocusedValue` | `string` | No | The initial focused node value when rendered. |
+| Use when you don't need to control the focused node value. |
+| `defaultSelectedValue` | `string[]` | No | The initial selected node values when rendered. |
 | Use when you don't need to control the selected node values. |
-| `expandedValue`                                              | `string[]`                                                                            | No          | The controlled expanded node values                                                                 |
-| `expandOnClick`                                              | `boolean`                                                                             | No          | Whether clicking on a branch should open it or not                                                  |
-| `focusedValue`                                               | `string`                                                                              | No          | The id of the focused node                                                                          |
-| `id`                                                         | `string`                                                                              | No          | The unique identifier of the machine.                                                               |
-| `ids`                                                        | `Partial<{ root: string; tree: string; label: string; node(value: string): string }>` | No          | The ids of the tree elements. Useful for composition.                                               |
-| `lazyMount`                                                  | `boolean`                                                                             | No          | Whether to enable lazy mounting                                                                     |
-| `loadChildren`                                               | `(details: LoadChildrenDetails<T>) => Promise<T[]>`                                   | No          | A function that loads the children of a node.                                                       |
-| `selectedValue`                                              | `string[]`                                                                            | No          | The controlled selected node values                                                                 |
-| `selectionMode`                                              | `'single'                                                                             | 'multiple'` | No                                                                                                  | Whether the tree supports multiple selection |
+| `expandedValue` | `string[]` | No | The controlled expanded node values |
+| `expandOnClick` | `boolean` | No | Whether clicking on a branch should open it or not |
+| `focusedValue` | `string` | No | The id of the focused node |
+| `id` | `string` | No | The unique identifier of the machine. |
+| `ids` | `Partial<{ root: string; tree: string; label: string; node(value: string): string }>` | No | The ids of the tree elements. Useful for composition. |
+| `lazyMount` | `boolean` | No | Whether to enable lazy mounting |
+| `loadChildren` | `(details: LoadChildrenDetails<T>) => Promise<T[]>` | No | A function that loads the children of a node. |
+| `selectedValue` | `string[]` | No | The controlled selected node values |
+| `selectionMode` | `'single'                                                                             | 'multiple'` | No | Whether the tree supports multiple selection |
 
 - "single": only one node can be selected
 - "multiple": multiple nodes can be selected |
@@ -6343,13 +6343,13 @@ const App = () => {
 
 **BranchContent Data Attributes:**
 
-| Attribute      | Value                 |
+| Attribute | Value |
 | -------------- | --------------------- | -------- |
-| `[data-scope]` | tree-view             |
-| `[data-part]`  | branch-content        |
-| `[data-state]` | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-content |
+| `[data-state]` | "open" | "closed" |
 | `[data-depth]` | The depth of the item |
-| `[data-path]`  | The path of the item  |
+| `[data-path]` | The path of the item |
 | `[data-value]` | The value of the item |
 
 **BranchControl Props:**
@@ -6360,21 +6360,21 @@ const App = () => {
 
 **BranchControl Data Attributes:**
 
-| Attribute              | Value                 |
+| Attribute | Value |
 | ---------------------- | --------------------- | -------- |
-| `[data-scope]`         | tree-view             |
-| `[data-part]`          | branch-control        |
-| `[data-path]`          | The path of the item  |
-| `[data-state]`         | "open"                | "closed" |
-| `[data-disabled]`      | Present when disabled |
-| `[data-selected]`      | Present when selected |
-| `[data-focus]`         | Present when focused  |
-| `[data-renaming]`      |                       |
-| `[data-checked]`       | Present when checked  |
-| `[data-indeterminate]` |                       |
-| `[data-value]`         | The value of the item |
-| `[data-depth]`         | The depth of the item |
-| `[data-loading]`       | Present when loading  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-control |
+| `[data-path]` | The path of the item |
+| `[data-state]` | "open" | "closed" |
+| `[data-disabled]` | Present when disabled |
+| `[data-selected]` | Present when selected |
+| `[data-focus]` | Present when focused |
+| `[data-renaming]` | |
+| `[data-checked]` | Present when checked |
+| `[data-indeterminate]` | |
+| `[data-value]` | The value of the item |
+| `[data-depth]` | The depth of the item |
+| `[data-loading]` | Present when loading |
 
 **BranchIndentGuide Props:**
 
@@ -6398,15 +6398,15 @@ const App = () => {
 
 **BranchIndicator Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-indicator      |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-indicator |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
 | `[data-selected]` | Present when selected |
-| `[data-focus]`    | Present when focused  |
-| `[data-loading]`  | Present when loading  |
+| `[data-focus]` | Present when focused |
+| `[data-loading]` | Present when loading |
 
 **Branch Props:**
 
@@ -6416,18 +6416,18 @@ const App = () => {
 
 **Branch Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch                |
-| `[data-depth]`    | The depth of the item |
-| `[data-branch]`   |                       |
-| `[data-value]`    | The value of the item |
-| `[data-path]`     | The path of the item  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch |
+| `[data-depth]` | The depth of the item |
+| `[data-branch]` | |
+| `[data-value]` | The value of the item |
+| `[data-path]` | The path of the item |
 | `[data-selected]` | Present when selected |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
-| `[data-loading]`  | Present when loading  |
+| `[data-loading]` | Present when loading |
 
 **Branch CSS Variables:**
 
@@ -6443,13 +6443,13 @@ const App = () => {
 
 **BranchText Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-text           |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-text |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-loading]` | Present when loading |
 
 **BranchTrigger Props:**
 
@@ -6459,14 +6459,14 @@ const App = () => {
 
 **BranchTrigger Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-trigger        |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-trigger |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-value]`    | The value of the item |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-value]` | The value of the item |
+| `[data-loading]` | Present when loading |
 
 **ItemIndicator Props:**
 
@@ -6549,11 +6549,11 @@ const App = () => {
 
 **NodeCheckbox Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | ----------- | --------------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | node-checkbox         |
-| `[data-state]`    | "checked"             | "unchecked" | "indeterminate" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | node-checkbox |
+| `[data-state]` | "checked" | "unchecked" | "indeterminate" |
 | `[data-disabled]` | Present when disabled |
 
 **NodeProvider Props:**
@@ -6588,42 +6588,42 @@ const App = () => {
 
 **Root Props:**
 
-| Prop                                                                            | Type                                                                                      | Required  | Description                                                                                         |
+| Prop | Type | Required | Description |
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| `asChild`                                                                       | `Snippet<[PropsFn<'div'>]>`                                                               | No        | Use the provided child element as the default rendered element, combining their props and behavior. |
-| `canRename`                                                                     | `(node: T, indexPath: IndexPath) => boolean`                                              | No        | Function to determine if a node can be renamed                                                      |
-| `checkedValue`                                                                  | `string[]`                                                                                | No        | The controlled checked node value                                                                   |
-| `collection`                                                                    | `TreeCollection<T>`                                                                       | No        | The tree collection data                                                                            |
-| `defaultCheckedValue`                                                           | `string[]`                                                                                | No        | The initial checked node value when rendered.                                                       |
-| Use when you don't need to control the checked node value.                      |
-| `defaultExpandedValue`                                                          | `string[]`                                                                                | No        | The initial expanded node ids when rendered.                                                        |
-| Use when you don't need to control the expanded node value.                     |
-| `defaultFocusedValue`                                                           | `string`                                                                                  | No        | The initial focused node value when rendered.                                                       |
-| Use when you don't need to control the focused node value.                      |
-| `defaultSelectedValue`                                                          | `string[]`                                                                                | No        | The initial selected node value when rendered.                                                      |
-| Use when you don't need to control the selected node value.                     |
-| `expandedValue`                                                                 | `string[]`                                                                                | No        | The controlled expanded node ids                                                                    |
-| `expandOnClick`                                                                 | `boolean`                                                                                 | No        | Whether clicking on a branch should open it or not                                                  |
-| `focusedValue`                                                                  | `string`                                                                                  | No        | The value of the focused node                                                                       |
-| `id`                                                                            | `string`                                                                                  | No        | The unique identifier of the machine.                                                               |
-| `ids`                                                                           | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | No        | The ids of the tree elements. Useful for composition.                                               |
-| `lazyMount`                                                                     | `boolean`                                                                                 | No        | Whether to enable lazy mounting                                                                     |
-| `loadChildren`                                                                  | `(details: LoadChildrenDetails<T>) => Promise<T[]>`                                       | No        | Function to load children for a node asynchronously.                                                |
+| `asChild` | `Snippet<[PropsFn<'div'>]>` | No | Use the provided child element as the default rendered element, combining their props and behavior. |
+| `canRename` | `(node: T, indexPath: IndexPath) => boolean` | No | Function to determine if a node can be renamed |
+| `checkedValue` | `string[]` | No | The controlled checked node value |
+| `collection` | `TreeCollection<T>` | No | The tree collection data |
+| `defaultCheckedValue` | `string[]` | No | The initial checked node value when rendered. |
+| Use when you don't need to control the checked node value. |
+| `defaultExpandedValue` | `string[]` | No | The initial expanded node ids when rendered. |
+| Use when you don't need to control the expanded node value. |
+| `defaultFocusedValue` | `string` | No | The initial focused node value when rendered. |
+| Use when you don't need to control the focused node value. |
+| `defaultSelectedValue` | `string[]` | No | The initial selected node value when rendered. |
+| Use when you don't need to control the selected node value. |
+| `expandedValue` | `string[]` | No | The controlled expanded node ids |
+| `expandOnClick` | `boolean` | No | Whether clicking on a branch should open it or not |
+| `focusedValue` | `string` | No | The value of the focused node |
+| `id` | `string` | No | The unique identifier of the machine. |
+| `ids` | `Partial<{ root: string; tree: string; label: string; node: (value: string) => string }>` | No | The ids of the tree elements. Useful for composition. |
+| `lazyMount` | `boolean` | No | Whether to enable lazy mounting |
+| `loadChildren` | `(details: LoadChildrenDetails<T>) => Promise<T[]>` | No | Function to load children for a node asynchronously. |
 | When provided, branches will wait for this promise to resolve before expanding. |
-| `onBeforeRename`                                                                | `(details: RenameCompleteDetails) => boolean`                                             | No        | Called before a rename is completed. Return false to prevent the rename.                            |
-| `onCheckedChange`                                                               | `(details: CheckedChangeDetails) => void`                                                 | No        | Called when the checked value changes                                                               |
-| `onExpandedChange`                                                              | `(details: ExpandedChangeDetails<T>) => void`                                             | No        | Called when the tree is opened or closed                                                            |
-| `onFocusChange`                                                                 | `(details: FocusChangeDetails<T>) => void`                                                | No        | Called when the focused node changes                                                                |
-| `onLoadChildrenComplete`                                                        | `(details: LoadChildrenCompleteDetails<T>) => void`                                       | No        | Called when a node finishes loading children                                                        |
-| `onLoadChildrenError`                                                           | `(details: LoadChildrenErrorDetails<T>) => void`                                          | No        | Called when loading children fails for one or more nodes                                            |
-| `onRenameComplete`                                                              | `(details: RenameCompleteDetails) => void`                                                | No        | Called when a node label rename is completed                                                        |
-| `onRenameStart`                                                                 | `(details: RenameStartDetails<T>) => void`                                                | No        | Called when a node starts being renamed                                                             |
-| `onSelectionChange`                                                             | `(details: SelectionChangeDetails<T>) => void`                                            | No        | Called when the selection changes                                                                   |
-| `ref`                                                                           | `Element`                                                                                 | No        |                                                                                                     |
-| `scrollToIndexFn`                                                               | `(details: ScrollToIndexDetails<T>) => void`                                              | No        | Function to scroll to a specific index.                                                             |
-| Useful for virtualized tree views.                                              |
-| `selectedValue`                                                                 | `string[]`                                                                                | No        | The controlled selected node value                                                                  |
-| `selectionMode`                                                                 | `'multiple'                                                                               | 'single'` | No                                                                                                  | Whether the tree supports multiple selection |
+| `onBeforeRename` | `(details: RenameCompleteDetails) => boolean` | No | Called before a rename is completed. Return false to prevent the rename. |
+| `onCheckedChange` | `(details: CheckedChangeDetails) => void` | No | Called when the checked value changes |
+| `onExpandedChange` | `(details: ExpandedChangeDetails<T>) => void` | No | Called when the tree is opened or closed |
+| `onFocusChange` | `(details: FocusChangeDetails<T>) => void` | No | Called when the focused node changes |
+| `onLoadChildrenComplete` | `(details: LoadChildrenCompleteDetails<T>) => void` | No | Called when a node finishes loading children |
+| `onLoadChildrenError` | `(details: LoadChildrenErrorDetails<T>) => void` | No | Called when loading children fails for one or more nodes |
+| `onRenameComplete` | `(details: RenameCompleteDetails) => void` | No | Called when a node label rename is completed |
+| `onRenameStart` | `(details: RenameStartDetails<T>) => void` | No | Called when a node starts being renamed |
+| `onSelectionChange` | `(details: SelectionChangeDetails<T>) => void` | No | Called when the selection changes |
+| `ref` | `Element` | No | |
+| `scrollToIndexFn` | `(details: ScrollToIndexDetails<T>) => void` | No | Function to scroll to a specific index. |
+| Useful for virtualized tree views. |
+| `selectedValue` | `string[]` | No | The controlled selected node value |
+| `selectionMode` | `'multiple'                                                                               | 'single'` | No | Whether the tree supports multiple selection |
 
 - "single": only one node can be selected
 - "multiple": multiple nodes can be selected |
@@ -6639,13 +6639,13 @@ const App = () => {
 
 **BranchContent Data Attributes:**
 
-| Attribute      | Value                 |
+| Attribute | Value |
 | -------------- | --------------------- | -------- |
-| `[data-scope]` | tree-view             |
-| `[data-part]`  | branch-content        |
-| `[data-state]` | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-content |
+| `[data-state]` | "open" | "closed" |
 | `[data-depth]` | The depth of the item |
-| `[data-path]`  | The path of the item  |
+| `[data-path]` | The path of the item |
 | `[data-value]` | The value of the item |
 
 **BranchControl Props:**
@@ -6657,21 +6657,21 @@ const App = () => {
 
 **BranchControl Data Attributes:**
 
-| Attribute              | Value                 |
+| Attribute | Value |
 | ---------------------- | --------------------- | -------- |
-| `[data-scope]`         | tree-view             |
-| `[data-part]`          | branch-control        |
-| `[data-path]`          | The path of the item  |
-| `[data-state]`         | "open"                | "closed" |
-| `[data-disabled]`      | Present when disabled |
-| `[data-selected]`      | Present when selected |
-| `[data-focus]`         | Present when focused  |
-| `[data-renaming]`      |                       |
-| `[data-checked]`       | Present when checked  |
-| `[data-indeterminate]` |                       |
-| `[data-value]`         | The value of the item |
-| `[data-depth]`         | The depth of the item |
-| `[data-loading]`       | Present when loading  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-control |
+| `[data-path]` | The path of the item |
+| `[data-state]` | "open" | "closed" |
+| `[data-disabled]` | Present when disabled |
+| `[data-selected]` | Present when selected |
+| `[data-focus]` | Present when focused |
+| `[data-renaming]` | |
+| `[data-checked]` | Present when checked |
+| `[data-indeterminate]` | |
+| `[data-value]` | The value of the item |
+| `[data-depth]` | The depth of the item |
+| `[data-loading]` | Present when loading |
 
 **BranchIndentGuide Props:**
 
@@ -6697,15 +6697,15 @@ const App = () => {
 
 **BranchIndicator Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-indicator      |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-indicator |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
 | `[data-selected]` | Present when selected |
-| `[data-focus]`    | Present when focused  |
-| `[data-loading]`  | Present when loading  |
+| `[data-focus]` | Present when focused |
+| `[data-loading]` | Present when loading |
 
 **Branch Props:**
 
@@ -6716,18 +6716,18 @@ const App = () => {
 
 **Branch Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch                |
-| `[data-depth]`    | The depth of the item |
-| `[data-branch]`   |                       |
-| `[data-value]`    | The value of the item |
-| `[data-path]`     | The path of the item  |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch |
+| `[data-depth]` | The depth of the item |
+| `[data-branch]` | |
+| `[data-value]` | The value of the item |
+| `[data-path]` | The path of the item |
 | `[data-selected]` | Present when selected |
-| `[data-state]`    | "open"                | "closed" |
+| `[data-state]` | "open" | "closed" |
 | `[data-disabled]` | Present when disabled |
-| `[data-loading]`  | Present when loading  |
+| `[data-loading]` | Present when loading |
 
 **Branch CSS Variables:**
 
@@ -6744,13 +6744,13 @@ const App = () => {
 
 **BranchText Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-text           |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-text |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-loading]` | Present when loading |
 
 **BranchTrigger Props:**
 
@@ -6761,14 +6761,14 @@ const App = () => {
 
 **BranchTrigger Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | -------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | branch-trigger        |
+| `[data-scope]` | tree-view |
+| `[data-part]` | branch-trigger |
 | `[data-disabled]` | Present when disabled |
-| `[data-state]`    | "open"                | "closed" |
-| `[data-value]`    | The value of the item |
-| `[data-loading]`  | Present when loading  |
+| `[data-state]` | "open" | "closed" |
+| `[data-value]` | The value of the item |
+| `[data-loading]` | Present when loading |
 
 **Context Props:**
 
@@ -6862,11 +6862,11 @@ const App = () => {
 
 **NodeCheckbox Data Attributes:**
 
-| Attribute         | Value                 |
+| Attribute | Value |
 | ----------------- | --------------------- | ----------- | --------------- |
-| `[data-scope]`    | tree-view             |
-| `[data-part]`     | node-checkbox         |
-| `[data-state]`    | "checked"             | "unchecked" | "indeterminate" |
+| `[data-scope]` | tree-view |
+| `[data-part]` | node-checkbox |
+| `[data-state]` | "checked" | "unchecked" | "indeterminate" |
 | `[data-disabled]` | Present when disabled |
 
 **NodeContext Props:**
