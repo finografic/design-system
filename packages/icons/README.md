@@ -56,19 +56,28 @@ pnpm icons:config
 pnpm build
 ```
 
-### Running two pickers at once
+### Running several pickers at once
 
-The server listens on **5001** by default. Set `ICONS_SERVER_PORT` to run a second one:
+Nothing to configure. The server searches upward from **5001** for a free port, so a second and
+third project just work while the first is still running:
 
-```bash
-ICONS_SERVER_PORT=5002 pnpm icons:manager
+```text
+●  Icons Server:  http://localhost:5002  [consumer mode — icons.config.json]
+   writing to  /Users/justin/repos-finografic/djay-midi-config/apps/client
 ```
 
-If the port is already taken the server **exits** rather than continuing. That matters: the picker
-finds its server through `lucide-manager.config.json`, so a server that carried on after a failed
-bind would leave the picker pointed at whichever project already held the port — and every icon
-picked would be written into _that_ project instead. The config is only written after the bind
-succeeds, for the same reason.
+The startup line names the project it writes to, because with several pickers open a port number
+alone does not tell you which repo a browser tab is about to change.
+
+`ICONS_SERVER_PORT` pins a specific port instead. A pinned port is never searched past — if you
+asked for one, quietly using another would be worse than failing.
+
+**Why this matters.** The picker finds its server through `lucide-manager.config.json`. When the
+port was fixed at 5001 and a second project could not bind, the picker attached to whichever server
+already held it and wrote every icon into _that_ project. That happened twice. Two guards remain
+alongside the search: the config is written only after the port is actually bound, and
+`lucide-manager.config.json` should be **gitignored** — a committed one carries a stale port into
+the next run and puts the hole straight back.
 
 ---
 

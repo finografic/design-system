@@ -18,14 +18,15 @@
  * on first run. Generates icons.generated.ts in CWD.
  * Used when consumers run pnpm exec icons-server from their project root.
  *
- * Port: 5001 by default, overridable with ICONS_SERVER_PORT so two projects can each run a
- * picker. lucide-manager.config.json is written to CWD *after* the port is bound, so the picker
- * is never pointed at a server this process does not own; a collision exits instead.
+ * Port: searches upward from 5001 for a free one, so several projects can each run a picker without
+ * coordinating. ICONS_SERVER_PORT pins it instead. lucide-manager.config.json is written to CWD
+ * *after* the port is bound, so the picker is never pointed at a server this process does not own.
  *
  * This server is dev-only. It is not part of the package library output.
  */
 
 import fs from 'node:fs';
+import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { serve } from '@hono/node-server';
@@ -59,17 +60,16 @@ const generatedTsPath = isConsumerMode
 // ── Port ───────────────────────────────────────────────────────────────────────
 
 const DEFAULT_PORT = 5001;
+const MAX_PORT_ATTEMPTS = 20;
+
+const configPath = path.join(cwd, 'lucide-manager.config.json');
 
 /**
- * Port, overridable so two projects can each run a picker.
- *
- * It used to be a hard-coded 5001 with no way out, which is how icons picked in one project ended
- * up written into another: the second server could not bind, the picker connected to whichever
- * server already held the port, and every write landed in that project instead.
+ * Starting port. `ICONS_SERVER_PORT` pins it; otherwise search upward from the default.
  */
-function resolvePort(): number {
+function requestedPort(): { port: number; pinned: boolean } {
   const raw = process.env['ICONS_SERVER_PORT'];
-  if (raw === undefined) return DEFAULT_PORT;
+  if (raw === undefined) return { port: DEFAULT_PORT, pinned: false };
 
   const parsed = Number(raw);
   if (!Number.isInteger(parsed) || parsed < 1 || parsed > 65535) {
@@ -77,11 +77,60 @@ function resolvePort(): number {
     process.exit(1);
   }
 
-  return parsed;
+  return { port: parsed, pinned: true };
 }
 
-const PORT = resolvePort();
-const configPath = path.join(cwd, 'lucide-manager.config.json');
+/**
+ * True when nothing is listening on `port`, so we can take it.
+ *
+ * Binds the wildcard address, with no host argument, because that is how the real server binds.
+ * Probing `127.0.0.1` instead reports a port as free while another process holds the IPv6 wildcard
+ * — which is exactly the case here, since a server already running on `*:5001` does not stop an
+ * IPv4-loopback bind from succeeding.
+ */
+async function isPortFree(port: number): Promise<boolean> {
+  return new Promise((resolve) => {
+    const probe = net.createServer();
+    probe.once('error', () => resolve(false));
+    probe.once('listening', () => probe.close(() => resolve(true)));
+    probe.listen(port);
+  });
+}
+
+/**
+ * Find a port to serve on.
+ *
+ * Collisions are the normal case, not an error: a permanently running picker in one project would
+ * otherwise block every other project forever. Icons picked in one repo were written into another
+ * twice because of exactly that — the server could not bind, and the picker attached to whichever
+ * server already held the port.
+ *
+ * A pinned `ICONS_SERVER_PORT` is honoured exactly and never searched past: if you asked for a
+ * specific port, silently using a different one would be worse than failing.
+ */
+async function findPort(): Promise<number> {
+  const { port: start, pinned } = requestedPort();
+
+  if (pinned) {
+    if (await isPortFree(start)) return start;
+    console.error('');
+    console.error(pc.red(`  ✘  Port ${start} is in use, and ICONS_SERVER_PORT pinned it.`));
+    console.error(`     ${pc.dim('Free that port, or unset ICONS_SERVER_PORT to search automatically.')}`);
+    console.error('');
+    process.exit(1);
+  }
+
+  for (let port = start; port < start + MAX_PORT_ATTEMPTS; port += 1) {
+    if (await isPortFree(port)) return port;
+  }
+
+  console.error('');
+  console.error(pc.red(`  ✘  No free port between ${start} and ${start + MAX_PORT_ATTEMPTS - 1}.`));
+  console.error('');
+  process.exit(1);
+}
+
+const PORT = await findPort();
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -213,6 +262,9 @@ const server = serve({ fetch: app.fetch, port: PORT }, () => {
   console.log(
     `  ${pc.cyan('●')}  Icons Server:  ${pc.cyan(`http://localhost:${PORT}`)}  [${modeLabel} mode — ${fileLabel}]`,
   );
+  // Say which project this is serving. Two pickers at once is now normal, and a port number alone
+  // does not tell you which repo a browser window is about to write into.
+  console.log(`     ${pc.dim('writing to')}  ${pc.bold(cwd)}`);
   console.log('');
 });
 
