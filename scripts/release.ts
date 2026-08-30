@@ -78,8 +78,10 @@ if (!existsSync('packages/icons/package.json')) {
 
 // ── Version bumps (no git ops) ────────────────────────────────────────────────
 
-run(`pnpm version ${bump} --no-git-tag-version --ignore-scripts`, { cwd: 'packages/icons' });
-run(`pnpm version ${bump} --no-git-tag-version --ignore-scripts`, { cwd: 'packages/design-system' });
+run(`pnpm version ${bump} --no-git-tag-version --config.ignore-scripts=true`, { cwd: 'packages/icons' });
+run(`pnpm version ${bump} --no-git-tag-version --config.ignore-scripts=true`, {
+  cwd: 'packages/design-system',
+});
 
 const iconsVersion = readVersion('packages/icons/package.json');
 const dsVersion = readVersion('packages/design-system/package.json');
