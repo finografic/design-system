@@ -18,8 +18,9 @@
  * on first run. Generates icons.generated.ts in CWD.
  * Used when consumers run pnpm exec icons-server from their project root.
  *
- * Port: fixed at 5001. lucide-manager.config.json is written to CWD on startup
- * so the picker (lucide-manager) can always connect regardless of context.
+ * Port: 5001 by default, overridable with ICONS_SERVER_PORT so two projects can each run a
+ * picker. lucide-manager.config.json is written to CWD *after* the port is bound, so the picker
+ * is never pointed at a server this process does not own; a collision exits instead.
  *
  * This server is dev-only. It is not part of the package library output.
  */
@@ -57,7 +58,29 @@ const generatedTsPath = isConsumerMode
 
 // ── Port ───────────────────────────────────────────────────────────────────────
 
-const PORT = 5001;
+const DEFAULT_PORT = 5001;
+
+/**
+ * Port, overridable so two projects can each run a picker.
+ *
+ * It used to be a hard-coded 5001 with no way out, which is how icons picked in one project ended
+ * up written into another: the second server could not bind, the picker connected to whichever
+ * server already held the port, and every write landed in that project instead.
+ */
+function resolvePort(): number {
+  const raw = process.env['ICONS_SERVER_PORT'];
+  if (raw === undefined) return DEFAULT_PORT;
+
+  const parsed = Number(raw);
+  if (!Number.isInteger(parsed) || parsed < 1 || parsed > 65535) {
+    console.error(pc.red(`[icons-server] ICONS_SERVER_PORT is not a valid port: ${raw}`));
+    process.exit(1);
+  }
+
+  return parsed;
+}
+
+const PORT = resolvePort();
 const configPath = path.join(cwd, 'lucide-manager.config.json');
 
 // ── Types ──────────────────────────────────────────────────────────────────────
@@ -69,13 +92,20 @@ interface IconEntry {
 
 // ── Bootstrap ──────────────────────────────────────────────────────────────────
 
-// Write lucide-manager.config.json so the picker knows where to find this server.
-// Idempotent in DS mode (always 5001); creates it on first run in consumer mode.
-fs.writeFileSync(
-  configPath,
-  JSON.stringify({ serverUrl: `http://localhost:${PORT}` }, null, 2) + '\n',
-  'utf8',
-);
+/**
+ * Point the picker at this server — but only once the port is actually ours.
+ *
+ * This used to run at startup, before binding. On a port collision the bind failed while the
+ * config had already been written, so the picker read it, connected to the *other* project's
+ * server, and wrote every icon there.
+ */
+function writePickerConfig(): void {
+  fs.writeFileSync(
+    configPath,
+    JSON.stringify({ serverUrl: `http://localhost:${PORT}` }, null, 2) + '\n',
+    'utf8',
+  );
+}
 
 // In consumer mode: seed icons.config.json from the DS defaults if it doesn't exist yet.
 if (isConsumerMode && !fs.existsSync(jsonPath)) {
@@ -173,7 +203,10 @@ app.post('/api/icons-json', async (c) => {
 
 // ── Start ─────────────────────────────────────────────────────────────────────
 
-serve({ fetch: app.fetch, port: PORT }, () => {
+const server = serve({ fetch: app.fetch, port: PORT }, () => {
+  // Only now is the port ours, so only now is it safe to tell the picker where to connect.
+  writePickerConfig();
+
   const modeLabel = isConsumerMode ? pc.yellow('consumer') : pc.blue('ds');
   const fileLabel = isConsumerMode ? 'icons.config.json' : 'src/icons.json';
   console.log('');
@@ -181,4 +214,22 @@ serve({ fetch: app.fetch, port: PORT }, () => {
     `  ${pc.cyan('●')}  Icons Server:  ${pc.cyan(`http://localhost:${PORT}`)}  [${modeLabel} mode — ${fileLabel}]`,
   );
   console.log('');
+});
+
+// A collision has to be loud. Silently carrying on is what let the picker attach to another
+// project's server and write icons into the wrong repository.
+server.on('error', (error: NodeJS.ErrnoException) => {
+  if (error.code !== 'EADDRINUSE') throw error;
+
+  console.error('');
+  console.error(pc.red(`  ✘  Port ${PORT} is already in use — another icons-server is running.`));
+  console.error('');
+  console.error(
+    `     ${pc.dim('Stop it, or start this one on another port:')} ${pc.bold(pc.yellow(`ICONS_SERVER_PORT=5002 pnpm icons:manager`))}`,
+  );
+  console.error(
+    `     ${pc.dim('Continuing would point the picker at the other project and write icons there.')}`,
+  );
+  console.error('');
+  process.exit(1);
 });

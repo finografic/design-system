@@ -38,7 +38,7 @@ packages/icons/
 │                              Consumer mode: icons.config.json → icons.generated.ts
 │
 ├── lucide-manager.config.json  ← { "serverUrl": "http://localhost:5001" }
-│                                  read by the picker UI — server writes this on startup
+│                                  read by the picker UI — written once the port is bound
 ├── package.json
 ├── tsconfig.json
 └── tsdown.config.ts
@@ -55,6 +55,20 @@ pnpm icons:config
 # Manual codegen + build
 pnpm build
 ```
+
+### Running two pickers at once
+
+The server listens on **5001** by default. Set `ICONS_SERVER_PORT` to run a second one:
+
+```bash
+ICONS_SERVER_PORT=5002 pnpm icons:manager
+```
+
+If the port is already taken the server **exits** rather than continuing. That matters: the picker
+finds its server through `lucide-manager.config.json`, so a server that carried on after a failed
+bind would leave the picker pointed at whichever project already held the port — and every icon
+picked would be written into _that_ project instead. The config is only written after the bind
+succeeds, for the same reason.
 
 ---
 
