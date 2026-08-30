@@ -1,9 +1,7 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
-import * as _$react from "react";
+import "../../packages/design-system/styled-system/types/index.js";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Popover, PopoverOpenChangeDetails } from "@ark-ui/react";
-
 //#region src/components/popover/popover.d.ts
 /**
  * Styled Ark **Popover** compound — each part is wired to `popoverRecipe` via context.
@@ -35,17 +33,27 @@ import { Popover, PopoverOpenChangeDetails } from "@ark-ui/react";
  *   ```;
  */
 declare const Popover$1: {
-  Root: _$_styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "title" | "description" | "closeTrigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "title" | "description" | "closeTrigger" | "positioner" | "arrow" | "arrowTip">>>;
-  RootProvider: _$_styled_system_jsx0.StyleContextRootProvider<(props: Popover.RootProviderProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "trigger" | "title" | "description" | "closeTrigger" | "positioner" | "arrow" | "arrowTip", SlotRecipeVariantRecord<"content" | "trigger" | "title" | "description" | "closeTrigger" | "positioner" | "arrow" | "arrowTip">>>; /** Button or element that opens the popover. */
-  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Positioning anchor — no recipe slot, pure layout. */
-  Anchor: _$react.ForwardRefExoticComponent<Popover.AnchorProps & _$react.RefAttributes<HTMLDivElement>>; /** Positions the floating content panel. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** The floating panel itself. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Bold heading at the top of the popover. */
-  Title: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.TitleProps & _$react.RefAttributes<HTMLDivElement>>>; /** Supporting text below the title. */
-  Description: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.DescriptionProps & _$react.RefAttributes<HTMLDivElement>>>; /** Absolutely-positioned close button. */
-  CloseTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.CloseTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Arrow wrapper — place inside Content. */
-  Arrow: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.ArrowProps & _$react.RefAttributes<HTMLDivElement>>>; /** The visible arrow triangle. */
-  ArrowTip: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Popover.ArrowTipProps & _$react.RefAttributes<HTMLDivElement>>>; /** Ark render-prop context. */
+  Root: import("@styled-system/jsx").StyleContextRootProvider<(props: Popover.RootProps) => import("react").JSX.Element, SlotRecipeRuntimeFn<"arrow" | "arrowTip" | "closeTrigger" | "content" | "description" | "positioner" | "title" | "trigger", SlotRecipeVariantRecord<"arrow" | "arrowTip" | "closeTrigger" | "content" | "description" | "positioner" | "title" | "trigger">>>;
+  RootProvider: import("@styled-system/jsx").StyleContextRootProvider<(props: Popover.RootProviderProps) => import("react").JSX.Element, SlotRecipeRuntimeFn<"arrow" | "arrowTip" | "closeTrigger" | "content" | "description" | "positioner" | "title" | "trigger", SlotRecipeVariantRecord<"arrow" | "arrowTip" | "closeTrigger" | "content" | "description" | "positioner" | "title" | "trigger">>>;
+  /** Button or element that opens the popover. */
+  Trigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Positioning anchor — no recipe slot, pure layout. */
+  Anchor: import("react").ForwardRefExoticComponent<Popover.AnchorProps & import("react").RefAttributes<HTMLDivElement>>;
+  /** Positions the floating content panel. */
+  Positioner: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The floating panel itself. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Bold heading at the top of the popover. */
+  Title: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.TitleProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Supporting text below the title. */
+  Description: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.DescriptionProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Absolutely-positioned close button. */
+  CloseTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.CloseTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Arrow wrapper — place inside Content. */
+  Arrow: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.ArrowProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The visible arrow triangle. */
+  ArrowTip: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Popover.ArrowTipProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Ark render-prop context. */
   Context: (props: Popover.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link PopoverDS}. */
@@ -96,7 +104,7 @@ interface PopoverDSProps {
  *   </PopoverDS>;
  *   ```;
  */
-declare const PopoverDS: _$react.ForwardRefExoticComponent<PopoverDSProps & _$react.RefAttributes<HTMLButtonElement>>;
+declare const PopoverDS: import("react").ForwardRefExoticComponent<PopoverDSProps & import("react").RefAttributes<HTMLButtonElement>>;
 //#endregion
 export { Popover$1 as Popover, PopoverDS, PopoverDSClassNames, PopoverDSProps, type PopoverOpenChangeDetails };
 //# sourceMappingURL=popover.d.ts.map

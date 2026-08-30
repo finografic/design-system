@@ -1,4 +1,4 @@
-import { defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.12.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
+import { defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.12.0_typescript@7.0.2/node_modules/@pandacss/dev/dist/index.js";
 //#region src/tokens/sizes.tokens.ts
 /**
 * Sizes token scale for Panda CSS.

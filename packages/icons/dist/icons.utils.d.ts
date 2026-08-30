@@ -1,10 +1,10 @@
 import { LucideProps } from "lucide-react";
 import React from "react";
-
 //#region src/icons.utils.d.ts
 /** Lucide-compatible icon props plus DS `data-*` attributes. */
 type IconProps = LucideProps & {
-  /** Stroke color shorthand — same as [lucide-react `color`](https://lucide.dev/guide/react/basics/color). */color?: string;
+  /** Stroke color shorthand — same as [lucide-react `color`](https://lucide.dev/guide/react/basics/color). */
+  color?: string;
   [key: `data-${string}`]: string | undefined;
 };
 /**

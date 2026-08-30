@@ -17,5 +17,5 @@ type MediaQueryType = 'min' | 'max';
 type MediaQueryMap = Record<MediaQueryType, Partial<BreakpointMap<number>>>;
 interface ColumnSizes extends BreakpointMap<number> {}
 //#endregion
-export { BreakpointDefaults, BreakpointMap, ColumnSizes, MediaQueryMap, MediaQueryProps, ScreenClass };
+export { BreakpointDefaults, BreakpointMap, ColumnSizes, MediaQueryMap, MediaQueryProps, MediaQueryType, ScreenClass };
 //# sourceMappingURL=viewport.types.d.ts.map

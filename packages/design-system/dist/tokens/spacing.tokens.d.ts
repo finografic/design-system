@@ -41,7 +41,8 @@ declare const spacingTokens: {
   };
   '10': {
     value: string;
-  }; /** Between 10 and 12 — used by button `lg`, select trigger, editable, tags-input, etc. */
+  };
+  /** Between 10 and 12 — used by button `lg`, select trigger, editable, tags-input, etc. */
   '11': {
     value: string;
   };
@@ -87,7 +88,8 @@ declare const zIndexTokens: {
   };
   sticky: {
     value: number;
-  }; /** Floating lists: must be > sticky */
+  };
+  /** Floating lists: must be > sticky */
   dropdown: {
     value: number;
   };

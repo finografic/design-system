@@ -18,8 +18,10 @@ const InputFieldRoot = forwardRef(({ children, className, size = "md", invalid, 
 	const leadingSlots = [];
 	const trailingSlots = [];
 	Children.forEach(children, (child) => {
-		if (isValidElement(child) && child.type === InputFieldSlot) if ((child.props.side ?? "left") === "right") trailingSlots.push(child);
-		else leadingSlots.push(child);
+		if (isValidElement(child) && child.type === InputFieldSlot) {
+			if ((child.props.side ?? "left") === "right") trailingSlots.push(child);
+			else leadingSlots.push(child);
+		}
 	});
 	const styles = inputFieldRecipe({
 		size,

@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/accordion/accordion.recipe.d.ts
-declare const accordionRecipe: SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {
+declare const accordionRecipe: SlotRecipeRuntimeFn<"item" | "itemBody" | "itemContent" | "itemIndicator" | "itemTrigger" | "root", {
   size: {
     sm: {
       itemTrigger: {

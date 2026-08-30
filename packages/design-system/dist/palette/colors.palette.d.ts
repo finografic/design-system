@@ -5,7 +5,7 @@
 declare const colors: {
   readonly white: string;
   readonly black: string;
-  readonly transparent: "transparent";
+  readonly transparent: 'transparent';
   readonly primaryXXXLight: string;
   readonly primaryXXLight: string;
   readonly primaryXLight: string;

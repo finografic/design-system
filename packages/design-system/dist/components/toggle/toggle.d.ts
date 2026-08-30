@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { ToggleRecipeProps } from "./toggle.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Toggle } from "@ark-ui/react";
-
 //#region src/components/toggle/toggle.d.ts
 /**
  * Styled Ark **Toggle** compound — each part is wired to `toggleRecipe` via context.
@@ -25,7 +23,8 @@ import { Toggle } from "@ark-ui/react";
  *   ```;
  */
 declare const Toggle$1: {
-  /** Root — `pressed` / `defaultPressed` / `onPressedChange`, `disabled`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Toggle.RootProps & _$react.RefAttributes<HTMLButtonElement>>, SlotRecipeRuntimeFn<"root" | "indicator", {
+  /** Root — `pressed` / `defaultPressed` / `onPressedChange`, `disabled`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Toggle.RootProps & import("react").RefAttributes<HTMLButtonElement>>, SlotRecipeRuntimeFn<"indicator" | "root", {
     size: {
       sm: {
         root: {
@@ -52,15 +51,22 @@ declare const Toggle$1: {
         };
       };
     };
-  }>>; /** Optional icon/indicator slot inside the root button. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Toggle.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>;
+  }>>;
+  /** Optional icon/indicator slot inside the root button. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Toggle.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
 };
 type ToggleDSProps = ToggleRecipeProps & {
-  /** Controlled pressed state. */pressed?: boolean; /** Default pressed state (uncontrolled). */
-  defaultPressed?: boolean; /** Called when pressed state changes — receives a bare boolean (not a detail object). */
-  onChange?: (pressed: boolean) => void; /** Disables the toggle. */
-  disabled?: boolean; /** Content rendered inside the toggle button. */
-  children?: ReactNode; /** Merged onto the root element after recipe classes. */
+  /** Controlled pressed state. */
+  pressed?: boolean;
+  /** Default pressed state (uncontrolled). */
+  defaultPressed?: boolean;
+  /** Called when pressed state changes — receives a bare boolean (not a detail object). */
+  onChange?: (pressed: boolean) => void;
+  /** Disables the toggle. */
+  disabled?: boolean;
+  /** Content rendered inside the toggle button. */
+  children?: ReactNode;
+  /** Merged onto the root element after recipe classes. */
   className?: string;
 };
 /**
@@ -77,16 +83,22 @@ type ToggleDSProps = ToggleRecipeProps & {
  *   </ToggleDS>;
  *   ```;
  */
-declare const ToggleDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const ToggleDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Controlled pressed state. */pressed?: boolean; /** Default pressed state (uncontrolled). */
-  defaultPressed?: boolean; /** Called when pressed state changes — receives a bare boolean (not a detail object). */
-  onChange?: (pressed: boolean) => void; /** Disables the toggle. */
-  disabled?: boolean; /** Content rendered inside the toggle button. */
-  children?: ReactNode; /** Merged onto the root element after recipe classes. */
+  /** Controlled pressed state. */
+  pressed?: boolean;
+  /** Default pressed state (uncontrolled). */
+  defaultPressed?: boolean;
+  /** Called when pressed state changes — receives a bare boolean (not a detail object). */
+  onChange?: (pressed: boolean) => void;
+  /** Disables the toggle. */
+  disabled?: boolean;
+  /** Content rendered inside the toggle button. */
+  children?: ReactNode;
+  /** Merged onto the root element after recipe classes. */
   className?: string;
-} & _$react.RefAttributes<HTMLButtonElement>>;
+} & import("react").RefAttributes<HTMLButtonElement>>;
 //#endregion
 export { Toggle$1 as Toggle, ToggleDS, ToggleDSProps };
 //# sourceMappingURL=toggle.d.ts.map

@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/forms/tags-input/tags-input.recipe.d.ts
-declare const tagsInputRecipe: SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "description" | "control" | "errorText" | "input" | "clearTrigger" | "itemPreview" | "itemInput" | "itemDeleteTrigger", {
+declare const tagsInputRecipe: SlotRecipeRuntimeFn<"clearTrigger" | "control" | "description" | "errorText" | "input" | "item" | "itemDeleteTrigger" | "itemInput" | "itemPreview" | "itemText" | "label" | "root", {
   size: {
     sm: {
       label: {

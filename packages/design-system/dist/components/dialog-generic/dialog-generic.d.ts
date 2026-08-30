@@ -1,6 +1,5 @@
 import { DialogGenericConfig } from "./dialog-generic.types.js";
 import { FC } from "react";
-
 //#region src/components/dialog-generic/dialog-generic.d.ts
 interface DialogGenericProps {
   isOpen: boolean;

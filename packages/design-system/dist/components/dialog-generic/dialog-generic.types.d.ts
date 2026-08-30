@@ -1,7 +1,6 @@
 import { ButtonProps } from "../button/button.js";
 import { DialogSize } from "../dialog/dialog.types.js";
 import React from "react";
-
 //#region src/components/dialog-generic/dialog-generic.types.d.ts
 interface DialogGenericTab {
   id: string;
@@ -41,5 +40,5 @@ interface DialogGenericConfig {
   footer?: DialogGenericFooter | null;
 }
 //#endregion
-export { DialogGenericConfig, DialogGenericFooter, DialogGenericTab };
+export { DialogGenericConfig, DialogGenericFooter, DialogGenericTab, type DialogSize };
 //# sourceMappingURL=dialog-generic.types.d.ts.map

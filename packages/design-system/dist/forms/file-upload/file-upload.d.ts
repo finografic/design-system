@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { FileUploadRecipeProps } from "./file-upload.recipe.js";
-import * as _$react from "react";
 import { HTMLAttributes, ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { FileUpload, FileUploadFileChangeDetails } from "@ark-ui/react/file-upload";
-
 //#region src/forms/file-upload/file-upload.d.ts
 /**
  * Styled Ark **FileUpload** compound — each part is wired to `fileUploadRecipe` via context.
@@ -73,7 +71,8 @@ import { FileUpload, FileUploadFileChangeDetails } from "@ark-ui/react/file-uplo
  *   ```;
  */
 declare const FileUpload$1: {
-  /** Root — `maxFiles`, `accept`, `maxFileSize`, `onFileChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<FileUpload.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "trigger" | "label" | "item" | "itemGroup" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
+  /** Root — `maxFiles`, `accept`, `maxFileSize`, `onFileChange`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<FileUpload.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"dropzone" | "dropzoneContent" | "dropzoneDescription" | "dropzoneIcon" | "dropzoneTitle" | "item" | "itemCompact" | "itemDeleteTrigger" | "itemGroup" | "itemName" | "itemPreview" | "itemPreviewImage" | "itemSizeText" | "label" | "root" | "trigger", {
     size: {
       sm: {
         trigger: {
@@ -211,8 +210,9 @@ declare const FileUpload$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useFileUpload`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<FileUpload.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "trigger" | "label" | "item" | "itemGroup" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
+  }>>;
+  /** Root with external machine state from `useFileUpload`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<FileUpload.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"dropzone" | "dropzoneContent" | "dropzoneDescription" | "dropzoneIcon" | "dropzoneTitle" | "item" | "itemCompact" | "itemDeleteTrigger" | "itemGroup" | "itemName" | "itemPreview" | "itemPreviewImage" | "itemSizeText" | "label" | "root" | "trigger", {
     size: {
       sm: {
         trigger: {
@@ -350,25 +350,43 @@ declare const FileUpload$1: {
         };
       };
     };
-  }>>; /** Text label above the upload control. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Button that opens the native file picker. */
-  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Drag-and-drop zone. Gains `data-dragging` when a file is dragged over it. */
-  Dropzone: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.DropzoneProps & _$react.RefAttributes<HTMLDivElement>>>; /** Icon wrapper inside the dropzone (no Ark part — plain div). */
-  DropzoneIcon: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** Content wrapper (title + description) inside the dropzone. */
-  DropzoneContent: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** "Drag and drop files here" text inside the dropzone. */
-  DropzoneTitle: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & _$react.RefAttributes<HTMLSpanElement>>>; /** "or click to browse" secondary text inside the dropzone. */
-  DropzoneDescription: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & _$react.RefAttributes<HTMLSpanElement>>>; /** List container — renders as `<ul>` internally. */
-  ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemGroupProps & _$react.RefAttributes<HTMLUListElement>>>; /** Full-layout file row: grid with preview area, name, size, and delete. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemProps & _$react.RefAttributes<HTMLLIElement>>>; /** Compact file row: inline flex with just name and delete. */
-  ItemCompact: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemProps & _$react.RefAttributes<HTMLLIElement>>>; /** Preview area for a file item — use `type="image/*"` or `type=".*"` to target file types. */
-  ItemPreview: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemPreviewProps & _$react.RefAttributes<HTMLImageElement>>>; /** `<img>` rendered inside `ItemPreview` for image files. */
-  ItemPreviewImage: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemPreviewImageProps & _$react.RefAttributes<HTMLImageElement>>>; /** File name text — auto-populated from the `File` object. */
-  ItemName: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemNameProps & _$react.RefAttributes<HTMLDivElement>>>; /** Human-readable file size — auto-populated from the `File` object. */
-  ItemSizeText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemSizeTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Button that removes the file from the list. */
-  ItemDeleteTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<FileUpload.ItemDeleteTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Button that clears all accepted files. No recipe slot — style via className. */
-  ClearTrigger: _$react.ForwardRefExoticComponent<FileUpload.ClearTriggerProps & _$react.RefAttributes<HTMLButtonElement>>; /** Render prop — exposes machine context (acceptedFiles, rejectedFiles, …) to children. */
-  Context: (props: FileUpload.ContextProps) => ReactNode; /** Hidden `<input type="file">` — always include at the end of Root. */
-  HiddenInput: _$react.ForwardRefExoticComponent<FileUpload.HiddenInputProps & _$react.RefAttributes<HTMLInputElement>>;
+  }>>;
+  /** Text label above the upload control. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Button that opens the native file picker. */
+  Trigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Drag-and-drop zone. Gains `data-dragging` when a file is dragged over it. */
+  Dropzone: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.DropzoneProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Icon wrapper inside the dropzone (no Ark part — plain div). */
+  DropzoneIcon: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Content wrapper (title + description) inside the dropzone. */
+  DropzoneContent: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** "Drag and drop files here" text inside the dropzone. */
+  DropzoneTitle: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** "or click to browse" secondary text inside the dropzone. */
+  DropzoneDescription: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** List container — renders as `<ul>` internally. */
+  ItemGroup: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemGroupProps & import("react").RefAttributes<HTMLUListElement>>>;
+  /** Full-layout file row: grid with preview area, name, size, and delete. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemProps & import("react").RefAttributes<HTMLLIElement>>>;
+  /** Compact file row: inline flex with just name and delete. */
+  ItemCompact: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemProps & import("react").RefAttributes<HTMLLIElement>>>;
+  /** Preview area for a file item — use `type="image/*"` or `type=".*"` to target file types. */
+  ItemPreview: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemPreviewProps & import("react").RefAttributes<HTMLImageElement>>>;
+  /** `<img>` rendered inside `ItemPreview` for image files. */
+  ItemPreviewImage: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemPreviewImageProps & import("react").RefAttributes<HTMLImageElement>>>;
+  /** File name text — auto-populated from the `File` object. */
+  ItemName: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemNameProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Human-readable file size — auto-populated from the `File` object. */
+  ItemSizeText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemSizeTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Button that removes the file from the list. */
+  ItemDeleteTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<FileUpload.ItemDeleteTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Button that clears all accepted files. No recipe slot — style via className. */
+  ClearTrigger: import("react").ForwardRefExoticComponent<FileUpload.ClearTriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
+  /** Render prop — exposes machine context (acceptedFiles, rejectedFiles, …) to children. */
+  Context: (props: FileUpload.ContextProps) => ReactNode;
+  /** Hidden `<input type="file">` — always include at the end of Root. */
+  HiddenInput: import("react").ForwardRefExoticComponent<FileUpload.HiddenInputProps & import("react").RefAttributes<HTMLInputElement>>;
 };
 /** Slot class overrides for {@link FileUploadDS}. */
 interface FileUploadDSClassNames {
@@ -383,20 +401,28 @@ interface FileUploadDSClassNames {
   itemDeleteTrigger?: string;
 }
 type FileUploadDSProps = FileUploadRecipeProps & {
-  /** Maximum number of files accepted. */maxFiles?: number; /** Accepted MIME types mapped to extensions, e.g. `{ 'image/*': ['.png', '.jpg'] }`. */
-  accept?: Record<string, string[]>; /** Maximum file size in bytes. */
+  /** Maximum number of files accepted. */
+  maxFiles?: number;
+  /** Accepted MIME types mapped to extensions, e.g. `{ 'image/*': ['.png', '.jpg'] }`. */
+  accept?: Record<string, string[]>;
+  /** Maximum file size in bytes. */
   maxFileSize?: number;
   /**
    * Render mode. - `'trigger'` — shows only the file-picker button (compact/inline use). - `'dropzone'` —
    * shows a dashed drag-and-drop zone (default).
    */
-  variant?: 'trigger' | 'dropzone'; /** Label displayed above the upload control. */
-  label?: ReactNode; /** Heading text inside the dropzone. Defaults to "Drag and drop files here". */
-  dropzoneTitle?: string; /** Secondary text inside the dropzone. Defaults to "or click to browse". */
-  dropzoneDescription?: string; /** Called when the accepted or rejected file list changes. */
+  variant?: 'trigger' | 'dropzone';
+  /** Label displayed above the upload control. */
+  label?: ReactNode;
+  /** Heading text inside the dropzone. Defaults to "Drag and drop files here". */
+  dropzoneTitle?: string;
+  /** Secondary text inside the dropzone. Defaults to "or click to browse". */
+  dropzoneDescription?: string;
+  /** Called when the accepted or rejected file list changes. */
   onChange?: (details: {
     acceptedFiles: File[];
-  }) => void; /** Per-slot class overrides. */
+  }) => void;
+  /** Per-slot class overrides. */
   classNames?: FileUploadDSClassNames;
 };
 /**
@@ -420,25 +446,33 @@ type FileUploadDSProps = FileUploadRecipeProps & {
  *   <FileUploadDS variant="trigger" label="Attach File" onChange={...} />
  *   ```;
  */
-declare const FileUploadDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const FileUploadDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Maximum number of files accepted. */maxFiles?: number; /** Accepted MIME types mapped to extensions, e.g. `{ 'image/*': ['.png', '.jpg'] }`. */
-  accept?: Record<string, string[]>; /** Maximum file size in bytes. */
+  /** Maximum number of files accepted. */
+  maxFiles?: number;
+  /** Accepted MIME types mapped to extensions, e.g. `{ 'image/*': ['.png', '.jpg'] }`. */
+  accept?: Record<string, string[]>;
+  /** Maximum file size in bytes. */
   maxFileSize?: number;
   /**
    * Render mode. - `'trigger'` — shows only the file-picker button (compact/inline use). - `'dropzone'` —
    * shows a dashed drag-and-drop zone (default).
    */
-  variant?: "trigger" | "dropzone"; /** Label displayed above the upload control. */
-  label?: ReactNode; /** Heading text inside the dropzone. Defaults to "Drag and drop files here". */
-  dropzoneTitle?: string; /** Secondary text inside the dropzone. Defaults to "or click to browse". */
-  dropzoneDescription?: string; /** Called when the accepted or rejected file list changes. */
+  variant?: 'trigger' | 'dropzone';
+  /** Label displayed above the upload control. */
+  label?: ReactNode;
+  /** Heading text inside the dropzone. Defaults to "Drag and drop files here". */
+  dropzoneTitle?: string;
+  /** Secondary text inside the dropzone. Defaults to "or click to browse". */
+  dropzoneDescription?: string;
+  /** Called when the accepted or rejected file list changes. */
   onChange?: (details: {
     acceptedFiles: File[];
-  }) => void; /** Per-slot class overrides. */
+  }) => void;
+  /** Per-slot class overrides. */
   classNames?: FileUploadDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { FileUpload$1 as FileUpload, FileUploadDS, FileUploadDSClassNames, FileUploadDSProps, type FileUploadFileChangeDetails };
 //# sourceMappingURL=file-upload.d.ts.map

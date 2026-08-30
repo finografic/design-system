@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { AccordionRecipeProps } from "./accordion.recipe.js";
-import * as _$react from "react";
 import { HTMLAttributes, ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Accordion, AccordionFocusChangeDetails, AccordionValueChangeDetails } from "@ark-ui/react";
-
 //#region src/components/accordion/accordion.d.ts
 /**
  * Styled Ark **Accordion** compound — each part is wired to `accordionRecipe` via context.
@@ -32,7 +30,8 @@ import { Accordion, AccordionFocusChangeDetails, AccordionValueChangeDetails } f
  *   ```;
  */
 declare const Accordion$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, `multiple`, `collapsible`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Accordion.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, `multiple`, `collapsible`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Accordion.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"item" | "itemBody" | "itemContent" | "itemIndicator" | "itemTrigger" | "root", {
     size: {
       sm: {
         itemTrigger: {
@@ -65,8 +64,9 @@ declare const Accordion$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useAccordion`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Accordion.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "item" | "itemTrigger" | "itemContent" | "itemIndicator" | "itemBody", {
+  }>>;
+  /** Root with external machine state from `useAccordion`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Accordion.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"item" | "itemBody" | "itemContent" | "itemIndicator" | "itemTrigger" | "root", {
     size: {
       sm: {
         itemTrigger: {
@@ -99,13 +99,20 @@ declare const Accordion$1: {
         };
       };
     };
-  }>>; /** A single accordion entry — pass a unique `value`. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Accordion.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** The clickable header button that expands/collapses the item. */
-  ItemTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Accordion.ItemTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Collapsible region that shows/hides the body. */
-  ItemContent: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Accordion.ItemContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Rotating chevron (or any icon) placed inside `ItemTrigger`. */
-  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Accordion.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Plain div wrapper for the body content inside `ItemContent`. */
-  ItemBody: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
-  Context: (props: Accordion.ContextProps) => ReactNode; /** Render prop — exposes per-item context inside `Item`. */
+  }>>;
+  /** A single accordion entry — pass a unique `value`. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Accordion.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The clickable header button that expands/collapses the item. */
+  ItemTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Accordion.ItemTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Collapsible region that shows/hides the body. */
+  ItemContent: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Accordion.ItemContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Rotating chevron (or any icon) placed inside `ItemTrigger`. */
+  ItemIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Accordion.ItemIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Plain div wrapper for the body content inside `ItemContent`. */
+  ItemBody: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  Context: (props: Accordion.ContextProps) => ReactNode;
+  /** Render prop — exposes per-item context inside `Item`. */
   ItemContext: (props: Accordion.ItemContextProps) => ReactNode;
 };
 /** A single accordion item descriptor for {@link AccordionDS}. */
@@ -129,14 +136,23 @@ interface AccordionDSClassNames {
   itemBody?: string;
 }
 type AccordionDSProps = AccordionRecipeProps & {
-  /** Item descriptors — each renders a trigger and a collapsible body. */items: AccordionDSItem[]; /** Controlled expanded values. */
-  value?: string[]; /** Default expanded values (uncontrolled). */
-  defaultValue?: string[]; /** Allow multiple items open simultaneously. */
-  multiple?: boolean; /** Allow the open item to be collapsed again. */
-  collapsible?: boolean; /** Called when the expanded values change. */
-  onChange?: (value: string[]) => void; /** Called when keyboard focus moves between triggers. */
-  onFocusChange?: (value: string | null) => void; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  /** Item descriptors — each renders a trigger and a collapsible body. */
+  items: AccordionDSItem[];
+  /** Controlled expanded values. */
+  value?: string[];
+  /** Default expanded values (uncontrolled). */
+  defaultValue?: string[];
+  /** Allow multiple items open simultaneously. */
+  multiple?: boolean;
+  /** Allow the open item to be collapsed again. */
+  collapsible?: boolean;
+  /** Called when the expanded values change. */
+  onChange?: (value: string[]) => void;
+  /** Called when keyboard focus moves between triggers. */
+  onFocusChange?: (value: string | null) => void;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: AccordionDSClassNames;
 };
 /**
@@ -159,19 +175,28 @@ type AccordionDSProps = AccordionRecipeProps & {
  *   />;
  *   ```;
  */
-declare const AccordionDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const AccordionDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Item descriptors — each renders a trigger and a collapsible body. */items: AccordionDSItem[]; /** Controlled expanded values. */
-  value?: string[]; /** Default expanded values (uncontrolled). */
-  defaultValue?: string[]; /** Allow multiple items open simultaneously. */
-  multiple?: boolean; /** Allow the open item to be collapsed again. */
-  collapsible?: boolean; /** Called when the expanded values change. */
-  onChange?: (value: string[]) => void; /** Called when keyboard focus moves between triggers. */
-  onFocusChange?: (value: string | null) => void; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  /** Item descriptors — each renders a trigger and a collapsible body. */
+  items: AccordionDSItem[];
+  /** Controlled expanded values. */
+  value?: string[];
+  /** Default expanded values (uncontrolled). */
+  defaultValue?: string[];
+  /** Allow multiple items open simultaneously. */
+  multiple?: boolean;
+  /** Allow the open item to be collapsed again. */
+  collapsible?: boolean;
+  /** Called when the expanded values change. */
+  onChange?: (value: string[]) => void;
+  /** Called when keyboard focus moves between triggers. */
+  onFocusChange?: (value: string | null) => void;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: AccordionDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Accordion$1 as Accordion, AccordionDS, AccordionDSClassNames, AccordionDSItem, AccordionDSProps, type AccordionFocusChangeDetails, type AccordionValueChangeDetails };
 //# sourceMappingURL=accordion.d.ts.map

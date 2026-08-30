@@ -38,6 +38,6 @@ const layout = {
 	imagePreview: { height: layoutTokens.imagePreview.height }
 };
 //#endregion
-export { layout };
+export { colors, layout };
 
 //# sourceMappingURL=runtime.tokens.js.map

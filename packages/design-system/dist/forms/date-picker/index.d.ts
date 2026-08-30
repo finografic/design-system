@@ -1,2 +1,3 @@
 import { DatePickerRecipeProps, DatePickerSize, datePickerRecipe } from "./date-picker.recipe.js";
 import { DatePicker, DatePickerDS, DatePickerDSClassNames, DatePickerDSProps, DatePickerOpenChangeDetails, DatePickerValueChangeDetails, DateValue } from "./date-picker.js";
+export { DatePicker, DatePickerDS, type DatePickerDSClassNames, type DatePickerDSProps, type DatePickerOpenChangeDetails, DatePickerRecipeProps, DatePickerSize, type DatePickerValueChangeDetails, type DateValue, datePickerRecipe };

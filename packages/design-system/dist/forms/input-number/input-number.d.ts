@@ -1,8 +1,6 @@
 import { InputNumberVariants } from "./input-number.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
 import { FieldError } from "react-hook-form";
-
 //#region src/forms/input-number/input-number.d.ts
 /**
  * Numeric stepper input — Ark `NumberInput` wired to `inputNumberRecipe`.
@@ -55,12 +53,18 @@ type InputNumberProps = InputNumberVariants & {
   name?: string;
   min?: number;
   max?: number;
-  step?: number; /** Decimal places shown and allowed. Default: any */
-  precision?: number; /** Intl.NumberFormat locale (e.g. 'en-US', 'de-DE'). Default: navigator.language */
-  locale?: string; /** Extra Intl.NumberFormat options (e.g. { style: 'currency', currency: 'USD' }) */
-  formatOptions?: Intl.NumberFormatOptions; /** Content rendered at the left edge of the control (e.g. "$", an icon). */
-  prefix?: ReactNode; /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
-  suffix?: ReactNode; /** Show increment/decrement stepper buttons. Default: true */
+  step?: number;
+  /** Decimal places shown and allowed. Default: any */
+  precision?: number;
+  /** Intl.NumberFormat locale (e.g. 'en-US', 'de-DE'). Default: navigator.language */
+  locale?: string;
+  /** Extra Intl.NumberFormat options (e.g. { style: 'currency', currency: 'USD' }) */
+  formatOptions?: Intl.NumberFormatOptions;
+  /** Content rendered at the left edge of the control (e.g. "$", an icon). */
+  prefix?: ReactNode;
+  /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
+  suffix?: ReactNode;
+  /** Show increment/decrement stepper buttons. Default: true */
   showStepper?: boolean;
   label?: ReactNode;
   error?: FieldError | string;
@@ -70,9 +74,9 @@ type InputNumberProps = InputNumberVariants & {
   placeholder?: string;
   className?: string;
 };
-declare const InputNumber: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
-  palette?: "primary" | "success" | "warning" | "danger" | "info" | "default" | undefined;
+declare const InputNumber: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
+  palette?: "danger" | "default" | "info" | "primary" | "success" | "warning" | undefined;
 } & {
   value?: number;
   defaultValue?: number;
@@ -95,12 +99,18 @@ declare const InputNumber: _$react.ForwardRefExoticComponent<{
   name?: string;
   min?: number;
   max?: number;
-  step?: number; /** Decimal places shown and allowed. Default: any */
-  precision?: number; /** Intl.NumberFormat locale (e.g. 'en-US', 'de-DE'). Default: navigator.language */
-  locale?: string; /** Extra Intl.NumberFormat options (e.g. { style: 'currency', currency: 'USD' }) */
-  formatOptions?: Intl.NumberFormatOptions; /** Content rendered at the left edge of the control (e.g. "$", an icon). */
-  prefix?: ReactNode; /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
-  suffix?: ReactNode; /** Show increment/decrement stepper buttons. Default: true */
+  step?: number;
+  /** Decimal places shown and allowed. Default: any */
+  precision?: number;
+  /** Intl.NumberFormat locale (e.g. 'en-US', 'de-DE'). Default: navigator.language */
+  locale?: string;
+  /** Extra Intl.NumberFormat options (e.g. { style: 'currency', currency: 'USD' }) */
+  formatOptions?: Intl.NumberFormatOptions;
+  /** Content rendered at the left edge of the control (e.g. "$", an icon). */
+  prefix?: ReactNode;
+  /** Content rendered at the right edge of the control (e.g. "kg", "°C"). Sits left of the stepper buttons. */
+  suffix?: ReactNode;
+  /** Show increment/decrement stepper buttons. Default: true */
   showStepper?: boolean;
   label?: ReactNode;
   error?: FieldError | string;
@@ -109,7 +119,7 @@ declare const InputNumber: _$react.ForwardRefExoticComponent<{
   readOnly?: boolean;
   placeholder?: string;
   className?: string;
-} & _$react.RefAttributes<HTMLInputElement>>;
+} & import("react").RefAttributes<HTMLInputElement>>;
 //#endregion
 export { InputNumber, InputNumberProps };
 //# sourceMappingURL=input-number.d.ts.map

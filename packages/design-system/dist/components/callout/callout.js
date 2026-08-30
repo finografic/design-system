@@ -14,10 +14,11 @@ import { jsx } from "react/jsx-runtime";
 *   ```;
 */
 const Callout = forwardRef(({ status, className, children, ...props }, ref) => {
+	const styles = calloutRecipe({ status });
 	return /* @__PURE__ */ jsx("div", {
 		ref,
 		role: "alert",
-		className: cx(calloutRecipe({ status }), className),
+		className: cx(styles, className),
 		...props,
 		children
 	});

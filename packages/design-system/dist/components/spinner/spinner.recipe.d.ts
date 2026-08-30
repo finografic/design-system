@@ -1,1 +1,1 @@
-export { };
+import "../../packages/design-system/styled-system/types/index.js";

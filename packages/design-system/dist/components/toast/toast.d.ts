@@ -1,8 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import * as _$react from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import "../../packages/design-system/styled-system/types/index.js";
 import { Toast, Toaster, createToaster } from "@ark-ui/react";
-
 //#region src/components/toast/toast.d.ts
 /**
  * Styled Ark **Toast** compound — each part is wired to `toastRecipe` via context.
@@ -44,7 +42,8 @@ import { Toast, Toaster, createToaster } from "@ark-ui/react";
  * ```
  */
 declare const Toast$1: {
-  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Toast.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "title" | "description" | "closeTrigger" | "actionTrigger", {
+  /** Toast root — accepts `status` variant (info | success | warning | error). @default 'info' */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Toast.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"actionTrigger" | "closeTrigger" | "description" | "root" | "title", {
     status: {
       info: {
         root: {
@@ -83,12 +82,17 @@ declare const Toast$1: {
         };
       };
     };
-  }>>; /** Toast title — bold label at the top. */
-  Title: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Toast.TitleProps & _$react.RefAttributes<HTMLDivElement>>>; /** Optional supporting description below the title. */
-  Description: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Toast.DescriptionProps & _$react.RefAttributes<HTMLDivElement>>>; /** Absolutely-positioned dismiss button (top-right corner). */
-  CloseTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Toast.CloseTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Optional inline action button. */
-  ActionTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Toast.ActionTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Ark render-prop context. */
-  Context: (props: Toast.ContextProps) => _$react.ReactNode;
+  }>>;
+  /** Toast title — bold label at the top. */
+  Title: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Toast.TitleProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Optional supporting description below the title. */
+  Description: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Toast.DescriptionProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Absolutely-positioned dismiss button (top-right corner). */
+  CloseTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Toast.CloseTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Optional inline action button. */
+  ActionTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Toast.ActionTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Ark render-prop context. */
+  Context: (props: Toast.ContextProps) => import("react").ReactNode;
 };
 //#endregion
 export { Toast$1 as Toast, Toaster, createToaster };

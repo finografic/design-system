@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { ListboxRecipeProps } from "./listbox.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Listbox, ListboxHighlightChangeDetails, ListboxValueChangeDetails } from "@ark-ui/react";
-
 //#region src/forms/listbox/listbox.d.ts
 /**
  * Styled Ark **Listbox** compound — each part is wired to `listboxRecipe` via context.
@@ -43,7 +41,8 @@ import { Listbox, ListboxHighlightChangeDetails, ListboxValueChangeDetails } fro
  *   ```;
  */
 declare const Listbox$1: {
-  /** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Listbox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "label" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
+  /** Root — `collection`, `value`, `onValueChange`, `selectionMode`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<Listbox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "label" | "root", {
     size: {
       sm: {
         item: {
@@ -100,8 +99,9 @@ declare const Listbox$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useListbox`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Listbox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "label" | "item" | "itemText" | "itemIndicator" | "itemGroup" | "itemGroupLabel", {
+  }>>;
+  /** Root with external machine state from `useListbox`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<Listbox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "label" | "root", {
     size: {
       sm: {
         item: {
@@ -158,15 +158,24 @@ declare const Listbox$1: {
         };
       };
     };
-  }>>; /** Text label above the list. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Scrollable list container. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single option row — pass `item` from the collection. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text label inside an item. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Check indicator shown when the item is selected. */
-  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Groups related items — provides visual separation. */
-  ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
-  ItemGroupLabel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Listbox.ItemGroupLabelProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
-  Context: <T extends unknown>(props: Listbox.ContextProps<T>) => ReactNode; /** Render prop — exposes per-item state inside `Item`. */
+  }>>;
+  /** Text label above the list. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Scrollable list container. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** A single option row — pass `item` from the collection. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text label inside an item. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.ItemTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Check indicator shown when the item is selected. */
+  ItemIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.ItemIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Groups related items — provides visual separation. */
+  ItemGroup: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.ItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Section heading for an item group. */
+  ItemGroupLabel: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Listbox.ItemGroupLabelProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  Context: <T extends unknown>(props: Listbox.ContextProps<T>) => ReactNode;
+  /** Render prop — exposes per-item state inside `Item`. */
   ItemContext: (props: Listbox.ItemContextProps) => ReactNode;
 };
 /** A single item descriptor for {@link ListboxDS}. */
@@ -188,14 +197,23 @@ interface ListboxDSClassNames {
   itemIndicator?: string;
 }
 type ListboxDSProps = ListboxRecipeProps & {
-  /** Item descriptors. */items: ListboxDSItem[]; /** Controlled selected values. */
-  value?: string[]; /** Default selected values (uncontrolled). */
-  defaultValue?: string[]; /** Allow multiple selections. */
-  multiple?: boolean; /** Called when the selected values change. */
-  onChange?: (value: string[], items: ListboxDSItem[]) => void; /** Called when the highlighted (keyboard-focused) item changes. */
-  onHighlightChange?: (value: string | null, item: ListboxDSItem | null) => void; /** Called when an item is selected. */
-  onSelect?: (value: string, item: ListboxDSItem) => void; /** Optional label above the list. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  /** Item descriptors. */
+  items: ListboxDSItem[];
+  /** Controlled selected values. */
+  value?: string[];
+  /** Default selected values (uncontrolled). */
+  defaultValue?: string[];
+  /** Allow multiple selections. */
+  multiple?: boolean;
+  /** Called when the selected values change. */
+  onChange?: (value: string[], items: ListboxDSItem[]) => void;
+  /** Called when the highlighted (keyboard-focused) item changes. */
+  onHighlightChange?: (value: string | null, item: ListboxDSItem | null) => void;
+  /** Called when an item is selected. */
+  onSelect?: (value: string, item: ListboxDSItem) => void;
+  /** Optional label above the list. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: ListboxDSClassNames;
 };
 /**
@@ -216,19 +234,28 @@ type ListboxDSProps = ListboxRecipeProps & {
  *   />;
  *   ```;
  */
-declare const ListboxDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const ListboxDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Item descriptors. */items: ListboxDSItem[]; /** Controlled selected values. */
-  value?: string[]; /** Default selected values (uncontrolled). */
-  defaultValue?: string[]; /** Allow multiple selections. */
-  multiple?: boolean; /** Called when the selected values change. */
-  onChange?: (value: string[], items: ListboxDSItem[]) => void; /** Called when the highlighted (keyboard-focused) item changes. */
-  onHighlightChange?: (value: string | null, item: ListboxDSItem | null) => void; /** Called when an item is selected. */
-  onSelect?: (value: string, item: ListboxDSItem) => void; /** Optional label above the list. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  /** Item descriptors. */
+  items: ListboxDSItem[];
+  /** Controlled selected values. */
+  value?: string[];
+  /** Default selected values (uncontrolled). */
+  defaultValue?: string[];
+  /** Allow multiple selections. */
+  multiple?: boolean;
+  /** Called when the selected values change. */
+  onChange?: (value: string[], items: ListboxDSItem[]) => void;
+  /** Called when the highlighted (keyboard-focused) item changes. */
+  onHighlightChange?: (value: string | null, item: ListboxDSItem | null) => void;
+  /** Called when an item is selected. */
+  onSelect?: (value: string, item: ListboxDSItem) => void;
+  /** Optional label above the list. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: ListboxDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Listbox$1 as Listbox, ListboxDS, ListboxDSClassNames, ListboxDSItem, ListboxDSProps, type ListboxHighlightChangeDetails, type ListboxValueChangeDetails };
 //# sourceMappingURL=listbox.d.ts.map

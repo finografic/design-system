@@ -1,4 +1,6 @@
 import { ColorShade, OKLCH } from "../palette/palette.types.js";
+import "./index.js";
+import "../index.js";
 //#region src/tokens/colors.tokens.d.ts
 /**
  * Color tokens for Panda CSS. Keys are referenced as strings in recipes: bg: 'primary', color: 'danger.dark',
@@ -61,224 +63,224 @@ declare const semanticColorTokens: {
   readonly bg: {
     readonly DEFAULT: {
       readonly value: {
-        readonly base: "{colors.white}";
-        readonly _dark: "{colors.black}";
+        readonly base: '{colors.white}';
+        readonly _dark: '{colors.black}';
       };
     };
     readonly subtle: {
       readonly value: {
-        readonly base: "{colors.grey.xlight}";
-        readonly _dark: "{colors.grey.xdark}";
+        readonly base: '{colors.grey.xlight}';
+        readonly _dark: '{colors.grey.xdark}';
       };
     };
     readonly muted: {
       readonly value: {
-        readonly base: "{colors.grey.lighter}";
-        readonly _dark: "{colors.grey.darker}";
+        readonly base: '{colors.grey.lighter}';
+        readonly _dark: '{colors.grey.darker}';
       };
     };
     readonly emphasized: {
       readonly value: {
-        readonly base: "{colors.grey.light}";
-        readonly _dark: "{colors.grey.dark}";
+        readonly base: '{colors.grey.light}';
+        readonly _dark: '{colors.grey.dark}';
       };
     };
     readonly inverted: {
       readonly value: {
-        readonly base: "{colors.black}";
-        readonly _dark: "{colors.white}";
+        readonly base: '{colors.black}';
+        readonly _dark: '{colors.white}';
       };
     };
     readonly surface: {
       readonly value: {
-        readonly base: "{colors.white}";
-        readonly _dark: "oklch(14% 0.01 285)";
+        readonly base: '{colors.white}';
+        readonly _dark: 'oklch(14% 0.01 285)';
       };
     };
     readonly panel: {
       readonly value: {
-        readonly base: "{colors.white}";
-        readonly _dark: "oklch(12% 0.01 285)";
+        readonly base: '{colors.white}';
+        readonly _dark: 'oklch(12% 0.01 285)';
       };
     };
     readonly error: {
       readonly value: {
-        readonly base: "{colors.danger.xlight}";
-        readonly _dark: "{colors.danger.xdark}";
+        readonly base: '{colors.danger.xlight}';
+        readonly _dark: '{colors.danger.xdark}';
       };
     };
     readonly warning: {
       readonly value: {
-        readonly base: "{colors.warning.xlight}";
-        readonly _dark: "{colors.warning.xdark}";
+        readonly base: '{colors.warning.xlight}';
+        readonly _dark: '{colors.warning.xdark}';
       };
     };
     readonly success: {
       readonly value: {
-        readonly base: "{colors.success.xlight}";
-        readonly _dark: "{colors.success.xdark}";
+        readonly base: '{colors.success.xlight}';
+        readonly _dark: '{colors.success.xdark}';
       };
     };
     readonly info: {
       readonly value: {
-        readonly base: "{colors.info.xlight}";
-        readonly _dark: "{colors.info.xdark}";
+        readonly base: '{colors.info.xlight}';
+        readonly _dark: '{colors.info.xdark}';
       };
     };
   };
   readonly fg: {
     readonly DEFAULT: {
       readonly value: {
-        readonly base: "{colors.text}";
-        readonly _dark: "{colors.grey.xxlight}";
+        readonly base: '{colors.text}';
+        readonly _dark: '{colors.grey.xxlight}';
       };
     };
     readonly muted: {
       readonly value: {
-        readonly base: "oklch(40% 0.01 285)";
-        readonly _dark: "oklch(65% 0.01 285)";
+        readonly base: 'oklch(40% 0.01 285)';
+        readonly _dark: 'oklch(65% 0.01 285)';
       };
     };
     readonly subtle: {
       readonly value: {
-        readonly base: "{colors.grey}";
-        readonly _dark: "{colors.grey}";
+        readonly base: '{colors.grey}';
+        readonly _dark: '{colors.grey}';
       };
     };
     readonly inverted: {
       readonly value: {
-        readonly base: "{colors.white}";
-        readonly _dark: "{colors.black}";
+        readonly base: '{colors.white}';
+        readonly _dark: '{colors.black}';
       };
     };
     readonly error: {
       readonly value: {
-        readonly base: "{colors.danger}";
-        readonly _dark: "{colors.danger.light}";
+        readonly base: '{colors.danger}';
+        readonly _dark: '{colors.danger.light}';
       };
     };
     readonly warning: {
       readonly value: {
-        readonly base: "{colors.warning.dark}";
-        readonly _dark: "{colors.warning}";
+        readonly base: '{colors.warning.dark}';
+        readonly _dark: '{colors.warning}';
       };
     };
     readonly success: {
       readonly value: {
-        readonly base: "{colors.success.dark}";
-        readonly _dark: "{colors.success}";
+        readonly base: '{colors.success.dark}';
+        readonly _dark: '{colors.success}';
       };
     };
     readonly info: {
       readonly value: {
-        readonly base: "{colors.info.dark}";
-        readonly _dark: "{colors.info}";
+        readonly base: '{colors.info.dark}';
+        readonly _dark: '{colors.info}';
       };
     };
   };
   readonly border: {
     readonly DEFAULT: {
       readonly value: {
-        readonly base: "{colors.grey.lighter}";
-        readonly _dark: "{colors.grey.darker}";
+        readonly base: '{colors.grey.lighter}';
+        readonly _dark: '{colors.grey.darker}';
       };
     };
     readonly muted: {
       readonly value: {
-        readonly base: "{colors.grey.xlight}";
-        readonly _dark: "{colors.grey.xdark}";
+        readonly base: '{colors.grey.xlight}';
+        readonly _dark: '{colors.grey.xdark}';
       };
     };
     readonly subtle: {
       readonly value: {
-        readonly base: "{colors.grey.xlight}";
-        readonly _dark: "{colors.grey.xxdark}";
+        readonly base: '{colors.grey.xlight}';
+        readonly _dark: '{colors.grey.xxdark}';
       };
     };
     readonly emphasized: {
       readonly value: {
-        readonly base: "{colors.grey.light}";
-        readonly _dark: "{colors.grey.dark}";
+        readonly base: '{colors.grey.light}';
+        readonly _dark: '{colors.grey.dark}';
       };
     };
     readonly inverted: {
       readonly value: {
-        readonly base: "{colors.text}";
-        readonly _dark: "{colors.grey.xlight}";
+        readonly base: '{colors.text}';
+        readonly _dark: '{colors.grey.xlight}';
       };
     };
     readonly error: {
       readonly value: {
-        readonly base: "{colors.danger}";
-        readonly _dark: "{colors.danger.light}";
+        readonly base: '{colors.danger}';
+        readonly _dark: '{colors.danger.light}';
       };
     };
     readonly warning: {
       readonly value: {
-        readonly base: "{colors.warning}";
-        readonly _dark: "{colors.warning.light}";
+        readonly base: '{colors.warning}';
+        readonly _dark: '{colors.warning.light}';
       };
     };
     readonly success: {
       readonly value: {
-        readonly base: "{colors.success}";
-        readonly _dark: "{colors.success.light}";
+        readonly base: '{colors.success}';
+        readonly _dark: '{colors.success.light}';
       };
     };
     readonly info: {
       readonly value: {
-        readonly base: "{colors.info}";
-        readonly _dark: "{colors.info.light}";
+        readonly base: '{colors.info}';
+        readonly _dark: '{colors.info.light}';
       };
     };
   };
   readonly accent: {
     readonly DEFAULT: {
       readonly value: {
-        readonly base: "{colors.primary}";
-        readonly _dark: "{colors.primary.light}";
+        readonly base: '{colors.primary}';
+        readonly _dark: '{colors.primary.light}';
       };
     };
     readonly contrast: {
       readonly value: {
-        readonly base: "{colors.white}";
-        readonly _dark: "{colors.black}";
+        readonly base: '{colors.white}';
+        readonly _dark: '{colors.black}';
       };
     };
     readonly fg: {
       readonly value: {
-        readonly base: "{colors.primary.dark}";
-        readonly _dark: "{colors.primary.light}";
+        readonly base: '{colors.primary.dark}';
+        readonly _dark: '{colors.primary.light}';
       };
     };
     readonly subtle: {
       readonly value: {
-        readonly base: "{colors.primary.xlight}";
-        readonly _dark: "{colors.primary.xdark}";
+        readonly base: '{colors.primary.xlight}';
+        readonly _dark: '{colors.primary.xdark}';
       };
     };
     readonly muted: {
       readonly value: {
-        readonly base: "{colors.primary.lighter}";
-        readonly _dark: "{colors.primary.darker}";
+        readonly base: '{colors.primary.lighter}';
+        readonly _dark: '{colors.primary.darker}';
       };
     };
     readonly emphasized: {
       readonly value: {
-        readonly base: "{colors.primary.light}";
-        readonly _dark: "{colors.primary.dark}";
+        readonly base: '{colors.primary.light}';
+        readonly _dark: '{colors.primary.dark}';
       };
     };
     readonly solid: {
       readonly value: {
-        readonly base: "{colors.primary}";
-        readonly _dark: "{colors.primary}";
+        readonly base: '{colors.primary}';
+        readonly _dark: '{colors.primary}';
       };
     };
     readonly focusRing: {
       readonly value: {
-        readonly base: "{colors.primary.light}";
-        readonly _dark: "{colors.primary.light}";
+        readonly base: '{colors.primary.light}';
+        readonly _dark: '{colors.primary.light}';
       };
     };
   };

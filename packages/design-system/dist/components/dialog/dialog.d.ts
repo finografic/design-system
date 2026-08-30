@@ -1,18 +1,9 @@
 import { DialogVariants } from "./dialog.recipe.js";
 import { DialogRootPropsDS } from "./dialog.types.js";
-import * as _$react from "react";
 import { HTMLAttributes, ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Dialog } from "@ark-ui/react";
-
 //#region src/components/dialog/dialog.d.ts
-declare function Root({
-  onOpenChange,
-  ...props
-}: DialogRootPropsDS): _$react.JSX.Element;
-declare namespace Root {
-  var displayName: string;
-}
+declare function Root({ onOpenChange, ...props }: DialogRootPropsDS): import("react").JSX.Element;
 /**
  * Styled Ark **Dialog** compound — each part is wired to `dialogRecipe` via context.
  *
@@ -47,17 +38,29 @@ declare namespace Root {
  *   ```;
  */
 declare const Dialog$1: {
-  /** Dialog root — accepts `size` variant (xs | sm | md | lg | xl | cover | full). @default 'md' */Root: typeof Root; /** Unstyled trigger — compose with `asChild` + `<Button>` to open the dialog. */
-  Trigger: _$react.ForwardRefExoticComponent<Dialog.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>; /** Fixed overlay behind the dialog panel. */
-  Backdrop: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Dialog.BackdropProps & _$react.RefAttributes<HTMLDivElement>>>; /** Centres the Content panel in the viewport. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Dialog.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** The dialog panel itself. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Dialog.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Flex row: title on the left, close trigger on the right. */
-  Header: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** Dialog title — linked to ARIA `aria-labelledby`. */
-  Title: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Dialog.TitleProps & _$react.RefAttributes<HTMLHeadingElement>>>; /** Visually-hidden description for screen readers — linked to `aria-describedby`. */
-  Description: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Dialog.DescriptionProps & _$react.RefAttributes<HTMLDivElement>>>; /** Scrollable body area. */
-  Body: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** Footer row — right-aligned actions. */
-  Footer: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** Closes the dialog; use `asChild` to render as a Button. */
-  CloseTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Dialog.CloseTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Ark render-prop context. */
+  /** Dialog root — accepts `size` variant (xs | sm | md | lg | xl | cover | full). @default 'md' */
+  Root: typeof Root;
+  /** Unstyled trigger — compose with `asChild` + `<Button>` to open the dialog. */
+  Trigger: import("react").ForwardRefExoticComponent<Dialog.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
+  /** Fixed overlay behind the dialog panel. */
+  Backdrop: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Dialog.BackdropProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Centres the Content panel in the viewport. */
+  Positioner: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Dialog.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The dialog panel itself. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Dialog.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Flex row: title on the left, close trigger on the right. */
+  Header: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Dialog title — linked to ARIA `aria-labelledby`. */
+  Title: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Dialog.TitleProps & import("react").RefAttributes<HTMLHeadingElement>>>;
+  /** Visually-hidden description for screen readers — linked to `aria-describedby`. */
+  Description: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Dialog.DescriptionProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Scrollable body area. */
+  Body: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Footer row — right-aligned actions. */
+  Footer: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Closes the dialog; use `asChild` to render as a Button. */
+  CloseTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Dialog.CloseTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Ark render-prop context. */
   Context: (props: Dialog.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link DialogDS}. */
@@ -77,18 +80,25 @@ type DialogDSProps = DialogVariants & {
    * The trigger element — rendered inside `Dialog.Trigger asChild`. Omit for programmatic-only control (use
    * `open` + `onOpenChange`).
    */
-  trigger?: ReactNode; /** Dialog title rendered in the header. */
+  trigger?: ReactNode;
+  /** Dialog title rendered in the header. */
   title?: ReactNode;
   /**
    * Visually-hidden description for screen readers — linked to `aria-describedby`. If omitted, the slot is
    * not rendered.
    */
-  description?: ReactNode; /** Body content — placed in the scrollable body area. */
-  children?: ReactNode; /** Footer content — typically action buttons. */
-  footer?: ReactNode; /** Controlled open state. */
-  open?: boolean; /** Called when the dialog requests open/close. */
-  onOpenChange?: (open: boolean) => void; /** Whether to show the built-in close button in the header. @default true */
-  closeButton?: boolean; /** Per-slot class overrides. */
+  description?: ReactNode;
+  /** Body content — placed in the scrollable body area. */
+  children?: ReactNode;
+  /** Footer content — typically action buttons. */
+  footer?: ReactNode;
+  /** Controlled open state. */
+  open?: boolean;
+  /** Called when the dialog requests open/close. */
+  onOpenChange?: (open: boolean) => void;
+  /** Whether to show the built-in close button in the header. @default true */
+  closeButton?: boolean;
+  /** Per-slot class overrides. */
   classNames?: DialogDSClassNames;
 };
 /**
@@ -119,27 +129,34 @@ type DialogDSProps = DialogVariants & {
  *   </DialogDS>;
  *   ```;
  */
-declare const DialogDS: _$react.ForwardRefExoticComponent<{
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "full" | "cover" | undefined;
+declare const DialogDS: import("react").ForwardRefExoticComponent<{
+  size?: "cover" | "full" | "lg" | "md" | "sm" | "xl" | "xs" | undefined;
 } & {
   /**
    * The trigger element — rendered inside `Dialog.Trigger asChild`. Omit for programmatic-only control (use
    * `open` + `onOpenChange`).
    */
-  trigger?: ReactNode; /** Dialog title rendered in the header. */
+  trigger?: ReactNode;
+  /** Dialog title rendered in the header. */
   title?: ReactNode;
   /**
    * Visually-hidden description for screen readers — linked to `aria-describedby`. If omitted, the slot is
    * not rendered.
    */
-  description?: ReactNode; /** Body content — placed in the scrollable body area. */
-  children?: ReactNode; /** Footer content — typically action buttons. */
-  footer?: ReactNode; /** Controlled open state. */
-  open?: boolean; /** Called when the dialog requests open/close. */
-  onOpenChange?: (open: boolean) => void; /** Whether to show the built-in close button in the header. @default true */
-  closeButton?: boolean; /** Per-slot class overrides. */
+  description?: ReactNode;
+  /** Body content — placed in the scrollable body area. */
+  children?: ReactNode;
+  /** Footer content — typically action buttons. */
+  footer?: ReactNode;
+  /** Controlled open state. */
+  open?: boolean;
+  /** Called when the dialog requests open/close. */
+  onOpenChange?: (open: boolean) => void;
+  /** Whether to show the built-in close button in the header. @default true */
+  closeButton?: boolean;
+  /** Per-slot class overrides. */
   classNames?: DialogDSClassNames;
-} & _$react.RefAttributes<HTMLButtonElement>>;
+} & import("react").RefAttributes<HTMLButtonElement>>;
 //#endregion
 export { Dialog$1 as Dialog, DialogDS, DialogDSClassNames, DialogDSProps };
 //# sourceMappingURL=dialog.d.ts.map

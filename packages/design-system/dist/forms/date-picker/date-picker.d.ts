@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { DatePickerRecipeProps } from "./date-picker.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { DatePicker, DatePickerOpenChangeDetails, DatePickerValueChangeDetails, DateValue, DateValue as DateValue$1 } from "@ark-ui/react";
-
 //#region src/forms/date-picker/date-picker.d.ts
 /**
  * Styled Ark **DatePicker** compound — each part is wired to `datePickerRecipe` via context.
@@ -35,7 +33,8 @@ import { DatePicker, DatePickerOpenChangeDetails, DatePickerValueChangeDetails, 
  *   ```;
  */
 declare const DatePicker$1: {
-  /** Root — value, handlers, locale, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<DatePicker.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "table" | "root" | "trigger" | "label" | "positioner" | "control" | "input" | "clearTrigger" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
+  /** Root — value, handlers, locale, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<DatePicker.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"clearTrigger" | "content" | "control" | "input" | "label" | "nextTrigger" | "positioner" | "prevTrigger" | "rangeText" | "root" | "table" | "tableCell" | "tableCellTrigger" | "tableHeader" | "trigger" | "view" | "viewControl" | "viewTrigger", {
     size: {
       sm: {
         control: {
@@ -104,8 +103,9 @@ declare const DatePicker$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useDatePicker`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<DatePicker.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "table" | "root" | "trigger" | "label" | "positioner" | "control" | "input" | "clearTrigger" | "view" | "viewControl" | "viewTrigger" | "prevTrigger" | "nextTrigger" | "rangeText" | "tableHeader" | "tableCell" | "tableCellTrigger", {
+  }>>;
+  /** Root with external machine state from `useDatePicker`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<DatePicker.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"clearTrigger" | "content" | "control" | "input" | "label" | "nextTrigger" | "positioner" | "prevTrigger" | "rangeText" | "root" | "table" | "tableCell" | "tableCellTrigger" | "tableHeader" | "trigger" | "view" | "viewControl" | "viewTrigger", {
     size: {
       sm: {
         control: {
@@ -174,24 +174,42 @@ declare const DatePicker$1: {
         };
       };
     };
-  }>>; /** Text label above the control. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Input + trigger wrapper. */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text input for the date value; pass `index={0}` for start, `index={1}` for end (range). */
-  Input: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.InputProps & _$react.RefAttributes<HTMLInputElement>>>; /** Calendar icon button that opens the picker. */
-  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Clear (×) button — visible when a value is selected. */
-  ClearTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.ClearTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Floating positioner that anchors the content panel. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** Calendar panel container. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single calendar view (day / month / year) — conditionally rendered by Zag state. */
-  View: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.ViewProps & _$react.RefAttributes<HTMLDivElement>>>; /** Header row of the view — contains `PrevTrigger`, `ViewTrigger`, `NextTrigger`. */
-  ViewControl: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.ViewControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Button that cycles through day → month → year views. */
-  ViewTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.ViewTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Previous month/year/decade navigation button. */
-  PrevTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.PrevTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Next month/year/decade navigation button. */
-  NextTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.NextTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Displays the current month/year range label. */
-  RangeText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.RangeTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Calendar `<table>` element. */
-  Table: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.TableProps & _$react.RefAttributes<HTMLTableElement>>>; /** Weekday column heading cell (`<th>`). */
-  TableHeader: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.TableHeaderProps & _$react.RefAttributes<HTMLTableCellElement>>>; /** Individual date cell (`<td>`). */
-  TableCell: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.TableCellProps & _$react.RefAttributes<HTMLTableCellElement>>>; /** Clickable button inside a date cell — carries selection/range data attributes. */
-  TableCellTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<DatePicker.TableCellTriggerProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  }>>;
+  /** Text label above the control. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Input + trigger wrapper. */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text input for the date value; pass `index={0}` for start, `index={1}` for end (range). */
+  Input: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.InputProps & import("react").RefAttributes<HTMLInputElement>>>;
+  /** Calendar icon button that opens the picker. */
+  Trigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Clear (×) button — visible when a value is selected. */
+  ClearTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.ClearTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Floating positioner that anchors the content panel. */
+  Positioner: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Calendar panel container. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** A single calendar view (day / month / year) — conditionally rendered by Zag state. */
+  View: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.ViewProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Header row of the view — contains `PrevTrigger`, `ViewTrigger`, `NextTrigger`. */
+  ViewControl: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.ViewControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Button that cycles through day → month → year views. */
+  ViewTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.ViewTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Previous month/year/decade navigation button. */
+  PrevTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.PrevTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Next month/year/decade navigation button. */
+  NextTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.NextTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Displays the current month/year range label. */
+  RangeText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.RangeTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Calendar `<table>` element. */
+  Table: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.TableProps & import("react").RefAttributes<HTMLTableElement>>>;
+  /** Weekday column heading cell (`<th>`). */
+  TableHeader: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.TableHeaderProps & import("react").RefAttributes<HTMLTableCellElement>>>;
+  /** Individual date cell (`<td>`). */
+  TableCell: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.TableCellProps & import("react").RefAttributes<HTMLTableCellElement>>>;
+  /** Clickable button inside a date cell — carries selection/range data attributes. */
+  TableCellTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<DatePicker.TableCellTriggerProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
   Context: (props: DatePicker.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link DatePickerDS}. */
@@ -205,17 +223,29 @@ interface DatePickerDSClassNames {
   content?: string;
 }
 type DatePickerDSProps = DatePickerRecipeProps & {
-  /** Controlled date value(s) — `DateValue` objects from `@internationalized/date`. */value?: DateValue[]; /** Default date value (uncontrolled). */
-  defaultValue?: DateValue[]; /** Called when the value changes — receives `DateValue[]` and ISO string representations. */
-  onChange?: (value: DateValue[], valueAsString: string[]) => void; /** Called when the picker opens or closes. */
-  onOpenChange?: (open: boolean) => void; /** Called when the calendar view changes (day / month / year). */
-  onViewChange?: (view: string) => void; /** Input placeholder text. */
-  placeholder?: string; /** Minimum selectable date. */
-  min?: DateValue; /** Maximum selectable date. */
-  max?: DateValue; /** Disables the entire picker. */
-  disabled?: boolean; /** Native input name for form submission. */
-  name?: string; /** Label rendered above the control. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  /** Controlled date value(s) — `DateValue` objects from `@internationalized/date`. */
+  value?: DateValue[];
+  /** Default date value (uncontrolled). */
+  defaultValue?: DateValue[];
+  /** Called when the value changes — receives `DateValue[]` and ISO string representations. */
+  onChange?: (value: DateValue[], valueAsString: string[]) => void;
+  /** Called when the picker opens or closes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Called when the calendar view changes (day / month / year). */
+  onViewChange?: (view: string) => void;
+  /** Input placeholder text. */
+  placeholder?: string;
+  /** Minimum selectable date. */
+  min?: DateValue;
+  /** Maximum selectable date. */
+  max?: DateValue;
+  /** Disables the entire picker. */
+  disabled?: boolean;
+  /** Native input name for form submission. */
+  name?: string;
+  /** Label rendered above the control. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: DatePickerDSClassNames;
 };
 /**
@@ -230,22 +260,34 @@ type DatePickerDSProps = DatePickerRecipeProps & {
  *   <DatePickerDS label="Date of birth" placeholder="dd/mm/yyyy" onChange={(value) => setDate(value[0])} />;
  *   ```;
  */
-declare const DatePickerDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const DatePickerDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Controlled date value(s) — `DateValue` objects from `@internationalized/date`. */value?: DateValue[]; /** Default date value (uncontrolled). */
-  defaultValue?: DateValue[]; /** Called when the value changes — receives `DateValue[]` and ISO string representations. */
-  onChange?: (value: DateValue[], valueAsString: string[]) => void; /** Called when the picker opens or closes. */
-  onOpenChange?: (open: boolean) => void; /** Called when the calendar view changes (day / month / year). */
-  onViewChange?: (view: string) => void; /** Input placeholder text. */
-  placeholder?: string; /** Minimum selectable date. */
-  min?: DateValue; /** Maximum selectable date. */
-  max?: DateValue; /** Disables the entire picker. */
-  disabled?: boolean; /** Native input name for form submission. */
-  name?: string; /** Label rendered above the control. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  /** Controlled date value(s) — `DateValue` objects from `@internationalized/date`. */
+  value?: DateValue[];
+  /** Default date value (uncontrolled). */
+  defaultValue?: DateValue[];
+  /** Called when the value changes — receives `DateValue[]` and ISO string representations. */
+  onChange?: (value: DateValue[], valueAsString: string[]) => void;
+  /** Called when the picker opens or closes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Called when the calendar view changes (day / month / year). */
+  onViewChange?: (view: string) => void;
+  /** Input placeholder text. */
+  placeholder?: string;
+  /** Minimum selectable date. */
+  min?: DateValue;
+  /** Maximum selectable date. */
+  max?: DateValue;
+  /** Disables the entire picker. */
+  disabled?: boolean;
+  /** Native input name for form submission. */
+  name?: string;
+  /** Label rendered above the control. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: DatePickerDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { DatePicker$1 as DatePicker, DatePickerDS, DatePickerDSClassNames, DatePickerDSProps, type DatePickerOpenChangeDetails, type DatePickerValueChangeDetails, type DateValue$1 as DateValue };
 //# sourceMappingURL=date-picker.d.ts.map

@@ -1,7 +1,6 @@
 import { DialogVariants } from "./dialog.recipe.js";
 import React from "react";
 import { DialogRootProps } from "@ark-ui/react";
-
 //#region src/components/dialog/dialog.types.d.ts
 type DialogSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'cover' | 'full';
 interface DialogRootPropsDS extends Omit<DialogRootProps, 'onOpenChange'>, DialogVariants {

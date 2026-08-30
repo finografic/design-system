@@ -1,4 +1,4 @@
-import { defineKeyframes, defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.12.0_typescript@5.9.3/node_modules/@pandacss/dev/dist/index.js";
+import { defineKeyframes, defineTokens } from "../node_modules/.pnpm/@pandacss_dev@1.12.0_typescript@7.0.2/node_modules/@pandacss/dev/dist/index.js";
 //#region src/tokens/animations.tokens.ts
 /**
 * 🎬 Animation Tokens

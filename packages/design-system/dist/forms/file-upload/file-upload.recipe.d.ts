@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/forms/file-upload/file-upload.recipe.d.ts
-declare const fileUploadRecipe: SlotRecipeRuntimeFn<"root" | "trigger" | "label" | "item" | "itemGroup" | "itemPreview" | "itemDeleteTrigger" | "dropzone" | "dropzoneIcon" | "dropzoneContent" | "dropzoneTitle" | "dropzoneDescription" | "itemCompact" | "itemPreviewImage" | "itemName" | "itemSizeText", {
+declare const fileUploadRecipe: SlotRecipeRuntimeFn<"dropzone" | "dropzoneContent" | "dropzoneDescription" | "dropzoneIcon" | "dropzoneTitle" | "item" | "itemCompact" | "itemDeleteTrigger" | "itemGroup" | "itemName" | "itemPreview" | "itemPreviewImage" | "itemSizeText" | "label" | "root" | "trigger", {
   size: {
     sm: {
       trigger: {

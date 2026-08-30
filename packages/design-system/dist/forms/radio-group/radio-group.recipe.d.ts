@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/forms/radio-group/radio-group.recipe.d.ts
-declare const radioGroupRecipe: SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl" | "description" | "errorText" | "itemDescription", {
+declare const radioGroupRecipe: SlotRecipeRuntimeFn<"description" | "errorText" | "indicator" | "item" | "itemControl" | "itemDescription" | "itemText" | "label" | "root", {
   size: {
     sm: {
       label: {

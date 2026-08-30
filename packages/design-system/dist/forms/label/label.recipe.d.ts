@@ -1,6 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/forms/label/label.recipe.d.ts
 declare const labelRecipe: RecipeRuntimeFn<{
   size: {

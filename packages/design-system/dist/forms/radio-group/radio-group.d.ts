@@ -1,11 +1,9 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RadioGroupVariants } from "./radio-group.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { RadioGroup, RadioGroupRootProps } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
-
 //#region src/forms/radio-group/radio-group.d.ts
 /**
  * Styled Ark **RadioGroup** compound — each part is wired to `radioGroupRecipe` via context.
@@ -32,7 +30,8 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const RadioGroup$1: {
-  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<RadioGroup.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl" | "description" | "errorText" | "itemDescription", {
+  /** Root — accepts `size`, `variant`, and `orientation` variants; value state and `onValueChange`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<RadioGroup.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "errorText" | "indicator" | "item" | "itemControl" | "itemDescription" | "itemText" | "label" | "root", {
     size: {
       sm: {
         label: {
@@ -144,8 +143,9 @@ declare const RadioGroup$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useRadioGroup`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<RadioGroup.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl" | "description" | "errorText" | "itemDescription", {
+  }>>;
+  /** Root with external machine state from `useRadioGroup`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<RadioGroup.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"description" | "errorText" | "indicator" | "item" | "itemControl" | "itemDescription" | "itemText" | "label" | "root", {
     size: {
       sm: {
         label: {
@@ -257,14 +257,21 @@ declare const RadioGroup$1: {
         };
       };
     };
-  }>>; /** Group label above the options. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<RadioGroup.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Clickable row wrapping control + text. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<RadioGroup.ItemProps & _$react.RefAttributes<HTMLLabelElement>>>; /** The radio circle (border + checked fill). */
-  ItemControl: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<RadioGroup.ItemControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Hidden native input for form submission. */
-  ItemHiddenInput: _$react.ForwardRefExoticComponent<RadioGroup.ItemHiddenInputProps & _$react.RefAttributes<HTMLInputElement>>; /** The inner dot shown when checked. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<RadioGroup.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Primary label text for the option. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<RadioGroup.ItemTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Secondary description text for the option. */
-  ItemDescription: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<RadioGroup.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>;
+  }>>;
+  /** Group label above the options. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<RadioGroup.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Clickable row wrapping control + text. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<RadioGroup.ItemProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** The radio circle (border + checked fill). */
+  ItemControl: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<RadioGroup.ItemControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Hidden native input for form submission. */
+  ItemHiddenInput: import("react").ForwardRefExoticComponent<RadioGroup.ItemHiddenInputProps & import("react").RefAttributes<HTMLInputElement>>;
+  /** The inner dot shown when checked. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<RadioGroup.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Primary label text for the option. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<RadioGroup.ItemTextProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Secondary description text for the option. */
+  ItemDescription: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<RadioGroup.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
 };
 /** A single option descriptor for {@link RadioGroupDS}. */
 interface RadioGroupDSOption {
@@ -287,16 +294,25 @@ interface RadioGroupDSClassNames {
   errorText?: string;
 }
 type RadioGroupDSProps = RadioGroupVariants & {
-  /** The selectable options. */options: RadioGroupDSOption[]; /** Controlled selected value. */
-  value?: string; /** Default selected value (uncontrolled). */
-  defaultValue?: string; /** Called when the selected value changes. */
-  onChange?: (value: string) => void; /** Field label rendered above the options. */
-  label?: ReactNode; /** Helper text rendered below the options. */
-  description?: ReactNode; /** RHF FieldError or plain string. */
+  /** The selectable options. */
+  options: RadioGroupDSOption[];
+  /** Controlled selected value. */
+  value?: string;
+  /** Default selected value (uncontrolled). */
+  defaultValue?: string;
+  /** Called when the selected value changes. */
+  onChange?: (value: string) => void;
+  /** Field label rendered above the options. */
+  label?: ReactNode;
+  /** Helper text rendered below the options. */
+  description?: ReactNode;
+  /** RHF FieldError or plain string. */
   error?: FieldError | string;
   name?: string;
-  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  disabled?: boolean;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: RadioGroupDSClassNames;
 };
 /**
@@ -319,23 +335,32 @@ type RadioGroupDSProps = RadioGroupVariants & {
  *   />;
  *   ```;
  */
-declare const RadioGroupDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
-  variant?: "default" | "card" | undefined;
+declare const RadioGroupDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
+  variant?: "card" | "default" | undefined;
   orientation?: "horizontal" | "vertical" | undefined;
 } & {
-  /** The selectable options. */options: RadioGroupDSOption[]; /** Controlled selected value. */
-  value?: string; /** Default selected value (uncontrolled). */
-  defaultValue?: string; /** Called when the selected value changes. */
-  onChange?: (value: string) => void; /** Field label rendered above the options. */
-  label?: ReactNode; /** Helper text rendered below the options. */
-  description?: ReactNode; /** RHF FieldError or plain string. */
+  /** The selectable options. */
+  options: RadioGroupDSOption[];
+  /** Controlled selected value. */
+  value?: string;
+  /** Default selected value (uncontrolled). */
+  defaultValue?: string;
+  /** Called when the selected value changes. */
+  onChange?: (value: string) => void;
+  /** Field label rendered above the options. */
+  label?: ReactNode;
+  /** Helper text rendered below the options. */
+  description?: ReactNode;
+  /** RHF FieldError or plain string. */
   error?: FieldError | string;
   name?: string;
-  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  disabled?: boolean;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: RadioGroupDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { RadioGroup$1 as RadioGroup, RadioGroupDS, RadioGroupDSClassNames, RadioGroupDSOption, RadioGroupDSProps, type RadioGroupRootProps };
 //# sourceMappingURL=radio-group.d.ts.map

@@ -1,6 +1,4 @@
-import * as _$react from "react";
 import { ComponentPropsWithoutRef } from "react";
-
 //#region src/grid/Container.d.ts
 interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
   /** When true, removes the max-width constraint — container spans the full viewport width. */
@@ -24,7 +22,7 @@ interface ContainerProps extends ComponentPropsWithoutRef<'div'> {
  *   </Container>;
  *   ```;
  */
-declare const Container: _$react.ForwardRefExoticComponent<ContainerProps & _$react.RefAttributes<HTMLDivElement>>;
+declare const Container: import("react").ForwardRefExoticComponent<ContainerProps & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Container, type ContainerProps };
 //# sourceMappingURL=Container.d.ts.map

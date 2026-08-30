@@ -1,5 +1,4 @@
 import { ColorName, ColorShade, OKLCH } from "./palette.types.js";
-
 //#region src/palette/palette.utils.d.ts
 /**
  * Raw color palette for Panda CSS `tokens.colors`.

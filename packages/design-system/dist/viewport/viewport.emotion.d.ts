@@ -1,5 +1,4 @@
 import { ScreenClass } from "./viewport.types.js";
-
 //#region src/viewport/viewport.emotion.d.ts
 /** All breakpoint keys in definition order — useful for iteration. */
 declare const sizes: ScreenClass[];

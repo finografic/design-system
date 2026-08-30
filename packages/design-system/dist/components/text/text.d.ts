@@ -1,7 +1,5 @@
 import { TextElement, TextVariants } from "./text.recipe.js";
-import * as _$react from "react";
 import { HTMLAttributes } from "react";
-
 //#region src/components/text/text.d.ts
 type TextProps = TextVariants & HTMLAttributes<HTMLElement> & {
   as?: TextElement;
@@ -21,15 +19,7 @@ type TextProps = TextVariants & HTMLAttributes<HTMLElement> & {
  *   <Text variant="overline" as="div">Category label</Text>
  *   ```;
  */
-declare function Text({
-  as,
-  variant,
-  color,
-  truncate,
-  className,
-  children,
-  ...props
-}: TextProps): _$react.JSX.Element;
+declare function Text({ as, variant, color, truncate, className, children, ...props }: TextProps): import("react").JSX.Element;
 //#endregion
 export { Text, TextProps };
 //# sourceMappingURL=text.d.ts.map

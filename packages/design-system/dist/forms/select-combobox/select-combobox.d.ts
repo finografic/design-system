@@ -1,9 +1,7 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import * as _$react from "react";
+import "../../packages/design-system/styled-system/types/index.js";
 import { HTMLAttributes } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Combobox } from "@ark-ui/react";
-
 //#region src/forms/select-combobox/select-combobox.d.ts
 /**
  * Styled Ark **Combobox** compound — low-level primitive for building searchable selects. Each part is wired
@@ -54,7 +52,8 @@ import { Combobox } from "@ark-ui/react";
  *   ```;
  */
 declare const SelectCombobox: {
-  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "input" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "indicators", {
+  /** Root — `collection`, `value`, `onValueChange`, `onInputValueChange`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<Combobox.RootComponent<{}>, SlotRecipeRuntimeFn<"clearTrigger" | "content" | "control" | "indicators" | "input" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "label" | "positioner" | "root" | "trigger", {
     size: {
       sm: {
         control: {
@@ -144,8 +143,9 @@ declare const SelectCombobox: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useCombobox`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "trigger" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "input" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "indicators", {
+  }>>;
+  /** Root with external machine state from `useCombobox`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<Combobox.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"clearTrigger" | "content" | "control" | "indicators" | "input" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "label" | "positioner" | "root" | "trigger", {
     size: {
       sm: {
         control: {
@@ -235,23 +235,36 @@ declare const SelectCombobox: {
         };
       };
     };
-  }>>; /** Text label above the control. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Input + indicator wrapper — contains `Input`, `ClearTrigger`, `Trigger`. */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text input for filtering options. */
-  Input: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.InputProps & _$react.RefAttributes<HTMLInputElement>>>; /** Plain div wrapper for grouping `ClearTrigger` and `Trigger`. */
-  Indicators: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown chevron button. */
-  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Clear (×) button — visible when a value is selected. */
-  ClearTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ClearTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>;
+  }>>;
+  /** Text label above the control. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Input + indicator wrapper — contains `Input`, `ClearTrigger`, `Trigger`. */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text input for filtering options. */
+  Input: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.InputProps & import("react").RefAttributes<HTMLInputElement>>>;
+  /** Plain div wrapper for grouping `ClearTrigger` and `Trigger`. */
+  Indicators: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Dropdown chevron button. */
+  Trigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Clear (×) button — visible when a value is selected. */
+  ClearTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ClearTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
   /** Floating positioner that anchors the content below the control. */
   /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Omit<Combobox.PositionerProps & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown list panel. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Groups related items with optional label. */
-  ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
-  ItemGroupLabel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemGroupLabelProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single option row — pass `item` from the collection. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text label inside an item. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Check indicator shown when the item is selected. */
-  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Combobox.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
-  Context: <T extends unknown>(props: Combobox.ContextProps<T>) => _$react.ReactNode;
+  Positioner: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Omit<Combobox.PositionerProps & import("react").RefAttributes<HTMLDivElement>, "ref"> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Dropdown list panel. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Groups related items with optional label. */
+  ItemGroup: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Section heading for an item group. */
+  ItemGroupLabel: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemGroupLabelProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** A single option row — pass `item` from the collection. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text label inside an item. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Check indicator shown when the item is selected. */
+  ItemIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Combobox.ItemIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  Context: <T extends unknown>(props: Combobox.ContextProps<T>) => import("react").ReactNode;
 };
 //#endregion
 export { SelectCombobox };

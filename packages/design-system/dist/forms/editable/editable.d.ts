@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { EditableRecipeProps } from "./editable.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Editable, EditableValueChangeDetails } from "@ark-ui/react";
-
 //#region src/forms/editable/editable.d.ts
 /**
  * Styled Ark **Editable** compound — each part is wired to `editableRecipe` via context.
@@ -41,7 +39,8 @@ import { Editable, EditableValueChangeDetails } from "@ark-ui/react";
  *   ```;
  */
 declare const Editable$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "textarea" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `placeholder`, `disabled`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Editable.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"area" | "cancelTrigger" | "control" | "editTrigger" | "input" | "label" | "preview" | "root" | "submitTrigger" | "textarea", {
     size: {
       sm: {
         input: {
@@ -134,8 +133,9 @@ declare const Editable$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useEditable`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Editable.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "textarea" | "input" | "area" | "preview" | "editTrigger" | "submitTrigger" | "cancelTrigger", {
+  }>>;
+  /** Root with external machine state from `useEditable`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Editable.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"area" | "cancelTrigger" | "control" | "editTrigger" | "input" | "label" | "preview" | "root" | "submitTrigger" | "textarea", {
     size: {
       sm: {
         input: {
@@ -228,15 +228,24 @@ declare const Editable$1: {
         };
       };
     };
-  }>>; /** Optional text label above the editable field. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Wrapper that overlays `Input` and `Preview`. */
-  Area: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.AreaProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text input — shown while editing. */
-  Input: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.InputProps & _$react.RefAttributes<HTMLInputElement>>>; /** Read-only display — shown while not editing. */
-  Preview: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.PreviewProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Row of action triggers (Edit / Submit / Cancel). */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Ghost button that enters edit mode. */
-  EditTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.EditTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Accent-filled button that commits the current value. */
-  SubmitTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.SubmitTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Ghost button that discards changes and exits edit mode. */
-  CancelTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Editable.CancelTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Render prop — exposes machine context (e.g. `editing`) to children; no DOM, no recipe slot. */
+  }>>;
+  /** Optional text label above the editable field. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Wrapper that overlays `Input` and `Preview`. */
+  Area: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.AreaProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text input — shown while editing. */
+  Input: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.InputProps & import("react").RefAttributes<HTMLInputElement>>>;
+  /** Read-only display — shown while not editing. */
+  Preview: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.PreviewProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Row of action triggers (Edit / Submit / Cancel). */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Ghost button that enters edit mode. */
+  EditTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.EditTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Accent-filled button that commits the current value. */
+  SubmitTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.SubmitTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Ghost button that discards changes and exits edit mode. */
+  CancelTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Editable.CancelTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Render prop — exposes machine context (e.g. `editing`) to children; no DOM, no recipe slot. */
   Context: (props: Editable.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link EditableDS}. */
@@ -253,16 +262,27 @@ interface EditableDSClassNames {
   cancelTrigger?: string;
 }
 type EditableDSProps = EditableRecipeProps & {
-  /** Controlled value. */value?: string; /** Default value (uncontrolled). */
-  defaultValue?: string; /** Placeholder shown when preview is empty. */
-  placeholder?: string; /** Called as the user types. */
-  onChange?: (value: string) => void; /** Called when the value is committed (Enter / submit trigger). */
-  onValueCommit?: (value: string) => void; /** Called when the value is reverted (Escape / cancel trigger). */
-  onValueRevert?: () => void; /** Disables the field. */
-  disabled?: boolean; /** Makes the field read-only. */
-  readOnly?: boolean; /** Renders a resizable textarea instead of a single-line input. */
-  multiline?: boolean; /** Optional label above the field. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  /** Controlled value. */
+  value?: string;
+  /** Default value (uncontrolled). */
+  defaultValue?: string;
+  /** Placeholder shown when preview is empty. */
+  placeholder?: string;
+  /** Called as the user types. */
+  onChange?: (value: string) => void;
+  /** Called when the value is committed (Enter / submit trigger). */
+  onValueCommit?: (value: string) => void;
+  /** Called when the value is reverted (Escape / cancel trigger). */
+  onValueRevert?: () => void;
+  /** Disables the field. */
+  disabled?: boolean;
+  /** Makes the field read-only. */
+  readOnly?: boolean;
+  /** Renders a resizable textarea instead of a single-line input. */
+  multiline?: boolean;
+  /** Optional label above the field. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: EditableDSClassNames;
 };
 /**
@@ -277,21 +297,32 @@ type EditableDSProps = EditableRecipeProps & {
  *   <EditableDS label="Display name" defaultValue="John Doe" onValueCommit={(value) => updateName(value)} />;
  *   ```;
  */
-declare const EditableDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const EditableDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Controlled value. */value?: string; /** Default value (uncontrolled). */
-  defaultValue?: string; /** Placeholder shown when preview is empty. */
-  placeholder?: string; /** Called as the user types. */
-  onChange?: (value: string) => void; /** Called when the value is committed (Enter / submit trigger). */
-  onValueCommit?: (value: string) => void; /** Called when the value is reverted (Escape / cancel trigger). */
-  onValueRevert?: () => void; /** Disables the field. */
-  disabled?: boolean; /** Makes the field read-only. */
-  readOnly?: boolean; /** Renders a resizable textarea instead of a single-line input. */
-  multiline?: boolean; /** Optional label above the field. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  /** Controlled value. */
+  value?: string;
+  /** Default value (uncontrolled). */
+  defaultValue?: string;
+  /** Placeholder shown when preview is empty. */
+  placeholder?: string;
+  /** Called as the user types. */
+  onChange?: (value: string) => void;
+  /** Called when the value is committed (Enter / submit trigger). */
+  onValueCommit?: (value: string) => void;
+  /** Called when the value is reverted (Escape / cancel trigger). */
+  onValueRevert?: () => void;
+  /** Disables the field. */
+  disabled?: boolean;
+  /** Makes the field read-only. */
+  readOnly?: boolean;
+  /** Renders a resizable textarea instead of a single-line input. */
+  multiline?: boolean;
+  /** Optional label above the field. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: EditableDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Editable$1 as Editable, EditableDS, EditableDSClassNames, EditableDSProps, type EditableValueChangeDetails };
 //# sourceMappingURL=editable.d.ts.map

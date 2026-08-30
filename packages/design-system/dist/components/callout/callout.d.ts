@@ -1,7 +1,5 @@
 import { CalloutVariants } from "./callout.recipe.js";
-import * as _$react from "react";
 import { HTMLAttributes } from "react";
-
 //#region src/components/callout/callout.d.ts
 type CalloutProps = CalloutVariants & HTMLAttributes<HTMLDivElement>;
 /**
@@ -14,9 +12,9 @@ type CalloutProps = CalloutVariants & HTMLAttributes<HTMLDivElement>;
  *   <Callout status="warning">Please review your settings before continuing.</Callout>;
  *   ```;
  */
-declare const Callout: _$react.ForwardRefExoticComponent<{
-  status?: "success" | "warning" | "info" | "error" | undefined;
-} & HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>;
+declare const Callout: import("react").ForwardRefExoticComponent<{
+  status?: "error" | "info" | "success" | "warning" | undefined;
+} & HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Callout, CalloutProps };
 //# sourceMappingURL=callout.d.ts.map

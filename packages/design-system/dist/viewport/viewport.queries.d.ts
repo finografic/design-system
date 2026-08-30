@@ -1,5 +1,4 @@
 import { BreakpointMap, ScreenClass } from "./viewport.types.js";
-
 //#region src/viewport/viewport.queries.d.ts
 /** Min-width media query strings for each breakpoint (no `@media` wrapper). */
 declare const QUERIES_MIN: Record<ScreenClass, string>;

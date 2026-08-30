@@ -1,2 +1,3 @@
 import { TagsInputVariants, tagsInputRecipe } from "./tags-input.recipe.js";
 import { TagsInput, TagsInputDS, TagsInputDSClassNames, TagsInputDSProps, TagsInputHighlightChangeDetails, TagsInputInputValueChangeDetails, TagsInputValueChangeDetails } from "./tags-input.js";
+export { TagsInput, TagsInputDS, type TagsInputDSClassNames, type TagsInputDSProps, type TagsInputHighlightChangeDetails, type TagsInputInputValueChangeDetails, type TagsInputValueChangeDetails, TagsInputVariants, tagsInputRecipe };

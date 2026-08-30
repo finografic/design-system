@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { SegmentGroupRecipeProps } from "./segment-group.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { SegmentGroup, SegmentGroupValueChangeDetails } from "@ark-ui/react";
-
 //#region src/components/segment-group/segment-group.d.ts
 /**
  * Styled Ark **SegmentGroup** compound — each part is wired to `segmentGroupRecipe` via context.
@@ -34,7 +32,8 @@ import { SegmentGroup, SegmentGroupValueChangeDetails } from "@ark-ui/react";
  *   ```;
  */
 declare const SegmentGroup$1: {
-  /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<SegmentGroup.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl", {
+  /** Root — `value` / `defaultValue` / `onValueChange`, `disabled`, `orientation`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<SegmentGroup.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"indicator" | "item" | "itemControl" | "itemText" | "label" | "root", {
     size: {
       sm: {
         item: {
@@ -61,8 +60,9 @@ declare const SegmentGroup$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useSegmentGroup`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<SegmentGroup.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl", {
+  }>>;
+  /** Root with external machine state from `useSegmentGroup`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<SegmentGroup.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"indicator" | "item" | "itemControl" | "itemText" | "label" | "root", {
     size: {
       sm: {
         item: {
@@ -89,13 +89,20 @@ declare const SegmentGroup$1: {
         };
       };
     };
-  }>>; /** Optional label rendered above the segment group. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** A single segment option — wraps `ItemText`, `ItemControl`, `ItemHiddenInput`. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.ItemProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Text label inside a segment item. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.ItemTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Hidden radio control used by Ark internally — `display: none` in recipe. */
-  ItemControl: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.ItemControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Hidden native radio input for form integration. */
-  ItemHiddenInput: _$react.ForwardRefExoticComponent<SegmentGroup.ItemHiddenInputProps & _$react.RefAttributes<HTMLInputElement>>; /** Sliding background pill — position driven by Zag CSS vars. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<SegmentGroup.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
+  }>>;
+  /** Optional label rendered above the segment group. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<SegmentGroup.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** A single segment option — wraps `ItemText`, `ItemControl`, `ItemHiddenInput`. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<SegmentGroup.ItemProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Text label inside a segment item. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<SegmentGroup.ItemTextProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Hidden radio control used by Ark internally — `display: none` in recipe. */
+  ItemControl: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<SegmentGroup.ItemControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Hidden native radio input for form integration. */
+  ItemHiddenInput: import("react").ForwardRefExoticComponent<SegmentGroup.ItemHiddenInputProps & import("react").RefAttributes<HTMLInputElement>>;
+  /** Sliding background pill — position driven by Zag CSS vars. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<SegmentGroup.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes machine context to children; no DOM, no recipe slot. */
   Context: (props: SegmentGroup.ContextProps) => ReactNode;
 };
 /** A single segment option descriptor for {@link SegmentGroupDS}. */
@@ -116,14 +123,23 @@ interface SegmentGroupDSClassNames {
   indicator?: string;
 }
 type SegmentGroupDSProps = SegmentGroupRecipeProps & {
-  /** Segment descriptors. */items: SegmentGroupDSItem[]; /** Controlled selected value. */
-  value?: string; /** Default selected value (uncontrolled). */
-  defaultValue?: string; /** Called when the selected value changes. */
-  onChange?: (value: string | null) => void; /** Disables all segments. */
-  disabled?: boolean; /** Optional group label rendered above the segment row. */
-  label?: ReactNode; /** Layout direction. */
-  orientation?: 'horizontal' | 'vertical'; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  /** Segment descriptors. */
+  items: SegmentGroupDSItem[];
+  /** Controlled selected value. */
+  value?: string;
+  /** Default selected value (uncontrolled). */
+  defaultValue?: string;
+  /** Called when the selected value changes. */
+  onChange?: (value: string | null) => void;
+  /** Disables all segments. */
+  disabled?: boolean;
+  /** Optional group label rendered above the segment row. */
+  label?: ReactNode;
+  /** Layout direction. */
+  orientation?: 'horizontal' | 'vertical';
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: SegmentGroupDSClassNames;
 };
 /**
@@ -145,19 +161,28 @@ type SegmentGroupDSProps = SegmentGroupRecipeProps & {
  *   />;
  *   ```;
  */
-declare const SegmentGroupDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const SegmentGroupDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Segment descriptors. */items: SegmentGroupDSItem[]; /** Controlled selected value. */
-  value?: string; /** Default selected value (uncontrolled). */
-  defaultValue?: string; /** Called when the selected value changes. */
-  onChange?: (value: string | null) => void; /** Disables all segments. */
-  disabled?: boolean; /** Optional group label rendered above the segment row. */
-  label?: ReactNode; /** Layout direction. */
-  orientation?: "horizontal" | "vertical"; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  /** Segment descriptors. */
+  items: SegmentGroupDSItem[];
+  /** Controlled selected value. */
+  value?: string;
+  /** Default selected value (uncontrolled). */
+  defaultValue?: string;
+  /** Called when the selected value changes. */
+  onChange?: (value: string | null) => void;
+  /** Disables all segments. */
+  disabled?: boolean;
+  /** Optional group label rendered above the segment row. */
+  label?: ReactNode;
+  /** Layout direction. */
+  orientation?: 'horizontal' | 'vertical';
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: SegmentGroupDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { SegmentGroup$1 as SegmentGroup, SegmentGroupDS, SegmentGroupDSClassNames, SegmentGroupDSItem, SegmentGroupDSProps, type SegmentGroupValueChangeDetails };
 //# sourceMappingURL=segment-group.d.ts.map

@@ -1,5 +1,4 @@
 import { DataTableProps } from "./data-table.types.js";
-
 //#region src/components/data-table/data-table.d.ts
 /**
  * **DataTable** — TanStack Table wrapper with sorting, filtering, pagination, and row selection.
@@ -19,18 +18,7 @@ import { DataTableProps } from "./data-table.types.js";
  *   <DataTable data={users} columns={columns} classNames={{ table: {} }} />;
  *   ```;
  */
-declare function DataTable<TData>({
-  data,
-  columns,
-  classNames,
-  caption,
-  loading,
-  pageSize,
-  emptyMessage,
-  getRowId,
-  selectedRows,
-  onSelectionChange
-}: DataTableProps<TData>): React.ReactNode;
+declare function DataTable<TData>({ data, columns, classNames, caption, loading, pageSize, emptyMessage, getRowId, selectedRows, onSelectionChange }: DataTableProps<TData>): React.ReactNode;
 //#endregion
 export { DataTable };
 //# sourceMappingURL=data-table.d.ts.map

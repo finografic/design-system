@@ -1,9 +1,7 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
-import * as _$react from "react";
+import "../../packages/design-system/styled-system/types/index.js";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Menu, MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionDetails } from "@ark-ui/react";
-
 //#region src/components/menu/menu.d.ts
 /**
  * Styled Ark **Menu** compound — each part is wired to `menuRecipe` via context.
@@ -43,25 +41,45 @@ import { Menu, MenuHighlightChangeDetails, MenuOpenChangeDetails, MenuSelectionD
  *   ```;
  */
 declare const Menu$1: {
-  /** Root — open state, event handlers (`onSelect`, `onOpenChange`), and recipe variants. */Root: _$_styled_system_jsx0.StyleContextProvider<(props: Menu.RootProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel", SlotRecipeVariantRecord<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel">>>; /** Root with external machine state from `useMenu`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<(props: Menu.RootProviderProps) => _$react.JSX.Element, SlotRecipeRuntimeFn<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel", SlotRecipeVariantRecord<"content" | "root" | "indicator" | "item" | "itemText" | "positioner" | "arrow" | "arrowTip" | "itemIndicator" | "separator" | "itemGroup" | "itemGroupLabel">>>; /** Floating positioner — sets z-index and anchors the panel. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.PositionerProps & _$react.RefAttributes<HTMLDivElement>>>; /** Menu panel — the scrollable list container. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Horizontal rule between sections. */
-  Separator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.SeparatorProps & _$react.RefAttributes<HTMLHRElement>>>; /** A single action row; also used for `CheckboxItem` and `RadioItem`. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text label inside an item — truncates on overflow. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ItemTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Check/radio tick shown when the item is selected. */
-  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Wraps a set of related items; adds vertical spacing between groups. */
-  ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
-  ItemGroupLabel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ItemGroupLabelProps & _$react.RefAttributes<HTMLDivElement>>>; /** Checkbox-style toggleable item — shares the `item` slot. */
-  CheckboxItem: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.CheckboxItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Radio-style item (exclusive within a group) — shares the `item` slot. */
-  RadioItem: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.RadioItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Radio item group — shares the `itemGroup` slot. */
-  RadioItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.RadioItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Arrow element for the floating panel (when `withArrow` is used). */
-  Arrow: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ArrowProps & _$react.RefAttributes<HTMLDivElement>>>; /** The visible arrow tip; styled with a border to match the panel edge. */
-  ArrowTip: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.ArrowTipProps & _$react.RefAttributes<HTMLDivElement>>>; /** Open/close chevron indicator inside a trigger. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Menu.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Unstyled trigger — style with `rootTriggerRecipe` or `buttonRecipe` on the consumer side. */
-  Trigger: _$react.ForwardRefExoticComponent<Menu.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>; /** Right-click context menu trigger — no recipe slot. */
-  ContextTrigger: _$react.ForwardRefExoticComponent<Menu.ContextTriggerProps & _$react.RefAttributes<HTMLButtonElement>>; /** Render prop — exposes machine context to children. */
-  Context: (props: Menu.ContextProps) => ReactNode; /** Render prop — exposes per-item context inside `Item`. */
+  /** Root — open state, event handlers (`onSelect`, `onOpenChange`), and recipe variants. */
+  Root: import("@styled-system/jsx").StyleContextProvider<(props: Menu.RootProps) => import("react").JSX.Element, SlotRecipeRuntimeFn<"arrow" | "arrowTip" | "content" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "root" | "separator", SlotRecipeVariantRecord<"arrow" | "arrowTip" | "content" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "root" | "separator">>>;
+  /** Root with external machine state from `useMenu`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<(props: Menu.RootProviderProps) => import("react").JSX.Element, SlotRecipeRuntimeFn<"arrow" | "arrowTip" | "content" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "root" | "separator", SlotRecipeVariantRecord<"arrow" | "arrowTip" | "content" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "positioner" | "root" | "separator">>>;
+  /** Floating positioner — sets z-index and anchors the panel. */
+  Positioner: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.PositionerProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Menu panel — the scrollable list container. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Horizontal rule between sections. */
+  Separator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.SeparatorProps & import("react").RefAttributes<HTMLHRElement>>>;
+  /** A single action row; also used for `CheckboxItem` and `RadioItem`. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text label inside an item — truncates on overflow. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Check/radio tick shown when the item is selected. */
+  ItemIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Wraps a set of related items; adds vertical spacing between groups. */
+  ItemGroup: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Section heading for an item group. */
+  ItemGroupLabel: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ItemGroupLabelProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Checkbox-style toggleable item — shares the `item` slot. */
+  CheckboxItem: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.CheckboxItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Radio-style item (exclusive within a group) — shares the `item` slot. */
+  RadioItem: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.RadioItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Radio item group — shares the `itemGroup` slot. */
+  RadioItemGroup: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.RadioItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Arrow element for the floating panel (when `withArrow` is used). */
+  Arrow: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ArrowProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The visible arrow tip; styled with a border to match the panel edge. */
+  ArrowTip: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.ArrowTipProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Open/close chevron indicator inside a trigger. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Menu.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Unstyled trigger — style with `rootTriggerRecipe` or `buttonRecipe` on the consumer side. */
+  Trigger: import("react").ForwardRefExoticComponent<Menu.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
+  /** Right-click context menu trigger — no recipe slot. */
+  ContextTrigger: import("react").ForwardRefExoticComponent<Menu.ContextTriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
+  /** Render prop — exposes machine context to children. */
+  Context: (props: Menu.ContextProps) => ReactNode;
+  /** Render prop — exposes per-item context inside `Item`. */
   ItemContext: (props: Menu.ItemContextProps) => ReactNode;
 };
 /** A single menu item for {@link MenuDS}. */
@@ -147,7 +165,7 @@ interface MenuDSProps {
  *   />
  *   ```
  */
-declare const MenuDS: _$react.ForwardRefExoticComponent<MenuDSProps & _$react.RefAttributes<HTMLButtonElement>>;
+declare const MenuDS: import("react").ForwardRefExoticComponent<MenuDSProps & import("react").RefAttributes<HTMLButtonElement>>;
 //#endregion
 export { Menu$1 as Menu, MenuDS, MenuDSClassNames, MenuDSGroup, MenuDSItem, MenuDSProps, type MenuHighlightChangeDetails, type MenuOpenChangeDetails, type MenuSelectionDetails };
 //# sourceMappingURL=menu.d.ts.map

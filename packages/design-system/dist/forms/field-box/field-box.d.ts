@@ -1,16 +1,17 @@
 import { FieldBoxVariants } from "./field-box.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
 import { FieldError } from "react-hook-form";
-
 //#region src/forms/field-box/field-box.d.ts
 type FieldBoxProps = FieldBoxVariants & {
-  /** RHF field name — wires to useFormContext for auto error/warning state */name?: string;
-  label?: ReactNode; /** Hint text shown below the control when no error/warning is active */
+  /** RHF field name — wires to useFormContext for auto error/warning state */
+  name?: string;
+  label?: ReactNode;
+  /** Hint text shown below the control when no error/warning is active */
   hint?: ReactNode;
   required?: boolean;
   children: ReactNode;
-  className?: string; /** Explicit error — used when not inside an RHF FormProvider */
+  className?: string;
+  /** Explicit error — used when not inside an RHF FormProvider */
   error?: FieldError | string;
 };
 /**
@@ -27,16 +28,7 @@ type FieldBoxProps = FieldBoxVariants & {
  * automatic label linkage and aria-invalid wiring. For all other controls (DS Select, custom), it uses a
  * plain div.
  */
-declare function FieldBox({
-  name,
-  label,
-  hint,
-  required,
-  size,
-  children,
-  className,
-  error: externalError
-}: FieldBoxProps): _$react.JSX.Element;
+declare function FieldBox({ name, label, hint, required, size, children, className, error: externalError }: FieldBoxProps): import("react").JSX.Element;
 declare namespace FieldBox {
   var displayName: string;
 }

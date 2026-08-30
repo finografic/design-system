@@ -23,7 +23,7 @@ var __copyProps = (to, from, except, desc) => {
 	}
 	return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule || !__hasOwnProp.call(mod, "default") ? __defProp(target, "default", {
 	value: mod,
 	enumerable: true
 }) : target, mod));
@@ -71,23 +71,25 @@ var newRequestFromIncoming = (method, url, headers, incoming, abortController) =
 		} });
 		return req;
 	}
-	if (!(method === "GET" || method === "HEAD")) if ("rawBody" in incoming && incoming.rawBody instanceof Buffer) init.body = new ReadableStream({ start(controller) {
-		controller.enqueue(incoming.rawBody);
-		controller.close();
-	} });
-	else if (incoming[wrapBodyStream]) {
-		let reader;
-		init.body = new ReadableStream({ async pull(controller) {
-			try {
-				reader ||= Readable.toWeb(incoming).getReader();
-				const { done, value } = await reader.read();
-				if (done) controller.close();
-				else controller.enqueue(value);
-			} catch (error) {
-				controller.error(error);
-			}
+	if (!(method === "GET" || method === "HEAD")) {
+		if ("rawBody" in incoming && incoming.rawBody instanceof Buffer) init.body = new ReadableStream({ start(controller) {
+			controller.enqueue(incoming.rawBody);
+			controller.close();
 		} });
-	} else init.body = Readable.toWeb(incoming);
+		else if (incoming[wrapBodyStream]) {
+			let reader;
+			init.body = new ReadableStream({ async pull(controller) {
+				try {
+					reader ||= Readable.toWeb(incoming).getReader();
+					const { done, value } = await reader.read();
+					if (done) controller.close();
+					else controller.enqueue(value);
+				} catch (error) {
+					controller.error(error);
+				}
+			} });
+		} else init.body = Readable.toWeb(incoming);
+	}
 	return new Request$1(url, init);
 };
 var getRequestCache = Symbol("getRequestCache");
@@ -317,7 +319,7 @@ if (typeof global.crypto === "undefined") global.crypto = crypto;
 var outgoingEnded = Symbol("outgoingEnded");
 var incomingDraining = Symbol("incomingDraining");
 var DRAIN_TIMEOUT_MS = 500;
-var MAX_DRAIN_BYTES = 64 * 1024 * 1024;
+var MAX_DRAIN_BYTES = 67108864;
 var drainIncoming = (incoming) => {
 	const incomingWithDrainState = incoming;
 	if (incoming.destroyed || incomingWithDrainState[incomingDraining]) return;
@@ -397,14 +399,16 @@ var responseViaCache = async (res, outgoing) => {
 };
 var isPromise = (res) => typeof res.then === "function";
 var responseViaResponseObject = async (res, outgoing, options = {}) => {
-	if (isPromise(res)) if (options.errorHandler) try {
-		res = await res;
-	} catch (err) {
-		const errRes = await options.errorHandler(err);
-		if (!errRes) return;
-		res = errRes;
+	if (isPromise(res)) {
+		if (options.errorHandler) try {
+			res = await res;
+		} catch (err) {
+			const errRes = await options.errorHandler(err);
+			if (!errRes) return;
+			res = errRes;
+		}
+		else res = await res.catch(handleFetchError);
 	}
-	else res = await res.catch(handleFetchError);
 	if (cacheKey in res) return responseViaCache(res, outgoing);
 	const resHeaderRecord = buildOutgoingHttpHeaders(res.headers);
 	if (res.body) {
@@ -496,12 +500,13 @@ var getRequestListener = (fetchCallback, options = {}) => {
 			});
 			if (cacheKey in res) return responseViaCache(res, outgoing);
 		} catch (e) {
-			if (!res) if (options.errorHandler) {
-				res = await options.errorHandler(req ? e : toRequestError(e));
-				if (!res) return;
-			} else if (!req) res = handleRequestError();
-			else res = handleFetchError(e);
-			else return handleResponseError(e, outgoing);
+			if (!res) {
+				if (options.errorHandler) {
+					res = await options.errorHandler(req ? e : toRequestError(e));
+					if (!res) return;
+				} else if (!req) res = handleRequestError();
+				else res = handleFetchError(e);
+			} else return handleResponseError(e, outgoing);
 		}
 		try {
 			return await responseViaResponseObject(res, outgoing, options);
@@ -602,9 +607,10 @@ function convertFormDataToBodyData(formData, options) {
 	return form;
 }
 var handleParsingAllValues = (form, key, value) => {
-	if (form[key] !== void 0) if (Array.isArray(form[key])) form[key].push(value);
-	else form[key] = [form[key], value];
-	else if (!key.endsWith("[]")) form[key] = value;
+	if (form[key] !== void 0) {
+		if (Array.isArray(form[key])) form[key].push(value);
+		else form[key] = [form[key], value];
+	} else if (!key.endsWith("[]")) form[key] = value;
 	else form[key] = [value];
 };
 var handleParsingNestedValues = (form, key, value) => {
@@ -658,20 +664,22 @@ var getPattern = (label, next) => {
 	const match = label.match(/^\:([^\{\}]+)(?:\{(.+)\})?$/);
 	if (match) {
 		const cacheKey = `${label}#${next}`;
-		if (!patternCache[cacheKey]) if (match[2]) patternCache[cacheKey] = next && next[0] !== ":" && next[0] !== "*" ? [
-			cacheKey,
-			match[1],
-			new RegExp(`^${match[2]}(?=/${next})`)
-		] : [
-			label,
-			match[1],
-			new RegExp(`^${match[2]}$`)
-		];
-		else patternCache[cacheKey] = [
-			label,
-			match[1],
-			true
-		];
+		if (!patternCache[cacheKey]) {
+			if (match[2]) patternCache[cacheKey] = next && next[0] !== ":" && next[0] !== "*" ? [
+				cacheKey,
+				match[1],
+				new RegExp(`^${match[2]}(?=/${next})`)
+			] : [
+				label,
+				match[1],
+				new RegExp(`^${match[2]}$`)
+			];
+			else patternCache[cacheKey] = [
+				label,
+				match[1],
+				true
+			];
+		}
 		return patternCache[cacheKey];
 	}
 	return null;
@@ -721,13 +729,15 @@ var checkOptionalParameter = (path) => {
 	let basePath = "";
 	segments.forEach((segment) => {
 		if (segment !== "" && !/\:/.test(segment)) basePath += "/" + segment;
-		else if (/\:/.test(segment)) if (segment.charCodeAt(segment.length - 1) === 63) {
-			if (results.length === 0 && basePath === "") results.push("/");
-			else results.push(basePath);
-			const optionalSegment = segment.slice(0, -1);
-			basePath += "/" + optionalSegment;
-			results.push(basePath);
-		} else basePath += "/" + segment;
+		else if (/\:/.test(segment)) {
+			if (segment.charCodeAt(segment.length - 1) === 63) {
+				if (results.length === 0 && basePath === "") results.push("/");
+				else results.push(basePath);
+				const optionalSegment = segment.slice(0, -1);
+				basePath += "/" + optionalSegment;
+				results.push(basePath);
+			} else basePath += "/" + segment;
+		}
 	});
 	return results.filter((v, i, a) => a.indexOf(v) === i);
 };
@@ -1674,11 +1684,13 @@ var Hono$1 = class _Hono {
 	mount(path, applicationHandler, options) {
 		let replaceRequest;
 		let optionHandler;
-		if (options) if (typeof options === "function") optionHandler = options;
-		else {
-			optionHandler = options.optionHandler;
-			if (options.replaceRequest === false) replaceRequest = (request) => request;
-			else replaceRequest = options.replaceRequest;
+		if (options) {
+			if (typeof options === "function") optionHandler = options;
+			else {
+				optionHandler = options.optionHandler;
+				if (options.replaceRequest === false) replaceRequest = (request) => request;
+				else replaceRequest = options.replaceRequest;
+			}
 		}
 		const getOptions = optionHandler ? (c) => {
 			const options2 = optionHandler(c);
@@ -2327,9 +2339,10 @@ var cors = (options) => {
 	const exposeHeadersStr = opts.exposeHeaders?.length ? opts.exposeHeaders.join(",") : void 0;
 	const allowHeadersStr = opts.allowHeaders?.length ? opts.allowHeaders.join(",") : void 0;
 	const findAllowOrigin = ((optsOrigin) => {
-		if (typeof optsOrigin === "string") if (optsOrigin === "*") return () => optsOrigin;
-		else return (origin) => optsOrigin === origin ? origin : null;
-		else if (typeof optsOrigin === "function") return optsOrigin;
+		if (typeof optsOrigin === "string") {
+			if (optsOrigin === "*") return () => optsOrigin;
+			else return (origin) => optsOrigin === origin ? origin : null;
+		} else if (typeof optsOrigin === "function") return optsOrigin;
 		else return (origin) => optsOrigin.includes(origin) ? origin : null;
 	})(opts.origin);
 	const findAllowMethods = ((optsAllowMethods) => {
@@ -2376,7 +2389,9 @@ var cors = (options) => {
 //#endregion
 //#region scripts/generate.ts
 var import_picocolors = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
-	let p = process || {}, argv = p.argv || [], env = p.env || {};
+	let p = process || {};
+	let argv = p.argv || [];
+	let env = p.env || {};
 	let isColorSupported = !(!!env.NO_COLOR || argv.includes("--no-color")) && (!!env.FORCE_COLOR || argv.includes("--color") || p.platform === "win32" || (p.stdout || {}).isTTY && env.TERM !== "dumb" || !!env.CI);
 	let formatter = (open, close, replace = open) => (input) => {
 		let string = "" + input, index = string.indexOf(close, open.length);

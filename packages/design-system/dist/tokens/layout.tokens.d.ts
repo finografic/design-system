@@ -20,37 +20,37 @@
  */
 declare const layoutTokens: {
   readonly header: {
-    readonly height: "70px";
+    readonly height: '70px';
   };
   readonly footer: {
-    readonly height: "70px";
+    readonly height: '70px';
   };
   readonly sidebar: {
-    readonly width: "300px";
+    readonly width: '300px';
   };
   readonly navbar: {
-    readonly height: "41px";
+    readonly height: '41px';
   };
   readonly drawer: {
     readonly bar: {
-      readonly height: "66px";
+      readonly height: '66px';
     };
   };
   readonly content: {
-    readonly maxWidth: "1200px";
+    readonly maxWidth: '1200px';
   };
   readonly imagePreview: {
-    readonly height: "300px";
+    readonly height: '300px';
   };
 };
 declare const LAYOUT_VARS: {
-  readonly headerHeight: "--layout-header-height";
-  readonly footerHeight: "--layout-footer-height";
-  readonly sidebarWidth: "--layout-sidebar-width";
-  readonly navbarHeight: "--layout-navbar-height";
-  readonly drawerBarHeight: "--layout-drawer-bar-height";
-  readonly contentMaxWidth: "--layout-content-max-width";
-  readonly imagePreviewHeight: "--layout-image-preview-height";
+  readonly headerHeight: '--layout-header-height';
+  readonly footerHeight: '--layout-footer-height';
+  readonly sidebarWidth: '--layout-sidebar-width';
+  readonly navbarHeight: '--layout-navbar-height';
+  readonly drawerBarHeight: '--layout-drawer-bar-height';
+  readonly contentMaxWidth: '--layout-content-max-width';
+  readonly imagePreviewHeight: '--layout-image-preview-height';
 };
 type LayoutVarName = (typeof LAYOUT_VARS)[keyof typeof LAYOUT_VARS];
 //#endregion

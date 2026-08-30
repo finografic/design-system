@@ -1,6 +1,4 @@
-import * as _$react from "react";
 import { ComponentPropsWithoutRef } from "react";
-
 //#region src/grid/Row.d.ts
 interface RowProps extends ComponentPropsWithoutRef<'div'> {
   /** Cross-axis alignment of child columns. */
@@ -33,7 +31,7 @@ interface RowProps extends ComponentPropsWithoutRef<'div'> {
  *   </Row>;
  *   ```;
  */
-declare const Row: _$react.ForwardRefExoticComponent<RowProps & _$react.RefAttributes<HTMLDivElement>>;
+declare const Row: import("react").ForwardRefExoticComponent<RowProps & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Row, type RowProps };
 //# sourceMappingURL=Row.d.ts.map

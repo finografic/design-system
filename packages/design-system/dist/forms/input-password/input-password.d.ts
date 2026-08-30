@@ -1,11 +1,9 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { InputPasswordRecipeProps } from "./input-password.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { PasswordInput, PasswordInputVisibilityChangeDetails } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
-
 //#region src/forms/input-password/input-password.d.ts
 /**
  * Styled Ark **PasswordInput** compound — each part is wired to `inputPasswordRecipe` via context.
@@ -32,7 +30,8 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const InputPassword: {
-  /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "visibilityTrigger", {
+  /** Root — `disabled`, `invalid`, `readOnly`, `required`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<PasswordInput.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"control" | "input" | "label" | "root" | "visibilityTrigger", {
     size: {
       sm: {
         control: {
@@ -77,8 +76,9 @@ declare const InputPassword: {
         };
       };
     };
-  }>>; /** Root with external machine state from `usePasswordInput`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<PasswordInput.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "label" | "control" | "input" | "visibilityTrigger", {
+  }>>;
+  /** Root with external machine state from `usePasswordInput`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<PasswordInput.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"control" | "input" | "label" | "root" | "visibilityTrigger", {
     size: {
       sm: {
         control: {
@@ -123,11 +123,16 @@ declare const InputPassword: {
         };
       };
     };
-  }>>; /** Optional text label above the control. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Input + visibility toggle wrapper. */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** The password/text input field. */
-  Input: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.InputProps & _$react.RefAttributes<HTMLInputElement>>>; /** Eye toggle button — switches between showing and hiding the password. */
-  VisibilityTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<PasswordInput.VisibilityTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Render prop — exposes machine context (e.g. `visible`) to children; no DOM, no recipe slot. */
+  }>>;
+  /** Optional text label above the control. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<PasswordInput.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Input + visibility toggle wrapper. */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<PasswordInput.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The password/text input field. */
+  Input: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<PasswordInput.InputProps & import("react").RefAttributes<HTMLInputElement>>>;
+  /** Eye toggle button — switches between showing and hiding the password. */
+  VisibilityTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<PasswordInput.VisibilityTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Render prop — exposes machine context (e.g. `visible`) to children; no DOM, no recipe slot. */
   Context: (props: PasswordInput.ContextProps) => ReactNode;
 };
 /** Slot class overrides for {@link InputPasswordDS}. */
@@ -141,21 +146,37 @@ interface InputPasswordDSClassNames {
   errorText?: string;
 }
 type InputPasswordDSProps = InputPasswordRecipeProps & {
-  /** Current value (controlled). */value?: string; /** Default value (uncontrolled). */
-  defaultValue?: string; /** Placeholder text. */
-  placeholder?: string; /** Called when the input value changes. */
-  onChange?: (value: string) => void; /** Called when the input loses focus. */
-  onBlur?: () => void; /** Called when the input gains focus. */
-  onFocus?: () => void; /** Disables the input. */
-  disabled?: boolean; /** Makes the input read-only. */
-  readOnly?: boolean; /** Marks the input as required. */
-  required?: boolean; /** Marks the input as invalid. */
-  invalid?: boolean; /** Native input name for form submission. */
-  name?: string; /** Native input id. */
-  id?: string; /** Label rendered above the control. */
-  label?: ReactNode; /** Helper text rendered below the control. */
-  description?: ReactNode; /** RHF FieldError or plain string — renders an error message. */
-  error?: FieldError | string; /** Per-slot class overrides. */
+  /** Current value (controlled). */
+  value?: string;
+  /** Default value (uncontrolled). */
+  defaultValue?: string;
+  /** Placeholder text. */
+  placeholder?: string;
+  /** Called when the input value changes. */
+  onChange?: (value: string) => void;
+  /** Called when the input loses focus. */
+  onBlur?: () => void;
+  /** Called when the input gains focus. */
+  onFocus?: () => void;
+  /** Disables the input. */
+  disabled?: boolean;
+  /** Makes the input read-only. */
+  readOnly?: boolean;
+  /** Marks the input as required. */
+  required?: boolean;
+  /** Marks the input as invalid. */
+  invalid?: boolean;
+  /** Native input name for form submission. */
+  name?: string;
+  /** Native input id. */
+  id?: string;
+  /** Label rendered above the control. */
+  label?: ReactNode;
+  /** Helper text rendered below the control. */
+  description?: ReactNode;
+  /** RHF FieldError or plain string — renders an error message. */
+  error?: FieldError | string;
+  /** Per-slot class overrides. */
   classNames?: InputPasswordDSClassNames;
 };
 /**
@@ -175,26 +196,42 @@ type InputPasswordDSProps = InputPasswordRecipeProps & {
  *   />;
  *   ```;
  */
-declare const InputPasswordDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const InputPasswordDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Current value (controlled). */value?: string; /** Default value (uncontrolled). */
-  defaultValue?: string; /** Placeholder text. */
-  placeholder?: string; /** Called when the input value changes. */
-  onChange?: (value: string) => void; /** Called when the input loses focus. */
-  onBlur?: () => void; /** Called when the input gains focus. */
-  onFocus?: () => void; /** Disables the input. */
-  disabled?: boolean; /** Makes the input read-only. */
-  readOnly?: boolean; /** Marks the input as required. */
-  required?: boolean; /** Marks the input as invalid. */
-  invalid?: boolean; /** Native input name for form submission. */
-  name?: string; /** Native input id. */
-  id?: string; /** Label rendered above the control. */
-  label?: ReactNode; /** Helper text rendered below the control. */
-  description?: ReactNode; /** RHF FieldError or plain string — renders an error message. */
-  error?: FieldError | string; /** Per-slot class overrides. */
+  /** Current value (controlled). */
+  value?: string;
+  /** Default value (uncontrolled). */
+  defaultValue?: string;
+  /** Placeholder text. */
+  placeholder?: string;
+  /** Called when the input value changes. */
+  onChange?: (value: string) => void;
+  /** Called when the input loses focus. */
+  onBlur?: () => void;
+  /** Called when the input gains focus. */
+  onFocus?: () => void;
+  /** Disables the input. */
+  disabled?: boolean;
+  /** Makes the input read-only. */
+  readOnly?: boolean;
+  /** Marks the input as required. */
+  required?: boolean;
+  /** Marks the input as invalid. */
+  invalid?: boolean;
+  /** Native input name for form submission. */
+  name?: string;
+  /** Native input id. */
+  id?: string;
+  /** Label rendered above the control. */
+  label?: ReactNode;
+  /** Helper text rendered below the control. */
+  description?: ReactNode;
+  /** RHF FieldError or plain string — renders an error message. */
+  error?: FieldError | string;
+  /** Per-slot class overrides. */
   classNames?: InputPasswordDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { InputPassword, InputPasswordDS, InputPasswordDSClassNames, InputPasswordDSProps, type PasswordInputVisibilityChangeDetails };
 //# sourceMappingURL=input-password.d.ts.map

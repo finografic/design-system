@@ -1,8 +1,6 @@
 import { SlotRecipeRuntimeFn, SlotRecipeVariantRecord } from "../../packages/design-system/styled-system/types/recipe.js";
-import * as _$react from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import "../../packages/design-system/styled-system/types/index.js";
 import { Splitter, SplitterContextProps, SplitterExpandCollapseDetails, SplitterPanelData, SplitterResizeDetails, SplitterResizeEndDetails, UseSplitterProps, UseSplitterReturn, createSplitterRegistry, getSplitterLayout, useSplitter, useSplitterContext } from "@ark-ui/react/splitter";
-
 //#region src/components/splitter/splitter.d.ts
 /**
  * Styled Ark **Splitter** compound — each part is wired to `splitterRecipe` via context.
@@ -53,12 +51,18 @@ import { Splitter, SplitterContextProps, SplitterExpandCollapseDetails, Splitter
  *   ```;
  */
 declare const Splitter$1: {
-  /** Root — `panels`, `defaultSize`, `orientation`, collapsible options. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Splitter.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "panel" | "resizeTrigger" | "resizeTriggerIndicator", SlotRecipeVariantRecord<"root" | "panel" | "resizeTrigger" | "resizeTriggerIndicator">>>; /** Same outer styles as Root when using **`useSplitter`** + `value` from outside. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Splitter.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"root" | "panel" | "resizeTrigger" | "resizeTriggerIndicator", SlotRecipeVariantRecord<"root" | "panel" | "resizeTrigger" | "resizeTriggerIndicator">>>; /** One pane — requires stable **`id`** matching `panels` config. */
-  Panel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Splitter.PanelProps & _$react.RefAttributes<HTMLDivElement>>>; /** Drag handle between two adjacent panels (`id` = `"leftId:rightId"`). */
-  ResizeTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Splitter.ResizeTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Visible thumb inside `ResizeTrigger`. */
-  ResizeTriggerIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Splitter.ResizeTriggerIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes splitter machine API; no DOM, no recipe slot. */
-  Context: (props: Splitter.ContextProps) => _$react.ReactNode;
+  /** Root — `panels`, `defaultSize`, `orientation`, collapsible options. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Splitter.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"panel" | "resizeTrigger" | "resizeTriggerIndicator" | "root", SlotRecipeVariantRecord<"panel" | "resizeTrigger" | "resizeTriggerIndicator" | "root">>>;
+  /** Same outer styles as Root when using **`useSplitter`** + `value` from outside. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Splitter.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"panel" | "resizeTrigger" | "resizeTriggerIndicator" | "root", SlotRecipeVariantRecord<"panel" | "resizeTrigger" | "resizeTriggerIndicator" | "root">>>;
+  /** One pane — requires stable **`id`** matching `panels` config. */
+  Panel: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Splitter.PanelProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Drag handle between two adjacent panels (`id` = `"leftId:rightId"`). */
+  ResizeTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Splitter.ResizeTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Visible thumb inside `ResizeTrigger`. */
+  ResizeTriggerIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Splitter.ResizeTriggerIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes splitter machine API; no DOM, no recipe slot. */
+  Context: (props: Splitter.ContextProps) => import("react").ReactNode;
 };
 //#endregion
 export { Splitter$1 as Splitter, type SplitterContextProps, type SplitterExpandCollapseDetails, type SplitterPanelData, type SplitterResizeDetails, type SplitterResizeEndDetails, type UseSplitterProps, type UseSplitterReturn, createSplitterRegistry, getSplitterLayout, useSplitter, useSplitterContext };

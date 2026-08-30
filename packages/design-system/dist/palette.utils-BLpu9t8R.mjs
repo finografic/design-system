@@ -89,4 +89,4 @@ function createColorTokens(overrides = {}) {
 //#endregion
 export { BASE_COLORS_THEME as i, createColorTokens as n, BASE_COLORS as r, buildShade as t };
 
-//# sourceMappingURL=palette.utils-DzS5VqxG.mjs.map
+//# sourceMappingURL=palette.utils-BLpu9t8R.mjs.map

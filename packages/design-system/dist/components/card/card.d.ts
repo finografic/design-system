@@ -1,7 +1,5 @@
 import { CardVariants } from "./card.recipe.js";
-import * as _$react from "react";
 import { HTMLAttributes } from "react";
-
 //#region src/components/card/card.d.ts
 type CardProps = CardVariants & HTMLAttributes<HTMLDivElement>;
 /**
@@ -17,10 +15,10 @@ type CardProps = CardVariants & HTMLAttributes<HTMLDivElement>;
  *   </Card>;
  *   ```;
  */
-declare const Card: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const Card: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
   variant?: "elevated" | "outlined" | undefined;
-} & HTMLAttributes<HTMLDivElement> & _$react.RefAttributes<HTMLDivElement>>;
+} & HTMLAttributes<HTMLDivElement> & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Card, CardProps };
 //# sourceMappingURL=card.d.ts.map

@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/tree-view/tree-view.recipe.d.ts
-declare const treeViewRecipe: SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "itemIndicator" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
+declare const treeViewRecipe: SlotRecipeRuntimeFn<"branch" | "branchContent" | "branchControl" | "branchIndentGuide" | "branchIndicator" | "branchText" | "item" | "itemIndicator" | "itemText" | "label" | "root" | "tree", {
   size: {
     sm: {
       root: {

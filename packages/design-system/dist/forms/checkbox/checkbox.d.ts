@@ -1,11 +1,9 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { CheckboxVariants } from "./checkbox.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Checkbox } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
-
 //#region src/forms/checkbox/checkbox.d.ts
 /**
  * Styled Ark **Checkbox** compound — each part is wired to `checkboxRecipe` via context.
@@ -32,7 +30,8 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Checkbox$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Checkbox.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "description" | "control" | "errorText", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Checkbox.RootProps & import("react").RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"control" | "description" | "errorText" | "indicator" | "label" | "root", {
     size: {
       sm: {
         control: {
@@ -209,11 +208,15 @@ declare const Checkbox$1: {
         };
       };
     };
-  }>>; /** Box + hit target; receives `control` slot classes from context. */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Checkbox.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Icon container; receives `indicator` slot classes from context. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Checkbox.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text label; receives `label` slot classes from context. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Checkbox.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Native input for forms; no recipe slot. */
-  HiddenInput: _$react.ForwardRefExoticComponent<Checkbox.HiddenInputProps & _$react.RefAttributes<HTMLInputElement>>;
+  }>>;
+  /** Box + hit target; receives `control` slot classes from context. */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Checkbox.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Icon container; receives `indicator` slot classes from context. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Checkbox.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text label; receives `label` slot classes from context. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Checkbox.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Native input for forms; no recipe slot. */
+  HiddenInput: import("react").ForwardRefExoticComponent<Checkbox.HiddenInputProps & import("react").RefAttributes<HTMLInputElement>>;
 };
 /** Slot class overrides for {@link CheckboxDS}. */
 interface CheckboxDSClassNames {
@@ -225,16 +228,24 @@ interface CheckboxDSClassNames {
   errorText?: string;
 }
 type CheckboxDSProps = CheckboxVariants & {
-  /** Label text beside the checkbox */label?: ReactNode; /** Helper text below the label */
-  description?: ReactNode; /** RHF FieldError or plain string */
-  error?: FieldError | string; /** Controlled checked state */
-  checked?: boolean | 'indeterminate'; /** Value toggle — forwarded to Ark `onCheckedChange` internally. */
+  /** Label text beside the checkbox */
+  label?: ReactNode;
+  /** Helper text below the label */
+  description?: ReactNode;
+  /** RHF FieldError or plain string */
+  error?: FieldError | string;
+  /** Controlled checked state */
+  checked?: boolean | 'indeterminate';
+  /** Value toggle — forwarded to Ark `onCheckedChange` internally. */
   onChange?: (checked: boolean | 'indeterminate') => void;
   onBlur?: () => void;
   name?: string;
-  disabled?: boolean; /** Custom indicator icon; defaults to CheckIcon / MinusIcon */
-  indicator?: ReactNode; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides */
+  disabled?: boolean;
+  /** Custom indicator icon; defaults to CheckIcon / MinusIcon */
+  indicator?: ReactNode;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides */
   classNames?: CheckboxDSClassNames;
 };
 /**
@@ -242,22 +253,30 @@ type CheckboxDSProps = CheckboxVariants & {
  * styled compound; **`CheckboxDS`** = packaged DS API (`onChange(checked)`; bare **`Checkbox.Root`** still
  * uses Ark's `onCheckedChange`).
  */
-declare const CheckboxDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
-  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
+declare const CheckboxDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
+  palette?: "danger" | "default" | "grey" | "info" | "primary" | "secondary" | "success" | "warning" | undefined;
 } & {
-  /** Label text beside the checkbox */label?: ReactNode; /** Helper text below the label */
-  description?: ReactNode; /** RHF FieldError or plain string */
-  error?: FieldError | string; /** Controlled checked state */
-  checked?: boolean | "indeterminate"; /** Value toggle — forwarded to Ark `onCheckedChange` internally. */
-  onChange?: (checked: boolean | "indeterminate") => void;
+  /** Label text beside the checkbox */
+  label?: ReactNode;
+  /** Helper text below the label */
+  description?: ReactNode;
+  /** RHF FieldError or plain string */
+  error?: FieldError | string;
+  /** Controlled checked state */
+  checked?: boolean | 'indeterminate';
+  /** Value toggle — forwarded to Ark `onCheckedChange` internally. */
+  onChange?: (checked: boolean | 'indeterminate') => void;
   onBlur?: () => void;
   name?: string;
-  disabled?: boolean; /** Custom indicator icon; defaults to CheckIcon / MinusIcon */
-  indicator?: ReactNode; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides */
+  disabled?: boolean;
+  /** Custom indicator icon; defaults to CheckIcon / MinusIcon */
+  indicator?: ReactNode;
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides */
   classNames?: CheckboxDSClassNames;
-} & _$react.RefAttributes<HTMLLabelElement>>;
+} & import("react").RefAttributes<HTMLLabelElement>>;
 //#endregion
 export { Checkbox$1 as Checkbox, CheckboxDS, CheckboxDSClassNames, CheckboxDSProps };
 //# sourceMappingURL=checkbox.d.ts.map

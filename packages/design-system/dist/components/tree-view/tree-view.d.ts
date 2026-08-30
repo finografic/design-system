@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { TreeViewRecipeProps } from "./tree-view.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { TreeView, TreeViewExpandedChangeDetails, TreeViewSelectionChangeDetails, createTreeCollection } from "@ark-ui/react/tree-view";
-
 //#region src/components/tree-view/tree-view.d.ts
 /**
  * Styled Ark **TreeView** compound — each part is wired to `treeViewRecipe` via context.
@@ -75,7 +73,8 @@ import { TreeView, TreeViewExpandedChangeDetails, TreeViewSelectionChangeDetails
  *   ```;
  */
 declare const TreeView$1: {
-  /** Root — `collection`, `selectedValue`, `onSelectionChange`, `selectionMode`, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<TreeView.RootComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "itemIndicator" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
+  /** Root — `collection`, `selectedValue`, `onSelectionChange`, `selectionMode`, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<TreeView.RootComponent<{}>, SlotRecipeRuntimeFn<"branch" | "branchContent" | "branchControl" | "branchIndentGuide" | "branchIndicator" | "branchText" | "item" | "itemIndicator" | "itemText" | "label" | "root" | "tree", {
     size: {
       sm: {
         root: {
@@ -144,8 +143,9 @@ declare const TreeView$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useTreeView`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<TreeView.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"root" | "label" | "item" | "itemText" | "itemIndicator" | "tree" | "branch" | "branchControl" | "branchIndicator" | "branchText" | "branchContent" | "branchIndentGuide", {
+  }>>;
+  /** Root with external machine state from `useTreeView`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<TreeView.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"branch" | "branchContent" | "branchControl" | "branchIndentGuide" | "branchIndicator" | "branchText" | "item" | "itemIndicator" | "itemText" | "label" | "root" | "tree", {
     size: {
       sm: {
         root: {
@@ -214,19 +214,32 @@ declare const TreeView$1: {
         };
       };
     };
-  }>>; /** Text label above the tree. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.LabelProps & _$react.RefAttributes<HTMLHeadingElement>>>; /** The scrollable tree container — renders as `<ul>`. */
-  Tree: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.TreeProps & _$react.RefAttributes<HTMLDivElement>>>; /** A branch node that has children — wraps BranchControl + BranchContent. */
-  Branch: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.BranchProps & _$react.RefAttributes<HTMLDivElement>>>; /** Clickable header row of a branch — place BranchIndicator + BranchText inside. */
-  BranchControl: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.BranchControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** Rotating chevron that signals expand/collapse state. */
-  BranchIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.BranchIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text + optional icon content inside BranchControl. */
-  BranchText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.BranchTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Collapsible content area containing child nodes. */
-  BranchContent: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.BranchContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Vertical line guide that visually connects children to their parent. */
-  BranchIndentGuide: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.BranchIndentGuideProps & _$react.RefAttributes<HTMLDivElement>>>; /** A leaf node — renders as `<li>`. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Text + optional icon content inside Item. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.ItemTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Optional selection indicator inside Item. */
-  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<TreeView.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Context provider for a node — required wrapper for Branch and Item. */
-  NodeProvider: typeof TreeView.NodeProvider; /** Render prop that exposes node state (expanded, selected, loading) to children. */
+  }>>;
+  /** Text label above the tree. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.LabelProps & import("react").RefAttributes<HTMLHeadingElement>>>;
+  /** The scrollable tree container — renders as `<ul>`. */
+  Tree: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.TreeProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** A branch node that has children — wraps BranchControl + BranchContent. */
+  Branch: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.BranchProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Clickable header row of a branch — place BranchIndicator + BranchText inside. */
+  BranchControl: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.BranchControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Rotating chevron that signals expand/collapse state. */
+  BranchIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.BranchIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text + optional icon content inside BranchControl. */
+  BranchText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.BranchTextProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Collapsible content area containing child nodes. */
+  BranchContent: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.BranchContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Vertical line guide that visually connects children to their parent. */
+  BranchIndentGuide: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.BranchIndentGuideProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** A leaf node — renders as `<li>`. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Text + optional icon content inside Item. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.ItemTextProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Optional selection indicator inside Item. */
+  ItemIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<TreeView.ItemIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Context provider for a node — required wrapper for Branch and Item. */
+  NodeProvider: typeof TreeView.NodeProvider;
+  /** Render prop that exposes node state (expanded, selected, loading) to children. */
   NodeContext: (props: TreeView.NodeContextProps) => ReactNode;
 };
 /** A node descriptor for {@link TreeViewDS}. */
@@ -251,17 +264,25 @@ interface TreeViewDSClassNames {
   itemText?: string;
 }
 type TreeViewDSProps = TreeViewRecipeProps & {
-  /** Tree nodes to render. Nested `children` create branch nodes. */nodes: TreeViewNode[]; /** Controlled selected node IDs. */
-  selectedValue?: string[]; /** Default selected node IDs (uncontrolled). */
-  defaultSelectedValue?: string[]; /** Allow selecting multiple nodes simultaneously. */
-  multiple?: boolean; /** Called when the selection changes. */
+  /** Tree nodes to render. Nested `children` create branch nodes. */
+  nodes: TreeViewNode[];
+  /** Controlled selected node IDs. */
+  selectedValue?: string[];
+  /** Default selected node IDs (uncontrolled). */
+  defaultSelectedValue?: string[];
+  /** Allow selecting multiple nodes simultaneously. */
+  multiple?: boolean;
+  /** Called when the selection changes. */
   onSelectionChange?: (details: {
     selectedValue: string[];
-  }) => void; /** Called when a branch is expanded or collapsed. */
+  }) => void;
+  /** Called when a branch is expanded or collapsed. */
   onExpandedChange?: (details: {
     expandedValue: string[];
-  }) => void; /** Optional label above the tree. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  }) => void;
+  /** Optional label above the tree. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: TreeViewDSClassNames;
 };
 /**
@@ -286,22 +307,30 @@ type TreeViewDSProps = TreeViewRecipeProps & {
  *   />
  *   ```;
  */
-declare const TreeViewDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const TreeViewDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Tree nodes to render. Nested `children` create branch nodes. */nodes: TreeViewNode[]; /** Controlled selected node IDs. */
-  selectedValue?: string[]; /** Default selected node IDs (uncontrolled). */
-  defaultSelectedValue?: string[]; /** Allow selecting multiple nodes simultaneously. */
-  multiple?: boolean; /** Called when the selection changes. */
+  /** Tree nodes to render. Nested `children` create branch nodes. */
+  nodes: TreeViewNode[];
+  /** Controlled selected node IDs. */
+  selectedValue?: string[];
+  /** Default selected node IDs (uncontrolled). */
+  defaultSelectedValue?: string[];
+  /** Allow selecting multiple nodes simultaneously. */
+  multiple?: boolean;
+  /** Called when the selection changes. */
   onSelectionChange?: (details: {
     selectedValue: string[];
-  }) => void; /** Called when a branch is expanded or collapsed. */
+  }) => void;
+  /** Called when a branch is expanded or collapsed. */
   onExpandedChange?: (details: {
     expandedValue: string[];
-  }) => void; /** Optional label above the tree. */
-  label?: ReactNode; /** Per-slot class overrides. */
+  }) => void;
+  /** Optional label above the tree. */
+  label?: ReactNode;
+  /** Per-slot class overrides. */
   classNames?: TreeViewDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { TreeView$1 as TreeView, TreeViewDS, TreeViewDSClassNames, TreeViewDSProps, type TreeViewExpandedChangeDetails, TreeViewNode, type TreeViewSelectionChangeDetails, createTreeCollection };
 //# sourceMappingURL=tree-view.d.ts.map

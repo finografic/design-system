@@ -1,2 +1,3 @@
 import { FileUploadRecipeProps, FileUploadSize, fileUploadRecipe } from "./file-upload.recipe.js";
 import { FileUpload, FileUploadDS, FileUploadDSClassNames, FileUploadDSProps, FileUploadFileChangeDetails } from "./file-upload.js";
+export { FileUpload, FileUploadDS, type FileUploadDSClassNames, type FileUploadDSProps, type FileUploadFileChangeDetails, FileUploadRecipeProps, FileUploadSize, fileUploadRecipe };

@@ -1,6 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/callout/callout.recipe.d.ts
 declare const calloutRecipe: RecipeRuntimeFn<{
   status: {

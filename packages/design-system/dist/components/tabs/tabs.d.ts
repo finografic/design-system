@@ -1,10 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { TabsRecipeProps } from "./tabs.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Tabs, TabsFocusChangeDetails, TabsValueChangeDetails } from "@ark-ui/react";
-
 //#region src/components/tabs/tabs.d.ts
 /**
  * Styled Ark **Tabs** compound — each part is wired to `tabsRecipe` via context.
@@ -62,7 +60,8 @@ import { Tabs, TabsFocusChangeDetails, TabsValueChangeDetails } from "@ark-ui/re
  *   ```
  */
 declare const Tabs$1: {
-  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator", {
+  /** Root — `defaultValue` / `value` / `onValueChange`, plus `variant` and `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Tabs.RootProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "indicator" | "list" | "root" | "trigger", {
     variant: {
       line: {
         list: {
@@ -193,8 +192,9 @@ declare const Tabs$1: {
         };
       };
     };
-  }>>; /** Same styling as Root when using external machine state from `useTabs`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Tabs.RootProviderProps & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator", {
+  }>>;
+  /** Same styling as Root when using external machine state from `useTabs`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Tabs.RootProviderProps & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "indicator" | "list" | "root" | "trigger", {
     variant: {
       line: {
         list: {
@@ -325,11 +325,16 @@ declare const Tabs$1: {
         };
       };
     };
-  }>>; /** Tab list — lays out triggers and hosts the indicator. */
-  List: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.ListProps & _$react.RefAttributes<HTMLDivElement>>>; /** Tab trigger — one per panel `value`. */
-  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Tab panel — matches a trigger `value`. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Sliding highlight (enclosed) or underline bar (line) — place last inside `Tabs.List`. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Tabs.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — forwards machine context; no DOM, no recipe slot. */
+  }>>;
+  /** Tab list — lays out triggers and hosts the indicator. */
+  List: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Tabs.ListProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Tab trigger — one per panel `value`. */
+  Trigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Tabs.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Tab panel — matches a trigger `value`. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Tabs.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Sliding highlight (enclosed) or underline bar (line) — place last inside `Tabs.List`. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Tabs.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — forwards machine context; no DOM, no recipe slot. */
   Context: (props: Tabs.ContextProps) => ReactNode;
 };
 /** A single tab descriptor for {@link TabsDS}. */
@@ -352,13 +357,21 @@ interface TabsDSClassNames {
   indicator?: string;
 }
 type TabsDSProps = TabsRecipeProps & {
-  /** Tab descriptors — each renders a trigger and a content panel. */tabs: TabsDSTab[]; /** Controlled active tab value. */
-  value?: string; /** Default active tab (uncontrolled). */
-  defaultValue?: string; /** Called when the active tab changes. */
-  onChange?: (value: string) => void; /** Called when keyboard focus moves between triggers. */
-  onFocusChange?: (focusedValue: string | null) => void; /** `"horizontal"` (default) or `"vertical"`. */
-  orientation?: 'horizontal' | 'vertical'; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  /** Tab descriptors — each renders a trigger and a content panel. */
+  tabs: TabsDSTab[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Default active tab (uncontrolled). */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onChange?: (value: string) => void;
+  /** Called when keyboard focus moves between triggers. */
+  onFocusChange?: (focusedValue: string | null) => void;
+  /** `"horizontal"` (default) or `"vertical"`. */
+  orientation?: 'horizontal' | 'vertical';
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: TabsDSClassNames;
 };
 /**
@@ -381,19 +394,27 @@ type TabsDSProps = TabsRecipeProps & {
  *   />;
  *   ```;
  */
-declare const TabsDS: _$react.ForwardRefExoticComponent<{
-  variant?: "line" | "enclosed" | undefined;
-  size?: "sm" | "md" | "lg" | undefined;
+declare const TabsDS: import("react").ForwardRefExoticComponent<{
+  variant?: "enclosed" | "line" | undefined;
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Tab descriptors — each renders a trigger and a content panel. */tabs: TabsDSTab[]; /** Controlled active tab value. */
-  value?: string; /** Default active tab (uncontrolled). */
-  defaultValue?: string; /** Called when the active tab changes. */
-  onChange?: (value: string) => void; /** Called when keyboard focus moves between triggers. */
-  onFocusChange?: (focusedValue: string | null) => void; /** `"horizontal"` (default) or `"vertical"`. */
-  orientation?: "horizontal" | "vertical"; /** Merged onto the root slot after recipe classes. */
-  className?: string; /** Per-slot class overrides. */
+  /** Tab descriptors — each renders a trigger and a content panel. */
+  tabs: TabsDSTab[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Default active tab (uncontrolled). */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onChange?: (value: string) => void;
+  /** Called when keyboard focus moves between triggers. */
+  onFocusChange?: (focusedValue: string | null) => void;
+  /** `"horizontal"` (default) or `"vertical"`. */
+  orientation?: 'horizontal' | 'vertical';
+  /** Merged onto the root slot after recipe classes. */
+  className?: string;
+  /** Per-slot class overrides. */
   classNames?: TabsDSClassNames;
-} & _$react.RefAttributes<HTMLDivElement>>;
+} & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Tabs$1 as Tabs, TabsDS, TabsDSClassNames, TabsDSProps, TabsDSTab, type TabsFocusChangeDetails, type TabsValueChangeDetails };
 //# sourceMappingURL=tabs.d.ts.map

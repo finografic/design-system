@@ -1,5 +1,4 @@
 import { colors } from "../palette/colors.palette.js";
-
 //#region src/tokens/runtime.tokens.d.ts
 declare const layout: {
   readonly fontSize: string;
@@ -32,5 +31,5 @@ declare const layout: {
   };
 };
 //#endregion
-export { layout };
+export { colors, layout };
 //# sourceMappingURL=runtime.tokens.d.ts.map

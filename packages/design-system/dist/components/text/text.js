@@ -31,12 +31,14 @@ const variantToElement = {
 *   ```;
 */
 function Text({ as, variant = "body", color, truncate, className, children, ...props }) {
-	return /* @__PURE__ */ jsx(as ?? variantToElement[variant], {
-		className: cx(textRecipe({
-			variant,
-			color,
-			truncate
-		}), className),
+	const Tag = as ?? variantToElement[variant];
+	const styles = textRecipe({
+		variant,
+		color,
+		truncate
+	});
+	return /* @__PURE__ */ jsx(Tag, {
+		className: cx(styles, className),
 		...props,
 		children
 	});

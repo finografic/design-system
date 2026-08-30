@@ -1,6 +1,6 @@
 import { CheckboxDSClassNames } from "../../forms/checkbox/checkbox.js";
+import "../../forms/checkbox/index.js";
 import { DataTableColumn } from "./data-table.column.js";
-
 //#region src/components/data-table/data-table.types.d.ts
 interface DataTableTableClassNames {
   root?: string;

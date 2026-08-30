@@ -1,6 +1,6 @@
 import { RecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/badge/badge.recipe.d.ts
 declare const badgeRecipe: RecipeRuntimeFn<{
   size: {

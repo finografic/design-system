@@ -1,8 +1,6 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
-import * as _$react from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
+import "../../packages/design-system/styled-system/types/index.js";
 import { CollectionItem, ListCollection, Select, SelectValueChangeDetails, useListCollection } from "@ark-ui/react";
-
 //#region src/forms/select/select.d.ts
 /**
  * Styled Ark **Select** compound — each part is wired to `selectRecipe` via context.
@@ -60,7 +58,7 @@ declare const Select$1: {
    * `positioning={{ strategy: 'fixed', sameWidth: true }}` so the dropdown escapes `overflow: hidden`
    * ancestors. Override via `positioning` prop if needed.
    */
-  Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Omit<Omit<Select.RootProps<unknown>, never> & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "valueText", {
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Omit<Omit<Select.RootProps<unknown>, never> & import("react").RefAttributes<HTMLDivElement>, "ref"> & import("react").RefAttributes<HTMLDivElement>>, SlotRecipeRuntimeFn<"clearTrigger" | "content" | "control" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "label" | "list" | "positioner" | "root" | "trigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -153,8 +151,9 @@ declare const Select$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `useSelect`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"content" | "root" | "list" | "trigger" | "indicator" | "label" | "item" | "itemText" | "positioner" | "itemIndicator" | "control" | "clearTrigger" | "itemGroup" | "itemGroupLabel" | "valueText", {
+  }>>;
+  /** Root with external machine state from `useSelect`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<Select.RootProviderComponent<{}>, SlotRecipeRuntimeFn<"clearTrigger" | "content" | "control" | "indicator" | "item" | "itemGroup" | "itemGroupLabel" | "itemIndicator" | "itemText" | "label" | "list" | "positioner" | "root" | "trigger" | "valueText", {
     size: {
       sm: {
         label: {
@@ -247,23 +246,39 @@ declare const Select$1: {
         };
       };
     };
-  }>>; /** Text label above the trigger. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.LabelProps & _$react.RefAttributes<HTMLLabelElement>>>; /** Flex row wrapping the trigger and optional clear button. */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ControlProps & _$react.RefAttributes<HTMLDivElement>>>; /** The button that opens the dropdown — shows selected value and chevron. */
-  Trigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.TriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Displays selected item label(s); truncates on overflow. */
-  ValueText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ValueTextProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Chevron icon wrapper; rotates 180° when open. */
-  Indicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.IndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
-  Positioner: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Omit<Select.PositionerProps & _$react.RefAttributes<HTMLDivElement>, "ref"> & _$react.RefAttributes<HTMLDivElement>>>; /** Dropdown panel — scrollable list container with scale animation. */
-  Content: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ContentProps & _$react.RefAttributes<HTMLDivElement>>>; /** Flex column wrapping all items and groups. */
-  List: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ListProps & _$react.RefAttributes<HTMLDivElement>>>; /** A single selectable row; check icon appears via `ItemIndicator` when selected. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ItemProps & _$react.RefAttributes<HTMLDivElement>>>; /** Primary label inside an item — truncates on overflow. */
-  ItemText: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ItemTextProps & _$react.RefAttributes<HTMLDivElement>>>; /** Check indicator shown when the item is selected. */
-  ItemIndicator: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ItemIndicatorProps & _$react.RefAttributes<HTMLDivElement>>>; /** Wraps a set of related items; adds vertical spacing between groups. */
-  ItemGroup: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ItemGroupProps & _$react.RefAttributes<HTMLDivElement>>>; /** Section heading for an item group. */
-  ItemGroupLabel: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ItemGroupLabelProps & _$react.RefAttributes<HTMLDivElement>>>; /** Button to clear the current selection — renders inside `Control`. */
-  ClearTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Select.ClearTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Hidden native `<select>` for form integration — no recipe slot. */
-  HiddenSelect: _$react.ForwardRefExoticComponent<Select.HiddenSelectProps & _$react.RefAttributes<HTMLSelectElement>>; /** Render prop — exposes machine context to children. */
-  Context: <T extends unknown>(props: Select.ContextProps<T>) => _$react.ReactNode;
+  }>>;
+  /** Text label above the trigger. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.LabelProps & import("react").RefAttributes<HTMLLabelElement>>>;
+  /** Flex row wrapping the trigger and optional clear button. */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ControlProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** The button that opens the dropdown — shows selected value and chevron. */
+  Trigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.TriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Displays selected item label(s); truncates on overflow. */
+  ValueText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ValueTextProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Chevron icon wrapper; rotates 180° when open. */
+  Indicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.IndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Floating positioner — portalled into document.body to escape ancestor stacking contexts. */
+  Positioner: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Omit<Select.PositionerProps & import("react").RefAttributes<HTMLDivElement>, "ref"> & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Dropdown panel — scrollable list container with scale animation. */
+  Content: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ContentProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Flex column wrapping all items and groups. */
+  List: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ListProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** A single selectable row; check icon appears via `ItemIndicator` when selected. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Primary label inside an item — truncates on overflow. */
+  ItemText: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemTextProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Check indicator shown when the item is selected. */
+  ItemIndicator: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemIndicatorProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Wraps a set of related items; adds vertical spacing between groups. */
+  ItemGroup: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemGroupProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Section heading for an item group. */
+  ItemGroupLabel: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ItemGroupLabelProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Button to clear the current selection — renders inside `Control`. */
+  ClearTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Select.ClearTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Hidden native `<select>` for form integration — no recipe slot. */
+  HiddenSelect: import("react").ForwardRefExoticComponent<Select.HiddenSelectProps & import("react").RefAttributes<HTMLSelectElement>>;
+  /** Render prop — exposes machine context to children. */
+  Context: <T extends unknown>(props: Select.ContextProps<T>) => import("react").ReactNode;
 };
 //#endregion
 export { type CollectionItem, type ListCollection, Select$1 as Select, type SelectValueChangeDetails, useListCollection };

@@ -1,6 +1,4 @@
-import * as _$react from "react";
 import { ComponentPropsWithoutRef } from "react";
-
 //#region src/grid/Col.d.ts
 /** A column span: a number from 1–12, or `'content'` to size to the column's content. */
 type ColSpan = number | 'content';
@@ -40,7 +38,7 @@ interface ColProps extends ComponentPropsWithoutRef<'div'> {
  *   </Row>;
  *   ```;
  */
-declare const Col: _$react.ForwardRefExoticComponent<ColProps & _$react.RefAttributes<HTMLDivElement>>;
+declare const Col: import("react").ForwardRefExoticComponent<ColProps & import("react").RefAttributes<HTMLDivElement>>;
 //#endregion
 export { Col, type ColProps };
 //# sourceMappingURL=Col.d.ts.map

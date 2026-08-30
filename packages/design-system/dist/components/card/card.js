@@ -17,12 +17,13 @@ import { jsx } from "react/jsx-runtime";
 *   ```;
 */
 const Card = forwardRef(({ size, variant, className, children, ...props }, ref) => {
+	const styles = cardRecipe({
+		size,
+		variant
+	});
 	return /* @__PURE__ */ jsx("div", {
 		ref,
-		className: cx(cardRecipe({
-			size,
-			variant
-		}), className),
+		className: cx(styles, className),
 		...props,
 		children
 	});

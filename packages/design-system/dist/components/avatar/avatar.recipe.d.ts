@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/avatar/avatar.recipe.d.ts
-declare const avatarRecipe: SlotRecipeRuntimeFn<"root" | "image" | "fallback", {
+declare const avatarRecipe: SlotRecipeRuntimeFn<"fallback" | "image" | "root", {
   size: {
     sm: {
       root: {

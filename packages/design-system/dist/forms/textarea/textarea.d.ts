@@ -1,10 +1,9 @@
 import { TextareaVariants } from "./textarea.recipe.js";
-import * as _$react from "react";
 import { TextareaHTMLAttributes } from "react";
-
 //#region src/forms/textarea/textarea.d.ts
 type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> & TextareaVariants & {
-  /** Marks the field invalid (adds `aria-invalid` + error border). */invalid?: boolean;
+  /** Marks the field invalid (adds `aria-invalid` + error border). */
+  invalid?: boolean;
 };
 /**
  * Styled multi-line text input — same border, bg, and focus tokens as `InputField`.
@@ -23,12 +22,13 @@ type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
  *   />;
  *   ```;
  */
-declare const Textarea: _$react.ForwardRefExoticComponent<Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size"> & {
-  size?: "sm" | "md" | "lg" | undefined;
-  resize?: "none" | "both" | "horizontal" | "vertical" | undefined;
+declare const Textarea: import("react").ForwardRefExoticComponent<Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size"> & {
+  size?: "lg" | "md" | "sm" | undefined;
+  resize?: "both" | "horizontal" | "none" | "vertical" | undefined;
 } & {
-  /** Marks the field invalid (adds `aria-invalid` + error border). */invalid?: boolean;
-} & _$react.RefAttributes<HTMLTextAreaElement>>;
+  /** Marks the field invalid (adds `aria-invalid` + error border). */
+  invalid?: boolean;
+} & import("react").RefAttributes<HTMLTextAreaElement>>;
 //#endregion
 export { Textarea, TextareaProps };
 //# sourceMappingURL=textarea.d.ts.map

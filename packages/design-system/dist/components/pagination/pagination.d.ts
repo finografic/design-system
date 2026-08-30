@@ -1,9 +1,7 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { PaginationRecipeProps } from "./pagination.recipe.js";
-import * as _$react from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Pagination, PaginationPageChangeDetails } from "@ark-ui/react";
-
 //#region src/components/pagination/pagination.d.ts
 /**
  * Styled Ark **Pagination** compound — each part is wired to `paginationRecipe` via context.
@@ -39,7 +37,8 @@ import { Pagination, PaginationPageChangeDetails } from "@ark-ui/react";
  *   ```;
  */
 declare const Pagination$1: {
-  /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "trigger" | "item" | "ellipsis", {
+  /** Root — `count`, `pageSize`, `page`, event handlers, plus `size`. */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Pagination.RootProps & import("react").RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"ellipsis" | "item" | "root" | "trigger", {
     size: {
       sm: {
         item: {
@@ -90,8 +89,9 @@ declare const Pagination$1: {
         };
       };
     };
-  }>>; /** Root with external machine state from `usePagination`. */
-  RootProvider: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Pagination.RootProviderProps & _$react.RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"root" | "trigger" | "item" | "ellipsis", {
+  }>>;
+  /** Root with external machine state from `usePagination`. */
+  RootProvider: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Pagination.RootProviderProps & import("react").RefAttributes<HTMLElement>>, SlotRecipeRuntimeFn<"ellipsis" | "item" | "root" | "trigger", {
     size: {
       sm: {
         item: {
@@ -142,21 +142,34 @@ declare const Pagination$1: {
         };
       };
     };
-  }>>; /** Numbered page button. */
-  Item: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Pagination.ItemProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Previous-page navigation button — uses `trigger` slot. */
-  PrevTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Pagination.PrevTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Next-page navigation button — uses `trigger` slot. */
-  NextTrigger: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Pagination.NextTriggerProps & _$react.RefAttributes<HTMLButtonElement>>>; /** Ellipsis spacer between page clusters. */
-  Ellipsis: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Pagination.EllipsisProps & _$react.RefAttributes<HTMLDivElement>>>; /** Render prop — exposes machine context including `pages` array to children. */
-  Context: (props: Pagination.ContextProps) => _$react.ReactNode;
+  }>>;
+  /** Numbered page button. */
+  Item: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Pagination.ItemProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Previous-page navigation button — uses `trigger` slot. */
+  PrevTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Pagination.PrevTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Next-page navigation button — uses `trigger` slot. */
+  NextTrigger: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Pagination.NextTriggerProps & import("react").RefAttributes<HTMLButtonElement>>>;
+  /** Ellipsis spacer between page clusters. */
+  Ellipsis: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Pagination.EllipsisProps & import("react").RefAttributes<HTMLDivElement>>>;
+  /** Render prop — exposes machine context including `pages` array to children. */
+  Context: (props: Pagination.ContextProps) => import("react").ReactNode;
 };
 type PaginationDSProps = PaginationRecipeProps & {
-  /** Total number of items to paginate over. */count: number; /** Number of items per page. Default: `10`. */
-  pageSize?: number; /** Uncontrolled starting page. */
-  defaultPage?: number; /** Controlled current page. */
-  page?: number; /** Number of sibling pages shown around the active page. Default: `1`. */
-  siblingCount?: number; /** Called when the page changes. */
-  onPageChange?: (page: number, pageSize: number) => void; /** Called when the page size changes. */
-  onPageSizeChange?: (pageSize: number) => void; /** Merged onto the root slot after recipe classes. */
+  /** Total number of items to paginate over. */
+  count: number;
+  /** Number of items per page. Default: `10`. */
+  pageSize?: number;
+  /** Uncontrolled starting page. */
+  defaultPage?: number;
+  /** Controlled current page. */
+  page?: number;
+  /** Number of sibling pages shown around the active page. Default: `1`. */
+  siblingCount?: number;
+  /** Called when the page changes. */
+  onPageChange?: (page: number, pageSize: number) => void;
+  /** Called when the page size changes. */
+  onPageSizeChange?: (pageSize: number) => void;
+  /** Merged onto the root slot after recipe classes. */
   className?: string;
 };
 /**
@@ -176,18 +189,26 @@ type PaginationDSProps = PaginationRecipeProps & {
  *   />;
  *   ```;
  */
-declare const PaginationDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
+declare const PaginationDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
 } & {
-  /** Total number of items to paginate over. */count: number; /** Number of items per page. Default: `10`. */
-  pageSize?: number; /** Uncontrolled starting page. */
-  defaultPage?: number; /** Controlled current page. */
-  page?: number; /** Number of sibling pages shown around the active page. Default: `1`. */
-  siblingCount?: number; /** Called when the page changes. */
-  onPageChange?: (page: number, pageSize: number) => void; /** Called when the page size changes. */
-  onPageSizeChange?: (pageSize: number) => void; /** Merged onto the root slot after recipe classes. */
+  /** Total number of items to paginate over. */
+  count: number;
+  /** Number of items per page. Default: `10`. */
+  pageSize?: number;
+  /** Uncontrolled starting page. */
+  defaultPage?: number;
+  /** Controlled current page. */
+  page?: number;
+  /** Number of sibling pages shown around the active page. Default: `1`. */
+  siblingCount?: number;
+  /** Called when the page changes. */
+  onPageChange?: (page: number, pageSize: number) => void;
+  /** Called when the page size changes. */
+  onPageSizeChange?: (pageSize: number) => void;
+  /** Merged onto the root slot after recipe classes. */
   className?: string;
-} & _$react.RefAttributes<HTMLElement>>;
+} & import("react").RefAttributes<HTMLElement>>;
 //#endregion
 export { Pagination$1 as Pagination, PaginationDS, PaginationDSProps, type PaginationPageChangeDetails };
 //# sourceMappingURL=pagination.d.ts.map

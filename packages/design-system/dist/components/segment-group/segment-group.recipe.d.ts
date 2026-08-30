@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/segment-group/segment-group.recipe.d.ts
-declare const segmentGroupRecipe: SlotRecipeRuntimeFn<"root" | "indicator" | "label" | "item" | "itemText" | "itemControl", {
+declare const segmentGroupRecipe: SlotRecipeRuntimeFn<"indicator" | "item" | "itemControl" | "itemText" | "label" | "root", {
   size: {
     sm: {
       item: {

@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/components/toggle/toggle.recipe.d.ts
-declare const toggleRecipe: SlotRecipeRuntimeFn<"root" | "indicator", {
+declare const toggleRecipe: SlotRecipeRuntimeFn<"indicator" | "root", {
   size: {
     sm: {
       root: {

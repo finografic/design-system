@@ -1,8 +1,8 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { RecipeProps } from "../../recipes/recipes.types.js";
-
 //#region src/forms/input-field/input-field.recipe.d.ts
-declare const inputFieldRecipe: SlotRecipeRuntimeFn<"root" | "input" | "slot", {
+declare const inputFieldRecipe: SlotRecipeRuntimeFn<"input" | "root" | "slot", {
   size: {
     sm: {
       input: {

@@ -1,11 +1,9 @@
 import { SlotRecipeRuntimeFn } from "../../packages/design-system/styled-system/types/recipe.js";
+import "../../packages/design-system/styled-system/types/index.js";
 import { SwitchVariants } from "./switch.recipe.js";
-import * as _$react from "react";
 import { ReactNode } from "react";
-import * as _$_styled_system_jsx0 from "@styled-system/jsx";
 import { Switch } from "@ark-ui/react";
 import { FieldError } from "react-hook-form";
-
 //#region src/forms/switch/switch.d.ts
 /**
  * Styled Ark **Switch** compound — each part is wired to `switchRecipe` via context.
@@ -27,7 +25,8 @@ import { FieldError } from "react-hook-form";
  *   ```;
  */
 declare const Switch$1: {
-  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */Root: _$_styled_system_jsx0.StyleContextProvider<_$react.ForwardRefExoticComponent<Switch.RootProps & _$react.RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"root" | "label" | "description" | "control" | "errorText" | "thumb", {
+  /** Root — controlled state, handlers, and recipe variants (`size`, `palette`). */
+  Root: import("@styled-system/jsx").StyleContextProvider<import("react").ForwardRefExoticComponent<Switch.RootProps & import("react").RefAttributes<HTMLLabelElement>>, SlotRecipeRuntimeFn<"control" | "description" | "errorText" | "label" | "root" | "thumb", {
     size: {
       sm: {
         control: {
@@ -200,11 +199,15 @@ declare const Switch$1: {
         };
       };
     };
-  }>>; /** Track + hit target; receives `control` slot classes from context. */
-  Control: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Switch.ControlProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Knob; receives `thumb` slot classes from context. */
-  Thumb: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Switch.ThumbProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Text label; receives `label` slot classes from context. */
-  Label: _$_styled_system_jsx0.StyleContextConsumer<_$react.ForwardRefExoticComponent<Switch.LabelProps & _$react.RefAttributes<HTMLSpanElement>>>; /** Native input for forms; no recipe slot. */
-  HiddenInput: _$react.ForwardRefExoticComponent<Switch.HiddenInputProps & _$react.RefAttributes<HTMLInputElement>>;
+  }>>;
+  /** Track + hit target; receives `control` slot classes from context. */
+  Control: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Switch.ControlProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Knob; receives `thumb` slot classes from context. */
+  Thumb: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Switch.ThumbProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Text label; receives `label` slot classes from context. */
+  Label: import("@styled-system/jsx").StyleContextConsumer<import("react").ForwardRefExoticComponent<Switch.LabelProps & import("react").RefAttributes<HTMLSpanElement>>>;
+  /** Native input for forms; no recipe slot. */
+  HiddenInput: import("react").ForwardRefExoticComponent<Switch.HiddenInputProps & import("react").RefAttributes<HTMLInputElement>>;
 };
 /** Slot class overrides for {@link SwitchDS}. */
 interface SwitchDSClassNames {
@@ -219,11 +222,13 @@ type SwitchDSProps = SwitchVariants & {
   label?: ReactNode;
   description?: ReactNode;
   error?: FieldError | string;
-  checked?: boolean; /** Boolean toggle — forwarded to Ark `onCheckedChange` internally. */
+  checked?: boolean;
+  /** Boolean toggle — forwarded to Ark `onCheckedChange` internally. */
   onChange?: (checked: boolean) => void | Promise<void>;
   onBlur?: () => void;
   name?: string;
-  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
+  disabled?: boolean;
+  /** Merged onto the root slot after recipe classes. */
   className?: string;
   classNames?: SwitchDSClassNames;
 };
@@ -232,21 +237,23 @@ type SwitchDSProps = SwitchVariants & {
  * styled compound; **`SwitchDS`** = packaged DS API (`onChange(checked)`; bare **`Switch.Root`** still uses
  * Ark's `onCheckedChange`).
  */
-declare const SwitchDS: _$react.ForwardRefExoticComponent<{
-  size?: "sm" | "md" | "lg" | undefined;
-  palette?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | "grey" | "default" | undefined;
+declare const SwitchDS: import("react").ForwardRefExoticComponent<{
+  size?: "lg" | "md" | "sm" | undefined;
+  palette?: "danger" | "default" | "grey" | "info" | "primary" | "secondary" | "success" | "warning" | undefined;
 } & {
   label?: ReactNode;
   description?: ReactNode;
   error?: FieldError | string;
-  checked?: boolean; /** Boolean toggle — forwarded to Ark `onCheckedChange` internally. */
+  checked?: boolean;
+  /** Boolean toggle — forwarded to Ark `onCheckedChange` internally. */
   onChange?: (checked: boolean) => void | Promise<void>;
   onBlur?: () => void;
   name?: string;
-  disabled?: boolean; /** Merged onto the root slot after recipe classes. */
+  disabled?: boolean;
+  /** Merged onto the root slot after recipe classes. */
   className?: string;
   classNames?: SwitchDSClassNames;
-} & _$react.RefAttributes<HTMLLabelElement>>;
+} & import("react").RefAttributes<HTMLLabelElement>>;
 //#endregion
 export { Switch$1 as Switch, SwitchDS, SwitchDSClassNames, SwitchDSProps };
 //# sourceMappingURL=switch.d.ts.map

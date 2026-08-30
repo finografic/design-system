@@ -1,2 +1,3 @@
 import { RadioGroupVariants, radioGroupRecipe } from "./radio-group.recipe.js";
 import { RadioGroup, RadioGroupDS, RadioGroupDSClassNames, RadioGroupDSOption, RadioGroupDSProps, RadioGroupRootProps } from "./radio-group.js";
+export { RadioGroup, RadioGroupDS, type RadioGroupDSClassNames, type RadioGroupDSOption, type RadioGroupDSProps, type RadioGroupRootProps, RadioGroupVariants, radioGroupRecipe };

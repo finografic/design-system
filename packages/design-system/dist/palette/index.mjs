@@ -1,2 +1,2 @@
-import { i as BASE_COLORS_THEME, n as createColorTokens, r as BASE_COLORS, t as buildShade } from "../palette.utils-DzS5VqxG.mjs";
+import { i as BASE_COLORS_THEME, n as createColorTokens, r as BASE_COLORS, t as buildShade } from "../palette.utils-BLpu9t8R.mjs";
 export { BASE_COLORS, BASE_COLORS_THEME, buildShade, createColorTokens };

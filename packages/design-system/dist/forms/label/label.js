@@ -18,9 +18,10 @@ import { jsx } from "react/jsx-runtime";
 *   ```;
 */
 const Label = forwardRef(({ size, className, children, ...props }, ref) => {
+	const styles = labelRecipe({ size });
 	return /* @__PURE__ */ jsx("label", {
 		ref,
-		className: cx(labelRecipe({ size }), className),
+		className: cx(styles, className),
 		...props,
 		children
 	});

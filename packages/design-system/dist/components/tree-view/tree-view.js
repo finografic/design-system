@@ -131,6 +131,7 @@ const TreeView$1 = {
 */
 const TreeViewDS = forwardRef(({ nodes, selectedValue, defaultSelectedValue, multiple, onSelectionChange, onExpandedChange, label, size = "md", classNames = {} }, ref) => {
 	const styles = treeViewRecipe({ size });
+	const collectionNodes = buildCollectionNodes(nodes);
 	const collection = createTreeCollection({
 		nodeToValue: (node) => node.id,
 		nodeToString: (node) => node.label,
@@ -138,7 +139,7 @@ const TreeViewDS = forwardRef(({ nodes, selectedValue, defaultSelectedValue, mul
 			id: "__ROOT__",
 			label: "",
 			displayLabel: null,
-			children: buildCollectionNodes(nodes)
+			children: collectionNodes
 		}
 	});
 	return /* @__PURE__ */ jsxs(TreeView.Root, {

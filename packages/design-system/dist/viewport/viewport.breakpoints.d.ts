@@ -1,5 +1,4 @@
 import { ScreenClass } from "./viewport.types.js";
-
 //#region src/viewport/viewport.breakpoints.d.ts
 declare const BREAKPOINTS: Record<ScreenClass, number>;
 type BpRecord<T> = Record<ScreenClass, T>;
