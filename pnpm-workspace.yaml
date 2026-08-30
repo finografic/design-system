@@ -6,7 +6,7 @@ allowBuilds:
   sharp: true
 
 minimumReleaseAgeExclude:
-  - '@finografic/project-scripts@2.0.1'
+  - '@finografic/*'
 
 onlyBuiltDependencies:
   - esbuild
