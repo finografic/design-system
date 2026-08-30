@@ -2631,8 +2631,9 @@ if (argv1.endsWith("/generate.ts") || argv1.endsWith("/generate.js")) generate()
 * on first run. Generates icons.generated.ts in CWD.
 * Used when consumers run pnpm exec icons-server from their project root.
 *
-* Port: fixed at 5001. lucide-manager.config.json is written to CWD on startup
-* so the picker (lucide-manager) can always connect regardless of context.
+* Port: 5001 by default, overridable with ICONS_SERVER_PORT so two projects can each run a
+* picker. lucide-manager.config.json is written to CWD *after* the port is bound, so the picker
+* is never pointed at a server this process does not own; a collision exits instead.
 *
 * This server is dev-only. It is not part of the package library output.
 */
@@ -2642,9 +2643,36 @@ const isConsumerMode = path.resolve(cwd) !== path.resolve(packageRoot);
 const jsonPath = isConsumerMode ? path.join(cwd, "icons.config.json") : path.join(packageRoot, "src", "icons.json");
 const defaultsPath = path.join(packageRoot, "src", "icons.json");
 const generatedTsPath = isConsumerMode ? path.join(cwd, "icons.generated.ts") : path.join(packageRoot, "src", "icons.ts");
-const PORT = 5001;
+const DEFAULT_PORT = 5001;
+/**
+* Port, overridable so two projects can each run a picker.
+*
+* It used to be a hard-coded 5001 with no way out, which is how icons picked in one project ended
+* up written into another: the second server could not bind, the picker connected to whichever
+* server already held the port, and every write landed in that project instead.
+*/
+function resolvePort() {
+	const raw = process.env["ICONS_SERVER_PORT"];
+	if (raw === void 0) return DEFAULT_PORT;
+	const parsed = Number(raw);
+	if (!Number.isInteger(parsed) || parsed < 1 || parsed > 65535) {
+		console.error(import_picocolors.default.red(`[icons-server] ICONS_SERVER_PORT is not a valid port: ${raw}`));
+		process.exit(1);
+	}
+	return parsed;
+}
+const PORT = resolvePort();
 const configPath = path.join(cwd, "lucide-manager.config.json");
-fs.writeFileSync(configPath, JSON.stringify({ serverUrl: `http://localhost:${PORT}` }, null, 2) + "\n", "utf8");
+/**
+* Point the picker at this server — but only once the port is actually ours.
+*
+* This used to run at startup, before binding. On a port collision the bind failed while the
+* config had already been written, so the picker read it, connected to the *other* project's
+* server, and wrote every icon there.
+*/
+function writePickerConfig() {
+	fs.writeFileSync(configPath, JSON.stringify({ serverUrl: `http://localhost:${PORT}` }, null, 2) + "\n", "utf8");
+}
 if (isConsumerMode && !fs.existsSync(jsonPath)) {
 	if (!fs.existsSync(defaultsPath)) {
 		console.error(import_picocolors.default.red(`[icons-server] Cannot seed — defaults not found at: ${defaultsPath}`));
@@ -2719,11 +2747,21 @@ serve({
 	fetch: app.fetch,
 	port: PORT
 }, () => {
+	writePickerConfig();
 	const modeLabel = isConsumerMode ? import_picocolors.default.yellow("consumer") : import_picocolors.default.blue("ds");
 	const fileLabel = isConsumerMode ? "icons.config.json" : "src/icons.json";
 	console.log("");
 	console.log(`  ${import_picocolors.default.cyan("●")}  Icons Server:  ${import_picocolors.default.cyan(`http://localhost:${PORT}`)}  [${modeLabel} mode — ${fileLabel}]`);
 	console.log("");
+}).on("error", (error) => {
+	if (error.code !== "EADDRINUSE") throw error;
+	console.error("");
+	console.error(import_picocolors.default.red(`  ✘  Port ${PORT} is already in use — another icons-server is running.`));
+	console.error("");
+	console.error(`     ${import_picocolors.default.dim("Stop it, or start this one on another port:")} ${import_picocolors.default.bold(import_picocolors.default.yellow(`ICONS_SERVER_PORT=5002 pnpm icons:manager`))}`);
+	console.error(`     ${import_picocolors.default.dim("Continuing would point the picker at the other project and write icons there.")}`);
+	console.error("");
+	process.exit(1);
 });
 //#endregion
 export {};
