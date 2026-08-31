@@ -3,12 +3,7 @@ node_modules/
 .pnpm-store/
 
 # Build outputs
-# Published package dist/ is committed — un-ignore so git add / lint-staged work.
 dist/
-!packages/design-system/dist/
-!packages/design-system/dist/**
-!packages/icons/dist/
-!packages/icons/dist/**
 build/
 
 # Environment files
@@ -20,11 +15,17 @@ build/
 .agents/*
 !.agents/
 !.agents/handoff.md
+!.agents/instructions/
+!.agents/instructions/**
+!.agents/skills/
+!.agents/skills/**
 .codex/
 .claude/*
 !.claude/settings.json
 !.claude/commands/
 !.claude/commands/**
+!.claude/skills/
+!.claude/skills/**
 .worktrees/
 
 # IDE
@@ -107,6 +108,11 @@ Desktop.ini
 deps-xscan-report.json
 
 # Project-specific
+!packages/design-system/dist/
+!packages/design-system/dist/**
+!packages/icons/dist/
+!packages/icons/dist/**
+
 # Turbo cache
 **/.turbo
 
@@ -122,4 +128,3 @@ lerna-debug.log*
 
 # macOS
 !packages/icons/
-
